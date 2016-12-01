@@ -53,7 +53,7 @@
    			<!--使用包扫描-->
     		<property name="packagesToScan">
        			<list>
-            		<value>com.future.entity</value>
+            		<value>com.future.partymember.entity</value>
         		</list>
       		</property>
         </bean>
@@ -68,21 +68,19 @@
 		
 	<!--2.配置事务属性  -->
 	<!--2.配置事务属性: 焦祥宇修改 -->
-	<tx:advice id="txAddvice" transaction-manager="transactionManager">
+	<tx:advice id="txAdvice" transaction-manager="transactionManager">
 		<tx:attributes>
-			<tx:method name="add*" propagation="REQUIRED" rollback-for = "Exception"/>   
-         <tx:method name="delete*" propagation="REQUIRED" rollback-for = "Exception"/> 
-         <tx:method name="update*" propagation="REQUIRED" rollback-for = "Exception"/> 
-         <tx:method name="*" read-only="true" /> 
+			 <tx:method name="add*" propagation="REQUIRED" rollback-for = "Exception"/>   
+	         <tx:method name="delete*" propagation="REQUIRED" rollback-for = "Exception"/> 
+	         <tx:method name="update*" propagation="REQUIRED" rollback-for = "Exception"/> 
+	         <tx:method name="*" read-only="true" /> 
 		</tx:attributes>
 	</tx:advice>
 	<!-- 基于AOP的声明事务配置完成 -->
 	<!--aop配置： 焦祥宇修改 -->
 	 <aop:config>
-        <aop:pointcut id="interceptorPointCuts"
-            expression=" execution(* com.future.partymember.dao.*.*(..))" />
-        <aop:advisor advice-ref="txAdvice"
-            pointcut-ref="interceptorPointCuts" />        
+        <aop:pointcut id="interceptorPointCuts"  expression=" execution(* com.future.partymember.dao.*.*(..))" />
+        <aop:advisor advice-ref="txAdvice"  pointcut-ref="interceptorPointCuts" />        
    </aop:config> 
         
 </beans>
