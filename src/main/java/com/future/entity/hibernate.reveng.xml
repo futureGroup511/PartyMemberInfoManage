@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd" >
+
+<hibernate-reverse-engineering>
+  <table-filter match-catalog="partymember" match-name="inform"/>
+  <table-filter match-catalog="partymember" match-name="exam_log"/>
+  <table-filter match-catalog="partymember" match-name="league_member"/>
+  <table-filter match-catalog="partymember" match-name="manager_info"/>
+  <table-filter match-catalog="partymember" match-name="party_member_info"/>
+  <table-filter match-catalog="partymember" match-name="party_secretary_info"/>
+  <table-filter match-catalog="partymember" match-name="question"/>
+  <table-filter match-catalog="partymember" match-name="red_paper"/>
+  <table-filter match-catalog="partymember" match-name="red_video"/>
+  <table-filter match-catalog="partymember" match-name="relation_transform"/>
+  <table-filter match-catalog="partymember" match-name="due_payment_records"/>
+  <table-filter match-catalog="partymember" match-name="watch_video_record"/>
+</hibernate-reverse-engineering>

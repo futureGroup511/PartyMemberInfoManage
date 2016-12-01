@@ -1,0 +1,112 @@
+package com.future.entity;
+
+import static javax.persistence.GenerationType.IDENTITY;
+
+import java.util.Date;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+/**
+ * 通知类
+ * 属性：id、标题、内容、发件人、日期  通知的状态
+ * @author 丁赵雷
+ *
+ */
+@Entity
+@Table(name = "inform", catalog = "partymember")
+public class Inform {
+	
+	private int info_Id;
+	private String title;//通知标题
+	private String content;//通知内容
+	private String addresser;//发布人
+	private Date sendDate;//发布时间
+	/**
+	 * 添加人：丁赵雷
+	 * 目的：通知应有应该有四种情况 管理员可看 书记 党员 全体
+	 */
+	private int info_tag;
+	
+
+
+
+	public Inform() {
+		super();
+	}
+
+	
+	
+	public Inform(String title, String content, String addresser, Date sendDate, int info_tag) {
+
+		this.title = title;
+		this.content = content;
+		this.addresser = addresser;
+		this.sendDate = sendDate;
+		this.info_tag=info_tag;
+	}
+	
+	
+	
+	@Id
+	@GeneratedValue(strategy = IDENTITY)
+
+	@Column(name = "info_Id", unique = true, nullable = false)
+	public int getInfo_Id() {
+		return info_Id;
+	}
+	public void setInfo_Id(int info_Id) {
+		this.info_Id = info_Id;
+	}
+	
+	
+	@Column(name = "title", nullable = false, length = 19)
+	public String getTitle() {
+		return title;
+	}
+	public void setTitle(String title) {
+		this.title = title;
+	}
+	
+	
+	@Column(name = "content", nullable = false, length = 1000)
+	public String getContent() {
+		return content;
+	}
+	public void setContent(String content) {
+		this.content = content;
+	}
+	
+	
+	@Column(name = "addresser", nullable = false, length = 19)
+	public String getAddresser() {
+		return addresser;
+	}
+	public void setAddresser(String addresser) {
+		this.addresser = addresser;
+	}
+	
+	
+	@Temporal(TemporalType.TIMESTAMP)
+	@Column(name = "sendDate", nullable = false, length = 19)
+	public Date getSendDate() {
+		return sendDate;
+	}
+	public void setSendDate(Date sendDate) {
+		this.sendDate = sendDate;
+	}
+	
+	
+	@Column(name = "info_tag", nullable = false)
+	public int getInfo_tag() {
+		return info_tag;
+	}
+	public void setInfo_tag(int info_tag) {
+		this.info_tag = info_tag;
+	}
+
+}
