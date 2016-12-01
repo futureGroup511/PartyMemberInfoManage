@@ -142,24 +142,28 @@
 	    <artifactId>commons-codec</artifactId>
 	    <version>1.10</version>
 	</dependency>
+	
 	 <!-- 用来自动生成注解配置的jar包 -->
 	<dependency>
 	    <groupId>xdoclet</groupId>
 	    <artifactId>xdoclet</artifactId>
 	    <version>1.2.3</version>
 	</dependency>
+	
 	<!-- 使用jQuery的json所依赖的jar -->
 	<dependency>
     	<groupId>net.sf.ezmorph</groupId>
     	<artifactId>ezmorph</artifactId>
     	<version>1.0.6</version>
     </dependency>
-      <dependency>  
+    
+    <dependency>  
     <groupId>net.sf.json-lib</groupId>  
     <artifactId>json-lib</artifactId>  
     <version>2.4</version>  
     <classifier>jdk15</classifier><!--指定jdk版本-->  
     </dependency>  
+    
 	<dependency>
 	    <groupId>commons-beanutils</groupId>
 	    <artifactId>commons-beanutils</artifactId>

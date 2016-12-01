@@ -1,4 +1,4 @@
-package com.future.entity;
+package com.future.partymember.entity;
 
 import java.util.Date;
 

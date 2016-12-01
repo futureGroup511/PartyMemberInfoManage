@@ -1,4 +1,4 @@
-package com.future.base;
+package com.future.partymember.base;
 
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;

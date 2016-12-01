@@ -1,4 +1,4 @@
-package com.future.base;
+package com.future.partymember.base;
 
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;

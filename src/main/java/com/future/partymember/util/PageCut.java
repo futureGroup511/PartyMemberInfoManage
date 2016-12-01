@@ -1,4 +1,4 @@
-package com.future.util;
+package com.future.partymember.util;
 
 import java.util.List;
 
