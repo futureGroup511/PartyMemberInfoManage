@@ -1,5 +1,6 @@
 package com.future.partymember.base;
 
+import javax.annotation.Resource;
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -44,28 +45,29 @@ public class BaseAction extends ActionSupport {
 	}
 	
 	//service 注入
+	@Resource
 	protected IDuePaymentRecoedsService duePaymentRecoedsService;
-	
+	@Resource
 	protected IExamLogService examLogService;
-	
+	@Resource
 	protected IInformService informService;
-	
+	@Resource
 	protected ILeagueMemberService leagueMemberService;
-	
+	@Resource
 	protected IManagerInfoService managerInfoService;
-	
+	@Resource
 	protected IPartyMemberInfoService partyMemberInfoService;
-	
+	@Resource
 	protected IPartySecretaryInfoService partySecretaryInfoService;
-	
+	@Resource
 	protected IQuestionService questionService;
-	
+	@Resource
 	protected IRedPaperService redPaperService;
-	
+	@Resource
 	protected IRedVideoService redVideoService;
-	
+	@Resource
 	protected IRelationTransformService relationTransformService;
-	
+	@Resource
 	protected IWatchVideoRecordService watchVideoRecordService;
 	
 	
