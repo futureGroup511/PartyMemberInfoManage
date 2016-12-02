@@ -7,6 +7,14 @@
 
 	<constant name="struts.i18n.encoding" value="utf8"></constant>
 	<constant name="struts.objectFactory" value="spring" />
+	
+	<include file="leagueMember-struts.xml"></include>
+	<include file="manage-struts.xml"></include>
+	<include file="partyMember-struts.xml"></include>
+	<include file="partySecretary-struts.xml"></include>
+
 	<package name="default" extends="struts-default,json-default" namespace="/"  strict-method-invocation="false">
+		<!-- 这里放全局的映射 -->
+		
 	</package>
 </struts>
