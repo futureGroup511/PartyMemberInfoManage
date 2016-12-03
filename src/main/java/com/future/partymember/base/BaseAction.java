@@ -32,18 +32,6 @@ public class BaseAction extends ActionSupport {
 	 */
 	private static final long serialVersionUID = 1L;
 	
-	protected HttpServletRequest getRequest(){
-		return ServletActionContext.getRequest();
-	}
-	
-	protected HttpServletResponse getResponse(){
-		return ServletActionContext.getResponse();
-	}
-	
-	protected ServletContext getContext(){
-		return ServletActionContext.getServletContext();
-	}
-	
 	//service 注入
 	@Resource
 	protected IDuePaymentRecoedsService duePaymentRecoedsService;
@@ -71,5 +59,15 @@ public class BaseAction extends ActionSupport {
 	protected IWatchVideoRecordService watchVideoRecordService;
 	
 	
-
+	protected HttpServletRequest getRequest(){
+		return ServletActionContext.getRequest();
+	}
+	
+	protected HttpServletResponse getResponse(){
+		return ServletActionContext.getResponse();
+	}
+	
+	protected ServletContext getContext(){
+		return ServletActionContext.getServletContext();
+	}
 }

@@ -16,6 +16,7 @@ public class BaseDao<T> {
 	private SessionFactory sessionFactory;
 	
 	private Class<T> clazz;
+
 	
 	public BaseDao(){
 		Type type=this.getClass().getGenericSuperclass();

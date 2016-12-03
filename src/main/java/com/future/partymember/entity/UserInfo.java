@@ -16,6 +16,7 @@ import javax.persistence.TemporalType;
 @MappedSuperclass
 public class UserInfo {
 	private String sex;//性别
+	private String account ;//账号
 
 	private String sort;//用户身份
 	private String username;//用户名
@@ -167,5 +168,12 @@ public class UserInfo {
 	}
 	public void setLearnTime(long learnTime) {
 		this.learnTime = learnTime;
+	}
+	
+	public String getAccount() {
+		return account;
+	}
+	public void setAccount(String account) {
+		this.account = account;
 	}
 }

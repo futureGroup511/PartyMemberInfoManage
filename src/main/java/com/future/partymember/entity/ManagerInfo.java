@@ -23,6 +23,7 @@ public class ManagerInfo {
 	private String sex;//性别
 	private int age;//年龄
 	private String sort;//用户身份
+	private String account;//账号
 	private String username;//用户名
 	private String password;//登录密码
 	private String phoneNo;//手机号
@@ -107,5 +108,13 @@ public class ManagerInfo {
 	}
 	public void setPhoneNo(String phoneNo) {
 		this.phoneNo = phoneNo;
+	}
+
+
+	public String getAccount() {
+		return account;
+	}
+	public void setAccount(String account) {
+		this.account = account;
 	}
 }
