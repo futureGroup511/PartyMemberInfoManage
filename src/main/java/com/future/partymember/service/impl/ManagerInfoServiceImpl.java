@@ -18,5 +18,15 @@ public class ManagerInfoServiceImpl implements IManagerInfoService{
 		// TODO Auto-generated method stub
 		return managerDao.getById(id);
 	}
+	@Override
+	public boolean addManager(ManagerInfo manager) {
+		// TODO Auto-generated method stub
+		return managerDao.addManager(manager);
+	}
+	@Override
+	public boolean updateManager(ManagerInfo manager) {
+		// TODO Auto-generated method stub
+		return managerDao.updateManager(manager);
+	}
 
 }

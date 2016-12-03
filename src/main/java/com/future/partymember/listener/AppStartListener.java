@@ -31,6 +31,7 @@ public class AppStartListener implements ServletContextListener {
     public void contextInitialized(ServletContextEvent arg0)  { 
          String rootPath=arg0.getServletContext().getContextPath()+"/";
          arg0.getServletContext().setAttribute("rootPath", rootPath);
+         System.out.println(rootPath);
     }
 	
 }

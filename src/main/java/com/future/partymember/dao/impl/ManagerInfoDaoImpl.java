@@ -14,4 +14,15 @@ public class ManagerInfoDaoImpl extends BaseDao<ManagerInfo> implements IManager
 		return this.getEntity(id);
 	}
 
+	@Override
+	public boolean addManager(ManagerInfo manager) {
+		// TODO Auto-generated method stub
+		return this.saveEntity(manager);
+	}
+
+	@Override
+	public boolean updateManager(ManagerInfo manager) {
+		return this.updateEntity(manager);
+	}
+
 }

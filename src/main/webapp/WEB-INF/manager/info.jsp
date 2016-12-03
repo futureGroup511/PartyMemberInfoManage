@@ -8,54 +8,66 @@
 <script type="text/javascript" src="${rootPath }js/jquery-3.1.1.min.js"></script>
 </head>
 <body>
+	<form action="${rootPath}manage/change_info" method="post">
+	${remind }
+		<table>
 
-	<table>
-		<tbody>
-			<tr>
-				<td>账号</td>
-				<td>${user.account }</td>
+			<tbody>
+				<tr>
+					<td>账号</td>
+					<td>${user.account }</td>
 
-			</tr>
-			<tr>
-				<td>身份</td>
-				<td>${user.sort }</td>
-			</tr>
-			<tr>
-				<td>用户名</td>
-				<td><input placeholder="${user.username }"></td>
-				<td><a href="${rootPath }manage/changeinfo?username=?">修改</a></td>
-				
-			</tr>
-			<tr>
-				<td>密码</td>
-				<td><input placeholder="******"></td>
-				<td><a href="${rootPath }manage/changeinfo?username=?">修改</a></td>
-				
-			</tr>
-			<tr>
-				<td>手机号</td>
-				<td><input placeholder="${user.phoneNo}"></td>
-				<td><a href="${rootPath }manage/changeinfo?username=?">修改</a></td>
-				
-			</tr>
-			
-			<tr>
-				<td>年龄</td>
-				<td><input placeholder="${user.age }"></td>
-				<td><a href="${rootPath }manage/changeinfo?username=?">修改</a></td>
-				
-			</tr>
-			<tr>
-				<td>性别</td>
-				<td><input placeholder="${user.sex}"></td>
-				<td><a href="${rootPath }manage/changeinfo?username=?">修改</a></td>
-			</tr>
-			
-		</tbody>
-	</table>
+				</tr>
+				<tr>
+					<td>身份</td>
+					<td>${user.sort }</td>
+				</tr>
+				<tr>
+					<td>用户名</td>
+					<td><input name="user.username" value="${user.username}"></td>
+					<td><button>修改</button></td>
+
+				</tr>
+				<tr>
+					<td>密码</td>
+					<td><input name="user.password" value="******"></td>
+					<td><button>修改</button></td>
+				</tr>
+				<tr>
+					<td>手机号</td>
+					<td><input name="user.phoneNo" value="${user.phoneNo}"></td>
+					<td><button>修改</button></td>
+				</tr>
+
+				<tr>
+					<td>年龄</td>
+					<td><input name="user.age" value="${user.age}"></td>
+					<td><button>修改</button></td>
+				</tr>
+				<tr>
+					<td>性别</td>
+					<td><input name="user.sex" value="${user.sex}"></td>
+					<td><button>修改</button></td>
+				</tr>
+
+			</tbody>
+
+		</table>
+		<input type="submit" value="修改">
+		<form>
 </body>
 <script type="text/javascript">
-	
-	
+	var changeUrl = "${rootPath}manage/change_info";
+	$("button").click(function() {
+		var str = $(this).parent().prev().find("input").first();
+		var name = str.attr('name');
+		var val = str.val();
+		
+		$.post(changeUrl, {
+			name : val
+		}, function(result) {
+			alert("修改成功");
+		});
+	});
 </script>
 </html>
