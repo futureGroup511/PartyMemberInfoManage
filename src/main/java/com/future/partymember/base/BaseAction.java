@@ -36,7 +36,7 @@ public class BaseAction extends ActionSupport implements SessionAware{
 	 */
 	private static final long serialVersionUID = 1L;
 	
-	private Map<String,Object> session;
+	protected Map<String,Object> session;
 	
 	//service 注入
 	@Resource
