@@ -11,7 +11,7 @@ import com.future.partymember.entity.PartySecretaryInfo;
  * @author 丁赵雷
  *
  */
-@Controller
+@Controller(value="pSForwardAction")
 @Scope("prototype")
 public class PSForwardAction extends BaseAction {
 
@@ -28,8 +28,7 @@ public class PSForwardAction extends BaseAction {
 		if((partySecretaryInfo=partySecretaryInfoService.
 				findByAccountAndPassword(partySecretaryInfo))!=null){
 			
-			String id=String.valueOf(partySecretaryInfo.getPst_Id());
-			session.put(id,partySecretaryInfo);
+			session.put("secretary",partySecretaryInfo);
 			return "login";
 		}else{
 			return "error";

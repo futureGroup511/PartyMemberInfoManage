@@ -4,13 +4,21 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>书记的主菜单</title>
 </head>
 <body>
-		<form action="/PartyMemberInfoManage/secretary/pSForward_login"  method="post">
-			账户：<input type="text" name="partySecretaryInfo.account">
-			密码：<input type="password"  name="partySecretaryInfo.password">
-			<input type="submit"  value="登录">
-		</form>
+	<div>
+		<div>
+			<ol>
+				<li>
+					个人中心
+					<ol>
+						<li><a href="/secretary/pSForward_lookMyself">个人信息</a></li>
+						<li><a>修改密码</a></li>
+					</ol>
+				</li>
+			</ol>
+		</div>
+	</div>
 </body>
 </html>
