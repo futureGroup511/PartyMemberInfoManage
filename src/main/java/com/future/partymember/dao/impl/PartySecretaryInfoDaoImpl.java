@@ -16,9 +16,11 @@ public class PartySecretaryInfoDaoImpl extends BaseDao<PartySecretaryInfo>
 	 * @param 书记对象
 	 */
 	@Override
-	public PartySecretaryInfo findByNameAndPassword(PartySecretaryInfo partySecretaryInfo) {
-		String hql="";
-		return null;
+	public PartySecretaryInfo findByAccountAndPassword(PartySecretaryInfo partySecretaryInfo) {
+		String hql="form PartySecretaryInfo psi where psi.username=? and psi.password=?";
+		PartySecretaryInfo psi=(PartySecretaryInfo)uniqueResult(hql, partySecretaryInfo.getAccount(),partySecretaryInfo.getPassword());
+		System.out.println(psi);
+		return psi;
 	}
 	
 }

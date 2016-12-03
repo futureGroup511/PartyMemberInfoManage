@@ -1,4 +1,4 @@
-package com.future.partymember.secretary;
+package com.future.partymember.action.secretary;
 
 
 import com.future.partymember.base.BaseAction;
@@ -20,7 +20,9 @@ public class PSForwardAction extends BaseAction {
 	
 	public String pSForward_login() throws Exception{
 		
-		
+		if(partySecretaryInfoService.findByAccountAndPassword(partySecretaryInfo)!=null){
+			getRequest().getSession().setAttribute("", value);
+		}
 		
 		return "login";
 	}

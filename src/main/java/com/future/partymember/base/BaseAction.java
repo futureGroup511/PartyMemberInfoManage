@@ -1,11 +1,15 @@
 package com.future.partymember.base;
 
+import java.util.Map;
+
 import javax.annotation.Resource;
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.struts2.ServletActionContext;
+import org.apache.struts2.interceptor.RequestAware;
+import org.apache.struts2.interceptor.SessionAware;
 
 import com.future.partymember.service.IDuePaymentRecoedsService;
 import com.future.partymember.service.IExamLogService;
@@ -25,12 +29,14 @@ import com.opensymphony.xwork2.ActionSupport;
  * @author 丁赵雷
  *
  */
-public class BaseAction extends ActionSupport {
+public class BaseAction extends ActionSupport implements SessionAware{
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	
+	private Map<String,Object> session;
 	
 	//service 注入
 	@Resource
@@ -69,5 +75,13 @@ public class BaseAction extends ActionSupport {
 	
 	protected ServletContext getContext(){
 		return ServletActionContext.getServletContext();
+	}
+
+	@Override
+	public void setSession(Map<String, Object> session) {
+		this.session=session;
+	}
+	public Map<String,Object> getSession(){
+		return session;
 	}
 }

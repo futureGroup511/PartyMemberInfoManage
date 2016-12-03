@@ -10,6 +10,6 @@ import com.future.partymember.entity.PartySecretaryInfo;
  */
 public interface IPartySecretaryInfoDao {
 	//根据用户名和密码查询
-	public PartySecretaryInfo findByNameAndPassword(PartySecretaryInfo partySecretaryInfo);
+	public PartySecretaryInfo findByAccountAndPassword(PartySecretaryInfo partySecretaryInfo);
 
 }

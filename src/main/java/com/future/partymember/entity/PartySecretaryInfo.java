@@ -32,6 +32,8 @@ public class PartySecretaryInfo extends UserInfo {
 		
 	}
 	
+
+
 	public PartySecretaryInfo(String sort, String username, String password, int age, String nation, Date birthdate,
 			String nativePlace, String idCard, Date loginDate, String phoneNo, String sex, Date joinPartyDate,
 			String duties, String partyBranch, long learnTime) {
@@ -80,6 +82,12 @@ public class PartySecretaryInfo extends UserInfo {
 	}
 	public void setPartyBranch(String partyBranch) {
 		this.partyBranch = partyBranch;
+	}
+	
+	@Override
+	public String toString() {
+		return "PartySecretaryInfo [pst_Id=" + pst_Id + ", joinPartyDate=" + joinPartyDate + ", duties=" + duties
+				+ ", partyBranch=" + partyBranch + "]";
 	}
 
 }
