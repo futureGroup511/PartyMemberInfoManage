@@ -21,7 +21,7 @@ public class PSForwardAction extends BaseAction {
 	public String pSForward_login() throws Exception{
 		
 		if(partySecretaryInfoService.findByAccountAndPassword(partySecretaryInfo)!=null){
-			getRequest().getSession().setAttribute("", value);
+			getRequest().getSession().setAttribute("", "");
 		}
 		
 		return "login";
