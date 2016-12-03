@@ -1,6 +1,9 @@
 package com.future.partymember.action.secretary;
 
 
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Controller;
+
 import com.future.partymember.base.BaseAction;
 import com.future.partymember.entity.PartySecretaryInfo;
 /**
@@ -8,6 +11,8 @@ import com.future.partymember.entity.PartySecretaryInfo;
  * @author 丁赵雷
  *
  */
+@Controller
+@Scope("prototype")
 public class PSForwardAction extends BaseAction {
 
 	/**
@@ -19,12 +24,18 @@ public class PSForwardAction extends BaseAction {
 	
 	
 	public String pSForward_login() throws Exception{
-		
-		if(partySecretaryInfoService.findByAccountAndPassword(partySecretaryInfo)!=null){
-			getRequest().getSession().setAttribute("", value);
+		//判断登录
+		if((partySecretaryInfo=partySecretaryInfoService.
+				findByAccountAndPassword(partySecretaryInfo))!=null){
+			
+			String id=String.valueOf(partySecretaryInfo.getPst_Id());
+			session.put(id,partySecretaryInfo);
+			return "login";
+		}else{
+			return "error";
 		}
 		
-		return "login";
+		
 	}
 	
 
