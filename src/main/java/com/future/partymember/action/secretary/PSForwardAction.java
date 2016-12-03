@@ -23,7 +23,7 @@ public class PSForwardAction extends BaseAction {
 	private PartySecretaryInfo  partySecretaryInfo;//书记实体类
 	
 	
-	public String pSForward_login() throws Exception{
+	public String login() throws Exception{
 		//判断登录
 		if((partySecretaryInfo=partySecretaryInfoService.
 				findByAccountAndPassword(partySecretaryInfo))!=null){
@@ -34,8 +34,6 @@ public class PSForwardAction extends BaseAction {
 		}else{
 			return "error";
 		}
-		
-		
 	}
 	
 

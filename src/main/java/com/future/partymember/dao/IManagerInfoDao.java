@@ -1,5 +1,10 @@
 package com.future.partymember.dao;
 
-public interface IManagerInfoDao {
+import com.future.partymember.entity.ManagerInfo;
 
+public interface IManagerInfoDao {
+	ManagerInfo getById(int id);
+	boolean addManager(ManagerInfo manager);
+
+	boolean updateManager(ManagerInfo manager);
 }
