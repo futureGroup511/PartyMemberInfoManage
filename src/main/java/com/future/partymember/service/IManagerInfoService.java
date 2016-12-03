@@ -1,5 +1,7 @@
 package com.future.partymember.service;
 
-public interface IManagerInfoService {
+import com.future.partymember.entity.ManagerInfo;
 
+public interface IManagerInfoService {
+	ManagerInfo getById(int id);
 }

@@ -12,6 +12,10 @@
 		<action name="index" class="com.future.partymember.action.manager.IndexAction">
 			<result>/WEB-INF/manager/index.jsp</result>
 		</action>
+		
+		<action name="info" class="com.future.partymember.action.manager.InfoAction">
+			<result>/WEB-INF/manager/info.jsp</result>
+		</action>
 	
 	</package>
 </struts>

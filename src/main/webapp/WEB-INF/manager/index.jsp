@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<a>个人信息管理</a>
+	<a href="${rootPath }manager/info">个人信息管理</a>
 	<a>书记管理</a>
 	<a>党员管理</a>
 	<a>文章管理</a>

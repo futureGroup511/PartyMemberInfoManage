@@ -9,4 +9,9 @@ import com.future.partymember.entity.ManagerInfo;
 @Repository
 public class ManagerInfoDaoImpl extends BaseDao<ManagerInfo> implements IManagerInfoDao {
 
+	@Override
+	public ManagerInfo getById(int id) {
+		return this.getEntity(id);
+	}
+
 }

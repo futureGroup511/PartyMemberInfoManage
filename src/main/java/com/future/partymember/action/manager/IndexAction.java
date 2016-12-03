@@ -1,6 +1,7 @@
 package com.future.partymember.action.manager;
 
 import com.future.partymember.base.BaseAction;
+import com.future.partymember.dao.impl.ManagerInfoDaoImpl;
 
 /*
 *@auther:宋民举
@@ -10,6 +11,7 @@ import com.future.partymember.base.BaseAction;
 */
 public class IndexAction extends BaseAction{
 	public String execute(){
+		this.getRequest().getSession().setAttribute("user", managerInfoService.getById(1));
 		return SUCCESS;
 	}
 }
