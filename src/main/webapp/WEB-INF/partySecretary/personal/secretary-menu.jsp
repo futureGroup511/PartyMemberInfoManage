@@ -4,19 +4,19 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>个人信息</title>
+<title>书记的主菜单</title>
 </head>
 <body>
 	<div>
 		<div>
 			<ol>
-				<li></li>
-				<li></li>
-				<li></li>
-				<li></li>
-				<li></li>
-				<li></li>
-				<li></li>
+				<li>
+					个人中心
+					<ol>
+						<li><a href="${rootPath }secretary/partySecretary_lookMyself">个人信息</a></li>
+						<li><a href="${rootPath }secretary/pSForward_updataPassword">修改密码</a></li>
+					</ol>
+				</li>
 			</ol>
 		</div>
 	</div>
