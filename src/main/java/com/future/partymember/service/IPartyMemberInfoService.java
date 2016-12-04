@@ -6,6 +6,7 @@ import java.util.List;
  * @author 焦祥宇
  */
 import com.future.partymember.entity.PartyMemberInfo;
+import com.future.partymember.entity.PartySecretaryInfo;
 
 public interface IPartyMemberInfoService {
 	
@@ -21,6 +22,8 @@ public interface IPartyMemberInfoService {
 	public List<PartyMemberInfo> getAllPartyMember();
 	//限制数量查询党员个人信息
 	public List<PartyMemberInfo> getSomePartyMember(int first,int max); 
+	//查询某个书记所管理的党员
+	public List<PartyMemberInfo> findAllPartyMemberInfo(PartySecretaryInfo partySecretaryInfo);
 	
 		
 }

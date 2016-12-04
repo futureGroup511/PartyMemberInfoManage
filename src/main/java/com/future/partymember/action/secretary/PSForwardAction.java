@@ -35,6 +35,12 @@ public class PSForwardAction extends BaseAction {
 		}
 	}
 	
+	
+	//转发修改个人信息
+	public String fUpdataPerson() throws Exception{
+		return "fUpdataPerson";
+		
+	}
 
 	
 	

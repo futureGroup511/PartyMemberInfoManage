@@ -7,10 +7,20 @@ import org.springframework.stereotype.Repository;
 import com.future.partymember.base.BaseDao;
 import com.future.partymember.dao.IPartyMemberInfoDao;
 import com.future.partymember.entity.PartyMemberInfo;
+import com.future.partymember.entity.PartySecretaryInfo;
 
 @Repository
 public class PartyMemberInfoDaoImpl extends BaseDao<PartyMemberInfo> implements IPartyMemberInfoDao {
 
+	//查询某个书记所管理的党员
+	@Override
+	public List<PartyMemberInfo> findAllPartyMemberInfo(PartySecretaryInfo partySecretaryInfo) {
+		String hql="from PartyMemberInfo pmi where  pmi.partyBranch=?";
+		List<PartyMemberInfo> list=getEntityList(hql, partySecretaryInfo.getPartyBranch());
+		return list;
+	}
+	
+	
 	@Override
 	public Boolean addPartyMemberInfo(PartyMemberInfo partyMemberInfo) {
 		this.saveEntity(partyMemberInfo);

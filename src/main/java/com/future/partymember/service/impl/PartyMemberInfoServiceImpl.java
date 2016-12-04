@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.future.partymember.dao.IPartyMemberInfoDao;
 import com.future.partymember.entity.PartyMemberInfo;
+import com.future.partymember.entity.PartySecretaryInfo;
 import com.future.partymember.service.IPartyMemberInfoService;
 
 @Service
@@ -47,6 +48,15 @@ public class PartyMemberInfoServiceImpl implements IPartyMemberInfoService{
 	public List<PartyMemberInfo> getSomePartyMember(int first, int max) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	/**
+	 * @author 丁赵雷
+	 * 查询所属党员信息
+	 */
+	@Override
+	public List<PartyMemberInfo> findAllPartyMemberInfo(PartySecretaryInfo partySecretaryInfo) {
+		return partyMemberInfoDao.findAllPartyMemberInfo(partySecretaryInfo);
 	}
 
 	

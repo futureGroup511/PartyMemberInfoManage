@@ -3,6 +3,7 @@ package com.future.partymember.dao;
 import java.util.List;
 
 import com.future.partymember.entity.PartyMemberInfo;
+import com.future.partymember.entity.PartySecretaryInfo;
 
 public interface IPartyMemberInfoDao {
 	// 添加党员个人信息
@@ -22,4 +23,7 @@ public interface IPartyMemberInfoDao {
 
 	// 限制数量查询党员个人信息
 	public List<PartyMemberInfo> getSomePartyMember(int first, int max,List<PartyMemberInfo> partyMemberList);
+
+	//查询某个书记所管理的党员
+	public List<PartyMemberInfo> findAllPartyMemberInfo(PartySecretaryInfo partySecretaryInfo);
 }

@@ -20,4 +20,16 @@ public class PartySecretaryInfoServiceImpl implements IPartySecretaryInfoService
 		return iPartySecretaryInfoDao.findByAccountAndPassword(partySecretaryInfo);
 	}
 
+	//更新个人信息
+	@Override
+	public String updatePersonInfo(PartySecretaryInfo partySecretaryInfo) {
+		return iPartySecretaryInfoDao.updatePersonInfo(partySecretaryInfo) ;
+	}
+
+	//根据id查找
+	@Override
+	public PartySecretaryInfo findById(int id) {
+		return iPartySecretaryInfoDao.findById(id);
+	}
+
 }

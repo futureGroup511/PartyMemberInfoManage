@@ -13,10 +13,11 @@
 				<li>
 					个人中心
 					<ol>
-						<li><a href="${rootPath }secretary/partySecretary_lookMyself">个人信息</a></li>
-						<li><a href="${rootPath }secretary/pSForward_updataPassword">修改密码</a></li>
+						<li><a href="${rootPath }secretary/partySecretary_lookMyself">查看个人信息</a></li>
+						<li><a href="${rootPath }secretary/pSForward_fUpdataPerson">修改个人信息</a></li>
 					</ol>
 				</li>
+				<li><a href="${rootPath }secretary/partySecretary_lookOfPartyMember">查看所管理的党员信息</a></li>
 			</ol>
 		</div>
 	</div>
