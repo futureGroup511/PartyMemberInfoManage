@@ -61,6 +61,7 @@ public class DuePaymentRecords {
 	
 	
 	@Temporal(TemporalType.DATE)
+	@Column(columnDefinition="DATE")
 	public Date getPayDate() {
 		return payDate;
 	}

@@ -73,7 +73,7 @@ public class RelationTransform {
 	
 	
 	@Temporal(TemporalType.DATE)
-	@Column(name = "transformDate",  nullable = false)
+	@Column(name = "transformDate",  nullable = false ,columnDefinition="DATE")
 	public Date getTransformDate() {
 		return transformDate;
 	}

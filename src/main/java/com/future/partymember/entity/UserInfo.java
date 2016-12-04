@@ -107,7 +107,7 @@ public class UserInfo {
 	
 	
 	@Temporal(TemporalType.DATE)
-	@Column(name = "birthdate", nullable = false, length = 19)
+	@Column(name = "birthdate", nullable = false, length = 19 ,columnDefinition="DATE")
 	public Date getBirthdate() {
 		return birthdate;
 	}
@@ -135,7 +135,7 @@ public class UserInfo {
 	
 	
 	@Temporal(TemporalType.DATE)
-	@Column(name = "loginDate", nullable = false, length = 19)
+	@Column(name = "loginDate", nullable = false, length = 19, columnDefinition="DATE")
 	public Date getLoginDate() {
 		return loginDate;
 	}
