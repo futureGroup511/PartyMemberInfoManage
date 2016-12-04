@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.struts2.ServletActionContext;
-import org.apache.struts2.interceptor.RequestAware;
+
 import org.apache.struts2.interceptor.SessionAware;
 
 import com.future.partymember.service.IDuePaymentRecoedsService;

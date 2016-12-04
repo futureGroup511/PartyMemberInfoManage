@@ -19,7 +19,7 @@ public class UserInfo {
 	private String account ;//账号
 
 	private String sort;//用户身份
-	private String username;//用户名
+	private String username;//姓名
 	private String password;//登录密码
 	private int age;//年龄
 	private String nation;//民族
@@ -106,7 +106,7 @@ public class UserInfo {
 	}
 	
 	
-	@Temporal(TemporalType.TIMESTAMP)
+	@Temporal(TemporalType.DATE)
 	@Column(name = "birthdate", nullable = false, length = 19)
 	public Date getBirthdate() {
 		return birthdate;
@@ -134,7 +134,7 @@ public class UserInfo {
 	}
 	
 	
-	@Temporal(TemporalType.TIMESTAMP)
+	@Temporal(TemporalType.DATE)
 	@Column(name = "loginDate", nullable = false, length = 19)
 	public Date getLoginDate() {
 		return loginDate;

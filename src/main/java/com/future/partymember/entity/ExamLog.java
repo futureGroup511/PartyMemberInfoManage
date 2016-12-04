@@ -70,7 +70,7 @@ public class ExamLog {
 	}
 	
 	
-	@Temporal(TemporalType.TIMESTAMP)
+	@Temporal(TemporalType.DATE)
 	@Column(name = "examTime",  nullable = false)
 	public Date getExamTime() {
 		return examTime;

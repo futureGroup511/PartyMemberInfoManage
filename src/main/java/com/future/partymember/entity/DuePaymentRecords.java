@@ -60,7 +60,7 @@ public class DuePaymentRecords {
 	}
 	
 	
-	@Temporal(TemporalType.TIMESTAMP)
+	@Temporal(TemporalType.DATE)
 	public Date getPayDate() {
 		return payDate;
 	}
