@@ -52,7 +52,15 @@ public class UserInfo {
 		this.learnTime=learnTime;
 	}
 	
-	
+	//焦祥宇修改
+	/*account, sort, loginDate,  learnTime*/
+	public UserInfo(String account,String sort, Date loginDate,  long learnTime) {
+		super();
+		this.account=account;
+		this.sort = sort;		
+		this.loginDate = loginDate;		
+		this.learnTime=learnTime;
+	}
 	
 	
 	public UserInfo() {
@@ -176,4 +184,5 @@ public class UserInfo {
 	public void setAccount(String account) {
 		this.account = account;
 	}
+	
 }

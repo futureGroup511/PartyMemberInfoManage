@@ -1,14 +1,14 @@
-package com.future.partymember.dao;
-/*
- * 党费缴纳记录的数据层接口
- * @焦祥宇
- * 
- */
+package com.future.partymember.service;
+
 import java.util.List;
 
 import com.future.partymember.entity.DuePaymentRecords;
 
-public interface IDuePaymentRecordsDao {
+/*
+ * 党费缴纳记录的控制层接口
+ * @焦祥宇
+ */
+public interface IDuePaymentRecordsService {
 	public Boolean addDuePaymentRecords(DuePaymentRecords duePaymentRecords);
 	public Boolean delectDuePaymentRecords(DuePaymentRecords duePaymentRecords);
 	public Boolean updateDuePaymentRecords(DuePaymentRecords duePaymentRecords);

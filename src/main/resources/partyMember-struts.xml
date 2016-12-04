@@ -8,9 +8,13 @@
 	<constant name="struts.i18n.encoding" value="utf8"></constant>
 	<constant name="struts.objectFactory" value="spring" />
 	<!-- 党员 -->
-	<package name="default" extends="struts-default,json-default" namespace="/party"  strict-method-invocation="false">
-		<action name="PartyMemberAction_*"  class="com.future.partymember.action.PartyMemberAction" method="{1}">         
-            <result name="getPartyMemberInfo">/WEB-INF/partyMember/getPartyMemberInfo.jsp</result>             
-      </action>
+	<package name="party" extends="struts-default,json-default" namespace="/party"  strict-method-invocation="false">
+		
+		<action name="partyMemberAction_*"  class="com.future.partymember.action.PartyMemberAction" method="{1}">         
+            <result name="seekPartyMemberInfo">/WEB-INF/partyMember/getPartyMemberInfo.jsp</result> 
+           
+            <result name="getInfoBeforeUpdate">/WEB-INF/partyMember/updatePartyMemberInfo.jsp</result>                         
+            <result name="updatePartyMemberInfo">/WEB-INF/partyMember/updatePartyMemberInfo.jsp</result>             
+        </action>
 	</package>
 </struts>

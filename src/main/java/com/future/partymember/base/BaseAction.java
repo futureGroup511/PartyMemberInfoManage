@@ -11,7 +11,7 @@ import org.apache.struts2.ServletActionContext;
 
 import org.apache.struts2.interceptor.SessionAware;
 
-import com.future.partymember.service.IDuePaymentRecoedsService;
+import com.future.partymember.service.IDuePaymentRecordsService;
 import com.future.partymember.service.IExamLogService;
 import com.future.partymember.service.IInformService;
 import com.future.partymember.service.ILeagueMemberService;
@@ -40,7 +40,7 @@ public class BaseAction extends ActionSupport implements SessionAware{
 	
 	//service 注入
 	@Resource
-	protected IDuePaymentRecoedsService duePaymentRecoedsService;
+	protected IDuePaymentRecordsService duePaymentRecordsService;
 	@Resource
 	protected IExamLogService examLogService;
 	@Resource
