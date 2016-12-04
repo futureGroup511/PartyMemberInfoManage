@@ -8,7 +8,7 @@ import com.future.partymember.util.ManagerCheck;
 *@auther:宋民举
 *@mail:860080937@qq.com
 *@Date:2016年12月3日,下午4:21:30
-*@Descritpion:
+*@Descritpion:管理员信息修改
 */
 public class ChangeAction extends BaseAction{
 	private ManagerInfo user;
