@@ -7,17 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<a href="${rootPath }manage/info">个人信息管理</a>
-	
-	<a href="${rootPath }manage/partSecretary">书记管理</a> 
-	
-	
-	
-	<a href="${rootPath }manage/partyMember">党员管理</a>
-	
-	
-	<a>文章管理</a>
-	<a>视频管理</a>
-	<a>试题管理</a>
+
 </body>
 </html>

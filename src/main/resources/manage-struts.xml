@@ -20,6 +20,10 @@
 		<action name="change_*" method="{1}" class="com.future.partymember.action.manager.ChangeAction">
 			<result>/WEB-INF/manager/info.jsp</result>
 		</action>
+		
+		<action name="partSecretary" class="com.future.partymember.action.manager.PartSecretaryManagerAction">
+			<result>/WEB-INF/manager/partSecretary.jsp</result>
+		</action>
 	
 	</package>
 </struts>
