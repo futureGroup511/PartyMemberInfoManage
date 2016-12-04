@@ -30,8 +30,7 @@ public class PartyMemberInfo extends UserInfo {
 	private String introducer;//介绍人
 	private String partyBranch;//所在党支部
 	
-	
-	
+		
 	public PartyMemberInfo(String sort, String username, String password, int age, String nation, Date birthdate,
 			String nativePlace, String idCard, Date loginDate, String phoneNo, String idAccessory, Date joinPartyDate,
 			String duties, String introducer, String partyBranch, String sex, long learnTime) {
@@ -43,7 +42,31 @@ public class PartyMemberInfo extends UserInfo {
 		this.partyBranch = partyBranch;
 	}
 	
-	
+	//焦祥宇修改
+	/*public PartyMemberInfo(String username, String password, int age, String nation, Date birthdate,
+			String nativePlace, String idCard, String phoneNo, String idAccessory, 
+			 String sex) {
+		super( username, password, age, nation, birthdate, nativePlace, idCard, phoneNo, sex, );
+		this.idAccessory = idAccessory;
+		this.joinPartyDate = joinPartyDate;
+		this.duties = duties;
+		this.introducer = introducer;
+		this.partyBranch = partyBranch;
+	}*/
+	public void updatePartyMemberInfo(int ptm_Id,String account,String sort, Date loginDate,  Date joinPartyDate,
+			String duties, String introducer, String partyBranch, long learnTime) {
+		
+		/*super(account,sort,   loginDate,  learnTime);	*/
+		this.setAccount(account);
+		this.setSort(sort);
+		this.setLoginDate(loginDate);
+		this.setLearnTime(learnTime);
+		this.ptm_Id=ptm_Id;
+		this.joinPartyDate = joinPartyDate;
+		this.duties = duties;
+		this.introducer = introducer;
+		this.partyBranch = partyBranch;
+	}
 	
 	public PartyMemberInfo() {
 	}
@@ -106,4 +129,11 @@ public class PartyMemberInfo extends UserInfo {
 	public void setPartyBranch(String partyBranch) {
 		this.partyBranch = partyBranch;
 	}
+
+	@Override
+	public String toString() {
+		return this.getAccount()+" | "+this.getPassword()+"PartyMemberInfo [ptm_Id=" + ptm_Id + ", idAccessory=" + idAccessory + ", joinPartyDate=" + joinPartyDate
+				+ ", duties=" + duties + ", introducer=" + introducer + ", partyBranch=" + partyBranch + "]";
+	}
+	
 }
