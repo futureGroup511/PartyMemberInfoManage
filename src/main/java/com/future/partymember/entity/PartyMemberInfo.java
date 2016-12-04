@@ -72,7 +72,7 @@ public class PartyMemberInfo extends UserInfo {
 	
 	
 	@Temporal(TemporalType.DATE)
-	@Column(name = "joinPartyDate",  nullable = false)
+	@Column(name = "joinPartyDate",  nullable = false, columnDefinition="DATE")
 	public Date getJoinPartyDate() {
 		return joinPartyDate;
 	}
