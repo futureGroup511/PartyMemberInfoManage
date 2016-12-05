@@ -24,6 +24,10 @@
 		<action name="partSecretary" class="com.future.partymember.action.manager.PartSecretaryManagerAction">
 			<result>/WEB-INF/manager/partSecretary.jsp</result>
 		</action>
+		
+		<action name="partMember" class="com.future.partymember.action.manager.PartMemberManagerAction">
+			<result>/WEB-INF/manager/partSecretary.jsp</result>
+		</action>
 	
 	</package>
 </struts>
