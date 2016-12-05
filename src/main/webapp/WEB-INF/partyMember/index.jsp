@@ -7,7 +7,7 @@
 <title>党员</title>
 </head>
 <body>
-	<a href="partyMember_getPartyMemberInfo.action">查看个人信息</a>
-	<a href="partyMember_getInfoBeforeUpdate.action">修改个人信息</a>
+	<a href="partyMemberAction_seekPartyMemberInfo.action">查看个人信息</a>
+	<a href="partyMemberAction_getInfoBeforeUpdate.action">修改个人信息</a>
 </body>
 </html>

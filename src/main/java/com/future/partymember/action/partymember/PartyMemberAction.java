@@ -1,4 +1,4 @@
-package com.future.partymember.action;
+package com.future.partymember.action.partymember;
 
 import javax.annotation.Resource;
 
@@ -19,21 +19,21 @@ public class PartyMemberAction extends BaseAction{
 	private PartyMemberInfo partyMemberInfo;
 	
 	//查询党员个人信息
-	public String seekPartyMemberInfo(){
+	public String seekPartyMemberInfo() throws Exception{
 		partyMemberInfo=partyMemberInfoService.getPartyMemberInfoById(1);
 		this.getRequest().setAttribute("partyMember", partyMemberInfo);
 		return "seekPartyMemberInfo";
 	}
 	
 	//修改党员个人信息时，先获得党员信息以便修改
-	public String getInfoBeforeUpdate(){
+	public String getInfoBeforeUpdate() throws Exception{
 		partyMemberInfo=partyMemberInfoService.getPartyMemberInfoById(1);
 		this.getSession().put("partyMember", partyMemberInfo);
 		return "getInfoBeforeUpdate";
 	}
 	
 	//修改党员个人基本信息
-	public String updatePartyMemberInfo(){
+	public String updatePartyMemberInfo() throws Exception{
 		PartyMemberInfo oldPartyMemberInfo=(PartyMemberInfo)this.getSession().get("partyMember");		
 		partyMemberInfo.updatePartyMemberInfo(oldPartyMemberInfo.getPtm_Id(), oldPartyMemberInfo.getAccount(),
 				oldPartyMemberInfo.getSort(), oldPartyMemberInfo.getLoginDate(), oldPartyMemberInfo.getJoinPartyDate(),

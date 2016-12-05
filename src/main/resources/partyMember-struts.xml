@@ -10,11 +10,17 @@
 	<!-- 党员 -->
 	<package name="party" extends="struts-default,json-default" namespace="/party"  strict-method-invocation="false">
 		
-		<action name="partyMemberAction_*"  class="com.future.partymember.action.PartyMemberAction" method="{1}">         
+		<action name="index" class="com.future.partymember.action.partymember.IndexAction">
+			<result >/WEB-INF/partyMember/index.jsp</result> 
+		</action>
+		
+		<action name="partyMemberAction_*"  class="com.future.partymember.action.partymember.PartyMemberAction" method="{1}">  					       
             <result name="seekPartyMemberInfo">/WEB-INF/partyMember/getPartyMemberInfo.jsp</result> 
            
             <result name="getInfoBeforeUpdate">/WEB-INF/partyMember/updatePartyMemberInfo.jsp</result>                         
             <result name="updatePartyMemberInfo">/WEB-INF/partyMember/updatePartyMemberInfo.jsp</result>             
         </action>
+        
+        
 	</package>
 </struts>
