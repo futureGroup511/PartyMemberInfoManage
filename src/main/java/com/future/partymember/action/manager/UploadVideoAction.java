@@ -6,12 +6,16 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 
 import com.future.partymember.base.BaseAction;
+import com.future.partymember.entity.RedVideo;
 
 public class UploadVideoAction extends BaseAction {
 
+	
 	private File video;
 	private String videoFileName;
 	private String videoContentType;
+	private String videoDescription;
+	
 
 	public String upload() throws IOException {
 		String path = this.getContext().getRealPath("/WEB-INF/upload/video/");
@@ -31,6 +35,8 @@ public class UploadVideoAction extends BaseAction {
 		}
 		in.close();
 		out.close();
+		RedVideo rv=new RedVideo(videoFileName,"视频描述","",0,1);
+		redVideoService.addVideo(rv);
 		this.getRequest().setAttribute("remind", videoFileName+"上传成功");
 		return SUCCESS;
 	}
@@ -58,5 +64,14 @@ public class UploadVideoAction extends BaseAction {
 	public void setVideoContentType(String videoContentType) {
 		this.videoContentType = videoContentType;
 	}
+
+	public String getVideoDescription() {
+		return videoDescription;
+	}
+
+	public void setVideoDescription(String videoDescription) {
+		this.videoDescription = videoDescription;
+	}
+
 
 }

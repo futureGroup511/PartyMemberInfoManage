@@ -19,6 +19,8 @@ import javax.persistence.Table;
 public class RedVideo {
 
 	private int rv_Id;
+	@Column(length=20)
+	private String name;
 	private String description;//视频简介
 	private String videoUrl;//视频地址
 	private int watchNum;//观看次数
@@ -29,8 +31,9 @@ public class RedVideo {
 		
 	}
 	
-	public RedVideo(String description, String videoUrl, int watchNum, int rv_tag) {
+	public RedVideo(String name,String description, String videoUrl, int watchNum, int rv_tag) {
 		super();
+		this.name=name;
 		this.description = description;
 		this.videoUrl = videoUrl;
 		this.watchNum = watchNum;
@@ -71,4 +74,13 @@ public class RedVideo {
 	public void setRv_tag(int rv_tag) {
 		this.rv_tag = rv_tag;
 	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+	
 }

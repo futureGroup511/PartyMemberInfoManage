@@ -9,4 +9,9 @@ import com.future.partymember.entity.RedVideo;
 @Repository
 public class RedVideoDaoImpl extends BaseDao<RedVideo> implements IRedVideoDao {
 
+	@Override
+	public boolean addVideo(RedVideo rv) {
+		return this.saveEntity(rv);
+	}
+
 }

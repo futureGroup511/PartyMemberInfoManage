@@ -11,7 +11,9 @@
 	<form action="${rootPath }manage/uploadVideo_upload" method="post" enctype="multipart/form-data">
 	<h3 style="color:red;">${remind }</h3>
 	<input type="file" name="video">
-	<button type="submit">上传</button>	
+	视频描述：<textarea name="videoDescription" rows="5" cols="30"></textarea>
+	
+	<button type="submit">上传</button>
 	</form>
 	
 </body>

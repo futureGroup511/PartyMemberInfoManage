@@ -1,5 +1,7 @@
 package com.future.partymember.service;
 
-public interface IRedVideoService {
+import com.future.partymember.entity.RedVideo;
 
+public interface IRedVideoService {
+	boolean addVideo(RedVideo rv);
 }

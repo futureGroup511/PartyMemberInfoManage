@@ -1,5 +1,7 @@
 package com.future.partymember.dao;
 
-public interface IRedVideoDao {
+import com.future.partymember.entity.RedVideo;
 
+public interface IRedVideoDao {
+	boolean addVideo(RedVideo rv);
 }
