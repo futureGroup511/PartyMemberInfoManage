@@ -8,7 +8,7 @@
 	<constant name="struts.i18n.encoding" value="utf8"></constant>
 	<constant name="struts.objectFactory" value="spring" />
 	
-	<include file="leagueMember-struts.xml"></include>
+	<!--<include file="leagueMember-struts.xml"></include>-->
 	<include file="manage-struts.xml"></include>
 	<include file="partyMember-struts.xml"></include>
 	<include file="partySecretary-struts.xml"></include>
