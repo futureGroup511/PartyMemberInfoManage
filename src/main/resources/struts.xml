@@ -8,6 +8,10 @@
 	<constant name="struts.i18n.encoding" value="utf8"></constant>
 	<constant name="struts.objectFactory" value="spring" />
 	
+	<!-- 上传文件限制 -->
+    <constant name="struts.multipart.maxSize" value="1024000000"></constant>
+    
+	
 	<!--<include file="leagueMember-struts.xml"></include>-->
 	<include file="manage-struts.xml"></include>
 	<include file="partyMember-struts.xml"></include>

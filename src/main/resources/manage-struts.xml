@@ -28,6 +28,9 @@
 		<action name="partMember" class="com.future.partymember.action.manager.PartMemberManagerAction">
 			<result>/WEB-INF/manager/partSecretary.jsp</result>
 		</action>
+		<action name="uploadVideo_*" method="{1}" class="com.future.partymember.action.manager.UploadVideoAction">
+			<result>/WEB-INF/manager/uploadVideo.jsp</result>
+		</action>
 	
 	</package>
 </struts>
