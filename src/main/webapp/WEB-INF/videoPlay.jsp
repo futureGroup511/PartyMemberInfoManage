@@ -16,8 +16,7 @@ $(document).ready(function(){
 			$(this).jPlayer("setMedia", {
 				title: "${video.name}",
 				m4v: "${rootPath}${video.videoUrl}",
-				ogv: "/PartyMemberInfoManage/video_test/新海誠-你的名字.mp4",
-				webmv: "/PartyMemberInfoManage/video_test/yourme.webm",
+				
 				poster: "http://www.jplayer.org/video/poster/Big_Buck_Bunny_Trailer_480x270.png"
 			});
 		},
