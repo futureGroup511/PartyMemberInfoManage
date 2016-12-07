@@ -19,6 +19,10 @@
 
 	<package name="default" extends="struts-default,json-default" namespace="/"  strict-method-invocation="false">
 		<!-- 这里放全局的映射 -->
+		<action name="video_*" class="com.future.partymember.action.VideoAction">
+			<param name="id">{1}</param>
+			<result>/WEB-INF/videoPlay.jsp</result>
+		</action>
 		
 	</package>
 </struts>
