@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.Date;
 
 import com.future.partymember.base.BaseAction;
 import com.future.partymember.entity.RedVideo;
@@ -19,14 +20,8 @@ public class UploadVideoAction extends BaseAction {
 
 	public String upload() throws IOException {
 		String path = this.getContext().getRealPath("/upload/video/");
-		File file = new File(path, videoFileName);
-		if (file.exists()) {
-			this.getRequest().setAttribute("remind", "文件已经存在，请勿重复上传");
-			return SUCCESS;
-		}else{
-			file.createNewFile();
-		}
-		FileOutputStream out = new FileOutputStream(file);
+		String fileName=(new Date()).getTime()+videoFileName.substring(videoFileName.lastIndexOf("."));
+		FileOutputStream out = new FileOutputStream( new File(path, fileName));
 		FileInputStream in = new FileInputStream(video);
 		byte[] buff = new byte[1024];
 		int len=0;
@@ -35,7 +30,8 @@ public class UploadVideoAction extends BaseAction {
 		}
 		in.close();
 		out.close();
-		RedVideo rv=new RedVideo(videoFileName,"视频描述","upload/video/"+videoFileName,0,1);
+		
+		RedVideo rv=new RedVideo(videoFileName,videoDescription,"upload/video/"+fileName,0,1);
 		redVideoService.addVideo(rv);
 		this.getRequest().setAttribute("remind", videoFileName+"上传成功");
 		return SUCCESS;
