@@ -38,7 +38,7 @@ $(document).ready(function(){
 });
 //]]>
 </script>
-<title>测试电影播放</title>
+<title>${video.name}</title>
 </head>
 <body>
 <div id="jp_container_1" class="jp-video jp-video-360p" role="application" aria-label="media player">

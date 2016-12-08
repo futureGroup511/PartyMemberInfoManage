@@ -1,9 +1,13 @@
 package com.future.partymember.action.partymember;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.annotation.Resource;
 
 import com.future.partymember.base.BaseAction;
 import com.future.partymember.entity.PartyMemberInfo;
+import com.future.partymember.entity.RedVideo;
 
 /*
  * 党员信息控制层
@@ -57,6 +61,18 @@ public class PartyMemberAction extends BaseAction{
 		}
 		return "updatePartyMemberInfo";
 	}
+	
+	//观看红色视频
+		public String viewVideos() throws Exception{
+			List<RedVideo> videosList=new ArrayList<RedVideo>();
+			videosList=redVideoService.getAll();
+			this.getRequest().setAttribute("videosList", 
+
+	videosList);
+			return "viewVideos";
+		}
+
+	
 	/*//查询个人党费交纳
 
 	public String getPartyFree(){

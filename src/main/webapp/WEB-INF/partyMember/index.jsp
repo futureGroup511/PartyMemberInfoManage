@@ -9,5 +9,6 @@
 <body>
 	<a href="partyMemberAction_seekPartyMemberInfo.action">查看个人信息</a>
 	<a href="partyMemberAction_getInfoBeforeUpdate.action">修改个人信息</a>
+	<a href="partyMemberAction_viewVideos.action">红色视频</a>
 </body>
 </html>
