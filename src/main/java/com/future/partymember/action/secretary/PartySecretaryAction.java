@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import com.future.partymember.base.BaseAction;
 import com.future.partymember.entity.PartyMemberInfo;
 import com.future.partymember.entity.PartySecretaryInfo;
+import com.future.partymember.util.PageCut;
 
 @Controller(value="partySecretaryAction")
 @Scope(value="prototype")
@@ -18,7 +19,9 @@ public class PartySecretaryAction extends BaseAction {
 	 */
 	private static final long serialVersionUID = 1L;
 	private PartySecretaryInfo partySecretaryInfo;
+	private PageCut<PartyMemberInfo> pageCut; 
 	
+
 
 
 	/**
@@ -35,7 +38,20 @@ public class PartySecretaryAction extends BaseAction {
 	public String lookOfPartyMember() throws Exception{
 		//先得到书记对象
 		PartySecretaryInfo psi=(PartySecretaryInfo) session.get("secretary");
-		List<PartyMemberInfo>  list=partyMemberInfoService.findAllPartyMemberInfo(psi);
+		List<PartyMemberInfo>  list=null;
+		int curPage =1;
+		
+		if(pageCut==null){
+			list=partyMemberInfoService.findAllPartyMemberInfo(psi,curPage,15);//一页15条记录
+			pageCut=partyMemberInfoService.getPagerCut(15, curPage, psi);
+		}else{
+			curPage=pageCut.getCurrentPage();
+			
+			list=partyMemberInfoService.findAllPartyMemberInfo(psi,curPage,15);//一页15条记录
+			pageCut=partyMemberInfoService.getPagerCut(15, curPage, psi);
+		}
+
+		
 		this.getRequest().setAttribute("PMIlist", list);
 		return "lookOfPartyMember";
 	}
@@ -84,5 +100,12 @@ public class PartySecretaryAction extends BaseAction {
 		this.partySecretaryInfo = partySecretaryInfo;
 	}
 	
+	public PageCut getPageCut() {
+		return pageCut;
+	}
+
+	public void setPageCut(PageCut pageCut) {
+		this.pageCut = pageCut;
+	}
 
 }

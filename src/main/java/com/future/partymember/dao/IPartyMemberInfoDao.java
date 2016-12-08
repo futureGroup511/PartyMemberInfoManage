@@ -25,5 +25,8 @@ public interface IPartyMemberInfoDao {
 	public List<PartyMemberInfo> getSomePartyMember(int first, int max,List<PartyMemberInfo> partyMemberList);
 
 	//查询某个书记所管理的党员
-	public List<PartyMemberInfo> findAllPartyMemberInfo(PartySecretaryInfo partySecretaryInfo);
+	public List<PartyMemberInfo> findAllPartyMemberInfo(PartySecretaryInfo partySecretaryInfo, int curPage,int pageSize);
+	
+	//获得某个书记所管理的党员的数量
+	public int getAllPartyMember(PartySecretaryInfo partySecretaryInfo);
 }

@@ -10,6 +10,7 @@ import com.future.partymember.dao.IPartyMemberInfoDao;
 import com.future.partymember.entity.PartyMemberInfo;
 import com.future.partymember.entity.PartySecretaryInfo;
 import com.future.partymember.service.IPartyMemberInfoService;
+import com.future.partymember.util.PageCut;
 
 @Service
 public class PartyMemberInfoServiceImpl implements IPartyMemberInfoService{
@@ -55,9 +56,23 @@ public class PartyMemberInfoServiceImpl implements IPartyMemberInfoService{
 	 * 查询所属党员信息
 	 */
 	@Override
-	public List<PartyMemberInfo> findAllPartyMemberInfo(PartySecretaryInfo partySecretaryInfo) {
-		return partyMemberInfoDao.findAllPartyMemberInfo(partySecretaryInfo);
+	public List<PartyMemberInfo> findAllPartyMemberInfo(PartySecretaryInfo partySecretaryInfo, 
+			int curPage,int pageSize) {
+		return partyMemberInfoDao.findAllPartyMemberInfo(partySecretaryInfo, curPage, pageSize);
 	}
+
+	/**
+	 * @author 丁赵雷
+	 * 初始化分页类
+	 */
+	@Override
+	public PageCut<PartyMemberInfo> getPagerCut(int pageSize, int curPage, PartySecretaryInfo partySecretaryInfo) {
+		int count=partyMemberInfoDao.getAllPartyMember(partySecretaryInfo);//记录的总数量
+		PageCut<PartyMemberInfo> p=new PageCut(curPage, pageSize, count);//初始化分页类 
+
+		return p;
+	}
+
 
 	
 	

@@ -13,12 +13,14 @@ public class PageCut<T> {
 	private int nextPage;/*上一页是第几页*/
 	private int prePage;/*下一页是第几页*/
 	
+	public PageCut(){};
+	
 	public PageCut(int currentPage, int pageSize, int count) {
 		super();
 		this.currentPage = currentPage;
 		this.pageSize = pageSize;
 		this.count = count;
-		pageNum=(count-1)/pageSize+1;
+		pageNum=count/pageSize+1;
 		prePage=currentPage>1?currentPage-1:1;
 		nextPage=currentPage<pageNum?currentPage+1:pageNum;
 	}

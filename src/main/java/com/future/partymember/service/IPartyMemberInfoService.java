@@ -7,6 +7,7 @@ import java.util.List;
  */
 import com.future.partymember.entity.PartyMemberInfo;
 import com.future.partymember.entity.PartySecretaryInfo;
+import com.future.partymember.util.PageCut;
 
 public interface IPartyMemberInfoService {
 	
@@ -23,7 +24,10 @@ public interface IPartyMemberInfoService {
 	//限制数量查询党员个人信息
 	public List<PartyMemberInfo> getSomePartyMember(int first,int max); 
 	//查询某个书记所管理的党员
-	public List<PartyMemberInfo> findAllPartyMemberInfo(PartySecretaryInfo partySecretaryInfo);
+	public List<PartyMemberInfo> findAllPartyMemberInfo(PartySecretaryInfo partySecretaryInfo,
+			int curPage,int pageSize);
+	//初始化pagerCut类以便分页 丁赵雷
+	public PageCut<PartyMemberInfo> getPagerCut(int pageSize, int curPage, PartySecretaryInfo partySecretaryInfo);
 	
 		
 }
