@@ -17,12 +17,26 @@ public class UploadVideoAction extends BaseAction {
 	private String videoContentType;
 	private String videoDescription;
 	
+	private File img;
+	private String imgFileName;
+	
 
 	public String upload() throws IOException {
+		
+		
+		
+		String type=videoFileName.substring(videoFileName.lastIndexOf("."));
+		if(!type.equals(".mp4")){
+			this.getRequest().setAttribute("remind", videoFileName+"请上传MP4格式的视频");
+			return SUCCESS;
+		}
 		String path = this.getContext().getRealPath("/upload/video/");
-		String fileName=(new Date()).getTime()+videoFileName.substring(videoFileName.lastIndexOf("."));
+		Date date=new Date();
+		String fileName=date.getTime()+type;
 		FileOutputStream out = new FileOutputStream( new File(path, fileName));
+		
 		FileInputStream in = new FileInputStream(video);
+		
 		byte[] buff = new byte[1024];
 		int len=0;
 		while ((len=in.read(buff)) > 0) {
@@ -30,8 +44,19 @@ public class UploadVideoAction extends BaseAction {
 		}
 		in.close();
 		out.close();
+		String imgName=date.getTime()+imgFileName.substring(imgFileName.lastIndexOf("."));
+		FileOutputStream outImg = new FileOutputStream( new File(path, imgName));
+		
+		FileInputStream inImg = new FileInputStream(img);
+		while ((len=inImg.read(buff)) > 0) {
+			outImg.write(buff,0,len);
+		}
+		inImg.close();
+		outImg.close();
+		
 		
 		RedVideo rv=new RedVideo(videoFileName,videoDescription,"upload/video/"+fileName,0,1);
+		rv.setImgUrl("upload/video/"+imgName);
 		redVideoService.addVideo(rv);
 		this.getRequest().setAttribute("remind", videoFileName+"上传成功");
 		return SUCCESS;
@@ -67,6 +92,22 @@ public class UploadVideoAction extends BaseAction {
 
 	public void setVideoDescription(String videoDescription) {
 		this.videoDescription = videoDescription;
+	}
+
+	public File getImg() {
+		return img;
+	}
+
+	public void setImg(File img) {
+		this.img = img;
+	}
+
+	public String getImgFileName() {
+		return imgFileName;
+	}
+
+	public void setImgFileName(String imgFileName) {
+		this.imgFileName = imgFileName;
 	}
 
 

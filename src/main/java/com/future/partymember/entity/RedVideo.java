@@ -23,6 +23,8 @@ public class RedVideo {
 	private String name;
 	private String description;//视频简介
 	private String videoUrl;//视频地址
+	@Column(length=30)
+	private String imgUrl;
 	private int watchNum;//观看次数
 	private int rv_tag;//视频状态
 	
@@ -82,5 +84,14 @@ public class RedVideo {
 	public void setName(String name) {
 		this.name = name;
 	}
+
+	public String getImgUrl() {
+		return imgUrl;
+	}
+
+	public void setImgUrl(String imgUrl) {
+		this.imgUrl = imgUrl;
+	}
+	
 	
 }

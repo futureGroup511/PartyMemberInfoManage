@@ -3,34 +3,45 @@
         "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
         "http://struts.apache.org/dtds/struts-2.3.dtd">
 <struts>
-	<constant name="struts.configuration.xml.reload" value="true" /><!-- 设置成开发者模式 -->
+	<constant name="struts.configuration.xml.reload" value="true" /><!-- 
+		设置成开发者模式 -->
 
 	<constant name="struts.i18n.encoding" value="utf8"></constant>
 	<constant name="struts.objectFactory" value="spring" />
 	<!-- 管理员 -->
-	<package name="admin" extends="struts-default,json-default" namespace="/manage"  strict-method-invocation="false">
-		<action name="index" class="com.future.partymember.action.manager.IndexAction">
+	<package name="admin" extends="struts-default,json-default"
+		namespace="/manage" strict-method-invocation="false">
+		<action name="index"
+			class="com.future.partymember.action.manager.IndexAction">
 			<result>/WEB-INF/manager/index.jsp</result>
 		</action>
-		
+
 		<action name="info" class="com.future.partymember.action.manager.InfoAction">
 			<result>/WEB-INF/manager/info.jsp</result>
 		</action>
-		
-		<action name="change_*" method="{1}" class="com.future.partymember.action.manager.ChangeAction">
+
+		<action name="change_*" method="{1}"
+			class="com.future.partymember.action.manager.ChangeAction">
 			<result>/WEB-INF/manager/info.jsp</result>
 		</action>
-		
-		<action name="partSecretary" class="com.future.partymember.action.manager.PartSecretaryManagerAction">
+
+		<action name="partSecretary"
+			class="com.future.partymember.action.manager.PartSecretaryManagerAction">
 			<result>/WEB-INF/manager/partSecretary.jsp</result>
 		</action>
-		
-		<action name="partMember" class="com.future.partymember.action.manager.PartMemberManagerAction">
+
+		<action name="partMember"
+			class="com.future.partymember.action.manager.PartMemberManagerAction">
 			<result>/WEB-INF/manager/partSecretary.jsp</result>
 		</action>
-		<action name="uploadVideo_*" method="{1}" class="com.future.partymember.action.manager.UploadVideoAction">
+		<action name="uploadVideo_*" method="{1}"
+			class="com.future.partymember.action.manager.UploadVideoAction">
 			<result>/WEB-INF/manager/uploadVideo.jsp</result>
 		</action>
-	
+		
+		<action name="manageVideo_*" method="{1}"
+			class="com.future.partymember.action.manager.ManagerVideoAction">
+			<result>/WEB-INF/manager/manageVideo.jsp</result>
+		</action>
 	</package>
 </struts>

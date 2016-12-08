@@ -34,4 +34,10 @@ public class RedVideoDaoImpl extends BaseDao<RedVideo> implements IRedVideoDao {
 		return this.getEntityLimitList("from RedVideo order by id desc", 1, num);
 	}
 
+	@Override
+	public List<RedVideo> getList(int first, int num) {
+		// TODO Auto-generated method stub
+		return this.getEntityLimitList("from RedVideo", first, num);
+	}
+
 }

@@ -29,8 +29,6 @@
 				<td>注册时间</td>
 			</tr>
 			
-
-			
 		</tbody>
 	</table>
 </body>

@@ -10,7 +10,8 @@
 	上传视频
 	<form action="${rootPath }manage/uploadVideo_upload" method="post" enctype="multipart/form-data">
 	<h3 style="color:red;">${remind }</h3>
-	<input type="file" name="video">
+	视频：<input type="file" name="video">
+	视频缩略图：<input type="file" name="img">
 	视频描述：<textarea name="videoDescription" rows="5" cols="30"></textarea>
 	
 	<button type="submit">上传</button>
