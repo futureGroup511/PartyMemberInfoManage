@@ -51,19 +51,29 @@ public class PartSecretaryManagerAction extends BaseAction {
 		return "update";
 	}
 	public String updateDo(){
-		
 		if(partySecretaryInfo==null){
 			return null;
 		}
-		partySecretaryInfoService.updatePersonInfo(partySecretaryInfo);//更新个人信息
-		this.getRequest().setAttribute("reming", "更新成功");
+		PartySecretaryInfo ps=partySecretaryInfoService.findById(partySecretaryInfo.getPst_Id());
+		if(ps==null){
+			return null;
+		}
+		if(partySecretaryInfo.getPhoneNo()!=null && partySecretaryInfo.getPhoneNo().length()>0){
+			ps.setPhoneNo(partySecretaryInfo.getPhoneNo());
+		}
+		if(partySecretaryInfo.getPassword()!=null && partySecretaryInfo.getPassword().length()>0){
+			ps.setPassword(partySecretaryInfo.getPassword());
+		}
+		partySecretaryInfoService.updatePersonInfo(ps);//更新个人信息
+		this.getRequest().setAttribute("remind", "更新成功");
+		this.getRequest().setAttribute("id", ps.getPst_Id());
 		return "update";
 	}
 	
 	public String delete(){
 		String id=this.getRequest().getParameter("id");
 		if(id==null||id.equals("")){
-			
+			return null;
 		}
 		boolean flag=partySecretaryInfoService.delete(Integer.parseInt(id));
 		if(flag){

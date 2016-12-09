@@ -13,7 +13,7 @@
 
 
 
-	<a href="${rootPath }manage/partyMember">党员管理</a>
+	<a href="${rootPath }manage/partMember">党员管理</a>
 	<a href="${rootPath }manage/uploadVideo">上传视频</a>
 
 	<a href="${rootPath }manage/manageVideo">视频管理</a>

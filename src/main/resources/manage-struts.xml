@@ -31,9 +31,10 @@
 			<result>/WEB-INF/manager/partSecretary.jsp</result>
 		</action>
 
-		<action name="partMember"
+		<action name="partMember_*" method="{1}"
 			class="com.future.partymember.action.manager.PartMemberManagerAction">
-			<result>/WEB-INF/manager/partSecretary.jsp</result>
+			<result>/WEB-INF/manager/partMember.jsp</result>
+			<result name="update">/WEB-INF/manager/partMemberChange.jsp</result>
 		</action>
 		<action name="uploadVideo_*" method="{1}"
 			class="com.future.partymember.action.manager.UploadVideoAction">
