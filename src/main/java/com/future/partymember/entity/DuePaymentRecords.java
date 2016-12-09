@@ -28,8 +28,6 @@ public class DuePaymentRecords {
 	
 	
 	
-	
-	
 	public DuePaymentRecords() {
 	}
 	

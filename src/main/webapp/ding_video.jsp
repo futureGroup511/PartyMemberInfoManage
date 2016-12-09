@@ -6,9 +6,9 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>再次测试播放视频</title>
 </head>
-<body onbeforeunload="return stopPlay()">
-		<video width="320" height="240" controls  onplay="startVideo()">
-		  <source src="/PartyMemberInfoManage/upload/video/1481200087605.mp4"  type="video/mp4">
+<body>
+		<video width="320" height="240" controls  >
+		  <source src="/PartyMemberInfoManage/upload/video/1.mp4"  type="video/mp4">
 		  您的浏览器不支持 HTML5 video 标签。
 		</video>
 		
