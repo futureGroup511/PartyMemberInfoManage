@@ -15,5 +15,5 @@ function countTime() {
 		}
 	});
 
-	setTimeout('countTime()', 4000);    //4秒更新
+	setTimeout('countTime()', 60000);    //60秒更新
 }
