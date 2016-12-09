@@ -87,13 +87,16 @@ public class PartyMemberAction extends BaseAction{
 	 * 丁赵雷	
 	 */
 	public void updateLearnTime() {
-		System.out.println("hfeduyshgfyueghfurwifhgeuif");
-		PartyMemberInfo p=(PartyMemberInfo)this.getSession().get("partyMember");
+		PartyMemberInfo p=(PartyMemberInfo)session.get("partyMember");//从session获得用户信息
+		int ptm_id=p.getPtm_Id();//用户id
+		partyMemberInfo=partyMemberInfoService.getPartyMemberInfoById(ptm_id);
+		
+		
 		long time=Integer.parseInt(getRequest().getParameter("time"));
 		System.out.println("time"+time);
 		time=time+p.getLearnTime();
 		p.setLearnTime(time);
-		partyMemberInfoService.updatePartyMemberInfo(p);
+		partyMemberInfoService.updatePartyMemberInfo(partyMemberInfo);
 		
 	}
 	
