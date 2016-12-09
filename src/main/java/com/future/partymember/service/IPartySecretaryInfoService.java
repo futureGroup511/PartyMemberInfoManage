@@ -2,6 +2,8 @@ package com.future.partymember.service;
 
 import java.util.List;
 
+import javax.swing.text.StyledEditorKit.BoldAction;
+
 import com.future.partymember.entity.PartySecretaryInfo;
 
 public interface IPartySecretaryInfoService {
@@ -25,4 +27,10 @@ public interface IPartySecretaryInfoService {
 	 * 添加
 	 */
 	public void add(PartySecretaryInfo p);
+	
+	/**
+	 * @param id
+	 * 删除
+	 */
+	public boolean delete(int id);
 }

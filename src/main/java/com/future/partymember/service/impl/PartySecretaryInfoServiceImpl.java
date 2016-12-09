@@ -46,4 +46,10 @@ public class PartySecretaryInfoServiceImpl implements IPartySecretaryInfoService
 		iPartySecretaryInfoDao.add(p);
 	}
 
+	@Override
+	public boolean delete(int id) {
+		return iPartySecretaryInfoDao.delete(id);
+		
+	}
+
 }

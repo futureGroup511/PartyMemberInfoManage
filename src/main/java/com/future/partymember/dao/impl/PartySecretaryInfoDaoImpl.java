@@ -51,5 +51,15 @@ public class PartySecretaryInfoDaoImpl extends BaseDao<PartySecretaryInfo>
 		
 	}
 
+	@Override
+	public boolean delete(int id) {
+		PartySecretaryInfo partySecretaryInfo=this.getEntity(id);
+		if (partySecretaryInfo==null) {
+			return false;
+		}
+		this.deleteEntity(partySecretaryInfo);
+		return true;
+	}
+
 	
 }

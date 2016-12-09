@@ -26,5 +26,8 @@ public interface IPartySecretaryInfoDao {
 	public List<PartySecretaryInfo> getList(int first,int num);
 	
 	public void add(PartySecretaryInfo p);
+	
+	public boolean delete(int id);
+
 
 }

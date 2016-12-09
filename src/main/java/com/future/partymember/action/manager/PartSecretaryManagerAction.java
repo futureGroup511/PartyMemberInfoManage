@@ -18,6 +18,7 @@ public class PartSecretaryManagerAction extends BaseAction {
 	private int page=1;
 	private PartySecretaryInfo partySecretaryInfo;
 	public String execute(){
+		//测试，添加书记 后期删除
 		PartySecretaryInfo p=new PartySecretaryInfo();
 		p.setAccount("1");
 		p.setBirthdate(new Date());
@@ -37,10 +38,10 @@ public class PartSecretaryManagerAction extends BaseAction {
 		p.setNation("fdsa");
 		p.setPassword("fdsaf");
 		partySecretaryInfoService.add(p);
+		
 		PageCut<PartySecretaryInfo> pageCut=new PageCut<>(page, 5, 123);
 		pageCut.setData(partySecretaryInfoService.getList((page-1)*pageCut.getPageSize(), pageCut.getPageSize()));
 		this.getRequest().setAttribute("pageCut", pageCut);
-		System.out.println(pageCut.getData().size());
 		return SUCCESS;
 	}
 	
@@ -58,7 +59,19 @@ public class PartSecretaryManagerAction extends BaseAction {
 		this.getRequest().setAttribute("reming", "更新成功");
 		return "update";
 	}
-
+	
+	public String delete(){
+		String id=this.getRequest().getParameter("id");
+		if(id==null||id.equals("")){
+			
+		}
+		boolean flag=partySecretaryInfoService.delete(Integer.parseInt(id));
+		if(flag){
+			this.getRequest().setAttribute("remind", "删除成功");
+		}
+		return this.execute();
+	}
+	
 	public int getPage() {
 		return page;
 	}
