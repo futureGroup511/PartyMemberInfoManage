@@ -13,6 +13,5 @@ public class IndexAction extends BaseAction{
 	public String execute(){
 		this.getRequest().getSession().setAttribute("user", managerInfoService.getById(1));
 		return SUCCESS;
-		
 	}
 }
