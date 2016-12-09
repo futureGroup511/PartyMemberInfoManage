@@ -45,14 +45,14 @@ public class RedVideoDaoImpl extends BaseDao<RedVideo> implements IRedVideoDao {
 	}
 
 	@Override
-<<<<<<< Updated upstream
+
 	public void delete(int id) {
 		// TODO Auto-generated method stub
 		if(this.getEntity(id)!=null){
 			this.deleteEntity(this.getEntity(id));
 		}
-		
-=======
+	}	
+
 	public boolean updatewatchNumById(int rv_Id) {
 		RedVideo redvideo=new RedVideo();
 		redvideo=this.getEntity(rv_Id);
@@ -60,7 +60,7 @@ public class RedVideoDaoImpl extends BaseDao<RedVideo> implements IRedVideoDao {
 		redvideo.setWatchNum(redvideo.getWatchNum()+1);
 		System.out.println(redvideo);		
 		return this.updateEntity(redvideo);
->>>>>>> Stashed changes
+
 	}
 
 }
