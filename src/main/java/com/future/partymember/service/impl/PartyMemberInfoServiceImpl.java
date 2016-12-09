@@ -61,6 +61,7 @@ public class PartyMemberInfoServiceImpl implements IPartyMemberInfoService{
 		return partyMemberInfoDao.findAllPartyMemberInfo(partySecretaryInfo, curPage, pageSize);
 	}
 
+	
 	/**
 	 * @author 丁赵雷
 	 * 初始化分页类
@@ -69,7 +70,6 @@ public class PartyMemberInfoServiceImpl implements IPartyMemberInfoService{
 	public PageCut<PartyMemberInfo> getPagerCut(int pageSize, int curPage, PartySecretaryInfo partySecretaryInfo) {
 		int count=partyMemberInfoDao.getAllPartyMember(partySecretaryInfo);//记录的总数量
 		PageCut<PartyMemberInfo> p=new PageCut(curPage, pageSize, count);//初始化分页类 
-
 		return p;
 	}
 

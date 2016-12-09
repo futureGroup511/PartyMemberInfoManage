@@ -92,6 +92,12 @@ public class RedVideo {
 	public void setImgUrl(String imgUrl) {
 		this.imgUrl = imgUrl;
 	}
+
+	@Override
+	public String toString() {
+		return "RedVideo [rv_Id=" + rv_Id + ", name=" + name + ", description=" + description + ", videoUrl=" + videoUrl
+				+ ", imgUrl=" + imgUrl + ", watchNum=" + watchNum + ", rv_tag=" + rv_tag + "]";
+	}
 	
 	
 }

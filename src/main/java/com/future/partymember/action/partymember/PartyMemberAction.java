@@ -8,6 +8,7 @@ import javax.annotation.Resource;
 import com.future.partymember.base.BaseAction;
 import com.future.partymember.entity.PartyMemberInfo;
 import com.future.partymember.entity.RedVideo;
+import com.future.partymember.service.IPartyMemberInfoService;
 
 /*
  * 党员信息控制层
@@ -81,6 +82,18 @@ public class PartyMemberAction extends BaseAction{
 	}*/
 	
 	
+	/**
+	 * 更新党员的学习时间
+	 * 丁赵雷	
+	 */
+	public void updateLearnTime() {
+		PartyMemberInfo p=(PartyMemberInfo)this.getSession().get("partyMember");
+		long time=Integer.parseInt(getRequest().getParameter("time"));
+		time=time+p.getLearnTime();
+		p.setLearnTime(time);
+		partyMemberInfoService.updatePartyMemberInfo(p);
+		
+	}
 	
 
 	public void setPartyMemberInfo(PartyMemberInfo partyMemberInfo) {

@@ -12,6 +12,13 @@ public class VideoAction extends BaseAction {
 	private int id;
 	
 	public String execute(){
+		//记录浏览记录
+		
+		
+		//视频浏览次数加一
+		redVideoService.updatewatchNumById(id);
+		
+		//播放视频
 		this.getRequest().setAttribute("video",redVideoService.get(id));
 		return SUCCESS;
 	}

@@ -34,7 +34,7 @@ public class RedVideoServiceImpl implements IRedVideoService{
 		// TODO Auto-generated method stub
 		return redVideoDao.getNew(num);
 	}
-	@Override
+	@Override 
 	public List<RedVideo> getList(int first, int num) {
 		// TODO Auto-generated method stub
 		return redVideoDao.getList(first, num);
@@ -43,6 +43,11 @@ public class RedVideoServiceImpl implements IRedVideoService{
 	public void delete(int id) {
 		// TODO Auto-generated method stub
 		redVideoDao.delete(id);
+	}
+	public boolean updatewatchNumById(int rv_Id) {
+		
+		return redVideoDao.updatewatchNumById(rv_Id);
+
 	}
 
 }
