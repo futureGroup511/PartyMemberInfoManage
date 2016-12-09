@@ -8,7 +8,7 @@
 </head>
 <body onbeforeunload="return stopPlay()">
 		<video width="320" height="240" controls  onplay="startVideo()">
-		  <source src="${rootPath }video_${video.videoUrl}"  type="video/mp4">
+		  <source src="${rootPath }${video.videoUrl}"  type="video/mp4">
 		  您的浏览器不支持 HTML5 video 标签。
 		</video>
 		
