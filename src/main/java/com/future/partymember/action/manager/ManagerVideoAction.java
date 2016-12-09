@@ -12,6 +12,7 @@ import com.future.partymember.util.PageCut;
 * @description 
 */
 public class ManagerVideoAction extends BaseAction {
+	
 	private int page = 1;
 	private int id;
 

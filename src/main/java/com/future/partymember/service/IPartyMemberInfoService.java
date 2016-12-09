@@ -29,5 +29,7 @@ public interface IPartyMemberInfoService {
 	//初始化pagerCut类以便分页 丁赵雷
 	public PageCut<PartyMemberInfo> getPagerCut(int pageSize, int curPage, PartySecretaryInfo partySecretaryInfo);
 	
+	//获取指定条件的分页对象  宋民举
+	public PageCut<PartyMemberInfo> getPageCut(int currentPage,int pageSize);
 		
 }

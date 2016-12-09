@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.future.partymember.entity.PartyMemberInfo;
 import com.future.partymember.entity.PartySecretaryInfo;
+import com.future.partymember.util.PageCut;
 
 public interface IPartyMemberInfoDao {
 	// 添加党员个人信息
@@ -29,4 +30,8 @@ public interface IPartyMemberInfoDao {
 	
 	//获得某个书记所管理的党员的数量
 	public int getAllPartyMember(PartySecretaryInfo partySecretaryInfo);
+	
+	//获取指定条件的分页对象  宋民举
+	public PageCut<PartyMemberInfo> getPageCut(int currentPage,int pageSize);
+
 }
