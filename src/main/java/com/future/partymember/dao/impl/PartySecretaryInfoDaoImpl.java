@@ -39,5 +39,17 @@ public class PartySecretaryInfoDaoImpl extends BaseDao<PartySecretaryInfo>
 		return getEntity(id);
 	}
 
+	@Override
+	public List<PartySecretaryInfo> getList(int first, int num) {
+		// TODO Auto-generated method stub
+		return this.getEntityLimitList("from PartySecretaryInfo", first, num);
+	}
+
+	@Override
+	public void add(PartySecretaryInfo p) {
+		this.saveEntity(p);
+		
+	}
+
 	
 }

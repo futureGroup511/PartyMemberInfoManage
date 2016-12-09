@@ -16,5 +16,15 @@ public interface IPartySecretaryInfoDao {
 	public String updatePersonInfo(PartySecretaryInfo partySecretaryInfo);
 	//根据id得到书记对像
 	public PartySecretaryInfo findById(int id);
+	
+	/**
+	 * @param first
+	 * @param num
+	 * @return
+	 * 分页查询
+	 */
+	public List<PartySecretaryInfo> getList(int first,int num);
+	
+	public void add(PartySecretaryInfo p);
 
 }

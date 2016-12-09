@@ -12,4 +12,5 @@ public interface IRedVideoDao {
 	RedVideo get(int id);
 	List<RedVideo> getNew(int num);
 	List<RedVideo> getList(int first,int num);
+	void delete(int id);
 }

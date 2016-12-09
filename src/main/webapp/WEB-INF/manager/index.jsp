@@ -14,10 +14,10 @@
 	
 	
 	<a href="${rootPath }manage/partyMember">党员管理</a>
-	
+	<a href="${rootPath }manage/manageVideo">视频管理</a>
 	
 	<a>文章管理</a>
-	<a>视频管理</a>
+	
 	<a>试题管理</a>
 </body>
 </html>

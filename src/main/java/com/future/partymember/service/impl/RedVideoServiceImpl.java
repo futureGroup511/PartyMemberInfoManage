@@ -39,5 +39,10 @@ public class RedVideoServiceImpl implements IRedVideoService{
 		// TODO Auto-generated method stub
 		return redVideoDao.getList(first, num);
 	}
+	@Override
+	public void delete(int id) {
+		// TODO Auto-generated method stub
+		redVideoDao.delete(id);
+	}
 
 }

@@ -16,18 +16,19 @@ public class UploadVideoAction extends BaseAction {
 	private String videoFileName;
 	private String videoContentType;
 	private String videoDescription;
-	
 	private File img;
 	private String imgFileName;
 	
-
 	public String upload() throws IOException {
-		
-		
+	
+		if(video==null||img==null){
+			this.getRequest().setAttribute("remind","请按要求输入" );
+			return SUCCESS;
+		}
 		
 		String type=videoFileName.substring(videoFileName.lastIndexOf("."));
 		if(!type.equals(".mp4")){
-			this.getRequest().setAttribute("remind", videoFileName+"请上传MP4格式的视频");
+			this.getRequest().setAttribute("remind","请上传MP4格式的视频");
 			return SUCCESS;
 		}
 		String path = this.getContext().getRealPath("/upload/video/");
