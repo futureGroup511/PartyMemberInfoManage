@@ -14,13 +14,14 @@ $(document).ready(function(){
 	$("#jquery_jplayer_1").jPlayer({
 		ready: function () {
 			$(this).jPlayer("setMedia", {
-				title: "${video.name}",
-				m4v: "${rootPath}${video.videoUrl}",
+				title: "机械舞",
+				m4v: "/PartyMemberInfoManage/upload/video/1481200087605.mp4",
 				
-				poster: "http://www.jplayer.org/video/poster/Big_Buck_Bunny_Trailer_480x270.png"
+				poster: "/PartyMemberInfoManage/upload/video/1481200087605.jpg"
 			});
 		},
 		swfPath: "/PartyMemberInfoManage/jQueryPlug/jPlayer-2.9.2/dist/jplayer",
+		//solution: "flash, html",用来兼容flash
 		supplied: "webmv, ogv, m4v",
 		size: {
 			width: "640px",
@@ -85,4 +86,5 @@ $(document).ready(function(){
 	</div>
 </div>
 </body>
+<script type="text/javascript" src="${rootPath }js/learn_video_date.js"></script>
 </html>
