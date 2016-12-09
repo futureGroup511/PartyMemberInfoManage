@@ -14,20 +14,20 @@
 			<table>
 				<tr>
 					<td>账号</td>
-					<td>${partyMember.getAccount()}</td>
+					<td>${partyMember.account}</td>
 				</tr>
 				<tr>
 					<td>用户类别</td>
-					<td>${partyMember.getSort()}</td>
+					<td>${partyMember.sort}</td>
 				</tr>
 				<tr>
 					<td>姓名</td>
 					<td><input type="text" name="partyMemberInfo.username"
-						value="${partyMember.getUsername()}"></td>
+						value="${partyMember.username}"></td>
 				</tr>
 				<tr>
 					<c:choose>
-						<c:when test="${partyMember.getSex()=='男'}">
+						<c:when test="${partyMember.sex=='男'}">
 							<td>性&nbsp;&nbsp;别：</td>
 							<td><input type="radio" name="partyMemberInfo.sex" value='男' checked>男&nbsp; 
 								<input type="radio" name="partyMemberInfo.sex" value='女'>女</td>
@@ -42,56 +42,56 @@
 				<tr>
 					<td>年龄</td>
 					<td><input type="number" name="partyMemberInfo.age"
-						value="${partyMember.getAge()}"></td>
+						value="${partyMember.age}"></td>
 				</tr>
 				<tr>
 					<td>民族</td>
 					<td><input type="text" name="partyMemberInfo.nation"
-						value="${partyMember.getNation()}"></td>
+						value="${partyMember.nation}"></td>
 				</tr>
 				<tr>
 					<td>出生日期</td>
 					<td><input type="datetime" name="partyMemberInfo.birthdate"
-						value="${partyMember.getBirthdate()}"></td>
+						value="${partyMember.birthdate}"></td>
 				</tr>
 				<tr>
 					<td>身份证号码</td>
 					<td><input type="text" name="partyMemberInfo.idCard"
-						value="${partyMember.getIdCard()}"></td>
+						value="${partyMember.idCard}"></td>
 				</tr>
 				<tr>
 					<td>籍贯</td>
 					<td><input type="text" name="partyMemberInfo.nativePlace"
-						value="${partyMember.getNativePlace()}"></td>
+						value="${partyMember.nativePlace}"></td>
 				</tr>
 				<tr>
 					<td>入党日期</td>
-					<td>${partyMember.getJoinPartyDate()}</td>
+					<td>${partyMember.joinPartyDate}</td>
 				</tr>
 				<tr>
 					<td>职务</td>
-					<td>${partyMember.getDuties()}</td>
+					<td>${partyMember.duties}</td>
 				</tr>
 				<tr>
 					<td>介绍人</td>
-					<td>${partyMember.getIntroducer()}</td>
+					<td>${partyMember.introducer}</td>
 				</tr>
 				<tr>
 					<td>所在党支部</td>
-					<td>${partyMember.getPartyBranch()}</td>
+					<td>${partyMember.partyBranch}</td>
 				</tr>
 				<tr>
 					<td>学习时间</td>
-					<td>${partyMember.getLearnTime()}</td>
+					<td>${partyMember.learnTime}</td>
 				</tr>
 				<tr>
 					<td>手机号</td>
 					<td><input type="tel" name="partyMemberInfo.phoneNo"
-						value="${partyMember.getPhoneNo()}"></td>
+						value="${partyMember.phoneNo}"></td>
 				</tr>
 				<tr>
 					<td>注册时间</td>
-					<td>${partyMember.getLoginDate()}</td>
+					<td>${partyMember.loginDate}</td>
 				</tr>
 				<tr>
 					<td>新密码</td>

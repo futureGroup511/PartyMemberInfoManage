@@ -10,21 +10,18 @@
 <body>
 	<c:forEach items="${videosList}" var="v" varStatus="status">
 		<c:choose>
-			<c:when test="${(status.index)%3==0}">
-			<div style="clear: both;"></div>
-			<!-- <div style="height: 1px ;">
-					<div>&nbsp;123</div>
-				</div> -->
+			<c:when test="${(status.index)%4==0}">
+			<div style="clear: both;"></div>			
 				<div style="width: 150px;float: left;">
 					<div>
 						<img src="${rootPath}${v.imgUrl}"
 							style="height: 180px; width: 120px;">
 					</div>
-					<div>
+					<div style="height:25px;">
 						<a href="${rootPath}/video_${v.rv_Id}.action" target="_blank">${v.name}</a>
 					</div>
-					<div>${v.watchNum}</div>
-					<div>${v.description}</div>
+					<%-- <div>${v.watchNum}</div>
+					<div>${v.description}</div> --%>
 				</div>
 			</c:when>
 			<c:otherwise>
@@ -37,8 +34,8 @@
 					<div>
 						<a href="${rootPath}/video_${v.rv_Id}.action" target="_blank">${v.name}</a>
 					</div>
-					<div>${v.watchNum}</div>
-					<div>${v.description}</div>
+					<%-- <div>${v.watchNum}</div>
+					<div>${v.description}</div> --%>
 				</div>
 			</c:otherwise>
 		</c:choose>
