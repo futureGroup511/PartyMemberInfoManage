@@ -9,12 +9,12 @@
 </head>
 <body>
   <c:forEach items="${videosList}" var="v">
-  	  <div style="float:left;">
+  	  <div style="float:left;width:150px;">
   	    <div>
   	    	<img  src="${rootPath}${v.imgUrl}" style="height:180px; width:120px;">
   	    </div>
   	  	<div><a href="${rootPath}/video_${v.rv_Id}.action" target="_blank">${v.name}</a> </div>	
-  	  	<%-- <div>${v.watchNum}</div> --%>
+  	  	<div>${v.watchNum}</div>
   	  	<div>${v.description} </div>	
   	  </div> 			 		
   </c:forEach>

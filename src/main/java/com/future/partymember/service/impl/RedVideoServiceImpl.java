@@ -40,9 +40,15 @@ public class RedVideoServiceImpl implements IRedVideoService{
 		return redVideoDao.getList(first, num);
 	}
 	@Override
+<<<<<<< Updated upstream
 	public void delete(int id) {
 		// TODO Auto-generated method stub
 		redVideoDao.delete(id);
+=======
+	public boolean updatewatchNumById(int rv_Id) {
+		
+		return redVideoDao.updatewatchNumById(rv_Id);
+>>>>>>> Stashed changes
 	}
 
 }

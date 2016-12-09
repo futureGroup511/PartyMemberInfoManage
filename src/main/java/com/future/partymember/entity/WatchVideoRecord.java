@@ -80,4 +80,11 @@ public class WatchVideoRecord {
 	public void setEndWatch(Date endWatch) {
 		this.endWatch = endWatch;
 	}
+
+	@Override
+	public String toString() {
+		return "WatchVideoRecord [wvr_id=" + wvr_id + ", pm_id=" + pm_id + ", rv_id=" + rv_id + ", startWatch="
+				+ startWatch + ", endWatch=" + endWatch + "]";
+	}
+	
 }
