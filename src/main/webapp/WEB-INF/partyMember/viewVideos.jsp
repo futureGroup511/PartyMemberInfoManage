@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
@@ -8,15 +8,41 @@
 <title>红色视频</title>
 </head>
 <body>
-  <c:forEach items="${videosList}" var="v">
-  	  <div style="float:left;width:150px;">
-  	    <div>
-  	    	<img  src="${rootPath}${v.imgUrl}" style="height:180px; width:120px;">
-  	    </div>
-  	  	<div><a href="${rootPath}/video_${v.rv_Id}.action" target="_blank">${v.name}</a> </div>	
-  	  	<div>${v.watchNum}</div>
-  	  	<div>${v.description} </div>	
-  	  </div> 			 		
-  </c:forEach>
+	<c:forEach items="${videosList}" var="v" varStatus="status">
+		<c:choose>
+			<c:when test="${(status.index)%3==0}">
+			<div style="clear: both;"></div>
+			<!-- <div style="height: 1px ;">
+					<div>&nbsp;123</div>
+				</div> -->
+				<div style="width: 150px;float: left;">
+					<div>
+						<img src="${rootPath}${v.imgUrl}"
+							style="height: 180px; width: 120px;">
+					</div>
+					<div>
+						<a href="${rootPath}/video_${v.rv_Id}.action" target="_blank">${v.name}</a>
+					</div>
+					<div>${v.watchNum}</div>
+					<div>${v.description}</div>
+				</div>
+			</c:when>
+			<c:otherwise>
+				
+				<div style="float: left; width: 150px;">
+					<div>
+						<img src="${rootPath}${v.imgUrl}"
+							style="height: 180px; width: 120px;">
+					</div>
+					<div>
+						<a href="${rootPath}/video_${v.rv_Id}.action" target="_blank">${v.name}</a>
+					</div>
+					<div>${v.watchNum}</div>
+					<div>${v.description}</div>
+				</div>
+			</c:otherwise>
+		</c:choose>
+
+	</c:forEach>
 </body>
 </html>
