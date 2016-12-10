@@ -20,7 +20,7 @@ public class PageCut<T> {
 		this.currentPage = currentPage;
 		this.pageSize = pageSize;
 		this.count = count;
-		pageNum=count/pageSize+1;
+		pageNum=(count-1)/pageSize+1;
 		prePage=currentPage>1?currentPage-1:1;
 		nextPage=currentPage<pageNum?currentPage+1:pageNum;
 	}

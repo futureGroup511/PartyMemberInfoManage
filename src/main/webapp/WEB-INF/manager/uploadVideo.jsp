@@ -21,7 +21,7 @@
 	<form action="${rootPath }manage/uploadVideo_uploadOut" method="post" enctype="multipart/form-data">
 		<input type="text" name="redVideo.name" placeholder="视频名字">
 		<input type="text" name="redVideo.videoUrl" placeholder="视频地址">
-		<input type="file" name="img" placeholder="视频缩略图">
+		视频缩略图：<input type="file" name="img">
 		<textarea rows="5" cols="20" name="redVideo.description"  placeholder="视频描述"></textarea>
 		<button type="submit">添加</button>
 	</form>

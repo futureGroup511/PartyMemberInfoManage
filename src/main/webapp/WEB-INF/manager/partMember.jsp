@@ -7,6 +7,9 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 <link rel="stylesheet" href="${rootPath }css/bootstrap.css" />
+<link href="${rootPath }jQueryPlug/jPage/src/jquery.page.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="${rootPath }jQueryPlug/jPage/src/jquery.min.js"></script>
+<script type="text/javascript" src="${rootPath }jQueryPlug/jPage/src/jquery.page.js"></script>
 <title>Insert title here</title>
 </head>
 <body>
@@ -59,9 +62,26 @@
 
 					</tbody>
 				</table>
+				<div id="pageCut"></div>
 			</div>
 		</div>
 	</div>
 
 </body>
+<script type="text/javascript">
+	$(function() {
+		var pageNum = Number("${pc.pageNum}");//必须强制转换成int型
+		$("#pageCut").Page(
+				{
+					totalPages : pageNum,//分页总数
+					liNums : 3,//分页的数字按钮数(建议取奇数)
+					activeClass : 'activP', //active 类样式定义
+					callBack : function(page) {
+						var url = "${rootPath }"
+								+ "manage/partMember"
+						location.href = url + "?page=" + page;
+					}
+				});
+	})
+</script>
 </html>

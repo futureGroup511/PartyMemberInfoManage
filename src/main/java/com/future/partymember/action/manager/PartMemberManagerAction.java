@@ -4,8 +4,7 @@ import java.util.Date;
 
 import com.future.partymember.base.BaseAction;
 import com.future.partymember.entity.PartyMemberInfo;
-
-import javassist.expr.NewArray;
+import com.future.partymember.util.PageCut;
 
 public class PartMemberManagerAction extends BaseAction {
 	private int page = 1;
@@ -13,6 +12,8 @@ public class PartMemberManagerAction extends BaseAction {
 
 	public String execute() {
 		this.getRequest().setAttribute("pc", partyMemberInfoService.getPageCut(page, 5));
+		PageCut<PartyMemberInfo> pageCut=partyMemberInfoService.getPageCut(page, 5);
+		System.out.println(pageCut.getCount()+pageCut.getData().size()+new Date().toString());
 		return SUCCESS;
 	}
 
