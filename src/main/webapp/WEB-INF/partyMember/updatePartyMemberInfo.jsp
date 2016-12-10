@@ -135,7 +135,7 @@
 				</tr>
 				<tr>
 					<td>学习时间</td>
-					<td>${partyMember.learnTime}</td>
+					<td>${learnTime}</td>
 				</tr>
 				<tr>
 					<td>手机号</td>

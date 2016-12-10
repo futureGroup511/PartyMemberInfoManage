@@ -33,6 +33,8 @@ public class PartyMemberAction extends BaseAction {
 	// 修改党员个人信息时，先获得党员信息以便修改
 	public String getInfoBeforeUpdate() throws Exception {
 		partyMemberInfo = partyMemberInfoService.getPartyMemberInfoById(1);
+		String time=SwitchTime.switchTime(partyMemberInfo.getLearnTime());
+		this.getRequest().setAttribute("learnTime",time);
 		this.getSession().put("partyMember", partyMemberInfo);
 		return "getInfoBeforeUpdate";
 	}
