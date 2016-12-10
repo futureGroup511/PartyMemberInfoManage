@@ -84,14 +84,19 @@ public class PartyMemberAction extends BaseAction{
 	
 	/**
 	 * 更新党员的学习时间
-	 * 丁赵雷	
+	 * 丁赵雷 ---焦祥宇修改过	
 	 */
 	public void updateLearnTime() {
-		PartyMemberInfo p=(PartyMemberInfo)this.getSession().get("partyMember");
+		/*PartyMemberInfo p=(PartyMemberInfo)session.get("partyMember");*///从session获得用户信息
+		/*int ptm_id=p.getPtm_Id();*///用户id
+		partyMemberInfo=partyMemberInfoService.getPartyMemberInfoById(1);
+		
+		
 		long time=Integer.parseInt(getRequest().getParameter("time"));
-		time=time+p.getLearnTime();
-		p.setLearnTime(time);
-		partyMemberInfoService.updatePartyMemberInfo(p);
+		System.out.println("time"+time);
+		time=time+partyMemberInfo.getLearnTime();
+		partyMemberInfo.setLearnTime(time);
+		partyMemberInfoService.updatePartyMemberInfo(partyMemberInfo);
 		
 	}
 	

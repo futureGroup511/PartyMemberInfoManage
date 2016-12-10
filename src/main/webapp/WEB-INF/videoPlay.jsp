@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>再次测试播放视频</title>
+<title>${video.name}</title>
 </head>
 <body onbeforeunload="return stopPlay()">
 		<video width="320" height="240" controls  onplay="startVideo()">

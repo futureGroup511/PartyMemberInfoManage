@@ -11,67 +11,67 @@
 		<table>
 			<tr>
 				<td>账号</td>
-				<td>${partyMember.getAccount()}</td>
+				<td>${partyMember.account}</td>
 			</tr>
 			<tr>
-				<td>用户类别</td>
-				<td>${partyMember.getSort()}</td>
+				<td>用户类别</td> 
+				<td>${partyMember.sort}</td>
 			</tr>
 			<tr>
 				<td>姓名</td>
-				<td>${partyMember.getUsername()}</td>
+				<td>${partyMember.username}</td>
 			</tr>						
 			<tr>
 				<td>性别</td>
-				<td>${partyMember.getSex()}</td>
+				<td>${partyMember.sex}</td>
 			</tr>
 			<tr>
 				<td>年龄</td>
-				<td>${partyMember.getAge()}</td>
+				<td>${partyMember.age}</td>
 			</tr>
 			<tr>
 				<td>民族</td>
-				<td>${partyMember.getNation()}</td>
+				<td>${partyMember.nation}</td>
 			</tr>
 			<tr>
 				<td>出生日期</td>
-				<td>${partyMember.getBirthdate()}</td>
+				<td>${partyMember.birthdate}</td>
 			</tr>
 			<tr>
 				<td>身份证号码</td>
-				<td>${partyMember.getIdCard()}</td>
+				<td>${partyMember.idCard}</td>
 			</tr>
 			<tr>
 				<td>籍贯</td>
-				<td>${partyMember.getNativePlace()}</td>
+				<td>${partyMember.nativePlace}</td>
 			</tr>
 			<tr>
 				<td>入党日期</td>
-				<td>${partyMember.getJoinPartyDate()}</td>
+				<td>${partyMember.joinPartyDate}</td>
 			</tr>
 			<tr>
 				<td>职务</td>
-				<td>${partyMember.getDuties()}</td>
+				<td>${partyMember.duties}</td>
 			</tr>
 			<tr>
 				<td>介绍人</td>
-				<td>${partyMember.getIntroducer()}</td>
+				<td>${partyMember.introducer}</td>
 			</tr>
 			<tr>
 				<td>所在党支部</td>
-				<td>${partyMember.getPartyBranch()}</td>
+				<td>${partyMember.partyBranch}</td>
 			</tr>
 			<tr>
 				<td>学习时间</td>
-				<td>${partyMember.getLearnTime()}</td>
+				<td>${partyMember.learnTime}</td>
 			</tr>
 			<tr>
 				<td>手机号</td>
-				<td>${partyMember.getPhoneNo()}</td>
+				<td>${partyMember.phoneNo}</td>
 			</tr>
 			<tr>
 				<td>注册时间</td>
-				<td>${partyMember.getLoginDate()}</td>
+				<td>${partyMember.loginDate}</td>
 			</tr>
 		</table>
 	</div>
