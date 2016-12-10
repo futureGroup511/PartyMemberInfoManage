@@ -6,6 +6,7 @@ import java.util.List;
 import com.future.partymember.base.BaseAction;
 import com.future.partymember.entity.PartyMemberInfo;
 import com.future.partymember.entity.RedVideo;
+import com.future.partymember.util.SwitchTime;
 
 /*
  * 党员信息控制层
@@ -22,6 +23,9 @@ public class PartyMemberAction extends BaseAction {
 	// 查询党员个人信息
 	public String seekPartyMemberInfo() throws Exception {
 		partyMemberInfo = partyMemberInfoService.getPartyMemberInfoById(1);
+		//学习时间		
+		String time=SwitchTime.switchTime(partyMemberInfo.getLearnTime());
+		this.getRequest().setAttribute("learnTime",time);
 		this.getRequest().setAttribute("partyMember", partyMemberInfo);
 		return "seekPartyMemberInfo";
 	}
