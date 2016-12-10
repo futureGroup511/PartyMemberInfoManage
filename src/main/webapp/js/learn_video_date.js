@@ -1,8 +1,8 @@
 
-	var count =0;//计数器
-	var start ;//视频开始
-	var end ;//视频结束
-	var watchLength;//观看时长
+var count =0;//计数器
+var start ;//视频开始
+var end ;//视频结束
+var watchLength;//观看时长
 
 $(document).ready(function() {
 	startVideo();
@@ -29,7 +29,7 @@ function startVideo(){
 function onbeforeunload_handler(){
 	end = new Date();
 	watchLength = end.getTime()-start.getTime();//这是毫秒
-	var currentTime=$("#video").currentTime
+	var currentTime=$("#video").currentTime//当页面关闭时获得是视频的当前播放时间
 
     $.ajax({
     	url: "/PartyMemberInfoManage/party/partyMemberAction_updateLearnTime",
