@@ -26,15 +26,18 @@
 			<result>/WEB-INF/manager/info.jsp</result>
 		</action>
 
-		<action name="partSecretary"
+		<action name="partSecretary_*" method="{1}"
 			class="com.future.partymember.action.manager.PartSecretaryManagerAction">
 			<result>/WEB-INF/manager/partSecretary.jsp</result>
+			<result name="add">/WEB-INF/manager/partSecretaryAdd.jsp</result>
+			<result name="update">/WEB-INF/manager/partSecretaryChange.jsp</result>
 		</action>
 
 		<action name="partMember_*" method="{1}"
 			class="com.future.partymember.action.manager.PartMemberManagerAction">
 			<result>/WEB-INF/manager/partMember.jsp</result>
 			<result name="update">/WEB-INF/manager/partMemberChange.jsp</result>
+			<result name="add">/WEB-INF/manager/partMemberAdd.jsp</result>
 		</action>
 		<action name="uploadVideo_*" method="{1}"
 			class="com.future.partymember.action.manager.UploadVideoAction">
@@ -45,11 +48,21 @@
 			class="com.future.partymember.action.manager.ManagerVideoAction">
 			<result>/WEB-INF/manager/manageVideo.jsp</result>
 		</action>
-		
+		<!-- 
 		<action name="manageSecretary_*" method="{1}"
 			class="com.future.partymember.action.manager.PartSecretaryManagerAction">
 			<result>/WEB-INF/manager/partSecretary.jsp</result>
 			<result name="update">/WEB-INF/manager/partSecretaryChange.jsp</result>
+		</action>
+		 -->
+		<action name="test_*">
+			<result>/WEB-INF/manager/{1}.jsp</result>
+		</action>
+		<action name="caidan">
+			<result>/WEB-INF/manager/caidan.jsp</result>
+		</action>
+		<action name="head">
+			<result>/WEB-INF/manager/head.jsp</result>
 		</action>
 	</package>
 </struts>

@@ -5,21 +5,24 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="${rootPath }css/bootstrap.css" />
 <title>Insert title here</title>
 </head>
 <body>
-	<h1>${remind }</h1>
-	<form action="${rootPath }manage/partMember_updateDo"
-		method="post">
+	<form class="form-horizontal" role="form" method="post"
+		action="${rootPath }manage/partMember_addDo">
+		<h1>${remind }</h1>
 		<table>
 			<tr>
 				<td>账号</td>
-				<td>${partyMember.account}</td>
+				<td><input type="text" name="partyMember.account"></td>
 			</tr>
 			<tr>
 				<td>用户类别</td>
-				<td>${partyMember.sort}
-					<input type="hidden" name="partyMemberInfo.ptm_Id" value="${partyMemberInfo.ptm_Id }">
+				<td>
+				<input type="text" name="partyMember.sort">
+				<input type="hidden"
+					name="partyMemberInfo.ptm_Id" value="${partyMemberInfo.ptm_Id }">
 				</td>
 			</tr>
 			<tr>
@@ -52,7 +55,7 @@
 				<td><input type="text" name="partyMemberInfo.nation"
 					value="${partyMember.nation}"></td>
 			</tr>
-			
+
 			<tr>
 				<td>身份证号码</td>
 				<td><input type="text" name="partyMemberInfo.idCard"
@@ -61,36 +64,24 @@
 			<tr>
 				<td>籍贯</td>
 				<td><input type="text" name="partyMemberInfo.nativePlace"
-					value="${partyMember.nativePlace}"></td>
-			</tr>
-			<tr>
-				<td>入党日期</td>
-				<td>${partyMember.joinPartyDate}</td>
+					></td>
 			</tr>
 			<tr>
 				<td>职务</td>
-				<td>${partyMember.duties}</td>
+				<td><input type="text" name="partyMemberInfo.duties"></td>
 			</tr>
 			<tr>
 				<td>介绍人</td>
-				<td>${partyMember.introducer}</td>
+				<td><input type="text" name="partyMemberInfo.introducer"></td>
 			</tr>
 			<tr>
 				<td>所在党支部</td>
-				<td>${partyMember.partyBranch}</td>
-			</tr>
-			<tr>
-				<td>学习时间</td>
-				<td>${partyMember.learnTime}</td>
+				<td><input type="text" name="partyMemberInfo.partyBranch"></td>
 			</tr>
 			<tr>
 				<td>手机号</td>
 				<td><input type="tel" name="partyMemberInfo.phoneNo"
 					value="${partyMember.phoneNo}"></td>
-			</tr>
-			<tr>
-				<td>注册时间</td>
-				<td>${partyMember.loginDate}</td>
 			</tr>
 			<tr>
 				<td>新密码</td>
@@ -102,19 +93,10 @@
 					value="******"></td>
 			</tr>
 			<tr>
-					<td><input
-					type="submit" value="确认修改"></td>
+				<td><input type="submit" value="确认修改"></td>
 			</tr>
 		</table>
-		
+
 	</form>
-	<%-- <form action="partMember_updateDo" method="post">
-		<input type="hidden" name="partMemberInfo.ptm_Id" value="${id }">
-		<span>新手机号：</span> <input type="text" value="${secretary.phoneNo}"
-			name="partMemberInfo.phoneNo"><br> <span>新密码：</span> <input
-			type="password" name="partMemberInfo.password"><br> <span>请再输入一遍密码：</span>
-		<input type="password"><br> <input type="submit"
-			value="确定">
-	</form> --%>
 </body>
 </html>
