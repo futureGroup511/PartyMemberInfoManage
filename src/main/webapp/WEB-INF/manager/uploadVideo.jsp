@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	上传视频
+	上传本地视频
 	<form action="${rootPath }manage/uploadVideo_upload" method="post" enctype="multipart/form-data">
 	<h3 style="color:red;">${remind }</h3>
 	视频：<input type="file" name="video">
@@ -16,6 +16,14 @@
 	
 	<button type="submit">上传</button>
 	</form>
-	
+	<hr>
+	添加外部视频
+	<form action="${rootPath }manage/uploadVideo_uploadOut" method="post" enctype="multipart/form-data">
+		<input type="text" name="redVideo.name" placeholder="视频名字">
+		<input type="text" name="redVideo.videoUrl" placeholder="视频地址">
+		<input type="file" name="img" placeholder="视频缩略图">
+		<textarea rows="5" cols="20" name="redVideo.description"  placeholder="视频描述"></textarea>
+		<button type="submit">添加</button>
+	</form>
 </body>
 </html>
