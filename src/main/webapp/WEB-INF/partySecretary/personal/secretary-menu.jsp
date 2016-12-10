@@ -18,7 +18,7 @@
 					</ol>
 				</li>
 				<li><a href="${rootPath }secretary/partySecretary_lookOfPartyMember">查看所管理的党员信息</a></li>
-				<li><a href="">在线视频</a></li>
+				<li><a href="${rootPath }secretary/pSForward_videoList">在线视频</a></li>
 				<li><a href="">在线文章</a></li>
 				<li><a href="">在线测试</a></li>
 				<li><a href="">在线考试</a></li>

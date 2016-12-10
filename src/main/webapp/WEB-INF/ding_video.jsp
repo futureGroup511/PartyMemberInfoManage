@@ -7,12 +7,11 @@
 <title>再次测试播放视频</title>
 </head>
 <body>
-		<video width="320" height="240" controls  >
+		<video width="320" height="240" controls onplay="startVideo()" >
 		  <source src="/PartyMemberInfoManage/upload/video/1.mp4"  type="video/mp4">
 		  您的浏览器不支持 HTML5 video 标签。
 		</video>
 		
-		<button id="stop-play"></button>
 </body>
 <script type="text/javascript" src="${rootPath }js/jquery-3.1.1.min.js"></script>
 <script type="text/javascript" src="${rootPath }js/learn_video_date.js"></script>
