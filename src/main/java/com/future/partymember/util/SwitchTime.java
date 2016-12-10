@@ -1,5 +1,9 @@
 package com.future.partymember.util;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 /*
 *@author 焦祥宇
 */
@@ -18,4 +22,20 @@ public class SwitchTime {
 			return hours + "小时" + minutes + "分钟" + seconds + "秒";
 		}		
 	}
+	public static Date strToDate(String str){
+		SimpleDateFormat s=new SimpleDateFormat("yyyyMMdd");
+		try {
+			return s.parse(str);
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			return null;
+		}
+		
+	}
+	/*
+	public static void main(String[] args) {
+		Date date=strToDate(19970813+"");
+		System.out.println(date.getTime());
+	}
+	*/
 }
