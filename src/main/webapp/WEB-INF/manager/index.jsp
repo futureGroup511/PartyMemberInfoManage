@@ -1,25 +1,21 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
 </head>
-<body>
-	<a href="${rootPath }manage/info">个人信息管理</a>
+<frameset rows="18%,*" cols="100%" frameborder="no" border="0"
+	framespacing="0" name="head">
+	<frame src="head" scrolling="no"></frame>
+	<frameset cols="16%,84%" rows="100%" frameborder="yes" framespacing="1"
+		name="caidan">
+		<frame src="caidan" scrolling="no"></frame>
+		<frame name="main" src="UntitledFrame-1">
+	</frameset>
+	<noframes></noframes>
+	<body>
 
-	<a href="${rootPath }manage/partSecretary">书记管理</a>
-
-
-
-	<a href="${rootPath }manage/partMember">党员管理</a>
-	<a href="${rootPath }manage/uploadVideo">上传视频</a>
-
-	<a href="${rootPath }manage/manageVideo">视频管理</a>
-
-	<a>文章管理</a>
-
-	<a>试题管理</a>
-</body>
+	</body>
 </html>

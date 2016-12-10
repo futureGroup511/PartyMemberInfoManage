@@ -9,18 +9,21 @@ import com.future.partymember.entity.RedVideo;
 /*
 *@author 焦祥宇
 */
-public class IndexAction extends BaseAction {
+public class PartyLoginAction extends BaseAction {
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 
-	public String toindex() throws Exception{
+	@Override	
+	public String  execute() throws Exception{
 		//获得视频
 		List<RedVideo> videosList=new ArrayList<RedVideo>();
-		videosList=redVideoService.getNew(8);
+		videosList=redVideoService.getNew(18);		
 		this.getRequest().setAttribute("videosList", videosList);
+		
 		//获得文章
+		
 		return SUCCESS;
 	}
 }

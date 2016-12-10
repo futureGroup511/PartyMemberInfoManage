@@ -3,6 +3,8 @@ package com.future.partymember.action.manager;
 
 import java.util.Date;
 
+import javax.print.attribute.ResolutionSyntax;
+
 import com.future.partymember.base.BaseAction;
 import com.future.partymember.entity.PartySecretaryInfo;
 import com.future.partymember.util.PageCut;
@@ -19,6 +21,7 @@ public class PartSecretaryManagerAction extends BaseAction {
 	private PartySecretaryInfo partySecretaryInfo;
 	public String execute(){
 		//测试，添加书记 后期删除
+		/*
 		PartySecretaryInfo p=new PartySecretaryInfo();
 		p.setAccount("1");
 		p.setBirthdate(new Date());
@@ -38,13 +41,27 @@ public class PartSecretaryManagerAction extends BaseAction {
 		p.setNation("fdsa");
 		p.setPassword("fdsaf");
 		partySecretaryInfoService.add(p);
-		
+		*/
 		PageCut<PartySecretaryInfo> pageCut=new PageCut<>(page, 5, 123);
 		pageCut.setData(partySecretaryInfoService.getList((page-1)*pageCut.getPageSize(), pageCut.getPageSize()));
 		this.getRequest().setAttribute("pageCut", pageCut);
 		return SUCCESS;
 	}
 	
+	public String add(){
+		return "add";
+	}
+	public String addDo(){
+		Date date=new Date();
+		partySecretaryInfo.setBirthdate(date);
+		partySecretaryInfo.setJoinPartyDate(date);
+		partySecretaryInfo.setLoginDate(date);
+		partySecretaryInfo.setSort("");
+		partySecretaryInfoService.add(partySecretaryInfo);
+		this.getRequest().setAttribute("remind", "添加成功");
+		this.getRequest().setAttribute("partyMember", partySecretaryInfo);
+		return "add";
+	}
 	public String update() {
 		String id=this.getRequest().getParameter("id");
 		this.getRequest().setAttribute("id", id);
