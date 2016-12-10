@@ -67,9 +67,7 @@ public class PartyMemberAction extends BaseAction{
 		public String viewVideos() throws Exception{
 			List<RedVideo> videosList=new ArrayList<RedVideo>();
 			videosList=redVideoService.getAll();
-			this.getRequest().setAttribute("videosList", 
-
-	videosList);
+			this.getRequest().setAttribute("videosList", videosList);
 			return "viewVideos";
 		}
 
