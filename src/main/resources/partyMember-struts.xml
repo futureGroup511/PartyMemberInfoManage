@@ -10,7 +10,7 @@
 	<!-- 党员 -->
 	<package name="party" extends="struts-default,json-default" namespace="/party"  strict-method-invocation="false">
 		
-		<action name="index" class="com.future.partymember.action.partymember.IndexAction">
+		<action name="partyLogin" class="com.future.partymember.action.partymember.PartyLoginAction">
 			<result >/WEB-INF/partyMember/index.jsp</result> 
 		</action>
 		
