@@ -1,11 +1,15 @@
 package com.future.partymember.action.secretary;
 
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
 import com.future.partymember.base.BaseAction;
 import com.future.partymember.entity.PartySecretaryInfo;
+import com.future.partymember.entity.RedVideo;
 /**
  * 书记的转发类
  * @author 丁赵雷
@@ -40,6 +44,14 @@ public class PSForwardAction extends BaseAction {
 	public String fUpdataPerson() throws Exception{
 		return "fUpdataPerson";
 		
+	}
+	
+	//转发到在线视频列表页
+	public String videoList() throws Exception{
+		List<RedVideo> videosList=new ArrayList<RedVideo>();
+		videosList=redVideoService.getAll();
+		this.getRequest().setAttribute("videosList", videosList);
+		return "videoList";
 	}
 
 	

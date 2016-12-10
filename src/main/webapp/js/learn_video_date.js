@@ -9,8 +9,17 @@ $(document).ready(function() {
 	window.onbeforeunload = onbeforeunload_handler;  
 });
 
-
+//播放视频时触发的事件
 function startVideo(){
+
+	/*
+		当党员进入这个页面时，他应该把他自身关于这个视频的访问记录也带过来
+	*/
+
+	
+
+	/****************************/
+
 	if (count==0) {
 		start = new Date();
 		count=count+1;
@@ -20,13 +29,16 @@ function startVideo(){
 function onbeforeunload_handler(){
 	end = new Date();
 	watchLength = end.getTime()-start.getTime();//这是毫秒
-	
+	var currentTime=$("#video").currentTime
+
     $.ajax({
     	url: "/PartyMemberInfoManage/party/partyMemberAction_updateLearnTime",
-    		
     	type: 'POST',
     	dataType: 'json',
-    	data:{"time":watchLength},
+    	data:{
+    		"time":watchLength,
+    		"currentTime":currentTime
+    	},
     });   
 }  
 

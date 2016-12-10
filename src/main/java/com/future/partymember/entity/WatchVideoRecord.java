@@ -24,8 +24,7 @@ public class WatchVideoRecord {
 	private int wvr_id;
 	private int pm_id ;//党员id
 	private int rv_id;//视频id
-	private Date startWatch ;//开始看视频时间
-	private Date endWatch;//结束看视频的时间
+	private long currentTime;//观看视频的当前时间
 	
 	
 	public WatchVideoRecord() {
@@ -36,8 +35,6 @@ public class WatchVideoRecord {
 		super();
 		this.pm_id = pm_id;
 		this.rv_id = rv_id;
-		this.startWatch = startWatch;
-		this.endWatch = endWatch;
 	}
 	
 
@@ -64,27 +61,19 @@ public class WatchVideoRecord {
 		this.rv_id = rv_id;
 	}
 	
-	@Temporal(TemporalType.TIMESTAMP)
-	public Date getStartWatch() {
-		return startWatch;
+	@Column(columnDefinition="BIGINT")
+	public long getCurrentTime() {
+		return currentTime;
 	}
-	public void setStartWatch(Date startWatch) {
-		this.startWatch = startWatch;
+
+	public void setCurrentTime(long currentTime) {
+		this.currentTime = currentTime;
 	}
 	
-	
-	@Temporal(TemporalType.TIMESTAMP)
-	public Date getEndWatch() {
-		return endWatch;
-	}
-	public void setEndWatch(Date endWatch) {
-		this.endWatch = endWatch;
-	}
 
 	@Override
 	public String toString() {
-		return "WatchVideoRecord [wvr_id=" + wvr_id + ", pm_id=" + pm_id + ", rv_id=" + rv_id + ", startWatch="
-				+ startWatch + ", endWatch=" + endWatch + "]";
+		return "WatchVideoRecord [wvr_id=" + wvr_id + ", pm_id=" + pm_id + ", rv_id=" +
+				rv_id + ", startWatch="+ "]";
 	}
-	
 }

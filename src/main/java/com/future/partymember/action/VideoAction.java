@@ -9,6 +9,10 @@ import com.future.partymember.base.BaseAction;
 */
 public class VideoAction extends BaseAction {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private int id;
 	
 	public String execute(){
