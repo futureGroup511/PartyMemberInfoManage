@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import com.future.partymember.base.BaseAction;
 import com.future.partymember.entity.PartyMemberInfo;
 import com.future.partymember.entity.PartySecretaryInfo;
+import com.future.partymember.entity.RedVideo;
 import com.future.partymember.util.PageCut;
 
 @Controller(value="partySecretaryAction")
@@ -90,6 +91,17 @@ public class PartySecretaryAction extends BaseAction {
 		partySecretaryInfoService.updatePersonInfo(psi);//更新个人信息
 		
 		return "lookMyself";
+	}
+	
+	
+	//观看视频
+	public String lookVideo() throws Exception{
+		int id=Integer.parseInt(this.getRequest().getParameter("rv_Id"));//视频id
+		System.out.println("视频id"+id);
+		redVideoService.updatewatchNumById(id);//视频观看次数加一
+		RedVideo v =redVideoService.get(id);
+		this.getRequest().setAttribute("video", v);
+		return "lookVideo";
 	}
 
 	public PartySecretaryInfo getPartySecretaryInfo() {

@@ -23,6 +23,7 @@ public class WatchVideoRecord {
 
 	private int wvr_id;
 	private int pm_id ;//党员id
+	
 	private int rv_id;//视频id
 	private long currentTime;//观看视频的当前时间
 	
@@ -31,10 +32,11 @@ public class WatchVideoRecord {
 		super();
 	}
 
-	public WatchVideoRecord(int pm_id, int rv_id, Date startWatch, Date endWatch) {
+	public WatchVideoRecord(int pm_id, int rv_id, long currentTime) {
 		super();
 		this.pm_id = pm_id;
 		this.rv_id = rv_id;
+		this.currentTime=currentTime;
 	}
 	
 
