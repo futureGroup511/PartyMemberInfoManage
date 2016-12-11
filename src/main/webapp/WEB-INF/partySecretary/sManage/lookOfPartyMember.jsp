@@ -41,6 +41,7 @@
 						<td>${pmi.nation}</td>
 						<td>${pmi.nativePlace}</td>
 						<td>${pmi.phoneNo}</td>
+						<td>${pmi.strLearnTime}</td>
 						<td>${pmi.loginDate}</td>
 						<td>${pmi.birthdate}</td>
 						<td>${pmi.idCard}</td>

@@ -33,8 +33,8 @@ public class PartyMemberInfo extends UserInfo {
 		
 	public PartyMemberInfo(String sort, String username, String password, int age, String nation, Date birthdate,
 			String nativePlace, String idCard, Date loginDate, String phoneNo, String idAccessory, Date joinPartyDate,
-			String duties, String introducer, String partyBranch, String sex, long learnTime) {
-		super(sort, username, password, age, nation, birthdate, nativePlace, idCard, loginDate, phoneNo, sex, learnTime);
+			String duties, String introducer, String partyBranch, String sex, long learnTime, String strLearnTime) {
+		super(sort, username, password, age, nation, birthdate, nativePlace, idCard, loginDate, phoneNo, sex, learnTime, strLearnTime);
 		this.idAccessory = idAccessory;
 		this.joinPartyDate = joinPartyDate;
 		this.duties = duties;

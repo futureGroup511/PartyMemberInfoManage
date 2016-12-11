@@ -1,6 +1,8 @@
 package com.future.partymember.action.partymember;
 
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 import com.future.partymember.base.BaseAction;
@@ -68,9 +70,7 @@ public class PartyMemberAction extends BaseAction {
 	public String viewVideos() throws Exception {
 		List<RedVideo> videosList = new ArrayList<RedVideo>();
 		videosList = redVideoService.getAll();
-		this.getRequest().setAttribute("videosList",
-
-				videosList);
+		this.getRequest().setAttribute("videosList",videosList);
 		return "viewVideos";
 	}
 
@@ -89,11 +89,19 @@ public class PartyMemberAction extends BaseAction {
 		/* PartyMemberInfo p=(PartyMemberInfo)session.get("partyMember"); */// 从session获得用户信息
 		/* int ptm_id=p.getPtm_Id(); */// 用户id
 		partyMemberInfo = partyMemberInfoService.getPartyMemberInfoById(1);
-
+		
 		long time = Integer.parseInt(getRequest().getParameter("time"));
 		System.out.println("time" + time);
+		
+/*		//以下丁赵雷修改
+		Calendar cal = Calendar.getInstance(); 
+		Date d= SwitchTime.strToDate(partyMemberInfo.getLearnTime());
+		cal.setTime(d);
+		cal.roll(Calendar.SECOND, time); */
 		time = time + partyMemberInfo.getLearnTime();
+		String strTime=SwitchTime.switchTime(time);
 		partyMemberInfo.setLearnTime(time);
+		partyMemberInfo.setStrLearnTime(strTime);
 		partyMemberInfoService.updatePartyMemberInfo(partyMemberInfo);
 
 	}
