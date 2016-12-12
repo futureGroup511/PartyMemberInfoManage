@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>党员首页</title>
+<title>修改个人信息</title>
 <link rel="stylesheet" href="${rootPath}css/bootstrap.css">
 <link rel="stylesheet" href="${rootPath}css/index-one.css">
 <script src="${rootPath}js/jquery-2.2.3.min.js"></script>
@@ -15,16 +15,22 @@
 <body>
 	<div class="container">
 		<div class="header">
-			<img src="${rootPath}images/header-logo.png">
-			<p>河南科技学院党员信息管理系统</p>
-		</div>
+		 <div class="row">
+		   <div class="col-lg-1 col-lg-offset-3 col-md-1 col-md-offset-3 col-xs-1 col-xs-offset-3">
+			  <img src="${rootPath}images/header-logo.png">
+		   </div>
+		   <div class="col-lg-8 col-md-8 col-xs-8">
+			    <p>河南科技学院党员信息管理系统</p>
+		   </div>
+		  </div>
+		 </div>
 	</div>
 	<div class="body">
 		<div class="header-one">
-			<img src="${rootPath}images/header-one.jpg">
+			<img src="${rootPath}images/header-one.png">
 		</div>
 		<div class="header-two">
-			<img src="${rootPath}images/header-two.jpg">
+			<img src="${rootPath}images/header-two.png">
 		</div>
 		<div class="header-three">
 			<p id="headline" class="demo-text one">河南科技学院党员信息管理</p>
@@ -46,8 +52,8 @@
 						</ul></li>
 					<!-- <li><a href="partyMemberAction_seekPartyMemberInfo.action">查看个人信息</a></li>
 					<li><a href="partyMemberAction_getInfoBeforeUpdate.action">修改个人信息</a></li> -->
-					<!-- <li><a href="##">军事</a></li> -->
-					<!-- <li><a href="##">生活</a></li> -->
+					<li><a href="##">红色文章</a></li>
+					<li><a href="##">在线考试</a></li>
 				</ul>
 			</div>
 			<div class="col-lg-2 col-md-2 col-xs-2">

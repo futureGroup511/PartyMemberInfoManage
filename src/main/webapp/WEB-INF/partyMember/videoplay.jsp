@@ -1,15 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html >
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>党员观看视频</title>
+<title>${video.name}</title>
 </head>
 <body>
-		<video id="video" width="320" height="240" controls onplay="startVideo()" >
-		  <source src="/PartyMemberInfoManage/upload/video/1.mp4"  type="video/mp4">
-		  您的浏览器不支持 HTML5 video 标签。
+		  <input type="hidden" value="${video.rv_Id}" id="videoId"/>
+		   <input type="hidden" value="${currentTime}" id="oldcurrentTime"/>
+		<video id="videos" width="320" height="240" controls onplay="startVideo()" >
+		  <source src="${rootPath }${video.videoUrl}"  type="video/mp4">
+		         您的浏览器不支持 HTML5 video 标签。
 		</video>
 		
 </body>

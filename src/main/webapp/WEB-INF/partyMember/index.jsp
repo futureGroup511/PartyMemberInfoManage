@@ -15,16 +15,22 @@
 <body>
 	<div class="container">
 		<div class="header">
-			<img src="${rootPath}images/header-logo.png">
-			<p>河南科技学院党员信息管理系统</p>
+		  <div class="row">
+		    <div class="col-lg-1 col-lg-offset-3 col-md-1 col-md-offset-3 col-xs-1 col-xs-offset-3">
+			   <img src="${rootPath}images/header-logo.png">
+			</div>
+			<div class="col-lg-8 col-md-8 col-xs-8">
+			    <p>河南科技学院党员信息管理系统</p>
+			</div>
+		  </div>
 		</div>
 	</div>
 	<div class="body">
 		<div class="header-one">
-			<img src="${rootPath}images/header-one.jpg">
+			<img src="${rootPath}images/header-one.png">
 		</div>
 		<div class="header-two">
-			<img src="${rootPath}images/header-two.jpg">
+			<img src="${rootPath}images/header-two.png">
 		</div>
 		<div class="header-three">
 			<p id="headline" class="demo-text one">河南科技学院党员信息管理</p>
@@ -34,7 +40,7 @@
 	<div class="nav navbar-top">
 		<div class="row">
 			<div
-				class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 col-xs-8 col-xs-offset-2">
+				class="col-lg-7 col-lg-offset-2 col-md-7 col-md-offset-2 col-xs-7 col-xs-offset-2">
 				<ul class=" nav navbar-nav">
 					<li class="active"><a href="partyLogin.action">首页</a></li>
 					<li><a href="partyMemberAction_viewVideos.action">红色视频</a></li>
@@ -50,7 +56,7 @@
 					<li><a href="##">在线考试</a></li>
 				</ul>
 			</div>
-			<div class="col-lg-2 col-md-2 col-xs-2">
+			<div class="col-lg-3 col-md-3 col-xs-3">
 				<span class="one">
 					<!-- <a href="##">登录</a></span> <span class="two"> -->
 					<a href="##">退出</a>
@@ -74,8 +80,7 @@
 						<c:choose>
 							<c:when test="${status.index==0}">
 								<div class="item active">
-									<a href="${rootPath}/video_${v.rv_Id}.action"><img src="${rootPath}${v.imgUrl}"
-										width="100%" height="255"></a>
+									<a href="${rootPath}/video_${v.rv_Id}.action"><img src="${rootPath}${v.imgUrl}"></a>
 									<div class="carousel-caption">
 										<h4>
 											<a href="${rootPath}/video_${v.rv_Id}.action">${v.name}</a>
@@ -86,8 +91,7 @@
 							<c:otherwise>
 								<c:if test="${status.index<=4}">
 									<div class="item">
-										<a href="${rootPath}/video_${v.rv_Id}.action"><img src="${rootPath}${v.imgUrl}"
-											width="100%" height="255"></a>
+										<a href="${rootPath}/video_${v.rv_Id}.action"><img src="${rootPath}${v.imgUrl}"></a>
 										<div class="carousel-caption">
 											<h4>
 												<a href="${rootPath}/video_${v.rv_Id}.action">${v.name}</a>
@@ -105,49 +109,6 @@
 						data-slide="next"> <span class="sr-only">Next</span>
 					</a>
 				</div>
-				<%-- <div class="carousel-inner">
-					<div class="item active">
-						<a href="#"><img src="${rootPath}images/banner-three.jpg" width="100%"
-							height="255"></a>
-						<div class="carousel-caption">
-							<h4>
-								<a href="#">中共中央举行纪念万里同志座谈会</a>
-							</h4>
-						</div>
-					</div>
-					<div class="item">
-						<a href="#"><img src="${rootPath}images/banner-four.jpg" width="100%"
-							height="255"></a>
-						<div class="carousel-caption">
-							<h4>
-								<a href="#">党史届召开红军胜利80周年研讨会</a>
-							</h4>
-						</div>
-					</div>
-					<div class="item">
-						<a href="#"><img src="${rootPath}images/banner-five.jpg" width="100%"
-							height="255"></a>
-						<div class="carousel-caption">
-							<h4>
-								<a href="#">《中国共产党的九十年》出版座谈会在京召开</a>
-							</h4>
-						</div>
-					</div>
-					<div class="item">
-						<a href="#"><img src="${rootPath}images/banner-six.jpg" width="100%"
-							height="255"></a>
-						<div class="carousel-caption">
-							<h4>
-								<a href="#">中共中央举行纪念万里同志座谈会</a>
-							</h4>
-						</div>
-					</div>
-					<a class="left carousel-control" href="#slidershow" role="button"
-						data-slide="prev"> <span class="sr-only">Previous</span>
-					</a> <a class="right carousel-control" href="#slidershow" role="button"
-						data-slide="next"> <span class="sr-only">Next</span>
-					</a>
-				</div> --%>
 			</div>
 		</div>
 				<div class="col-lg-6 col-md-6 col-xs-6">
@@ -181,45 +142,46 @@
 			</div>
 
 			<!-- 视频列表 -->
-			<div style="padding-left: 190px;">
-				<h4>
-					<a href="partyMemberAction_viewVideos.action">红色视频>></a>
-				</h4>
-				<c:forEach items="${videosList}" var="v" varStatus="status">
-					<c:choose>
-						<c:when test="${(status.index)%6==0}">
-							<div style="clear: both;"></div>
-							<div style="width: 158px; float: left;">
-								<div>
-									<img src="${rootPath}${v.imgUrl}"
-										style="height: 180px; width: 120px;">
-								</div>
-								<div style="height: 25px;">
-									<a href="${rootPath}/video_${v.rv_Id}.action" target="_blank">${v.name}</a>
-								</div>
-
+	<div class="text">
+		<div style="padding-left: 190px; ">
+			<h4>
+				<a href="partyMemberAction_viewVideos.action">红色视频>></a>
+			</h4>
+			<c:forEach items="${videosList}" var="v" varStatus="status">
+				<c:choose>
+					<c:when test="${(status.index)%6==0}">
+						<div style="clear: both;"></div>
+						<div style="width: 158px; float: left;">
+							<div>
+								<img src="${rootPath}${v.imgUrl}"
+									style="height: 180px; width: 120px;">
 							</div>
-						</c:when>
-						<c:otherwise>
-
-							<div style="float: left; width: 150px;">
-								<div>
-									<img src="${rootPath}${v.imgUrl}"
-										style="height: 180px; width: 120px;">
-								</div>
-								<div>
-									<a href="${rootPath}/video_${v.rv_Id}.action" target="_blank">${v.name}</a>
-								</div>
-
+							<div style="height: 25px;">
+								<a href="${rootPath}/video_${v.rv_Id}.action" target="_blank">${v.name}</a>
 							</div>
-						</c:otherwise>
-					</c:choose>
 
-				</c:forEach>
-			</div>
+						</div>
+					</c:when>
+					<c:otherwise>
 
+						<div style="float: left; width: 150px;">
+							<div>
+								<img src="${rootPath}${v.imgUrl}"
+									style="height: 180px; width: 120px;">
+							</div>
+							<div>
+								<a href="${rootPath}/video_${v.rv_Id}.action" target="_blank">${v.name}</a>
+							</div>
 
-			<div class="footer">
+						</div>
+					</c:otherwise>
+				</c:choose>
+
+			</c:forEach>
+		</div>
+
+	</div>
+	<div class="footer">
 				<img src="${rootPath}images/footer.png">
 				<div class="footer-one">
 					<p>河南科技学院党员网站 京ICP备11032580号</p>

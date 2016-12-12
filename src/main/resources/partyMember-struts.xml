@@ -20,7 +20,9 @@
             <result name="getInfoBeforeUpdate">/WEB-INF/partyMember/updatePartyMemberInfo.jsp</result>                         
             <result name="updatePartyMemberInfo">/WEB-INF/partyMember/updatePartyMemberInfo.jsp</result>  
             
-            <result name="viewVideos">/WEB-INF/partyMember/viewVideos.jsp</result>            
+            <result name="viewVideos">/WEB-INF/partyMember/viewVideos.jsp</result>
+            
+            <result name="viewing">/WEB-INF/partyMember/videoplay.jsp</result>            
         </action>
         
         
