@@ -14,13 +14,12 @@
   bottom:0px;
 }
 .container img{
-	width:8%;
+	width:90%;
 	position: absolute;
-	margin-left: 25%;
-	padding-top:12px;
+	padding-top:30px;
 }
 .container p {
-	text-align: center;
+	width:90%;
 	color:#FEFCAC;
 	font-family:黑体;
 	font-size:2.5em;
@@ -29,52 +28,63 @@
 .body{
 	width:70%;
 	margin:0 auto;
-	height:200px;
-	margin-top: -500px;
+	height:180px;
+	margin-top: -570px;
 	background-color: #E90B06;
 }
 .body .header-one{
-	width:30%;
+	width:25%;
 }
 .body .header-two{
-	width:10%;
+	width:11%;
 }
 .body .header-three{
-	width:60%;
+	width:64%;
 }
 .body div{
 	float:left;
 }
 .body .header-one img{
-	padding-top: 37px;
+	padding-top: 8px;
+	width:33%;
 }
 .body .header-two img{
 	padding-top:40px;
+	width:80%;
 }
 .body .header-three p{
 	color:white;
 }
 .body .header-three .one{
-	font-size:36px;
+	font-size:32px;
 	padding-top: 50px;
 	text-shadow: 4px 4px  6px grey ;
 }
 .body .header-three .two{
 	font-size:15px;
-	padding-left: 16%;
+	padding-left: 19%;
 }
 .navbar-top{
 	width:70%;
 	margin: 0 auto;
-	margin-top: 10px;
+	margin-top: 1px;
 }
 .navbar-top .row li{
-	font-size: 18px;
+	font-size: 16px;
+}
+.navbar-top .row #names{
+	width:50%;
+	height:19px;
+	}
+.navbar-top .row li a:hover{
+	background-color:#E90B06;
+	color:white;
 }
 .nav .row{
 	width:100%;
 	margin: 0 auto;
 	background-color: #EEF6FD;
+	border-radius: 10px;
 }
 .row span a{
 	text-decoration: none;
@@ -82,23 +92,39 @@
 .row span a:hover{
 	color:red;
 }
-.row .col-lg-2{
+.row .col-lg-3{
 	height:50px;
 }
-.row .col-lg-2 .two{
+.row .dropdown-menu{
+	width:80%!important;
+}
+.row .dropdown-menu li{
+	
+	font-size:12px;
+}
+/* .row .col-lg-3 .one{
+	margin-left:85%;
+} */
+.row .col-lg-3 .two{
   margin-left:30%;
 }
-.row .col-lg-2 span a{
-	padding-top: 5px;
+.row .col-lg-3 span a{
+	padding-top: 2px;
+	float:left;
 	position: absolute;
 }
 .body-one{
 	width:70%;
 	margin: 0 auto;
+	height:325px;
 }
 #slidershow{
 	width:100%;
 	margin-left: -15px;
+}
+#slidershow img{
+	height:325px;
+	width:100%;
 }
 .carousel-caption a{
   color:white;
@@ -118,8 +144,9 @@
 	color:black;
 }
 .body-one .col-lg-6{
-	border:solid 3px red;
+	border:solid 3px #E90B06;
 	width:58.3%;
+	height:325px;
 }
 .body-one .col-lg-6 li a:hover{
 	color:red;
@@ -161,10 +188,20 @@ h5{
 .body-five {
 	width:70%;
 	margin:0 auto;
+	margin-bottom:15px;
+	
 }
 .body-five img{
 	width:100%;
+}
+.text{
 	margin-top:20px;
+}
+.text a{
+text-decoration:none;
+}
+.text a:hover{
+	color:#E90B06;
 }
 .footer{
 	width:70%;

@@ -8,6 +8,7 @@ import java.util.List;
 import com.future.partymember.base.BaseAction;
 import com.future.partymember.entity.PartyMemberInfo;
 import com.future.partymember.entity.RedVideo;
+import com.future.partymember.entity.WatchVideoRecord;
 import com.future.partymember.util.SwitchTime;
 
 /*
@@ -20,9 +21,9 @@ public class PartyMemberAction extends BaseAction {
 	 */
 	private static final long serialVersionUID = 1L;
 
-	private PartyMemberInfo partyMemberInfo;
-
-	// 查询党员个人信息
+	private PartyMemberInfo partyMemberInfo;//从表单获得党员对象
+	/*private int id;//视频id
+*/	// 查询党员个人信息
 	public String seekPartyMemberInfo() throws Exception {
 		partyMemberInfo = partyMemberInfoService.getPartyMemberInfoById(1);
 		//学习时间		
@@ -66,7 +67,7 @@ public class PartyMemberAction extends BaseAction {
 		return "updatePartyMemberInfo";
 	}
 
-	// 观看红色视频
+	// 红色视频
 	public String viewVideos() throws Exception {
 		List<RedVideo> videosList = new ArrayList<RedVideo>();
 		videosList = redVideoService.getAll();
@@ -74,6 +75,24 @@ public class PartyMemberAction extends BaseAction {
 		return "viewVideos";
 	}
 
+	//看视频
+	public String viewing() throws Exception{
+		//从路径获得视频id
+		int videoId=Integer.valueOf(this.getRequest().getParameter("videoId"));
+		
+		//获得视频观看记录
+		WatchVideoRecord watchVideoRecord=watchVideoRecordService.getWVR(videoId, 1);
+		if(watchVideoRecord!=null)
+			this.getRequest().setAttribute("currentTime", watchVideoRecord.getCurrentTime());
+		System.out.println(watchVideoRecord);
+		//视频浏览次数加一
+		redVideoService.updatewatchNumById(videoId);	
+		
+		//播放视频
+		this.getRequest().setAttribute("video",redVideoService.get(videoId));		
+		return "viewing";
+	}
+	
 	/*
 	 * //查询个人党费交纳
 	 * 
@@ -83,9 +102,9 @@ public class PartyMemberAction extends BaseAction {
 	 */
 
 	/**
-	 * 更新党员的学习时间 丁赵雷 ---焦祥宇修改过
+	 * 更新党员的学习时间和视频播放记录历史  丁赵雷 ---焦祥宇修改过
 	 */
-	public void updateLearnTime() {
+	public void updateLearnTime()  throws Exception{
 		/* PartyMemberInfo p=(PartyMemberInfo)session.get("partyMember"); */// 从session获得用户信息
 		/* int ptm_id=p.getPtm_Id(); */// 用户id
 		partyMemberInfo = partyMemberInfoService.getPartyMemberInfoById(1);
@@ -103,6 +122,38 @@ public class PartyMemberAction extends BaseAction {
 		partyMemberInfo.setLearnTime(time);
 		partyMemberInfo.setStrLearnTime(strTime);
 		partyMemberInfoService.updatePartyMemberInfo(partyMemberInfo);
+		//视频播放记录历史
+		System.out.println("*******视频播放记录历史******");		
+		String vt=getRequest().getParameter("currentTime");	
+		long currentTime=0;
+		if(vt.indexOf(".")>0){
+			currentTime=Integer.valueOf(vt.substring(0,vt.indexOf(".")));
+		}
+		else{
+			currentTime =Integer.valueOf(vt);
+		}
+
+		System.out.println("currentTime"+currentTime);
+		
+		int videoId = Integer.valueOf(getRequest().getParameter("videoId"));
+		System.out.println("vidoeId:"+videoId);				
+		WatchVideoRecord watchVideoRecord;
+		watchVideoRecord=watchVideoRecordService.getWVR(videoId, 1);
+		System.out.println(watchVideoRecord);
+		if(watchVideoRecord==null){
+			watchVideoRecord=new WatchVideoRecord();
+			watchVideoRecord.setRv_id(videoId);
+			watchVideoRecord.setPm_id(1);
+			watchVideoRecord.setCurrentTime(currentTime);		
+			watchVideoRecordService.addWVR(watchVideoRecord);
+		}
+		else{
+			watchVideoRecord.setRv_id(videoId);
+			watchVideoRecord.setPm_id(1);
+			watchVideoRecord.setCurrentTime(currentTime);		
+			watchVideoRecordService.updateWVR(watchVideoRecord);
+		}
+	
 
 	}
 
@@ -113,5 +164,10 @@ public class PartyMemberAction extends BaseAction {
 	public PartyMemberInfo getPartyMemberInfo() {
 		return partyMemberInfo;
 	}
-
+	/*public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}*/
 }
