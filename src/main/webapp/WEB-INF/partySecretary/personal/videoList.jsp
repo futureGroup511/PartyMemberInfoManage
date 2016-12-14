@@ -18,7 +18,7 @@
 							style="height: 180px; width: 120px;">
 					</div>
 					<div style="height:25px;">
-						<a href="${rootPath}/video_${v.rv_Id}.action" target="_blank">${v.name}</a>
+						<a href="${rootPath }secretary/partySecretary_lookVideo?rv_Id=${v.rv_Id}">${v.name }</a>
 					</div>
 					
 				</div>
@@ -31,7 +31,7 @@
 							style="height: 180px; width: 120px;">
 					</div>
 					<div>
-						<a href="${rootPath}/video_${v.rv_Id}.action" target="_blank">${v.name}</a>
+						<a href="${rootPath }secretary/partySecretary_lookVideo?rv_Id=${v.rv_Id}">${v.name }</a>
 					</div>
 					
 				</div>

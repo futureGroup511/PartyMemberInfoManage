@@ -23,6 +23,7 @@
 					<td>民族</td>
 					<td>籍贯</td>
 					<td>手机号</td>
+					<td>学习时长</td>
 					<td>注册日期</td>
 					<td>出生日期</td>
 					<td>身份证号</td>
@@ -40,6 +41,7 @@
 						<td>${pmi.nation}</td>
 						<td>${pmi.nativePlace}</td>
 						<td>${pmi.phoneNo}</td>
+						<td>${pmi.strLearnTime}</td>
 						<td>${pmi.loginDate}</td>
 						<td>${pmi.birthdate}</td>
 						<td>${pmi.idCard}</td>

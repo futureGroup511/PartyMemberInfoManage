@@ -36,8 +36,8 @@ public class PartySecretaryInfo extends UserInfo {
 
 	public PartySecretaryInfo(String sort, String username, String password, int age, String nation, Date birthdate,
 			String nativePlace, String idCard, Date loginDate, String phoneNo, String sex, Date joinPartyDate,
-			String duties, String partyBranch, long learnTime) {
-		super(sort, username, password, age, nation, birthdate, nativePlace, idCard, loginDate, phoneNo, sex, learnTime);
+			String duties, String partyBranch, long learnTime , String strLearnTime) {
+		super(sort, username, password, age, nation, birthdate, nativePlace, idCard, loginDate, phoneNo, sex, learnTime ,strLearnTime);
 		this.joinPartyDate = joinPartyDate;
 		this.duties = duties;
 		this.partyBranch = partyBranch;

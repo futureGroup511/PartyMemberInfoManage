@@ -56,8 +56,14 @@ public class RedVideoDaoImpl extends BaseDao<RedVideo> implements IRedVideoDao {
 	}	
 
 	public boolean updatewatchNumById(int rv_Id) {
+<<<<<<< HEAD
 		RedVideo redvideo=new RedVideo();
 		redvideo=this.getEntity(rv_Id);
+=======
+		//RedVideo redvideo=new RedVideo();丁赵雷注销的
+		RedVideo redvideo=this.getEntity(rv_Id);
+		System.out.println(redvideo);
+>>>>>>> 4aa4d42f1150a909c5739280aff602de52a5a897
 		redvideo.setWatchNum(redvideo.getWatchNum()+1);
 		return this.updateEntity(redvideo);
 

@@ -20,7 +20,7 @@ public class ManagerVideoAction extends BaseAction {
 		PageCut<RedVideo> pageCut = new PageCut<>(page, 2, 456);
 		this.getRequest().setAttribute("videoList",
 				redVideoService.getList((page - 1) * pageCut.getPageSize(), pageCut.getPageSize()));
-		return SUCCESS;
+		return SUCCESS; 
 	}
 
 	public String delete() {

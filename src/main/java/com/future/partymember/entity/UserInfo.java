@@ -29,14 +29,17 @@ public class UserInfo {
 	private Date loginDate;//注册日期
 	private String phoneNo;//手机号
 	private long learnTime;//学习时长 
+	private String strLearnTime;//格式转化过的学习时长
 	
 	
-	
+
+
 
 
 
 	public UserInfo(String sort, String username, String password, int age, String nation, Date birthdate,
-			String nativePlace, String idCard, Date loginDate, String phoneNo, String sex, long learnTime) {
+			String nativePlace, String idCard, Date loginDate, String phoneNo, String sex, long learnTime,
+			String strLearnTime) {
 		super();
 		this.sort = sort;
 		this.username = username;
@@ -50,11 +53,12 @@ public class UserInfo {
 		this.phoneNo = phoneNo;
 		this.sex=sex;
 		this.learnTime=learnTime;
+		this.strLearnTime=strLearnTime;
 	}
 	
 	//焦祥宇修改
 	/*account, sort, loginDate,  learnTime*/
-	public UserInfo(String account,String sort, Date loginDate,  long learnTime) {
+	public UserInfo(String account,String sort, Date loginDate, long learnTime) {
 		super();
 		this.account=account;
 		this.sort = sort;		
@@ -185,4 +189,11 @@ public class UserInfo {
 		this.account = account;
 	}
 	
+	public String getStrLearnTime() {
+		return strLearnTime;
+	}
+
+	public void setStrLearnTime(String strLearnTime) {
+		this.strLearnTime = strLearnTime;
+	}
 }
