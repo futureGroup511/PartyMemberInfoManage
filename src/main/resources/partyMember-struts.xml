@@ -18,16 +18,12 @@
             <result name="seekPartyMemberInfo">/WEB-INF/partyMember/getPartyMemberInfo.jsp</result> 
             <result name="getInfoBeforeUpdate">/WEB-INF/partyMember/updatePartyMemberInfo.jsp</result>                         
             <result name="updatePartyMemberInfo">/WEB-INF/partyMember/updatePartyMemberInfo.jsp</result>  
-<<<<<<< HEAD
             <result name="viewVideos">/WEB-INF/partyMember/viewVideos.jsp</result>            
-=======
             
             <result name="viewVideos">/WEB-INF/partyMember/viewVideos.jsp</result>
             
             <result name="viewing">/WEB-INF/partyMember/videoplay.jsp</result>            
->>>>>>> 4aa4d42f1150a909c5739280aff602de52a5a897
         </action>
-        
-        
+
 	</package>
 </struts>

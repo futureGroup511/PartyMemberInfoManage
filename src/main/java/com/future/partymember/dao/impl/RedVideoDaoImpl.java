@@ -2,15 +2,10 @@ package com.future.partymember.dao.impl;
 
 import java.util.List;
 
-
-
-import org.hibernate.HibernateException;
-import org.hibernate.Query;
 import org.springframework.stereotype.Repository;
 
 import com.future.partymember.base.BaseDao;
 import com.future.partymember.dao.IRedVideoDao;
-import com.future.partymember.entity.PartyMemberInfo;
 import com.future.partymember.entity.RedVideo;
 import com.future.partymember.util.PageCut;
 
@@ -56,16 +51,10 @@ public class RedVideoDaoImpl extends BaseDao<RedVideo> implements IRedVideoDao {
 	}	
 
 	public boolean updatewatchNumById(int rv_Id) {
-<<<<<<< HEAD
-		RedVideo redvideo=new RedVideo();
-		redvideo=this.getEntity(rv_Id);
-=======
-		//RedVideo redvideo=new RedVideo();丁赵雷注销的
-		RedVideo redvideo=this.getEntity(rv_Id);
-		System.out.println(redvideo);
->>>>>>> 4aa4d42f1150a909c5739280aff602de52a5a897
-		redvideo.setWatchNum(redvideo.getWatchNum()+1);
-		return this.updateEntity(redvideo);
+		
+		RedVideo redvideo1=this.getEntity(rv_Id);
+		redvideo1.setWatchNum(redvideo1.getWatchNum()+1);
+		return this.updateEntity(redvideo1);
 
 	}
 

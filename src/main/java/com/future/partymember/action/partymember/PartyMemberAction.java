@@ -1,18 +1,13 @@
 package com.future.partymember.action.partymember;
 
 import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
 
 import com.future.partymember.base.BaseAction;
 import com.future.partymember.entity.PartyMemberInfo;
 import com.future.partymember.entity.RedVideo;
-<<<<<<< HEAD
-import com.future.partymember.util.PageCut;
-=======
 import com.future.partymember.entity.WatchVideoRecord;
->>>>>>> 4aa4d42f1150a909c5739280aff602de52a5a897
+import com.future.partymember.util.PageCut;
 import com.future.partymember.util.SwitchTime;
 
 /*
@@ -74,15 +69,12 @@ public class PartyMemberAction extends BaseAction {
 
 	// 红色视频
 	public String viewVideos() throws Exception {
-<<<<<<< HEAD
 		PageCut<RedVideo> pc =redVideoService.getPC(12, page);
 		this.getRequest().setAttribute("pc", pc);
 		System.out.println(pc.getData().size());
-=======
 		List<RedVideo> videosList = new ArrayList<RedVideo>();
 		videosList = redVideoService.getAll();
 		this.getRequest().setAttribute("videosList",videosList);
->>>>>>> 4aa4d42f1150a909c5739280aff602de52a5a897
 		return "viewVideos";
 	}
 
@@ -175,7 +167,6 @@ public class PartyMemberAction extends BaseAction {
 	public PartyMemberInfo getPartyMemberInfo() {
 		return partyMemberInfo;
 	}
-<<<<<<< HEAD
 
 	public int getPage() {
 		return page;
@@ -185,12 +176,10 @@ public class PartyMemberAction extends BaseAction {
 		this.page = page;
 	}
 
-=======
 	/*public int getId() {
 		return id;
 	}
 	public void setId(int id) {
 		this.id = id;
 	}*/
->>>>>>> 4aa4d42f1150a909c5739280aff602de52a5a897
 }

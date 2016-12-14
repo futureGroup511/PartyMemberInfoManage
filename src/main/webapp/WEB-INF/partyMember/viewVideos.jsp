@@ -56,20 +56,17 @@
 					<li><a href="##">在线考试</a></li>
 				</ul>
 			</div>
-<<<<<<< HEAD
 			<div class="col-lg-2 col-md-2 col-xs-2">
 				<span class="one">
 					<!-- <a href="##">登录</a></span> <span class="two"> -->
 					<a href="##">退出</a>
 				</span>
-=======
 			<div class="col-lg-3 col-md-3 col-xs-3">
 				<span class="one" style="margin-left:85%;"><!-- <a href="##">登录</a></span> <span class="two"> --><a
 					href="##">退出</a></span>
 				<br>
 					<input class="people_input w117" name="names" id="names" type="text">
 					<input src="http://img02.people.com.cn/img/2011people/images/style_button_searchn.gif" class="people_button_n hn" width="50" type="image" border="0" height="20" >
->>>>>>> 4aa4d42f1150a909c5739280aff602de52a5a897
 			</div>
 		</div>
 	</div>
@@ -78,7 +75,6 @@
 	</div>
 
 	<!-- 视频列表 -->
-<<<<<<< HEAD
 	<div style="padding-left: 190px;">
 		<c:forEach items="${pc.data}" var="v" varStatus="status">
 			<c:choose>
@@ -105,8 +101,9 @@
 						<div>
 							<a href="${rootPath}/video_${v.rv_Id}.action" target="_blank">${v.name}</a>
 						</div>
-
-=======
+				</c:otherwise>
+		</c:choose>
+		</c:forEach>
 	<div style="/* height:500px; */padding-left: 190px;">	 
 		<c:forEach items="${videosList}" var="v" varStatus="status">
 		<c:choose>
