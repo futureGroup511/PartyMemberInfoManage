@@ -6,12 +6,13 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <script type="text/javascript" src="${rootPath }js/jquery-3.1.1.min.js"></script>
+
 </head>
 <body>
+ <div class="content">
 	<form action="${rootPath}manage/change_info" method="post">
 	${remind }
-		<table>
-
+		<table class="main">
 			<tbody>
 				<tr>
 					<td>账号</td>
@@ -54,7 +55,9 @@
 
 		</table>
 		<input type="submit" value="修改">
-		<form>
+		
+		</form>
+	</div>
 </body>
 <script type="text/javascript">
 	var changeUrl = "${rootPath}manage/change_info";

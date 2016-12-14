@@ -6,8 +6,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+
 </head>
 <body>
+  <div class="content">
 	<h1>${remind }</h1>
 	<form action="${rootPath }manage/partMember_updateDo"
 		method="post">
@@ -102,7 +104,7 @@
 					value="******"></td>
 			</tr>
 			<tr>
-					<td><input
+					<td ="button-one"><input
 					type="submit" value="确认修改"></td>
 			</tr>
 		</table>
@@ -116,5 +118,6 @@
 		<input type="password"><br> <input type="submit"
 			value="确定">
 	</form> --%>
+	</div>
 </body>
 </html>

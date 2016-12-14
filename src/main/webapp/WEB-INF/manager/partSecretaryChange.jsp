@@ -5,8 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+
 </head>
 <body>
+
 	<h1>${remind }</h1>
 	<form class="form-horizontal" role="form" method="post"
 		action="${rootPath }manage/partSecretary_addDo">
@@ -85,5 +87,6 @@
 		</table>
 
 	</form>
+
 </body>
 </html>

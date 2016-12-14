@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import com.future.partymember.dao.IRedVideoDao;
 import com.future.partymember.entity.RedVideo;
 import com.future.partymember.service.IRedVideoService;
+import com.future.partymember.util.PageCut;
 
 @Service
 public class RedVideoServiceImpl implements IRedVideoService{
@@ -48,6 +49,11 @@ public class RedVideoServiceImpl implements IRedVideoService{
 		
 		return redVideoDao.updatewatchNumById(rv_Id);
 
+	}
+	@Override
+	public PageCut<RedVideo> getPC(int pageSize, int curr) {
+		// TODO Auto-generated method stub
+		return redVideoDao.getPC(pageSize, curr);
 	}
 
 }

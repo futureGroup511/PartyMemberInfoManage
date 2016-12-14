@@ -3,6 +3,7 @@ package com.future.partymember.service;
 import java.util.List;
 
 import com.future.partymember.entity.RedVideo;
+import com.future.partymember.util.PageCut;
 
 public interface IRedVideoService {
 	boolean addVideo(RedVideo rv);
@@ -13,4 +14,5 @@ public interface IRedVideoService {
 	void delete(int id);
 	//视频浏览次数加一
 	boolean updatewatchNumById(int rv_Id);
+	PageCut<RedVideo> getPC(int pageSize,int curr);
 }

@@ -10,7 +10,9 @@ import org.springframework.stereotype.Repository;
 
 import com.future.partymember.base.BaseDao;
 import com.future.partymember.dao.IRedVideoDao;
+import com.future.partymember.entity.PartyMemberInfo;
 import com.future.partymember.entity.RedVideo;
+import com.future.partymember.util.PageCut;
 
 @Repository
 public class RedVideoDaoImpl extends BaseDao<RedVideo> implements IRedVideoDao {
@@ -56,11 +58,20 @@ public class RedVideoDaoImpl extends BaseDao<RedVideo> implements IRedVideoDao {
 	public boolean updatewatchNumById(int rv_Id) {
 		RedVideo redvideo=new RedVideo();
 		redvideo=this.getEntity(rv_Id);
-		System.out.println(redvideo);
 		redvideo.setWatchNum(redvideo.getWatchNum()+1);
-		System.out.println(redvideo);		
 		return this.updateEntity(redvideo);
 
+	}
+
+	@Override
+	public PageCut<RedVideo> getPC(int pageSize, int curr) {
+		// TODO Auto-generated method stub
+		String hql = "select count(*) from RedVideo";
+		int count = ((Long) this.uniqueResult(hql)).intValue();
+		PageCut<RedVideo> pc = new PageCut<RedVideo>(curr, pageSize, count);
+		pc.setData(this.getEntityLimitList("from RedVideo", curr, pageSize));
+		
+		return pc;
 	}
 
 }

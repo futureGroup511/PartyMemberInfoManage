@@ -62,26 +62,15 @@
 
 					</tbody>
 				</table>
-				<div id="pageCut"></div>
+				<div id="pageCut">
+					<a href="${rootPath }manage/partMember?page=${pc.prePage}">上一页</a>
+					<a href="#">${pc.currentPage}/${pc.pageNum}</a>
+					<a href="${rootPath }manage/partMember?page=${pc.nextPage}">下一页</a>
+				</div>
 			</div>
 		</div>
 	</div>
 
 </body>
-<script type="text/javascript">
-	$(function() {
-		var pageNum = Number("${pc.pageNum}");//必须强制转换成int型
-		$("#pageCut").Page(
-				{
-					totalPages : pageNum,//分页总数
-					liNums : 3,//分页的数字按钮数(建议取奇数)
-					activeClass : 'activP', //active 类样式定义
-					callBack : function(page) {
-						var url = "${rootPath }"
-								+ "manage/partMember"
-						location.href = url + "?page=" + page;
-					}
-				});
-	})
-</script>
+
 </html>

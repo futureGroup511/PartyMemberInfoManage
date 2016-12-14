@@ -51,58 +51,66 @@
 				</ul>
 			</div>
 			<div class="col-lg-2 col-md-2 col-xs-2">
-				<span class="one"><!-- <a href="##">登录</a></span> <span class="two"> --><a
-					href="##">退出</a></span>
+				<span class="one">
+					<!-- <a href="##">登录</a></span> <span class="two"> -->
+					<a href="##">退出</a>
+				</span>
 			</div>
 		</div>
 	</div>
 	<div class="body-five">
 		<img src="${rootPath}images/footer-one.png">
 	</div>
-	
-	<!-- 视频列表 -->
-	<div style="/* height:500px; */padding-left: 190px;">	 
-		<c:forEach items="${videosList}" var="v" varStatus="status">
-		<c:choose>
-			<c:when test="${(status.index)%6==0}">
-			<div style="clear: both;"></div>			
-				<div style="width: 158px;float: left;">
-					<div>
-						<img src="${rootPath}${v.imgUrl}"
-							style="height: 180px; width: 120px;">
-					</div>
-					<div style="height:25px;">
-						<a href="${rootPath}/video_${v.rv_Id}.action" target="_blank">${v.name}</a>
-					</div>
-					
-				</div>
-			</c:when>
-			<c:otherwise>
-				
-				<div style="float: left; width: 150px;">
-					<div>
-						<img src="${rootPath}${v.imgUrl}"
-							style="height: 180px; width: 120px;">
-					</div>
-					<div>
-						<a href="${rootPath}/video_${v.rv_Id}.action" target="_blank">${v.name}</a>
-					</div>
-					
-				</div>
-			</c:otherwise>
-		</c:choose>
 
-	</c:forEach>
+	<!-- 视频列表 -->
+	<div style="padding-left: 190px;">
+		<c:forEach items="${pc.data}" var="v" varStatus="status">
+			<c:choose>
+				<c:when test="${(status.index)%6==0}">
+					<div style="clear: both;"></div>
+					<div style="width: 158px; float: left;">
+						<div>
+							<img src="${rootPath}${v.imgUrl}"
+								style="height: 180px; width: 120px;">
+						</div>
+						<div style="height: 25px;">
+							<a href="${rootPath}/video_${v.rv_Id}.action" target="_blank">${v.name}</a>
+						</div>
+
+					</div>
+				</c:when>
+				<c:otherwise>
+
+					<div style="float: left; width: 150px;">
+						<div>
+							<img src="${rootPath}${v.imgUrl}"
+								style="height: 180px; width: 120px;">
+						</div>
+						<div>
+							<a href="${rootPath}/video_${v.rv_Id}.action" target="_blank">${v.name}</a>
+						</div>
+
+					</div>
+				</c:otherwise>
+			</c:choose>
+
+		</c:forEach>
 	</div>
-	
-	
+	<div id="pageCut">
+		<a href="${rootPath }manage/partMember?page=${pc.prePage}">上一页</a> <a
+			href="#">${pc.currentPage}/${pc.pageNum}</a> <a
+			href="${rootPath }manage/partMember?page=${pc.nextPage}">下一页</a>
+	</div>
+
+
 	<div class="footer">
 		<img src="${rootPath}images/footer.png">
+
 		<div class="footer-one">
 			<p>河南科技学院党员网站 京ICP备11032580号</p>
 			<p>Copyright © 2012 by zgdsw.org.cn. all rights reserved</p>
 		</div>
 	</div>
-	
+
 </body>
 </html>

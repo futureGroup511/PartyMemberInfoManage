@@ -6,6 +6,7 @@ import java.util.List;
 import com.future.partymember.base.BaseAction;
 import com.future.partymember.entity.PartyMemberInfo;
 import com.future.partymember.entity.RedVideo;
+import com.future.partymember.util.PageCut;
 import com.future.partymember.util.SwitchTime;
 
 /*
@@ -17,6 +18,7 @@ public class PartyMemberAction extends BaseAction {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	private int page=1;
 
 	private PartyMemberInfo partyMemberInfo;
 
@@ -66,11 +68,9 @@ public class PartyMemberAction extends BaseAction {
 
 	// 观看红色视频
 	public String viewVideos() throws Exception {
-		List<RedVideo> videosList = new ArrayList<RedVideo>();
-		videosList = redVideoService.getAll();
-		this.getRequest().setAttribute("videosList",
-
-				videosList);
+		PageCut<RedVideo> pc =redVideoService.getPC(12, page);
+		this.getRequest().setAttribute("pc", pc);
+		System.out.println(pc.getData().size());
 		return "viewVideos";
 	}
 
@@ -104,6 +104,14 @@ public class PartyMemberAction extends BaseAction {
 
 	public PartyMemberInfo getPartyMemberInfo() {
 		return partyMemberInfo;
+	}
+
+	public int getPage() {
+		return page;
+	}
+
+	public void setPage(int page) {
+		this.page = page;
 	}
 
 }

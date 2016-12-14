@@ -16,10 +16,8 @@
 		
 		<action name="partyMemberAction_*"  class="com.future.partymember.action.partymember.PartyMemberAction" method="{1}">  					       
             <result name="seekPartyMemberInfo">/WEB-INF/partyMember/getPartyMemberInfo.jsp</result> 
-           
             <result name="getInfoBeforeUpdate">/WEB-INF/partyMember/updatePartyMemberInfo.jsp</result>                         
             <result name="updatePartyMemberInfo">/WEB-INF/partyMember/updatePartyMemberInfo.jsp</result>  
-            
             <result name="viewVideos">/WEB-INF/partyMember/viewVideos.jsp</result>            
         </action>
         
