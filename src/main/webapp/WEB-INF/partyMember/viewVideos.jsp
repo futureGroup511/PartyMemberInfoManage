@@ -136,9 +136,9 @@
 		</c:forEach>
 	</div>
 	<div id="pageCut">
-		<a href="${rootPath }manage/partMember?page=${pc.prePage}">上一页</a> <a
-			href="#">${pc.currentPage}/${pc.pageNum}</a> <a
-			href="${rootPath }manage/partMember?page=${pc.nextPage}">下一页</a>
+		<a href="${rootPath }manage/partMember?page=${pc.prePage}">上一页</a> 
+			<a href="#">${pc.currentPage}/${pc.pageNum}</a> 
+		<a href="${rootPath }manage/partMember?page=${pc.nextPage}">下一页</a>
 	</div>
 
 

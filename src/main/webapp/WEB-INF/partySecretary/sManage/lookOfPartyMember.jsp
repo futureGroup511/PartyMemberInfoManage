@@ -52,8 +52,11 @@
 				</c:forEach>
 			</tbody>
 		</table>
+		<div>
+			<div id="page"></div>
+			<span style="color : red;">当前为第${pageCut.currentPage }页</span>
+		</div>
 		
-		<div id="page"></div>
 </body>
 	<script type="text/javascript">
 		$(function(){
@@ -61,7 +64,7 @@
 			$("#page").Page({
 		          totalPages: pageNum,//分页总数
 		          liNums: 3,//分页的数字按钮数(建议取奇数)
-		          activeClass: 'activP', //active 类样式定义
+		          //activeClass: 'activP', //active 类样式定义
 		          callBack : function(page){
 		        	  var url="${rootPath }"+"secretary/partySecretary_lookOfPartyMember"
 		        	  location.href=url+"?pageCut.currentPage="+page;

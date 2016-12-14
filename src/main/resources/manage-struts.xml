@@ -12,6 +12,10 @@
 	<package name="admin" extends="struts-default,json-default"
 		namespace="/manage" strict-method-invocation="false">
 		
+		<!-- 后台首页的验证码   添加人丁赵雷 -->
+		<action name="validation"   class="validationAction"  method="validation">
+		</action>
+		
 		<action name="index"
 			class="com.future.partymember.action.manager.IndexAction">
 			<result>/WEB-INF/manager/index.jsp</result>

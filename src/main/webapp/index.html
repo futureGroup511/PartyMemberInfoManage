@@ -2,9 +2,9 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>index</title>
-<link rel="stylesheet" href="css/bootstrap.css">
-<link rel="stylesheet" href="css/index.css">
+<title>后台首页</title>
+<link rel="stylesheet" href="/PartyMemberInfoManage/css/bootstrap.css">
+<link rel="stylesheet" href="/PartyMemberInfoManage/css/index.css">
 </head>
 
 <body>
@@ -15,16 +15,21 @@
   </div> 
   <div class="body">
       <div class="box">
-      <form class="form-inline"> 
+      <form class="form-inline"  action="/PartyMemberInfoManage/manage/index"> 
                  <div class="input-one">
+                 	             <label for="account" >账号</label>
+                               <input type="text" class="form-control"  placeholder="请输入用户名">
                    </div>
                     <div class="input-two">
-                               <label for="account" >账号</label>
-                               <input type="text" class="form-control"  placeholder="请输入用户名">
+								 <label for="password" >密码</label>
+                                 <input type="password" class="form-control"  placeholder="请输入密码">
                     </div>
-                    <div class="input-three">
-                                 <label for="password" >密码</label>
-                                 <input type="text" class="form-control"  placeholder="请输入密码">
+                    <div class="input-three"  class="form-control">
+								<label>验证码</label>
+								<input type="text"  placeholder="请输入验证码">
+								<img alt="点击刷新" src="manage/validation"  id="yan" />
+								<a href="javascript:void(0)" onclick="refresh()">看不清，换一张</a>
+								<span id="code_error"></span>
                     </div>
                    
                     <div class="input-four">
@@ -49,7 +54,13 @@
 				<li></li>
 			</ul>
 
-<script src="jquery-2.2.3.min.js"></script>
+<script src="js/jquery-2.2.3.min.js"></script>
 <script src="js/bootstrap.js"></script>
 </body>
+<script type="text/javascript">
+function refresh() {
+	document.getElementById("yan").src="manage/validation?s="+new Date();
+}
+
+</script>
 </html>
