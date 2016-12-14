@@ -129,7 +129,6 @@
 					</div>
 					<div>
 						<a href="partyMemberAction_viewing.action?videoId=${v.rv_Id}" target="_blank">${v.name}</a>
->>>>>>> 4aa4d42f1150a909c5739280aff602de52a5a897
 					</div>
 				</c:otherwise>
 			</c:choose>
