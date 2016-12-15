@@ -1,5 +1,7 @@
 package com.future.partymember.service;
 
-public interface IQuestionService {
+import com.future.partymember.entity.Question;
 
+public interface IQuestionService {
+	public String addQuestion(Question q);
 }

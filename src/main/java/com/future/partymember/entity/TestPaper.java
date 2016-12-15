@@ -11,7 +11,6 @@ import javax.persistence.Table;
 /**
  * 试卷类与试题类是一对多的关系
  * @author 丁赵雷
- *
  */
 
 @Entity

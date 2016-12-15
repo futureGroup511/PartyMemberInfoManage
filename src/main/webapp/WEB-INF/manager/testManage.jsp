@@ -4,9 +4,8 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>向数据库导入一套试卷  excel</title>
+<title>试题管理</title>
 </head>
 <body>
-
 </body>
 </html>
