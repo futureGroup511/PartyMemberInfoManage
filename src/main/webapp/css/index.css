@@ -8,6 +8,27 @@
 	width:100%;
   height:720px;
 }
+.input-three input{
+  width:170px!important;
+  margin-left:-18px;
+}
+.input-three img{
+  margin-left:-0.01%!important;
+  height: 45px;
+  margin-top:-10px;
+}
+.input-one{
+  margin-top:80px;
+}
+.input-two{
+  margin-top:20px;
+}
+.input-three{
+  margin-top:20px;
+}
+.input-four{
+  margin-left:-160px;
+}
 .container{
 	background-image:url(../images/enter.jpg);
   display:block;
