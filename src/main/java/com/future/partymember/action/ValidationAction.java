@@ -35,11 +35,6 @@ public class ValidationAction extends ActionSupport implements RequestAware,Serv
 	private HttpServletResponse response;
 	private Map<String, Object> request;
 	private Map<String, Object> session;
-	
-	
-
-
-
 
 	/**
 	 * @author 丁赵雷

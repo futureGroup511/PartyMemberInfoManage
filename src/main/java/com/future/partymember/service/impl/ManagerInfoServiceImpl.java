@@ -28,5 +28,10 @@ public class ManagerInfoServiceImpl implements IManagerInfoService{
 		// TODO Auto-generated method stub
 		return managerDao.updateManager(manager);
 	}
+	@Override
+	public ManagerInfo getByAccount(String account) {
+		// TODO Auto-generated method stub
+		return managerDao.getByAccount(account);
+	}
 
 }

@@ -13,15 +13,15 @@
 		namespace="/manage" strict-method-invocation="false">
 		
 		<!-- 后台首页的验证码   添加人丁赵雷 -->
-		<action name="validation"   class="validationAction"  method="validation">
-		</action>
 		
-		<action name="index"
+		
+		<action name="index_*" method="{1}"
 			class="com.future.partymember.action.manager.IndexAction">
 			<result>/WEB-INF/manager/index.jsp</result>
+			<result name="login">/WEB-INF/manager/login.jsp</result>
 		</action>
 		
-		<action name="info" class="com.future.partymember.action.manager.InfoAction">
+		<action name="info_*" method="{1}" class="com.future.partymember.action.manager.InfoAction">
 			<result>/WEB-INF/manager/info.jsp</result>
 		</action>
 

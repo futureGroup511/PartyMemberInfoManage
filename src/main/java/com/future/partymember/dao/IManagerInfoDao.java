@@ -11,5 +11,7 @@ public interface IManagerInfoDao {
 	boolean addManager(ManagerInfo manager);
 
 	boolean updateManager(ManagerInfo manager);
+	ManagerInfo getByAccount(String account);
+
 
 }

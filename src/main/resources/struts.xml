@@ -24,5 +24,8 @@
 			<result>/WEB-INF/videoPlay.jsp</result>
 		</action>
 		
+		<action name="validation"   class="validationAction"  method="validation">
+		</action>
+		
 	</package>
 </struts>

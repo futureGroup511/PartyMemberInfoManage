@@ -6,6 +6,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>无标题文档</title>
 </head>
+
 <frameset rows="18%,*" cols="100%" frameborder="no" border="0"
 	framespacing="0" name="head">
 	<frame src="head" scrolling="no"></frame>
@@ -14,7 +15,6 @@
 		<frame src="caidan" scrolling="no"></frame>
 		<frame name="main" src="UntitledFrame-1">
 	</frameset>
-	<noframes></noframes>
 	<body>
 
 	</body>

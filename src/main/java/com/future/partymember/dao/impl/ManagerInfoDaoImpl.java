@@ -28,5 +28,15 @@ public class ManagerInfoDaoImpl extends BaseDao<ManagerInfo> implements IManager
 		return this.updateEntity(manager);
 	}
 
+	@Override
+	public ManagerInfo getByAccount(String account) {
+		// TODO Auto-generated method stub
+		List<ManagerInfo> list=this.getEntityList("from ManagerInfo m where m.account=?",account);
+		if(list==null || list.isEmpty()){
+			return null;
+		}
+		return list.get(0);
+	}
+
 
 }

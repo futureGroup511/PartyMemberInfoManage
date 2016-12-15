@@ -1,5 +1,7 @@
 package com.future.partymember.action.manager;
 
+import java.io.IOException;
+
 import com.future.partymember.base.BaseAction;
 import com.future.partymember.entity.ManagerInfo;
 
@@ -12,5 +14,11 @@ import com.future.partymember.entity.ManagerInfo;
 public class InfoAction extends BaseAction {
 	public String execute(){
 		return SUCCESS;
+	}
+	public String logout() throws IOException{
+		this.getRequest().getSession().invalidate();
+		this.getResponse().sendRedirect("index");
+		
+		return null;
 	}
 }

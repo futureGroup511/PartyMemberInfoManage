@@ -32,6 +32,13 @@
             <dl class="channel">
                 <dt>文章管理<img src="images/select_xl01.png"></dt>
             </dl>
+            
+             <dl class="channel">
+                <dt>个人中心<img src="${rootPath }images/select_xl01.png"></dt>
+                <dd><a target="main" href="${rootPath }manage/info">个人信息</a></dd>
+                <dd><a target="main" href="${rootPath }manage/info_logout">退出登录</a></dd>
+            </dl>
+
     </div>
 
 </div>

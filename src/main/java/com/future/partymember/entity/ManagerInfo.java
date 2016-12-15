@@ -13,8 +13,6 @@ import javax.persistence.Table;
  * @author Administrator
  *
  */
-
-
 @Entity
 @Table(name = "manager_info", catalog = "partymember")
 public class ManagerInfo {

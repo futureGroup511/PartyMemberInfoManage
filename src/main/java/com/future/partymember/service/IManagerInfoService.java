@@ -6,4 +6,5 @@ public interface IManagerInfoService {
 	ManagerInfo getById(int id);
 	boolean addManager(ManagerInfo manager);
 	boolean updateManager(ManagerInfo manager);
+	ManagerInfo getByAccount(String account);
 }
