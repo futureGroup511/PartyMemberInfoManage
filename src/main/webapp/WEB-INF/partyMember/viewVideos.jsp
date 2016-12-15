@@ -13,10 +13,7 @@
 </head>
 
 <body>
-<!-- 这是一个搜索框 -->
-<div>
-	请输入视频名字 ：<input type="text"   name="videoName" />
-</div>
+
 
 
 	<div class="container">
@@ -79,6 +76,16 @@
 	<div class="body-five">
 		<img src="${rootPath}images/footer-one.png">
 	</div>
+
+<!-- 这是一个搜索框 -->
+<div>
+<form action="${rootPath }party/partyMemberAction_findByName"  method="post">
+	请输入视频名字 ：<input type="text"   name="videoName" />
+	<input  type="submit"  value="搜索"/>
+</form>
+	
+</div>
+
 
 	<!-- 视频列表 -->
 	<div style="padding-left: 190px;">

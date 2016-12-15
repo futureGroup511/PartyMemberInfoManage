@@ -15,4 +15,7 @@ public interface IRedVideoService {
 	//视频浏览次数加一
 	boolean updatewatchNumById(int rv_Id);
 	PageCut<RedVideo> getPC(int pageSize,int curr);
+	
+	//模糊搜索视频根据名字
+	public List<RedVideo> findByName(String name);
 }

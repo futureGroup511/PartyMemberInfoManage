@@ -17,32 +17,26 @@ public class RedVideoServiceImpl implements IRedVideoService{
 	private IRedVideoDao redVideoDao;
 	@Override
 	public boolean addVideo(RedVideo rv) {
-		// TODO Auto-generated method stub
 		return redVideoDao.addVideo(rv);
 	}
 	@Override
 	public List<RedVideo> getAll() {
-		// TODO Auto-generated method stub
 		return redVideoDao.getAll();
 	}
 	@Override
 	public RedVideo get(int id) {
-		// TODO Auto-generated method stub
 		return redVideoDao.get(id);
 	}
 	@Override
 	public List<RedVideo> getNew(int num) {
-		// TODO Auto-generated method stub
 		return redVideoDao.getNew(num);
 	}
 	@Override 
 	public List<RedVideo> getList(int first, int num) {
-		// TODO Auto-generated method stub
 		return redVideoDao.getList(first, num);
 	}
 	@Override
 	public void delete(int id) {
-		// TODO Auto-generated method stub
 		redVideoDao.delete(id);
 	}
 	public boolean updatewatchNumById(int rv_Id) {
@@ -52,8 +46,13 @@ public class RedVideoServiceImpl implements IRedVideoService{
 	}
 	@Override
 	public PageCut<RedVideo> getPC(int pageSize, int curr) {
-		// TODO Auto-generated method stub
 		return redVideoDao.getPC(pageSize, curr);
+	}
+	
+	//添加人 丁赵雷
+	@Override
+	public List<RedVideo> findByName(String name) {
+		return redVideoDao.findByName(name);
 	}
 
 }

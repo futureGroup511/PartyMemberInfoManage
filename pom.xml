@@ -180,7 +180,23 @@
 	    <artifactId>commons-codec</artifactId>
 	    <version>1.9</version>
 	</dependency>
+	
+	<!-- 用来操作xml文件 -->
+	<dependency>
+	    <groupId>jdom</groupId>
+	    <artifactId>jdom</artifactId>
+	    <version>1.1</version>
+	</dependency>
+	
+	<!-- 解析excel -->
+	<dependency>
+	    <groupId>org.apache.poi</groupId>
+	    <artifactId>poi</artifactId>
+	    <version>3.11</version>
+	</dependency>
   </dependencies>
+  
+  
   
   
   <build>
