@@ -5,6 +5,7 @@ import java.util.List;
 
 import com.future.partymember.base.BaseAction;
 import com.future.partymember.entity.RedVideo;
+import com.future.partymember.util.PageCut;
 
 /*
 *@author 焦祥宇
@@ -19,7 +20,7 @@ public class PartyLoginAction extends BaseAction {
 	public String  execute() throws Exception{
 		//获得视频
 		List<RedVideo> videosList=new ArrayList<RedVideo>();
-		videosList=redVideoService.getNew(18);		
+		PageCut pc=new PageCut();
 		this.getRequest().setAttribute("videosList", videosList);
 		
 		//获得文章
