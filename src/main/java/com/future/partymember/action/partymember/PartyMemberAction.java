@@ -115,11 +115,6 @@ public class PartyMemberAction extends BaseAction {
 		long time = Integer.parseInt(getRequest().getParameter("time"));
 		System.out.println("time" + time);
 		
-/*		//以下丁赵雷修改
-		Calendar cal = Calendar.getInstance(); 
-		Date d= SwitchTime.strToDate(partyMemberInfo.getLearnTime());
-		cal.setTime(d);
-		cal.roll(Calendar.SECOND, time); */
 		time = time + partyMemberInfo.getLearnTime();
 		String strTime=SwitchTime.switchTime(time);
 		partyMemberInfo.setLearnTime(time);
@@ -156,8 +151,6 @@ public class PartyMemberAction extends BaseAction {
 			watchVideoRecord.setCurrentTime(currentTime);		
 			watchVideoRecordService.updateWVR(watchVideoRecord);
 		}
-	
-
 	}
 
 	public void setPartyMemberInfo(PartyMemberInfo partyMemberInfo) {

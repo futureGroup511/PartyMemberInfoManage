@@ -13,6 +13,12 @@
 </head>
 
 <body>
+<!-- 这是一个搜索框 -->
+<div>
+	请输入视频名字 ：<input type="text"   name="videoName" />
+</div>
+
+
 	<div class="container">
 		<div class="header">
 		 <div class="row">
