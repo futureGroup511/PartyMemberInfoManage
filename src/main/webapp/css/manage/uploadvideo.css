@@ -1,0 +1,27 @@
+@charset "utf-8";
+*{
+  padding:0;
+  margin:0;
+}
+.row{
+  width:100%;
+  margin-top:15px;
+}
+.nameone{
+  margin-top:35px;
+  color:#FF6024;
+  font-size:20px;
+}
+.nametwo{
+  margin-top:35px;
+  color:#FF6024;
+  font-size:20px;
+}
+.parttwo .col-lg-3{
+  margin-left:9.5%;
+}
+button{
+  margin-left:80%;
+  color:#77B6C2！important;
+  width:50px;
+}

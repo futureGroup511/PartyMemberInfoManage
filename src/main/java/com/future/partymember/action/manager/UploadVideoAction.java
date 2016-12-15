@@ -2,9 +2,12 @@ package com.future.partymember.action.manager;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Date;
+
+import org.springframework.expression.spel.ast.IntLiteral;
 
 import com.future.partymember.base.BaseAction;
 import com.future.partymember.entity.RedVideo;
@@ -18,6 +21,7 @@ public class UploadVideoAction extends BaseAction {
 	private String videoDescription;
 	private File img;
 	private String imgFileName;
+	private RedVideo redVideo;
 	
 	public String upload() throws IOException {
 	
@@ -63,6 +67,34 @@ public class UploadVideoAction extends BaseAction {
 		return SUCCESS;
 	}
 
+	public String uploadOut() throws IOException{
+		if (redVideo==null||redVideo.getVideoUrl().length()<2) {
+			this.getRequest().setAttribute("remind", "请正确填写");
+			return SUCCESS;
+		}
+		if(img==null){
+			this.getRequest().setAttribute("remind","请上传缩略图" );
+			return SUCCESS;
+		}
+		String path = this.getContext().getRealPath("/upload/video/");
+		Date date=new Date();
+		
+		String imgName=date.getTime()+imgFileName.substring(imgFileName.lastIndexOf("."));
+		FileOutputStream outImg = new FileOutputStream( new File(path, imgName));
+		
+		FileInputStream inImg = new FileInputStream(img);
+		int len=0;
+		byte[] buff = new byte[1024];
+		while ((len=inImg.read(buff)) > 0) {
+			outImg.write(buff,0,len);
+		}
+		inImg.close();
+		outImg.close();
+		redVideo.setImgUrl(imgName);
+		redVideoService.addVideo(redVideo);
+		this.getRequest().setAttribute("remind", "添加成功");
+		return SUCCESS;
+	}
 	public File getVideo() {
 		return video;
 	}
@@ -109,6 +141,14 @@ public class UploadVideoAction extends BaseAction {
 
 	public void setImgFileName(String imgFileName) {
 		this.imgFileName = imgFileName;
+	}
+
+	public RedVideo getRedVideo() {
+		return redVideo;
+	}
+
+	public void setRedVideo(RedVideo redVideo) {
+		this.redVideo = redVideo;
 	}
 
 
