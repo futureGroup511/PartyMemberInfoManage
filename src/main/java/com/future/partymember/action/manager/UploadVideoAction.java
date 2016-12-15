@@ -15,6 +15,10 @@ import com.future.partymember.entity.RedVideo;
 public class UploadVideoAction extends BaseAction {
 
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private File video;
 	private String videoFileName;
 	private String videoContentType;
