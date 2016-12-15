@@ -8,6 +8,11 @@
 <link rel="stylesheet" href="${rootPath }css/bootstrap.css" />
 <link rel="stylesheet" href="${rootPath }css/manage/button.css">
 <title>Insert title here</title>
+<style type="text/css">
+.content{
+    background-image:url("${rootPath }images/star.png");
+}
+</style>
 </head>
 <body>
 <div class="content">
@@ -76,11 +81,9 @@
 					value="${partyMember.phoneNo}"></td>
 			</tr>
 			<tr>
-				<td>新密码</td>
-				<td><input type="password" value="******"></td>
-				<td>确认新密码</td>
+				<td>密码</td>
 				<td><input type="password" name="partyMemberInfo.password"
-					value="******"></td>
+				></td>
 			</tr>
 			<tr>
 				<td><input type="submit" value="重置"></td>
