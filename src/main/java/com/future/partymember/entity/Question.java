@@ -21,9 +21,9 @@ public class Question {
 	private int paperId;//试卷id  用来标志 试题是否属于一套试卷
 	private String questions_stems;//题干
 	private String answer;//答案
-
 	private String analysis;//解析
-	
+	private int question_socre;//该试题的分数
+
 	//A B C D选项
 	private String A;
 	private String B;
@@ -36,22 +36,21 @@ public class Question {
 		
 	}
 	
-	
-
-
-
-	public Question(int paperId, String questions_stems, String answer, String analysis, String a, String b, String c,
-			String d) {
-		super();
+	public Question(int paperId, String questions_stems, String answer, String analysis, int question_socre,
+			String a, String b, String c, String d) {
 		this.paperId = paperId;
 		this.questions_stems = questions_stems;
 		this.answer = answer;
 		this.analysis = analysis;
+		this.question_socre = question_socre;
 		A = a;
 		B = b;
 		C = c;
 		D = d;
 	}
+
+
+
 
 	@Override
 	public String toString() {
@@ -128,5 +127,11 @@ public class Question {
 
 	public void setD(String d) {
 		D = d;
+	}
+	public int getQuestion_socre() {
+		return question_socre;
+	}
+	public void setQuestion_socre(int question_socre) {
+		this.question_socre = question_socre;
 	}
 }

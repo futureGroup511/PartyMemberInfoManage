@@ -80,22 +80,32 @@ public void util2003() throws IOException{
                     q= new  Question ();
                     HSSFCell paperName = hssfRow.getCell(0);
                     HSSFCell questions_stems = hssfRow.getCell(1);
-                    HSSFCell answer = hssfRow.getCell(2);
-                    HSSFCell analysis = hssfRow.getCell(3);
-                    HSSFCell A = hssfRow.getCell(4);
-                    HSSFCell B = hssfRow.getCell(5);
-                    HSSFCell C = hssfRow.getCell(6);
-                    HSSFCell D = hssfRow.getCell(7);
+                    HSSFCell A = hssfRow.getCell(2);
+                    HSSFCell B = hssfRow.getCell(3);
+                    HSSFCell C = hssfRow.getCell(4);
+                    HSSFCell D = hssfRow.getCell(5);
+                    HSSFCell question_socre = hssfRow.getCell(6);
+                    HSSFCell answer = hssfRow.getCell(7);
+                    HSSFCell analysis = hssfRow.getCell(8);
+
                     
+                    /**
+                     * 根据试卷名判断没有这套试卷
+                     * 没有的话不进行导入试卷
+                     */
                     q.setPaperId(1);//这个地方应该动态的去判断导入试卷的id
                     
                     q.setQuestions_stems(String.valueOf(questions_stems));
-                    q.setAnswer(String.valueOf(answer));
-                    q.setAnalysis(String.valueOf(analysis));
                     q.setA(String.valueOf(A));
                     q.setB(String.valueOf(B));
                     q.setC(String.valueOf(C));
                     q.setD(String.valueOf(D));
+                    int index=String.valueOf(question_socre).trim().indexOf('.');
+                    String question_socre1=String.valueOf(question_socre).trim().substring(0, index);
+                    q.setQuestion_socre(Integer.parseInt(question_socre1));
+                    q.setAnswer(String.valueOf(answer));
+                    q.setAnalysis(String.valueOf(analysis));
+
                     list.add(q);
                 }
             }
@@ -122,25 +132,36 @@ public void util2010() throws IOException{
             }
             // 循环行Row
             for (int rowNum = 1; rowNum <= xssfSheet.getLastRowNum(); rowNum++) {
-                XSSFRow hssfRow = xssfSheet.getRow(rowNum);
-                if (hssfRow != null) {
+                XSSFRow xssfRow = xssfSheet.getRow(rowNum);
+                if (xssfRow != null) {
                     q= new  Question ();
-                    XSSFCell paperName = hssfRow.getCell(0);
-                    XSSFCell questions_stems = hssfRow.getCell(1);
-                    XSSFCell answer = hssfRow.getCell(2);
-                    XSSFCell analysis = hssfRow.getCell(3);
-                    XSSFCell A = hssfRow.getCell(4);
-                    XSSFCell B = hssfRow.getCell(5);
-                    XSSFCell C = hssfRow.getCell(6);
-                    XSSFCell D = hssfRow.getCell(7);
-                    q.setPaperId(1);
+                    XSSFCell paperName = xssfRow.getCell(0);
+                    XSSFCell questions_stems = xssfRow.getCell(1);
+                    XSSFCell A = xssfRow.getCell(2);
+                    XSSFCell B = xssfRow.getCell(3);
+                    XSSFCell C = xssfRow.getCell(4);
+                    XSSFCell D = xssfRow.getCell(5);
+                    XSSFCell question_socre = xssfRow.getCell(6);
+                    XSSFCell answer = xssfRow.getCell(7);
+                    XSSFCell analysis = xssfRow.getCell(8);
+
+                    /**
+                     * 根据试卷名判断没有这套试卷
+                     * 没有的话不进行导入试卷
+                     */
+                    q.setPaperId(1);//这个地方应该动态的去判断导入试卷的id
+
                     q.setQuestions_stems(String.valueOf(questions_stems));
-                    q.setAnswer(String.valueOf(answer));
-                    q.setAnalysis(String.valueOf(analysis));
                     q.setA(String.valueOf(A));
                     q.setB(String.valueOf(B));
                     q.setC(String.valueOf(C));
                     q.setD(String.valueOf(D));
+                    int index=String.valueOf(question_socre).trim().indexOf('.');
+                    String question_socre1=String.valueOf(question_socre).trim().substring(0, index);
+                    q.setQuestion_socre(Integer.parseInt(question_socre1));
+                    q.setAnswer(String.valueOf(answer));
+                    q.setAnalysis(String.valueOf(analysis));
+
                     list.add(q);
                 }
             }

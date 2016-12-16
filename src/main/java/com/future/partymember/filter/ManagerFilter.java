@@ -18,7 +18,7 @@ import freemarker.ext.servlet.HttpRequestParametersHashModel;
 /**
  * Servlet Filter implementation class ManagerFilter
  */
-//@WebFilter("/manage/*")  丁赵雷注销的
+@WebFilter("/manage/*")  //丁赵雷注销的
 public class ManagerFilter implements Filter {
 
     /**

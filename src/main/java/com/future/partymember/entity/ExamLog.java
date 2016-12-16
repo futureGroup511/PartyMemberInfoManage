@@ -23,6 +23,7 @@ import javax.persistence.TemporalType;
 public class ExamLog {
 
 	private int el_Id;
+	private int paper_Id;//试卷id
 	private int partyMemberId;//党员的id
 	private int socre;//考试成绩
 	private Date examTime;//考试时间
@@ -33,12 +34,14 @@ public class ExamLog {
 		
 	}
 	
-	public ExamLog(int partyMemberId, int socre, Date examTime) {
+	public ExamLog(int paper_Id, int partyMemberId, int socre, Date examTime) {
 		super();
+		this.paper_Id = paper_Id;
 		this.partyMemberId = partyMemberId;
 		this.socre = socre;
 		this.examTime = examTime;
 	}
+	
 	
 	@Id
 	@GeneratedValue(strategy = IDENTITY)
@@ -77,5 +80,13 @@ public class ExamLog {
 	}
 	public void setExamTime(Date examTime) {
 		this.examTime = examTime;
+	}
+	
+	public int getPaper_Id() {
+		return paper_Id;
+	}
+
+	public void setPaper_Id(int paper_Id) {
+		this.paper_Id = paper_Id;
 	}
 }
