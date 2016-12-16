@@ -19,7 +19,7 @@
 			<div class="box">
 				<form class="form-inline"
 					action="${rootPath }manage/index_loginDo" method="POST">
-					<h1>${remind }</h1>
+					<h2>${remind }</h2>
 					<div class="input-one">
 						<label for="account">账号</label> <input type="text" name="account"
 							class="form-control" placeholder="请输入用户名">

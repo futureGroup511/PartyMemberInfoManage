@@ -1,14 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <title>caidan</title>
-    <link rel="stylesheet" href="${rootPath}css/manage/caidan.css">
+<meta charset="UTF-8">
+<title>caidan</title>
+<link rel="stylesheet" href="${rootPath}css/manage/caidan.css">
 </head>
 <body id="bg">
-
 <div class="container">
     <div class="leftsidebar_box">
         <div class="line"></div>
@@ -36,34 +35,64 @@
              <dl class="channel">
                 <dt>考试管理<img src="images/select_xl01.png"></dt>
             </dl>
-            
-             <dl class="channel">
-                <dt>个人中心<img src="${rootPath }images/select_xl01.png"></dt>
-                <dd><a target="main" href="${rootPath }manage/info">个人信息</a></dd>
-                <dd><a target="main" href="${rootPath }manage/info_logout">退出登录</a></dd>
-            </dl>
 
-    </div>
 
-</div>
+			<dl class="channel">
+				<dt>
+					通知管理<img src="images/select_xl01.png">
+				</dt>
+				<dd>
+					<a target="main" href="${rootPath }manage/inform_add">增加通知</a>
+				</dd>
+				<dd>
+					<a target="main" href="${rootPath }manage/inform">管理通知</a>
+				</dd>
+			</dl>
 
-<script type="text/javascript" src="${rootPath }js/jquery-3.1.1.min.js"></script>
-<script type="text/javascript">
-$(".leftsidebar_box dt").css({"background-color":"#33333D"});
-$(".leftsidebar_box dt img").attr("src","${rootPath }images/select_xl01.png");
-$(function(){
-    $(".leftsidebar_box dd").hide();
-    $(".leftsidebar_box dt").click(function(){
-        $(".leftsidebar_box dt").css({"background-color":"#33333D"})
-        $(this).css({"background-color": "#6C7F81"});
-        $(this).parent().find('dd').removeClass(("menu_chioce"),6000);
-        $(".leftsidebar_box dt img").attr("src","${rootPath }images/select_xl01.png");
-        $(this).parent().find('img').attr("src","${rootPath }images/select_xl01.png");
-        $(".menu_chioce").slideUp();
-        $(this).parent().find('dd').slideToggle();
-    $(this).parent().find('dd').addClass("menu_chioce");
-})
-})
-</script>
+			<dl class="channel">
+				<dt>
+					个人中心<img src="${rootPath }images/select_xl01.png">
+				</dt>
+				<dd>
+					<a target="main" href="${rootPath }manage/info">个人信息</a>
+				</dd>
+				<dd>
+					<a target="_top" href="${rootPath }manage/info_logout">退出登录</a>
+				</dd>
+			</dl>
+
+		</div>
+
+	</div>
+
+	<script type="text/javascript" src="${rootPath }js/jquery-3.1.1.min.js"></script>
+	<script type="text/javascript">
+		$(".leftsidebar_box dt").css({
+			"background-color" : "#33333D"
+		});
+		$(".leftsidebar_box dt img").attr("src",
+				"${rootPath }images/select_xl01.png");
+		$(function() {
+			$(".leftsidebar_box dd").hide();
+			$(".leftsidebar_box dt").click(
+					function() {
+						$(".leftsidebar_box dt").css({
+							"background-color" : "#33333D"
+						})
+						$(this).css({
+							"background-color" : "#6C7F81"
+						});
+						$(this).parent().find('dd').removeClass(
+								("menu_chioce"), 6000);
+						$(".leftsidebar_box dt img").attr("src",
+								"${rootPath }images/select_xl01.png");
+						$(this).parent().find('img').attr("src",
+								"${rootPath }images/select_xl01.png");
+						$(".menu_chioce").slideUp();
+						$(this).parent().find('dd').slideToggle();
+						$(this).parent().find('dd').addClass("menu_chioce");
+					})
+		})
+	</script>
 </body>
 </html>

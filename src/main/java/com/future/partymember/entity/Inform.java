@@ -30,16 +30,13 @@ public class Inform {
 	 * 添加人：丁赵雷
 	 * 目的：通知应有应该有四种情况 管理员可看 书记 党员 全体
 	 */
+	//0：仅管理员可见，即不可用状态；1：管理员、书记可看，即给书记的通知；2：管理员、党员能看，即
+	//给党员的通知；3全体
 	private int info_tag;
-	
-
-
 
 	public Inform() {
 		super();
 	}
-
-	
 	
 	public Inform(String title, String content, String addresser, Date sendDate, int info_tag) {
 
@@ -49,8 +46,6 @@ public class Inform {
 		this.sendDate = sendDate;
 		this.info_tag=info_tag;
 	}
-	
-	
 	
 	@Id
 	@GeneratedValue(strategy = IDENTITY)
@@ -63,7 +58,6 @@ public class Inform {
 		this.info_Id = info_Id;
 	}
 	
-	
 	@Column(name = "title", nullable = false, length = 19)
 	public String getTitle() {
 		return title;
@@ -71,7 +65,6 @@ public class Inform {
 	public void setTitle(String title) {
 		this.title = title;
 	}
-	
 	
 	@Column(name = "content", nullable = false, length = 1000)
 	public String getContent() {
@@ -81,7 +74,6 @@ public class Inform {
 		this.content = content;
 	}
 	
-	
 	@Column(name = "addresser", nullable = false, length = 19)
 	public String getAddresser() {
 		return addresser;
@@ -89,7 +81,6 @@ public class Inform {
 	public void setAddresser(String addresser) {
 		this.addresser = addresser;
 	}
-	
 	
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "sendDate", nullable = false, length = 19)
@@ -100,7 +91,6 @@ public class Inform {
 		this.sendDate = sendDate;
 	}
 	
-	
 	@Column(name = "info_tag", nullable = false)
 	public int getInfo_tag() {
 		return info_tag;
@@ -108,5 +98,4 @@ public class Inform {
 	public void setInfo_tag(int info_tag) {
 		this.info_tag = info_tag;
 	}
-
 }
