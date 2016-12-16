@@ -2,6 +2,8 @@ package com.future.partymember.dao.impl;
 
 import java.util.List;
 
+import org.hibernate.Query;
+import org.hibernate.Session;
 import org.springframework.stereotype.Repository;
 
 import com.future.partymember.base.BaseDao;
@@ -60,13 +62,21 @@ public class RedVideoDaoImpl extends BaseDao<RedVideo> implements IRedVideoDao {
 
 	@Override
 	public PageCut<RedVideo> getPC(int pageSize, int curr) {
-		// TODO Auto-generated method stub
 		String hql = "select count(*) from RedVideo";
 		int count = ((Long) this.uniqueResult(hql)).intValue();
 		PageCut<RedVideo> pc = new PageCut<RedVideo>(curr, pageSize, count);
 		pc.setData(this.getEntityLimitList("from RedVideo", curr, pageSize));
 		
 		return pc;
+	}
+
+	//模糊查询视频
+	@Override
+	public List<RedVideo> findByName(String name) {
+		String hql="from RedVideo as rv where rv.name like :name";
+		Query query=getSession().createQuery(hql);
+		query.setString("name", "%" + name + "%");
+		return query.list();
 	}
 
 }

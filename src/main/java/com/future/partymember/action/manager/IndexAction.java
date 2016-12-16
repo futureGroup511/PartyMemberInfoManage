@@ -3,7 +3,6 @@ package com.future.partymember.action.manager;
 import java.io.IOException;
 
 import com.future.partymember.base.BaseAction;
-import com.future.partymember.dao.impl.ManagerInfoDaoImpl;
 import com.future.partymember.entity.ManagerInfo;
 
 /*

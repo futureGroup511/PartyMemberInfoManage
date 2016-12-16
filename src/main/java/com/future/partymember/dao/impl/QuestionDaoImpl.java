@@ -9,4 +9,11 @@ import com.future.partymember.entity.Question;
 @Repository
 public class QuestionDaoImpl extends BaseDao<Question> implements IQuestionDao{
 
+	//添加试题
+	@Override
+	public String addQuestion(Question q) {
+		saveEntity(q);
+		return "su";
+	}
+
 }

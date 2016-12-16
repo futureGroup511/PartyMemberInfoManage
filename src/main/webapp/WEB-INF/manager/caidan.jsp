@@ -9,6 +9,7 @@
 </head>
 <body id="bg">
 
+<<<<<<< HEAD
 	<div class="container">
 		<div class="leftsidebar_box">
 			<div class="line"></div>
@@ -23,6 +24,41 @@
 					<a target="main" href="${rootPath }manage/partSecretary">管理书记</a>
 				</dd>
 			</dl>
+=======
+<div class="container">
+    <div class="leftsidebar_box">
+        <div class="line"></div>
+           <dl class="system_log">
+                <dt onClick="changeImage()"><img src="${rootPath }images/select_xl01.png">书记管理</dt>
+                <dd><a target="main" href="${rootPath }manage/partSecretary_add">增加书记</a></dd>
+                <dd><a target="main" href="${rootPath }manage/partSecretary">管理书记</a></dd>
+            </dl>
+        
+            <dl class="custom">
+                <dt onClick="changeImage()"><img src="${rootPath }images/select_xl01.png">党员管理</dt>
+                <dd><a target="main" href="${rootPath }manage/partMember_add">增加党员</a></dd>
+                <dd><a target="main" href="${rootPath }manage/partMember">管理党员</a></dd>
+            </dl>
+        
+            <dl class="channel">
+                <dt>视频管理<img src="${rootPath }images/select_xl01.png"></dt>
+                <dd><a target="main" href="${rootPath }manage/uploadVideo">上传视频</a></dd>
+                <dd><a target="main" href="${rootPath }manage/manageVideo">管理视频</a></dd>
+            </dl>
+            <dl class="channel">
+                <dt>文章管理<img src="images/select_xl01.png"></dt>
+            </dl>
+            
+             <dl class="channel">
+                <dt>考试管理<img src="images/select_xl01.png"></dt>
+            </dl>
+            
+             <dl class="channel">
+                <dt>个人中心<img src="${rootPath }images/select_xl01.png"></dt>
+                <dd><a target="main" href="${rootPath }manage/info">个人信息</a></dd>
+                <dd><a target="main" href="${rootPath }manage/info_logout">退出登录</a></dd>
+            </dl>
+>>>>>>> 94fbb202bade5e7ae124bf002fde0cb2d771c499
 
 			<dl class="custom">
 				<dt onClick="changeImage()">

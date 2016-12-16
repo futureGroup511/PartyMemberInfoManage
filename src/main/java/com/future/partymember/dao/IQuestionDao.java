@@ -1,5 +1,7 @@
 package com.future.partymember.dao;
 
-public interface IQuestionDao{
+import com.future.partymember.entity.Question;
 
+public interface IQuestionDao{
+	public String addQuestion(Question q );
 }

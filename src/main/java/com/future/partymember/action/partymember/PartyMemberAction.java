@@ -152,6 +152,23 @@ public class PartyMemberAction extends BaseAction {
 			watchVideoRecordService.updateWVR(watchVideoRecord);
 		}
 	}
+	
+	
+	/**
+	 * @author 丁赵雷
+	 * 根据名字模糊查询视频
+	 */
+	public String findByName() throws Exception{
+		String name=this.getRequest().getParameter("videoName"); //视频名字
+		PageCut<RedVideo> pc =redVideoService.getPC(12, page);
+		System.out.println("模糊查询视频");
+		this.getRequest().setAttribute("pc", pc);
+		List<RedVideo>  videosList=redVideoService.findByName(name);
+		this.getRequest().setAttribute("videosList",videosList);
+		return "viewVideos";
+	}
+	
+	
 
 	public void setPartyMemberInfo(PartyMemberInfo partyMemberInfo) {
 		this.partyMemberInfo = partyMemberInfo;
