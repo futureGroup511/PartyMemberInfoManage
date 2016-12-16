@@ -13,14 +13,13 @@
 </head>
 
 <body>
-<<<<<<< HEAD
 
-=======
+
 	<!-- 这是一个搜索框 -->
 	<div>
 		请输入视频名字 ：<input type="text" name="videoName" />
 	</div>
->>>>>>> 8bda0069b52d2b51032bd818c5caa0257b31f53d
+
 
 
 	<div class="container">
@@ -150,9 +149,27 @@
 
 			<%-- 	</c:forEach> --%>
 
-		</div>
 
+	<%-- </c:forEach> --%>
+
+	<%-- </div>
+	
 		<div id="pageCut">
+					<a href="${rootPath }manage/partMember?page=${pc.prePage}">上一页</a>
+					<a href="#">${pc.currentPage}/${pc.pageNum}</a>
+					<a href="${rootPath }manage/partMember?page=${pc.nextPage}">下一页</a>
+		</div>
+	 --%>
+	
+	<div class="footer">
+		<img src="${rootPath}images/footer.png">
+		<div class="footer-one">
+			<p>河南科技学院党员网站 京ICP备11032580号</p>
+			<p>Copyright © 2012 by zgdsw.org.cn. all rights reserved</p>
+
+		</div>
+   </div>
+		<%-- <div id="pageCut">
 			<a href="${rootPath }manage/partMember?page=${pc.prePage}">上一页</a> <a
 				href="#">${pc.currentPage}/${pc.pageNum}</a> <a
 				href="${rootPath }manage/partMember?page=${pc.nextPage}">下一页</a>
@@ -167,6 +184,6 @@
 				<p>河南科技学院党员网站 京ICP备11032580号</p>
 				<p>Copyright © 2012 by zgdsw.org.cn. all rights reserved</p>
 			</div>
-		</div>
+		</div> --%>
 </body>
 </html>
