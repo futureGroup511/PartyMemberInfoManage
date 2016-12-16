@@ -13,6 +13,7 @@
     <param-name>contextConfigLocation</param-name>
     <param-value>classpath:applicationContext.xml</param-value>
   </context-param>
+  <!-- 
   <filter>
   	<filter-name>manage</filter-name>
   	<filter-class>com.future.partymember.filter.ManagerFilter</filter-class>
@@ -21,6 +22,7 @@
   	<filter-name>manage</filter-name>
   	<url-pattern>/manage/*</url-pattern>
   </filter-mapping>
+   -->
   <filter>
     <filter-name>struts2</filter-name>
     <filter-class>org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter</filter-class>

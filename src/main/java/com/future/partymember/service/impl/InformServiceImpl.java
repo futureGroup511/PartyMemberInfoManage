@@ -38,4 +38,10 @@ public class InformServiceImpl implements IInformService{
 		// TODO Auto-generated method stub
 		return informDao.getPCByNew(curr, pageSize);
 	}
+
+	@Override
+	public Inform getById(int id) {
+		// TODO Auto-generated method stub
+		return informDao.getById(id);
+	}
 }

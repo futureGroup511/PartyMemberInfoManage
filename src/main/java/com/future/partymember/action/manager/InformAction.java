@@ -1,6 +1,8 @@
 package com.future.partymember.action.manager;
 import java.util.Date;
 
+import org.aspectj.weaver.Dump.INode;
+
 /*
 * @author 宋民举 860080937@qq.com  
 * @date 2016年12月16日 上午11:31:44 
@@ -10,6 +12,7 @@ import com.future.partymember.base.BaseAction;
 import com.future.partymember.entity.Inform;
 import com.future.partymember.entity.ManagerInfo;
 import com.future.partymember.util.PageCut;
+import com.opensymphony.xwork2.util.finder.ClassFinder.Info;
 public class InformAction extends BaseAction{
 	
 	private int page=1;
@@ -33,6 +36,32 @@ public class InformAction extends BaseAction{
 		informService.addInform(inform);
 		this.getRequest().setAttribute("remind","添加成功");
 		return "add";
+	}
+	public String delete(){
+		if(inform==null||inform.getInfo_Id()<0){
+			this.getRequest().setAttribute("remind", "请正确操作");
+			return this.execute();
+		}
+		informService.deleteInform(inform.getInfo_Id());
+		this.getRequest().setAttribute("remind","删除成功；");
+		return this.execute();
+	}
+	public String change(){
+		this.getRequest().setAttribute("inform",informService.getById(inform.getInfo_Id()));
+		return "change";
+	}
+	public String changeDo(){
+		Inform i=informService.getById(inform.getInfo_Id());
+		if(i==null){
+			this.getRequest().setAttribute("remind", "更改失败");
+			return this.change();
+		}
+		i.setTitle(inform.getTitle());
+		i.setContent(inform.getContent());
+		i.setInfo_tag(inform.getInfo_tag());
+		informService.updateInform(i);
+		this.getRequest().setAttribute("remind", "更改成功");
+		return this.change();
 	}
 	public String getNew(){
 		return null;

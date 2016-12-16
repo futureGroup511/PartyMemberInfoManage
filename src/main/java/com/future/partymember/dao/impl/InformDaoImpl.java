@@ -33,18 +33,27 @@ public class InformDaoImpl extends BaseDao<Inform> implements IInformDao {
 	@Override
 	public void deleteInform(int id) {
 		// TODO Auto-generated method stub
-		this.deleteEntity(this.getEntity(id));
+		Inform inform=this.getEntity(id);
+		if(inform==null){
+			return;
+		}
+		this.deleteEntity(inform);
 	}
 
 	@Override
 	public PageCut<Inform> getPCByNew(int curr, int pageSize) {
 		// TODO Auto-generated method stub
 		int first=(curr-1)*pageSize;
-		List<Inform> list=this.getEntityLimitList("from Inform", first,pageSize);
+		List<Inform> list=this.getEntityLimitList("from Inform order by info_Id desc", first,pageSize);
 		PageCut<Inform> pc=new PageCut<>(curr,pageSize,this.getNum());
 		pc.setData(list);
 		return pc;
 		
+	}
+	@Override
+	public Inform getById(int id) {
+		// TODO Auto-generated method stub
+		return this.getEntity(id);
 	}
 
 }

@@ -10,6 +10,7 @@
 
 </head>
 <body>
+<h1>${remind }</h1>
 	<table class="table table-bordered">
 
 
@@ -26,8 +27,8 @@
 					<td>${inform.info_Id }</td>
 					<td>${inform.title }</td>
 					<td>${inform.sendDate }</td>
-					<td><a href="#">管理</a></td>
-					<td><a href="#">删除</a></td>
+					<td><a href="${rootPath }manage/inform_change?inform.info_Id=${inform.info_Id}">管理</a></td>
+					<td><a href="${rootPath }manage/inform_delete?page=${pc.currentPage }&inform.info_Id=${inform.info_Id}">删除</a></td>
 				</tr>
 			</c:forEach>
 

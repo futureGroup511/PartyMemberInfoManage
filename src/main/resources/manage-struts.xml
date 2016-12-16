@@ -64,6 +64,7 @@
 		<action name="inform_*" method="{1}" class="com.future.partymember.action.manager.InformAction">
 			<result name="manage">/WEB-INF/manager/informManage.jsp</result>
 			<result name="add">/WEB-INF/manager/informAdd.jsp</result>
+			<result name="change">/WEB-INF/manager/informChange.jsp</result>
 		</action>
 		<action name="caidan">
 			<result>/WEB-INF/manager/caidan.jsp</result>
