@@ -9,47 +9,47 @@
 
 </head>
 <body>
- <div class="content">
-	<form action="${rootPath}manage/change_info" method="post">
-	${remind }
-		<table class="main">
-			<tbody>
-				<tr>
-					<td>账号</td>
-					<td>${user.account }</td>
+	<div class="content">
+		<form action="${rootPath}manage/change_info" method="post">
+			${remind }
+			<table class="main">
+				<tbody>
+					<tr>
+						<td>账号</td>
+						<td>${user.account }</td>
 
-				</tr>
-				<tr>
-					<td>身份</td>
-					<td>${user.sort }</td>
-				</tr>
-				<tr>
-					<td>用户名</td>
-					<td><input name="user.username" value="${user.username}"></td>
-				</tr>
-				<tr>
-					<td>密码</td>
-					<td><input name="user.password" placeholder="******"></td>
-				</tr>
-				<tr>
-					<td>手机号</td>
-					<td><input name="user.phoneNo" value="${user.phoneNo}"></td>
-				</tr>
+					</tr>
+					<tr>
+						<td>身份</td>
+						<td>${user.sort }</td>
+					</tr>
+					<tr>
+						<td>用户名</td>
+						<td><input name="user.username" value="${user.username}"></td>
+					</tr>
+					<tr>
+						<td>密码</td>
+						<td><input name="user.password" placeholder="******"></td>
+					</tr>
+					<tr>
+						<td>手机号</td>
+						<td><input name="user.phoneNo" value="${user.phoneNo}"></td>
+					</tr>
 
-				<tr>
-					<td>年龄</td>
-					<td><input name="user.age" value="${user.age}"></td>
-				</tr>
-				<tr>
-					<td>性别</td>
-					<td><input name="user.sex" value="${user.sex}"></td>
-				</tr>
+					<tr>
+						<td>年龄</td>
+						<td><input name="user.age" value="${user.age}"></td>
+					</tr>
+					<tr>
+						<td>性别</td>
+						<td><input name="user.sex" value="${user.sex}"></td>
+					</tr>
 
-			</tbody>
+				</tbody>
 
-		</table>
-		<input type="submit" value="修改">
-		
+			</table>
+			<input type="submit" value="修改">
+
 		</form>
 	</div>
 </body>
@@ -59,7 +59,7 @@
 		var str = $(this).parent().prev().find("input").first();
 		var name = str.attr('name');
 		var val = str.val();
-		
+
 		$.post(changeUrl, {
 			name : val
 		}, function(result) {
