@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>无标题文档</title>
+<title>管理员首页</title>
 </head>
 
 <frameset rows="18%,*" cols="100%" frameborder="no" border="0"
@@ -15,6 +15,7 @@
 		<frame src="caidan" scrolling="no"></frame>
 		<frame name="main" src="UntitledFrame-1">
 	</frameset>
+</frameset>
 	<body>
 
 	</body>

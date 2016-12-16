@@ -1,5 +1,7 @@
 package com.future.partymember.dao.impl;
 
+import java.util.List;
+
 import org.springframework.stereotype.Repository;
 
 import com.future.partymember.base.BaseDao;
@@ -15,5 +17,26 @@ public class QuestionDaoImpl extends BaseDao<Question> implements IQuestionDao{
 		saveEntity(q);
 		return "su";
 	}
+
+	@Override
+	public Boolean deleteQuestion(Question q) {
+		deleteEntity(q);
+		return true;
+	}
+
+	@Override
+	public Boolean updateQuestion(Question q) {
+		this.updateEntity(q);
+		return true;
+	}
+
+	@Override
+	public List<Question> getQuestion(int paperId) {
+		String hql="from Question q where q.paperId="+paperId;		
+		return this.getEntityList(hql);
+		
+	}
+
+	
 
 }

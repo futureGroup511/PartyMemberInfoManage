@@ -15,7 +15,7 @@ import com.future.partymember.util.SwitchTime;
  * @author 焦祥宇
  */
 public class PartyMemberAction extends BaseAction {
-	/**
+	/**+
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;

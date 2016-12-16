@@ -12,9 +12,11 @@
 	<package name="admin" extends="struts-default,json-default"
 		namespace="/manage" strict-method-invocation="false">
 		
-		<!-- 后台首页的导入试卷   添加人丁赵雷 -->
-		<action name="importTest"   class="importTestAction"  method="importTest">
-			<result name="importTest">/importTestPaper.jsp</result>
+		<!-- 后台首页的导入试卷   添加人丁赵雷，焦祥宇改 -->
+		<action name="import_*"   class="importTestAction"  method="{1}">		
+			<result name="linking">/WEB-INF/manager/testPaper_manage/importTestPaper.jsp</result>		
+			<result name="importTest">/WEB-INF/manager/testPaper_manage/importTestPaper.jsp</result>			
+			<result name="question">/WEB-INF/manager/testPaper_manage/importTestPaper.jsp</result>
 		</action>
 		
 		<action name="index_*" method="{1}"

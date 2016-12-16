@@ -34,6 +34,8 @@
             
              <dl class="channel">
                 <dt>考试管理<img src="images/select_xl01.png"></dt>
+                <dd><a target="main" href="${rootPath}manage/import_linking">上传试卷</a></dd>
+                <dd><a target="main" href="#">管理试卷</a></dd>
             </dl>
 
 
