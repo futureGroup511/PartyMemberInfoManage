@@ -20,6 +20,7 @@ import com.future.partymember.service.IPartyMemberInfoService;
 import com.future.partymember.service.IPartySecretaryInfoService;
 import com.future.partymember.service.IQuestionService;
 import com.future.partymember.service.IRedPaperService;
+import com.future.partymember.service.IRedPaperTypeService;
 import com.future.partymember.service.IRedVideoService;
 import com.future.partymember.service.IRelationTransformService;
 import com.future.partymember.service.IWatchVideoRecordService;
@@ -62,7 +63,7 @@ public class BaseAction extends ActionSupport implements SessionAware{
 	@Resource
 	protected IRelationTransformService relationTransformService;
 	@Resource
-	protected IWatchVideoRecordService watchVideoRecordService;
+	protected IRedPaperTypeService redPaperTypeService;
 	
 	
 	protected HttpServletRequest getRequest(){
