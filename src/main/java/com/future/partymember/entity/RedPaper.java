@@ -20,23 +20,48 @@ public class RedPaper {
 
 
 	private int rp_Id;
+	private int paperTypeId;//文章类别的id
 	private String title;//标题
 	private String content;//文章内容
 	private int readNum;//阅读次数
 	private int rp_tag;//文章状态
-	
-	
-	public RedPaper(){
-		
-	}
-	
-	public RedPaper(String title, String content, int readNum, int rp_tag) {
+	private String author;//作者
+	private String source;//来源  来源那个网站 
+	private String releaseDate;//发布日期
+
+
+
+	public RedPaper(String title, String content, int readNum, int rp_tag, String author, String source,
+			String releaseDate) {
 		super();
 		this.title = title;
 		this.content = content;
 		this.readNum = readNum;
 		this.rp_tag = rp_tag;
+		this.author = author;
+		this.source = source;
+		this.releaseDate = releaseDate;
 	}
+
+
+
+	public RedPaper(String title, String content, int readNum, String author, String source, String releaseDate) {
+		super();
+		this.title = title;
+		this.content = content;
+		this.readNum = readNum;
+		this.author = author;
+		this.source = source;
+		this.releaseDate = releaseDate;
+	}
+
+
+
+	public RedPaper(){
+		
+	}
+	
+
 	
 	@Id
 	@GeneratedValue(strategy = IDENTITY)
@@ -74,5 +99,34 @@ public class RedPaper {
 	}
 	public void setRp_tag(int rp_tag) {
 		this.rp_tag = rp_tag;
+	}
+	
+	public String getAuthor() {
+		return author;
+	}
+	public void setAuthor(String author) {
+		this.author = author;
+	}
+	public String getSource() {
+		return source;
+	}
+	public void setSource(String source) {
+		this.source = source;
+	}
+	
+	@Column(name="release_date")
+	public String getReleaseDate() {
+		return releaseDate;
+	}
+	public void setReleaseDate(String releaseDate) {
+		this.releaseDate = releaseDate;
+	}
+	
+	@Column(name="paper_type_id")
+	public int getPaperTypeId() {
+		return paperTypeId;
+	}
+	public void setPaperTypeId(int paperTypeId) {
+		this.paperTypeId = paperTypeId;
 	}
 }
