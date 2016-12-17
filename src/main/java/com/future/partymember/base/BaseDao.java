@@ -54,6 +54,15 @@ public class BaseDao<T> {
 		return list;
 	}
 	
+	//根据id删除
+	protected int executeUpdate(String hql, Object... objects){
+		Query query = getSession().createQuery(hql);
+		for(int i=0;i<objects.length;i++){
+			query.setParameter(i, objects[i]);
+		}
+		return query.executeUpdate();
+	}
+	
 	protected Object uniqueResult(String hql, Object... objects) {
 		Query query = getSession().createQuery(hql);
 		for(int i=0;i<objects.length;i++){
