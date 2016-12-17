@@ -13,7 +13,7 @@
 	<frameset cols="16%,84%" rows="100%" frameborder="yes" framespacing="1"
 		name="caidan">
 		<frame src="caidan" scrolling="no"></frame>
-		<frame name="main" src="UntitledFrame-1">
+		<frame name="main" src="">
 	</frameset>
 </frameset>
 	<body>
