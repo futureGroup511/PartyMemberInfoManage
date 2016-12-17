@@ -31,7 +31,7 @@
 		D选项：<input type="text" name="question.D" ><br>		
 		答案：<input type="text" name="question.answer" ><br>
 		解析：<input type="text" name="question.analysis" ><br>
-		分数：<input type="number" name="question_socre" ><br>
+		分数：<input type="number" name="question.question_socre" ><br>
 		<input type="reset" value="重置">
 		<input type="submit" value="上传">
 	</form>

@@ -1,4 +1,4 @@
-package com.future.partymember.service;
+package com.future.partymember.dao;
 
 import java.util.List;
 
@@ -7,7 +7,7 @@ import com.future.partymember.entity.TestPaper;
 /*
 *@author 焦祥宇
 */
-public interface ITestPaperService {
+public interface ITestPaperDao {
 	public Boolean addTestPaper(TestPaper testPaper);
 	public Boolean delectTestPaper(TestPaper testPaper);
 	public Boolean updateTestPaper(TestPaper testPaper);

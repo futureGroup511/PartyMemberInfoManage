@@ -2,7 +2,9 @@ package com.future.partymember.action.manager;
 
 import java.io.File;
 import java.io.IOException;
+
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import org.apache.commons.io.FileUtils;
@@ -19,6 +21,8 @@ import org.springframework.stereotype.Controller;
 
 import com.future.partymember.base.BaseAction;
 import com.future.partymember.entity.Question;
+import com.future.partymember.entity.TestPaper;
+import com.future.partymember.util.SwitchTime;
 
 /**
  * 导入一套excel类型的试卷
@@ -39,6 +43,8 @@ public class ImportTestAction extends BaseAction {
 	private String testPaperFileName;
 	private String testPaperContentType;
 
+	private Question question;
+	
 	// 链接到上传试卷页面
 	public String linking() throws Exception {
 
@@ -68,9 +74,23 @@ public class ImportTestAction extends BaseAction {
 		//根据试卷名称获得试卷id
 		String paperName=this.getRequest().getParameter("paperName");
 		
+		TestPaper testPaper=testPaperService.getTestPaperByName(paperName);
+		if(testPaper==null){//判断该试卷是否存在
+			testPaper=new TestPaper();
+			testPaper.setPaperName(paperName);
+			testPaper.setCreateDate(SwitchTime.dateToStr(new Date()));
+			testPaperService.addTestPaper(testPaper);
+			testPaper=testPaperService.getTestPaperByName(paperName);
+		}		
+		int tp_Id=testPaper.getTp_Id();
+		
 		//上传试题
-		
-		
+		question.setPaperId(tp_Id);
+		String bool=questionService.addQuestion(question);
+		if(bool.equals("su"))			
+			this.getRequest().setAttribute("questionMag", "上传成功");
+		else
+			this.getRequest().setAttribute("questionMag", "上传失败");
 		return "question";
 	}
 	
@@ -202,6 +222,14 @@ public class ImportTestAction extends BaseAction {
 
 	public void setTestPaperContentType(String testPaperContentType) {
 		this.testPaperContentType = testPaperContentType;
+	}
+
+	public Question getQuestion() {
+		return question;
+	}
+
+	public void setQuestion(Question question) {
+		this.question = question;
 	}
 
 }
