@@ -133,20 +133,22 @@
 </script>
 </head>
 
+
 <body>
 <div id="add-news-wrap">
 	<form action="admin_addNews" method="post"   onsubmit="modifyContent()">
 		<div id="add-news-son">
 			标题：<input type="text"  name="title"/><br>
 			作者：<input type="text"  name="author" /><br>
-			主题：
-			<select name="theme">
-				     <c:forEach items="${session.topicList}"  var="topic">
-				           <option value="${topic.name}">${topic.name}</option>
+			来源：<input type="text"  name="source" />
+			版块：
+			<select name="paperType">
+				     <c:forEach items=""  var="">
+				           <option value=""></option>
 				     </c:forEach>
 			</select>
 			<br>
-			摘要：<textarea rows="3" cols="34"  name="summary"></textarea><br>
+			
 			<textarea rows="20" cols="25" name="content"  id="content"   style="display:none"></textarea><br>
 			 <p>正文：</p>
              <script id="editor" type="text/plain" style="width: 1024px; height: 500px;"></script>

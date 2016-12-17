@@ -28,9 +28,18 @@
                 <dd><a target="main" href="${rootPath }manage/uploadVideo">上传视频</a></dd>
                 <dd><a target="main" href="${rootPath }manage/manageVideo">管理视频</a></dd>
             </dl>
-            <dl class="channel">
-                <dt>文章管理<img src="images/select_xl01.png"></dt>
-            </dl>
+            
+			<dl class="channel">
+				<dt>
+					文章管理<img src="images/select_xl01.png">
+				</dt>
+				<dd>
+					<a target="main" href="${rootPath }manage/fPaper_addPaper">添加文章</a>
+				</dd>
+				<dd>
+					<a target="main" href="${rootPath }manage/inform">管理文章</a>
+				</dd>
+			</dl>
             
              <dl class="channel">
                 <dt>考试管理<img src="images/select_xl01.png"></dt>
