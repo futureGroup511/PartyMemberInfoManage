@@ -1,6 +1,5 @@
 package com.future.partymember.dao.impl;
 
-import java.sql.PseudoColumnUsage;
 import java.util.List;
 
 import org.hibernate.Query;
