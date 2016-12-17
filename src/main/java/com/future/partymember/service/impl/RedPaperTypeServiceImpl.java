@@ -1,7 +1,9 @@
 package com.future.partymember.service.impl;
 
-import com.future.partymember.service.IRedPaperTypeService;
+import org.springframework.stereotype.Service;
 
+import com.future.partymember.service.IRedPaperTypeService;
+@Service
 public class RedPaperTypeServiceImpl implements IRedPaperTypeService {
 
 }
