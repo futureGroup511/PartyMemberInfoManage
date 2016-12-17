@@ -64,6 +64,8 @@ public class BaseAction extends ActionSupport implements SessionAware{
 	protected IRelationTransformService relationTransformService;
 	@Resource
 	protected IRedPaperTypeService redPaperTypeService;
+	@Resource
+	protected IWatchVideoRecordService watchVideoRecordService;
 	
 	
 	protected HttpServletRequest getRequest(){
