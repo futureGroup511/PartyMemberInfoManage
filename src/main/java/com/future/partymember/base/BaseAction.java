@@ -67,7 +67,8 @@ public class BaseAction extends ActionSupport implements SessionAware{
 	protected IRedPaperTypeService redPaperTypeService;
 	@Resource
 	protected IWatchVideoRecordService watchVideoRecordService;
-
+	@Resource
+	protected ITestPaperService testPaperService;
 
 	
 	

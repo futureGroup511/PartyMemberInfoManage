@@ -5,9 +5,9 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<script type="text/javascript" charset="utf-8" src="ueditor1_4_3/ueditor.config.js"></script>
-<script type="text/javascript" charset="utf-8" src="ueditor1_4_3/ueditor.all.min.js"></script>
-<script type="text/javascript" charset="utf-8" src="ueditor1_4_3/lang/zh-cn/zh-cn.js"></script>
+<script type="text/javascript" charset="utf-8" src="${ rootPath}ueditor1_4_3/ueditor.config.js"></script>
+<script type="text/javascript" charset="utf-8" src="${rootPath }ueditor1_4_3/ueditor.all.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="${rootPath}ueditor1_4_3/lang/zh-cn/zh-cn.js"></script>
 <title>编辑新闻</title>
 <script type="text/javascript">
     function modifyContent() {
@@ -21,7 +21,58 @@
 
     }
 </script>
+
 <script type="text/javascript">
+var ue = UE.getEditor('editor', {
+	toolbars: [
+	           [
+	               'undo', //撤销
+	               'redo', //重做
+	               'bold', //加粗
+	               'indent', //首行缩进
+	               'italic', //斜体
+	               'formatmatch', //格式刷
+	               'pasteplain', //纯文本粘贴模式
+	               'selectall', //全选
+	               'horizontal', //分隔线
+	               'removeformat', //清除格式
+	               'inserttitle', //插入标题
+	               'cleardoc', //清空文档
+	               'fontfamily', //字体
+	               'fontsize', //字号
+	               'paragraph', //段落格式
+	               'simpleupload', //单图上传
+	               'link', //超链接
+	               'emotion', //表情
+	               'spechars', //特殊字符
+	               'searchreplace', //查询替换
+	               'help', //帮助
+	               'justifyleft', //居左对齐
+	               'justifyright', //居右对齐
+	               'justifycenter', //居中对齐
+	               'justifyjustify', //两端对齐
+	               'forecolor', //字体颜色
+	               'backcolor', //背景色
+	               'insertorderedlist', //有序列表
+	               'insertunorderedlist', //无序列表
+	               'fullscreen', //全屏
+	               'rowspacingtop', //段前距
+	               'rowspacingbottom', //段后距
+	               'imagenone', //默认
+	
+	               'imagecenter', //居中
+	               'lineheight', //行间距
+	               'edittip ', //编辑提示
+	               'customstyle', //自定义标题
+	               'autotypeset', //自动排版
+	               'background', //背景
+	           ]
+	       ],
+    autoHeightEnabled: true,
+    autoFloatEnabled: true
+});
+</script>
+<!--  <script type="text/javascript">
         //实例化编辑器
         //建议使用工厂方法getEditor创建和引用编辑器实例，如果在某个闭包下引用该编辑器，直接调用UE.getEditor('editor')就能拿到相关的实例
         var ue = UE.getEditor('editor');
@@ -130,22 +181,19 @@
             UE.getEditor('editor').execCommand("clearlocaldata");
             alert("已清空草稿箱")
         }
-</script>
+</script>-->
 </head>
 
 
 <body>
 <div id="add-news-wrap">
-	<form action="admin_addNews" method="post"   onsubmit="modifyContent()">
+	<form action="" method="post"   onsubmit="modifyContent()">
 		<div id="add-news-son">
 			标题：<input type="text"  name="title"/><br>
 			作者：<input type="text"  name="author" /><br>
 			来源：<input type="text"  name="source" />
 			版块：
 			<select name="paperType">
-				     <c:forEach items=""  var="">
-				           <option value=""></option>
-				     </c:forEach>
 			</select>
 			<br>
 			
