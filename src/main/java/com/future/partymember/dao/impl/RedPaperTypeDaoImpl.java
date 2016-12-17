@@ -22,22 +22,21 @@ public class RedPaperTypeDaoImpl extends BaseDao<RedPaperType>
 	
 	//删除
 	@Override
-	public boolean deletePaperType(int id) {
+	public int deletePaperType(int id) {
 		String hql="delete RedPaperType rpt where rpt.rpt_Id=?";
-		
-		return false;
+		return executeUpdate(hql, id);
 	}
 
+	//添加
 	@Override
 	public boolean addPaperType(RedPaperType r) {
-		// TODO Auto-generated method stub
-		return false;
+		return saveEntity(r);
 	}
 
+	//更新
 	@Override
 	public boolean updatePaperType(RedPaperType r) {
-		// TODO Auto-generated method stub
-		return false;
+		return updateEntity(r);
 	}
 
 }
