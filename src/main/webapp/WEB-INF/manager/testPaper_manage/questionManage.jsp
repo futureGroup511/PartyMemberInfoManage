@@ -33,7 +33,7 @@
 					<td>${q.b}</td>
 					<td>${q.c}</td>
 					<td>${q.d}</td>
-					<td><a href="${rootPath }manage/testManage_deleteQuestion?id=${t.tp_Id}">刪除</a></td>
+					<td><a href="${rootPath }manage/testManage_deleteQuestion?id=${q.qt_Id}">刪除</a></td>
 				</tr>
 			</c:forEach>
 		</table>
