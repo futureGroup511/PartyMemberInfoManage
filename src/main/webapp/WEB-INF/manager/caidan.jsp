@@ -37,7 +37,7 @@
 					<a target="_blank" href="${rootPath }manage/fPaper_addPaper">添加文章</a>
 				</dd>
 				<dd>
-					<a target="main" href="${rootPath }manage/inform">管理文章</a>
+					<a target="main" href="${rootPath }manage/fPaper_fManagePaper">管理文章</a>
 				</dd>
 			</dl>
             

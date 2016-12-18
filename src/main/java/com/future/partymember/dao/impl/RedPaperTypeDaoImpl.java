@@ -39,4 +39,10 @@ public class RedPaperTypeDaoImpl extends BaseDao<RedPaperType>
 		return updateEntity(r);
 	}
 
+
+	@Override
+	public RedPaperType findById(int id) {
+		return getEntity(id);
+	}
+
 }

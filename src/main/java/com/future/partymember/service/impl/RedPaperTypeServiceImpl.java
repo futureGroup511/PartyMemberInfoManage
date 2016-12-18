@@ -34,4 +34,9 @@ public class RedPaperTypeServiceImpl implements IRedPaperTypeService {
 		return iRedPaperTypeDao.updatePaperType(r);
 	}
 
+	@Override
+	public RedPaperType findById(int id) {
+		return iRedPaperTypeDao.findById(id);
+	}
+
 }

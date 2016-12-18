@@ -21,6 +21,8 @@ public class RedPaper {
 
 	private int rp_Id;
 	private int paperTypeId;//文章类别的id
+	private String paperType;//作为一个辅助字段
+
 	private String title;//标题
 	private String content;//文章内容
 	private int readNum;//阅读次数
@@ -128,5 +130,13 @@ public class RedPaper {
 	}
 	public void setPaperTypeId(int paperTypeId) {
 		this.paperTypeId = paperTypeId;
+	}
+	
+	@Column(name="paper_type")
+	public String getPaperType() {
+		return paperType;
+	}
+	public void setPaperType(String paperType) {
+		this.paperType = paperType;
 	}
 }

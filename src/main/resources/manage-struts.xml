@@ -15,7 +15,7 @@
 		<!-- 红色文章管理的转发类  丁赵雷 -->
 		<action name="fPaper_*"  class="forwardPaperAction"   method="{1}">
 			<result name="fAddPaper">/WEB-INF/manager/article_manage/add_article.jsp</result>
-			<result name="addPaper">/WEB-INF/manager/article_manage/add_article.jsp</result>
+			<result name="fManagePaper">/WEB-INF/manager/article_manage/manage_article.jsp</result>
 		</action>
 		<!-- 红色文章管理的操作类  丁赵雷-->
 		<action name="managePaper_*"  class="managePaperAction"  method="{1}">

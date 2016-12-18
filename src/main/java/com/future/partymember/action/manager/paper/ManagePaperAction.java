@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 
 import com.future.partymember.base.BaseAction;
 import com.future.partymember.entity.RedPaper;
+import com.future.partymember.entity.RedPaperType;
 import com.future.partymember.util.SwitchTime;
 
 /**
@@ -30,6 +31,8 @@ public class ManagePaperAction extends BaseAction{
 	//添加文章
 	public String addPaper() throws Exception{
 		redPaper.setReleaseDate(SwitchTime.dateToStr(new Date()));
+		RedPaperType r=redPaperTypeService.findById(redPaper.getPaperTypeId());
+		redPaper.setPaperType(r.getPaperType());
 		redPaperService.addRedPaper(redPaper);
 		this.getRequest().setAttribute("paper", "添加成功,您可继续添加");
 		return "addPaper";

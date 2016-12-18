@@ -13,5 +13,7 @@ public interface IRedPaperTypeDao {
 	public boolean addPaperType(RedPaperType r);
 	//修改版本
 	public boolean updatePaperType(RedPaperType r);
+	//根据id查询
+	public RedPaperType findById(int id);
 
 }

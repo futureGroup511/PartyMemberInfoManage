@@ -100,12 +100,16 @@ var ue = UE.getEditor('editor', {
              <script id="editor" type="text/plain" style="width: 1024px; height: 500px;"></script>
 		<input type="submit"   value="一键发布"/>
 	</form>
-	<input type="hidden">
+	<input id="remind" type="hidden"  value="${paper }">
 </body>
 <script type="text/javascript"  src="${rootPath }js/jquery-3.1.1.min.js"></script>
 <script type="text/javascript">
 $(document).ready(function() {
-	
+	var remind=$("#remind").val();
+	if(remind===""){
+	}else{
+		alert(remind);
+	}
 });
 </script>
 </html>
