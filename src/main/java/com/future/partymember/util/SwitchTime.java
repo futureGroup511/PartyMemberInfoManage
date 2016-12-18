@@ -53,7 +53,7 @@ public class SwitchTime {
 	}
 	
 	public static String dateToStr(Date d){
-		SimpleDateFormat s=new SimpleDateFormat("yyyyMMdd");	
+		SimpleDateFormat s=new SimpleDateFormat("yyyy-MM-dd");	
 		return s.format(d);				
 	}
 	/*

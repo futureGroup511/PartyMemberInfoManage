@@ -14,8 +14,15 @@
 		
 		<!-- 红色文章管理的转发类  丁赵雷 -->
 		<action name="fPaper_*"  class="forwardPaperAction"   method="{1}">
+			<result name="fAddPaper">/WEB-INF/manager/article_manage/add_article.jsp</result>
 			<result name="addPaper">/WEB-INF/manager/article_manage/add_article.jsp</result>
 		</action>
+		<!-- 红色文章管理的操作类  丁赵雷-->
+		<action name="managePaper_*"  class="managePaperAction"  method="{1}">
+			<result name="addPaper">/WEB-INF/manager/article_manage/add_article.jsp</result>
+		</action>
+		
+		
 		
 		<!-- 后台首页的导入试卷   添加人丁赵雷，焦祥宇改 -->
 		<action name="import_*"   class="importTestAction"  method="{1}">		

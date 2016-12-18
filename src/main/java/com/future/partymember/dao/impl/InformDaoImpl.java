@@ -47,8 +47,7 @@ public class InformDaoImpl extends BaseDao<Inform> implements IInformDao {
 		List<Inform> list=this.getEntityLimitList("from Inform order by info_Id desc", first,pageSize);
 		PageCut<Inform> pc=new PageCut<>(curr,pageSize,this.getNum());
 		pc.setData(list);
-		return pc;
-		
+		return pc;	
 	}
 	@Override
 	public Inform getById(int id) {
