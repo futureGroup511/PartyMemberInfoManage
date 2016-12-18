@@ -11,6 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.Transient;
 /**
  * 通知类
  * 属性：id、标题、内容、发件人、日期  通知的状态
@@ -99,6 +100,9 @@ public class Inform {
 		this.info_tag = info_tag;
 	}
 	
+	
+	
+	@Transient
 	public String getStrTag(){
 		switch(this.info_tag){
 		case 0:
