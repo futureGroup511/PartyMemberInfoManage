@@ -15,6 +15,11 @@ import com.future.partymember.util.PageCut;
 import com.opensymphony.xwork2.util.finder.ClassFinder.Info;
 public class InformAction extends BaseAction{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
 	private int page=1;
 	private Inform inform;
 	public String execute(){

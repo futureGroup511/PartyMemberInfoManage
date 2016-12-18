@@ -27,7 +27,12 @@
 		<!-- 后台首页的导入试卷   添加人丁赵雷，焦祥宇改 -->
 		<action name="import_*"   class="importTestAction"  method="{1}">		
 			<result name="linking">/WEB-INF/manager/testPaper_manage/importTestPaper.jsp</result>		
-			<result name="importTest">/WEB-INF/manager/testPaper_manage/importTestPaper.jsp</result>			
+			<result name="importTest">/WEB-INF/manager/testPaper_manage/importTestPaper.jsp</result>	
+			
+			
+			<result name="toAddTestPaper">/WEB-INF/manager/testPaper_manage/addTestPaper.jsp</result>
+			<result name="addTestPaper">/WEB-INF/manager/testPaper_manage/addTestPaper.jsp</result>
+					
 			<result name="question">/WEB-INF/manager/testPaper_manage/importTestPaper.jsp</result>
 		</action>
 		<!-- 试卷、试题管理 -->

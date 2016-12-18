@@ -45,6 +45,8 @@ public class ImportTestAction extends BaseAction {
 
 	private Question question;
 	
+	private TestPaper testPap;
+	
 	// 链接到上传试卷页面
 	public String linking() throws Exception {
 
@@ -92,6 +94,22 @@ public class ImportTestAction extends BaseAction {
 		else
 			this.getRequest().setAttribute("questionMag", "上传失败");
 		return "question";
+	}
+	
+	public String toAddTestPaper() throws Exception{
+		return "toAddTestPaper";
+	}
+	
+	public String addTestPaper() throws Exception{
+		testPap.setCreateDate(SwitchTime.dateToStr(new Date()));
+		Boolean bool=testPaperService.addTestPaper(testPap);
+		if (bool==true) {
+			this.getRequest().setAttribute("testPapMeg", "添加成功");
+		}
+		else{
+			this.getRequest().setAttribute("testPapMeg", "添加失败");
+		}
+		return "addTestPaper";
 	}
 	
 	public void util2003() throws IOException {
@@ -230,6 +248,14 @@ public class ImportTestAction extends BaseAction {
 
 	public void setQuestion(Question question) {
 		this.question = question;
+	}
+
+	public TestPaper getTestPap() {
+		return testPap;
+	}
+
+	public void setTestPap(TestPaper testPap) {
+		this.testPap = testPap;
 	}
 
 }
