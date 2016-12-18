@@ -28,6 +28,8 @@ public interface IPartySecretaryInfoDao {
 	public void add(PartySecretaryInfo p);
 	
 	public boolean delete(int id);
+	
+	public boolean exist(String account);
 
 
 }

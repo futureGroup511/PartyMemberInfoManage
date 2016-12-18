@@ -9,84 +9,73 @@
 <link rel="stylesheet" href="${rootPath }css/manage/button.css">
 <title>Insert title here</title>
 <style type="text/css">
-.content{
-    background-image:url("${rootPath }images/star.png");
+.content {
+	background-image: url("${rootPath }images/star.png");
 }
 </style>
 </head>
 <body>
- <div class="content">
-	<form class="form-horizontal" role="form" method="post"
-		action="${rootPath }manage/partSecretary_addDo">
-		<h1>${remind }</h1>
-		<table>
-			<tr>
-				<td>账号</td>
-				<td><input type="text" name="partyMember.account"></td>
-				<td>用户类别</td>
-				<td><input type="text" name="partyMember.sort"></td>
+	<div class="content">
+		<form class="form-horizontal" role="form" method="post"
+			action="${rootPath }manage/partSecretary_addDo">
+			<h1>${remind }</h1>
+			<table>
+				<tr>
+					<td>账号</td>
+					<td><input type="text" name="partySecretaryInfo.account"></td>
+					<td>密码</td>
+					<td><input type="password" name="partySecretaryInfo.password"></td>
+				</tr>
+				<tr>
+					<td>身份证号码</td>
+					<td><input type="text" name="partySecretaryInfo.idCard"></td>
+					<td>手机号</td>
+					<td><input type="tel" name="partySecretaryInfo.phoneNo"></td>
+				</tr>
+				<tr>
 				
-				
-			</tr>
-		
-			<tr>
-				<td>姓名</td>
-				<td><input type="text" name="partySecretaryInfo.username"></td>
-				
-				<c:choose>
-					<c:when test="${partyMember.sex=='男'}">
-						<td>性&nbsp;&nbsp;别：</td>
-						<td><input type="radio" name="partySecretaryInfo.sex" value='男'
-							checked>男&nbsp; <input type="radio"
-							name="partySecretaryInfo.sex" value='女'>女</td>
-					</c:when>
-					<c:otherwise>
-						<td>性&nbsp;&nbsp;别：</td>
-						<td><input type="radio" name="partySecretaryInfo.sex" value='男'>男&nbsp;
-							<input type="radio" name="partySecretaryInfo.sex" value='女' checked>女</td>
-					</c:otherwise>
-				</c:choose>
-			</tr>
-			
-			<tr>
-				<td>年龄</td>
-				<td><input type="number" name="partySecretaryInfo.age"></td>
-					
-					<td>民族</td>
-				<td><input type="text" name="partySecretaryInfo.nation"></td>
-				
-			</tr>
-			<tr>
-				<td>身份证号码</td>
-				<td><input type="text" name="partySecretaryInfo.idCard"></td>
-				<td>籍贯</td>
-				<td><input type="text" name="partySecretaryInfo.nativePlace"></td>	
-			</tr>
-			<tr>
-				<td>职务</td>
-				<td><input type="text" name="partySecretaryInfo.duties"></td>
-				<td>介绍人</td>
-				<td><input type="text" name="partySecretaryInfo.introducer"></td>
-			</tr>
-			<tr>
-				<td>所在党支部</td>
-				<td><input type="text" name="partySecretaryInfo.partyBranch"></td>
-				<td>手机号</td>
-				<td><input type="tel" name="partySecretaryInfo.phoneNo"></td>
-			</tr>
+					<td>姓名</td>
+					<td><input type="text" name="partySecretaryInfo.username"></td>
+					<td>介绍人</td>
+					<td><input type="text" name="partySecretaryInfo.introducer"></td>
+				</tr>
 
-			<tr>
-				<td>密码</td>
-				<td><input type="password" name="partySecretaryInfo.password"></td>
+				<tr>
+
+					<td>民族</td>
+					<td><input type="text" name="partySecretaryInfo.nation"></td>
+					<td>籍贯</td>
+					<td><input type="text" name="partySecretaryInfo.nativePlace"></td>
+
+				</tr>
 				
-						
-			</tr>
-			<tr>
-			<td class="button-one"><input type="submit" value="重置"></td>
-			<td class="button-two"><input type="submit" value="确认修改"></td>
-			</tr>
-		</table>
-	</form>
+				<tr>
+					
+					<td>所在党支部</td>
+					<td><input type="text" name="partySecretaryInfo.partyBranch"></td>
+					<td>职务</td>
+					<td><input type="text" name="partySecretaryInfo.duties"></td>
+
+				</tr>
+				<tr>
+					
+					<td>入党日期</td>
+					<td><input type="text" name="joinPartyDate"></td>
+					
+
+				</tr>
+
+				<tr>
+
+
+
+				</tr>
+				<tr>
+					<td class="button-one"><input type="reset" value="重置"></td>
+					<td class="button-two"><input type="submit" value="确认修改"></td>
+				</tr>
+			</table>
+		</form>
 	</div>
 </body>
 </html>

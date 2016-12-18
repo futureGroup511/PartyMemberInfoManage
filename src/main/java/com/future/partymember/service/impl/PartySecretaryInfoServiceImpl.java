@@ -52,4 +52,10 @@ public class PartySecretaryInfoServiceImpl implements IPartySecretaryInfoService
 		
 	}
 
+	@Override
+	public boolean exist(String account) {
+		// TODO Auto-generated method stub
+		return iPartySecretaryInfoDao.exist(account);
+	}
+
 }

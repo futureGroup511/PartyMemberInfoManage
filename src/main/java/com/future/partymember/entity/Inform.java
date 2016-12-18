@@ -98,4 +98,19 @@ public class Inform {
 	public void setInfo_tag(int info_tag) {
 		this.info_tag = info_tag;
 	}
+	
+	public String getStrTag(){
+		switch(this.info_tag){
+		case 0:
+			return "仅管理员可见";
+		case 1:
+			return "仅书记可见";
+		case 2:
+			return "仅党员可见";
+		case 3:
+			return "所有人可见";
+		default:
+			return "未定义";
+		}
+	}
 }

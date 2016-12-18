@@ -1,6 +1,7 @@
 package com.future.partymember.action.manager;
 
 
+import java.util.Calendar;
 import java.util.Date;
 
 import javax.print.attribute.ResolutionSyntax;
@@ -8,6 +9,7 @@ import javax.print.attribute.ResolutionSyntax;
 import com.future.partymember.base.BaseAction;
 import com.future.partymember.entity.PartySecretaryInfo;
 import com.future.partymember.util.PageCut;
+import com.future.partymember.util.SwitchTime;
 /*
 *@auther:宋民举
 *@mail:860080937@qq.com
@@ -52,11 +54,29 @@ public class PartSecretaryManagerAction extends BaseAction {
 		return "add";
 	}
 	public String addDo(){
-		Date date=new Date();
-		partySecretaryInfo.setBirthdate(date);
-		partySecretaryInfo.setJoinPartyDate(date);
-		partySecretaryInfo.setLoginDate(date);
-		partySecretaryInfo.setSort("");
+		if(partySecretaryInfoService.exist(partySecretaryInfo.getAccount())){
+			this.getRequest().setAttribute("remind", "账号已经存在，请重新填写。");
+			return "add";
+		}
+		String idc=partySecretaryInfo.getIdCard();
+		int year=Integer.parseInt(idc.substring(6, 10));
+		String birth=idc.substring(6,14);
+		partySecretaryInfo.setBirthdate(SwitchTime.strToDate(birth));
+		int s=Integer.parseInt(idc.charAt(16)+"");
+		if(s%2==0){
+			partySecretaryInfo.setSex("女");
+		}else{
+			partySecretaryInfo.setSex("男");
+		}
+		Calendar calendar=Calendar.getInstance();
+		int nowY=calendar.get(Calendar.YEAR);
+		int age=nowY-year;
+		partySecretaryInfo.setAge(age);
+		
+		partySecretaryInfo.setSort("书记");
+		partySecretaryInfo.setLoginDate(new Date());
+		partySecretaryInfo.setJoinPartyDate(SwitchTime.strToDate(this.getRequest().getParameter("joinPartyDate").toString()));
+		
 		partySecretaryInfoService.add(partySecretaryInfo);
 		this.getRequest().setAttribute("remind", "添加成功");
 		this.getRequest().setAttribute("partyMember", partySecretaryInfo);
