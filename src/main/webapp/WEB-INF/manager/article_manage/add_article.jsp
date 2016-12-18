@@ -6,7 +6,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <script type="text/javascript" charset="utf-8" src="${ rootPath}ueditor1_4_3/ueditor.config.js"></script>
-<script type="text/javascript" charset="utf-8" src="${rootPath }ueditor1_4_3/ueditor.all.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="${rootPath }ued
+itor1_4_3/ueditor.all.min.js"></script>
 <script type="text/javascript" charset="utf-8" src="${rootPath}ueditor1_4_3/lang/zh-cn/zh-cn.js"></script>
 <title>编辑新闻</title>
 <script type="text/javascript">
@@ -75,23 +76,36 @@ var ue = UE.getEditor('editor', {
 
 
 <body>
-<div id="add-news-wrap">
-	<form action="" method="post"   onsubmit="modifyContent()">
-		<div id="add-news-son">
-			标题：<input type="text"  name="title"/><br>
-			作者：<input type="text"  name="author" /><br>
-			来源：<input type="text"  name="source" />
+	<form action="${rootPath }manage/managePaper_addPaper" method="post"   onsubmit="modifyContent()">
+			标题：<input type="text"  name="redPaper.title"/><br>
+			作者：<input type="text"  name="redPaper.author" /><br>
+			来源：<input type="text"  name="redPaper.source" /><br>
 			版块：
-			<select name="paperType">
+			<select name="redPaper.paperTypeId">
+				<c:forEach items="${ redPaperTypeList}" var="type">
+					<option value="${type.rpt_Id}">${type.paperType }</option> 
+				</c:forEach>
 			</select>
 			<br>
 			
-			<textarea rows="20" cols="25" name="content"  id="content"   style="display:none"></textarea><br>
+			
+			<select name="redPaper.rp_tag">
+					<option value="0">作为草稿</option> 
+					<option value="1"  selected="selected">发布文章</option> 
+			</select>
+			<br>
+			
+			<textarea rows="20" cols="25" name="redPaper.content"  id="content"   style="display:none"></textarea><br>
 			 <p>正文：</p>
              <script id="editor" type="text/plain" style="width: 1024px; height: 500px;"></script>
-		</div>
 		<input type="submit"   value="一键发布"/>
 	</form>
-</div>
+	<input type="hidden">
 </body>
+<script type="text/javascript"  src="${rootPath }js/jquery-3.1.1.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+	
+});
+</script>
 </html>

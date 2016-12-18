@@ -67,7 +67,7 @@ public class PartyMemberInfoDaoImpl extends BaseDao<PartyMemberInfo> implements 
 	public PartyMemberInfo getPartyMemberInfoById(int ptm_Id) {
 		return this.getEntity(ptm_Id);
 	}
-
+	
 	@Override
 	public List<PartyMemberInfo> getAllPartyMember(List<PartyMemberInfo> partyMemberList) {
 
@@ -76,14 +76,11 @@ public class PartyMemberInfoDaoImpl extends BaseDao<PartyMemberInfo> implements 
 
 	@Override
 	public List<PartyMemberInfo> getSomePartyMember(int first, int max, List<PartyMemberInfo> partyMemberList) {
-		// TODO Auto-generated method stub
-
 		return null;
 	}
 
 	@Override
 	public PageCut<PartyMemberInfo> getPageCut(int currentPage, int pageSize) {
-		// TODO Auto-generated method stub
 		String hql = "select count(*) from PartyMemberInfo";
 		int count = ((Long) this.uniqueResult(hql)).intValue();
 		PageCut<PartyMemberInfo> pc = new PageCut<PartyMemberInfo>(currentPage, pageSize, count);
