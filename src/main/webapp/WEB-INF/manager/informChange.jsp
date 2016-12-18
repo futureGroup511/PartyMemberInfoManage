@@ -5,11 +5,15 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<script type="text/javascript"
+	src="${rootPath }jQueryPlug/jPage/src/jquery.min.js"></script>
+<link rel="stylesheet" href="${rootPath }css/bootstrap.css" />
 </head>
 <body>
 	<h2>${remind }</h2>
+	
 	<form class="form-horizontal" role="form" method="POST"
-		action="${rootpath }manage/inform_changeDo">
+		action="${rootpath }manage/inform_changeDo" style="width:80%;margin:100px auto 0 auto;">
 		<input type="hidden" name="inform.info_Id" value="${inform.info_Id }">
 		<div class="form-group">
 			<label for="firstname" class="col-sm-2 control-label">标题</label>
@@ -26,12 +30,15 @@
 			</div>
 		</div>
 		<div class="form-group">
-			<label for="name">选择阅读权限</label> <select class="form-control">
+			<label for="name"  class="col-sm-2 control-label">选择阅读权限</label>
+			<div class="col-sm-10">
+				 <select class="form-control">
 				<option name="inform.info_tag" value="0">仅管理员</option>
 				<option name="inform.info_tag" value="1">书记可看</option>
 				<option name="inform.info_tag" value="2">党员可看</option>
 				<option name="inform.info_tag" value="3">全体可看</option>
 			</select>
+			</div>
 		</div>
 		<div class="form-group">
 			<div class="col-sm-offset-2 col-sm-10">

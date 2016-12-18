@@ -7,10 +7,31 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 <link rel="stylesheet" href="${rootPath }css/bootstrap.css" />
-<link href="${rootPath }jQueryPlug/jPage/src/jquery.page.css" rel="stylesheet" type="text/css" />
-<script type="text/javascript" src="${rootPath }jQueryPlug/jPage/src/jquery.min.js"></script>
-<script type="text/javascript" src="${rootPath }jQueryPlug/jPage/src/jquery.page.js"></script>
+<link href="${rootPath }jQueryPlug/jPage/src/jquery.page.css"
+	rel="stylesheet" type="text/css" />
+<script type="text/javascript"
+	src="${rootPath }jQueryPlug/jPage/src/jquery.min.js"></script>
+<script type="text/javascript"
+	src="${rootPath }jQueryPlug/jPage/src/jquery.page.js"></script>
 <title>Insert title here</title>
+<style type="text/css">
+body {
+	padding-top: 50px;
+}
+
+.container {
+	margin: 0 auto;
+}
+
+#pageCut a:hover {
+	text-decoration: none;
+}
+
+#pageCut {
+	text-align: right;
+}
+</style>
+
 </head>
 <body>
 	<div class="container">
@@ -35,6 +56,8 @@
 							<td>注册时间</td>
 							<td>管理</td>
 							<td>删除</td>
+
+
 						</tr>
 						<c:forEach var="pm" items="${pc.data}">
 							<tr>
@@ -62,10 +85,32 @@
 
 					</tbody>
 				</table>
-				<div id="pageCut">
-					<a href="${rootPath }manage/partMember?page=${pc.prePage}">上一页</a>
-					<a href="#">${pc.currentPage}/${pc.pageNum}</a>
-					<a href="${rootPath }manage/partMember?page=${pc.nextPage}">下一页</a>
+				<div id="pagecut" style="margin-right: 100px; text-align: right;">
+					<ul class="pagination">
+						<li><a
+							href="${rootPath }manage/partMember?page=${pc.prePage}">上一页</a></li>
+						<c:if test="${1 < pc.currentPage -3}">
+							<li><a href="#">1</a></li>
+						</c:if>
+
+						<c:forEach var="i"
+							begin="${pc.currentPage-3>0?pc.currentPage-3:1 }"
+							end="${pc.currentPage+3>pc.pageNum?pc.pageNum:pc.currentPage+3  }">
+							<c:choose>
+								<c:when test="${i>0 && i == pc.currentPage }">
+									<li class="active"><a
+										href="${rootPath }manage/partMember?page=${i }">${i}</a></li>
+								</c:when>
+
+								<c:when test="${i>0 && i != postPS.currentPage }">
+									<li><a href="${rootPath }manage/partMember?page=${i }">${i}</a></li>
+								</c:when>
+							</c:choose>
+						</c:forEach>
+						<li><a
+							href="${rootPath }manage/partMember?page=${pc.nextPage}">下一页</a></li>
+					</ul>
+
 				</div>
 			</div>
 		</div>
@@ -78,5 +123,4 @@
 <script type="text/javascript">
 	
 </script>
->>>>>>> Stashed changes
 </html>

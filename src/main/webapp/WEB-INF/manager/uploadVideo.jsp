@@ -42,10 +42,10 @@
 						</div>
 					</div>
 					<div
-						class="col-lg-1 col-lg-offset-2 col-md-1 col-md-offset-2 col-xs-2 col-xs-offset-2">
+						class="col-lg-2 col-lg-offset-2 col-md-2 col-md-offset-2 col-xs-3 col-xs-offset-2">
 						视频描述：</div>
-					<div class="col-lg-4  col-md-5 col-xs-5">
-						<textarea name="videoDescription" rows="5" cols="30"></textarea>
+					<div class="col-lg-4 col-lg-offset-2  col-md-5 col-md-offset-2 col-xs-5 col-xs-offset-2">
+						<textarea name="videoDescription" placeholder="视频描述" rows="5" cols="30"></textarea>
 					</div>
 
 				</div>
@@ -78,9 +78,9 @@
 						</div>
 					</div>
 					<div
-						class="col-lg-1 col-lg-offset-2 col-md-1 col-md-offset-2 col-xs-2 col-md-offset-2">
+						class="col-lg-2 col-lg-offset-1 col-md-2 col-md-offset-1 col-xs-3 col-md-offset-1">
 						视频描述：</div>
-					<div class="col-lg-4 col-md-5 col-xs-5">
+					<div class="col-lg-4 col-lg-offset-1  col-lg-offset-2 col-md-5 col-md-offset-1 col-xs-5">
 						<textarea rows="5" cols="30" name="redVideo.description"
 							placeholder="视频描述"></textarea>
 					</div>

@@ -10,7 +10,7 @@
 </head>
 <body>
 	<div class="content">
-		<form action="${rootPath}manage/change_info" method="post">
+		<form action="${rootPath}manage/change_info" method="post" style="width:80%;margin:100px auto 0 40%;">
 			${remind }
 			<table class="main">
 				<tbody>

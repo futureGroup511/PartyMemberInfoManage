@@ -11,7 +11,7 @@
 </head>
 <body>
 <h1>${remind }</h1>
-	<table class="table table-bordered">
+	<table class="table table-bordered" style="width:80%;margin:100px auto 0 auto;">
 
 
 		<tbody>
@@ -34,7 +34,7 @@
 
 		</tbody>
 	</table>
-	<div id="pagecut">
+	<div id="pagecut" style="margin-right:100px;text-align:right;">
 		<ul class="pagination">
 			<li><a href="${rootPath }manage/inform?page=${pc.prePage}">上一页</a></li>
 			<c:if test="${1 < pc.currentPage -3}">
