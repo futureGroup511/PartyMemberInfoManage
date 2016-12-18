@@ -38,7 +38,10 @@
 		<!-- 试卷、试题管理 -->
 		<action name="testManage_*"   class="com.future.partymember.action.manager.TestManageAction"  method="{1}">		
 			<result name="getTestPaper">/WEB-INF/manager/testPaper_manage/testManage.jsp</result>		
-			<result name="getQuestion">/WEB-INF/manager/testPaper_manage/questionManage.jsp</result>					
+			<result name="getQuestion">/WEB-INF/manager/testPaper_manage/questionManage.jsp</result>
+			
+			<result name="toStartTest">/WEB-INF/manager/testPaper_manage/startTest.jsp</result>	
+			<result name="startTest">/WEB-INF/manager/testPaper_manage/startTest.jsp</result>					
 		</action>
 		
 		<action name="index_*" method="{1}"

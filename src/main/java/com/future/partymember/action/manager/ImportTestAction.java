@@ -75,7 +75,7 @@ public class ImportTestAction extends BaseAction {
 	public String toAddQuestion() throws Exception{
 		List<TestPaper> testPaperNameList=testPaperService.getAllTestPaper();
 		session.put("testPaperNameList",testPaperNameList );
-		System.out.println(testPaperNameList);
+		
 		return "toAddQuestion";
 	}
 	//添加试题

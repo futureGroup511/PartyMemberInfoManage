@@ -48,7 +48,7 @@
                  <dd><a target="main" href="${rootPath}manage/import_toAddQuestion">添加试题</a></dd>
                 <dd><a target="main" href="${rootPath}manage/testManage_getTestPaper">管理试卷</a></dd>
                  <dd><a target="main" href="${rootPath}manage/testManage_getQuestion">管理试题</a></dd>
-                  <dd><a target="main" href="#">开启考试</a></dd>
+                  <dd><a target="main" href="${rootPath}manage/testManage_toStartTest">开启考试</a></dd>
             </dl>
 
 

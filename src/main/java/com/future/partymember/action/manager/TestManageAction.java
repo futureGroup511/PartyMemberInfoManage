@@ -5,8 +5,11 @@ package com.future.partymember.action.manager;
 
 
 
+import java.util.List;
+
 import com.future.partymember.base.BaseAction;
 import com.future.partymember.entity.Question;
+import com.future.partymember.entity.StartTest;
 import com.future.partymember.entity.TestPaper;
 import com.future.partymember.util.PageCut;
 
@@ -17,6 +20,8 @@ public class TestManageAction extends BaseAction {
 	private static final long serialVersionUID = 1L;
 	private int page=1;
 	private int id;
+	
+	private StartTest startTest;
 	
 	//试卷的增删改查
 	public String getTestPaper() throws Exception{
@@ -57,7 +62,23 @@ public class TestManageAction extends BaseAction {
 		return this.getQuestion();
 	}
 	
-	
+	//链接到开启考试页面
+	public String toStartTest() throws Exception{
+		List<TestPaper> testPaperNameList=testPaperService.getAllTestPaper();
+		session.put("testPaperNameList",testPaperNameList );
+		return "toStartTest";
+	}
+	//开启考试
+	public String startTest() throws Exception{
+		
+		TestPaper testPaper=testPaperService.getTestPaperByName(startTest.getPaperName());
+		startTest.setTestPaper(testPaper);
+		session.put("startTest", startTest);
+		/*System.out.println(startTest.getEndTime()-startTest.getStartTime());*/
+		this.getRequest().setAttribute("startMeg", "开启成功");
+		System.out.println(startTest);
+		return "startTest";
+	}
 	public int getPage() {
 		return page;
 	}
@@ -69,6 +90,12 @@ public class TestManageAction extends BaseAction {
 	}
 	public void setId(int id) {
 		this.id = id;
+	}
+	public StartTest getStartTest() {
+		return startTest;
+	}
+	public void setStartTest(StartTest startTest) {
+		this.startTest = startTest;
 	}
 	
 }
