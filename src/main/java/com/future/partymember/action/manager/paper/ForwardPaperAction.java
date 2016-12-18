@@ -31,13 +31,11 @@ public class ForwardPaperAction extends BaseAction {
 		session.put("redPaperTypeList", list);
 		return "fAddPaper";
 	}
-	
-	
+
 	//转到管理文章页面
 	public String fManagePaper() throws Exception{
 		PageCut<RedPaper> pc= redPaperService.getPCByNew(1, 2);
 		this.getRequest().setAttribute("pc", pc);
 		return "fManagePaper";
 	}
-
 }
