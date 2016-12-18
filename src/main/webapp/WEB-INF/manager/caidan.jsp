@@ -8,7 +8,7 @@
 <link rel="stylesheet" href="${rootPath}css/manage/caidan.css">
 </head>
 <body id="bg">
-<div class="container">
+<div class="container" >
     <div class="leftsidebar_box">
         <div class="line"></div>
            <dl class="system_log">
@@ -79,7 +79,7 @@
 	<script type="text/javascript" src="${rootPath }js/jquery-3.1.1.min.js"></script>
 	<script type="text/javascript">
 		$(".leftsidebar_box dt").css({
-			"background-color" : "#33333D"
+			"background-color" : "#003C60"
 		});
 		$(".leftsidebar_box dt img").attr("src",
 				"${rootPath }images/select_xl01.png");
@@ -88,10 +88,10 @@
 			$(".leftsidebar_box dt").click(
 					function() {
 						$(".leftsidebar_box dt").css({
-							"background-color" : "#33333D"
+							"background-color" : "#003C60"
 						})
 						$(this).css({
-							"background-color" : "#6C7F81"
+							"background-color" : "#006EAE"
 						});
 						$(this).parent().find('dd').removeClass(
 								("menu_chioce"), 6000);

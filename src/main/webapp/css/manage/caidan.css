@@ -14,7 +14,7 @@ a{text-decoration:none;}
     height:auto !important;
     overflow:visible !important;
     height:100% !important;
-    background-color:#33333D;
+    background-color:#003C60;
     padding-left:16px;
     }
 .line{
@@ -35,7 +35,7 @@ a{text-decoration:none;}
     cursor:pointer;
     }
 .leftsidebar_box dd{
-    background-color:#6C7F81;
+    background-color:#006EAE;
     padding-left:19%;
     }
 .leftsidebar_box dd a{
