@@ -17,7 +17,7 @@ import javax.persistence.Table;
 @Table(name="red_paper_type", catalog="partymember" )
 public class RedPaperType {
 	private int rpt_Id ;
-	private String paperType ; // 红色文章的类别
+	private String paperType ; // 红色文章的类别  这个也不能重复
 
 	private String description ; //对于这个类别的描述
 	

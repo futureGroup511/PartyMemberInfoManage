@@ -127,6 +127,7 @@
 					</c:when>
 					<c:otherwise>
 
+
 						<div style="float: left; width: 150px;">
 							<div>
 								<img src="${rootPath}${v.imgUrl}"
@@ -153,13 +154,20 @@
 	<%-- </c:forEach> --%>
 
 	<%-- </div>
+=======
+	</c:forEach>
+
+	</div>
+>>>>>>> Stashed changes
 	
 		<div id="pageCut">
 					<a href="${rootPath }manage/partMember?page=${pc.prePage}">上一页</a>
 					<a href="#">${pc.currentPage}/${pc.pageNum}</a>
 					<a href="${rootPath }manage/partMember?page=${pc.nextPage}">下一页</a>
 		</div>
+<<<<<<< Updated upstream
 	 --%>
+
 	
 	<div class="footer">
 		<img src="${rootPath}images/footer.png">

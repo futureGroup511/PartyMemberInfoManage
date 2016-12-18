@@ -44,6 +44,7 @@
 	private String answer;//答案
 	private String analysis;//解析
 	private int question_socre;//该试题的分数 -->
+<<<<<<< HEAD
 
 				<label class="lable_1">所属试卷名称：</label><input type="text"
 					name="paperName"><br> <label class="lable_1">题干：</label><input
@@ -63,5 +64,19 @@
 			</form>
 		</div>
 	</div>
+=======
+		所属试卷名称：<input type="text" name="paperName"><br>
+		题干：<input type="text" name="question.questions_stems" ><br>
+		A选项：<input type="text" name="question.A" ><br>
+		B选项：<input type="text" name="question.B" ><br>
+		C选项：<input type="text" name="question.C" ><br>
+		D选项：<input type="text" name="question.D" ><br>		
+		答案：<input type="text" name="question.answer" ><br>
+		解析：<input type="text" name="question.analysis" ><br>
+		分数：<input type="number" name="question.question_socre" ><br>
+		<input type="reset" value="重置">
+		<input type="submit" value="上传">
+	</form>
+>>>>>>> e03da7d1e37bf7a1ed181de8da7668a719c44bda
 </body>
 </html>

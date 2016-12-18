@@ -52,16 +52,10 @@ public class SwitchTime {
 		
 	}
 	
-/*	public static String dateToStr(Date d){
-		SimpleDateFormat s=new SimpleDateFormat("yyyyMMdd");
-		try {
-			return s.parse(str);
-		} catch (ParseException e) {
-			// TODO Auto-generated catch block
-			return null;
-		}
-		
-	}*/
+	public static String dateToStr(Date d){
+		SimpleDateFormat s=new SimpleDateFormat("yyyyMMdd");	
+		return s.format(d);				
+	}
 	/*
 	public static void main(String[] args) {
 		Date date=strToDate(19970813+"");
