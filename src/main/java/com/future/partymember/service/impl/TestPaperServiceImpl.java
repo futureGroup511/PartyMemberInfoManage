@@ -1,5 +1,7 @@
 package com.future.partymember.service.impl;
 
+import java.util.List;
+
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
@@ -57,6 +59,12 @@ public class TestPaperServiceImpl implements ITestPaperService {
 	public PageCut<TestPaper> getPC(int curr, int pageSize) {
 		// TODO Auto-generated method stub
 		return testPaperDao.getPC(curr, pageSize);
+	}
+
+	@Override
+	public List<TestPaper> getAllTestPaper() {
+		// TODO Auto-generated method stub
+		return testPaperDao.getAllTestPaper();
 	}
 
 }

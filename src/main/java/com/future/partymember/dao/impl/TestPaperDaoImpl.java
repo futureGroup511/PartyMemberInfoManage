@@ -61,4 +61,11 @@ public class TestPaperDaoImpl extends BaseDao<TestPaper> implements ITestPaperDa
 		
 	}
 
+	@Override
+	public List<TestPaper> getAllTestPaper() {
+		// TODO Auto-generated method stub
+		String hql="from TestPaper";
+		return this.getEntityList(hql);
+	}
+
 }

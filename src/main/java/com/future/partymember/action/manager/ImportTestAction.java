@@ -71,34 +71,31 @@ public class ImportTestAction extends BaseAction {
 		return "importTest";
 	}
 
-	//上传试题
+	//链接到添加试题
+	public String toAddQuestion() throws Exception{
+		List<TestPaper> testPaperNameList=testPaperService.getAllTestPaper();
+		session.put("testPaperNameList",testPaperNameList );
+		System.out.println(testPaperNameList);
+		return "toAddQuestion";
+	}
+	//添加试题
 	public String question() throws Exception{
 		//根据试卷名称获得试卷id
-		String paperName=this.getRequest().getParameter("paperName");
-		
-		TestPaper testPaper=testPaperService.getTestPaperByName(paperName);
-		if(testPaper==null){//判断该试卷是否存在
-			testPaper=new TestPaper();
-			testPaper.setPaperName(paperName);
-			testPaper.setCreateDate(SwitchTime.dateToStr(new Date()));
-			testPaperService.addTestPaper(testPaper);
-			testPaper=testPaperService.getTestPaperByName(paperName);
-		}		
+		String paperName=this.getRequest().getParameter("paperName");		
+		TestPaper testPaper=testPaperService.getTestPaperByName(paperName);			
 		int tp_Id=testPaper.getTp_Id();
 		
-		//上传试题
+		//添加试题
 		question.setPaperId(tp_Id);
 		String bool=questionService.addQuestion(question);
 		if(bool.equals("su"))			
-			this.getRequest().setAttribute("questionMag", "上传成功");
+			this.getRequest().setAttribute("questionMag", "添加成功");
 		else
-			this.getRequest().setAttribute("questionMag", "上传失败");
+			this.getRequest().setAttribute("questionMag", "添加失败");
 		return "question";
 	}
 	
-	public String toAddTestPaper() throws Exception{
-		return "toAddTestPaper";
-	}
+	
 	
 	public String addTestPaper() throws Exception{
 		testPap.setCreateDate(SwitchTime.dateToStr(new Date()));

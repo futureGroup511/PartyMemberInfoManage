@@ -21,7 +21,7 @@ public class TestManageAction extends BaseAction {
 	//试卷的增删改查
 	public String getTestPaper() throws Exception{
 		PageCut<TestPaper> pc;		
-		pc=testPaperService.getPC(page, 2);		
+		pc=testPaperService.getPC(page, 8);		
 		this.getRequest().setAttribute("pc", pc);
 		return "getTestPaper";
 	}
@@ -42,7 +42,7 @@ public class TestManageAction extends BaseAction {
 	//试题的增删改查
 	public String getQuestion() throws Exception{
 		PageCut<Question> pageCut;
-		pageCut=questionService.getPC(page,4);
+		pageCut=questionService.getPC(page,8);
 		this.getRequest().setAttribute("pc", pageCut);
 		return "getQuestion";
 	}

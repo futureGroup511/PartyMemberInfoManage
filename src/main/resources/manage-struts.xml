@@ -28,12 +28,12 @@
 		<action name="import_*"   class="importTestAction"  method="{1}">		
 			<result name="linking">/WEB-INF/manager/testPaper_manage/importTestPaper.jsp</result>		
 			<result name="importTest">/WEB-INF/manager/testPaper_manage/importTestPaper.jsp</result>	
+			<result name="addTestPaper">/WEB-INF/manager/testPaper_manage/importTestPaper.jsp</result>
 			
+			<result name="toAddQuestion">/WEB-INF/manager/testPaper_manage/addQuestion.jsp</result>
 			
-			<result name="toAddTestPaper">/WEB-INF/manager/testPaper_manage/addTestPaper.jsp</result>
-			<result name="addTestPaper">/WEB-INF/manager/testPaper_manage/addTestPaper.jsp</result>
 					
-			<result name="question">/WEB-INF/manager/testPaper_manage/importTestPaper.jsp</result>
+			<result name="question">/WEB-INF/manager/testPaper_manage/addQuestion.jsp</result>
 		</action>
 		<!-- 试卷、试题管理 -->
 		<action name="testManage_*"   class="com.future.partymember.action.manager.TestManageAction"  method="{1}">		
