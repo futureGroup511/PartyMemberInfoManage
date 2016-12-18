@@ -23,7 +23,7 @@ public class MyStrutsFilter extends StrutsPrepareAndExecuteFilter implements Fil
         HttpServletRequest request = (HttpServletRequest) req;    
         //不过滤的url    
         String url = request.getRequestURI();    
-        System.out.println(url);
+       /* System.out.println(url);*/
  
         if ("/PartyMemberInfoManage/ueditor1_4_3/jsp/controller.jsp".equals(url)) {  //注意路径  
         	System.out.println(url);

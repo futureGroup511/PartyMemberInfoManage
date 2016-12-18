@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import com.future.partymember.dao.IQuestionDao;
 import com.future.partymember.entity.Question;
 import com.future.partymember.service.IQuestionService;
+import com.future.partymember.util.PageCut;
 
 @Service
 public class QuestionServiceImpl implements IQuestionService{
@@ -20,8 +21,8 @@ public class QuestionServiceImpl implements IQuestionService{
 		return questionDao.addQuestion(q);
 	}
 	@Override
-	public Boolean deleteQuestion(Question q) {		
-		return questionDao.deleteQuestion(q);
+	public Boolean deleteQuestion(int qt_Id) {		
+		return questionDao.deleteQuestion(qt_Id);
 	}
 	@Override
 	public Boolean updateQuestion(Question q) {
@@ -31,6 +32,11 @@ public class QuestionServiceImpl implements IQuestionService{
 	public List<Question> getQuestion(int paperId) {
 		
 		return questionDao.getQuestion(paperId);
+	}
+	@Override
+	public PageCut<Question> getPC(int curr, int pageSize) {
+		// TODO Auto-generated method stub
+		return questionDao.getPC(curr, pageSize);
 	}
 	
 
