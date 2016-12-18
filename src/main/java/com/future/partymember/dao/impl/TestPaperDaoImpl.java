@@ -7,6 +7,7 @@ import org.springframework.stereotype.Repository;
 import com.future.partymember.base.BaseDao;
 import com.future.partymember.dao.ITestPaperDao;
 import com.future.partymember.entity.TestPaper;
+import com.future.partymember.util.PageCut;
 
 /*
 *@author 焦祥宇
@@ -38,11 +39,7 @@ public class TestPaperDaoImpl extends BaseDao<TestPaper> implements ITestPaperDa
 		return this.getEntity(tp_Id);
 	}
 
-	@Override
-	public List<TestPaper> grtAllTestPaper() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	
 
 	@Override
 	public TestPaper getTestPaperByName(String paperName) {
@@ -54,6 +51,14 @@ public class TestPaperDaoImpl extends BaseDao<TestPaper> implements ITestPaperDa
 		else{
 			return null;
 		}
+	}
+
+	@Override
+	public PageCut<TestPaper> getPC(int curr, int pageSize) {
+		PageCut<TestPaper> pageCut=new PageCut<>(curr,pageSize,this.getNum());
+		pageCut.setData(this.getEntityLimitList("from TestPaper",curr,pageSize));
+		return pageCut;
+		
 	}
 
 }

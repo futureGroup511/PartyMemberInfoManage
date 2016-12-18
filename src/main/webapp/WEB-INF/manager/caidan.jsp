@@ -27,6 +27,7 @@
                 <dt>视频管理<img src="${rootPath }images/select_xl01.png"></dt>
                 <dd><a target="main" href="${rootPath }manage/uploadVideo">上传视频</a></dd>
                 <dd><a target="main" href="${rootPath }manage/manageVideo">管理视频</a></dd>
+                
             </dl>
             
 			<dl class="channel">
@@ -44,7 +45,9 @@
              <dl class="channel">
                 <dt>考试管理<img src="images/select_xl01.png"></dt>
                 <dd><a target="main" href="${rootPath}manage/import_linking">上传试卷</a></dd>
-                <dd><a target="main" href="#">管理试卷</a></dd>
+                 <dd><a target="main" href="${rootPath}manage/import_toAddTestPaper">添加试卷</a></dd>
+                <dd><a target="main" href="${rootPath}manage/testManage_getTestPaper">管理试卷</a></dd>
+                 <dd><a target="main" href="${rootPath}manage/testManage_getQuestion">管理试卷</a></dd>
             </dl>
 
 
