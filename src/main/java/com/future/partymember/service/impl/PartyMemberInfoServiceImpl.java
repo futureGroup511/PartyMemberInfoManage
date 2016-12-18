@@ -79,6 +79,12 @@ public class PartyMemberInfoServiceImpl implements IPartyMemberInfoService{
 		return partyMemberInfoDao.getPageCut(currentPage, pageSize);
 	}
 
+	@Override
+	public boolean exist(String account) {
+		// TODO Auto-generated method stub
+		return partyMemberInfoDao.exist(account);
+	}
+
 
 	
 	

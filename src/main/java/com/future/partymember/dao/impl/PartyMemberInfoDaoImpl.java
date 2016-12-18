@@ -88,4 +88,15 @@ public class PartyMemberInfoDaoImpl extends BaseDao<PartyMemberInfo> implements 
 		return pc;
 	}
 
+	@Override
+	public boolean exist(String account) {
+		// TODO Auto-generated method stub
+		String hql="from PartyMemberInfo p where p.account=?";
+		List list=this.getEntityList(hql, account);
+		if(list==null||list.isEmpty()){
+			return false;
+		}
+		return true;
+	}
+
 }

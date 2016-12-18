@@ -1,19 +1,20 @@
 package com.future.partymember.action.manager;
 
+import java.util.Calendar;
 import java.util.Date;
 
 import com.future.partymember.base.BaseAction;
 import com.future.partymember.entity.PartyMemberInfo;
 import com.future.partymember.util.PageCut;
+import com.future.partymember.util.SwitchTime;
 
 public class PartMemberManagerAction extends BaseAction {
 	private int page = 1;
-	private PartyMemberInfo partyMemberInfo=new PartyMemberInfo();
+	private PartyMemberInfo partyMemberInfo;
 
 	public String execute() {
 		this.getRequest().setAttribute("pc", partyMemberInfoService.getPageCut(page, 5));
 		PageCut<PartyMemberInfo> pageCut=partyMemberInfoService.getPageCut(page, 5);
-		System.out.println(pageCut.getCount()+pageCut.getData().size()+new Date().toString());
 		return SUCCESS;
 	}
 
@@ -42,21 +43,37 @@ public class PartMemberManagerAction extends BaseAction {
 	}
 
 	public String updateDo() {
-		if(partyMemberInfo==null){
+		
+		
+		
+		try{
+			String idc=partyMemberInfo.getIdCard();
+			int year=Integer.parseInt(idc.substring(6, 10));
+			String birth=idc.substring(6,14);
+			partyMemberInfo.setBirthdate(SwitchTime.strToDate(birth));
+			int s=Integer.parseInt(idc.charAt(16)+"");
+			System.out.println(56456);
+			if(s%2==0){
+				System.out.println(s+""+partyMemberInfo+"");
+				partyMemberInfo.setSex("女");
+			}else{
+				partyMemberInfo.setSex("男");
+			}
+			Calendar calendar=Calendar.getInstance();
+			int nowY=calendar.get(Calendar.YEAR);
+			int age=nowY-year;
+			partyMemberInfo.setAge(age);
+			partyMemberInfo.setLoginDate(new Date());
+			partyMemberInfo.setJoinPartyDate(SwitchTime.strToDate(this.getRequest().getParameter("joinPartyDate").toString()));
+			partyMemberInfo.setIdAccessory("");
+			partyMemberInfo.setSort("党员");
+			partyMemberInfoService.updatePartyMemberInfo(partyMemberInfo);
+		}catch(Exception e){
+			e.printStackTrace();
+			this.getRequest().setAttribute("remind", "请正确填写信息");
 			return "update";
 		}
-		PartyMemberInfo p=partyMemberInfoService.getPartyMemberInfoById(partyMemberInfo.getPtm_Id());
-		partyMemberInfo.setBirthdate(p.getBirthdate());
-		partyMemberInfo.setJoinPartyDate(p.getJoinPartyDate());
-		partyMemberInfo.setLoginDate(p.getLoginDate());
-		partyMemberInfo.setSort(p.getSort());
-		partyMemberInfo.setDuties(p.getDuties());
-		partyMemberInfo.setIdAccessory(p.getIdAccessory());
-		partyMemberInfo.setIntroducer(p.getIntroducer());
-		partyMemberInfo.setPartyBranch(p.getPartyBranch());
-		partyMemberInfoService.addPartyMemberInfo(partyMemberInfo);
-		this.getRequest().setAttribute("remind", "修改成功");
-		this.getRequest().setAttribute("partyMember", partyMemberInfo);
+		this.getRequest().setAttribute("remind", "更改成功");
 		return "update";
 	}
 
@@ -64,14 +81,30 @@ public class PartMemberManagerAction extends BaseAction {
 		return "add";
 	}
 	public String addDo() {
-		if(partyMemberInfo==null){
+		if(partyMemberInfoService.exist(partyMemberInfo.getAccount())){
+			this.getRequest().setAttribute("remind", "账号已经存在，请重新填写。");
 			return "add";
 		}
-		Date date=new Date();
-		partyMemberInfo.setBirthdate(date);
-		partyMemberInfo.setJoinPartyDate(date);
-		partyMemberInfo.setLoginDate(date);
-		partyMemberInfo.setSort("");
+		String idc=partyMemberInfo.getIdCard();
+		int year=Integer.parseInt(idc.substring(6, 10));
+		String birth=idc.substring(6,14);
+		partyMemberInfo.setBirthdate(SwitchTime.strToDate(birth));
+		int s=Integer.parseInt(idc.charAt(16)+"");
+		System.out.println(56456);
+		if(s%2==0){
+			System.out.println(s+""+partyMemberInfo+"");
+			partyMemberInfo.setSex("女");
+		}else{
+			partyMemberInfo.setSex("男");
+		}
+		Calendar calendar=Calendar.getInstance();
+		int nowY=calendar.get(Calendar.YEAR);
+		int age=nowY-year;
+		partyMemberInfo.setAge(age);
+		
+		partyMemberInfo.setSort("党员");
+		partyMemberInfo.setLoginDate(new Date());
+		partyMemberInfo.setJoinPartyDate(SwitchTime.strToDate(this.getRequest().getParameter("joinPartyDate").toString()));
 		partyMemberInfo.setIdAccessory("");
 		partyMemberInfoService.addPartyMemberInfo(partyMemberInfo);
 		this.getRequest().setAttribute("remind", "添加成功");

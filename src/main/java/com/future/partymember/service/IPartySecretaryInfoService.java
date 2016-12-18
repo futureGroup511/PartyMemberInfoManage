@@ -33,4 +33,6 @@ public interface IPartySecretaryInfoService {
 	 * 删除
 	 */
 	public boolean delete(int id);
+	
+	public boolean exist(String account);//是否存在账号
 }
