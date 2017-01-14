@@ -26,18 +26,8 @@
 </head>
 <body>
 	<div class="content">
-		<h3>根据Excel导入试卷</h3>
-		<div class="main">
-			<form action="${rootPath }manage/import_importTest" method="post"
-				enctype="multipart/form-data">
-				试卷：<input type="file" name="testPaper"
-					accept="application/vnd.ms-excel, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet">
-				<button type="submit">上传</button>
-			</form>
-			${reminder}
-		</div>
-
-		<h3>添加试卷</h3>
+	<h4>温馨提示：导入试卷文件之前，必须先添加试卷名称和描述；也可以只添加试卷名称和描述，不导入试卷文件</h4>
+	<h3>添加试卷</h3>
 		<div>
 			<form action="${rootPath}/manage/import_addTestPaper" method="post">
 				<table>
@@ -55,6 +45,18 @@
 				<h3>${testPapMeg }</h3>
 			</form>
 		</div>
+		<h3>根据Excel导入试卷</h3>
+		<div class="main">
+			<form action="${rootPath }manage/import_importTest" method="post"
+				enctype="multipart/form-data">
+				试卷：<input type="file" name="testPaper"
+					accept="application/vnd.ms-excel, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet">
+				<button type="submit">上传</button>
+			</form>
+			${reminder}
+		</div>
+
+		
 	</div>
 
 </body>

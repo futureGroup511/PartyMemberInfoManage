@@ -19,7 +19,7 @@ public class Question {
 
 	private int  qt_Id;//试题id 具有唯一性
 	private int paperId;//试卷id  用来标志 试题是否属于一套试卷
-	private String testName;//试卷名称——————焦祥宇加
+	private String paperName;//试卷名称——————焦祥宇加
 	private String questions_stems;//题干	
 	private String answer;//答案
 	private String analysis;//解析
@@ -136,12 +136,13 @@ public class Question {
 		this.question_socre = question_socre;
 	}
 
-	public String getTestName() {
-		return testName;
+	public String getPaperName() {
+		return paperName;
 	}
 
-	public void setTestName(String testName) {
-		this.testName = testName;
+	public void setPaperName(String paperName) {
+		this.paperName = paperName;
 	}
-	
+
+
 }

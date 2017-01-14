@@ -6,9 +6,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <script type="text/javascript" charset="utf-8" src="${ rootPath}ueditor1_4_3/ueditor.config.js"></script>
-<script type="text/javascript" charset="utf-8" src="${rootPath }ueditor1_4_3/ueditor.all.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="${rootPath }ued
+itor1_4_3/ueditor.all.min.js"></script>
 <script type="text/javascript" charset="utf-8" src="${rootPath}ueditor1_4_3/lang/zh-cn/zh-cn.js"></script>
-<title>编辑文章</title>
+<title>编辑新闻</title>
 <script type="text/javascript">
     function modifyContent() {
         var content = document.getElementById("content");
@@ -75,10 +76,10 @@ var ue = UE.getEditor('editor', {
 
 
 <body>
-	<form action="${rootPath }manage/managePaper_addPaper" method="post"   onsubmit="modifyContent()">
-			标题：<input type="text"  name="redPaper.title"/><br>
-			作者：<input type="text"  name="redPaper.author" /><br>
-			来源：<input type="text"  name="redPaper.source" /><br>
+	<form action="${rootPath }manage/managePaper_updatePaper" method="post"   onsubmit="modifyContent()">
+			标题：<input type="text"  name="redPaper.title"  value="${paper.title }"/><br>
+			作者：<input type="text"  name="redPaper.author"  value="${paper.author }"/><br>
+			来源：<input type="text"  name="redPaper.source"  value="${paper.source}"/><br>
 			版块：
 			<select name="redPaper.paperTypeId">
 				<c:forEach items="${ redPaperTypeList}" var="type">
@@ -96,10 +97,10 @@ var ue = UE.getEditor('editor', {
 			
 			<textarea rows="20" cols="25" name="redPaper.content"  id="content"   style="display:none"></textarea><br>
 			 <p>正文：</p>
-             <script id="editor" type="text/plain" style="width: 1024px; height: 500px;"></script>
+             <script id="editor" type="text/plain" style="width: 1024px; height: 500px;">${paper.content}</script>
 		<input type="submit"   value="一键发布"/>
 	</form>
-	<input id="remind" type="hidden"  value="${paper }">
+	<input id="remind" type="hidden"  value="${p}">
 </body>
 <script type="text/javascript"  src="${rootPath }js/jquery-3.1.1.min.js"></script>
 <script type="text/javascript">

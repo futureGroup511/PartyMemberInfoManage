@@ -38,4 +38,15 @@ public class ForwardPaperAction extends BaseAction {
 		this.getRequest().setAttribute("pc", pc);
 		return "fManagePaper";
 	}
+	
+	//转到文章修改页面
+	public String fUpdatePaper() throws Exception{
+		List<RedPaperType> list=redPaperTypeService.getAllPaperType();
+		session.put("redPaperTypeList", list);
+		int id=Integer.parseInt(this.getRequest().getParameter("rp_Id"));
+		RedPaper rp=redPaperService.getById(id);
+		this.getRequest().setAttribute("paper",rp );
+		return "fUpdatePaper";
+	}
+
 }

@@ -33,10 +33,10 @@
 					<td>${paper.paperType}</td>					
 					<td>${paper.releaseDate}</td>
 					<td>${paper.readNum }</td>
-					<td>${paper.rp_tag}</td>
+					<td>${paper.strTag}</td>
 					<td><a>详细</a></td>
-					<td><a href="${rootPath }manage/inform_change?inform.info_Id=${inform.info_Id}">管理</a></td>
-					<td><a href="${rootPath }manage/inform_delete?page=${pc.currentPage }&inform.info_Id=${inform.info_Id}">删除</a></td>
+					<td><a href="${rootPath }manage/fPaper_fUpdatePaper?rp_Id=${paper.rp_Id}"   target="_blank">管理</a></td>
+					<td onClick="que_ren(${paper.rp_Id})">删除</td>
 				</tr>
 			</c:forEach>
 
@@ -44,26 +44,38 @@
 	</table>
 	<div id="pagecut" style="margin-right:100px;text-align:right;">
 		<ul class="pagination">
-			<li><a href="${rootPath }manage/inform?page=${pc.prePage}">上一页</a></li>
+			<li><a href="${rootPath }manage/managePaper_paper?page=${pc.prePage}">上一页</a></li>
 			<c:if test="${1 < pc.currentPage -3}">
-				<li><a href="${rootPath }manage/inform">1</a></li>
+				<li><a href="${rootPath }manage/managePaper_paper">1</a></li>
 			</c:if>
 			
 			<c:forEach var="i" begin="${pc.currentPage-3>0?pc.currentPage-3:1 }" end="${pc.currentPage+3>pc.pageNum?pc.pageNum:pc.currentPage+3  }">
 				<c:choose>
 					<c:when test="${i>0 && i == pc.currentPage }">
-						<li class="active"><a href="${rootPath }manage/inform?page=${i }">${i}</a></li>
+						<li class="active"><a href="${rootPath }manage/managePaper_paper?page=${i }">${i}</a></li>
 					</c:when>
 
 					<c:when test="${i>0 && i != postPS.currentPage }">
-						<li><a href="${rootPath }manage/inform?page=${i }">${i}</a></li>
+						<li><a href="${rootPath }manage/managePaper_paper?page=${i }">${i}</a></li>
 					</c:when>
 				</c:choose>
 			</c:forEach>
-			<li><a href="${rootPath }manage/inform?page=${pc.nextPage}">下一页</a></li>
+			<li><a href="${rootPath }manage/managePaper_paper?page=${pc.nextPage}">下一页</a></li>
 		</ul>
-
 	</div>
-
 </body>
+<script type="text/javascript">
+		var tag="${dTag}";
+		if(tag===""){
+			
+		}else{
+			alert(tag)
+		}
+		function que_ren(str,str1){
+				if(confirm("确认删除")){
+					location.href="managePaper_deletePaper?rp_Id="+str;
+				}
+		}
+
+</script>
 </html>

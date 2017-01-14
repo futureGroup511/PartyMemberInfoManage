@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 /**
  * 红色文章
@@ -138,5 +139,18 @@ public class RedPaper {
 	}
 	public void setPaperType(String paperType) {
 		this.paperType = paperType;
+	}
+	
+	
+	@Transient
+	public String getStrTag(){
+		switch(this.rp_tag){
+		case 0:
+			return "未发布";
+		case 1:
+			return "已发布";
+		default :
+			return "未定义"; 
+		}
 	}
 }
