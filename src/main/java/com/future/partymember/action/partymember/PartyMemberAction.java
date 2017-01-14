@@ -9,6 +9,7 @@ import com.future.partymember.entity.RedVideo;
 import com.future.partymember.entity.WatchVideoRecord;
 import com.future.partymember.util.PageCut;
 import com.future.partymember.util.SwitchTime;
+import com.opensymphony.xwork2.util.fs.Revision;
 
 /*
  * 党员信息控制层
@@ -92,7 +93,22 @@ public class PartyMemberAction extends BaseAction {
 		redVideoService.updatewatchNumById(videoId);	
 		
 		//播放视频
-		this.getRequest().setAttribute("video",redVideoService.get(videoId));		
+		RedVideo redVideo=redVideoService.get(videoId);
+		
+		if(redVideo.getVideoHome()==null){
+			return "viewing";
+		}
+		if(redVideo.getVideoHome().equals("优酷视频")){
+			redVideo.setVideoHome("youku");
+			this.getRequest().setAttribute("video",redVideo);
+			return "viewing_remote";
+		}
+		if(redVideo.getVideoHome().equals("腾讯视频")){
+			redVideo.setVideoHome("qq");
+			this.getRequest().setAttribute("video",redVideo);
+			return "viewing_remote";
+		}
+		this.getRequest().setAttribute("video",redVideo);
 		return "viewing";
 	}
 	

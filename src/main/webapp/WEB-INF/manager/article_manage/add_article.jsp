@@ -6,7 +6,11 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <script type="text/javascript" charset="utf-8" src="${ rootPath}ueditor1_4_3/ueditor.config.js"></script>
-<script type="text/javascript" charset="utf-8" src="${rootPath }ueditor1_4_3/ueditor.all.min.js"></script>
+
+<script type="text/javascript" charset="utf-8" src="${rootPath }ued
+itor1_4_3/ueditor.all.min.js"></script>
+<link rel="stylesheet" href="${rootPath}css/bootstrap.css">
+
 <script type="text/javascript" charset="utf-8" src="${rootPath}ueditor1_4_3/lang/zh-cn/zh-cn.js"></script>
 <title>编辑文章</title>
 <script type="text/javascript">
@@ -21,7 +25,12 @@
 
     }
 </script>
-
+<style>
+.row{
+width:100%;
+margin-top:2%;
+}
+</style>
 <script type="text/javascript">
 var ue = UE.getEditor('editor', {
 	toolbars: [
@@ -76,28 +85,39 @@ var ue = UE.getEditor('editor', {
 
 <body>
 	<form action="${rootPath }manage/managePaper_addPaper" method="post"   onsubmit="modifyContent()">
-			标题：<input type="text"  name="redPaper.title"/><br>
-			作者：<input type="text"  name="redPaper.author" /><br>
-			来源：<input type="text"  name="redPaper.source" /><br>
-			版块：
-			<select name="redPaper.paperTypeId">
-				<c:forEach items="${ redPaperTypeList}" var="type">
-					<option value="${type.rpt_Id}">${type.paperType }</option> 
-				</c:forEach>
-			</select>
-			<br>
-			
-			
-			<select name="redPaper.rp_tag">
+			<div class="row">
+				<div class="col-lg-3 col-lg-offset-2 col-md-4 col-md-offset-2 col-xs-5 col-xs-offset-1">
+					标题：<input type="text" style="width:80%;" name="redPaper.title"/>
+				</div>
+				<div class="col-lg-3 col-md-4  col-xs-5">
+					作者：<input type="text"  style="width:80%;" name="redPaper.author" />
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-3 col-lg-offset-2 col-md-4 col-md-offset-2 col-xs-5 col-xs-offset-1">
+					来源：<input type="text"    style="width:80%;" name="redPaper.source" />
+				</div>
+				<div class="col-lg-3 col-md-4  col-xs-5">
+					版块：
+					<select name="redPaper.paperTypeId" style="width:80%;margin-left:-1.5%;height:25px;">
+						<c:forEach items="${ redPaperTypeList}" var="type">
+							<option value="${type.rpt_Id}">${type.paperType }</option> 
+						</c:forEach>
+					</select>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-3  col-lg-offset-5 col-md-4  col-md-offset-6 col-xs-5 col-xs-offset-6">
+					<select name="redPaper.rp_tag" style="width:80%;margin-left:12%;height:25px;">
 					<option value="0">作为草稿</option> 
 					<option value="1"  selected="selected">发布文章</option> 
-			</select>
-			<br>
-			
+			        </select>
+				</div>
+			</div>
 			<textarea rows="20" cols="25" name="redPaper.content"  id="content"   style="display:none"></textarea><br>
 			 <p>正文：</p>
              <script id="editor" type="text/plain" style="width: 1024px; height: 500px;"></script>
-		<input type="submit"   value="一键发布"/>
+		<input style="margin-left:88%;" type="submit"   value="一键发布"/>
 	</form>
 	<input id="remind" type="hidden"  value="${paper }">
 </body>
