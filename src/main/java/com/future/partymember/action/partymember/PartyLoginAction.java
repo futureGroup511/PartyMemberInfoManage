@@ -19,8 +19,7 @@ public class PartyLoginAction extends BaseAction {
 	@Override	
 	public String  execute() throws Exception{
 		//获得视频
-		List<RedVideo> videosList=new ArrayList<RedVideo>();
-		PageCut pc=new PageCut();
+		List<RedVideo> videosList=new ArrayList<RedVideo>();		
 		this.getRequest().setAttribute("videosList", videosList);
 		
 		//获得文章
