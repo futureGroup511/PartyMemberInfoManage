@@ -26,6 +26,13 @@ public class BaseDao<T> {
 		clazz=(Class<T>)((ParameterizedType) type).getActualTypeArguments()[0];
 	}
 	
+	public int getNum(){
+		String className=clazz.getSimpleName();
+		String hql="select count(*) from "+className;		
+		return ((Long)this.uniqueResult(hql)).intValue();
+	}
+	
+	
 	protected Session getSession(){
 		return this.sessionFactory.getCurrentSession();
 	}

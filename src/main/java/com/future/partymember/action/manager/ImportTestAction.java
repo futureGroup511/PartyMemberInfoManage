@@ -45,6 +45,8 @@ public class ImportTestAction extends BaseAction {
 
 	private Question question;
 	
+	private TestPaper testPap;
+	
 	// 链接到上传试卷页面
 	public String linking() throws Exception {
 
@@ -69,29 +71,42 @@ public class ImportTestAction extends BaseAction {
 		return "importTest";
 	}
 
-	//上传试题
+	//链接到添加试题
+	public String toAddQuestion() throws Exception{
+		List<TestPaper> testPaperNameList=testPaperService.getAllTestPaper();
+		session.put("testPaperNameList",testPaperNameList );
+		
+		return "toAddQuestion";
+	}
+	//添加试题
 	public String question() throws Exception{
 		//根据试卷名称获得试卷id
-		String paperName=this.getRequest().getParameter("paperName");
-		
-		TestPaper testPaper=testPaperService.getTestPaperByName(paperName);
-		if(testPaper==null){//判断该试卷是否存在
-			testPaper=new TestPaper();
-			testPaper.setPaperName(paperName);
-			testPaper.setCreateDate(SwitchTime.dateToStr(new Date()));
-			testPaperService.addTestPaper(testPaper);
-			testPaper=testPaperService.getTestPaperByName(paperName);
-		}		
+		String paperName=this.getRequest().getParameter("paperName");		
+		TestPaper testPaper=testPaperService.getTestPaperByName(paperName);			
 		int tp_Id=testPaper.getTp_Id();
 		
-		//上传试题
+		//添加试题
 		question.setPaperId(tp_Id);
 		String bool=questionService.addQuestion(question);
 		if(bool.equals("su"))			
-			this.getRequest().setAttribute("questionMag", "上传成功");
+			this.getRequest().setAttribute("questionMag", "添加成功");
 		else
-			this.getRequest().setAttribute("questionMag", "上传失败");
+			this.getRequest().setAttribute("questionMag", "添加失败");
 		return "question";
+	}
+	
+	
+	
+	public String addTestPaper() throws Exception{
+		testPap.setCreateDate(SwitchTime.dateToStr(new Date()));
+		Boolean bool=testPaperService.addTestPaper(testPap);
+		if (bool==true) {
+			this.getRequest().setAttribute("testPapMeg", "添加成功");
+		}
+		else{
+			this.getRequest().setAttribute("testPapMeg", "添加失败");
+		}
+		return "addTestPaper";
 	}
 	
 	public void util2003() throws IOException {
@@ -230,6 +245,14 @@ public class ImportTestAction extends BaseAction {
 
 	public void setQuestion(Question question) {
 		this.question = question;
+	}
+
+	public TestPaper getTestPap() {
+		return testPap;
+	}
+
+	public void setTestPap(TestPaper testPap) {
+		this.testPap = testPap;
 	}
 
 }

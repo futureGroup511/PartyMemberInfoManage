@@ -1,4 +1,5 @@
 package com.future.partymember.service.impl;
+
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -11,6 +12,7 @@ import com.future.partymember.entity.TestPaper;
 *@author 焦祥宇
 */
 import com.future.partymember.service.ITestPaperService;
+import com.future.partymember.util.PageCut;
 
 
 @Service
@@ -43,11 +45,7 @@ public class TestPaperServiceImpl implements ITestPaperService {
 		return testPaperDao.getTestPaper(tp_Id);
 	}
 
-	@Override
-	public List<TestPaper> grtAllTestPaper() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	
 
 	@Override
 	public TestPaper getTestPaperByName(String paperName) {
@@ -55,6 +53,18 @@ public class TestPaperServiceImpl implements ITestPaperService {
 		TestPaper testPaper=testPaperDao.getTestPaperByName(paperName);
 		
 		return testPaper ;
+	}
+
+	@Override
+	public PageCut<TestPaper> getPC(int curr, int pageSize) {
+		// TODO Auto-generated method stub
+		return testPaperDao.getPC(curr, pageSize);
+	}
+
+	@Override
+	public List<TestPaper> getAllTestPaper() {
+		// TODO Auto-generated method stub
+		return testPaperDao.getAllTestPaper();
 	}
 
 }

@@ -61,7 +61,7 @@
 					
 					<td>入党日期</td>
 					<td><input type="text" name="joinPartyDate"></td>
-					
+					<td><label>修改日期请填写数字：如20160101</label></td>
 
 				</tr>
 

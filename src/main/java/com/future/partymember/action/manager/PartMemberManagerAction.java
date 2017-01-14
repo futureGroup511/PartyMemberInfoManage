@@ -44,17 +44,18 @@ public class PartMemberManagerAction extends BaseAction {
 
 	public String updateDo() {
 		
-		
-		
+		if(partyMemberInfoService.exist(partyMemberInfo.getAccount())){
+			this.getRequest().setAttribute("remind", "账号已经存在，请重新填写。");
+			this.getRequest().setAttribute("partyMemberInfo", partyMemberInfoService.getPartyMemberInfoById(partyMemberInfo.getPtm_Id()));
+			return "update";
+		}
 		try{
 			String idc=partyMemberInfo.getIdCard();
 			int year=Integer.parseInt(idc.substring(6, 10));
 			String birth=idc.substring(6,14);
 			partyMemberInfo.setBirthdate(SwitchTime.strToDate(birth));
 			int s=Integer.parseInt(idc.charAt(16)+"");
-			System.out.println(56456);
 			if(s%2==0){
-				System.out.println(s+""+partyMemberInfo+"");
 				partyMemberInfo.setSex("女");
 			}else{
 				partyMemberInfo.setSex("男");
@@ -71,9 +72,11 @@ public class PartMemberManagerAction extends BaseAction {
 		}catch(Exception e){
 			e.printStackTrace();
 			this.getRequest().setAttribute("remind", "请正确填写信息");
+			this.getRequest().setAttribute("partyMemberInfo", partyMemberInfoService.getPartyMemberInfoById(partyMemberInfo.getPtm_Id()));
 			return "update";
 		}
 		this.getRequest().setAttribute("remind", "更改成功");
+		this.getRequest().setAttribute("partyMemberInfo", partyMemberInfoService.getPartyMemberInfoById(partyMemberInfo.getPtm_Id()));
 		return "update";
 	}
 

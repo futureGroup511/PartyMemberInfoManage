@@ -7,6 +7,7 @@ import org.springframework.stereotype.Repository;
 import com.future.partymember.base.BaseDao;
 import com.future.partymember.dao.IQuestionDao;
 import com.future.partymember.entity.Question;
+import com.future.partymember.util.PageCut;
 
 @Repository
 public class QuestionDaoImpl extends BaseDao<Question> implements IQuestionDao{
@@ -19,8 +20,9 @@ public class QuestionDaoImpl extends BaseDao<Question> implements IQuestionDao{
 	}
 
 	@Override
-	public Boolean deleteQuestion(Question q) {
-		deleteEntity(q);
+	public Boolean deleteQuestion(int qt_Id) {
+		String hql="delete from Question q where q.qt_Id="+qt_Id;
+		this.uniqueResult(hql);
 		return true;
 	}
 
@@ -35,6 +37,13 @@ public class QuestionDaoImpl extends BaseDao<Question> implements IQuestionDao{
 		String hql="from Question q where q.paperId="+paperId;		
 		return this.getEntityList(hql);
 		
+	}
+
+	@Override
+	public PageCut<Question> getPC(int curr, int pageSize) {
+		PageCut<Question> pageCut=new PageCut<>(curr,pageSize,this.getNum());
+		pageCut.setData(this.getEntityLimitList("from Question",curr,pageSize));
+		return pageCut;
 	}
 
 	

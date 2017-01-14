@@ -22,29 +22,7 @@ public class PartSecretaryManagerAction extends BaseAction {
 	private int page=1;
 	private PartySecretaryInfo partySecretaryInfo;
 	public String execute(){
-		//测试，添加书记 后期删除
-		/*
-		PartySecretaryInfo p=new PartySecretaryInfo();
-		p.setAccount("1");
-		p.setBirthdate(new Date());
-		p.setLoginDate(new Date());
-		p.setJoinPartyDate(new Date());
-		p.setAge(45);
-		p.setDuties("fd");
-		p.setIdCard("fdsa");
-		p.setLearnTime(45645646456l);
-		p.setNation("fdsa");
-		p.setUsername("fds");
-		p.setSort("fds");
-		p.setSex("m");
-		p.setPhoneNo("2156");
-		p.setPartyBranch("fdsa");
-		p.setNativePlace("fdsa");
-		p.setNation("fdsa");
-		p.setPassword("fdsaf");
-		partySecretaryInfoService.add(p);
-		*/
-		PageCut<PartySecretaryInfo> pageCut=new PageCut<>(page, 5, 123);
+		PageCut<PartySecretaryInfo> pageCut=new PageCut<>(page, 5, 213);
 		pageCut.setData(partySecretaryInfoService.getList((page-1)*pageCut.getPageSize(), pageCut.getPageSize()));
 		this.getRequest().setAttribute("pageCut", pageCut);
 		return SUCCESS;
@@ -79,31 +57,47 @@ public class PartSecretaryManagerAction extends BaseAction {
 		
 		partySecretaryInfoService.add(partySecretaryInfo);
 		this.getRequest().setAttribute("remind", "添加成功");
-		this.getRequest().setAttribute("partyMember", partySecretaryInfo);
+		this.getRequest().setAttribute("partySecretaryInfo", partySecretaryInfo);
 		return "add";
 	}
 	public String update() {
 		String id=this.getRequest().getParameter("id");
-		this.getRequest().setAttribute("id", id);
+		this.getRequest().setAttribute("partySecretaryInfo", partySecretaryInfoService.findById(Integer.parseInt(id)));
 		return "update";
 	}
 	public String updateDo(){
-		if(partySecretaryInfo==null){
-			return null;
+		if(partySecretaryInfoService.exist(partySecretaryInfo.getAccount())){
+			this.getRequest().setAttribute("remind", "账号已经存在，请重新填写。");
+			this.getRequest().setAttribute("partySecretaryInfo", partySecretaryInfoService.findById(partySecretaryInfo.getPst_Id()));
+			return "update";
 		}
-		PartySecretaryInfo ps=partySecretaryInfoService.findById(partySecretaryInfo.getPst_Id());
-		if(ps==null){
-			return null;
+		try{
+			String idc=partySecretaryInfo.getIdCard();
+			int year=Integer.parseInt(idc.substring(6, 10));
+			String birth=idc.substring(6,14);
+			partySecretaryInfo.setBirthdate(SwitchTime.strToDate(birth));
+			int s=Integer.parseInt(idc.charAt(16)+"");
+			if(s%2==0){
+				partySecretaryInfo.setSex("女");
+			}else{
+				partySecretaryInfo.setSex("男");
+			}
+			Calendar calendar=Calendar.getInstance();
+			int nowY=calendar.get(Calendar.YEAR);
+			int age=nowY-year;
+			partySecretaryInfo.setAge(age);
+			partySecretaryInfo.setLoginDate(new Date());
+			partySecretaryInfo.setJoinPartyDate(SwitchTime.strToDate(this.getRequest().getParameter("joinPartyDate").toString()));
+			partySecretaryInfo.setSort("书记");
+			partySecretaryInfoService.updatePersonInfo(partySecretaryInfo);
+		}catch(Exception e){
+			e.printStackTrace();
+			this.getRequest().setAttribute("remind", "请正确填写信息");
+			this.getRequest().setAttribute("partySecretaryInfo", partySecretaryInfoService.findById(partySecretaryInfo.getPst_Id()));
+			return "update";
 		}
-		if(partySecretaryInfo.getPhoneNo()!=null && partySecretaryInfo.getPhoneNo().length()>0){
-			ps.setPhoneNo(partySecretaryInfo.getPhoneNo());
-		}
-		if(partySecretaryInfo.getPassword()!=null && partySecretaryInfo.getPassword().length()>0){
-			ps.setPassword(partySecretaryInfo.getPassword());
-		}
-		partySecretaryInfoService.updatePersonInfo(ps);//更新个人信息
-		this.getRequest().setAttribute("remind", "更新成功");
-		this.getRequest().setAttribute("id", ps.getPst_Id());
+		this.getRequest().setAttribute("remind", "更改成功");
+		this.getRequest().setAttribute("partySecretaryInfo", partySecretaryInfoService.findById(partySecretaryInfo.getPst_Id()));
 		return "update";
 	}
 	
