@@ -74,7 +74,10 @@
 						</div>
 						<div class="row">
 							视频链接：<input name="redVideo.videoUrl" type="text"
-								class="navbar-link">
+								class="navbar-link"  onchange="videoUrlChange(this)">
+						</div>
+						<div class="row">
+							视频来源：<span id="videoSite">请先输入视频链接</span>
 						</div>
 					</div>
 					<div
@@ -97,5 +100,19 @@
 			</div>
 		</form>
 	</div>
+	
+	<script type="text/javascript">
+		function videoUrlChange(videoUrl){
+			var url=videoUrl.value;
+			if(url.indexOf("youku.com") >= 0 ){
+				document.getElementById('videoSite').innerHTML = '优酷视频';
+			}else if(url.indexOf("v.qq.com") >= 0 ){
+				document.getElementById('videoSite').innerHTML = '腾讯视频';
+			}else{
+				document.getElementById('videoSite').innerHTML = '未知视频来源';
+			}
+		}
+	
+	</script>
 </body>
 </html>

@@ -7,6 +7,8 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Date;
 
+import javax.crypto.spec.RC2ParameterSpec;
+
 import org.springframework.expression.spel.ast.IntLiteral;
 
 import com.future.partymember.base.BaseAction;
@@ -65,7 +67,10 @@ public class UploadVideoAction extends BaseAction {
 		
 		
 		RedVideo rv=new RedVideo(videoFileName,videoDescription,"upload/video/"+fileName,0,1);
+		
 		rv.setImgUrl("upload/video/"+imgName);
+		rv.setVideoHome("本地视频");
+		rv.setXid("");
 		redVideoService.addVideo(rv);
 		this.getRequest().setAttribute("remind", videoFileName+"上传成功");
 		return SUCCESS;
@@ -95,6 +100,17 @@ public class UploadVideoAction extends BaseAction {
 		inImg.close();
 		outImg.close();
 		redVideo.setImgUrl(imgName);
+		String url=redVideo.getVideoUrl();
+		if(url.contains("youku.com")){
+			redVideo.setVideoHome("优酷视频");
+			
+			int index=url.indexOf("/id_")+4;
+			redVideo.setXid(url.substring(index,index+15 ));
+		}else if(url.contains("v.qq.com")){
+			redVideo.setVideoHome("腾讯视频");
+		}else{
+			redVideo.setVideoHome("未知来源");
+		}
 		redVideoService.addVideo(redVideo);
 		this.getRequest().setAttribute("remind", "添加成功");
 		return SUCCESS;
