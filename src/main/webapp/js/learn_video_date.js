@@ -36,7 +36,6 @@ function onbeforeunload_handler(){
 	watchLength = end.getTime()-start.getTime();//这是毫秒
 	var currentTime = document.getElementById("videos").currentTime; 
 	var videoId=document.getElementById("videoId").value;
-	
 
     $.ajax({
     	url: "/PartyMemberInfoManage/party/partyMemberAction_updateLearnTime",

@@ -9,6 +9,7 @@ import com.future.partymember.entity.RedVideo;
 import com.future.partymember.entity.WatchVideoRecord;
 import com.future.partymember.util.PageCut;
 import com.future.partymember.util.SwitchTime;
+import com.opensymphony.xwork2.util.fs.Revision;
 
 /*
  * 党员信息控制层
@@ -87,12 +88,13 @@ public class PartyMemberAction extends BaseAction {
 		WatchVideoRecord watchVideoRecord=watchVideoRecordService.getWVR(videoId, 1);
 		if(watchVideoRecord!=null)
 			this.getRequest().setAttribute("currentTime", watchVideoRecord.getCurrentTime());
-		System.out.println(watchVideoRecord);
 		//视频浏览次数加一
 		redVideoService.updatewatchNumById(videoId);	
 		
 		//播放视频
-		this.getRequest().setAttribute("video",redVideoService.get(videoId));		
+		RedVideo redVideo=redVideoService.get(videoId);
+	
+		this.getRequest().setAttribute("video",redVideo);
 		return "viewing";
 	}
 	
