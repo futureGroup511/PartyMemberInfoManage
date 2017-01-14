@@ -23,10 +23,14 @@ public class RedVideo {
 	private String name;
 	@Column(length=255)
 	private String description;//视频简介
+	/*
+	
 	@Column(length=10)
 	private String videoHome;//视频来源站点，目前有优酷和腾讯
 	@Column(length=20)
 	private String xid;//视频播放id,由url生成。
+	
+	*/
 	private String videoUrl;//视频地址
 	@Column(length=30)
 	private String imgUrl;
@@ -95,19 +99,6 @@ public class RedVideo {
 
 	public void setImgUrl(String imgUrl) {
 		this.imgUrl = imgUrl;
-	}
-	public String getVideoHome() {
-		return videoHome;
-	}
-	public void setVideoHome(String videoHome) {
-		this.videoHome = videoHome;
-	}
-	public String getXid() {
-		return xid;
-	}
-
-	public void setXid(String xid) {
-		this.xid = xid;
 	}
 
 	@Override

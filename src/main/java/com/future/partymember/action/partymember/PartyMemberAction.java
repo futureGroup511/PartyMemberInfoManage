@@ -88,26 +88,12 @@ public class PartyMemberAction extends BaseAction {
 		WatchVideoRecord watchVideoRecord=watchVideoRecordService.getWVR(videoId, 1);
 		if(watchVideoRecord!=null)
 			this.getRequest().setAttribute("currentTime", watchVideoRecord.getCurrentTime());
-		System.out.println(watchVideoRecord);
 		//视频浏览次数加一
 		redVideoService.updatewatchNumById(videoId);	
 		
 		//播放视频
 		RedVideo redVideo=redVideoService.get(videoId);
-		
-		if(redVideo.getVideoHome()==null){
-			return "viewing";
-		}
-		if(redVideo.getVideoHome().equals("优酷视频")){
-			redVideo.setVideoHome("youku");
-			this.getRequest().setAttribute("video",redVideo);
-			return "viewing_remote";
-		}
-		if(redVideo.getVideoHome().equals("腾讯视频")){
-			redVideo.setVideoHome("qq");
-			this.getRequest().setAttribute("video",redVideo);
-			return "viewing_remote";
-		}
+	
 		this.getRequest().setAttribute("video",redVideo);
 		return "viewing";
 	}
