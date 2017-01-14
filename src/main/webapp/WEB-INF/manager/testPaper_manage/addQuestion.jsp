@@ -11,13 +11,12 @@
 	
 	 
 	 <h3>添加试题</h3>
-			<form action="${rootPath }manage/import_question" method="post">
+			<form action="${rootPath}manage/import_question" method="post">
 				<label class="lable_1">所属试卷名称：</label>
-				<select name="paperName">
+				<select name="question.paperName">
 				 	<c:forEach items="${testPaperNameList}" var="n">
 				 		<option >${n.paperName}</option>
-				 	</c:forEach>
-					
+				 	</c:forEach>					
 				</select>
 				<br>
 				<label class="lable_1">题干：</label>

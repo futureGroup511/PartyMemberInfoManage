@@ -56,7 +56,7 @@ public class TestPaperDaoImpl extends BaseDao<TestPaper> implements ITestPaperDa
 	@Override
 	public PageCut<TestPaper> getPC(int curr, int pageSize) {
 		PageCut<TestPaper> pageCut=new PageCut<>(curr,pageSize,this.getNum());
-		pageCut.setData(this.getEntityLimitList("from TestPaper",curr,pageSize));
+		pageCut.setData(this.getEntityLimitList("from TestPaper",(curr-1)*pageSize,pageSize));
 		return pageCut;
 		
 	}

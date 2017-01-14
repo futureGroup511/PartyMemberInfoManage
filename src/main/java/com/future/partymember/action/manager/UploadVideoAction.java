@@ -7,6 +7,8 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Date;
 
+import javax.crypto.spec.RC2ParameterSpec;
+
 import org.springframework.expression.spel.ast.IntLiteral;
 
 import com.future.partymember.base.BaseAction;
@@ -65,7 +67,9 @@ public class UploadVideoAction extends BaseAction {
 		
 		
 		RedVideo rv=new RedVideo(videoFileName,videoDescription,"upload/video/"+fileName,0,1);
+		
 		rv.setImgUrl("upload/video/"+imgName);
+		
 		redVideoService.addVideo(rv);
 		this.getRequest().setAttribute("remind", videoFileName+"上传成功");
 		return SUCCESS;

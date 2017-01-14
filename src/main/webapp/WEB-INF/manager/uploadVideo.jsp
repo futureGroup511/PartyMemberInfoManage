@@ -74,8 +74,9 @@
 						</div>
 						<div class="row">
 							视频链接：<input name="redVideo.videoUrl" type="text"
-								class="navbar-link">
+								class="navbar-link"  onchange="videoUrlChange(this)">
 						</div>
+						
 					</div>
 					<div
 						class="col-lg-2 col-lg-offset-1 col-md-2 col-md-offset-1 col-xs-3 col-md-offset-1">
