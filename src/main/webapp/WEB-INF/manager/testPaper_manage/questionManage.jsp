@@ -24,7 +24,7 @@
 			</tr>
 			<c:forEach items="${pc.data}" var="q">
 				<tr>
-					<td>${q.testName}</td>
+					<td>${q.paperName}</td>
 					<td>${q.questions_stems}</td>
 					<td>${q.answer}</td>
 					<td>${q.analysis}</td>

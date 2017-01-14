@@ -42,7 +42,7 @@ public class QuestionDaoImpl extends BaseDao<Question> implements IQuestionDao{
 	@Override
 	public PageCut<Question> getPC(int curr, int pageSize) {
 		PageCut<Question> pageCut=new PageCut<>(curr,pageSize,this.getNum());
-		pageCut.setData(this.getEntityLimitList("from Question",curr,pageSize));
+		pageCut.setData(this.getEntityLimitList("from Question",(curr-1)*pageSize,pageSize));
 		return pageCut;
 	}
 
