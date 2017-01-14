@@ -5,7 +5,6 @@ import java.util.List;
 
 import com.future.partymember.base.BaseAction;
 import com.future.partymember.entity.RedVideo;
-import com.future.partymember.util.PageCut;
 
 /*
 *@author 焦祥宇

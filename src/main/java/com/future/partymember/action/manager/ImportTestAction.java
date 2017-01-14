@@ -44,9 +44,9 @@ public class ImportTestAction extends BaseAction {
 	private String testPaperContentType;
 
 	private Question question;
-	
+
 	private TestPaper testPap;
-	
+
 	// 链接到上传试卷页面
 	public String linking() throws Exception {
 
@@ -71,44 +71,43 @@ public class ImportTestAction extends BaseAction {
 		return "importTest";
 	}
 
-	//链接到添加试题
-	public String toAddQuestion() throws Exception{
-		List<TestPaper> testPaperNameList=testPaperService.getAllTestPaper();
-		session.put("testPaperNameList",testPaperNameList );
-		
+	// 链接到添加试题
+	public String toAddQuestion() throws Exception {
+		List<TestPaper> testPaperNameList = testPaperService.getAllTestPaper();
+		session.put("testPaperNameList", testPaperNameList);
+
 		return "toAddQuestion";
 	}
-	//添加试题
-	public String question() throws Exception{
-		//根据试卷名称获得试卷id
-		String paperName=this.getRequest().getParameter("paperName");		
-		TestPaper testPaper=testPaperService.getTestPaperByName(paperName);			
-		int tp_Id=testPaper.getTp_Id();
-		
-		//添加试题
+
+	// 添加试题
+	public String question() throws Exception {
+		// 根据试卷名称获得试卷id
+		String paperName = this.getRequest().getParameter("question.paperName");
+		TestPaper testPaper = testPaperService.getTestPaperByName(paperName);
+		int tp_Id = testPaper.getTp_Id();
+
+		// 添加试题
 		question.setPaperId(tp_Id);
-		String bool=questionService.addQuestion(question);
-		if(bool.equals("su"))			
+		String bool = questionService.addQuestion(question);
+		if (bool.equals("su"))
 			this.getRequest().setAttribute("questionMag", "添加成功");
 		else
 			this.getRequest().setAttribute("questionMag", "添加失败");
 		return "question";
 	}
-	
-	
-	
-	public String addTestPaper() throws Exception{
+
+	// 添加试卷名称和描述
+	public String addTestPaper() throws Exception {
 		testPap.setCreateDate(SwitchTime.dateToStr(new Date()));
-		Boolean bool=testPaperService.addTestPaper(testPap);
-		if (bool==true) {
+		Boolean bool = testPaperService.addTestPaper(testPap);
+		if (bool == true) {
 			this.getRequest().setAttribute("testPapMeg", "添加成功");
-		}
-		else{
+		} else {
 			this.getRequest().setAttribute("testPapMeg", "添加失败");
 		}
 		return "addTestPaper";
 	}
-	
+
 	public void util2003() throws IOException {
 		// 需要解析的Excel文件
 		File is = new File(testPaper.getPath());
@@ -140,20 +139,23 @@ public class ImportTestAction extends BaseAction {
 					/**
 					 * 根据试卷名判断没有这套试卷 没有的话不进行导入试卷
 					 */
-					q.setPaperId(1);// 这个地方应该动态的去判断导入试卷的id
-
-					q.setQuestions_stems(String.valueOf(questions_stems));
-					q.setA(String.valueOf(A));
-					q.setB(String.valueOf(B));
-					q.setC(String.valueOf(C));
-					q.setD(String.valueOf(D));
-					int index = String.valueOf(question_socre).trim().indexOf('.');
-					String question_socre1 = String.valueOf(question_socre).trim().substring(0, index);
-					q.setQuestion_socre(Integer.parseInt(question_socre1));
-					q.setAnswer(String.valueOf(answer));
-					q.setAnalysis(String.valueOf(analysis));
-
-					list.add(q);
+					int paper_Id = existTest(String.valueOf(paperName));
+					if (paper_Id != -1) {
+						q.setPaperId(paper_Id);// 这个地方应该动态的去判断导入试卷的id
+						q.setPaperName(String.valueOf(paperName));
+						q.setQuestions_stems(String.valueOf(questions_stems));
+						q.setA(String.valueOf(A));
+						q.setB(String.valueOf(B));
+						q.setC(String.valueOf(C));
+						q.setD(String.valueOf(D));
+						int index = String.valueOf(question_socre).trim().indexOf('.');
+						String question_socre1 = String.valueOf(question_socre).trim().substring(0, index);
+						q.setQuestion_socre(Integer.parseInt(question_socre1));
+						q.setAnswer(String.valueOf(answer));
+						q.setAnalysis(String.valueOf(analysis));
+						list.add(q);
+					}
+					
 				}
 			}
 		}
@@ -193,26 +195,41 @@ public class ImportTestAction extends BaseAction {
 					/**
 					 * 根据试卷名判断没有这套试卷 没有的话不进行导入试卷
 					 */
-					q.setPaperId(1);// 这个地方应该动态的去判断导入试卷的id
-
-					q.setQuestions_stems(String.valueOf(questions_stems));
-					q.setA(String.valueOf(A));
-					q.setB(String.valueOf(B));
-					q.setC(String.valueOf(C));
-					q.setD(String.valueOf(D));
-					int index = String.valueOf(question_socre).trim().indexOf('.');
-					String question_socre1 = String.valueOf(question_socre).trim().substring(0, index);
-					q.setQuestion_socre(Integer.parseInt(question_socre1));
-					q.setAnswer(String.valueOf(answer));
-					q.setAnalysis(String.valueOf(analysis));
-
-					list.add(q);
+					int paper_Id = existTest(String.valueOf(paperName));
+					if (paper_Id != -1) {
+						q.setPaperId(paper_Id);// 这个地方应该动态的去判断导入试卷的id
+						q.setPaperName(String.valueOf(paperName));
+						q.setQuestions_stems(String.valueOf(questions_stems));
+						q.setA(String.valueOf(A));
+						q.setB(String.valueOf(B));
+						q.setC(String.valueOf(C));
+						q.setD(String.valueOf(D));
+						int index = String.valueOf(question_socre).trim().indexOf('.');
+						String question_socre1 = String.valueOf(question_socre).trim().substring(0, index);
+						q.setQuestion_socre(Integer.parseInt(question_socre1));
+						q.setAnswer(String.valueOf(answer));
+						q.setAnalysis(String.valueOf(analysis));
+						list.add(q);
+					}
+					
 				}
 			}
 		}
 		for (int i = 0; i < list.size(); i++) {
 			questionService.addQuestion(list.get(i));
 		}
+	}
+
+	// 判断试卷是否存在,获得试卷的id
+	public int existTest(String paperName) {
+		int paper_Id = 0;
+		TestPaper testPaper = testPaperService.getTestPaperByName(paperName);
+		if (testPaper != null) {
+			paper_Id = testPaper.getTp_Id();
+		} else {
+			paper_Id = -1;
+		}
+		return paper_Id;
 	}
 
 	public File getTestPaper() {
