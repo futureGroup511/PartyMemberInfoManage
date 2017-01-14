@@ -6,20 +6,45 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" href="${rootPath}css/bootstrap.css">
+<style type="text/css">
+.row{
+width:100%;
+margin-top:2%;
+}
+</style>
 </head>
 <body>
 	<form action="${rootPath}manage/testManage_startTest" method="post">
-		试卷名称：
-		<select name="startTest.paperName">
-			<c:forEach items="${testPaperNameList}" var="n">
-			   <option >${n.paperName}</option>
-			</c:forEach>
-		</select>
-		<br>
-		开考时间：<input type="datetime-local" name="startTest.startTime"><br>
-		结束时间：<input type="datetime-local" name="startTest.endTime"><br>
-		<input type="reset" value="重  置">
-		<input type="submit" value="开启考试">
+		<div class="row">
+					<div class="col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3 col-xs-8 col-xs-offset-2">
+						<label class="lable_1">试卷名称：</label>
+						<select style="width:60%;height:25px;" name="startTest.paperName">
+							<c:forEach items="${testPaperNameList}" var="n">
+							   <option >${n.paperName}</option>
+							</c:forEach>
+						</select>
+					</div>
+	    </div>
+	    <div class="row">
+					<div class="col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3 col-xs-8 col-xs-offset-2">
+						<label class="lable_1">开考时间：</label>
+						<input  style="width:60%;height:25px;"  type="datetime-local" name="startTest.startTime">
+					</div>
+	    </div>
+	    <div class="row">
+					<div class="col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3 col-xs-8 col-xs-offset-2">
+						<label class="lable_1">结束时间：</label>
+						<input   style="width:60%;height:25px;" type="datetime-local" name="startTest.endTime">
+					</div>
+	    </div>
+	     <div class="row" style="margin-top:5%;">
+					<div class="col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3 col-xs-8 col-xs-offset-2">
+						<input style="margin-left:18%;" type="reset" value="重  置">
+						<input  style="margin-left:18%;"  type="submit" value="开启考试">
+					</div>
+	    </div>
+		
 	</form>
 	<h3>${startMeg}</h3>
 </body>
