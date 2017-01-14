@@ -18,7 +18,7 @@ import javax.persistence.Table;
 @Table(name = "red_video", catalog = "partymember")
 public class RedVideo {
 
-	private int rv_Id;
+	private int rv_Id;                                                                                                                                                                                                                                 
 	@Column(length=20)
 	private String name;
 	private String description;//视频简介
