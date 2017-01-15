@@ -18,5 +18,9 @@ public interface IRedPaperDao {
 	public PageCut<RedPaper> getPCByNew(int curr, int pageSize);
 	//根据id查询
 	public RedPaper getById(int id);
+	//根据名字精确查询
+	public List<RedPaper> findPaperByNameOne(String name);
+	//根据文章类别分类查询 只取前五条
+	public List<RedPaper> findPaperByType();
 
 }

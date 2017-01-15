@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>书记的主菜单</title>
+<title>书记的主页</title>
 </head>
 <body>
 	<div>
@@ -19,9 +19,7 @@
 				</li>
 				<li><a href="${rootPath }secretary/partySecretary_lookOfPartyMember">查看所管理的党员信息</a></li>
 				<li><a href="${rootPath }secretary/pSForward_videoList">在线视频</a></li>
-				<li><a href="">在线文章</a></li>
-				<li><a href="">在线测试</a></li>
-				<li><a href="">在线考试</a></li>
+				<li><a href="${rootPath }secretary/pSForward_paperList">在线文章</a></li>
 			</ol>
 		</div>
 	</div>

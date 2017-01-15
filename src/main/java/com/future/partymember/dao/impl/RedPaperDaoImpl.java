@@ -63,4 +63,21 @@ public class RedPaperDaoImpl extends BaseDao<RedPaper> implements IRedPaperDao {
 		return getEntity(id);
 	}
 
+	//根据名字精确查找
+	@Override
+	public List<RedPaper> findPaperByNameOne(String name) {
+		String hql="from RedPaper rp where rp.title=?";
+		return getEntityList(hql,name);
+	}
+
+	
+	//根据文章类别进行查询,每个类别只取最新的五条
+	@Override
+	public List<RedPaper> findPaperByType() {
+		String hql="select * FROM RedPaper a WHERE ( SELECT count( 1 )  FROM "
+				+ "RedPaper b WHERE a.paper_type_id = b.paper_type_id  AND b.rp_Id >= a.rp_Id ) <=5 "
+				+ "ORDER BY paper_type_id ASC";
+		return getEntityList(hql);
+	}
+
 }

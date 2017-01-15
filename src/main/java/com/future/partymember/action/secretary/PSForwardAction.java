@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 
 import com.future.partymember.base.BaseAction;
 import com.future.partymember.entity.PartySecretaryInfo;
+import com.future.partymember.entity.RedPaper;
 import com.future.partymember.entity.RedVideo;
 /**
  * 书记的转发类
@@ -52,6 +53,13 @@ public class PSForwardAction extends BaseAction {
 		videosList=redVideoService.getAll();
 		this.getRequest().setAttribute("videosList", videosList);
 		return "videoList";
+	}
+	
+	//转发到在线文章列表页
+	public String paperList() throws Exception{
+		List<RedPaper> paperList=redPaperService.findPaperByType();
+		this.getRequest().setAttribute("paperList", paperList);
+		return "paperList";
 	}
 
 	
