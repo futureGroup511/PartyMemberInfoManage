@@ -26,52 +26,44 @@
 			<table>
 				<tr>
 					<td>账号</td>
-					<td><input type="text" name="partySecretaryInfo.account"></td>
+					<td><input type="text" name="partySecretaryInfo.account" value="${partySecretaryInfo.account }"></td>
 					<td>密码</td>
-					<td><input type="password" name="partySecretaryInfo.password"></td>
+					<td><input type="password" name="partySecretaryInfo.password" value="${partySecretaryInfo.password  }"></td>
 				</tr>
 				<tr>
 					<td>身份证号码</td>
-					<td><input type="text" name="partySecretaryInfo.idCard"></td>
+					<td><input type="text" name="partySecretaryInfo.idCard" value="${partySecretaryInfo.idCard }"></td>
 					<td>手机号</td>
-					<td><input type="tel" name="partySecretaryInfo.phoneNo"></td>
+					<td><input type="tel" name="partySecretaryInfo.phoneNo" value="${partySecretaryInfo.phoneNo }"></td>
 				</tr>
 				<tr>
 				
 					<td>姓名</td>
-					<td><input type="text" name="partySecretaryInfo.username"></td>
-					<td>介绍人</td>
-					<td><input type="text" name="partySecretaryInfo.introducer"></td>
+					<td><input type="text" name="partySecretaryInfo.username" value="${partySecretaryInfo.username }"></td>
 				</tr>
 
 				<tr>
 
 					<td>民族</td>
-					<td><input type="text" name="partySecretaryInfo.nation"></td>
+					<td><input type="text" name="partySecretaryInfo.nation" value="${partySecretaryInfo.nation }"></td>
 					<td>籍贯</td>
-					<td><input type="text" name="partySecretaryInfo.nativePlace"></td>
+					<td><input type="text" name="partySecretaryInfo.nativePlace" value="${partySecretaryInfo.nativePlace }"></td>
 
 				</tr>
 				
 				<tr>
 					
 					<td>所在党支部</td>
-					<td><input type="text" name="partySecretaryInfo.partyBranch"></td>
+					<td><input type="text" name="partySecretaryInfo.partyBranch" value="${partySecretaryInfo.partyBranch }"></td>
 					<td>职务</td>
-					<td><input type="text" name="partySecretaryInfo.duties"></td>
+					<td><input type="text" name="partySecretaryInfo.duties" value="${partySecretaryInfo.duties }"></td>
 
 				</tr>
 				<tr>
 					
 					<td>入党日期</td>
-					<td><input type="text" name="joinPartyDate"></td>
-					
-
-				</tr>
-
-				<tr>
-
-
+					<td><input type="text" name="joinPartyDate" value="${dateStr }"></td>
+					<td><label>修改日期请填写数字：如20160101</label></td>
 
 				</tr>
 				<tr>

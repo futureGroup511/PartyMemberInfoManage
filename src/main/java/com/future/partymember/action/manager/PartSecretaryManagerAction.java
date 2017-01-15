@@ -32,33 +32,43 @@ public class PartSecretaryManagerAction extends BaseAction {
 		return "add";
 	}
 	public String addDo(){
+		String dateStr=this.getRequest().getParameter("joinPartyDate").toString();
+		this.getRequest().setAttribute("dateStr", dateStr);
 		if(partySecretaryInfoService.exist(partySecretaryInfo.getAccount())){
 			this.getRequest().setAttribute("remind", "账号已经存在，请重新填写。");
+			this.getRequest().setAttribute("partySecretaryInfo", partySecretaryInfo);
 			return "add";
 		}
-		String idc=partySecretaryInfo.getIdCard();
-		int year=Integer.parseInt(idc.substring(6, 10));
-		String birth=idc.substring(6,14);
-		partySecretaryInfo.setBirthdate(SwitchTime.strToDate(birth));
-		int s=Integer.parseInt(idc.charAt(16)+"");
-		if(s%2==0){
-			partySecretaryInfo.setSex("女");
-		}else{
-			partySecretaryInfo.setSex("男");
+		try{
+			String idc=partySecretaryInfo.getIdCard();
+			int year=Integer.parseInt(idc.substring(6, 10));
+			String birth=idc.substring(6,14);
+			partySecretaryInfo.setBirthdate(SwitchTime.strToDate(birth));
+			int s=Integer.parseInt(idc.charAt(16)+"");
+			if(s%2==0){
+				partySecretaryInfo.setSex("女");
+			}else{
+				partySecretaryInfo.setSex("男");
+			}
+			Calendar calendar=Calendar.getInstance();
+			int nowY=calendar.get(Calendar.YEAR);
+			int age=nowY-year;
+			partySecretaryInfo.setAge(age);
+			
+			partySecretaryInfo.setSort("书记");
+			partySecretaryInfo.setLoginDate(new Date());
+			partySecretaryInfo.setJoinPartyDate(SwitchTime.strToDate(dateStr));
+			
+			partySecretaryInfoService.add(partySecretaryInfo);
+			this.getRequest().setAttribute("remind", "添加成功");
+			this.getRequest().removeAttribute("dateStr");
+			return "add";
+		}catch(Exception e){
+			this.getRequest().setAttribute("remind", "填写的数据有误,请重新填写.");
+			this.getRequest().setAttribute("partySecretaryInfo", partySecretaryInfo);
+			return "add";
 		}
-		Calendar calendar=Calendar.getInstance();
-		int nowY=calendar.get(Calendar.YEAR);
-		int age=nowY-year;
-		partySecretaryInfo.setAge(age);
 		
-		partySecretaryInfo.setSort("书记");
-		partySecretaryInfo.setLoginDate(new Date());
-		partySecretaryInfo.setJoinPartyDate(SwitchTime.strToDate(this.getRequest().getParameter("joinPartyDate").toString()));
-		
-		partySecretaryInfoService.add(partySecretaryInfo);
-		this.getRequest().setAttribute("remind", "添加成功");
-		this.getRequest().setAttribute("partySecretaryInfo", partySecretaryInfo);
-		return "add";
 	}
 	public String update() {
 		String id=this.getRequest().getParameter("id");
