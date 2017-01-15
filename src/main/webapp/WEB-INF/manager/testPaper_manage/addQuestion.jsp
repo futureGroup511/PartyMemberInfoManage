@@ -23,7 +23,7 @@ margin-top:2%;
 				<div class="row">
 					<div class="col-lg-5 col-lg-offset-2 col-md-5 col-md-offset-2 col-xs-5 col-xs-offset-2">
 						<label class="lable_1">所属试卷名称：</label>
-						<select style="width:40%;height:25px;" name="paperName">
+						<select style="width:40%;height:25px;" name="question.paperName">
 						 	<c:forEach items="${testPaperNameList}" var="n">
 						 		<option >${n.paperName}</option>
 						 	</c:forEach>

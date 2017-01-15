@@ -38,6 +38,11 @@ public class QuestionServiceImpl implements IQuestionService{
 		// TODO Auto-generated method stub
 		return questionDao.getPC(curr, pageSize);
 	}
+	@Override
+	public Boolean deleteByPaperId(int tp_Id) {
+		// TODO Auto-generated method stub
+		return questionDao.deleteByPaperId(tp_Id);
+	}
 	
 
 }

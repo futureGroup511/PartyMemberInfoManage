@@ -27,6 +27,13 @@ public class QuestionDaoImpl extends BaseDao<Question> implements IQuestionDao{
 	}
 
 	@Override
+	public Boolean deleteByPaperId(int tp_Id) {
+		String hql="delete from Question q where q.paperId="+tp_Id;
+		this.executeUpdate(hql);
+		return true;
+	}
+
+	@Override
 	public Boolean updateQuestion(Question q) {
 		this.updateEntity(q);
 		return true;
@@ -46,6 +53,7 @@ public class QuestionDaoImpl extends BaseDao<Question> implements IQuestionDao{
 		return pageCut;
 	}
 
+	
 	
 
 }

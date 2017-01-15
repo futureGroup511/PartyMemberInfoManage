@@ -85,7 +85,7 @@
 			<img src="${rootPath}images/footer-one.png">
 		</div>
 
-		<!-- 视频列表 -->
+		<%-- <!-- 视频列表 -->
 		<div style="padding-left: 190px;">
 			<c:forEach items="${pc.data}" var="v" varStatus="status">
 				<c:choose>
@@ -103,26 +103,28 @@
 					</c:when>
 				</c:choose>
 			</c:forEach>
-	</div>
-<!-- 这是一个搜索框 -->
-<div>
-		<form action="${rootPath }party/partyMemberAction_findByName"  method="post">
-			请输入视频名字 ：<input type="text"   name="videoName" />
-			<input  type="submit"  value="搜索"/>
-		</form>
-</div>
+	</div> --%>
+		<!-- 这是一个搜索框 -->
+		<div>
+			<form action="${rootPath }party/partyMemberAction_findByName"
+				method="post">
+				请输入视频名字 ：<input type="text" name="videoName" /> <input
+					type="submit" value="搜索" />
+			</form>
+		</div>
 
 
-	<!-- 视频列表 -->
-	<div style="padding-left: 190px;">
-		<c:forEach items="${pc.data}" var="v" varStatus="status">
-			<c:choose>
-				<c:when test="${(status.index)%6==0}">
-					<div style="clear: both;"></div>
-					<div style="width: 158px; float: left;">
-						<div>
-							<img src="${rootPath}${v.imgUrl}"
-								style="height: 180px; width: 120px;">
+		<!-- 视频列表 -->
+		<div style="padding-left: 190px;">
+			<c:forEach items="${pc.data}" var="v" varStatus="status">
+				<c:choose>
+					<c:when test="${(status.index)%6==0}">
+						<div style="clear: both;"></div>
+						<div style="width: 158px; float: left;">
+							<div>
+								<img src="${rootPath}${v.imgUrl}"
+									style="height: 180px; width: 120px;">
+							</div>
 						</div>
 					</c:when>
 					<c:otherwise>
@@ -140,20 +142,21 @@
 					</c:otherwise>
 				</c:choose>
 			</c:forEach>
-			<div id="pageCut">
-				<a href="${rootPath }manage/partMember?page=${pc.prePage}">上一页</a> <a
-					href="#">${pc.currentPage}/${pc.pageNum}</a> <a
-					href="${rootPath }manage/partMember?page=${pc.nextPage}">下一页</a>
-			</div>
+		</div>
+		<div id="pageCut">
+			<a href="${rootPath }manage/partMember?page=${pc.prePage}">上一页</a> <a
+				href="#">${pc.currentPage}/${pc.pageNum}</a> <a
+				href="${rootPath }manage/partMember?page=${pc.nextPage}">下一页</a>
+		</div>
 
 
 
-			<%-- 	</c:forEach> --%>
+		<%-- 	</c:forEach> --%>
 
 
-	<%-- </c:forEach> --%>
+		<%-- </c:forEach> --%>
 
-	<%-- </div>
+		<%-- </div>
 =======
 	</c:forEach>
 
@@ -168,15 +171,15 @@
 <<<<<<< Updated upstream
 	 --%>
 
-	
-	<div class="footer">
-		<img src="${rootPath}images/footer.png">
-		<div class="footer-one">
-			<p>河南科技学院党员网站 京ICP备11032580号</p>
-			<p>Copyright © 2012 by zgdsw.org.cn. all rights reserved</p>
 
+		<div class="footer">
+			<img src="${rootPath}images/footer.png">
+			<div class="footer-one">
+				<p>河南科技学院党员网站 京ICP备11032580号</p>
+				<p>Copyright © 2012 by zgdsw.org.cn. all rights reserved</p>
+
+			</div>
 		</div>
-   </div>
 		<%-- <div id="pageCut">
 			<a href="${rootPath }manage/partMember?page=${pc.prePage}">上一页</a> <a
 				href="#">${pc.currentPage}/${pc.pageNum}</a> <a
