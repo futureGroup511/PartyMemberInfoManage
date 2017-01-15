@@ -28,9 +28,9 @@ public class TestPaperServiceImpl implements ITestPaperService {
 	}
 
 	@Override
-	public Boolean delectTestPaper(TestPaper testPaper) {
+	public Boolean deleteTestPaper(int tp_Id) {
 		// TODO Auto-generated method stub
-		return testPaperDao.delectTestPaper(testPaper);
+		return testPaperDao.deleteTestPaper(tp_Id);
 	}
 
 	@Override

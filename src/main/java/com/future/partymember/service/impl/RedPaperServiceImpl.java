@@ -52,4 +52,15 @@ public class RedPaperServiceImpl implements IRedPaperService{
 		return iRedPaperDao.getById(id);
 	}
 
+	@Override
+	public List<RedPaper> findPaperByNameOne(String name) {
+		return iRedPaperDao.findPaperByNameOne(name);
+	}
+
+	//根据文章类别进行查询,每个类别只取最新的五条
+	@Override
+	public List<RedPaper> findPaperByType() {
+		return iRedPaperDao.findPaperByType();
+	}
+
 }

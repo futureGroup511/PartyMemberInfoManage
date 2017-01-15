@@ -38,7 +38,7 @@
 				</tr>
 			</c:forEach>
 		</table>
-		<h3>${delectQtMsg}</h3>
+		
 	</div>
 	<div style="margin-left:42%;">
 		<ul class="pagination">
@@ -47,5 +47,6 @@
 			<li><a href="${rootPath }manage/testManage_getQuestion?page=${pc.nextPage}">下一页</a></li>
 		</ul>
 	</div>
+	<h3>${delectQtMsg}</h3>
 </body>
 </html>

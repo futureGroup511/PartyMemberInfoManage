@@ -64,7 +64,7 @@
 			</div>
 		</div>
 	</div>
-	<div class="body-one">
+	<%-- <div class="body-one">
 		<div class="col-lg-5 col-md-5 col-xs-5">
 			<div id="slidershow" class="carousel slide" data-ride="carousel">
 				<!--设置图片轮番的顺序-->
@@ -179,7 +179,7 @@
 
 			</c:forEach>
 		</div>
-
+ --%>
 	</div>
 	<div class="footer">
 				<img src="${rootPath}images/footer.png">

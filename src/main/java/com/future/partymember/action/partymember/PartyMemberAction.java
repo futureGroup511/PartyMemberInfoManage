@@ -79,7 +79,9 @@ public class PartyMemberAction extends BaseAction {
 		return "viewVideos";
 	}
 
-	//看视频
+	
+	
+	//看视频  ---丁赵雷修改 2017-01-14
 	public String viewing() throws Exception{
 		//从路径获得视频id
 		int videoId=Integer.valueOf(this.getRequest().getParameter("videoId"));
@@ -97,6 +99,9 @@ public class PartyMemberAction extends BaseAction {
 		this.getRequest().setAttribute("video",redVideo);
 		return "viewing";
 	}
+	
+	
+	
 	
 	/*
 	 * //查询个人党费交纳

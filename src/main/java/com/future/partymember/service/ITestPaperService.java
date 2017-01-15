@@ -14,7 +14,7 @@ import com.future.partymember.util.PageCut;
 */
 public interface ITestPaperService {
 	public Boolean addTestPaper(TestPaper testPaper);
-	public Boolean delectTestPaper(TestPaper testPaper);
+	public Boolean deleteTestPaper(int tp_Id);
 	public Boolean updateTestPaper(TestPaper testPaper);
 	public TestPaper getTestPaper(int tp_Id);
 	public TestPaper getTestPaperByName(String paperName);

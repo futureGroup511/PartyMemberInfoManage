@@ -5,7 +5,6 @@ var end ;//视频结束
 var watchLength;//观看时长
 
 $(document).ready(function() {
-	/*startVideo();*/
 	window.onbeforeunload = onbeforeunload_handler;  
 });
 
@@ -24,8 +23,6 @@ function startVideo(){
 		start = new Date();
 		count=count+1;
 		var oldcurrentTime=document.getElementById("oldcurrentTime").value;
-		alert(oldcurrentTime);
-		
 		document.getElementById("videos").currentTime=oldcurrentTime;
 
 	}

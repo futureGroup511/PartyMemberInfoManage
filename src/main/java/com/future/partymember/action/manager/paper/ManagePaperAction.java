@@ -67,12 +67,18 @@ public class ManagePaperAction extends BaseAction{
 
 	//添加文章
 	public String addPaper() throws Exception{
-		redPaper.setReleaseDate(SwitchTime.dateToStr(new Date()));
-		RedPaperType r=redPaperTypeService.findById(redPaper.getPaperTypeId());
-		redPaper.setPaperType(r.getPaperType());
-		redPaperService.addRedPaper(redPaper);
-		this.getRequest().setAttribute("paper", "添加成功,您可继续添加");
-		return "addPaper";
+		
+		if(redPaperService.findPaperByNameOne(redPaper.getTitle()).size()>0){
+			this.getRequest().setAttribute("paper", "添加失败,该标题已存在");
+			return "addPaper";
+		}else{
+			redPaper.setReleaseDate(SwitchTime.dateToStr(new Date()));
+			RedPaperType r=redPaperTypeService.findById(redPaper.getPaperTypeId());
+			redPaper.setPaperType(r.getPaperType());
+			redPaperService.addRedPaper(redPaper);
+			this.getRequest().setAttribute("paper", "添加成功,您可继续添加");
+			return "addPaper";
+		}
 	}
 	
 	
