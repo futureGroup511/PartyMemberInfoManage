@@ -15,9 +15,6 @@ margin-top:2%;
 </style>
 </head>
 <body>
-	
-	 
-<<<<<<< HEAD
 	 <h3 style="margin-left:5%;">添加试题</h3>
 			<form action="${rootPath }manage/import_question" method="post">
 				<div class="row">
@@ -75,37 +72,6 @@ margin-top:2%;
 					</div>
 				</div>
 			
-=======
-	 <h3>添加试题</h3>
-			<form action="${rootPath}manage/import_question" method="post">
-				<label class="lable_1">所属试卷名称：</label>
-				<select name="question.paperName">
-				 	<c:forEach items="${testPaperNameList}" var="n">
-				 		<option >${n.paperName}</option>
-				 	</c:forEach>					
-				</select>
-				<br>
-				<label class="lable_1">题干：</label>
-				<input type="text" name="question.questions_stems"><br> 
-				<label class="lable_1">A选项：</label>
-				<input type="text" name="question.a"><br>
-				<label class="lable_1">B选项：</label>
-				<input type="text"name="question.b"><br> 
-				<label class="lable_1">C选项：</label>
-				<input type="text" name="question.c"><br> 
-				<label class="lable_1">D选项：</label>
-				<input type="text" name="question.d"><br>
-				<label class="lable_1">答案：</label>
-				<input type="text"name="question.answer"><br> 
-				<label class="lable_1">解析：</label>
-				<input type="text" name="question.analysis"><br>
-			    <label class="lable_1">分数：</label>
-			    <input type="number" name="question_socre"><br>
-			    <input type="reset" value="重置" style="margin-right: 250px;"> 
-			    <input type="submit" value="添加">	
->>>>>>> 0f9cf55c4ae953cd0805ce43e5bfc58feb09fd78
-			    			
-			</form>
-			<h4>${questionMag }</h4>
+
 </body>
 </html>
