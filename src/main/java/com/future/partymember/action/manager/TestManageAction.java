@@ -31,16 +31,13 @@ public class TestManageAction extends BaseAction {
 		return "getTestPaper";
 	}
 	public String delete() throws Exception{
-		if(id==0){
-			return null;
-		}
-		TestPaper testPaper=testPaperService.getTestPaper(id);
-		if(testPaper==null){
-			this.getRequest().setAttribute("remind", "删除失败，试卷不存在");
-			return this.execute();
-		}
-		testPaperService.delectTestPaper(testPaper);	
-		this.getRequest().setAttribute("remind", "添加成功");
+		Boolean bool=testPaperService.delectTestPaper(id);		
+		if(bool==true){
+			this.getRequest().setAttribute("delectTpMsg", "添加成功");
+			
+		}else{
+			this.getRequest().setAttribute("delectTpMsg", "删除失败，试卷不存在");
+		}		
 		return this.getTestPaper();
 	}
 	

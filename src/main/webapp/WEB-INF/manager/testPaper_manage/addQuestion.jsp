@@ -17,7 +17,7 @@ margin-top:2%;
 <body>
 	
 	 
-<<<<<<< HEAD
+
 	 <h3 style="margin-left:5%;">添加试题</h3>
 			<form action="${rootPath }manage/import_question" method="post">
 				<div class="row">
@@ -74,8 +74,8 @@ margin-top:2%;
 			    		  <input type="submit"  style="margin-left:14%;border-radius:0px;" value="添加" class="btn btn-primary">	
 					</div>
 				</div>
-			
-=======
+
+		<%-- =======
 	 <h3>添加试题</h3>
 			<form action="${rootPath}manage/import_question" method="post">
 				<label class="lable_1">所属试卷名称：</label>
@@ -104,8 +104,8 @@ margin-top:2%;
 			    <input type="reset" value="重置" style="margin-right: 250px;"> 
 			    <input type="submit" value="添加">	
 >>>>>>> 0f9cf55c4ae953cd0805ce43e5bfc58feb09fd78
-			    			
-			</form>
-			<h4>${questionMag }</h4>
+			 --%>   			
+			</form> 
+		<h4>${questionMag }</h4>
 </body>
 </html>
