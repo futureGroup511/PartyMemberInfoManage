@@ -22,8 +22,9 @@ public class TestPaperDaoImpl extends BaseDao<TestPaper> implements ITestPaperDa
 	}
 
 	@Override
-	public Boolean delectTestPaper(TestPaper testPaper) {
-		this.deleteEntity(testPaper);
+	public Boolean deleteTestPaper(int tp_Id) {
+		String hql="delete from TestPaper tp where tp.tp_Id="+tp_Id;
+		this.executeUpdate(hql);
 		return true;
 	}
 

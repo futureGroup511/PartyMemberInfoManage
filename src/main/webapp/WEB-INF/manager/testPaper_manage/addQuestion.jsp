@@ -17,12 +17,13 @@ margin-top:2%;
 <body>
 	
 	 
+
 	 <h3 style="margin-left:5%;">添加试题</h3>
 			<form action="${rootPath }manage/import_question" method="post">
 				<div class="row">
 					<div class="col-lg-5 col-lg-offset-2 col-md-5 col-md-offset-2 col-xs-5 col-xs-offset-2">
 						<label class="lable_1">所属试卷名称：</label>
-						<select style="width:40%;height:25px;" name="paperName">
+						<select style="width:40%;height:25px;" name="question.paperName">
 						 	<c:forEach items="${testPaperNameList}" var="n">
 						 		<option >${n.paperName}</option>
 						 	</c:forEach>
@@ -73,8 +74,11 @@ margin-top:2%;
 			    		  <input type="submit"  style="margin-left:14%;border-radius:0px;" value="添加" class="btn btn-primary">	
 					</div>
 				</div>
-			    			
+
 			</form>
 			<h4>${questionMag }</h4>
+
+
+	
 </body>
 </html>

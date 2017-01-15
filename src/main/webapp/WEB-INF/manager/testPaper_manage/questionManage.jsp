@@ -37,12 +37,13 @@
 				</tr>
 			</c:forEach>
 		</table>
-		<h3>${delectQtMsg}</h3>
+		
 	</div>
 	<div>
 		<a href="${rootPath }manage/testManage_getQuestion?page=${pc.prePage}">上一页</a> 
 		<a href="#">${pc.currentPage}/${pc.pageNum}</a> 
 		<a href="${rootPath }manage/testManage_getQuestion?page=${pc.nextPage}">下一页</a>
 	</div>
+	<h3>${delectQtMsg}</h3>
 </body>
 </html>

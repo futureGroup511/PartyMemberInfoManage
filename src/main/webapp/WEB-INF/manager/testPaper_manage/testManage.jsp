@@ -20,7 +20,7 @@ font-size:25px;
 				<td>试卷名称</td>
 				<td>试卷说明</td>
 				<td>创建时间</td>
-							
+				<td>删 除</td>			
 			</tr>
 			<c:forEach items="${pc.data}" var="t">
 				<tr>
@@ -31,7 +31,7 @@ font-size:25px;
 				</tr>
 			</c:forEach>
 		</table>
-		<h3>${delectQtMsg}</h3>
+		
 	</div>
 	<nav style="margin-left:42%;">
 	  <ul class="pagination">
@@ -40,6 +40,6 @@ font-size:25px;
 	    <li><a href="${rootPath }manage/testManage_getTestPaper?page=${pc.nextPage}">下一页</a></li>
 	  </ul>
 </nav>
-	
+	<h3>${delectTpMsg}</h3>
 </body>
 </html>

@@ -62,7 +62,7 @@ public class BaseDao<T> {
 	}
 	
 	//根据id删除
-	protected int executeUpdate(String hql, Object... objects){
+	protected int executeUpdate(String hql, Object...objects){
 		Query query = getSession().createQuery(hql);
 		for(int i=0;i<objects.length;i++){
 			query.setParameter(i, objects[i]);
