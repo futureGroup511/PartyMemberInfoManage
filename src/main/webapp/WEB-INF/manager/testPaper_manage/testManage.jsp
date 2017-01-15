@@ -6,10 +6,16 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" href="${rootPath}css/bootstrap.css">
+<style>
+.{
+font-size:25px;
+}
+</style>
 </head>
 <body>
-	<div>
-		<table>
+	<div class="table-responsive">
+		<table  class="table table-bordered table-hover" style="text-align:center;width:70%;margin-left:15%;margin-top:5%;">
 			<tr>
 				<td>试卷名称</td>
 				<td>试卷说明</td>
@@ -27,10 +33,13 @@
 		</table>
 		<h3>${delectQtMsg}</h3>
 	</div>
-	<div>
-		<a href="${rootPath }manage/testManage_getTestPaper?page=${pc.prePage}">上一页</a> 
-		<a href="#">${pc.currentPage}/${pc.pageNum}</a> 
-		<a href="${rootPath }manage/testManage_getTestPaper?page=${pc.nextPage}">下一页</a>
-	</div>
+	<nav style="margin-left:42%;">
+	  <ul class="pagination">
+	    <li><a href="${rootPath }manage/testManage_getTestPaper?page=${pc.prePage}">上一页</a> </li>
+	    <li><a href="#">${pc.currentPage}/${pc.pageNum}</a> </li>
+	    <li><a href="${rootPath }manage/testManage_getTestPaper?page=${pc.nextPage}">下一页</a></li>
+	  </ul>
+</nav>
+	
 </body>
 </html>
