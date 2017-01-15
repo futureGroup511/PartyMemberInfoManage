@@ -74,10 +74,48 @@ public class RedPaperDaoImpl extends BaseDao<RedPaper> implements IRedPaperDao {
 	//根据文章类别进行查询,每个类别只取最新的五条
 	@Override
 	public List<RedPaper> findPaperByType() {
-		String hql="select * FROM RedPaper a WHERE ( SELECT count( 1 )  FROM "
-				+ "RedPaper b WHERE a.paper_type_id = b.paper_type_id  AND b.rp_Id >= a.rp_Id ) <=5 "
-				+ "ORDER BY paper_type_id ASC";
-		return getEntityList(hql);
+		String sql="select * FROM red_paper a WHERE ( SELECT count( 1 )  FROM red_paper b"
+				+ " WHERE a.paper_type_id = b.paper_type_id  AND b.rp_Id >= a.rp_Id ) <=5"
+				+ " ORDER BY paper_type_id ASC";
+		return executeSQLQuery(RedPaper.class, sql);
 	}
+
+	
+	//文章阅读次数加一
+	@Override
+	public boolean updatePaperReadNum(int rp_id) {
+		RedPaper rp=getEntity(rp_id);
+		rp.setReadNum(rp.getReadNum()+1);
+		
+		return updateEntity(rp);
+	}
+
+	//查询当前id的下一条记录
+	@Override
+	public List<RedPaper> getNextRecordById(int id,int typeId) {
+		String sql="select * from red_paper rp where rp_Id>? and rp.paper_type_id=? order by rp_Id asc limit 1";
+		return executeSQLQuery(RedPaper.class,sql, id, typeId);
+	}
+
+	//查询当前id的上一条记录
+	@Override
+	public List<RedPaper> getPrevRecordById(int id, int typeId) {
+		String sql="select * from red_paper rp where rp.rp_Id<? and rp.paper_type_id=? order by rp.rp_Id desc limit 1";
+		return executeSQLQuery(RedPaper.class,sql, id,typeId);
+	}
+
+	//查询最后一条记录
+	@Override
+	public List<RedPaper> getLastRecordById(int typeId) {
+		String sql="select * from red_paper rp where rp.paper_type_id=? order by rp.rp_Id desc limit 1";
+		return executeSQLQuery(RedPaper.class,sql, typeId);
+	}
+
+	@Override
+	public List<RedPaper> getFristRecordById(int typeId) {
+		String sql="select * from red_paper rp where rp.paper_type_id=? order by rp.rp_Id asc limit 1";
+		return executeSQLQuery(RedPaper.class,sql, typeId);
+	}
+	
 
 }

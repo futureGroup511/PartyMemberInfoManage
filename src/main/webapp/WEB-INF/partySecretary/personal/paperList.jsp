@@ -17,7 +17,8 @@
 				<div>
 					<ol>
 						<c:forEach var="paper" items="${paperList }" begin="0" end="4">
-							<li><span>${paper.releaseDate }</span><span>${paper.title }</span></li>
+							<li><span>${paper.releaseDate }</span>
+							<span><a href="${rootPath }secretary/partySecretary_lookPaper?rp_Id=${paper.rp_Id}">${paper.title }</a></span></li>
 						</c:forEach>
 					</ol>
 				</div>

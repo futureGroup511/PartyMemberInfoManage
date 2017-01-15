@@ -106,4 +106,5 @@ public class BaseDao<T> {
 		query.setMaxResults(max);
 		return query.list();
 	}
+	
 }

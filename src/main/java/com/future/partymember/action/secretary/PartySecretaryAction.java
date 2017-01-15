@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import com.future.partymember.base.BaseAction;
 import com.future.partymember.entity.PartyMemberInfo;
 import com.future.partymember.entity.PartySecretaryInfo;
+import com.future.partymember.entity.RedPaper;
 import com.future.partymember.entity.RedVideo;
 import com.future.partymember.util.PageCut;
 
@@ -102,6 +103,40 @@ public class PartySecretaryAction extends BaseAction {
 		RedVideo v =redVideoService.get(id);
 		this.getRequest().setAttribute("video", v);
 		return "lookVideo";
+	}
+	
+	//阅读文章
+	public String lookPaper() throws Exception{
+		int id=Integer.parseInt(this.getRequest().getParameter("rp_Id"));
+		System.out.println("文章id"+id);
+		redPaperService.updatePaperReadNum(id);//文章阅读次数加一
+		RedPaper rp=redPaperService.getById(id);
+		this.getRequest().setAttribute("paper", rp);
+		
+		//查询第一篇 最后一篇 作为临界点
+		RedPaper lastPaper=redPaperService.getLastRecordById(rp.getPaperTypeId()).get(0);
+		RedPaper fristPaper=redPaperService.getFristRecordById(rp.getPaperTypeId()).get(0);
+		
+		//查询上一篇 下一篇
+		if(lastPaper.getRp_Id()==id){
+			this.getRequest().setAttribute("next", lastPaper);
+			this.getRequest().setAttribute("notice", "后面没有了");			
+		}else{
+			List<RedPaper> rpNext=redPaperService.getNextRecordById(id,rp.getPaperTypeId());
+			RedPaper rp1=rpNext.get(0);
+			this.getRequest().setAttribute("next",rp1 );
+		}
+		
+		if(fristPaper.getRp_Id()==id){
+			this.getRequest().setAttribute("prev", fristPaper);
+			this.getRequest().setAttribute("notice", "前面没有了");
+		}else{
+			List<RedPaper> rpPrev=redPaperService.getPrevRecordById(id, rp.getPaperTypeId());
+			RedPaper rp2=rpPrev.get(0);
+			this.getRequest().setAttribute("prev", rp2);
+		}
+
+		return "lookPaper";
 	}
 
 	public PartySecretaryInfo getPartySecretaryInfo() {
