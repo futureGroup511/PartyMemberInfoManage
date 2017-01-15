@@ -9,6 +9,10 @@
 <title>Insert title here</title>
 </head>
 <body>
+<ol class="breadcrumb">
+	<li>视频管理</li>
+	<li class="active">视频管理</li>
+</ol>
 	<h1>${remind }</h1>
 
 	<div class="container">

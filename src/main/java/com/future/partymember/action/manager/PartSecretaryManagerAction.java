@@ -66,7 +66,10 @@ public class PartSecretaryManagerAction extends BaseAction {
 		return "update";
 	}
 	public String updateDo(){
-		if(partySecretaryInfoService.exist(partySecretaryInfo.getAccount())){
+		
+		PartySecretaryInfo p=partySecretaryInfoService.findById(partySecretaryInfo.getPst_Id());
+		
+		if(!(p.getAccount().equals(partySecretaryInfo.getAccount())) && partySecretaryInfoService.exist(partySecretaryInfo.getAccount())){
 			this.getRequest().setAttribute("remind", "账号已经存在，请重新填写。");
 			this.getRequest().setAttribute("partySecretaryInfo", partySecretaryInfoService.findById(partySecretaryInfo.getPst_Id()));
 			return "update";
@@ -87,7 +90,14 @@ public class PartSecretaryManagerAction extends BaseAction {
 			int age=nowY-year;
 			partySecretaryInfo.setAge(age);
 			partySecretaryInfo.setLoginDate(new Date());
-			partySecretaryInfo.setJoinPartyDate(SwitchTime.strToDate(this.getRequest().getParameter("joinPartyDate").toString()));
+			
+			String dateStr=this.getRequest().getParameter("joinPartyDate").toString();
+			if(dateStr.length()!= 8){
+				this.getRequest().setAttribute("remind", "请正确填写时间信息.");
+				this.getRequest().setAttribute("partySecretaryInfo", partySecretaryInfoService.findById(partySecretaryInfo.getPst_Id()));
+				return "update";
+			}
+			partySecretaryInfo.setJoinPartyDate(SwitchTime.strToDate(dateStr));
 			partySecretaryInfo.setSort("书记");
 			partySecretaryInfoService.updatePersonInfo(partySecretaryInfo);
 		}catch(Exception e){

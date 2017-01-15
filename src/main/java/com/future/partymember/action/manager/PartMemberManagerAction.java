@@ -44,7 +44,9 @@ public class PartMemberManagerAction extends BaseAction {
 
 	public String updateDo() {
 		
-		if(partyMemberInfoService.exist(partyMemberInfo.getAccount())){
+		PartyMemberInfo part=partyMemberInfoService.getPartyMemberInfoById(partyMemberInfo.getPtm_Id());
+		
+		if( (!part.getAccount().equals(partyMemberInfo.getAccount())) && partyMemberInfoService.exist(partyMemberInfo.getAccount())){
 			this.getRequest().setAttribute("remind", "账号已经存在，请重新填写。");
 			this.getRequest().setAttribute("partyMemberInfo", partyMemberInfoService.getPartyMemberInfoById(partyMemberInfo.getPtm_Id()));
 			return "update";
@@ -65,7 +67,13 @@ public class PartMemberManagerAction extends BaseAction {
 			int age=nowY-year;
 			partyMemberInfo.setAge(age);
 			partyMemberInfo.setLoginDate(new Date());
-			partyMemberInfo.setJoinPartyDate(SwitchTime.strToDate(this.getRequest().getParameter("joinPartyDate").toString()));
+			String dateStr=this.getRequest().getParameter("joinPartyDate").toString();
+			if(dateStr.length()!=8){
+				this.getRequest().setAttribute("remind", "请正确填写入党时间");
+				this.getRequest().setAttribute("partyMemberInfo", partyMemberInfoService.getPartyMemberInfoById(partyMemberInfo.getPtm_Id()));
+				return "update";
+			}
+			partyMemberInfo.setJoinPartyDate(SwitchTime.strToDate(dateStr));
 			partyMemberInfo.setIdAccessory("");
 			partyMemberInfo.setSort("党员");
 			partyMemberInfoService.updatePartyMemberInfo(partyMemberInfo);

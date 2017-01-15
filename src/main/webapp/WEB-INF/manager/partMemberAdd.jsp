@@ -15,7 +15,12 @@
 </style>
 </head>
 <body>
+<ol class="breadcrumb">
+	<li>党员管理</li>
+	<li class="active">增加党员</li>
+</ol>
 <div class="content">
+
 	<form class="form-horizontal" role="form" method="post"
 			action="${rootPath }manage/partMember_addDo">
 			<h1>${remind }</h1>

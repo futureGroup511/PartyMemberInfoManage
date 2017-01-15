@@ -15,9 +15,6 @@
 	src="${rootPath }jQueryPlug/jPage/src/jquery.page.js"></script>
 <title>Insert title here</title>
 <style type="text/css">
-body {
-	padding-top: 50px;
-}
 
 .container {
 	margin: 0 auto;
@@ -34,6 +31,10 @@ body {
 
 </head>
 <body>
+<ol class="breadcrumb">
+	<li>党员管理</li>
+	<li class="active">党员管理</li>
+</ol>
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12">

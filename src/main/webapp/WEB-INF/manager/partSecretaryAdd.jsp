@@ -15,6 +15,10 @@
 </style>
 </head>
 <body>
+<ol class="breadcrumb">
+	<li>书记管理</li>
+	<li class="active">增加书记</li>
+</ol>
 	<div class="content">
 		<form class="form-horizontal" role="form" method="post"
 			action="${rootPath }manage/partSecretary_addDo">

@@ -10,6 +10,11 @@
 
 </head>
 <body>
+
+	<ol class="breadcrumb">
+	    <li>文章管理</li>
+	    <li class="active">管理文章</li>
+	</ol>
 	<table class="table table-bordered" style="width:80%;margin:100px auto 0 auto;">
 
 		<tbody>

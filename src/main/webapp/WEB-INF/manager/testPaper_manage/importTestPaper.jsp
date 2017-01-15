@@ -5,6 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>上传试卷</title>
+<link rel="stylesheet" href="${rootPath}css/bootstrap.css">
 <style type="text/css">
 .content {
 	margin-left: 20%;
@@ -26,6 +27,10 @@
 </style>
 </head>
 <body>
+<ol class="breadcrumb">
+	<li>考试管理</li>
+	<li class="active">上传试卷</li>
+</ol>
 	<div class="content">
 	<h4 style="color:red;">温馨提示：导入试卷文件之前，必须先添加试卷名称和描述；也可以只添加试卷名称和描述，不导入试卷文件</h4>
 	<h3 style="margin-top:-5px;">添加试卷</h3>

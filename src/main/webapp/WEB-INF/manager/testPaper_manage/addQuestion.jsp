@@ -15,13 +15,12 @@ margin-top:2%;
 </style>
 </head>
 <body>
-<<<<<<< HEAD
-=======
-	
-	 
+	<ol class="breadcrumb">
+		<li>考试管理</li>
+		<li class="active">添加试题</li>
+	</ol>
 
->>>>>>> 00ecbc5565f417a121ab9e00171b7b31ef4f80d5
-	 <h3 style="margin-left:5%;">添加试题</h3>
+	<h3 style="margin-left:5%;">添加试题</h3>
 			<form action="${rootPath }manage/import_question" method="post">
 				<div class="row">
 					<div class="col-lg-5 col-lg-offset-2 col-md-5 col-md-offset-2 col-xs-5 col-xs-offset-2">
@@ -77,16 +76,9 @@ margin-top:2%;
 			    		  <input type="submit"  style="margin-left:14%;border-radius:0px;" value="添加" class="btn btn-primary">	
 					</div>
 				</div>
-<<<<<<< HEAD
-			
 
-=======
 
 			</form>
 			<h4>${questionMag }</h4>
-
-
-	
->>>>>>> 00ecbc5565f417a121ab9e00171b7b31ef4f80d5
 </body>
 </html>

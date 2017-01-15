@@ -9,6 +9,10 @@
 
 </head>
 <body>
+<ol class="breadcrumb">
+	<li>书记管理</li>
+	<li class="active">修改书记信息</li>
+</ol>
 
 	<h1>${remind }</h1>
 	<form class="form-horizontal" role="form" method="post"

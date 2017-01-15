@@ -10,6 +10,10 @@
 
 </head>
 <body>
+<ol class="breadcrumb">
+	<li>通知管理</li>
+	<li class="active">管理通知</li>
+</ol>
 <h1>${remind }</h1>
 	<table class="table table-bordered" style="width:80%;margin:100px auto 0 auto;">
 
