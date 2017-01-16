@@ -115,7 +115,6 @@ public class PartMemberManagerAction extends BaseAction {
 			partyMemberInfo.setBirthdate(SwitchTime.strToDate(birth));
 			int s=Integer.parseInt(idc.charAt(16)+"");
 			if(s%2==0){
-				System.out.println(s+""+partyMemberInfo+"");
 				partyMemberInfo.setSex("女");
 			}else{
 				partyMemberInfo.setSex("男");
@@ -126,6 +125,7 @@ public class PartMemberManagerAction extends BaseAction {
 			partyMemberInfo.setAge(age);
 			
 			partyMemberInfo.setLoginDate(new Date());
+			System.out.println(1234);
 			partyMemberInfo.setJoinPartyDate(SwitchTime.strToDate(dateStr));
 			partyMemberInfo.setIdAccessory("");
 			partyMemberInfoService.addPartyMemberInfo(partyMemberInfo);

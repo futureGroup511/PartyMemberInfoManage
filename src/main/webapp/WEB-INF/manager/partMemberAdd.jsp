@@ -12,6 +12,10 @@
 .content{
     background-image:url("${rootPath }images/star.png");
 }
+.remind{
+	font-size:1.4em;
+	color:red;
+}
 </style>
 </head>
 <body>
@@ -21,61 +25,126 @@
 </ol>
 <div class="content">
 
-	<form class="form-horizontal" role="form" method="post"
+	<form class="form-horizontal" role="form"  method="post"
 			action="${rootPath }manage/partMember_addDo">
-			<h1>${remind }</h1>
-			<table>
-				<tr>
-					<td>账号</td>
-					<td><input type="text" required="required" name="partyMemberInfo.account" value="${partyMemberInfo.account }"></td>
-					<td>密码</td>
-					<td><input type="password" required="required" name="partyMemberInfo.password" value="${partyMemberInfo.password }"></td>
-				</tr>
-				<tr>
-					<td>身份证号</td>
-					<td><input type="number" required="required" name="partyMemberInfo.idCard" value="${partyMemberInfo.idCard }"></td>
-					<td>手机号</td>
-					<td><input type="number" name="partyMemberInfo.phoneNo" value="${partyMemberInfo.phoneNo }"></td>
-				</tr>
-				<tr>
+		<div class="row">
+			<span class="remind">${remind }</span>
+		</div>
+		<div class="row">
 				
-					<td>姓名</td>
-					<td><input type="text" required="required" name="partyMemberInfo.username" value="${partyMemberInfo.username }"></td>
-					<td>介绍人</td>
-					<td><input type="text" name="partyMemberInfo.introducer" value="${partyMemberInfo.introducer }"></td>
-				</tr>
-
-				<tr>
-
-					<td>民族</td>
-					<td><input type="text" required="required" name="partyMemberInfo.nation" value="${partyMemberInfo.nation }"></td>
-					<td>籍贯</td>
-					<td><input type="text" required="required" name="partyMemberInfo.nativePlace" value="${partyMemberInfo.nativePlace }"></td>
-
-				</tr>
+				<div class="col-xs-12 col-sm-5">
+					<div class="form-group">
+						<div class="col-xs-4">
+							<label style="line-height:50px;">账号</label>							
+						</div>
+						<div class="col-xs-8">
+							<input type="text" class="form-control"  required="required" name="partyMemberInfo.account" value="${partyMemberInfo.account }" placeholder="请输入账号">
+						</div>
+					</div>
+					
+					<div class="form-group">
+						<div class="col-xs-4">
+							<label style="line-height:50px;">身份证号</label>
+						</div>
+						<div class="col-xs-8">
+							<input type="number" class="form-control" required="required" name="partyMemberInfo.idCard" value="${partyMemberInfo.idCard }" placeholder="请输入身份证号">
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="col-xs-4">
+							<label style="line-height:50px;">姓名</label>							
+						</div>
+						<div class="col-xs-8">
+							<input type="text" class="form-control" required="required" name="partyMemberInfo.username" value="${partyMemberInfo.username }" placeholder="请输入姓名">
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="col-xs-4">
+							<label style="line-height:50px;">籍贯</label>							
+						</div>
+						<div class="col-xs-8">
+							<input type="text" class="form-control" required="required" name="partyMemberInfo.nativePlace" value="${partyMemberInfo.nativePlace }" placeholder="请输入籍贯">
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="col-xs-4">
+							<label style="line-height:50px;">在党职务</label>							
+						</div>
+						<div class="col-xs-8">
+							<input type="text" class="form-control" name="partyMemberInfo.duties" value="${partyMemberInfo.duties }" placeholder="在党职务">
+						</div>
+					</div>
+					
+					<div class="form-group">
+						<div class="col-xs-4">
+							<label style="line-height:50px;">介绍人</label>							
+						</div>
+						<div class="col-xs-8">
+							<input type="text" class="form-control" required="required" name="partyMemberInfo.introducer" value="${partyMemberInfo.introducer }" placeholder="请输入介绍人">
+						</div>
+					</div>
+					
+				</div>
+				<div class="hidden-xs col-sm-1"></div>
+				<div class="col-xs-12 col-sm-5">
+					<div class="form-group">
+						<div class="col-xs-4">
+							<label style="line-height:50px;">密码</label>							
+						</div>
+						<div class="col-xs-8">
+							<input class="form-control" type="password" required="required" name="partyMemberInfo.password" value="${partyMemberInfo.password  }" placeholder="请输入密码">
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="col-xs-4">
+							<label style="line-height:50px;">手机号</label>							
+						</div>
+						<div class="col-xs-8">
+							<input class="form-control" type="number"  name="partyMemberInfo.phoneNo" value="${partyMemberInfo.phoneNo }" placeholder="请输入手机号">
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="col-xs-4">
+							<label style="line-height:50px;">民族</label>							
+						</div>
+						<div class="col-xs-8"> 
+							<input type="text" required="required" class="form-control" name="partyMemberInfo.nation" value="${partyMemberInfo.nation }" placeholder="请输入民族">
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="col-xs-4">
+							<label style="line-height:50px;">所在党支部</label>							
+						</div>
+						<div class="col-xs-8">
+							<input type="text" class="form-control" required="required" name="partyMemberInfo.partyBranch" value="${partyMemberInfo.partyBranch }" placeholder="所在党支部">
+						</div>
+					</div>
+					
+					<div class="form-group">
+						<div class="col-xs-4">
+							<label style="line-height:50px;">入党日期</label>							
+						</div>
+						<div class="col-xs-8">
+							<input class="form-control"  type="date" required="required" name="joinPartyDate" value="${dateStr }">
+						</div>
+					</div>
+					
+				</div>
+			</div>
+			
+			<div class="row">
+				<div class="col-xs-2">
+					<button class="btn btn-default" type="reset">重新填写</button>
 				
-				<tr>
-					
-					<td>所在党支部</td>
-					<td><input type="text" required="required" name="partyMemberInfo.partyBranch" value="${partyMemberInfo.partyBranch }"></td>
-					<td>职务</td>
-					<td><input type="text" name="partyMemberInfo.duties" value="${partyMemberInfo.duties }"></td>
-
-				</tr>
-				<tr>
-					
-					<td>入党日期</td>
-					<td><input type="date" required="required" name="joinPartyDate" value="${dateStr }"></td>
-					
-
-				</tr>
-
-				<tr>
-					<td class="button-one"><input type="reset" value="重置"></td>
-					<td class="button-two"><input type="submit" value="确认添加"></td>
-				</tr>
-			</table>
+				</div>
+				<div class="col-xs-6">
+					<button class="btn btn-success" type="submit"> &nbsp; 提交 &nbsp; </button>
+				</div>
+				
+			</div>
+			
 		</form>
+	
 	</div>
 </body>
 </html>
