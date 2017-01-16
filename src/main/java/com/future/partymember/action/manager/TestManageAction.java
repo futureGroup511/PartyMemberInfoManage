@@ -3,6 +3,7 @@ package com.future.partymember.action.manager;
 *@author 焦祥宇
 */
 
+import java.sql.Timestamp;
 import java.util.List;
 
 import com.future.partymember.base.BaseAction;
@@ -10,6 +11,7 @@ import com.future.partymember.entity.Question;
 import com.future.partymember.entity.StartTest;
 import com.future.partymember.entity.TestPaper;
 import com.future.partymember.util.PageCut;
+import com.future.partymember.util.SwitchTime;
 
 public class TestManageAction extends BaseAction {
 	/**
@@ -76,11 +78,10 @@ public class TestManageAction extends BaseAction {
 		TestPaper testPaper = testPaperService.getTestPaperByName(startTest.getPaperName());
 		startTest.setTestPaper(testPaper);
 		session.put("startTest", startTest);
-		/*
-		 * System.out.println(startTest.getEndTime()-startTest.getStartTime());
-		 */
-		this.getRequest().setAttribute("startMeg", "开启成功");
-		System.out.println(startTest);
+		
+		System.out.println("****"+SwitchTime.strToTime(startTest.getEndTime()).getTime());
+		
+		this.getRequest().setAttribute("startMeg", "开启成功");		
 		return "startTest";
 	}
 

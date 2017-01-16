@@ -15,10 +15,7 @@ margin-top:2%;
 </style>
 </head>
 <body>
-	<ol class="breadcrumb">
-		<li>考试管理</li>
-		<li class="active">添加试题</li>
-	</ol>
+
 
 	<h3 style="margin-left:5%;">添加试题</h3>
 			<form action="${rootPath }manage/import_question" method="post">

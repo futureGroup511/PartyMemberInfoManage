@@ -28,6 +28,15 @@ public class ManagePaperAction extends BaseAction{
 	private RedPaper redPaper;
 	private int page;
 
+	
+	//查看文章详细信息
+	public String lookPaper() throws Exception{
+		int id=Integer.parseInt(this.getRequest().getParameter("rp_Id"));
+		RedPaper rp=redPaperService.getById(id);
+		this.getRequest().setAttribute("paper", rp);
+		return "lookPaper";
+	}
+	
 	//删除文章
 	public String deletePaper() throws Exception{
 		String id=this.getRequest().getParameter("rp_Id");
@@ -43,10 +52,18 @@ public class ManagePaperAction extends BaseAction{
 	
 	//修改文章
 	public String updatePaper()  throws Exception{
-
+		RedPaper rp=redPaperService.getById(redPaper.getRp_Id());//先得到原来的文章信息
+		
 		RedPaperType r=redPaperTypeService.findById(redPaper.getPaperTypeId());
-		redPaper.setPaperType(r.getPaperType());
-		redPaperService.updateRedPaper(redPaper);
+		
+		rp.setPaperType(r.getPaperType());//更新文章类别
+		rp.setAuthor(redPaper.getAuthor());//作者
+		rp.setRp_tag(redPaper.getRp_tag());//文章状态
+		rp.setSource(redPaper.getSource());//文章来源
+		rp.setTitle(redPaper.getTitle());//文章标题
+		rp.setContent(redPaper.getContent());//文章内容
+		
+		redPaperService.updateRedPaper(rp);
 		this.getRequest().setAttribute("p", "修改成功,如果您不满意,可继续修改");
 		this.getRequest().setAttribute("paper",redPaper);		
 		return "updatePaper";

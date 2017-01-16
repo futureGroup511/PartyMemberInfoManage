@@ -22,7 +22,8 @@
 		<action name="managePaper_*"  class="managePaperAction"  method="{1}">
 			<result name="addPaper">/WEB-INF/manager/article_manage/add_article.jsp</result>
 			<result name="managePaper">/WEB-INF/manager/article_manage/manage_article.jsp</result>
-			<result name="updatePaper">/WEB-INF/manager/article_manage/manage_article.jsp</result>
+			<result name="updatePaper">/WEB-INF/manager/article_manage/update_paper.jsp</result>
+			<result name="lookPaper">/WEB-INF/manager/article_manage/lookPaper.jsp</result>
 		</action>
 		
 		

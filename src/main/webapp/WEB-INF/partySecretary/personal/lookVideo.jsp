@@ -11,5 +11,10 @@
 		  <source src="/PartyMemberInfoManage/upload/video/1.mp4"  type="video/mp4">
 		  您的浏览器不支持 HTML5 video 标签。
 		</video>
+		
+		<section class="pre-next">
+			<p><span>上一部：<a href="${rootPath }secretary/partySecretary_lookVideo?rv_Id=${prev.rp_Id}">${v.name }</a></span>
+			<span>下一部：<a href="${rootPath }secretary/partySecretary_lookVideo?rv_Id=${next.rp_Id}">${v.name}</a></span></p>
+		</section>
 </body>
 </html>

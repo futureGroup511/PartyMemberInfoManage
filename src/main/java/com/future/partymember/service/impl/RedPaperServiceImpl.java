@@ -63,4 +63,30 @@ public class RedPaperServiceImpl implements IRedPaperService{
 		return iRedPaperDao.findPaperByType();
 	}
 
+	//文章的阅读次数加一
+	@Override
+	public boolean updatePaperReadNum(int rp_id) {
+		return iRedPaperDao.updatePaperReadNum(rp_id);
+	}
+
+	@Override
+	public List<RedPaper> getNextRecordById(int id , int typeId) {
+		return iRedPaperDao.getNextRecordById(id, typeId);
+	}
+
+	@Override
+	public List<RedPaper> getPrevRecordById(int id , int typeId) {
+		return iRedPaperDao.getPrevRecordById(id , typeId);
+	}
+
+	@Override
+	public List<RedPaper> getLastRecordById(int typeId) {
+		return iRedPaperDao.getLastRecordById(typeId);
+	}
+
+	@Override
+	public List<RedPaper> getFristRecordById(int typeId) {
+		return iRedPaperDao.getFristRecordById(typeId);
+	}
+
 }

@@ -1,15 +1,19 @@
 package com.future.partymember.action.partymember;
 
+
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import com.future.partymember.base.BaseAction;
 import com.future.partymember.entity.PartyMemberInfo;
+import com.future.partymember.entity.Question;
 import com.future.partymember.entity.RedVideo;
+import com.future.partymember.entity.StartTest;
 import com.future.partymember.entity.WatchVideoRecord;
 import com.future.partymember.util.PageCut;
 import com.future.partymember.util.SwitchTime;
-import com.opensymphony.xwork2.util.fs.Revision;
+
 
 /*
  * 党员信息控制层
@@ -23,8 +27,7 @@ public class PartyMemberAction extends BaseAction {
 	private int page=1;
 
 	private PartyMemberInfo partyMemberInfo;//从表单获得党员对象
-	/*private int id;//视频id
-*/	// 查询党员个人信息
+		// 查询党员个人信息
 	public String seekPartyMemberInfo() throws Exception {
 		partyMemberInfo = partyMemberInfoService.getPartyMemberInfoById(1);
 		//学习时间		
@@ -70,7 +73,8 @@ public class PartyMemberAction extends BaseAction {
 
 	// 红色视频
 	public String viewVideos() throws Exception {
-		PageCut<RedVideo> pc =redVideoService.getPC(12, page);
+		PageCut<RedVideo> pc =redVideoService.getPC(page, 
+				12);
 		this.getRequest().setAttribute("pc", pc);
 		System.out.println(pc.getData().size());
 		List<RedVideo> videosList = new ArrayList<RedVideo>();
@@ -173,6 +177,22 @@ public class PartyMemberAction extends BaseAction {
 		List<RedVideo>  videosList=redVideoService.findByName(name);
 		this.getRequest().setAttribute("videosList",videosList);
 		return "viewVideos";
+	}
+	
+	//在线考试
+	public String startTest() throws Exception{
+		StartTest startTest =(StartTest)this.getSession().get("startTest");
+		
+		System.out.println("****"+SwitchTime.strToTime(startTest.getEndTime()).getTime());
+		System.out.println(SwitchTime.strToTime(startTest.getEndTime()).after(new Date()));
+		
+		if(SwitchTime.strToTime(startTest.getEndTime()).after(new Date())){
+			List<Question> questionsList =questionService.getQuestionsByTpId(startTest.getTestPaper().getTp_Id());
+			this.getRequest().setAttribute("questionsList", questionsList);
+		}else{
+			this.getRequest().setAttribute("NoTest","暂时没有考试！");
+		}
+		return "startTest";
 	}
 	
 	
