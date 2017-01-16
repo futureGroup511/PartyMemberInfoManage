@@ -33,13 +33,13 @@
 </ol>
 	<div class="content">
 	<h4 style="color:red;">温馨提示：导入试卷文件之前，必须先添加试卷名称和描述；也可以只添加试卷名称和描述，不导入试卷文件</h4>
-	<h3 style="margin-top:-5px;">添加试卷</h3>
+	<h3 style="margin-bottom:30px;">添加试卷</h3>
 		<div>
 			<form action="${rootPath}/manage/import_addTestPaper" method="post">
 				<table style="margin-top:-20px;">
 					<tr>
 						<td>试卷名称</td>
-						<td><input type="text" style="width:125%;" name="testPap.paperName"></td>
+						<td><input required="required" type="text" style="width:125%;" name="testPap.paperName"></td>
 					</tr>
 					<tr>
 						<td>试卷的说明</td>
@@ -55,7 +55,7 @@
 		<div class="main" style="margin-top:-20px;">
 			<form action="${rootPath }manage/import_importTest" method="post"
 				enctype="multipart/form-data">
-				试卷：<input type="file" name="testPaper"
+				试卷：<input required="required" type="file" name="testPaper"
 					accept="application/vnd.ms-excel, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet">
 				<button type="submit" style="margin-left:-10%;" >上传</button>
 			</form>

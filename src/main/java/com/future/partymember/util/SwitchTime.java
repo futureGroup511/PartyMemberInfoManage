@@ -42,7 +42,14 @@ public class SwitchTime {
 } 
 	}
 	public static Date strToDate(String str){
-		SimpleDateFormat s=new SimpleDateFormat("yyyyMMdd");
+		SimpleDateFormat s = null;
+		if(str.length()==8){
+			s=new SimpleDateFormat("yyyyMMdd");
+		}else if(str.length()==10){
+			s=new SimpleDateFormat("yyyy-MM-dd");
+		}else{
+			return null;
+		}
 		try {
 			return s.parse(str);
 		} catch (ParseException e) {

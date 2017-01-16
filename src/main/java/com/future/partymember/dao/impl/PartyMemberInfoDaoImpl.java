@@ -51,7 +51,7 @@ public class PartyMemberInfoDaoImpl extends BaseDao<PartyMemberInfo> implements 
 	}
 
 	@Override
-	public Boolean delectPartyMemberInfo(PartyMemberInfo partyMemberInfo) {
+	public Boolean deletePartyMemberInfo(PartyMemberInfo partyMemberInfo) {
 		this.deleteEntity(this.getEntity(partyMemberInfo.getPtm_Id()));
 		return true;
 	}

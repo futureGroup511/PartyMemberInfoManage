@@ -24,8 +24,8 @@ public class PartyMemberInfoServiceImpl implements IPartyMemberInfoService{
 	}
 
 	@Override
-	public Boolean delectPartyMemberInfo(PartyMemberInfo partyMemberInfo) {		
-		return partyMemberInfoDao.delectPartyMemberInfo(partyMemberInfo);
+	public Boolean deletePartyMemberInfo(PartyMemberInfo partyMemberInfo) {		
+		return partyMemberInfoDao.deletePartyMemberInfo(partyMemberInfo);
 	}
 
 	@Override

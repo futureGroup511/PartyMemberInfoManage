@@ -11,7 +11,7 @@ public interface IPartyMemberInfoDao {
 	public Boolean addPartyMemberInfo(PartyMemberInfo partyMemberInfo);
 
 	// 删除党员个人信息
-	public Boolean delectPartyMemberInfo(PartyMemberInfo partyMemberInfo);
+	public Boolean deletePartyMemberInfo(PartyMemberInfo partyMemberInfo);
 
 	// 修改党员个人基本信息
 	public Boolean updatePartyMemberInfo(PartyMemberInfo partyMemberInfo);

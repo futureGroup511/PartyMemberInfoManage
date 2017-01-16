@@ -24,15 +24,12 @@ public class PartMemberManagerAction extends BaseAction {
 			return null;
 			
 		}
-		System.out.println(id);
 		PartyMemberInfo pm = partyMemberInfoService.getPartyMemberInfoById(Integer.parseInt(id));
 		if (pm == null) {
 			return this.execute();
 
 		}
-		System.out.println(123);
-		boolean flag = partyMemberInfoService.delectPartyMemberInfo(pm);
-		System.out.println(flag);
+		boolean flag = partyMemberInfoService.deletePartyMemberInfo(pm);
 		if (flag) {
 			this.getRequest().setAttribute("remind", "删除成功");
 		}
@@ -50,9 +47,9 @@ public class PartMemberManagerAction extends BaseAction {
 		
 		PartyMemberInfo part=partyMemberInfoService.getPartyMemberInfoById(partyMemberInfo.getPtm_Id());
 		
-		if( (!part.getAccount().equals(partyMemberInfo.getAccount())) && partyMemberInfoService.exist(partyMemberInfo.getAccount())){
+		if( part.getAccount() !=null && (!part.getAccount().equals(partyMemberInfo.getAccount())) && partyMemberInfoService.exist(partyMemberInfo.getAccount())){
 			this.getRequest().setAttribute("remind", "账号已经存在，请重新填写。");
-			this.getRequest().setAttribute("partyMemberInfo", partyMemberInfoService.getPartyMemberInfoById(partyMemberInfo.getPtm_Id()));
+			this.getRequest().setAttribute("partyMember", partyMemberInfoService.getPartyMemberInfoById(partyMemberInfo.getPtm_Id()));
 			return "update";
 		}
 		try{
@@ -72,11 +69,6 @@ public class PartMemberManagerAction extends BaseAction {
 			partyMemberInfo.setAge(age);
 			partyMemberInfo.setLoginDate(new Date());
 			String dateStr=this.getRequest().getParameter("joinPartyDate").toString();
-			if(dateStr.length()!=8){
-				this.getRequest().setAttribute("remind", "请正确填写入党时间");
-				this.getRequest().setAttribute("partyMemberInfo", partyMemberInfoService.getPartyMemberInfoById(partyMemberInfo.getPtm_Id()));
-				return "update";
-			}
 			partyMemberInfo.setJoinPartyDate(SwitchTime.strToDate(dateStr));
 			partyMemberInfo.setIdAccessory("");
 			partyMemberInfo.setSort("党员");
