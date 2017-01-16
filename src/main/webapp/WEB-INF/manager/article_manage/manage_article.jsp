@@ -39,8 +39,8 @@
 					<td>${paper.releaseDate}</td>
 					<td>${paper.readNum }</td>
 					<td>${paper.strTag}</td>
-					<td><a>详细</a></td>
-					<td><a href="${rootPath }manage/fPaper_fUpdatePaper?rp_Id=${paper.rp_Id}"   target="_blank">管理</a></td>
+					<td><a href="${rootPath }manage/managePaper_lookPaper?rp_Id=${paper.rp_Id}" target="_blank">详细</a></td>
+					<td><a href="${rootPath }manage/fPaper_fUpdatePaper?rp_Id=${paper.rp_Id}"  target="main">管理</a></td>
 					<td onClick="que_ren(${paper.rp_Id})">删除</td>
 				</tr>
 			</c:forEach>
