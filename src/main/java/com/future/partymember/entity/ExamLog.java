@@ -56,7 +56,7 @@ public class ExamLog {
 	}
 	
 	
-	@Column(name = "partyMember",  nullable = false)
+	@Column(name = "partyMember_id",  nullable = false)
 	public int getPartyMemberId() {
 		return partyMemberId;
 	}

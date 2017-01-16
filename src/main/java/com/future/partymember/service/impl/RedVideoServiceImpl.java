@@ -54,5 +54,21 @@ public class RedVideoServiceImpl implements IRedVideoService{
 	public List<RedVideo> findByName(String name) {
 		return redVideoDao.findByName(name);
 	}
+	@Override
+	public List<RedVideo> getNextRecordById(int id) {
+		return redVideoDao.getNextRecordById(id);
+	}
+	@Override
+	public List<RedVideo> getPrevRecordById(int id) {
+		return redVideoDao.getPrevRecordById(id);
+	}
+	@Override
+	public List<RedVideo> getLastRecordById() {
+		return redVideoDao.getLastRecordById();
+	}
+	@Override
+	public List<RedVideo> getFristRecordById() {
+		return redVideoDao.getFristRecordById();
+	}
 
 }

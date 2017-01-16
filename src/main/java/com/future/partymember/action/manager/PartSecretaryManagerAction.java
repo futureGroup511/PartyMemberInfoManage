@@ -69,8 +69,6 @@ public class PartSecretaryManagerAction extends BaseAction {
 			int nowY=calendar.get(Calendar.YEAR);
 			int age=nowY-year;
 			partySecretaryInfo.setAge(age);
-			
-			partySecretaryInfo.setSort("书记");
 			partySecretaryInfo.setLoginDate(new Date());
 			partySecretaryInfo.setJoinPartyDate(SwitchTime.strToDate(dateStr));
 			
@@ -119,7 +117,6 @@ public class PartSecretaryManagerAction extends BaseAction {
 			String dateStr=this.getRequest().getParameter("joinPartyDate").toString();
 			
 			partySecretaryInfo.setJoinPartyDate(SwitchTime.strToDate(dateStr));
-			partySecretaryInfo.setSort("书记");
 			partySecretaryInfoService.updatePersonInfo(partySecretaryInfo);
 		}catch(Exception e){
 			e.printStackTrace();

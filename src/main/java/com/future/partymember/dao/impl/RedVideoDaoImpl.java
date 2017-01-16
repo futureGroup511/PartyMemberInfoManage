@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import com.future.partymember.base.BaseDao;
 import com.future.partymember.dao.IRedVideoDao;
+import com.future.partymember.entity.RedPaper;
 import com.future.partymember.entity.RedVideo;
 import com.future.partymember.util.PageCut;
 
@@ -21,32 +22,27 @@ public class RedVideoDaoImpl extends BaseDao<RedVideo> implements IRedVideoDao {
 
 	@Override
 	public List<RedVideo> getAll() {
-		// TODO Auto-generated method stub
 		return this.getEntityList("from RedVideo");
 	}
 
 	@Override
 	public RedVideo get(int id) {
-		// TODO Auto-generated method stub
 		return this.getEntity(id);
 	}
 
 	@Override
 	public List<RedVideo> getNew(int num) {
-		// TODO Auto-generated method stub
 		return this.getEntityLimitList("from RedVideo order by id desc", 0, num);
 	}
 
 	@Override
 	public List<RedVideo> getList(int first, int num) {
-		// TODO Auto-generated method stub
 		return this.getEntityLimitList("from RedVideo order by id desc", first, num);
 	}
 
 	@Override
 
 	public void delete(int id) {
-		// TODO Auto-generated method stub
 		if(this.getEntity(id)!=null){
 			this.deleteEntity(this.getEntity(id));
 		}
@@ -77,6 +73,35 @@ public class RedVideoDaoImpl extends BaseDao<RedVideo> implements IRedVideoDao {
 		Query query=getSession().createQuery(hql);
 		query.setString("name", "%" + name + "%");
 		return query.list();
+	}
+
+	
+	//查询当前id的下一条记录
+	@Override
+	public List<RedVideo> getNextRecordById(int id) {
+		String sql="select * from red_video rv where rv_Id>? order by rv_Id asc limit 1";
+		return executeSQLQuery(RedVideo.class,sql, id);
+	}
+
+	//查询当前id的上一条记录
+	@Override
+	public List<RedVideo> getPrevRecordById(int id) {
+		String sql="select * from red_video rv where rv_Id<? order by rv_Id desc limit 1";
+		return executeSQLQuery(RedVideo.class,sql, id);
+	}
+
+	//查询符合条件的最后一条记录
+	@Override
+	public List<RedVideo> getLastRecordById() {
+		String sql="select * from red_video rv order by rv_Id desc limit 1";
+		return executeSQLQuery(RedVideo.class,sql);
+	}
+
+	//查询符合记录的最后一条记录
+	@Override
+	public List<RedVideo> getFristRecordById() {
+		String sql="select * from red_video rv  order by rv_Id asc limit 1";
+		return executeSQLQuery(RedVideo.class,sql);
 	}
 
 }

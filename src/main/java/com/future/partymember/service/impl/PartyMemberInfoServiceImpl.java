@@ -69,7 +69,7 @@ public class PartyMemberInfoServiceImpl implements IPartyMemberInfoService{
 	@Override
 	public PageCut<PartyMemberInfo> getPagerCut(int pageSize, int curPage, PartySecretaryInfo partySecretaryInfo) {
 		int count=partyMemberInfoDao.getAllPartyMember(partySecretaryInfo);//记录的总数量
-		PageCut<PartyMemberInfo> p=new PageCut(curPage, pageSize, count);//初始化分页类 
+		PageCut<PartyMemberInfo> p=new PageCut<PartyMemberInfo>(curPage, pageSize, count);//初始化分页类 
 		return p;
 	}
 
@@ -90,4 +90,8 @@ public class PartyMemberInfoServiceImpl implements IPartyMemberInfoService{
 		// TODO Auto-generated method stub
 		return partyMemberInfoDao.getPageCut(currentPage, pageSize,search);
 	}
+	public PartyMemberInfo login(String account, String password) {		
+		return partyMemberInfoDao.login(account, password);
+	}	
+	
 }

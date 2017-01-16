@@ -37,4 +37,6 @@ public interface IPartyMemberInfoDao {
 	
 	public boolean exist(String account);
 
+	//登录
+	public PartyMemberInfo login(String account,String password);
 }

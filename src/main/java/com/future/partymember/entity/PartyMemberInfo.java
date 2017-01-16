@@ -31,10 +31,10 @@ public class PartyMemberInfo extends UserInfo {
 	private String partyBranch;//所在党支部
 	
 		
-	public PartyMemberInfo(String sort, String username, String password, int age, String nation, Date birthdate,
+	public PartyMemberInfo( String username, String password, int age, String nation, Date birthdate,
 			String nativePlace, String idCard, Date loginDate, String phoneNo, String idAccessory, Date joinPartyDate,
 			String duties, String introducer, String partyBranch, String sex, long learnTime, String strLearnTime) {
-		super(sort, username, password, age, nation, birthdate, nativePlace, idCard, loginDate, phoneNo, sex, learnTime, strLearnTime);
+		super( username, password, age, nation, birthdate, nativePlace, idCard, loginDate, phoneNo, sex, learnTime, strLearnTime);
 		this.idAccessory = idAccessory;
 		this.joinPartyDate = joinPartyDate;
 		this.duties = duties;
@@ -53,12 +53,11 @@ public class PartyMemberInfo extends UserInfo {
 		this.introducer = introducer;
 		this.partyBranch = partyBranch;
 	}*/
-	public void updatePartyMemberInfo(int ptm_Id,String account,String sort, Date loginDate,  Date joinPartyDate,
+	public void updatePartyMemberInfo(int ptm_Id,String account, Date loginDate,  Date joinPartyDate,
 			String duties, String introducer, String partyBranch, long learnTime) {
 		
 		/*super(account,sort,   loginDate,  learnTime);	*/
 		this.setAccount(account);
-		this.setSort(sort);
 		this.setLoginDate(loginDate);
 		this.setLearnTime(learnTime);
 		this.ptm_Id=ptm_Id;

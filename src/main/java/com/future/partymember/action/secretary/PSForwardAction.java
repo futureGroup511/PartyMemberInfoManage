@@ -34,7 +34,7 @@ public class PSForwardAction extends BaseAction {
 				findByAccountAndPassword(partySecretaryInfo))!=null){
 			
 			session.put("secretary",partySecretaryInfo);
-			session.put("usersort", 1);//书记的身份
+			session.put("userSort", 1);//书记的身份
 			return "login";
 		}else{
 			return "error";

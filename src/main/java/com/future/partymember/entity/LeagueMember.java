@@ -37,10 +37,10 @@ public class LeagueMember extends UserInfo {
 	}
 	
 	
-	public LeagueMember(String sort, String username, String password, int age, String nation, Date birthdate,
+	public LeagueMember( String username, String password, int age, String nation, Date birthdate,
 			String nativePlace, String idCard, Date loginDate, String phoneNo, String sex, String status,
 			String activeAccessory, String developmentAccessory, Long learnTime, String strLearnTime) {
-		super(sort, username, password, age, nation, birthdate, nativePlace, idCard, loginDate, phoneNo, sex, learnTime, strLearnTime);
+		super( username, password, age, nation, birthdate, nativePlace, idCard, loginDate, phoneNo, sex, learnTime, strLearnTime);
 		this.status = status;
 		this.activeAccessory = activeAccessory;
 		this.developmentAccessory = developmentAccessory;

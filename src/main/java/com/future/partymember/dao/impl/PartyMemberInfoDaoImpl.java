@@ -127,4 +127,9 @@ public class PartyMemberInfoDaoImpl extends BaseDao<PartyMemberInfo> implements 
 		return pc;
 	}
 
+	public PartyMemberInfo login(String account, String password) {
+		String hql="from PartyMemberInfo p where p.account='"+account+"' and p.password='"+password+"'";
+		
+		return (PartyMemberInfo)this.uniqueResult(hql);
+	}
 }

@@ -18,7 +18,7 @@ public class UserInfo {
 	private String sex;//性别
 	private String account ;//账号
 
-	private String sort;//用户身份
+	
 	private String username;//姓名
 	private String password;//登录密码
 	private int age;//年龄
@@ -32,16 +32,10 @@ public class UserInfo {
 	private String strLearnTime;//格式转化过的学习时长
 	
 	
-
-
-
-
-
-	public UserInfo(String sort, String username, String password, int age, String nation, Date birthdate,
+	public UserInfo(String username, String password, int age, String nation, Date birthdate,
 			String nativePlace, String idCard, Date loginDate, String phoneNo, String sex, long learnTime,
 			String strLearnTime) {
-		super();
-		this.sort = sort;
+		super();		
 		this.username = username;
 		this.password = password;
 		this.age = age;
@@ -58,30 +52,16 @@ public class UserInfo {
 	
 	//焦祥宇修改
 	/*account, sort, loginDate,  learnTime*/
-	public UserInfo(String account,String sort, Date loginDate, long learnTime) {
+	public UserInfo(String account, Date loginDate, long learnTime) {
 		super();
-		this.account=account;
-		this.sort = sort;		
+		this.account=account;		
 		this.loginDate = loginDate;		
 		this.learnTime=learnTime;
 	}
 	
-	
 	public UserInfo() {
 	}
 
-
-
-
-	@Column(name = "sort", nullable = false, length = 19)
-	public String getSort() {
-		return sort;
-	}
-	public void setSort(String sort) {
-		this.sort = sort;
-	}
-	
-	
 	@Column(name = "username", nullable = false, length = 19)
 	public String getUsername() {
 		return username;

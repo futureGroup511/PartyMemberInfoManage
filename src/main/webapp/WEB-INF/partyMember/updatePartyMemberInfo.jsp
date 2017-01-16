@@ -75,10 +75,7 @@
 					<td>账号</td>
 					<td>${partyMember.account}</td>
 				</tr>
-				<tr>
-					<td>用户类别</td>
-					<td>${partyMember.sort}</td>
-				</tr>
+				
 				<tr>
 					<td>姓名</td>
 					<td><input type="text" name="partyMemberInfo.username"
