@@ -10,6 +10,10 @@
 <link rel="stylesheet" href="${rootPath }css/manage/uploadvideo.css" />
 </head>
 <body>
+<ol class="breadcrumb">
+	<li>视频管理</li>
+	<li class="active">上传视频</li>
+</ol>
 	<div class="first">
 		<div class="nameone">
 			<div class="row">

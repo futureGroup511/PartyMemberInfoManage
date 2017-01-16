@@ -9,6 +9,10 @@
 
 </head>
 <body>
+<ol class="breadcrumb">
+	<li>个人中心</li>
+	<li class="active">个人信息</li>
+</ol>
 	<div class="content">
 		<form action="${rootPath}manage/change_info" method="post" style="width:80%;margin:100px auto 0 40%;">
 			${remind }

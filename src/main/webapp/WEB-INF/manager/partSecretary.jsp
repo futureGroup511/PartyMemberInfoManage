@@ -9,6 +9,10 @@
 <title>Insert title here</title>
 </head>
 <body>
+<ol class="breadcrumb">
+	<li>书记管理</li>
+	<li class="active">列表</li>
+</ol>
 	<h1>${remind }</h1>
 	<div class="container">
 		<div class="row">

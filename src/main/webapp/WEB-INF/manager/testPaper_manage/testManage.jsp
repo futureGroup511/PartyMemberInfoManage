@@ -14,6 +14,10 @@ font-size:25px;
 </style>
 </head>
 <body>
+<ol class="breadcrumb">
+	<li>考试管理</li>
+	<li class="active">管理试卷</li>
+</ol>
 	<div class="table-responsive">
 		<table  class="table table-bordered table-hover" style="text-align:center;width:70%;margin-left:15%;margin-top:5%;">
 			<tr>

@@ -93,6 +93,10 @@ $(function(){
 </script>
 </head>
 <body>
+<ol class="breadcrumb">
+	<li>通知管理</li>
+	<li class="active">添加通知</li>
+</ol>
 	<div id="container">
 		<div id="output"></div>
 	</div>

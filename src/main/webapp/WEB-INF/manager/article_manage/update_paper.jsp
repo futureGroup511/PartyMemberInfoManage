@@ -76,6 +76,12 @@ var ue = UE.getEditor('editor', {
 
 
 <body>
+	<ol class="breadcrumb">
+	    <li>文章管理</li>
+	    <li class="active">写文章</li>
+	</ol>
+	
+	
 	<form action="${rootPath }manage/managePaper_updatePaper" method="post"   onsubmit="modifyContent()">
 			标题：<input type="text"  name="redPaper.title"  value="${paper.title }"/><br>
 			作者：<input type="text"  name="redPaper.author"  value="${paper.author }"/><br>

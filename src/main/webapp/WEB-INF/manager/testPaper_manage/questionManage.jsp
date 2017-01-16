@@ -5,11 +5,16 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="${rootPath}css/bootstrap.css">
 <title>Insert title here</title>
 </head>
 <body>
-	<div>
-		<table>
+<ol class="breadcrumb">
+	<li>考试管理</li>
+	<li class="active">管理试题</li>
+</ol>
+	<div class="table-responsive">
+		<table class="table table-bordered table-hover" style="text-align:center;width:70%;margin-left:15%;margin-top:5%;">
 			<tr>
 				<td>所属试卷名称</td>
 				<td>题干</td>
@@ -39,10 +44,12 @@
 		</table>
 		
 	</div>
-	<div>
-		<a href="${rootPath }manage/testManage_getQuestion?page=${pc.prePage}">上一页</a> 
-		<a href="#">${pc.currentPage}/${pc.pageNum}</a> 
-		<a href="${rootPath }manage/testManage_getQuestion?page=${pc.nextPage}">下一页</a>
+	<div style="margin-left:42%;">
+		<ul class="pagination">
+			<li><a href="${rootPath }manage/testManage_getQuestion?page=${pc.prePage}">上一页</a></li> 
+			<li><a href="#">${pc.currentPage}/${pc.pageNum}</a> </li>
+			<li><a href="${rootPath }manage/testManage_getQuestion?page=${pc.nextPage}">下一页</a></li>
+		</ul>
 	</div>
 	<h3>${delectQtMsg}</h3>
 </body>

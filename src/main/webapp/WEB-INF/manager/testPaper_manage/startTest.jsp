@@ -15,6 +15,10 @@ margin-top:2%;
 </style>
 </head>
 <body>
+<ol class="breadcrumb">
+	<li>考试管理</li>
+	<li class="active">开启考试</li>
+</ol>
 	<form action="${rootPath}manage/testManage_startTest" method="post">
 		<div class="row">
 					<div class="col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3 col-xs-8 col-xs-offset-2">

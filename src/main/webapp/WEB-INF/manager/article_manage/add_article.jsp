@@ -84,6 +84,10 @@ var ue = UE.getEditor('editor', {
 
 
 <body>
+	<ol class="breadcrumb">
+	    <li>文章管理</li>
+	    <li class="active">添加文章</li>
+	</ol>
 	<form action="${rootPath }manage/managePaper_addPaper" method="post"   onsubmit="modifyContent()">
 			<div class="row">
 				<div class="col-lg-3 col-lg-offset-2 col-md-4 col-md-offset-2 col-xs-5 col-xs-offset-1">

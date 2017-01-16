@@ -15,7 +15,9 @@ margin-top:2%;
 </style>
 </head>
 <body>
-	 <h3 style="margin-left:5%;">添加试题</h3>
+
+
+	<h3 style="margin-left:5%;">添加试题</h3>
 			<form action="${rootPath }manage/import_question" method="post">
 				<div class="row">
 					<div class="col-lg-5 col-lg-offset-2 col-md-5 col-md-offset-2 col-xs-5 col-xs-offset-2">
@@ -72,10 +74,8 @@ margin-top:2%;
 					</div>
 				</div>
 
+
 			</form>
 			<h4>${questionMag }</h4>
-
-
-	
 </body>
 </html>

@@ -10,6 +10,10 @@
 <link rel="stylesheet" href="${rootPath }css/bootstrap.css" />
 </head>
 <body>
+<ol class="breadcrumb">
+	<li>通知管理</li>
+	<li class="active">修改通知</li>
+</ol>
 	<h2>${remind }</h2>
 	
 	<form class="form-horizontal" role="form" method="POST"
