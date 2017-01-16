@@ -53,7 +53,7 @@
 					<!-- <li><a href="partyMemberAction_seekPartyMemberInfo.action">查看个人信息</a></li>
 					<li><a href="partyMemberAction_getInfoBeforeUpdate.action">修改个人信息</a></li> -->
 					<li><a href="##">红色文章</a></li>
-					<li><a href="##">在线考试</a></li>
+					<li><a href="partyMemberAction_startTest.action">在线考试</a></li>
 				</ul>
 			</div>
 			<div class="col-lg-3 col-md-3 col-xs-3">

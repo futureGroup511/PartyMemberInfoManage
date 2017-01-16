@@ -29,9 +29,9 @@ public class QuestionServiceImpl implements IQuestionService{
 		return questionDao.updateQuestion(q);
 	}
 	@Override
-	public List<Question> getQuestion(int paperId) {
+	public List<Question> getQuestionsByTpId(int paperId) {
 		
-		return questionDao.getQuestion(paperId);
+		return questionDao.getQuestionsByTpId(paperId);
 	}
 	@Override
 	public PageCut<Question> getPC(int curr, int pageSize) {

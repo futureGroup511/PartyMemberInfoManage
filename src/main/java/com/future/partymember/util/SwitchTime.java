@@ -2,10 +2,10 @@ package com.future.partymember.util;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
+
 import java.util.Date;
 
-import com.future.partymember.entity.PartyMemberInfo;
+
 
 /*
 *@author 焦祥宇
@@ -51,7 +51,19 @@ public class SwitchTime {
 		}
 		
 	}
-	
+	//String to 年月日时分秒
+	public static Date strToTime(String str){
+		SimpleDateFormat s=new SimpleDateFormat("yyyy-MM-dd HH:mm");
+		
+		try {
+			System.out.println(str.replace('T',' '));
+			return s.parse(str.replace('T',' '));
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			return null;
+		}
+		
+	}
 	public static String dateToStr(Date d){
 		SimpleDateFormat s=new SimpleDateFormat("yyyy-MM-dd");	
 		return s.format(d);				

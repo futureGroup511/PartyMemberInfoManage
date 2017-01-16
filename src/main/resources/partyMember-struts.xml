@@ -23,7 +23,10 @@
             <result name="viewVideos">/WEB-INF/partyMember/viewVideos.jsp</result>
             
             <result name="viewing">/WEB-INF/partyMember/videoplay.jsp</result>
-            <result name="viewing_remote">/WEB-INF/partyMember/videoplay_remote.jsp</result>                        
+            <result name="viewing_remote">/WEB-INF/partyMember/videoplay_remote.jsp</result>
+            
+            <result name="startTest">/WEB-INF/partyMember/onlineTest.jsp</result>
+                                   
         </action>
 
 	</package>

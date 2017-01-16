@@ -40,7 +40,7 @@ public class QuestionDaoImpl extends BaseDao<Question> implements IQuestionDao{
 	}
 
 	@Override
-	public List<Question> getQuestion(int paperId) {
+	public List<Question> getQuestionsByTpId(int paperId) {
 		String hql="from Question q where q.paperId="+paperId;		
 		return this.getEntityList(hql);
 		

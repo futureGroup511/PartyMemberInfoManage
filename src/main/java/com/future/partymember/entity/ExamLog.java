@@ -25,6 +25,7 @@ public class ExamLog {
 	private int el_Id;
 	private int paper_Id;//试卷id
 	private int partyMemberId;//党员的id
+	private String partySort;//党员身份
 	private int socre;//考试成绩
 	private Date examTime;//考试时间
 	
@@ -89,4 +90,19 @@ public class ExamLog {
 	public void setPaper_Id(int paper_Id) {
 		this.paper_Id = paper_Id;
 	}
+
+	public String getPartySort() {
+		return partySort;
+	}
+
+	public void setPartySort(String partySort) {
+		this.partySort = partySort;
+	}
+
+	@Override
+	public String toString() {
+		return "ExamLog [el_Id=" + el_Id + ", paper_Id=" + paper_Id + ", partyMemberId=" + partyMemberId
+				+ ", partySort=" + partySort + ", socre=" + socre + ", examTime=" + examTime + "]";
+	}
+	
 }

@@ -1,12 +1,35 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>在线测试</title>
 </head>
 <body>
+	<c:choose>
+		<c:when test="${NoTest!=null}">
+			<h4>${NoTest}</h4>
+		</c:when>
+		<c:otherwise>
+			<div>
+				<form action="">
+					<h3>${startTest.paperName}</h3>
+					<c:forEach items="${questionsList}" var="q" varStatus="status">
+						<div>${status.index+1}.${q.questions_stems}(分数:${q.question_socre}))</div>
+						<ul style="list-style-type: none;list-style-position: outside;">
+							<li><input type="radio" name="question.answer" value="A">A:${q.a}</li>
+							<li><input type="radio" name="question.answer" value="B">B:${q.a}</li>
+							<li><input type="radio" name="question.answer" value="C">C:${q.a}</li>
+							<li><input type="radio" name="question.answer" value="D">D:${q.a}</li>
+						</ul>  												
+					</c:forEach>
+				</form>
+			</div>
+		</c:otherwise>
+	</c:choose>
+
 
 </body>
 </html>
