@@ -25,6 +25,7 @@
 							<li><input type="radio" name="question.answer" value="D">D:${q.a}</li>
 						</ul>  												
 					</c:forEach>
+					<input type="submit" value="提交">
 				</form>
 			</div>
 		</c:otherwise>

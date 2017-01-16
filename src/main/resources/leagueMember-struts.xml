@@ -9,5 +9,6 @@
 	<constant name="struts.objectFactory" value="spring" />
 	<!-- 非党员 -->
 	<package name="default" extends="struts-default,json-default" namespace="/league"  strict-method-invocation="false">
+		
 	</package>
 </struts>

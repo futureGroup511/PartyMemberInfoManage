@@ -10,6 +10,7 @@ import com.future.partymember.entity.PartyMemberInfo;
 import com.future.partymember.entity.PartySecretaryInfo;
 import com.future.partymember.entity.RedPaper;
 import com.future.partymember.entity.RedVideo;
+import com.future.partymember.entity.WatchVideoRecord;
 import com.future.partymember.util.PageCut;
 
 @Controller(value="partySecretaryAction")
@@ -101,6 +102,11 @@ public class PartySecretaryAction extends BaseAction {
 		
 		partySecretaryInfo =(PartySecretaryInfo)session.get("secretary");
 		int psiId=partySecretaryInfo.getPst_Id();//书记的id
+		
+		//获得视频观看记录
+		WatchVideoRecord watchVideoRecord=watchVideoRecordService.getWVR(id, psiId,1);
+		if(watchVideoRecord!=null)//设置上次观看该视频的时间
+			this.getRequest().setAttribute("currentTime", watchVideoRecord.getCurrentTime());
 		
 		redVideoService.updatewatchNumById(id);//视频观看次数加一
 		RedVideo v =redVideoService.get(id);

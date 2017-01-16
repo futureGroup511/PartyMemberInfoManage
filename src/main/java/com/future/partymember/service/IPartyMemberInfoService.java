@@ -14,7 +14,7 @@ public interface IPartyMemberInfoService {
 	//添加党员个人信息
 	public Boolean addPartyMemberInfo(PartyMemberInfo partyMemberInfo);
 	//删除党员个人信息
-	public Boolean delectPartyMemberInfo(PartyMemberInfo partyMemberInfo);
+	public Boolean deletePartyMemberInfo(PartyMemberInfo partyMemberInfo);
 	//修改党员个人基本信息
 	public Boolean updatePartyMemberInfo(PartyMemberInfo partyMemberInfo);
 	//查询党员个人信息
@@ -33,5 +33,7 @@ public interface IPartyMemberInfoService {
 	public PageCut<PartyMemberInfo> getPageCut(int currentPage,int pageSize);
 	//是否存在账号
 	public boolean exist(String account);
+	//登录
+	public PartyMemberInfo login(String account,String password);
 		
 }

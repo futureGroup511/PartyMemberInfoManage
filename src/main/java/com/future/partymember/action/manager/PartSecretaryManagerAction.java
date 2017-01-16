@@ -54,8 +54,6 @@ public class PartSecretaryManagerAction extends BaseAction {
 			int nowY=calendar.get(Calendar.YEAR);
 			int age=nowY-year;
 			partySecretaryInfo.setAge(age);
-			
-			partySecretaryInfo.setSort("书记");
 			partySecretaryInfo.setLoginDate(new Date());
 			partySecretaryInfo.setJoinPartyDate(SwitchTime.strToDate(dateStr));
 			
@@ -102,13 +100,8 @@ public class PartSecretaryManagerAction extends BaseAction {
 			partySecretaryInfo.setLoginDate(new Date());
 			
 			String dateStr=this.getRequest().getParameter("joinPartyDate").toString();
-			if(dateStr.length()!= 8){
-				this.getRequest().setAttribute("remind", "请正确填写时间信息.");
-				this.getRequest().setAttribute("partySecretaryInfo", partySecretaryInfoService.findById(partySecretaryInfo.getPst_Id()));
-				return "update";
-			}
+			
 			partySecretaryInfo.setJoinPartyDate(SwitchTime.strToDate(dateStr));
-			partySecretaryInfo.setSort("书记");
 			partySecretaryInfoService.updatePersonInfo(partySecretaryInfo);
 		}catch(Exception e){
 			e.printStackTrace();

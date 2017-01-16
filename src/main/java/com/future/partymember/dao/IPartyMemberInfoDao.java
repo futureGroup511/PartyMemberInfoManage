@@ -11,7 +11,7 @@ public interface IPartyMemberInfoDao {
 	public Boolean addPartyMemberInfo(PartyMemberInfo partyMemberInfo);
 
 	// 删除党员个人信息
-	public Boolean delectPartyMemberInfo(PartyMemberInfo partyMemberInfo);
+	public Boolean deletePartyMemberInfo(PartyMemberInfo partyMemberInfo);
 
 	// 修改党员个人基本信息
 	public Boolean updatePartyMemberInfo(PartyMemberInfo partyMemberInfo);
@@ -35,4 +35,6 @@ public interface IPartyMemberInfoDao {
 	public PageCut<PartyMemberInfo> getPageCut(int currentPage,int pageSize);
 	public boolean exist(String account);
 
+	//登录
+	public PartyMemberInfo login(String account,String password);
 }

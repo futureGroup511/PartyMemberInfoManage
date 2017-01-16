@@ -31,17 +31,17 @@ margin-top:2%;
 					</div>
 					<div class="col-lg-5 col-md-5  col-xs-5 ">
 						<label class="lable_1">题干：</label>
-						<input type="text" style="width:40%;" name="question.questions_stems"> 
+						<input required="required" type="text" style="width:40%;" name="question.questions_stems"> 
 					</div>
 				</div>
 				<div class="row">
 					<div class="col-lg-5 col-lg-offset-2 col-md-5 col-md-offset-2 col-xs-5 col-xs-offset-2">
 						<label class="lable_1" style="margin-left:12%;">A选项：</label>
-						<input  style="width:40%;" type="text" name="question.a">
+						<input required="required" style="width:40%;" type="text" name="question.a">
 					</div>
 					<div class="col-lg-5 col-md-5  col-xs-5 ">
 						<label style="margin-left:-2.5%;" class="lable_1">B选项：</label>
-						<input style="width:40%;" type="text"name="question.b">
+						<input required="required" style="width:40%;" type="text"name="question.b">
 					</div>
 				</div>
 				<div class="row">
@@ -56,7 +56,13 @@ margin-top:2%;
 				</div><div class="row">
 					<div class="col-lg-5 col-lg-offset-2 col-md-5 col-md-offset-2 col-xs-5 col-xs-offset-2">
 						<label class="lable_1" style="margin-left:14%;">答案：</label>
-						<input  style="width:40%;" type="text" name="question.answer">
+						<select required="required"  style="width:40%;" type="text" name="question.answer">
+							<option value="A">A</option>
+							<option value="B">B</option>
+							<option value="C">C</option>
+							<option value="D">D</option>
+						</select>
+						
 					</div>
 					<div class="col-lg-5 col-md-5  col-xs-5 ">
 						<label style="margin-left:-0.5%;" class="lable_1">解析：</label>
@@ -66,7 +72,7 @@ margin-top:2%;
 				</div><div class="row">
 					<div class="col-lg-5 col-lg-offset-2 col-md-5 col-md-offset-2 col-xs-5 col-xs-offset-2">
 						<label class="lable_1" style="margin-left:14%;">分数：</label>
-						<input  style="width:40%;" type="text" name="question_socre">
+						<input required="required"  style="width:40%;" type="number" name="question_socre">
 					</div>
 					<div class="col-lg-5 col-md-5  col-xs-5 ">
 						  <input type="reset" value="重置"  style="margin-left:11%;border-radius:0px;" class="btn btn-primary"> 
