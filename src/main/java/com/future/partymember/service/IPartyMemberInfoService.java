@@ -31,6 +31,13 @@ public interface IPartyMemberInfoService {
 	
 	//获取指定条件的分页对象  宋民举
 	public PageCut<PartyMemberInfo> getPageCut(int currentPage,int pageSize);
+	/**
+	 * @param currentPage
+	 * @param pageSize
+	 * @param search,can be null
+	 * @return
+	 */
+	public PageCut<PartyMemberInfo> getPageCut(int currentPage,int pageSize,String search);
 	//是否存在账号
 	public boolean exist(String account);
 		

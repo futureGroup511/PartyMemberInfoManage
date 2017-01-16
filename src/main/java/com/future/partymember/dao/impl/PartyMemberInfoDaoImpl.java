@@ -83,7 +83,7 @@ public class PartyMemberInfoDaoImpl extends BaseDao<PartyMemberInfo> implements 
 		String hql = "select count(*) from PartyMemberInfo";
 		int count = ((Long) this.uniqueResult(hql)).intValue();
 		PageCut<PartyMemberInfo> pc = new PageCut<PartyMemberInfo>(currentPage, pageSize, count);
-		pc.setData(this.getEntityLimitList("from PartyMemberInfo", currentPage, pageSize));
+		pc.setData(this.getEntityLimitList("from PartyMemberInfo", (currentPage-1)*pageSize, pageSize));
 		return pc;
 	}
 
@@ -96,6 +96,35 @@ public class PartyMemberInfoDaoImpl extends BaseDao<PartyMemberInfo> implements 
 			return false;
 		}
 		return true;
+	}
+
+	@Override
+	public PageCut<PartyMemberInfo> getPageCut(int page, int pageSize, String search) {
+		// TODO Auto-generated method stub
+		String hql ;
+		int count=0;
+		
+		if(search ==null || search.length()==0){
+			hql = "select count(*) from PartyMemberInfo";
+			count = ((Long) this.uniqueResult(hql)).intValue();
+		}else{
+			hql = "select count(*) from PartyMemberInfo as p where p.account like :search or p.username like :search or p.idCard like :search";
+			Query query=this.getSession().createQuery(hql);
+			query.setString("search","%"+search+"%");
+			
+			count=((Long)query.uniqueResult()).intValue();
+		}
+		PageCut<PartyMemberInfo> pc = new PageCut<PartyMemberInfo>(page, pageSize, count);
+		if(search==null || search.length()==0){
+			hql="from PartyMemberInfo";
+			pc.setData(this.getEntityLimitList(hql, (page-1)*pageSize, pageSize));
+		}else{
+			hql="from PartyMemberInfo as p where p.account like :search or p.username like :search or p.idCard like :search";
+			Query query=this.getSession().createQuery(hql);
+			query.setString("search","%"+search+"%");
+			pc.setData(query.list());
+		}
+		return pc;
 	}
 
 }

@@ -33,6 +33,8 @@ public interface IPartyMemberInfoDao {
 	
 	//获取指定条件的分页对象  宋民举
 	public PageCut<PartyMemberInfo> getPageCut(int currentPage,int pageSize);
+	public PageCut<PartyMemberInfo> getPageCut(int currentPage,int pageSize,String search);
+	
 	public boolean exist(String account);
 
 }
