@@ -24,9 +24,10 @@ public class ExamLog {
 
 	private int el_Id;
 	private int paper_Id;//试卷id
+	private String paperName;//试卷名称
 	private int partyMemberId;//党员的id
-	private String partySort;//党员身份
-	private int socre;//考试成绩
+	private int  partySort;//党员身份     1:书记  0：党员
+	private int totalScore;//考试总成绩
 	private Date examTime;//考试时间
 	
 	
@@ -35,15 +36,19 @@ public class ExamLog {
 		
 	}
 	
-	public ExamLog(int paper_Id, int partyMemberId, int socre, Date examTime) {
+	public ExamLog(int paper_Id, String paperName, int partyMemberId, int partySort, int totalScore, Date examTime) {
 		super();
 		this.paper_Id = paper_Id;
+		this.paperName = paperName;
 		this.partyMemberId = partyMemberId;
-		this.socre = socre;
+		this.partySort = partySort;
+		this.totalScore = totalScore;
 		this.examTime = examTime;
 	}
-	
-	
+
+
+
+
 	@Id
 	@GeneratedValue(strategy = IDENTITY)
 
@@ -56,6 +61,27 @@ public class ExamLog {
 	}
 	
 	
+
+	
+	public String getPaperName() {
+		return paperName;
+	}
+
+	public void setPaperName(String paperName) {
+		this.paperName = paperName;
+	}
+
+
+	@Column(name = "totalScore",  nullable = false)
+	
+	public int getTotalScore() {
+		return totalScore;
+	}
+
+	public void setTotalScore(int totalScore) {
+		this.totalScore = totalScore;
+	}
+	
 	@Column(name = "partyMember_id",  nullable = false)
 	public int getPartyMemberId() {
 		return partyMemberId;
@@ -65,13 +91,6 @@ public class ExamLog {
 	}
 	
 	
-	@Column(name = "socre",  nullable = false)
-	public int getSocre() {
-		return socre;
-	}
-	public void setSocre(int socre) {
-		this.socre = socre;
-	}
 	
 	
 	@Temporal(TemporalType.DATE)
@@ -90,19 +109,19 @@ public class ExamLog {
 	public void setPaper_Id(int paper_Id) {
 		this.paper_Id = paper_Id;
 	}
-
-	public String getPartySort() {
+	
+	public int getPartySort() {
 		return partySort;
 	}
 
-	public void setPartySort(String partySort) {
+	public void setPartySort(int partySort) {
 		this.partySort = partySort;
 	}
 
 	@Override
 	public String toString() {
 		return "ExamLog [el_Id=" + el_Id + ", paper_Id=" + paper_Id + ", partyMemberId=" + partyMemberId
-				+ ", partySort=" + partySort + ", socre=" + socre + ", examTime=" + examTime + "]";
+				+ ", partySort=" + partySort + ", socre=" + totalScore + ", examTime=" + examTime + "]";
 	}
 	
 }

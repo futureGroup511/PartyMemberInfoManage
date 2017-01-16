@@ -4,12 +4,23 @@ package com.future.partymember.entity;
 *@author 焦祥宇
 */
 public class StartTest {
+	
 	private String paperName;
 	private String startTime;
 	private String endTime;
+	private int testNum;
 	private String testPeople;
 	private TestPaper testPaper;
 	
+	
+	public int getTestNum() {
+		return testNum;
+	}
+
+	public void setTestNum(int testNum) {
+		this.testNum = testNum;
+	}
+
 	public String getTestPeople() {
 		return testPeople;
 	}

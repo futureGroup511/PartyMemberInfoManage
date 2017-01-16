@@ -5,6 +5,8 @@ import java.util.Date;
 import java.util.List;
 
 import com.future.partymember.base.BaseAction;
+import com.future.partymember.entity.ExamLog;
+import com.future.partymember.entity.ExamPerRecord;
 import com.future.partymember.entity.PartyMemberInfo;
 import com.future.partymember.entity.Question;
 import com.future.partymember.entity.RedVideo;
@@ -180,12 +182,12 @@ public class PartyMemberAction extends BaseAction {
 
 	// 在线考试
 	public String startTest() throws Exception {
-		StartTest startTest = (StartTest) this.getSession().get("startTest");
-
+		StartTest startTest = (StartTest) this.getRequest().getSession().getServletContext().getAttribute("startTest");
 		if (startTest != null) {
 			if (SwitchTime.strToTime(startTest.getEndTime()).after(new Date())) {
 				List<Question> questionsList = questionService.getQuestionsByTpId(startTest.getTestPaper().getTp_Id());
-				this.getRequest().setAttribute("questionsList", questionsList);
+				((StartTest)this.getRequest().getSession().getServletContext().getAttribute("startTest")).setTestNum(questionsList.size());;
+				this.getSession().put("questionsList", questionsList);				
 			} 
 		}
 		else {
@@ -194,7 +196,46 @@ public class PartyMemberAction extends BaseAction {
 		return "startTest";
 	}
 	//考试提交
-	
+	public String getExamRecord(){
+		System.out.println("考试提交");		
+		//考试的试卷信息
+		StartTest startTest=(StartTest)this.getRequest().getSession().getServletContext().getAttribute("startTest");
+		int tp_Id=startTest.getTestPaper().getTp_Id();//试卷id
+		String paperName=startTest.getPaperName();//试卷名称
+		int testNum=startTest.getTestNum();//题数
+		//试题集合
+		@SuppressWarnings("unchecked")
+		List<Question> questionsList=(List<Question>) this.getSession().get("questionsList");
+		int totalScore=0;//总成绩
+		int userId=(Integer)this.getSession().get("userId");//用户id
+		int userSort=(Integer)this.getSession().get("userSort");//用户身份
+		for(int i=0;i<testNum;i++){			
+			String str=(String)this.getRequest().getParameter("answer"+i);
+			String userAnswer=((Character)str.charAt(0)).toString();//考生答案
+			int qt_Id=Integer.valueOf(str.substring(1));//试题id
+			int score=0;//该题得分
+			Question question=(Question)questionsList.toArray()[i];//该题信息		
+			if(userAnswer.equals(question.getAnswer())){
+				score=question.getQuestion_socre();
+				totalScore+=score;
+			}
+			
+			
+			ExamPerRecord examPerRecord=new ExamPerRecord(tp_Id,qt_Id,userAnswer,score,userId,userSort); 
+			//保存考试详细记录		
+			examPerRecordService.addExamPerRecord(examPerRecord);			
+		}
+		ExamLog examLog=new ExamLog(tp_Id,paperName,userId,userSort,totalScore,new Date());
+		Boolean bool=examLogService.addExamLog(examLog);
+		if(bool==true){
+			this.getRequest().setAttribute("addExamLogMsg", "提交成功！");
+		}
+		else{
+			this.getRequest().setAttribute("addExamLogMsg", "提交失败！");
+		}
+		/*int paper_Id, String paperName, int partyMemberId, int partySort, int totalScore, Date examTime*/
+		return "getExamRecord";
+	}
 	
 	public void setPartyMemberInfo(PartyMemberInfo partyMemberInfo) {
 		this.partyMemberInfo = partyMemberInfo;
@@ -211,6 +252,8 @@ public class PartyMemberAction extends BaseAction {
 	public void setPage(int page) {
 		this.page = page;
 	}
+
+
 
 	/*
 	 * public int getId() { return id; } public void setId(int id) { this.id =

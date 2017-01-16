@@ -14,23 +14,26 @@
 		</c:when>
 		<c:otherwise>
 			<div>
-				<form action="">
+				<form action="${rootPath}party/partyMemberAction_getExamRecord.action">
 					<h3>${startTest.paperName}</h3>
 					<c:forEach items="${questionsList}" var="q" varStatus="status">
-						<div>${status.index+1}.${q.questions_stems}(分数:${q.question_socre}))</div>
-						<ul style="list-style-type: none;list-style-position: outside;">
-							<li><input type="radio" name="question.answer" value="A">A:${q.a}</li>
-							<li><input type="radio" name="question.answer" value="B">B:${q.a}</li>
-							<li><input type="radio" name="question.answer" value="C">C:${q.a}</li>
-							<li><input type="radio" name="question.answer" value="D">D:${q.a}</li>
-						</ul>  												
-					</c:forEach>
+						<div>${status.index+1}.${q.questions_stems} (分数:${q.question_socre})</div>
+						<div>
+							<ul style="list-style-type: none;list-style-position: outside;">						
+								<li><input type="radio" name="answer${status.index}" value="A${q.qt_Id}" >A:${q.a}</li>
+								<li><input type="radio" name="answer${status.index}" value="B${q.qt_Id}">B:${q.a}</li>
+								<li><input type="radio" name="answer${status.index}" value="C${q.qt_Id}">C:${q.a}</li>
+								<li><input type="radio" name="answer${status.index}" value="D${q.qt_Id}">D:${q.a}</li>
+							</ul> 						 	
+						</div>
+																					
+					</c:forEach>					
 					<input type="submit" value="提交">
 				</form>
 			</div>
 		</c:otherwise>
 	</c:choose>
-
+	${addExamLogMsg}
 
 </body>
 </html>

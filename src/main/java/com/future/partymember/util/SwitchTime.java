@@ -62,8 +62,7 @@ public class SwitchTime {
 	public static Date strToTime(String str){
 		SimpleDateFormat s=new SimpleDateFormat("yyyy-MM-dd HH:mm");
 		
-		try {
-			System.out.println(str.replace('T',' '));
+		try {			
 			return s.parse(str.replace('T',' '));
 		} catch (ParseException e) {
 			// TODO Auto-generated catch block
