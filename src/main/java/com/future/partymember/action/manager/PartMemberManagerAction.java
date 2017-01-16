@@ -5,6 +5,7 @@ import java.util.Date;
 
 import com.future.partymember.base.BaseAction;
 import com.future.partymember.entity.PartyMemberInfo;
+import com.future.partymember.entity.PartySecretaryInfo;
 import com.future.partymember.util.PageCut;
 import com.future.partymember.util.SwitchTime;
 
@@ -13,9 +14,23 @@ public class PartMemberManagerAction extends BaseAction {
 	private PartyMemberInfo partyMemberInfo;
 
 	public String execute() {
-		this.getRequest().setAttribute("pc", partyMemberInfoService.getPageCut(page, 5));
-		PageCut<PartyMemberInfo> pageCut=partyMemberInfoService.getPageCut(page, 5);
+		String search=this.getRequest().getParameter("search");
+		PageCut<PartyMemberInfo> pCut=partyMemberInfoService.getPageCut(page,10, search);
+		
+		if( search==null || search.length()==0){
+			
+		}else{
+			for(PartyMemberInfo p:pCut.getData()){
+				String format="<span class=\"search\">%s</span>";
+				p.setAccount(p.getAccount().replaceAll(search, String.format(format, search)));
+				p.setUsername(p.getUsername().replaceAll(search, String.format(format, search)));
+				p.setIdCard(p.getIdCard().replaceAll(search, String.format(format, search)));
+			}
+		}
+		this.getRequest().setAttribute("pc", pCut);
+		this.getRequest().setAttribute("search", search);
 		return SUCCESS;
+		
 	}
 
 	public String delete() {
@@ -100,7 +115,6 @@ public class PartMemberManagerAction extends BaseAction {
 			partyMemberInfo.setBirthdate(SwitchTime.strToDate(birth));
 			int s=Integer.parseInt(idc.charAt(16)+"");
 			if(s%2==0){
-				System.out.println(s+""+partyMemberInfo+"");
 				partyMemberInfo.setSex("女");
 			}else{
 				partyMemberInfo.setSex("男");
@@ -111,6 +125,7 @@ public class PartMemberManagerAction extends BaseAction {
 			partyMemberInfo.setAge(age);
 			
 			partyMemberInfo.setLoginDate(new Date());
+			System.out.println(1234);
 			partyMemberInfo.setJoinPartyDate(SwitchTime.strToDate(dateStr));
 			partyMemberInfo.setIdAccessory("");
 			partyMemberInfoService.addPartyMemberInfo(partyMemberInfo);

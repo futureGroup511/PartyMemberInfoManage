@@ -2,12 +2,13 @@ package com.future.partymember.dao.impl;
 
 import java.util.List;
 
+import org.hibernate.Query;
 import org.springframework.stereotype.Repository;
 
 import com.future.partymember.base.BaseDao;
 import com.future.partymember.dao.IPartySecretaryInfoDao;
-import com.future.partymember.entity.PartyMemberInfo;
 import com.future.partymember.entity.PartySecretaryInfo;
+import com.future.partymember.util.PageCut;
 
 @Repository
 public class PartySecretaryInfoDaoImpl extends BaseDao<PartySecretaryInfo> 
@@ -22,7 +23,6 @@ public class PartySecretaryInfoDaoImpl extends BaseDao<PartySecretaryInfo>
 	public PartySecretaryInfo findByAccountAndPassword(PartySecretaryInfo partySecretaryInfo) {
 		String hql="from PartySecretaryInfo psi where psi.account=? and psi.password=?";
 		PartySecretaryInfo psi=(PartySecretaryInfo)uniqueResult(hql, partySecretaryInfo.getAccount(),partySecretaryInfo.getPassword());
-		System.out.println(psi);
 		return psi;
 	}
 
@@ -65,11 +65,41 @@ public class PartySecretaryInfoDaoImpl extends BaseDao<PartySecretaryInfo>
 	public boolean exist(String account) {
 		// TODO Auto-generated method stub
 		String hql="from PartySecretaryInfo p where p.account=?";
-		List list=this.getEntityList(hql, account);
+		List<PartySecretaryInfo> list=this.getEntityList(hql, account);
 		if(list==null||list.isEmpty()){
 			return false;
 		}
 		return true;
+	}
+
+	@Override
+	public PageCut<PartySecretaryInfo> getPageCut(int page, int pageSize,String search) {
+		// TODO Auto-generated method stub
+		
+		String hql ;
+		int count=0;
+		
+		if(search ==null || search.length()==0){
+			hql = "select count(*) from PartySecretaryInfo";
+			count = ((Long) this.uniqueResult(hql)).intValue();
+		}else{
+			hql = "select count(*) from PartySecretaryInfo as p where p.account like :search or p.username like :search or p.idCard like :search";
+			Query query=this.getSession().createQuery(hql);
+			query.setString("search","%"+search+"%");
+			
+			count=((Long)query.uniqueResult()).intValue();
+		}
+		PageCut<PartySecretaryInfo> pc = new PageCut<PartySecretaryInfo>(page, pageSize, count);
+		if(search==null || search.length()==0){
+			hql="from PartySecretaryInfo";
+			pc.setData(this.getEntityLimitList(hql, (page-1)*pageSize, pageSize));
+		}else{
+			hql="from PartySecretaryInfo as p where p.account like :search or p.username like :search or p.idCard like :search";
+			Query query=this.getSession().createQuery(hql);
+			query.setString("search","%"+search+"%");
+			pc.setData(query.list());
+		}
+		return pc;
 	}
 
 	

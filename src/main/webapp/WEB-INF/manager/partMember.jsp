@@ -27,6 +27,10 @@
 #pageCut {
 	text-align: right;
 }
+.search{
+	color:red;
+	font-size:1.2em;
+}
 </style>
 
 </head>
@@ -37,6 +41,29 @@
 </ol>
 	<div class="container">
 		<div class="row">
+			<div class="col-xs-12">
+				<span style="font-size:1.4em;color:red;">${remind }</span>
+			</div>
+		</div>
+	
+		<div class="row" style="margin-bottom:30px;">
+			<form action="" method="post">
+			<div class="col-xs-6">
+				
+				<input type="text" name="search" class="form-control" value="${search }" placeholder="请输入姓名&nbsp;/&nbsp;账号&nbsp;/&nbsp;身份证号搜索"> 
+				 
+			</div>
+			<div class="col-xs-6">
+				<button type="submit" class="btn btn-success">搜索</button>
+			</div>
+		</form>	
+		</div>
+		<div class="row">
+			<div class="col-xs-12">
+				共找到 &nbsp; <span style="color:red;">${pc.count }</span> &nbsp; 条数据
+			</div>
+		</div>
+		<div class="row">
 			<div class="col-md-12">
 				<table class="table table-striped table-bordered table-hover">
 					<tbody>
@@ -46,16 +73,20 @@
 							<td>性别</td>
 							<td>年龄</td>
 							<td>民族</td>
+							<!-- 
 							<td>出生日期：</td>
+							 -->
 							<td>身份证号：</td>
+							<!-- 
 							<td>籍贯：</td>
 							<td>入党日期：</td>
 							<td>在党职务：</td>
 							<td>介绍人</td>
 							<td>所属党支部：</td>
 							<td>手机号</td>
+							 -->
 							<td>注册时间</td>
-							<td>管理</td>
+							<td>详细信息管理</td>
 							<td>删除</td>
 
 
@@ -67,17 +98,22 @@
 								<td>${pm.sex }</td>
 								<td>${pm.age }</td>
 								<td>${pm.nation }</td>
+								<%-- 
 								<td>${pm.birthdate }</td>
+								 --%>
 								<td>${pm.idCard }</td>
+								<%-- 
 								<td>${pm.nativePlace }</td>
 								<td>${pm.joinPartyDate }</td>
 								<td>${pm.duties }</td>
 								<td>${pm.introducer }</td>
 								<td>${pm.partyBranch}</td>
 								<td>${pm.phoneNo }</td>
+								 --%>
+								
 								<td>${pm.loginDate}</td>
 								<td><a
-									href="${rootPath }manage/partMember_update?id=${pm.ptm_Id}">管理</a></td>
+									href="${rootPath }manage/partMember_update?id=${pm.ptm_Id}">详细信息管理</a></td>
 								<td><a
 									href="${rootPath }manage/partMember_delete?id=${pm.ptm_Id}">删除</a></td>
 							</tr>

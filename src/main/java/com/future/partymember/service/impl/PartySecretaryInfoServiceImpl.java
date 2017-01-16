@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import com.future.partymember.dao.IPartySecretaryInfoDao;
 import com.future.partymember.entity.PartySecretaryInfo;
 import com.future.partymember.service.IPartySecretaryInfoService;
+import com.future.partymember.util.PageCut;
 
 @Service
 public class PartySecretaryInfoServiceImpl implements IPartySecretaryInfoService{
@@ -56,6 +57,12 @@ public class PartySecretaryInfoServiceImpl implements IPartySecretaryInfoService
 	public boolean exist(String account) {
 		// TODO Auto-generated method stub
 		return iPartySecretaryInfoDao.exist(account);
+	}
+
+	@Override
+	public PageCut<PartySecretaryInfo> getPageCut(int page, int pageSize,String search) {
+		// TODO Auto-generated method stub
+		return iPartySecretaryInfoDao.getPageCut(page, pageSize,search);
 	}
 
 }

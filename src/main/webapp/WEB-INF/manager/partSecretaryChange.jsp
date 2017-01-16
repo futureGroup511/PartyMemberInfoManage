@@ -6,68 +6,152 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-
+<link rel="stylesheet" href="${rootPath }css/bootstrap.css" />
+<style type="text/css">
+.remind {
+	font-size: 1.4em;
+	color: red;
+}
+</style>
 </head>
 <body>
-<ol class="breadcrumb">
-	<li>书记管理</li>
-	<li class="active">修改书记信息</li>
-</ol>
+	<ol class="breadcrumb">
+		<li>书记管理</li>
+		<li class="active">修改书记信息</li>
+	</ol>
+	<div class="container">
+		<form class="form-horizontal" role="form" method="post"
+			action="${rootPath }manage/partSecretary_updateDo">
+			<div class="row">
+				<span class="remind">${remind }</span>
+			</div>
+			<div class="row">
+				<input type="hidden" name="partySecretaryInfo.pst_Id"
+					value="${partySecretaryInfo.pst_Id }">
+				<div class="col-xs-12 col-sm-5">
+					<div class="form-group">
+						<div class="col-xs-4">
+							<label style="line-height: 50px;">账号</label>
+						</div>
+						<div class="col-xs-8">
+							<input type="text" class="form-control" required="required"
+								name="partySecretaryInfo.account"
+								value="${partySecretaryInfo.account }" placeholder="请输入账号">
+						</div>
+					</div>
 
-	<h1>${remind }</h1>
-	<form class="form-horizontal" role="form" method="post"
-		action="${rootPath }manage/partSecretary_updateDo">
-		<input type="hidden" name="partySecretaryInfo.pst_Id" value="${partySecretaryInfo.pst_Id }">
-			<table>
-				<tr>
-					<td>账号</td>
-					<td><input type="text" name="partySecretaryInfo.account" value="${partySecretaryInfo.account }"></td>
-					<td>密码</td>
-					<td><input type="password" name="partySecretaryInfo.password" value="${partySecretaryInfo.password }"></td>
-				</tr>
-				<tr>
-					<td>身份证号码</td>
-					<td><input type="text" name="partySecretaryInfo.idCard" value="${partySecretaryInfo.idCard }"></td>
-					<td>手机号</td>
-					<td><input type="tel" name="partySecretaryInfo.phoneNo" value="${partySecretaryInfo.phoneNo }"></td>
-				</tr>
-				<tr>
-				
-					<td>姓名</td>
-					<td><input type="text" name="partySecretaryInfo.username" value="${partySecretaryInfo.username }"></td>
-					
-				</tr>
+					<div class="form-group">
+						<div class="col-xs-4">
+							<label style="line-height: 50px;">身份证号</label>
+						</div>
+						<div class="col-xs-8">
+							<input type="number" class="form-control" required="required"
+								name="partySecretaryInfo.idCard"
+								value="${partySecretaryInfo.idCard }" placeholder="请输入身份证号">
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="col-xs-4">
+							<label style="line-height: 50px;">姓名</label>
+						</div>
+						<div class="col-xs-8">
+							<input type="text" class="form-control" required="required"
+								name="partySecretaryInfo.username"
+								value="${partySecretaryInfo.username }" placeholder="请输入姓名">
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="col-xs-4">
+							<label style="line-height: 50px;">籍贯</label>
+						</div>
+						<div class="col-xs-8">
+							<input type="text" class="form-control" required="required"
+								name="partySecretaryInfo.nativePlace"
+								value="${partySecretaryInfo.nativePlace }" placeholder="请输入籍贯">
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="col-xs-4">
+							<label style="line-height: 50px;">在党职务</label>
+						</div>
+						<div class="col-xs-8">
+							<input type="text" class="form-control"
+								name="partySecretaryInfo.duties"
+								value="${partySecretaryInfo.duties }" placeholder="在党职务">
+						</div>
+					</div>
 
-				<tr>
+				</div>
+				<div class="hidden-xs col-sm-1"></div>
+				<div class="col-xs-12 col-sm-5">
+					<div class="form-group">
+						<div class="col-xs-4">
+							<label style="line-height: 50px;">密码</label>
+						</div>
+						<div class="col-xs-8">
+							<input class="form-control" type="password" required="required"
+								name="partySecretaryInfo.password"
+								value="${partySecretaryInfo.password  }" placeholder="请输入密码">
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="col-xs-4">
+							<label style="line-height: 50px;">手机号</label>
+						</div>
+						<div class="col-xs-8">
+							<input class="form-control" type="number"
+								name="partySecretaryInfo.phoneNo"
+								value="${partySecretaryInfo.phoneNo }" placeholder="请输入手机号">
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="col-xs-4">
+							<label style="line-height: 50px;">民族</label>
+						</div>
+						<div class="col-xs-8">
+							<input type="text" required="required" class="form-control"
+								name="partySecretaryInfo.nation"
+								value="${partySecretaryInfo.nation }" placeholder="请输入民族">
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="col-xs-4">
+							<label style="line-height: 50px;">所在党支部</label>
+						</div>
+						<div class="col-xs-8">
+							<input type="text" class="form-control" required="required"
+								name="partySecretaryInfo.partyBranch"
+								value="${partySecretaryInfo.partyBranch }" placeholder="所在党支部">
+						</div>
+					</div>
 
-					<td>民族</td>
-					<td><input type="text" name="partySecretaryInfo.nation" value="${partySecretaryInfo.nation }"></td>
-					<td>籍贯</td>
-					<td><input type="text" name="partySecretaryInfo.nativePlace" value="${partySecretaryInfo.nativePlace }"></td>
+					<div class="form-group">
+						<div class="col-xs-4">
+							<label style="line-height: 50px;">入党日期</label>
+						</div>
+						<div class="col-xs-8">
+							<input class="form-control" type="date" required="required"
+								name="joinPartyDate"
+								value="${partySecretaryInfo.joinPartyDate }">
+						</div>
+					</div>
 
-				</tr>
-				
-				<tr>
-					
-					<td>所在党支部</td>
-					<td><input type="text" name="partySecretaryInfo.partyBranch" value="${partySecretaryInfo.partyBranch }"></td>
-					<td>职务</td>
-					<td><input type="text" name="partySecretaryInfo.duties" value="${partySecretaryInfo.duties }"></td>
+				</div>
+			</div>
 
-				</tr>
-				<tr>
-					
-					<td>入党日期</td>
-					<td><input type="text" name="joinPartyDate" value="${partySecretaryInfo.joinPartyDate }"></td>
-					<td><label>修改日期请填写数字：如20160101</label></td>
+			<div class="row">
+				<div class="col-xs-2">
+					<button class="btn btn-default" type="reset">重新填写</button>
 
-				</tr>
-				<tr>
-					<td class="button-one"><input type="reset" value="重置"></td>
-					<td class="button-two"><input type="submit" value="确认修改"></td>
-				</tr>
-			</table>
+				</div>
+				<div class="col-xs-6">
+					<button class="btn btn-success" type="submit">&nbsp; 提交
+						&nbsp;</button>
+				</div>
+
+			</div>
+
 		</form>
-
+	</div>
 </body>
 </html>

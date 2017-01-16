@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.future.partymember.entity.PartyMemberInfo;
 import com.future.partymember.entity.PartySecretaryInfo;
+import com.future.partymember.util.PageCut;
 
 /**
  * 书记表的数据访问层接口
@@ -30,6 +31,13 @@ public interface IPartySecretaryInfoDao {
 	public boolean delete(int id);
 	
 	public boolean exist(String account);
+	
+	/**
+	 * @param page
+	 * @param pageSize
+	 * @return
+	 */
+	PageCut<PartySecretaryInfo> getPageCut(int page,int pageSize,String search);
 
 
 }

@@ -6,8 +6,11 @@ import java.util.Date;
 
 import javax.print.attribute.ResolutionSyntax;
 
+import org.apache.xmlbeans.impl.xb.xsdschema.Public;
+
 import com.future.partymember.base.BaseAction;
 import com.future.partymember.entity.PartySecretaryInfo;
+import com.future.partymember.entity.UserInfo;
 import com.future.partymember.util.PageCut;
 import com.future.partymember.util.SwitchTime;
 /*
@@ -22,9 +25,21 @@ public class PartSecretaryManagerAction extends BaseAction {
 	private int page=1;
 	private PartySecretaryInfo partySecretaryInfo;
 	public String execute(){
-		PageCut<PartySecretaryInfo> pageCut=new PageCut<>(page, 5, 213);
-		pageCut.setData(partySecretaryInfoService.getList((page-1)*pageCut.getPageSize(), pageCut.getPageSize()));
-		this.getRequest().setAttribute("pageCut", pageCut);
+		
+		String search=this.getRequest().getParameter("search");
+		PageCut<PartySecretaryInfo> pCut=partySecretaryInfoService.getPageCut(page,10, search);
+		if( search==null || search.length()==0){
+			
+		}else{
+			for(PartySecretaryInfo p:pCut.getData()){
+				String format="<span class=\"search\">%s</span>";
+				p.setAccount(p.getAccount().replaceAll(search, String.format(format, search)));
+				p.setUsername(p.getUsername().replaceAll(search, String.format(format, search)));
+				p.setIdCard(p.getIdCard().replaceAll(search, String.format(format, search)));
+			}
+		}
+		this.getRequest().setAttribute("pc", pCut);
+		this.getRequest().setAttribute("search", search);
 		return SUCCESS;
 	}
 	

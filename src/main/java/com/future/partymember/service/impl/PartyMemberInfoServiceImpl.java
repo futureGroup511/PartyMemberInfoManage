@@ -86,6 +86,10 @@ public class PartyMemberInfoServiceImpl implements IPartyMemberInfoService{
 	}
 
 	@Override
+	public PageCut<PartyMemberInfo> getPageCut(int currentPage, int pageSize, String search) {
+		// TODO Auto-generated method stub
+		return partyMemberInfoDao.getPageCut(currentPage, pageSize,search);
+	}
 	public PartyMemberInfo login(String account, String password) {		
 		return partyMemberInfoDao.login(account, password);
 	}	

@@ -5,6 +5,7 @@ import java.util.List;
 import javax.swing.text.StyledEditorKit.BoldAction;
 
 import com.future.partymember.entity.PartySecretaryInfo;
+import com.future.partymember.util.PageCut;
 
 public interface IPartySecretaryInfoService {
 	//根据用户名和密码查询
@@ -35,4 +36,13 @@ public interface IPartySecretaryInfoService {
 	public boolean delete(int id);
 	
 	public boolean exist(String account);//是否存在账号
+	
+	
+	/**
+	 * @param page
+	 * @param pageSize
+	 * @return 分页对象
+	 * song
+	 */
+	PageCut<PartySecretaryInfo> getPageCut(int page,int pageSize,String search);
 }
