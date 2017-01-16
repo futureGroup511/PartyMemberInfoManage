@@ -7,11 +7,14 @@
 <title>书记观看视频</title>
 </head>
 <body>
-	${video.name }
-		<video width="320" height="240" controls onplay="startVideo()" >
-		  <source src="/PartyMemberInfoManage/upload/video/1.mp4"  type="video/mp4">
+	${video.name }	
+		<video id="videos"  width="320" height="240" controls onplay="startVideo()" >
+		  <source src="/PartyMemberInfoManage/upload/video/2.mp4"  type="video/mp4">
 		  您的浏览器不支持 HTML5 video 标签。
 		</video>
+		<!-- 两个隐藏的表单域 -->
+		<input type="hidden" value="${video.rv_Id}" id="videoId" />
+		<input type="hidden" value="${currentTime}" id="oldcurrentTime" />
 		
 		<section class="pre-next">
 			<p><span>上一部：<a href="${rootPath }secretary/partySecretary_lookVideo?rv_Id=${prev.rv_Id}">${prev.name }</a></span>
@@ -19,7 +22,7 @@
 		</section>
 </body>
 <script type="text/javascript" src="${rootPath }js/jquery-3.1.1.min.js"></script>
-<script type="text/javascript" src="${rootPath }js/learn_video_date.js"></script>
+<script type="text/javascript" src="${rootPath }js/partSecretary_learn_time.js"></script>
 <script type="text/javascript">
 	var notice = "${notice}";
 	if(notice===""){

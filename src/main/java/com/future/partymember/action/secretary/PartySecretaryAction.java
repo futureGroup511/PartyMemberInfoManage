@@ -12,6 +12,7 @@ import com.future.partymember.entity.RedPaper;
 import com.future.partymember.entity.RedVideo;
 import com.future.partymember.entity.WatchVideoRecord;
 import com.future.partymember.util.PageCut;
+import com.future.partymember.util.SwitchTime;
 
 @Controller(value="partySecretaryAction")
 @Scope(value="prototype")
@@ -138,6 +139,61 @@ public class PartySecretaryAction extends BaseAction {
 		return "lookVideo";
 	}
 	
+	
+	/**
+	 * 更新党员的学习时间和视频播放记录历史 丁赵雷 ---焦祥宇修改过
+	 */
+	public void updateLearnTime() throws Exception {
+
+		//先得到书记对象
+		PartySecretaryInfo psi=(PartySecretaryInfo) session.get("secretary");
+		
+		long time = Integer.parseInt(getRequest().getParameter("time"));//观看视频的时间
+		System.out.println("time" + time);
+
+		time = time + psi.getLearnTime();
+		String strTime = SwitchTime.switchTime(time);
+		System.out.println("书记的学习时长"+strTime);
+		psi.setLearnTime(time);
+		psi.setStrLearnTime(strTime);
+		
+		partySecretaryInfoService.updatePersonInfo(psi);//更新个人学习时间
+		
+		// 视频播放记录历史
+		System.out.println("*******视频vvvcvdd1播放记录历史******");
+		String vt = getRequest().getParameter("currentTime");
+		long currentTime = 0;
+		if (vt.indexOf(".") > 0) {
+			currentTime = Integer.valueOf(vt.substring(0, vt.indexOf(".")));
+		} else {
+			currentTime = Integer.valueOf(vt);
+		}
+
+		System.out.println("currentTime" + currentTime);
+
+		int videoId = Integer.valueOf(getRequest().getParameter("videoId"));
+		System.out.println("vidoeId:" + videoId);
+		WatchVideoRecord watchVideoRecord;
+		watchVideoRecord=watchVideoRecordService.getWVR(videoId, psi.getPst_Id(),1);
+
+		System.out.println(watchVideoRecord);
+		if (watchVideoRecord == null) {
+			watchVideoRecord = new WatchVideoRecord();
+			watchVideoRecord.setRv_id(videoId);
+			watchVideoRecord.setPm_id(psi.getPst_Id());
+			watchVideoRecord.setCurrentTime(currentTime);
+			watchVideoRecord.setPartySort(1);
+			watchVideoRecordService.addWVR(watchVideoRecord);//添加一条视频播放记录
+			
+		} else {
+			watchVideoRecord.setRv_id(videoId);
+			watchVideoRecord.setPm_id(psi.getPst_Id());
+			watchVideoRecord.setCurrentTime(currentTime);
+			watchVideoRecordService.updateWVR(watchVideoRecord);//更新视频播放记录
+
+		}
+	}
+	
 	//阅读文章
 	public String lookPaper() throws Exception{
 		int id=Integer.parseInt(this.getRequest().getParameter("rp_Id"));
@@ -156,8 +212,10 @@ public class PartySecretaryAction extends BaseAction {
 			this.getRequest().setAttribute("notice", "后面没有了");			
 		}else{
 			List<RedPaper> rpNext=redPaperService.getNextRecordById(id,rp.getPaperTypeId());
-			RedPaper rp1=rpNext.get(0);
-			this.getRequest().setAttribute("next",rp1 );
+			if(rpNext!=null){
+				RedPaper rp1=rpNext.get(0);
+				this.getRequest().setAttribute("next",rp1 );
+			}
 		}
 		
 		if(fristPaper.getRp_Id()==id){

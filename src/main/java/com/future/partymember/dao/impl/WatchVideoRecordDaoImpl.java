@@ -19,19 +19,18 @@ public class WatchVideoRecordDaoImpl extends BaseDao<WatchVideoRecord> implement
 	
 	@Override
 	public Boolean addWVR(WatchVideoRecord watchVideoRecord) {
-		// TODO Auto-generated method stub
+		System.out.println("return this.saveEntity(watchVideoRecord);");
 		return this.saveEntity(watchVideoRecord);
 	}
 
 	@Override
 	public Boolean updateWVR(WatchVideoRecord watchVideoRecord) {
-		// TODO Auto-generated method stub
+		System.out.println("return this.updateEntity(watchVideoRecord);");
 		return this.updateEntity(watchVideoRecord);
 	}
 
 	@Override
 	public Boolean delectWVR(WatchVideoRecord watchVideoRecord) {
-		// TODO Auto-generated method stub
 		return this.deleteEntity(watchVideoRecord);
 	}
 

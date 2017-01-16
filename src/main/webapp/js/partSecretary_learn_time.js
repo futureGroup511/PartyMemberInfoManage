@@ -6,7 +6,7 @@ var end ;//视频结束
 var watchLength;//观看时长
 
 $(document).ready(function() {
-	//window.onbeforeunload = onbeforeunload_handler;  
+	window.onbeforeunload = onbeforeunload_handler;  
 });
 
 //播放视频时触发的事件
@@ -27,7 +27,7 @@ function onbeforeunload_handler(){
 	var videoId=document.getElementById("videoId").value;
 
     $.ajax({
-    	url: "/PartyMemberInfoManage/party/partyMemberAction_updateLearnTime",
+    	url: "/PartyMemberInfoManage/secretary/partySecretary_updateLearnTime",
     	type: 'POST',
     	dataType: 'json',
     	data:{

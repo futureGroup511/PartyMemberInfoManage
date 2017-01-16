@@ -35,13 +35,19 @@ public class WatchVideoRecord {
 		super();
 	}
 
-	public WatchVideoRecord(int pm_id, int rv_id, long currentTime) {
+
+	
+
+	public WatchVideoRecord(int pm_id, int rv_id, long currentTime, int partySort) {
 		super();
 		this.pm_id = pm_id;
 		this.rv_id = rv_id;
-		this.currentTime=currentTime;
+		this.currentTime = currentTime;
+		this.partySort = partySort;
 	}
-	
+
+
+
 
 	@Id
 	@GeneratedValue(strategy = IDENTITY)
@@ -82,11 +88,15 @@ public class WatchVideoRecord {
 	public void setPartySort(int partySort) {
 		this.partySort = partySort;
 	}
-	
+
+
+
 
 	@Override
 	public String toString() {
-		return "WatchVideoRecord [wvr_id=" + wvr_id + ", pm_id=" + pm_id + ", rv_id=" +
-				rv_id + ", startWatch="+ "]";
+		return "WatchVideoRecord [wvr_id=" + wvr_id + ", pm_id=" + pm_id + ", rv_id=" + rv_id + ", currentTime="
+				+ currentTime + ", 观看者的身份=" + partySort + "]";
 	}
+	
+
 }

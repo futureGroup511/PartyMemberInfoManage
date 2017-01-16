@@ -75,7 +75,7 @@ public class RedPaperDaoImpl extends BaseDao<RedPaper> implements IRedPaperDao {
 	@Override
 	public List<RedPaper> findPaperByType() {
 		String sql="select * FROM red_paper a WHERE ( SELECT count( 1 )  FROM red_paper b"
-				+ " WHERE a.paper_type_id = b.paper_type_id  AND b.rp_Id >= a.rp_Id ) <=5"
+				+ " WHERE a.paper_type_id = b.paper_type_id  AND b.rp_Id >= a.rp_Id ) <=5 and rp_tag=1"
 				+ " ORDER BY paper_type_id ASC";
 		return executeSQLQuery(RedPaper.class, sql);
 	}
