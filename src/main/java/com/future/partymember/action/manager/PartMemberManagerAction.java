@@ -71,7 +71,6 @@ public class PartMemberManagerAction extends BaseAction {
 			String dateStr=this.getRequest().getParameter("joinPartyDate").toString();
 			partyMemberInfo.setJoinPartyDate(SwitchTime.strToDate(dateStr));
 			partyMemberInfo.setIdAccessory("");
-			partyMemberInfo.setSort("党员");
 			partyMemberInfoService.updatePartyMemberInfo(partyMemberInfo);
 		}catch(Exception e){
 			e.printStackTrace();
@@ -111,7 +110,6 @@ public class PartMemberManagerAction extends BaseAction {
 			int age=nowY-year;
 			partyMemberInfo.setAge(age);
 			
-			partyMemberInfo.setSort("党员");
 			partyMemberInfo.setLoginDate(new Date());
 			partyMemberInfo.setJoinPartyDate(SwitchTime.strToDate(dateStr));
 			partyMemberInfo.setIdAccessory("");

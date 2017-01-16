@@ -33,5 +33,7 @@ public interface IPartyMemberInfoService {
 	public PageCut<PartyMemberInfo> getPageCut(int currentPage,int pageSize);
 	//是否存在账号
 	public boolean exist(String account);
+	//登录
+	public PartyMemberInfo login(String account,String password);
 		
 }

@@ -35,4 +35,6 @@ public interface IPartyMemberInfoDao {
 	public PageCut<PartyMemberInfo> getPageCut(int currentPage,int pageSize);
 	public boolean exist(String account);
 
+	//登录
+	public PartyMemberInfo login(String account,String password);
 }

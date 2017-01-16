@@ -98,4 +98,11 @@ public class PartyMemberInfoDaoImpl extends BaseDao<PartyMemberInfo> implements 
 		return true;
 	}
 
+	@Override
+	public PartyMemberInfo login(String account, String password) {
+		String hql="from PartyMemberInfo p where p.account='"+account+"' and p.password='"+password+"'";
+		System.out.println(hql);
+		
+		return (PartyMemberInfo)this.uniqueResult(hql);
+	}
 }
