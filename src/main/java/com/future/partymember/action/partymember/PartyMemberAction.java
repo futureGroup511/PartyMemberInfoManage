@@ -73,8 +73,7 @@ public class PartyMemberAction extends BaseAction {
 
 	// 红色视频
 	public String viewVideos() throws Exception {
-		PageCut<RedVideo> pc =redVideoService.getPC(page, 
-				12);
+		PageCut<RedVideo> pc =redVideoService.getPC(page, 12);
 		this.getRequest().setAttribute("pc", pc);
 		System.out.println(pc.getData().size());
 		List<RedVideo> videosList = new ArrayList<RedVideo>();
@@ -85,13 +84,18 @@ public class PartyMemberAction extends BaseAction {
 
 	
 	
-	//看视频  ---丁赵雷修改 2017-01-14
+	/**
+	 * 看视频  ---丁赵雷修改 2017-01-14
+	 * @return
+	 * @throws Exception
+	 * 第二次修改 ----丁赵雷 2017-01-26
+	 */
 	public String viewing() throws Exception{
 		//从路径获得视频id
 		int videoId=Integer.valueOf(this.getRequest().getParameter("videoId"));
 		
 		//获得视频观看记录
-		WatchVideoRecord watchVideoRecord=watchVideoRecordService.getWVR(videoId, 1);
+		WatchVideoRecord watchVideoRecord=watchVideoRecordService.getWVR(videoId, 1,0);
 		if(watchVideoRecord!=null)
 			this.getRequest().setAttribute("currentTime", watchVideoRecord.getCurrentTime());
 		//视频浏览次数加一
@@ -147,7 +151,7 @@ public class PartyMemberAction extends BaseAction {
 		int videoId = Integer.valueOf(getRequest().getParameter("videoId"));
 		System.out.println("vidoeId:"+videoId);				
 		WatchVideoRecord watchVideoRecord;
-		watchVideoRecord=watchVideoRecordService.getWVR(videoId, 1);
+		watchVideoRecord=watchVideoRecordService.getWVR(videoId, 1,0);
 		System.out.println(watchVideoRecord);
 		if(watchVideoRecord==null){
 			watchVideoRecord=new WatchVideoRecord();

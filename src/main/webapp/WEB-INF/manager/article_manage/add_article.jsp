@@ -113,8 +113,8 @@ var ue = UE.getEditor('editor', {
 			<div class="row">
 				<div class="col-lg-3  col-lg-offset-5 col-md-4  col-md-offset-6 col-xs-5 col-xs-offset-6">
 					<select name="redPaper.rp_tag" style="width:80%;margin-left:12%;height:25px;">
-					<option value="0">作为草稿</option> 
-					<option value="1"  selected="selected">发布文章</option> 
+						<option value="0">作为草稿</option> 
+						<option value="1"  selected="selected">发布文章</option> 
 			        </select>
 				</div>
 			</div>

@@ -18,4 +18,14 @@ public interface IRedVideoService {
 	
 	//模糊搜索视频根据名字
 	public List<RedVideo> findByName(String name);
+	
+	//查询当前id的下一条内容
+	public List<RedVideo> getNextRecordById(int id);
+	//查询当前id的上一条内容
+	public List<RedVideo> getPrevRecordById(int id);
+	
+	//查询符合条件的最后一条内容
+	public List<RedVideo> getLastRecordById();
+	//查询符合条件的第一条内容
+	public List<RedVideo> getFristRecordById();
 }

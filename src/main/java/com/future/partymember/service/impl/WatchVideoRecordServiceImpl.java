@@ -16,26 +16,22 @@ public class WatchVideoRecordServiceImpl implements IWatchVideoRecordService{
 	
 	@Override
 	public Boolean addWVR(WatchVideoRecord watchVideoRecord) {
-		// TODO Auto-generated method stub
 		return watchVideoRecordDao.addWVR(watchVideoRecord);
 	}
 
 	@Override
 	public Boolean updateWVR(WatchVideoRecord watchVideoRecord) {
-		// TODO Auto-generated method stub
 		return watchVideoRecordDao.updateWVR(watchVideoRecord);
 	}
 
 	@Override
 	public Boolean delectWVR(WatchVideoRecord watchVideoRecord) {
-		// TODO Auto-generated method stub
 		return watchVideoRecordDao.delectWVR(watchVideoRecord);
 	}
 
 	@Override
-	public WatchVideoRecord getWVR(int wvr_id, int pm_id) {
-		// TODO Auto-generated method stub
-		return watchVideoRecordDao.getWVR(wvr_id, pm_id);
+	public WatchVideoRecord getWVR(int wvr_id, int pm_id,int partySort) {
+		return watchVideoRecordDao.getWVR(wvr_id, pm_id,partySort);
 	}
 
 }

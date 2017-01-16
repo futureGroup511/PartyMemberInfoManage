@@ -26,8 +26,11 @@ public class WatchVideoRecord {
 	
 	private int rv_id;//视频id
 	private long currentTime;//观看视频的当前时间
+	private int partySort;//党员身份  党员 0，书记 1
 	
 	
+
+
 	public WatchVideoRecord() {
 		super();
 	}
@@ -70,6 +73,14 @@ public class WatchVideoRecord {
 
 	public void setCurrentTime(long currentTime) {
 		this.currentTime = currentTime;
+	}
+	
+	public int getPartySort() {
+		return partySort;
+	}
+
+	public void setPartySort(int partySort) {
+		this.partySort = partySort;
 	}
 	
 
