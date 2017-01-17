@@ -21,12 +21,42 @@ public class TestManageAction extends BaseAction {
 	private int page = 1;
 	private int id;
 
+	private Question question;
+	
 	private StartTest startTest;
 
+	//跳转到updaet页面
+	
+	public String update(){
+		if(id<1){
+			return null;
+		}
+		this.getRequest().setAttribute("question", questionService.getById(id));
+		return "update";
+	}
+	
+	public String updateDo(){
+		if(question==null || question.getQt_Id() <1){
+			return null;
+		}
+		questionService.updateQuestion(question);
+		this.getRequest().setAttribute("question", questionService.getById(question.getQt_Id()));
+		return "update";
+	}
+	
 	// 试卷的增删改查
 	public String getTestPaper() throws Exception {
-		PageCut<TestPaper> pc;
-		pc = testPaperService.getPC(page, 8);
+		String search=this.getRequest().getParameter("search");
+		PageCut<TestPaper> pc=testPaperService.getPC(page, 10,search);
+		
+		if(search ==null || search.length()==0){
+			
+		}else{
+			this.getRequest().setAttribute("search", search);
+			for(TestPaper t:pc.getData()){
+				t.setPaperName(t.getPaperName().replaceAll(search,String.format("<span class=\"search\">%s</span>", search) ));
+			}
+		}
 		this.getRequest().setAttribute("pc", pc);
 		return "getTestPaper";
 	}
@@ -35,7 +65,8 @@ public class TestManageAction extends BaseAction {
 		Boolean bool = testPaperService.deleteTestPaper(id);
 		if (bool == true) {
 			// 删除该试卷的所以试题
-			Boolean bool2 = questionService.deleteByPaperId(id);
+			//Boolean bool2 = questionService.deleteByPaperId(id);
+			Boolean bool2=true;
 			if (bool2 == true) {
 				this.getRequest().setAttribute("delectTpMsg", "删除成功");
 			} else {
@@ -48,10 +79,21 @@ public class TestManageAction extends BaseAction {
 	}
 
 	// 试题的增删改查
-	public String getQuestion() throws Exception {
-		PageCut<Question> pageCut;
-		pageCut = questionService.getPC(page, 8);
-		this.getRequest().setAttribute("pc", pageCut);
+	public String manageQuestion() throws Exception {
+		String search=this.getRequest().getParameter("search");
+		PageCut<Question> pc=questionService.getPC(page, 10,search);
+		
+		if(search ==null || search.length()==0){
+			
+		}else{
+			this.getRequest().setAttribute("search", search);
+			String format=String.format("<span class=\"search\">%s</span>", search);
+			for(Question q:pc.getData()){
+				q.setPaperName(q.getPaperName().replaceAll(search,format));
+				q.setQuestions_stems(q.getQuestions_stems().replaceAll(search,format));
+			}
+		}
+		this.getRequest().setAttribute("pc", pc);
 		return "getQuestion";
 	}
 
@@ -62,7 +104,7 @@ public class TestManageAction extends BaseAction {
 		} else {
 			this.getRequest().setAttribute("delectQtMsg", "删除试题失败");
 		}
-		return this.getQuestion();
+		return this.manageQuestion();
 	}
 
 	// 链接到开启考试页面
@@ -70,7 +112,7 @@ public class TestManageAction extends BaseAction {
 		List<TestPaper> testPaperNameList = testPaperService.getAllTestPaper();
 		this.getSession().put("testPaperNameList", testPaperNameList);
 		return "toStartTest";
-	}
+	} 
 
 	// 开启考试
 	public String startTest() throws Exception {
@@ -98,6 +140,14 @@ public class TestManageAction extends BaseAction {
 		this.id = id;
 	}
 
+	public Question getQuestion() {
+		return question;
+	}
+
+	public void setQuestion(Question question) {
+		this.question = question;
+	}
+
 	public StartTest getStartTest() {
 		return startTest;
 	}
@@ -105,5 +155,5 @@ public class TestManageAction extends BaseAction {
 	public void setStartTest(StartTest startTest) {
 		this.startTest = startTest;
 	}
-
+	
 }

@@ -34,7 +34,7 @@ public class Question {
 	
 	
 	public Question(){
-		
+		super();
 	}
 	
 	public Question(String answer) {

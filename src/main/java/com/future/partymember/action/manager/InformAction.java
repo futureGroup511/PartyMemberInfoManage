@@ -38,7 +38,10 @@ public class InformAction extends BaseAction{
 		ManagerInfo managerInfo=(ManagerInfo)this.getRequest().getSession().getAttribute("user");
 		inform.setAddresser(managerInfo.getUsername());
 		inform.setSendDate(new Date());
+		inform.setSenderId(managerInfo.getId());
+		inform.setSenderType("管理员");
 		informService.addInform(inform);
+		
 		this.getRequest().setAttribute("remind","添加成功");
 		return "add";
 	}

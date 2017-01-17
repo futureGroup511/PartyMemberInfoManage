@@ -82,49 +82,6 @@
 			</div>
 		</form>
 
-		<form class="form-horizontal" role="form"
-			action="${rootPath}manage/change_info" method="post"
-			style="width: 80%; margin: 100px auto 0 40%;">
-			${remind }
-			<table class="main">
-				<tbody>
-					<tr>
-						<td>账号</td>
-						<td>${user.account }</td>
-
-					</tr>
-					<tr>
-						<td>身份</td>
-						<td>${user.sort }</td>
-					</tr>
-					<tr>
-						<td>用户名</td>
-						<td><input name="user.username" value="${user.username}"></td>
-					</tr>
-					<tr>
-						<td>密码</td>
-						<td><input name="user.password" placeholder="******"></td>
-					</tr>
-					<tr>
-						<td>手机号</td>
-						<td><input name="user.phoneNo" value="${user.phoneNo}"></td>
-					</tr>
-
-					<tr>
-						<td>年龄</td>
-						<td><input name="user.age" value="${user.age}"></td>
-					</tr>
-					<tr>
-						<td>性别</td>
-						<td><input name="user.sex" value="${user.sex}"></td>
-					</tr>
-
-				</tbody>
-
-			</table>
-			<input type="submit" value="修改">
-
-		</form>
 	</div>
 </body>
 <script type="text/javascript">

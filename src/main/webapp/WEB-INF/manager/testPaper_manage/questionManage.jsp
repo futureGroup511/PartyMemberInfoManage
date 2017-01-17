@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
@@ -7,48 +7,95 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" href="${rootPath}css/bootstrap.css">
 <title>Insert title here</title>
+<style type="text/css">
+.search{
+	color:red;
+	font-size:1.4em;
+}
+</style>
 </head>
 <body>
-<ol class="breadcrumb">
-	<li>考试管理</li>
-	<li class="active">管理试题</li>
-</ol>
+
+	<ol class="breadcrumb">
+		<li>考试管理</li>
+		<li class="active">管理试题</li>
+	</ol>
+
+
 	<div class="table-responsive">
-		<table class="table table-bordered table-hover" style="text-align:center;width:70%;margin-left:15%;margin-top:5%;">
-			<tr>
-				<td>所属试卷名称</td>
-				<td>题干</td>
-				<td>答案</td>
-				<td>解析</td>
-				<td>分数</td>
-				<td>A</td>
-				<td>B</td>
-				<td>C</td>
-				<td>D</td>	
-				<td>删除</td>			
-			</tr>
-			<c:forEach items="${pc.data}" var="q">
-				<tr>
-					<td>${q.paperName}</td>
-					<td>${q.questions_stems}</td>
-					<td>${q.answer}</td>
-					<td>${q.analysis}</td>
-					<td>${q.question_socre}</td>
-					<td>${q.a}</td>
-					<td>${q.b}</td>
-					<td>${q.c}</td>
-					<td>${q.d}</td>
-					<td><a href="${rootPath }manage/testManage_deleteQuestion?id=${q.qt_Id}">刪除</a></td>
-				</tr>
-			</c:forEach>
-		</table>
-		
+		<div class="container">
+			<div class="row" style="margin-bottom: 30px;">
+				<form action="" method="post">
+					<div class="col-xs-6">
+
+						<input type="text" name="search" class="form-control"
+							value="${search }"
+							placeholder="请输入问题题干或者所属试卷名称搜索">
+
+					</div>
+					<div class="col-xs-6">
+						<button type="submit" class="btn btn-success">搜索</button>
+					</div>
+				</form>
+			</div>
+			
+			<div class="row">
+				<div class="col-xs-12">
+					共找到 &nbsp; <span style="color:red;">${pc.count }</span> &nbsp; 条数据
+				</div>
+			</div>
+			
+			<div class="row">
+				<div class="col-xs-12">
+					<table class="table table-bordered table-hover" >
+						<tr>
+							<td>所属试卷名称</td>
+							<td>题干</td>
+							<td>答案</td>
+							<td>解析</td>
+							<td>分数</td>
+							<td>A</td>
+							<td>B</td>
+							<td>C</td>
+							<td>D</td>
+							<td>详细信息</td>
+							<td>删除</td>
+						</tr>
+						<c:forEach items="${pc.data}" var="q">
+							<tr>
+								<td>${q.paperName}</td>
+								<td>${q.questions_stems}</td>
+								<td>${q.answer}</td>
+								<td>${q.analysis}</td>
+								<td>${q.question_socre}</td>
+								<td>${q.a}</td>
+								<td>${q.b}</td>
+								<td>${q.c}</td>
+								<td>${q.d}</td>
+								<td><a href="${rootPath }manage/testManage_update?id=${q.qt_Id}">详细信息修改</a></td>
+								<td><a
+									href="${rootPath }manage/testManage_deleteQuestion?id=${q.qt_Id}">刪除</a></td>
+							</tr>
+						</c:forEach>
+					</table>
+				</div>
+
+			</div>
+
+		</div>
+
 	</div>
-	<div style="margin-left:42%;">
+
+
+
+	<div class="table-responsive"></div>
+	<div style="margin-left: 42%;">
 		<ul class="pagination">
-			<li><a href="${rootPath }manage/testManage_getQuestion?page=${pc.prePage}">上一页</a></li> 
-			<li><a href="#">${pc.currentPage}/${pc.pageNum}</a> </li>
-			<li><a href="${rootPath }manage/testManage_getQuestion?page=${pc.nextPage}">下一页</a></li>
+			<li><a
+				href="${rootPath }manage/testManage_getQuestion?page=${pc.prePage}">上一页</a></li>
+			<li><a href="#">${pc.currentPage}/${pc.pageNum}</a></li>
+			<li><a
+				href="${rootPath }manage/testManage_getQuestion?page=${pc.nextPage}">下一页</a></li>
 		</ul>
 	</div>
 	<h3>${delectQtMsg}</h3>
