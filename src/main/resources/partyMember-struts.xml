@@ -27,6 +27,8 @@
             
             <result name="startTest">/WEB-INF/partyMember/onlineTest.jsp</result>
             <result name="getExamRecord">/WEB-INF/partyMember/onlineTest.jsp</result>
+            
+            <result name="getMyExamLog">/WEB-INF/partyMember/myExamLog.jsp</result>
                                    
         </action>
 

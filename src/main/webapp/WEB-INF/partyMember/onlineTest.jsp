@@ -15,7 +15,7 @@
 		<c:otherwise>
 			<div>
 				<form action="${rootPath}party/partyMemberAction_getExamRecord.action">
-					<h3>${startTest.paperName}</h3>
+					<h3>${startTest.paperName}(${startTest.testTime})</h3>
 					<c:forEach items="${questionsList}" var="q" varStatus="status">
 						<div>${status.index+1}.${q.questions_stems} (分数:${q.question_socre})</div>
 						<div>
@@ -34,6 +34,5 @@
 		</c:otherwise>
 	</c:choose>
 	${addExamLogMsg}
-
 </body>
 </html>

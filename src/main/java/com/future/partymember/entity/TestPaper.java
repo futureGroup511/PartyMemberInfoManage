@@ -17,8 +17,7 @@ import javax.persistence.Table;
 @Table(name = "test_paper", catalog = "partymember")
 public class TestPaper {
 	private int tp_Id;
-	private String paperName ; //试卷名称 不能重复
-	
+	private String paperName ; //试卷名称 不能重复	
 	private String description ; //试卷的说明， 描述 
 	private String createDate ; // 试卷创建日期
 	

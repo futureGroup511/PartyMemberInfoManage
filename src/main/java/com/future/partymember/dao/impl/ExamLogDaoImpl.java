@@ -31,8 +31,8 @@ public class ExamLogDaoImpl extends BaseDao<ExamLog> implements IExamLogDao {
 
 	@Override
 	public List<ExamLog> getAllExamLogBypartyMemberId(int partyMemberId, int partySort) {
-		// TODO Auto-generated method stub
-		return null;
+		String hql="from ExamLog e where e.partyMemberId='"+partyMemberId+"' and e.partySort='"+partySort+"'";
+		return this.getEntityList(hql);
 	}
 
 }

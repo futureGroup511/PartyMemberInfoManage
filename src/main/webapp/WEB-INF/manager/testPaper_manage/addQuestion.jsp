@@ -76,7 +76,7 @@ margin-top:2%;
 				</div><div class="row">
 					<div class="col-lg-5 col-lg-offset-2 col-md-5 col-md-offset-2 col-xs-5 col-xs-offset-2">
 						<label class="lable_1" style="margin-left:14%;">分数：</label>
-						<input required="required"  style="width:40%;" type="number" name="question_socre">
+						<input required="required"  style="width:40%;" type="number" name="question.question_socre">
 					</div>
 					<div class="col-lg-5 col-md-5  col-xs-5 ">
 						  <input type="reset" value="重置"  style="margin-left:11%;border-radius:0px;" class="btn btn-primary"> 
