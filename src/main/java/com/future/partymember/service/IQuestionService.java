@@ -10,6 +10,9 @@ public interface IQuestionService {
 	public Boolean deleteQuestion(int qt_Id); 
 	public Boolean deleteByPaperId(int tp_Id);//根据试卷id，删除该试卷的所以试题
 	public Boolean updateQuestion(Question q);
-	public List<Question> getQuestionsByTpId(int paperId);//根据试卷id，获得这套试卷所有的试题
+	//根据试卷id，获得这套试卷所有的试题(只获得考题信息，不获得答案)
+	public List<Question> getQuestionsByTpId(int paperId);
+	//根据试题id获得答案
+	public Question getAnswersByQtId(int qt_Id);
 	public PageCut<Question> getPC(int curr ,int pageSize);
 }

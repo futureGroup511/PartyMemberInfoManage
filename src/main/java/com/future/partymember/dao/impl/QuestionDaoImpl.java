@@ -53,6 +53,12 @@ public class QuestionDaoImpl extends BaseDao<Question> implements IQuestionDao{
 		return pageCut;
 	}
 
+	@Override
+	public Question getAnswersByQtId(int qt_Id) {
+		String hql="select new Question(answer) from Question q where q.qt_Id="+qt_Id;		 
+		return (Question)this.uniqueResult(hql);
+	}
+
 	
 	
 

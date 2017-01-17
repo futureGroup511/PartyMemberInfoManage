@@ -26,7 +26,7 @@ public class ExamLog {
 	private int paper_Id;//试卷id
 	private String paperName;//试卷名称
 	private int partyMemberId;//党员的id
-	private int  partySort;//党员身份     1:书记  0：党员
+	private int partySort;//党员身份     1:书记  0：党员
 	private int totalScore;//考试总成绩
 	private Date examTime;//考试时间
 	
@@ -46,9 +46,6 @@ public class ExamLog {
 		this.examTime = examTime;
 	}
 
-
-
-
 	@Id
 	@GeneratedValue(strategy = IDENTITY)
 
@@ -60,9 +57,6 @@ public class ExamLog {
 		this.el_Id = el_Id;
 	}
 	
-	
-
-	
 	public String getPaperName() {
 		return paperName;
 	}
@@ -70,7 +64,6 @@ public class ExamLog {
 	public void setPaperName(String paperName) {
 		this.paperName = paperName;
 	}
-
 
 	@Column(name = "totalScore",  nullable = false)
 	
@@ -89,9 +82,6 @@ public class ExamLog {
 	public void setPartyMemberId(int partyMemberId) {
 		this.partyMemberId = partyMemberId;
 	}
-	
-	
-	
 	
 	@Temporal(TemporalType.DATE)
 	@Column(name = "examTime",  nullable = false)

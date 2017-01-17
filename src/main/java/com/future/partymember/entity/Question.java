@@ -36,6 +36,12 @@ public class Question {
 	public Question(){
 		
 	}
+	
+	public Question(String answer) {
+		super();
+		this.answer = answer;
+	}
+
 	public Question(int  qt_Id, String questions_stems,int question_socre,
 			String a, String b, String c, String d) {
 		this.qt_Id=qt_Id;

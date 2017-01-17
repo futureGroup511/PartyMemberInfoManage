@@ -210,12 +210,13 @@ public class PartyMemberAction extends BaseAction {
 		int userId=(Integer)this.getSession().get("userId");//用户id
 		int userSort=(Integer)this.getSession().get("userSort");//用户身份
 		for(int i=0;i<testNum;i++){			
-			String str=(String)this.getRequest().getParameter("answer"+i);
-			String userAnswer=((Character)str.charAt(0)).toString();//考生答案
+			String str=(String)this.getRequest().getParameter("answer"+i);			
+			String userAnswer=String.valueOf((Character)str.charAt(0));//考生答案
 			int qt_Id=Integer.valueOf(str.substring(1));//试题id
 			int score=0;//该题得分
-			Question question=(Question)questionsList.toArray()[i];//该题信息		
-			if(userAnswer.equals(question.getAnswer())){
+			Question question=(Question)questionsList.toArray()[i];//该题信息					
+			if(userAnswer.equals(questionService.getAnswersByQtId(qt_Id).getAnswer())){
+				
 				score=question.getQuestion_socre();
 				totalScore+=score;
 			}
@@ -233,7 +234,7 @@ public class PartyMemberAction extends BaseAction {
 		else{
 			this.getRequest().setAttribute("addExamLogMsg", "提交失败！");
 		}
-		/*int paper_Id, String paperName, int partyMemberId, int partySort, int totalScore, Date examTime*/
+		
 		return "getExamRecord";
 	}
 	
