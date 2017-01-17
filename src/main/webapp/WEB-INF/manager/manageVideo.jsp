@@ -7,18 +7,50 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" href="${rootPath }css/bootstrap.css" />
 <title>Insert title here</title>
+<style type="text/css">
+.search{
+	color:red;
+	font-size:1.4em;
+}
+
+</style>
 </head>
 <body>
 <ol class="breadcrumb">
 	<li>视频管理</li>
 	<li class="active">视频管理</li>
 </ol>
-	<h1>${remind }</h1>
+	
 
 	<div class="container">
+	
 		<div class="row">
-			<div class="col-md-1"></div>
-			<div class="col-md-10">
+			<div class="col-xs-12">
+				<span style="font-size:1.4em;color:red;">${remind }</span>
+			</div>
+		</div>
+	
+		<div class="row" style="margin-bottom:30px;">
+			<form action="" method="post">
+			<div class="col-xs-6">
+				
+				<input type="text" name="search" class="form-control" value="${search }" placeholder="请输入视频名字搜索"> 
+				 
+			</div>
+			<div class="col-xs-6">
+				<button type="submit" class="btn btn-success">搜索</button>
+			</div>
+			</form>	
+		</div>
+		
+		<div class="row">
+			<div class="col-xs-12">
+				共找到 &nbsp; <span style="color:red;">${pc.count }</span> &nbsp; 条数据
+			</div>
+		</div>
+		
+		<div class="row">
+			<div class="col-md-12">
 				<table class="table table-striped table-bordered table-hover">
 					<tbody>
 						<tr>
@@ -27,7 +59,7 @@
 							<td>播放次数</td>
 							<td>删除</td>
 						</tr>
-						<c:forEach var="video" items="${videoList }">
+						<c:forEach var="video" items="${pc.data }">
 							<tr>
 								<td>${video.rv_Id }</td>
 								<td>${video.name }</td>
@@ -38,9 +70,34 @@
 					</tbody>
 				</table>
 			</div>
-			<div class="col-md-1"></div>
+		</div>
+
+		<div id="pagecut" style="margin-right: 100px; text-align: right;">
+			<ul class="pagination">
+				<li><a
+					href="${rootPath }manage/manageVideo?page=${pc.prePage}">上一页</a></li>
+				<c:if test="${1 < pc.currentPage -3}">
+					<li><a href="#">1</a></li>
+				</c:if>
+
+				<c:forEach var="i" begin="${pc.currentPage-3>0?pc.currentPage-3:1 }"
+					end="${pc.currentPage+3>pc.pageNum?pc.pageNum:pc.currentPage+3  }">
+					<c:choose>
+						<c:when test="${i>0 && i == pc.currentPage }">
+							<li class="active"><a
+								href="${rootPath }manage/manageVideo?page=${i }">${i}</a></li>
+						</c:when>
+
+						<c:when test="${i>0 && i != postPS.currentPage }">
+							<li><a href="${rootPath }manage/manageVideo?page=${i }">${i}</a></li>
+						</c:when>
+					</c:choose>
+				</c:forEach>
+				<li><a
+					href="${rootPath }manage/manageVideo?page=${pc.nextPage}">下一页</a></li>
+			</ul>
+
 		</div>
 	</div>
-
 </body>
 </html>

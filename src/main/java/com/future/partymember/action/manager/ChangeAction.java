@@ -2,7 +2,6 @@ package com.future.partymember.action.manager;
 
 import com.future.partymember.base.BaseAction;
 import com.future.partymember.entity.ManagerInfo;
-import com.future.partymember.util.ManagerCheck;
 
 /*
 *@auther:宋民举
@@ -13,17 +12,13 @@ import com.future.partymember.util.ManagerCheck;
 public class ChangeAction extends BaseAction{
 	private ManagerInfo user;
 	public String info(){
-		if(!ManagerCheck.check(user)){
-			this.getRequest().setAttribute("reming", "请正确填写信息");
-			return SUCCESS;
-		}
 		ManagerInfo old=(ManagerInfo)this.getRequest().getSession().getAttribute("user");
 		user.setId(old.getId());
 		user.setAccount(old.getAccount());
 		user.setSort(old.getSort());
 		managerInfoService.updateManager(user);
 		this.getRequest().getSession().setAttribute("user", user);
-		this.getRequest().setAttribute("remied", "修改成功");
+		this.getRequest().setAttribute("remind", "修改成功");
 		return SUCCESS;
 	}
 	public ManagerInfo getUser() {

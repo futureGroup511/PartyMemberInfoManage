@@ -1,10 +1,13 @@
 package com.future.partymember.action.manager;
 
+import java.awt.image.RescaleOp;
 import java.io.File;
 
 import com.future.partymember.base.BaseAction;
 import com.future.partymember.entity.RedVideo;
 import com.future.partymember.util.PageCut;
+
+import javassist.bytecode.LineNumberAttribute.Pc;
 
 /*
 * @author 宋民举 860080937@qq.com  
@@ -17,9 +20,20 @@ public class ManagerVideoAction extends BaseAction {
 	private int id;
 
 	public String execute() {
-		PageCut<RedVideo> pageCut = new PageCut<>(page, 2, 456);
-		this.getRequest().setAttribute("videoList",
-				redVideoService.getList((page - 1) * pageCut.getPageSize(), pageCut.getPageSize()));
+		if(page<1){
+			page=1;
+		}
+		String search = this.getRequest().getParameter("search");
+		PageCut<RedVideo> pageCut = redVideoService.getPC(10, page,search);
+		if(search==null || search.length()==0){
+			
+		}else{
+			this.getRequest().setAttribute("search",search);
+			for(RedVideo rv:pageCut.getData()){
+				rv.setName(rv.getName().replaceAll(search,String.format("<span class=\"search\">%s</span>", search)));
+			}
+		}
+		this.getRequest().setAttribute("pc",pageCut);
 		return SUCCESS; 
 	}
 

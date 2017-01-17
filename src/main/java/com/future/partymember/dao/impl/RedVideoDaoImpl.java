@@ -58,11 +58,11 @@ public class RedVideoDaoImpl extends BaseDao<RedVideo> implements IRedVideoDao {
 
 	@Override
 	public PageCut<RedVideo> getPC(int pageSize, int curr) {
+		
 		String hql = "select count(*) from RedVideo";
 		int count = ((Long) this.uniqueResult(hql)).intValue();
 		PageCut<RedVideo> pc = new PageCut<RedVideo>(curr, pageSize, count);
-		pc.setData(this.getEntityLimitList("from RedVideo", curr, pageSize));
-		
+		pc.setData(this.getEntityLimitList("from RedVideo", (curr-1)*pageSize, pageSize));
 		return pc;
 	}
 
@@ -102,6 +102,32 @@ public class RedVideoDaoImpl extends BaseDao<RedVideo> implements IRedVideoDao {
 	public List<RedVideo> getFristRecordById() {
 		String sql="select * from red_video rv  order by rv_Id asc limit 1";
 		return executeSQLQuery(RedVideo.class,sql);
+	}
+
+	@Override
+	public PageCut<RedVideo> getPC(int pageSize, int curr, String search) {
+		// TODO Auto-generated method stub
+
+		if(search==null || search.length()==0){
+			return this.getPC(pageSize, curr);
+		}
+		
+		String hql = "select count(*) from RedVideo as rv where rv.name like :search";
+		
+		Query query=this.getSession().createQuery(hql);
+		
+		String format=String.format("%%%s%%", search);
+		query.setString("search",format);
+		int count = ((Long)query.uniqueResult()).intValue();
+		
+		PageCut<RedVideo> pc = new PageCut<RedVideo>(curr, pageSize, count);
+		hql="from RedVideo as rv where rv.name like :search";
+		query=this.getSession().createQuery(hql);
+		query.setString("search", format);
+		query.setFirstResult((curr-1)*pageSize);
+		query.setMaxResults(pageSize);
+		pc.setData(query.list());
+		return pc;
 	}
 
 }
