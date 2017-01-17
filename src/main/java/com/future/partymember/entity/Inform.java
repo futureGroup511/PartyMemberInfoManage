@@ -25,6 +25,9 @@ public class Inform {
 	private int info_Id;
 	private String title;//通知标题
 	private String content;//通知内容
+	private int senderId;
+	@Column(length=10)
+	private String senderType;//管理员，书记，党员
 	private String addresser;//发布人
 	private Date sendDate;//发布时间
 	/**
@@ -116,5 +119,21 @@ public class Inform {
 		default:
 			return "未定义";
 		}
+	}
+
+	public int getSenderId() {
+		return senderId;
+	}
+
+	public void setSenderId(int senderId) {
+		this.senderId = senderId;
+	}
+
+	public String getSenderType() {
+		return senderType;
+	}
+
+	public void setSenderType(String senderType) {
+		this.senderType = senderType;
 	}
 }

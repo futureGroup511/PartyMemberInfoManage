@@ -2,11 +2,13 @@ package com.future.partymember.dao.impl;
 
 import java.util.List;
 
+import org.hibernate.Query;
 import org.springframework.stereotype.Repository;
 
 import com.future.partymember.base.BaseDao;
 import com.future.partymember.dao.IQuestionDao;
 import com.future.partymember.entity.Question;
+import com.future.partymember.entity.TestPaper;
 import com.future.partymember.util.PageCut;
 
 @Repository
@@ -57,6 +59,34 @@ public class QuestionDaoImpl extends BaseDao<Question> implements IQuestionDao{
 	public Question getAnswersByQtId(int qt_Id) {
 		String hql="select new Question(answer) from Question q where q.qt_Id="+qt_Id;		 
 		return (Question)this.uniqueResult(hql);
+	}
+
+	@Override
+	public PageCut<Question> getPC(int curr, int pageSize, String search) {
+		// TODO Auto-generated method stub
+		if(search==null || search.length()==0){
+			return this.getPC(curr, pageSize);
+		}
+		
+		String hql = "select count(*) from Question as q where q.paperName like :search or q.questions_stems like :search";
+		Query query=this.getSession().createQuery(hql);
+		query.setString("search","%"+search+"%");
+		int count=((Long)query.uniqueResult()).intValue();
+		hql="from Question as q where q.paperName like :search or q.questions_stems like :search";
+		query=this.getSession().createQuery(hql);
+		query.setString("search","%"+search+"%");
+		
+		query.setFirstResult((curr-1)*pageSize);
+		query.setMaxResults(pageSize);
+		PageCut<Question> pCut=new PageCut<>(curr,pageSize,count);
+		pCut.setData(query.list());
+		return pCut;
+	}
+
+	@Override
+	public Question getById(int id) {
+		// TODO Auto-generated method stub
+		return this.getEntity(id);
 	}
 
 	

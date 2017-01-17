@@ -2,10 +2,12 @@ package com.future.partymember.dao.impl;
 
 import java.util.List;
 
+import org.hibernate.Query;
 import org.springframework.stereotype.Repository;
 
 import com.future.partymember.base.BaseDao;
 import com.future.partymember.dao.ITestPaperDao;
+import com.future.partymember.entity.Question;
 import com.future.partymember.entity.TestPaper;
 import com.future.partymember.util.PageCut;
 
@@ -67,6 +69,30 @@ public class TestPaperDaoImpl extends BaseDao<TestPaper> implements ITestPaperDa
 		// TODO Auto-generated method stub
 		String hql="from TestPaper";
 		return this.getEntityList(hql);
+	}
+
+	@Override
+	public PageCut<TestPaper> getPC(int curr, int pageSize, String search) {
+		// TODO Auto-generated method stub
+		if(search==null || search.length()==0){
+			return this.getPC(curr, pageSize);
+		}
+		
+		String hql = "select count(*) from TestPaper as t where t.paperName like :search";
+		Query query=this.getSession().createQuery(hql);
+		query.setString("search","%"+search+"%");
+		int count=((Long)query.uniqueResult()).intValue();
+		
+		hql= "from TestPaper as t where t.paperName like :search";
+		query=this.getSession().createQuery(hql);
+		query.setString("search","%"+search+"%");
+		
+		query.setFirstResult((curr-1)*pageSize);
+		query.setMaxResults(pageSize);
+		PageCut<TestPaper> pCut=new PageCut<>(curr,
+				pageSize,count);
+		pCut.setData(query.list());
+		return pCut;
 	}
 
 }

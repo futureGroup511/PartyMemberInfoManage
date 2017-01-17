@@ -3,9 +3,12 @@ package com.future.partymember.dao;
 import java.util.List;
 
 import com.future.partymember.entity.Question;
+import com.future.partymember.entity.TestPaper;
 import com.future.partymember.util.PageCut;
 
 public interface IQuestionDao{
+	
+	public Question getById(int id);
 	public String addQuestion(Question q );
 	public Boolean deleteQuestion(int qt_Id); 
 	public Boolean deleteByPaperId(int tp_Id);//根据试卷id，删除该试卷的所以试题
@@ -15,4 +18,6 @@ public interface IQuestionDao{
 	//根据试题id获得答案
 	public Question getAnswersByQtId(int qt_Id);
 	public PageCut<Question> getPC(int curr ,int pageSize);
+	
+	public PageCut<Question> getPC(int curr ,int pageSize,String search);
 }

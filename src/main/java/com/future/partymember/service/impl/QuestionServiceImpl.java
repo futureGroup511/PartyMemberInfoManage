@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.future.partymember.dao.IQuestionDao;
 import com.future.partymember.entity.Question;
+import com.future.partymember.entity.TestPaper;
 import com.future.partymember.service.IQuestionService;
 import com.future.partymember.util.PageCut;
 
@@ -47,6 +48,16 @@ public class QuestionServiceImpl implements IQuestionService{
 	public Question getAnswersByQtId(int qt_Id) {
 		// TODO Auto-generated method stub
 		return questionDao.getAnswersByQtId(qt_Id);
+	}
+	@Override
+	public PageCut<Question> getPC(int curr, int pageSize, String search) {
+		// TODO Auto-generated method stub
+		return questionDao.getPC(curr, pageSize, search);
+	}
+	@Override
+	public Question getById(int id) {
+		// TODO Auto-generated method stub
+		return questionDao.getById(id);
 	}
 	
 

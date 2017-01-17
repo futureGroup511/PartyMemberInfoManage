@@ -67,4 +67,10 @@ public class TestPaperServiceImpl implements ITestPaperService {
 		return testPaperDao.getAllTestPaper();
 	}
 
+	@Override
+	public PageCut<TestPaper> getPC(int curr, int pageSize, String search) {
+		// TODO Auto-generated method stub
+		return testPaperDao.getPC(curr, pageSize, search);
+	}
+
 }

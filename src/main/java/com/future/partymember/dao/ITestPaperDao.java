@@ -18,4 +18,6 @@ public interface ITestPaperDao {
 	public TestPaper getTestPaperByName(String paperName);
 	public List<TestPaper> getAllTestPaper();
 	public PageCut<TestPaper> getPC(int curr ,int pageSize);
+	
+	public PageCut<TestPaper> getPC(int curr ,int pageSize,String search);
 }

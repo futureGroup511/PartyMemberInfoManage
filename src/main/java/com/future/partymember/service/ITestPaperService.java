@@ -20,4 +20,13 @@ public interface ITestPaperService {
 	public TestPaper getTestPaperByName(String paperName);
 	public List<TestPaper> getAllTestPaper();
 	public PageCut<TestPaper> getPC(int curr ,int pageSize);
+	
+	/**
+	 * @param curr
+	 * @param pageSize
+	 * @param search
+	 * @return 
+	 * 根据试卷名称搜索 ，宋民举
+	 */
+	public PageCut<TestPaper> getPC(int curr ,int pageSize,String search);
 }
