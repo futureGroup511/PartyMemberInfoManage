@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>添加问题</title>
 <link rel="stylesheet" href="${rootPath}css/bootstrap.css">
 <style>
 .row{
@@ -16,6 +16,7 @@ margin-top:2%;
 </head>
 <body>
 <ol class="breadcrumb">
+	 <li>当前位置：</li>
 	<li>试题管理</li>
 	<li class="active">增加试题</li>
 </ol>
@@ -76,7 +77,7 @@ margin-top:2%;
 				</div><div class="row">
 					<div class="col-lg-5 col-lg-offset-2 col-md-5 col-md-offset-2 col-xs-5 col-xs-offset-2">
 						<label class="lable_1" style="margin-left:14%;">分数：</label>
-						<input required="required"  style="width:40%;" type="number" name="question_socre">
+						<input required="required"  style="width:40%;" type="number" name="question.question_socre">
 					</div>
 					<div class="col-lg-5 col-md-5  col-xs-5 ">
 						  <input type="reset" value="重置"  style="margin-left:11%;border-radius:0px;" class="btn btn-primary"> 
@@ -86,6 +87,8 @@ margin-top:2%;
 
 
 			</form>
-			
+<div class="background navbar-fixed-top"  style="position:absolute; z-index:-1;width:100%;height:100%;opacity:0.1;">
+    	<img  class="img-responsive" width="100%;" src="${rootPath }images/577a4c594718d_610.jpg" />
+</div>			
 </body>
 </html>

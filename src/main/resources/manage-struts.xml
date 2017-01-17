@@ -104,8 +104,8 @@
 		<action name="head">
 			<result>/WEB-INF/manager/head.jsp</result>
 		</action>
-		<action name="one">
-			<result>/WEB-INF/manager/one.jsp</result>
+		<action name="welcome">
+			<result>/WEB-INF/manager/welcome.jsp</result>
 		</action>
 		
 	</package>

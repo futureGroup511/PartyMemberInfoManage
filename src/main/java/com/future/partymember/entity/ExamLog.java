@@ -29,14 +29,16 @@ public class ExamLog {
 	private int partySort;//党员身份     1:书记  0：党员
 	private int totalScore;//考试总成绩
 	private Date examTime;//考试时间
-	
+	private String testTime;//考试时长
 	
 	
 	public ExamLog() {
 		
 	}
 	
-	public ExamLog(int paper_Id, String paperName, int partyMemberId, int partySort, int totalScore, Date examTime) {
+	
+	public ExamLog(int paper_Id, String paperName, int partyMemberId, int partySort, int totalScore, Date examTime,
+			String testTime) {
 		super();
 		this.paper_Id = paper_Id;
 		this.paperName = paperName;
@@ -44,7 +46,9 @@ public class ExamLog {
 		this.partySort = partySort;
 		this.totalScore = totalScore;
 		this.examTime = examTime;
+		this.testTime = testTime;
 	}
+
 
 	@Id
 	@GeneratedValue(strategy = IDENTITY)
@@ -106,6 +110,14 @@ public class ExamLog {
 
 	public void setPartySort(int partySort) {
 		this.partySort = partySort;
+	}
+
+	public String getTestTime() {
+		return testTime;
+	}
+
+	public void setTestTime(String testTime) {
+		this.testTime = testTime;
 	}
 
 	@Override

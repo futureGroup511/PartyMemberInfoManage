@@ -11,7 +11,7 @@ public class StartTest {
 	private int testNum;
 	private String testPeople;
 	private TestPaper testPaper;
-	
+	private String testTime;//考试时长
 	
 	public int getTestNum() {
 		return testNum;
@@ -61,10 +61,18 @@ public class StartTest {
 		this.testPaper = testPaper;
 	}
 
+	public String getTestTime() {
+		return testTime;
+	}
+
+	public void setTestTime(String testTime) {
+		this.testTime = testTime;
+	}
+
 	@Override
 	public String toString() {
-		return "StartTest [paperName=" + paperName + ", startTime=" + startTime + ", endTime=" + endTime
-				+ ", testPaper=" + testPaper + "]";
+		return "StartTest [paperName=" + paperName + ", startTime=" + startTime + ", endTime=" + endTime + ", testNum="
+				+ testNum + ", testPeople=" + testPeople + ", testPaper=" + testPaper + ", testTime=" + testTime + "]";
 	}
 
 }

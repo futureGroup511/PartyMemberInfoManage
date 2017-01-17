@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>个人信息</title>
 <script type="text/javascript" src="${rootPath }js/jquery-3.1.1.min.js"></script>
 <link rel="stylesheet" href="${rootPath }css/bootstrap.css" />
 <style type="text/css">
@@ -16,6 +16,7 @@
 </head>
 <body>
 	<ol class="breadcrumb">
+	 	<li>当前位置：</li>
 		<li>个人中心</li>
 		<li class="active">个人信息</li>
 	</ol>
@@ -83,6 +84,9 @@
 		</form>
 
 	</div>
+	<div class="background navbar-fixed-top"  style="position:absolute; z-index:-1;width:100%;height:100%;opacity:0.1;">
+    	<img  class="img-responsive" width="100%;" src="${rootPath }images/577a4c594718d_610.jpg" />
+    </div>
 </body>
 <script type="text/javascript">
 	/*

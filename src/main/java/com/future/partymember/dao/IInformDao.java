@@ -11,7 +11,7 @@ public interface IInformDao {
 	public void deleteInform(int id);
 
 	PageCut<Inform> getPCByNew(int curr, int pageSize);
-
+	
 	Inform getById(int id);
 
 }

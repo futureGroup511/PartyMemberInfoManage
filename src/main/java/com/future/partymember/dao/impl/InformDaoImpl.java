@@ -14,25 +14,21 @@ public class InformDaoImpl extends BaseDao<Inform> implements IInformDao {
 
 	@Override
 	public void addInform(Inform inform) {
-		// TODO Auto-generated method stub
 		this.saveEntity(inform);
 		
 	}
 	public int getNum() {
-		// TODO Auto-generated method stub
 		String hql="select count(*) from Inform";
 		return ((Long) this.uniqueResult(hql)).intValue();
 	}
 
 	@Override
 	public void updateInform(Inform inform) {
-		// TODO Auto-generated method stub
 		this.updateEntity(inform);
 	}
 
 	@Override
 	public void deleteInform(int id) {
-		// TODO Auto-generated method stub
 		Inform inform=this.getEntity(id);
 		if(inform==null){
 			return;
@@ -42,7 +38,6 @@ public class InformDaoImpl extends BaseDao<Inform> implements IInformDao {
 
 	@Override
 	public PageCut<Inform> getPCByNew(int curr, int pageSize) {
-		// TODO Auto-generated method stub
 		int first=(curr-1)*pageSize;
 		List<Inform> list=this.getEntityLimitList("from Inform order by info_Id desc", first,pageSize);
 		PageCut<Inform> pc=new PageCut<>(curr,pageSize,this.getNum());
@@ -51,8 +46,7 @@ public class InformDaoImpl extends BaseDao<Inform> implements IInformDao {
 	}
 	@Override
 	public Inform getById(int id) {
-		// TODO Auto-generated method stub
 		return this.getEntity(id);
 	}
-
+	
 }

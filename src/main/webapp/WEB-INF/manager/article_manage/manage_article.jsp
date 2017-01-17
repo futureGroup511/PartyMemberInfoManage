@@ -12,6 +12,7 @@
 <body>
 
 	<ol class="breadcrumb">
+	 <li>当前位置：</li>
 	    <li>文章管理</li>
 	    <li class="active">管理文章</li>
 	</ol>
@@ -68,6 +69,9 @@
 			<li><a href="${rootPath }manage/managePaper_paper?page=${pc.nextPage}">下一页</a></li>
 		</ul>
 	</div>
+	<div class="background navbar-fixed-top"  style="position:absolute; z-index:-1;width:100%;height:100%;opacity:0.1;">
+    	<img  class="img-responsive" width="100%;" src="${rootPath }images/577a4c594718d_610.jpg" />
+    </div>
 </body>
 <script type="text/javascript">
 		var tag="${dTag}";

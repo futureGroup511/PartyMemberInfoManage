@@ -196,13 +196,13 @@ public class PartyMemberAction extends BaseAction {
 		return "startTest";
 	}
 	//考试提交
-	public String getExamRecord(){
-		System.out.println("考试提交");		
+	public String getExamRecord() throws Exception{			
 		//考试的试卷信息
 		StartTest startTest=(StartTest)this.getRequest().getSession().getServletContext().getAttribute("startTest");
 		int tp_Id=startTest.getTestPaper().getTp_Id();//试卷id
 		String paperName=startTest.getPaperName();//试卷名称
 		int testNum=startTest.getTestNum();//题数
+		String testTime=startTest.getTestTime();//考试时长
 		//试题集合
 		@SuppressWarnings("unchecked")
 		List<Question> questionsList=(List<Question>) this.getSession().get("questionsList");
@@ -226,7 +226,7 @@ public class PartyMemberAction extends BaseAction {
 			//保存考试详细记录		
 			examPerRecordService.addExamPerRecord(examPerRecord);			
 		}
-		ExamLog examLog=new ExamLog(tp_Id,paperName,userId,userSort,totalScore,new Date());
+		ExamLog examLog=new ExamLog(tp_Id,paperName,userId,userSort,totalScore,new Date(),testTime);
 		Boolean bool=examLogService.addExamLog(examLog);
 		if(bool==true){
 			this.getRequest().setAttribute("addExamLogMsg", "提交成功！");
@@ -236,6 +236,20 @@ public class PartyMemberAction extends BaseAction {
 		}
 		
 		return "getExamRecord";
+	}
+	
+	//查看考试记录
+	public String getMyExamLog() throws Exception{
+		int userId=(Integer)this.getSession().get("userId");
+		int userSort=(Integer)this.getSession().get("userSort");
+		List<ExamLog> examLogList=examLogService.getAllExamLogBypartyMemberId(userId, userSort);
+		if(examLogList.size()>0){
+			this.getSession().put("examLogList", examLogList);
+		}else{
+			this.getRequest().setAttribute("myExamLogMsg", "暂时没有考试记录！");
+		}
+			
+		return "getMyExamLog";
 	}
 	
 	public void setPartyMemberInfo(PartyMemberInfo partyMemberInfo) {

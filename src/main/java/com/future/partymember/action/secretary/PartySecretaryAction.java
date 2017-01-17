@@ -57,7 +57,9 @@ public class PartySecretaryAction extends BaseAction {
 		inform1.setSenderType(1);		
 		inform1.setSendDate(new Date());
 		inform1.setSenderId(psi.getPst_Id());
-		inform1.setInfo_tag(3);
+		inform1.setInfo_tag(7);
+		informService.addInform(inform1);//插入一条记录
+		this.getRequest().setAttribute("remind", "发布成功");
 		return "addInform";
 	}
 	
