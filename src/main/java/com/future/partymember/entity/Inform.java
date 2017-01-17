@@ -25,9 +25,9 @@ public class Inform {
 	private int info_Id;
 	private String title;//通知标题
 	private String content;//通知内容
-	private int senderId;
+	private int senderId;//发布人的id
 	@Column(length=10)
-	private String senderType;//管理员，书记，党员
+	private int senderType;//   0代表  管理员，1代表 书记
 	private String addresser;//发布人
 	private Date sendDate;//发布时间
 	/**
@@ -129,11 +129,11 @@ public class Inform {
 		this.senderId = senderId;
 	}
 
-	public String getSenderType() {
+	public int getSenderType() {
 		return senderType;
 	}
 
-	public void setSenderType(String senderType) {
+	public void setSenderType(int senderType) {
 		this.senderType = senderType;
 	}
 }

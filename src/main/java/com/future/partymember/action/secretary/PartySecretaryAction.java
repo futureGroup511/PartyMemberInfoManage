@@ -1,11 +1,15 @@
 package com.future.partymember.action.secretary;
 
+import java.util.Date;
 import java.util.List;
+
+import javax.persistence.Column;
 
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
 import com.future.partymember.base.BaseAction;
+import com.future.partymember.entity.Inform;
 import com.future.partymember.entity.PartyMemberInfo;
 import com.future.partymember.entity.PartySecretaryInfo;
 import com.future.partymember.entity.RedPaper;
@@ -24,7 +28,9 @@ public class PartySecretaryAction extends BaseAction {
 	private static final long serialVersionUID = 1L;
 	private PartySecretaryInfo partySecretaryInfo;
 	private PageCut<PartyMemberInfo> pageCut; 
-	
+	private Inform inform;//用来封装通知消息的
+
+
 
 
 
@@ -35,6 +41,24 @@ public class PartySecretaryAction extends BaseAction {
 	 */
 	public String lookMyself() throws Exception{
 		return "lookMyself";
+	}
+	
+	
+	//发布通知
+	public String addInform(){
+		//先得到书记对象
+		PartySecretaryInfo psi=(PartySecretaryInfo) session.get("secretary");
+		
+		
+		Inform inform1=new Inform();
+		inform1.setAddresser(psi.getUsername());
+		inform1.setContent(inform.getContent());
+		inform1.setTitle(inform.getTitle());
+		inform1.setSenderType(1);		
+		inform1.setSendDate(new Date());
+		inform1.setSenderId(psi.getPst_Id());
+		inform1.setInfo_tag(3);
+		return "addInform";
 	}
 	
 	
@@ -60,6 +84,7 @@ public class PartySecretaryAction extends BaseAction {
 		return "lookOfPartyMember";
 	}
 	
+	
 	//修改个人手机号
 	public String updatePhone() throws Exception{
 		//先得到书记对象
@@ -70,6 +95,7 @@ public class PartySecretaryAction extends BaseAction {
 		this.getRequest().setAttribute("notice", "修改成功");
 		return "lookMyself";
 	}
+	
 	
 	//修改个人密码
 	public String updatePassword() throws Exception{
@@ -242,5 +268,15 @@ public class PartySecretaryAction extends BaseAction {
 	public void setPageCut(PageCut pageCut) {
 		this.pageCut = pageCut;
 	}
+	
+	public Inform getInform() {
+		return inform;
+	}
+
+
+	public void setInform(Inform inform) {
+		this.inform = inform;
+	}
+
 
 }
