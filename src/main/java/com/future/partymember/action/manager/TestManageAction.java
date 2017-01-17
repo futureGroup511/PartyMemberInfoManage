@@ -3,6 +3,7 @@ package com.future.partymember.action.manager;
 *@author 焦祥宇
 */
 
+import java.util.Date;
 import java.util.List;
 
 
@@ -12,6 +13,7 @@ import com.future.partymember.entity.Question;
 import com.future.partymember.entity.StartTest;
 import com.future.partymember.entity.TestPaper;
 import com.future.partymember.util.PageCut;
+import com.future.partymember.util.SwitchTime;
 
 public class TestManageAction extends BaseAction {
 	/**
@@ -118,7 +120,10 @@ public class TestManageAction extends BaseAction {
 	public String startTest() throws Exception {
 
 		TestPaper testPaper = testPaperService.getTestPaperByName(startTest.getPaperName());
-		startTest.setTestPaper(testPaper);				
+		startTest.setTestPaper(testPaper);
+		long time=SwitchTime.strToTime(startTest.getEndTime()).getTime()-SwitchTime.strToTime(startTest.getStartTime()).getTime();
+		String testTime=SwitchTime.switchTime(time);		
+		startTest.setTestTime(testTime);
 		this.getRequest().getSession().getServletContext().setAttribute("startTest",startTest);		
 		this.getRequest().setAttribute("startMeg", "开启成功");		
 		return "startTest";
