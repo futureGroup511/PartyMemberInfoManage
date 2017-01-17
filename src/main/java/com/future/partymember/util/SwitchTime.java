@@ -39,7 +39,7 @@ public class SwitchTime {
 		}
 		else{
 			return hours + "小时" + minutes + "分钟" + seconds + "秒";
-} 
+		} 
 	}
 	public static Date strToDate(String str){
 		SimpleDateFormat s = null;

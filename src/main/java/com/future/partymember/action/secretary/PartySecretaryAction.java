@@ -60,40 +60,37 @@ public class PartySecretaryAction extends BaseAction {
 		return "lookOfPartyMember";
 	}
 	
+	//修改个人手机号
+	public String updatePhone() throws Exception{
+		//先得到书记对象
+		PartySecretaryInfo psi=(PartySecretaryInfo) session.get("secretary");
+		String phone = this.getRequest().getParameter("phone");//得到新的手机号
+		psi.setPhoneNo(phone);
+		partySecretaryInfoService.updatePersonInfo(psi);
+		this.getRequest().setAttribute("notice", "修改成功");
+		return "lookMyself";
+	}
 	
-	//修改个人信息
-	public String updataPerson() throws Exception{
+	//修改个人密码
+	public String updatePassword() throws Exception{
 		//先得到书记对象
 		PartySecretaryInfo psi=(PartySecretaryInfo) session.get("secretary");
 		System.out.println("psi"+psi);
-		String password=partySecretaryInfo.getPassword();//第二次输入的新密码
 
-		String oldPassword=(String)this.getRequest().getParameter("oldPassword");//旧密码
-		String password1=(String)this.getRequest().getParameter("password1");//新密码
+		String password1=(String)this.getRequest().getParameter("password1");//密码
+		String password2=(String)this.getRequest().getParameter("password2");//确认密码
 		System.out.println("新密码"+password1);
 		
-		//使用正则表达式来检验手机号
-		String regex="^[1][358][0-9]\\d{9}$";
-		String phoneNo=partySecretaryInfo.getPhoneNo();
-		boolean flag=phoneNo.matches(regex);
-		if(flag){
-			psi.setPhoneNo(phoneNo);
+		//判断密码必须是字母和数字的组合长度为8到16位
+		String regex = "^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{8,16}$";
+		if(password1.matches(regex)&&password2.matches(regex)&&password1.equals(password2)){
+			psi.setPassword(password2);
+			partySecretaryInfoService.updatePersonInfo(psi);//更新个人信息
+			this.getRequest().setAttribute("notice", "修改成功");
 		}else{
-			System.out.println("您输入的手机号不合法");
+			this.getRequest().setAttribute("notice", "两次密码不一致");
 		}
-		if(oldPassword.equals(psi.getPassword())){
-			if(password.equals(password1)){
-				psi.setPassword(password);
-			}else{
-				System.out.println("两次输入的密码不一致");
-			}
-		}else{
-			System.out.println("旧密码输入错误");
-		}
-
-		partySecretaryInfoService.updatePersonInfo(psi);//更新个人信息
-		
-		return "lookMyself";
+		return "updatePassword";
 	}
 	
 	

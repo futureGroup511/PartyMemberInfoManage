@@ -14,7 +14,7 @@
 				<span>年龄：</span><span>${secretary.age}</span><br>
 				<span>民族：</span><span>${secretary.nation}</span><br>
 				<span>籍贯：</span><span>${secretary.nativePlace}</span><br>
-				<span>手机号：</span><span>${secretary.phoneNo}</span><br>
+				<span>手机号：</span><span id="phone">${secretary.phoneNo}</span><input type="button"  value="修改" onclick="updatePhone()"><br>
 				<span>注册日期：</span><span>${secretary.loginDate}</span><br>
 				<span>出生日期：</span><span>${secretary.birthdate}</span><br>
 				<span>身份证号：</span><span>${secretary.idCard}</span><br>
@@ -24,4 +24,14 @@
 		</div>
 	</div>
 </body>
+<script type="text/javascript" src="${rootPath }js/updatePhone.js"></script>
+<script type="text/javascript">
+	var notice = "${notice}";
+	if(notice===""){
+		
+	}else{
+		alert(notice);
+	}
+	
+</script>
 </html>
