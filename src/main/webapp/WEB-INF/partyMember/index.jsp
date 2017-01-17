@@ -50,9 +50,8 @@
 							<li><a href="${rootPath}party/partyMemberAction_seekPartyMemberInfo.action">查看个人信息</a></li>
 							<li><a href="${rootPath}party/partyMemberAction_getInfoBeforeUpdate.action">修改个人信息</a></li>
 						</ul></li>
-					<!-- <li><a href="partyMemberAction_seekPartyMemberInfo.action">查看个人信息</a></li>
-					<li><a href="partyMemberAction_getInfoBeforeUpdate.action">修改个人信息</a></li> -->
-					<li><a href="##">红色文章</a></li>
+					
+					<li><a href="${rootPath }secretary/pSForward_paperList.action">红色文章</a></li>
 					<li><a href="${rootPath}party/partyMemberAction_startTest.action">在线考试</a></li>
 					<li><a href="${rootPath}party/partyMemberAction_getMyExamLog.action">考试记录</a></li>
 				</ul>

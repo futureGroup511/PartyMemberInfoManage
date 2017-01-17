@@ -32,9 +32,12 @@ public class ExamPerRecordDaoImpl extends BaseDao<ExamPerRecord> implements IExa
 	}
 
 	@Override
-	public List<ExamPerRecord> getExamPerRecordsByUserId(int userId, int tp_Id) {
-		// TODO Auto-generated method stub
-		return null;
+	public List<ExamPerRecord> getExamPerRecordsByUserId(int pt_Id, int tp_Id, int partySort) {
+		String hql="from ExamPerRecord e where e.pt_Id="+pt_Id+" and e.tp_Id="+tp_Id+" and e.partySort="+partySort;
+		
+		return this.getEntityList(hql);
 	}
+
+	
 	
 }

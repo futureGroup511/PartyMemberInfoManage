@@ -63,7 +63,7 @@ public class QuestionDaoImpl extends BaseDao<Question> implements IQuestionDao{
 
 	@Override
 	public PageCut<Question> getPC(int curr, int pageSize, String search) {
-		// TODO Auto-generated method stub
+		
 		if(search==null || search.length()==0){
 			return this.getPC(curr, pageSize);
 		}
@@ -85,8 +85,14 @@ public class QuestionDaoImpl extends BaseDao<Question> implements IQuestionDao{
 
 	@Override
 	public Question getById(int id) {
-		// TODO Auto-generated method stub
+		
 		return this.getEntity(id);
+	}
+
+	@Override
+	public Question getQuestionByQtId(int qt_Id) {
+		String hql="from Question q where q.qt_Id="+qt_Id;
+		return (Question)this.uniqueResult(hql);
 	}
 
 	

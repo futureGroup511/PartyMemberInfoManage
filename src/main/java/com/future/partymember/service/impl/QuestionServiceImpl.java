@@ -36,28 +36,33 @@ public class QuestionServiceImpl implements IQuestionService{
 	}
 	@Override
 	public PageCut<Question> getPC(int curr, int pageSize) {
-		// TODO Auto-generated method stub
+		
 		return questionDao.getPC(curr, pageSize);
 	}
 	@Override
 	public Boolean deleteByPaperId(int tp_Id) {
-		// TODO Auto-generated method stub
+		
 		return questionDao.deleteByPaperId(tp_Id);
 	}
 	@Override
 	public Question getAnswersByQtId(int qt_Id) {
-		// TODO Auto-generated method stub
+		
 		return questionDao.getAnswersByQtId(qt_Id);
 	}
 	@Override
 	public PageCut<Question> getPC(int curr, int pageSize, String search) {
-		// TODO Auto-generated method stub
+		
 		return questionDao.getPC(curr, pageSize, search);
 	}
 	@Override
 	public Question getById(int id) {
-		// TODO Auto-generated method stub
+		
 		return questionDao.getById(id);
+	}
+	@Override
+	public Question getQuestionByQtId(int qt_Id) {
+		
+		return questionDao.getQuestionByQtId(qt_Id);
 	}
 	
 

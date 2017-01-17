@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 /**
  * 试题类  只是选择题
@@ -25,6 +26,10 @@ public class Question {
 	private String analysis;//解析
 	private int question_socre;//该试题的分数
 
+	//辅助属性——————焦祥宇加
+	private String myAnswer;//考生答案
+	private int myScore;//考生得分
+	
 	//A B C D选项
 	private String a;
 	private String b;
@@ -157,6 +162,23 @@ public class Question {
 
 	public void setPaperName(String paperName) {
 		this.paperName = paperName;
+	}
+	
+	@Transient
+	public String getMyAnswer() {
+		return myAnswer;
+	}
+
+	public void setMyAnswer(String myAnswer) {
+		this.myAnswer = myAnswer;
+	}
+	@Transient
+	public int getMyScore() {
+		return myScore;
+	}
+
+	public void setMyScore(int myScore) {
+		this.myScore = myScore;
 	}
 
 

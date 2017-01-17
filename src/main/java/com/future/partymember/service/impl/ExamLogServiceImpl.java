@@ -48,4 +48,10 @@ public class ExamLogServiceImpl implements IExamLogService{
 		return examLogDao.getAllExamLogBypartyMemberId(partyMemberId, partySort);
 	}
 
+	@Override
+	public ExamLog getExamLogByTpId(int partyMemberId, int partySort, int tp_Id) {
+		
+		return examLogDao.getExamLogByTpId(partyMemberId, partySort, tp_Id);
+	}
+
 }

@@ -12,7 +12,16 @@ public class StartTest {
 	private String testPeople;
 	private TestPaper testPaper;
 	private String testTime;//考试时长
+	private int totalScore;//试卷总分
 	
+	public int getTotalScore() {
+		return totalScore;
+	}
+
+	public void setTotalScore(int totalScore) {
+		this.totalScore = totalScore;
+	}
+
 	public int getTestNum() {
 		return testNum;
 	}
