@@ -12,35 +12,37 @@ import java.util.Date;
 */
 public class SwitchTime {
 	public static String switchTime(long time) {
-		int hours =(int)( (time % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-		int minutes = (int)((time % (1000 * 60 * 60)) / (1000 * 60));
-		int seconds = (int)((time % (1000 * 60)) / 1000);
-		
-/*		//以下丁赵雷修改
-		Calendar cal = Calendar.getInstance(); 
-		
-		String pmiTime=partyMemberInfo.getLearnTime();//党员原来的学习时长
-		
-		if(pmiTime!=null&&!pmiTime.equals("")){
-			Date d= SwitchTime.strToDate(pmiTime);
-			cal.setTime(d);
-			cal.roll(Calendar.SECOND, seconds);
-			cal.roll(Calendar.MINUTE, minutes);
-			cal.roll(Calendar.HOUR, hours);
-			cal.getTime();
-		}*/
-		
-		
-		if(minutes==0){
-			return seconds + "秒";
-		}
-		else if(hours==0){
-			return minutes + "分钟" + seconds + "秒";
-		}
-		else{
-			return hours + "小时" + minutes + "分钟" + seconds + "秒";
-		} 
+	    Integer ss = 1000;  
+	    Integer mi = ss * 60;  
+	    Integer hh = mi * 60;  
+	    Integer dd = hh * 24;  
+	  
+	    Long day = time / dd;  
+	    Long hour = day*24+(time - day * dd) / hh;  
+	    Long minute = (time - day * dd - hour * hh) / mi;  
+	    Long second = (time - day * dd - hour * hh - minute * mi) / ss;  
+	   // Long milliSecond = time - day * dd - hour * hh - minute * mi - second * ss;  
+	      
+	    StringBuffer sb = new StringBuffer();  
+/*	    if(day > 0) {  
+	        sb.append(day+"天");  
+	    }  */
+	    if(hour > 0) {  
+	        sb.append(hour+"小时");  
+	    }  
+	    if(minute > 0) {  
+	        sb.append(minute+"分");  
+	    }  
+	    if(second > 0) {  
+	        sb.append(second+"秒");  
+	    }  
+/*	    if(milliSecond > 0) {  
+	        sb.append(milliSecond+"毫秒");  
+	    } */ 
+	    return sb.toString();  
 	}
+	
+	
 	public static Date strToDate(String str){
 		SimpleDateFormat s = null;
 		if(str.length()==8){
