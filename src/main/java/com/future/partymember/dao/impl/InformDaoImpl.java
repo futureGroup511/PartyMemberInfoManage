@@ -2,6 +2,7 @@ package com.future.partymember.dao.impl;
 
 import java.util.List;
 
+import org.hibernate.Query;
 import org.springframework.stereotype.Repository;
 
 import com.future.partymember.base.BaseDao;
@@ -54,5 +55,15 @@ public class InformDaoImpl extends BaseDao<Inform> implements IInformDao {
 		// TODO Auto-generated method stub
 		return this.getEntity(id);
 	}
+	@Override
+	public Query getQuery(String hql, Object... objects) {
+		// TODO Auto-generated method stub
+		Query query=this.getSession().createQuery(hql);
+		for(int i=0;i<objects.length;i++){
+			query.setParameter(i, objects[i]);
+		}
+		return query;
+	}
+
 
 }
