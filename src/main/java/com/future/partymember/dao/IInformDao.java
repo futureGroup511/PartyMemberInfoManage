@@ -1,5 +1,7 @@
 package com.future.partymember.dao;
 
+
+
 import com.future.partymember.entity.Inform;
 import com.future.partymember.util.PageCut;
 
@@ -11,6 +13,9 @@ public interface IInformDao {
 	public void deleteInform(int id);
 
 	PageCut<Inform> getPCByNew(int curr, int pageSize);
+	
+	//获取hql  Query，业务由service填写
+	PageCut<Inform> getQuery(int curr, int pageSize,String hql,String hqlCount);
 	
 	Inform getById(int id);
 

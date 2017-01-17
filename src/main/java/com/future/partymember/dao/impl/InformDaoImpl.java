@@ -2,6 +2,7 @@ package com.future.partymember.dao.impl;
 
 import java.util.List;
 
+import org.hibernate.Query;
 import org.springframework.stereotype.Repository;
 
 import com.future.partymember.base.BaseDao;
@@ -48,5 +49,23 @@ public class InformDaoImpl extends BaseDao<Inform> implements IInformDao {
 	public Inform getById(int id) {
 		return this.getEntity(id);
 	}
+
 	
+	//根据相应的hql语句获得结果集的数量
+	public int getNum(String hql) {
+		return ((Long) this.uniqueResult(hql)).intValue();
+	}
+	
+
+	@Override
+	public PageCut<Inform> getQuery(int curr, int pageSize, String hql , String hqlCount) {
+		int first=(curr-1)*pageSize;
+		List<Inform> list=this.getEntityLimitList(hql, first,pageSize);
+		PageCut<Inform> pc=new PageCut<>(curr,pageSize,this.getNum(hqlCount));
+		pc.setData(list);
+		return pc;	
+	}
+	
+
+
 }
