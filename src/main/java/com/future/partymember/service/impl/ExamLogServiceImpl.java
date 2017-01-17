@@ -45,6 +45,7 @@ public class ExamLogServiceImpl implements IExamLogService{
 	@Override
 	public List<ExamLog> getAllExamLogBypartyMemberId(int partyMemberId, int partySort) {
 		// TODO Auto-generated method stub
+
 		return examLogDao.getAllExamLogBypartyMemberId(partyMemberId, partySort);
 	}
 

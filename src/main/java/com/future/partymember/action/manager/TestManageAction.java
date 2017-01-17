@@ -6,6 +6,8 @@ package com.future.partymember.action.manager;
 
 import java.util.List;
 
+
+
 import com.future.partymember.base.BaseAction;
 import com.future.partymember.entity.Question;
 import com.future.partymember.entity.StartTest;
@@ -122,6 +124,7 @@ public class TestManageAction extends BaseAction {
 		long time=SwitchTime.strToTime(startTest.getEndTime()).getTime()-SwitchTime.strToTime(startTest.getStartTime()).getTime();
 		String testTime=SwitchTime.switchTime(time);		
 		startTest.setTestTime(testTime);
+		startTest.setTestPaper(testPaper);				
 		this.getRequest().getSession().getServletContext().setAttribute("startTest",startTest);		
 		this.getRequest().setAttribute("startMeg", "开启成功");		
 		return "startTest";

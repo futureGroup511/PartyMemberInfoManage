@@ -41,11 +41,13 @@ public class Question {
 	public Question(){
 		super();
 	}
+
 	
 	public Question(String answer) {
 		super();
 		this.answer = answer;
 	}
+
 
 	public Question(int  qt_Id, String questions_stems,int question_socre,
 			String a, String b, String c, String d) {

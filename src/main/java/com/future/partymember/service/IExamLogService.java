@@ -11,6 +11,8 @@ public interface IExamLogService {
 	public Boolean updateExamLog(ExamLog examLog);
 	//根据用户id和身份获得考试记录
 	public List<ExamLog> getAllExamLogBypartyMemberId(int partyMemberId,int partySort);
+
 	//根据用户id，用户身份，试卷id获得考试总分
 	public ExamLog getExamLogByTpId(int partyMemberId,int partySort,int tp_Id);
+
 }
