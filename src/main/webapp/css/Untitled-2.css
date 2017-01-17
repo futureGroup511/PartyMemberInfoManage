@@ -1,0 +1,36 @@
+@charset "utf-8";
+.{
+  padding:0;
+  margin:0;
+}
+.dangqian{
+  margin-top:2%;
+  margin-left:2%;
+  border-bottom:1px solid #F7AA4B;
+}
+.dangqian h3{
+  font-size:1.1vw;
+}
+.main{
+  margin-top:5%;
+  font-size:1vw;
+}
+.table{
+  width:80%;
+  margin-left:10%;
+  text-align: center;
+}
+.table thead{
+	background:#4C88AE;
+}
+.page{
+  margin-left:35%;
+  margin-top:5%;
+}
+.main a:hover{
+  text-decoration: none;
+  color:#EBB639;
+}
+
+/* CSS Document */
+

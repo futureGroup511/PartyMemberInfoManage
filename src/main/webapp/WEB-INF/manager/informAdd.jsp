@@ -119,7 +119,7 @@ $(function(){
 				</div>
 			</div>
 			<div class="form-group">
-				<label for="name" class="col-sm-2 control-label">选择</label>
+				<label for="name" class="col-sm-2 control-label">权限</label>
 				<div class="col-sm-10">
 					<select class="form-control">
 						<option name="inform.info_tag" value="0">仅管理员</option>

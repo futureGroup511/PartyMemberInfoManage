@@ -10,29 +10,33 @@
 </head>
 
 <body>
-	<div class="head">
-		<div class="row">
-			<div
-				class="logol col-lg-1 col-lg-offset-1 col-md-1 col-md-offset-1  col-xs-2 col-xs-offset-1">
-				<img src="${rootPath }images/2jfk5t06a8.png" />
-			</div>
-			<div class="col-lg-3 col-md-3 col-xs-4">
-				<h2 class="first">河南科技学院</h2>
-			</div>
-			<div class="col-lg-2 col-md-2  col-xs-3">
-				<h2 class="second">党课系统</h2>
-			</div>
-		</div>
-		<div class="background navbar-fixed-top"
-			style="position: absolute; z-index: -1; width: 100%;">
-			<img class="img-responsive" width="100%;" src="${rootPath }images/111.jpg" />
-		</div>
-	</div>
-	<script type="text/javascript">
-		$(function() {
-			$('#background').height($(window).height());
-			$('#background').width($(window).width());
-		});
-	</script>
+<div class="head">
+	<div class="row">
+    	<div class="logol col-lg-1 col-lg-offset-1 col-md-1 col-md-offset-1  col-xs-2 col-xs-offset-1">
+        	<img src="${rootPath }images/2jfk5t06a8.png" />
+        </div>
+        <div class="col-lg-3 col-md-3 col-xs-4">
+        	<div class="row">
+            	<div class="col-lg-12 col-md-12 col-xs-12">
+                <h3 class="first">河南科技学院党课系统</h2>
+                </div>
+            </div>
+            <div class="row">
+            	<div class="col-lg-12 col-md-12 col-xs-12">
+                <h2 class="second">河南科技学院党课系统</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="background navbar-fixed-top"  style="position:absolute; z-index:-1;width:100%;">
+    	<img  class="img-responsive" width="100%;" src="${rootPath }images/head.png" />
+    </div>
+</div>
+<script type="text/javascript">
+$(function(){
+    $('#background').height($(window).height());
+    $('#background').width($(window).width());
+});
+</script>
 </body>
 </html>

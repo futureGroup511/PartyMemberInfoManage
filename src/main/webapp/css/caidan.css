@@ -1,0 +1,92 @@
+@charset "utf-8";
+/* CSS Document */
+body{margin:0 auto;overflow-x:hidden;}
+html, body{height:100%;width:96%;}
+img{border:none;}
+*{font-family:'微软雅黑';font-size:15px;color:#20634d;/*颜色无影响*/}
+dl,dt,dd{display:block;margin-left:-3%;margin:0 0 0 -3%;}
+a{text-decoration:none;}
+.container{width:100%;height:100%;margin:auto;}
+
+/*left*/
+	
+.leftsidebar_box{
+    width:100%;
+    height:auto !important;
+    overflow:visible !important;
+    height:100% !important;
+    background-image:url(../images/caidan.jpg);
+    padding-left:16px;
+	
+	
+	/*background: -moz-linear-gradient(top,  red 0%, white 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,red), color-stop(100%,white));
+	background: -webkit-linear-gradient(top,  red 0%,white 100%);
+	background: -o-linear-gradient(top,  red 0%,white 100%);
+	background: -ms-linear-gradient(top,  red 0%,white 100%);
+	background: linear-gradient(top,  red 0%,white 100%);	/*娑撯偓缁狙嗗綅閸楁洜鍋ｉ崥搴″綁閻ㄥ嫰顤侀懝锟�*/*/
+	
+    }
+.line{
+    height:24px;
+    width:100%;
+    background-image:url(../image/line_bg.png);
+    background-repeat:repeat-x;
+    }
+.leftsidebar_box dt a{
+   font-size:6vw;
+    position:relative;
+    line-height:48px;
+    cursor:pointer; 
+    color:white/*一级菜单字体颜色*/;
+}
+.leftsidebar_box dt{
+    padding-left:16%;
+    padding-right:10px;
+    background-repeat:no-repeat;
+    background-position:10px center;
+    color:white/*一级菜单字体颜色*/;
+    font-size:6vw;
+    position:relative;
+    line-height:48px;
+    cursor:pointer;
+	
+	background: #a5cd4e;
+	background: -moz-linear-gradient(top,  red 0%, #621A17 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,red), color-stop(100%,#621A17));
+	background: -webkit-linear-gradient(top,  red 0%,#621A17 100%);
+	background: -o-linear-gradient(top,  red 0%,#621A17 100%);
+	background: -ms-linear-gradient(top,  red 0%,#621A17 100%);
+	background: linear-gradient(top,  red 0%,#621A17 100%);	/*娑撯偓缁狙嗗綅閸楁洜鍋ｉ崥搴″綁閻ㄥ嫰顤侀懝锟�*/
+	
+}
+
+
+
+.leftsidebar_box dd{
+    background-color:white/*二级菜单背景颜色*/;
+    padding-left:16%;
+   
+    
+    }
+.leftsidebar_box dd a{
+    color:black/*二级菜单字体颜色*/;
+    line-height:38px;
+    font-size:6vw;
+    }
+.leftsidebar_box dt img{
+    position:absolute;
+    right:20%;
+    top:23px;
+    }
+/*
+.system_log dt{
+    background-image:url(../images/2016-12-08_201942.png);
+    }
+.custom dt{
+    background-image:url(../images/2016-12-08_211234.png);
+    }
+.channel dt{
+    background-image:url(../images/2016-12-08_211839.png);
+    }
+.leftsidebar_box dl dd:last-child{padding-bottom:10px;}*/
