@@ -43,6 +43,11 @@ public class QuestionServiceImpl implements IQuestionService{
 		// TODO Auto-generated method stub
 		return questionDao.deleteByPaperId(tp_Id);
 	}
+	@Override
+	public Question getAnswersByQtId(int qt_Id) {
+		// TODO Auto-generated method stub
+		return questionDao.getAnswersByQtId(qt_Id);
+	}
 	
 
 }

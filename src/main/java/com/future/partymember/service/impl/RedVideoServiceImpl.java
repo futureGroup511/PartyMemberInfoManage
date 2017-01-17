@@ -70,5 +70,14 @@ public class RedVideoServiceImpl implements IRedVideoService{
 	public List<RedVideo> getFristRecordById() {
 		return redVideoDao.getFristRecordById();
 	}
+	/* (non-Javadoc)
+	 * @see com.future.partymember.service.IRedVideoService#getPC(int, int, java.lang.String)
+	 * 根据名字搜索返回分页。宋
+	 */
+	@Override
+	public PageCut<RedVideo> getPC(int pageSize, int curr, String search) {
+		// TODO Auto-generated method stub
+		return redVideoDao.getPC(pageSize, curr,search);
+	}
 
 }

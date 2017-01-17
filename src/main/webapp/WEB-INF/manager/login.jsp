@@ -22,7 +22,7 @@
 					<h2>${remind }</h2>
 					<div class="input-one">
 						<label for="account">账号</label> <input type="text" name="account"
-							class="form-control" placeholder="请输入用户名">
+							class="form-control" placeholder="请输入账号">
 					</div>
 					<div class="input-two">
 						<label for="password">密码</label> <input type="password" name="password"
@@ -36,7 +36,7 @@
 					</div>
 
 					<div class="input-four">
-						<button class="btn  btn-primary one" type="submit">登录</button>
+						<button class="btn  btn-primary one" type="submit" target="_top">登录</button>
 					</div>
 				</form>
 			</div>

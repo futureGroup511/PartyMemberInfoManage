@@ -41,7 +41,7 @@ public class QuestionDaoImpl extends BaseDao<Question> implements IQuestionDao{
 
 	@Override
 	public List<Question> getQuestionsByTpId(int paperId) {
-		String hql="from Question q where q.paperId="+paperId;		
+		String hql="select new Question(qt_Id,questions_stems,question_socre,a,b,c,d) from Question q where q.paperId="+paperId;		
 		return this.getEntityList(hql);
 		
 	}
@@ -51,6 +51,12 @@ public class QuestionDaoImpl extends BaseDao<Question> implements IQuestionDao{
 		PageCut<Question> pageCut=new PageCut<>(curr,pageSize,this.getNum());
 		pageCut.setData(this.getEntityLimitList("from Question",(curr-1)*pageSize,pageSize));
 		return pageCut;
+	}
+
+	@Override
+	public Question getAnswersByQtId(int qt_Id) {
+		String hql="select new Question(answer) from Question q where q.qt_Id="+qt_Id;		 
+		return (Question)this.uniqueResult(hql);
 	}
 
 	

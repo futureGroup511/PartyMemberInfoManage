@@ -122,6 +122,8 @@ public class PartyMemberInfoDaoImpl extends BaseDao<PartyMemberInfo> implements 
 			hql="from PartyMemberInfo as p where p.account like :search or p.username like :search or p.idCard like :search";
 			Query query=this.getSession().createQuery(hql);
 			query.setString("search","%"+search+"%");
+			query.setFirstResult((page-1)*pageSize);
+			query.setMaxResults(pageSize);
 			pc.setData(query.list());
 		}
 		return pc;

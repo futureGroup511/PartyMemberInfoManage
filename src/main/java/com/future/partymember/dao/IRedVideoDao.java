@@ -24,6 +24,8 @@ public interface IRedVideoDao {
 
 	PageCut<RedVideo> getPC(int pageSize,int curr);
 	
+	PageCut<RedVideo> getPC(int pageSize,int curr,String search);
+	
 	//模糊搜索视频根据名字
 	public List<RedVideo> findByName(String name);
 	

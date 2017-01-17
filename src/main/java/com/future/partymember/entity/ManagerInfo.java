@@ -28,7 +28,7 @@ public class ManagerInfo {
 	
 	
 	public ManagerInfo(){
-		
+		super();
 	}
 	
 	

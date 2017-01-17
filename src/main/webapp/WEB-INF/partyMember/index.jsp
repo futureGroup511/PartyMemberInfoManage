@@ -42,18 +42,18 @@
 			<div
 				class="col-lg-7 col-lg-offset-2 col-md-7 col-md-offset-2 col-xs-7 col-xs-offset-2">
 				<ul class=" nav navbar-nav">
-					<li class="active"><a href="partyLogin.action">首页</a></li>
-					<li><a href="party/partyMemberAction_viewVideos.action">红色视频</a></li>
+					<li class="active"><a href="${rootPath}party/partyLogin.action">首页</a></li>
+					<li><a href="${rootPath}party/partyMemberAction_viewVideos.action">红色视频</a></li>
 					<li class="dropdown"><a href="##" data-toggle="dropdown"
 						class="dropdown-toggle">个人信息<span class="caret"></span></a>
 						<ul class="dropdown-menu">
-							<li><a href="party/partyMemberAction_seekPartyMemberInfo.action">查看个人信息</a></li>
-							<li><a href="party/partyMemberAction_getInfoBeforeUpdate.action">修改个人信息</a></li>
+							<li><a href="${rootPath}party/partyMemberAction_seekPartyMemberInfo.action">查看个人信息</a></li>
+							<li><a href="${rootPath}party/partyMemberAction_getInfoBeforeUpdate.action">修改个人信息</a></li>
 						</ul></li>
 					<!-- <li><a href="partyMemberAction_seekPartyMemberInfo.action">查看个人信息</a></li>
 					<li><a href="partyMemberAction_getInfoBeforeUpdate.action">修改个人信息</a></li> -->
 					<li><a href="##">红色文章</a></li>
-					<li><a href="party/partyMemberAction_startTest.action">在线考试</a></li>
+					<li><a href="${rootPath}party/partyMemberAction_startTest.action">在线考试</a></li>
 				</ul>
 			</div>
 			<div class="col-lg-3 col-md-3 col-xs-3">

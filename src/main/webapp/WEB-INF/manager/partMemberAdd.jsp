@@ -38,7 +38,7 @@
 							<label style="line-height:50px;">账号</label>							
 						</div>
 						<div class="col-xs-8">
-							<input type="text" class="form-control"  required="required" name="partyMemberInfo.account" value="${partyMemberInfo.account }" placeholder="请输入账号">
+							<input type="text" class="form-control" required="required" name="partyMemberInfo.account" value="${partyMemberInfo.account }" placeholder="请输入账号">
 						</div>
 					</div>
 					

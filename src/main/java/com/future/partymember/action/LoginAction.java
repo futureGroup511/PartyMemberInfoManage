@@ -18,7 +18,7 @@ public class LoginAction extends BaseAction {
 			PartyMemberInfo partyMemberInfo=partyMemberInfoService.login(userInfo.getAccount(), userInfo.getPassword());
 			if(partyMemberInfo!=null){
 				this.getSession().put("userId", partyMemberInfo.getPtm_Id());
-				this.getSession().put("userSort", "党员");
+				this.getSession().put("userSort", 0);
 				return "partyMember";
 			}else{
 				this.getRequest().setAttribute("loginMeg", "用户名或密码错误！");

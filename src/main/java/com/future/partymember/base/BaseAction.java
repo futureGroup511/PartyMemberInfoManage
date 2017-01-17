@@ -13,6 +13,7 @@ import org.apache.struts2.interceptor.SessionAware;
 
 import com.future.partymember.service.IDuePaymentRecordsService;
 import com.future.partymember.service.IExamLogService;
+import com.future.partymember.service.IExamPerRecordService;
 import com.future.partymember.service.IInformService;
 import com.future.partymember.service.ILeagueMemberService;
 import com.future.partymember.service.IManagerInfoService;
@@ -69,6 +70,8 @@ public class BaseAction extends ActionSupport implements SessionAware{
 	protected IWatchVideoRecordService watchVideoRecordService;
 	@Resource
 	protected ITestPaperService testPaperService;
+	@Resource
+	protected IExamPerRecordService examPerRecordService;
 
 	
 	

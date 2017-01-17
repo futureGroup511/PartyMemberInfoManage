@@ -37,6 +37,21 @@ public class Question {
 		
 	}
 	
+	public Question(String answer) {
+		super();
+		this.answer = answer;
+	}
+
+	public Question(int  qt_Id, String questions_stems,int question_socre,
+			String a, String b, String c, String d) {
+		this.qt_Id=qt_Id;
+		this.questions_stems = questions_stems;				
+		this.question_socre = question_socre;
+		this.a = a;
+		this.b = b;
+		this.c = c;
+		this.d = d;
+	}
 	public Question(int paperId, String questions_stems, String answer, String analysis, int question_socre,
 			String a, String b, String c, String d) {
 		this.paperId = paperId;
@@ -55,9 +70,9 @@ public class Question {
 
 	@Override
 	public String toString() {
-		return "Question [qt_Id=" + qt_Id + ", paperId=" + paperId + ", questions_stems=" + questions_stems
-				+ ", answer=" + answer + ", analysis=" + analysis + ", A=" + a + ", B=" + b + ", C=" + c + ", D=" + d
-				+ "]";
+		return "Question [qt_Id=" + qt_Id + ", paperId=" + paperId + ", paperName=" + paperName + ", questions_stems="
+				+ questions_stems + ", answer=" + answer + ", analysis=" + analysis + ", question_socre="
+				+ question_socre + ", a=" + a + ", b=" + b + ", c=" + c + ", d=" + d + "]";
 	}
 	
 	
