@@ -6,7 +6,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" href="${rootPath }css/bootstrap.css" />
-<title>Insert title here</title>
+<title>书记管理</title>
 
 <style type="text/css">
 .search {
@@ -18,6 +18,7 @@
 </head>
 <body>
 	<ol class="breadcrumb">
+		<li>当前位置：</li>
 		<li>书记管理</li>
 		<li class="active">列表</li>
 	</ol>
@@ -138,6 +139,8 @@
 
 		</div>
 	</div>
-
+	<div class="background navbar-fixed-top"  style="position:absolute; z-index:-1;width:100%;height:100%;opacity:0.1;">
+    	<img  class="img-responsive" width="100%;" src="${rootPath }images/577a4c594718d_610.jpg" />
+    </div>
 </body>
 </html>

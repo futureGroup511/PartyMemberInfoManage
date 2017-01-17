@@ -77,6 +77,7 @@ var ue = UE.getEditor('editor', {
 
 <body>
 	<ol class="breadcrumb">
+		 <li>当前位置：</li>
 	    <li>文章管理</li>
 	    <li class="active">写文章</li>
 	</ol>
@@ -108,6 +109,9 @@ var ue = UE.getEditor('editor', {
 		<input type="submit"   value="一键发布"/>
 	</form>
 	<input id="remind" type="hidden"  value="${p}">
+	<div class="background navbar-fixed-top"  style="position:absolute; z-index:-1;width:100%;height:100%;opacity:0.1;">
+    	<img  class="img-responsive" width="100%;" src="${rootPath }images/577a4c594718d_610.jpg" />
+    </div>
 </body>
 <script type="text/javascript"  src="${rootPath }js/jquery-3.1.1.min.js"></script>
 <script type="text/javascript">

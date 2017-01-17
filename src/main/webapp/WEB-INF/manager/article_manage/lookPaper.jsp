@@ -5,8 +5,23 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>查看文章</title>
+<style type="text/css">
+
+</style>
 </head>
 <body>
+<div class="dangqian">
+	<div class="row">
+    	<div class="col-lg-3 col-lg-offset-1 col-md-3 col-md-offset-1 col-xs-4 col-xs-offset-1">
+        	<h3><img src="images/t012af2de4c0f6db4db.png" />&nbsp;&nbsp;&nbsp;你的位置：首页>时事新闻</h3>
+        </div>
+    </div>
+</div>
+<ol class="breadcrumb">
+	    <li>当前位置：</li>
+	    <li>文章</li>
+	    <li class="active">添加文章</li>
+	</ol>
 		<section class="paper">
 				<header class="title">
 					${paper.title }

@@ -5,16 +5,12 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>添加通知</title>
 
-<link href="${rootPath }jQueryPlug/jPage/src/jquery.page.css"
-	rel="stylesheet" type="text/css" />
 <script type="text/javascript"
 	src="${rootPath }jQueryPlug/jPage/src/jquery.min.js"></script>
 <link rel="stylesheet" href="${rootPath }css/bootstrap.css" />
-<script type="text/javascript"
-	src="${rootPath }jQueryPlug/jPage/src/jquery.page.js"></script>
-<script type="text/javascript" src="${rootPath }js/vector.js"></script>
+
 <style>
 * {
 	margin: 0;
@@ -73,27 +69,11 @@
 	color:#FFF;
 }
 </style>
-<script type="text/javascript">
-$(function(){
-	// 初始化 传入dom id
-	var victor = new Victor("container", "output");
-	var theme = [
-			["#002c4a", "#005584"],
-			["#35ac03", "#3f4303"],
-			["#ac0908", "#cd5726"],
-			["#18bbff", "#00486b"]
-		]
-	$(".color li").each(function(index, val) {
-		var color = theme[index];
-		 $(this).mouseover(function(){
-			victor(color).set();
-		 })
-	});
-});
-</script>
+
 </head>
 <body>
 <ol class="breadcrumb">
+ 	<li>当前位置：</li>
 	<li>通知管理</li>
 	<li class="active">添加通知</li>
 </ol>
@@ -138,5 +118,8 @@ $(function(){
 			</div>
 		</form>
 	</div>
+	<div class="background navbar-fixed-top"  style="position:absolute; z-index:-1;width:100%;height:100%;opacity:0.1;">
+    	<img  class="img-responsive" width="100%;" src="${rootPath }images/577a4c594718d_610.jpg" />
+    </div>
 </body>
 </html>

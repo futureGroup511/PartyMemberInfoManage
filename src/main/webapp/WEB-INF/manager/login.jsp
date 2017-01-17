@@ -58,6 +58,9 @@
 
 	<script src="${rootPath }js/jquery-2.2.3.min.js"></script>
 	<script src="${rootPath }js/bootstrap.js"></script>
+	<div class="background navbar-fixed-top"  style="position:absolute; z-index:-1;width:100%;height:100%;opacity:0.1;">
+    	<img  class="img-responsive" width="100%;" src="${rootPath }images/577a4c594718d_610.jpg" />
+    </div>
 </body>
 <script type="text/javascript">
 	function refresh() {
