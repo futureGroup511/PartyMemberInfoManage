@@ -41,6 +41,15 @@ public class PSForwardAction extends BaseAction {
 		}
 	}
 	
+	//转发到发布通知页面
+	public String fAddInform(){	
+		return "addInform";
+	}
+	
+	//转发到管理通知页面
+	public String fManageInfom(){
+		return "manageInfom";
+	}
 	
 	//转发修改个人信息
 	public String fUpdataPerson() throws Exception{

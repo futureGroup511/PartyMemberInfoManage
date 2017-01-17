@@ -25,7 +25,12 @@
 				<li><a href="${rootPath }secretary/pSForward_videoList">在线视频</a></li>
 				<li><a href="${rootPath }secretary/pSForward_paperList">在线文章</a></li>
 				<li><a href="${rootPath }secretary/pSForward_paperList">在线考试</a></li>
-				<li><a href="${rootPath }secretary/pSForward_paperList">通知管理</a></li>
+				<li><a href="${rootPath }secretary/pSForward_paperList">通知管理</a>
+					<ol>
+						<li><a href="${rootPath }secretary/pSForward_fAddInform">发布通知</a></li>
+						<li><a href="${rootPath }secretary/pSForward_fManageInfom">管理通知</a></li>
+					</ol>
+				</li>
 			</ol>
 		</div>
 	</div>
