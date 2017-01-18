@@ -54,7 +54,7 @@
 		</table>
 		<div>
 			<div id="page"></div>
-			<span style="color : red;">当前为第${pageCut.currentPage }页</span>
+			
 		</div>
 		
 </body>

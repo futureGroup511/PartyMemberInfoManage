@@ -52,16 +52,16 @@ public class InformDaoImpl extends BaseDao<Inform> implements IInformDao {
 
 	
 	//根据相应的hql语句获得结果集的数量
-	public int getNum(String hql) {
-		return ((Long) this.uniqueResult(hql)).intValue();
+	public int getNum(String hql,Object ...objects) {
+		return ((Long) this.uniqueResult(hql,objects)).intValue();
 	}
 	
 
 	@Override
-	public PageCut<Inform> getQuery(int curr, int pageSize, String hql , String hqlCount) {
+	public PageCut<Inform> getQuery(int curr, int pageSize, String hql , String hqlCount, Object ...objects) {
 		int first=(curr-1)*pageSize;
-		List<Inform> list=this.getEntityLimitList(hql, first,pageSize);
-		PageCut<Inform> pc=new PageCut<>(curr,pageSize,this.getNum(hqlCount));
+		List<Inform> list=this.getEntityLimitList(hql, first,pageSize,objects);
+		PageCut<Inform> pc=new PageCut<>(curr,pageSize,this.getNum(hqlCount,objects));
 		pc.setData(list);
 		return pc;	
 	}

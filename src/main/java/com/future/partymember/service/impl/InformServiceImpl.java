@@ -16,32 +16,35 @@ public class InformServiceImpl implements IInformService{
 	private IInformDao informDao;
 	@Override
 	public void addInform(Inform inform) {
-		// TODO Auto-generated method stub
 		informDao.addInform(inform);
 		
 	}
 
 	@Override
 	public void updateInform(Inform inform) {
-		// TODO Auto-generated method stub
 		informDao.updateInform(inform);
 	}
 
 	@Override
 	public void deleteInform(int id) {
-		// TODO Auto-generated method stub
 		informDao.deleteInform(id);
 	}
 
 	@Override
 	public PageCut<Inform> getPCByNew(int curr, int pageSize) {
-		// TODO Auto-generated method stub
 		return informDao.getPCByNew(curr, pageSize);
 	}
 
 	@Override
 	public Inform getById(int id) {
-		// TODO Auto-generated method stub
 		return informDao.getById(id);
+	}
+
+	//书记在管理通知时所用到的方法
+	@Override
+	public PageCut<Inform> getQuery(int curr, int pageSize ,Object ...objects) {
+		String hql="from Inform where senderId=? and senderType =1 order by info_Id desc";
+		String hqlCount="select count(*) from Inform where senderId=? and senderType =1";
+		return informDao.getQuery(curr, pageSize, hql, hqlCount,objects);
 	}
 }

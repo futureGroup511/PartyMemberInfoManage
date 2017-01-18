@@ -27,7 +27,7 @@ public class PartySecretaryAction extends BaseAction {
 	 */
 	private static final long serialVersionUID = 1L;
 	private PartySecretaryInfo partySecretaryInfo;
-	private PageCut<PartyMemberInfo> pageCut; 
+	private PageCut<?> pageCut; 
 	private Inform inform;//用来封装通知消息的
 
 
@@ -44,22 +44,33 @@ public class PartySecretaryAction extends BaseAction {
 	}
 	
 	
+	//通知的分页
+	public String paperInform(){
+		int page = Integer.parseInt(this.getRequest().getParameter("page"));
+		System.out.println("通知的分页"+page);
+		//先得到书记对象
+		PartySecretaryInfo psi=(PartySecretaryInfo) session.get("secretary");
+		PageCut<Inform> pc=informService.getQuery(page, 5, psi.getPst_Id());
+		this.getRequest().setAttribute("pc", pc);
+		return "manageInfom";
+	}
+	
 	//发布通知
 	public String addInform(){
 		//先得到书记对象
 		PartySecretaryInfo psi=(PartySecretaryInfo) session.get("secretary");
 		
-		
-		Inform inform1=new Inform();
-		inform1.setAddresser(psi.getUsername());
-		inform1.setContent(inform.getContent());
-		inform1.setTitle(inform.getTitle());
-		inform1.setSenderType(1);		
-		inform1.setSendDate(new Date());
-		inform1.setSenderId(psi.getPst_Id());
-		inform1.setInfo_tag(7);
-		informService.addInform(inform1);//插入一条记录
-		this.getRequest().setAttribute("remind", "发布成功");
+		if(inform.getTitle().equals("")||inform.getContent().equals("")){
+			this.getRequest().setAttribute("notice", "内容不能为空");
+		}else{
+			inform.setAddresser(psi.getUsername());
+			inform.setSenderType(1);		
+			inform.setSendDate(new Date());
+			inform.setSenderId(psi.getPst_Id());
+			inform.setInfo_tag(7);
+			informService.addInform(inform);//插入一条记录
+			this.getRequest().setAttribute("notice", "发布成功");
+		}
 		return "addInform";
 	}
 	

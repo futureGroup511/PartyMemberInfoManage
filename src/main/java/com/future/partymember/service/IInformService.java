@@ -12,4 +12,6 @@ public interface IInformService {
 	PageCut<Inform> getPCByNew(int curr,int pageSize);
 	
 	Inform getById(int id);
+	//书记和党员获得通知的方法
+	PageCut<Inform> getQuery(int curr, int pageSize,Object ...objects);
 }

@@ -7,8 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <script type="text/javascript" charset="utf-8" src="${ rootPath}ueditor1_4_3/ueditor.config.js"></script>
 
-<script type="text/javascript" charset="utf-8" src="${rootPath }ued
-itor1_4_3/ueditor.all.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="${rootPath }ueditor1_4_3/ueditor.all.min.js"></script>
 <link rel="stylesheet" href="${rootPath}css/bootstrap.css">
 
 <script type="text/javascript" charset="utf-8" src="${rootPath}ueditor1_4_3/lang/zh-cn/zh-cn.js"></script>

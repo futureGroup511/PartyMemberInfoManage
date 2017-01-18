@@ -72,10 +72,11 @@ var ue = UE.getEditor('editor', {
     autoHeightEnabled: true,
     autoFloatEnabled: true
 });
+
 </script>
 </head>
 <body>
-		<form  method="POST"action="${rootPath}secretary/partySecretary_addInform">
+		<form  method="POST" action="${rootPath}secretary/partySecretary_addInform"  onsubmit="modifyContent()">
 			通知标题：<input type="text"  name="inform.title">
 			<textarea rows="20" cols="25" name="inform.content"  id="content"   style="display:none"></textarea><br>
 			 <p>通知内容：</p>
@@ -85,12 +86,11 @@ var ue = UE.getEditor('editor', {
 </body>
 <script type="text/javascript"  src="${rootPath }js/jquery-3.1.1.min.js"></script>
 <script type="text/javascript">
-$(document).ready(function() {
-	var remind=$("#remind").val();
-	if(remind===""){
-	}else{
-		alert(remind);
-	}
-});
+var notice = "${notice}";
+if(notice!=""){
+	alert(notice);
+}else{
+	
+}
 </script>
 </html>

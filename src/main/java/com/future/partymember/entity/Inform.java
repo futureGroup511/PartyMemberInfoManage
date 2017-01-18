@@ -29,6 +29,7 @@ public class Inform {
 	private int senderType;//0管理员，1书记
 	private String addresser;//发布人
 	private Date sendDate;//发布时间
+	
 	/**
 	 * 添加人：丁赵雷
 	 * 目的：通知应有应该有四种情况 管理员可看 书记 党员 全体
@@ -61,7 +62,7 @@ public class Inform {
 		this.info_Id = info_Id;
 	}
 	
-	@Column(name = "title", nullable = false, length = 19)
+	@Column(name = "title", nullable = false)
 	public String getTitle() {
 		return title;
 	}
@@ -69,7 +70,7 @@ public class Inform {
 		this.title = title;
 	}
 	
-	@Column(name = "content", nullable = false, length = 1000)
+	@Column(name = "content", nullable = false)
 	public String getContent() {
 		return content;
 	}

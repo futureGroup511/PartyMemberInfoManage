@@ -8,9 +8,11 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
 import com.future.partymember.base.BaseAction;
+import com.future.partymember.entity.Inform;
 import com.future.partymember.entity.PartySecretaryInfo;
 import com.future.partymember.entity.RedPaper;
 import com.future.partymember.entity.RedVideo;
+import com.future.partymember.util.PageCut;
 /**
  * 书记的转发类
  * @author 丁赵雷
@@ -48,6 +50,10 @@ public class PSForwardAction extends BaseAction {
 	
 	//转发到管理通知页面
 	public String fManageInfom(){
+		//先得到书记对象
+		PartySecretaryInfo psi=(PartySecretaryInfo) session.get("secretary");
+		PageCut<Inform> pc=informService.getQuery(1, 5, psi.getPst_Id());
+		this.getRequest().setAttribute("pc", pc);
 		return "manageInfom";
 	}
 	
