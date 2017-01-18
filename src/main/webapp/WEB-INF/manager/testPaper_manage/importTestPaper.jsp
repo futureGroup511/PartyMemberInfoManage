@@ -39,26 +39,29 @@
 			<form action="${rootPath}/manage/import_addTestPaper" method="post">
 				<table style="margin-top:-20px;">
 					<tr>
-						<td>试卷名称</td>
-						<td><input required="required" type="text" style="width:125%;" name="testPap.paperName"></td>
+						<td>试卷名称&nbsp;</td>
+						<td><input class="form-control" required="required" type="text" name="testPap.paperName" placeholder="试卷名称"></td>
 					</tr>
+					<tr><td> &nbsp;</td></tr>
 					<tr>
-						<td>试卷的说明</td>
-						<td><input type="text" style="width:125%;" name="testPap.description"></td>
+						<td>试卷的说明&nbsp;</td>
+						<td><input class="form-control" type="text" name="testPap.description" placeholder="试卷描述"></td>
 					</tr>
 				</table>
-				<input style="margin-top:15px;margin-left:17%;" type="reset" value="重置"> <input style="margin-left:18%;"type="submit"
-					value="添加">
+				<br>
+				<button class="btn btn-danger" style="margin-left:17%;" type="reset">重置</button> 
+				<button class="btn btn-success" style="margin-left:18%;"type="submit">添加</button>
 				<h3 style="color:red;margin-left:27%;" >${testPapMeg }</h3>
 			</form>
 		</div>
 		<h3>根据Excel导入试卷</h3>
-		<div class="main" style="margin-top:-20px;">
+		<div class="main" style="">
 			<form action="${rootPath }manage/import_importTest" method="post"
 				enctype="multipart/form-data">
-				试卷：<input required="required" type="file" name="testPaper"
+				Excel文件：<input required="required" type="file" name="testPaper"
 					accept="application/vnd.ms-excel, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet">
-				<button type="submit" style="margin-left:-10%;" >上传</button>
+					<br>
+				<button type="submit" class="btn btn-success">上传</button>
 			</form>
 			<h3 style="color:red;margin-left:27%;">${reminder}</h3>
 		</div>
