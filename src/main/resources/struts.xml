@@ -27,7 +27,7 @@
 		<action name="validation"   class="validationAction"  method="validation">
 		</action>
 		<action name="login" class="com.future.partymember.action.LoginAction">
-			<result name="partyMember">/WEB-INF/partyMember/index.jsp</result> 
+			<result name="partyMember" type="redirect" >${rootPath}party/partyLogin</result> 
 			<result name="partySecretary">/WEB-INF/partySecretary/personal/secretary-menu.jsp</result>
 			<result name="login">index.jsp</result>
 		</action>

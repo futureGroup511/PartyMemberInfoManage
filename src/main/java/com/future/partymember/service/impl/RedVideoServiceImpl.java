@@ -79,5 +79,9 @@ public class RedVideoServiceImpl implements IRedVideoService{
 		// TODO Auto-generated method stub
 		return redVideoDao.getPC(pageSize, curr,search);
 	}
+	@Override
+	public List<RedVideo> getRecommend(int num) {		
+		return redVideoDao.getRecommend(num);
+	}
 
 }

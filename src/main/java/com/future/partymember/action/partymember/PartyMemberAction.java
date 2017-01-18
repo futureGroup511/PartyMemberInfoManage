@@ -211,7 +211,7 @@ public class PartyMemberAction extends BaseAction {
 		int tp_Id=startTest.getTestPaper().getTp_Id();//试卷id
 		String paperName=startTest.getPaperName();//试卷名称
 		int testNum=startTest.getTestNum();//题数
-		int testTotalScore=startTest.getTotalScore();
+		int testTotalScore=startTest.getTotalScore();//试卷总分
 		String testTime=startTest.getTestTime();//考试时长
 		
 		//试题集合
@@ -226,10 +226,11 @@ public class PartyMemberAction extends BaseAction {
 			int qt_Id=Integer.valueOf(str.substring(1));//试题id
 			int score=0;//该题得分
 			Question question=(Question)questionsList.toArray()[i];//该题信息		
-			if(userAnswer.equals(question.getAnswer())){
-
+			if(userAnswer.equals(questionService.getAnswersByQtId(qt_Id).getAnswer())){
 				score=question.getQuestion_socre();
+				System.out.println(score);
 				totalScore+=score;
+				System.out.println(totalScore);
 			}
 			
 			

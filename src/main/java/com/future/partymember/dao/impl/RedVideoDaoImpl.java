@@ -36,6 +36,11 @@ public class RedVideoDaoImpl extends BaseDao<RedVideo> implements IRedVideoDao {
 	}
 
 	@Override
+	public List<RedVideo> getRecommend(int num) {	
+		return this.getEntityLimitList("from RedVideo order by watchNum desc", 0, num);
+	}
+	
+	@Override
 	public List<RedVideo> getList(int first, int num) {
 		return this.getEntityLimitList("from RedVideo order by id desc", first, num);
 	}
@@ -129,5 +134,7 @@ public class RedVideoDaoImpl extends BaseDao<RedVideo> implements IRedVideoDao {
 		pc.setData(query.list());
 		return pc;
 	}
+
+	
 
 }

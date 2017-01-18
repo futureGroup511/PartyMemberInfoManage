@@ -143,49 +143,20 @@
 </div><!--文章区结束-->
 <div id="video-warp"><!--视频列表区开始-->
 	<div class="picScroll-left">
-		<span class="ma">学生党员推荐课程</span>
+		<span class="ma">推荐课程</span>
 		<div class="hd">
 		   <a class="prev" href="javascript:void(0)"><p><</p></a>
 		</div>
 		<div class="bd">
              <div class="tempWrap" style="overflow:hidden; position:relative; width: 90%; margin-left:4.5%;">
                  <ul class="picList" style="width:100%; position: relative; overflow: hidden; padding: 0px; margin: 0px;">
-						<li style="float: left; width: 25%;">
-						    <div class="pic"><a href="html/video.html"><img src="${rootPath}images/1.jpg"></a></div>
-							<div class="title"><a href="#">效果图1</a></div>
-						</li>
-						<li style="float: left; width: 25%;">
-							<div class="pic"><a href="#"><img src="${rootPath}images/2.jpg"></a></div>
-							<div class="title"><a href="#">效果图2</a></div>
-						</li>
-						<li style="float: left; width: 25%;">
-							<div class="pic"><a href="#"><img src="${rootPath}images/3.jpg"></a></div>
-							<div class="title"><a href="#">效果图3</a></div>
-						</li>
-						<li style="float: left; width: 25%;">
-							<div class="pic"><a href="#"><img src="${rootPath}images/4.jpg"></a></div>
-							<div class="title"><a href="#">效果图4</a></div>
-						</li>
-						<li style="float: left; width: 25%;">
-							<div class="pic"><a href="#"><img src="${rootPath}images/5.jpg"></a></div>
-							<div class="title"><a href="#">效果图5</a></div>
-						</li>
-						<li style="float: left; width:25%;">
-							<div class="pic"><a href="#"><img src="${rootPath}images/9.png"></a></div>
-							<div class="title"><a href="#">效果图6</a></div>
-						</li>
-			            <li style="float: left; width:25%;">
-							<div class="pic"><a href="#"><img src="${rootPath}images/7.jpg"></a></div>
-							<div class="title"><a href="#">效果图7</a></div>
-						</li>
-			            <li style="float: left; width:25%;">
-							<div class="pic"><a href="#"><img src="${rootPath}images/8.jpg"></a></div>
-							<div class="title"><a href="#">效果图8</a></div>
-						</li>
-			            <li style="float: left; width:25%;">
-							<div class="pic"><a href="#"><img src="${rootPath}images/9.jpg"></a></div>
-							<div class="title"><a href="#">效果图9</a></div>
-						</li>
+                 	
+                 	<c:forEach items="${recommendVideosList}" var="new_video">
+                     		<li style="float: left; width: 25%;">
+							 	<div class="pic"><a href="html/video.html"><img src="${rootPath}${new_video.imgUrl}"></a></div>
+							 	<div class="title"><a href="#">${new_video.name}</a></div>
+						 	</li>
+                     </c:forEach> 						
 					</ul>
                  </div>
              </div>
@@ -194,49 +165,19 @@
 			</div>
 	  </div>
       <div class="picScroll-left second">
-			<span>学习课程</span>
+			<span>最新课程</span>
 			<div class="hd">
 				<a class="prev" href="javascript:void(0)"><p><</p></a>
 			</div>
 			<div class="bd">
                  <div class="tempWrap" style="overflow:hidden; position:relative; width: 90%; margin-left:4.5%;">
                      <ul class="picList" style="width:100%; position: relative; overflow: hidden; padding: 0px; margin: 0px;">
-					     <li style="float: left; width: 25%;">
-							 <div class="pic"><a href="html/video.html"><img src="${rootPath}images/1.jpg"></a></div>
-							 <div class="title"><a href="#">效果图1</a></div>
-						 </li>
-						 <li style="float: left; width: 25%;">
-							 <div class="pic"><a href="#"><img src="${rootPath}images/2.jpg"></a></div>
-							 <div class="title"><a href="#">效果图2</a></div>
-						 </li>
-						 <li style="float: left; width: 25%;">
-							 <div class="pic"><a href="#"><img src="${rootPath}images/3.jpg"></a></div>
-							 <div class="title"><a href="#">效果图3</a></div>
-						 </li>
-						 <li style="float: left; width: 25%;">
-							 <div class="pic"><a href="#"><img src="${rootPath}images/4.jpg"></a></div>
-							 <div class="title"><a href="#">效果图4</a></div>
-						 </li>
-						 <li style="float: left; width: 25%;">
-							 <div class="pic"><a href="#"><img src="${rootPath}images/5.jpg"></a></div>
-							 <div class="title"><a href="#">效果图5</a></div>
-						 </li>
-						 <li style="float: left; width:25%;">
-							 <div class="pic"><a href="#"><img src="${rootPath}images/9.png"></a></div>
-							 <div class="title"><a href="#">效果图6</a></div>
-						 </li>
-			             <li style="float: left; width:25%;">
-							 <div class="pic"><a href="#"><img src="${rootPath}images/7.jpg"></a></div>
-							 <div class="title"><a href="#">效果图7</a></div>
-						 </li>
-			             <li style="float: left; width:25%;">
-							 <div class="pic"><a href="#"><img src="${rootPath}images/8.jpg"></a></div>
-							 <div class="title"><a href="#">效果图8</a></div>
-						 </li>
-			             <li style="float: left; width:25%;">
-							 <div class="pic"><a href="#"><img src="${rootPath}images/9.jpg"></a></div>
-							 <div class="title"><a href="#">效果图9</a></div>
-						 </li>
+                     	 <c:forEach items="${newVideosList}" var="new_video">
+                     		<li style="float: left; width: 25%;">
+							 	<div class="pic"><a href="html/video.html"><img src="${rootPath}${new_video.imgUrl}"></a></div>
+							 	<div class="title"><a href="#">${new_video.name}</a></div>
+						 	</li>
+                     	</c:forEach> 					   
 					</ul>
                  </div>
              </div>

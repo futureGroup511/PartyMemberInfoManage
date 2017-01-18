@@ -9,7 +9,10 @@ public interface IRedVideoService {
 	boolean addVideo(RedVideo rv);
 	List<RedVideo> getAll();
 	RedVideo get(int id);
+	//最新视频
 	List<RedVideo> getNew(int num);
+	//推荐视频
+	List<RedVideo> getRecommend(int num);
 	List<RedVideo> getList(int first,int num);
 	void delete(int id);
 	//视频浏览次数加一
