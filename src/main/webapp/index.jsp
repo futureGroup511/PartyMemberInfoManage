@@ -77,7 +77,7 @@ $(function(){
 </script>
 <script type="text/javascript">
 	function refresh() {
-		document.getElementById("yan").src = "${rootPath}manage/validation?s="
+		document.getElementById("yan").src = "${rootPath}validation?s="
 				+ new Date();
 	}
 </script>
