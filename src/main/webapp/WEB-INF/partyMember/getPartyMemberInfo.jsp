@@ -6,193 +6,83 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>查看个人信息</title>
-<link rel="stylesheet" href="${rootPath}css/bootstrap.css">
-<link rel="stylesheet" href="${rootPath}css/index-one.css">
-<link rel="stylesheet" href="${rootPath}css/table.css">
+<link rel="stylesheet" href="${rootPath}css/partyMember/bootstrap.css">
+<link rel="stylesheet" href="${rootPath}css/partyMember/getPartyMemberInfo.css">
 <script src="${rootPath}js/jquery-2.2.3.min.js"></script>
 <script src="${rootPath}js/bootstrap.js"></script>
 </head>
 
 <body>
-	<div class="container">
-		<div class="header">
-		 <div class="row">
-		   <div class="col-lg-1 col-lg-offset-3 col-md-1 col-md-offset-3 col-xs-1 col-xs-offset-3">
-			  <img src="${rootPath}images/header-logo.png">
-		   </div>
-		   <div class="col-lg-8 col-md-8 col-xs-8">
-			    <p>河南科技学院党员信息管理系统</p>
-		   </div>
-		  </div>
-		 </div>
-	</div>
-	<div class="body">
-		<div class="header-one">
-			<img src="${rootPath}images/header-one.png">
-		</div>
-		<div class="header-two">
-			<img src="${rootPath}images/header-two.png">
-		</div>
-		<div class="header-three">
-			<p id="headline" class="demo-text one">河南科技学院党员信息管理</p>
-			<p class="two">河南科技学院党委主办</p>
-		</div>
-	</div>
-	<div class="nav navbar-top">
-		<div class="row">
-			<div
-				class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 col-xs-8 col-xs-offset-2">
-				<ul class=" nav navbar-nav">
-					<li class="active"><a href="partyLogin.action">首页</a></li>
-					<li><a href="partyMemberAction_viewVideos.action">红色视频</a></li>
-					<li class="dropdown"><a href="##" data-toggle="dropdown"
-						class="dropdown-toggle">个人信息<span class="caret"></span></a>
-						<ul class="dropdown-menu">
-							<li><a href="partyMemberAction_seekPartyMemberInfo.action">查看个人信息</a></li>
-							<li><a href="partyMemberAction_getInfoBeforeUpdate.action">修改个人信息</a></li>
-						</ul></li>
-					<!-- <li><a href="partyMemberAction_seekPartyMemberInfo.action">查看个人信息</a></li>
-					<li><a href="partyMemberAction_getInfoBeforeUpdate.action">修改个人信息</a></li> -->
-					<li><a href="##">红色文章</a></li>
-					<li><a href="##">在线考试</a></li>
-				</ul>
-			</div>
-			<div class="col-lg-2 col-md-2 col-xs-2">
-				<span class="one"><!-- <a href="##">登录</a></span> <span class="two"> --><a
-					href="##">退出</a></span>
-			</div>
-		</div>
-	</div>
-	<div class="body-five">
-		<img src="${rootPath}images/footer-one.png">
-	</div>
-	<!-- 个人信息 -->
-	
-	
-		<%-- <table>
-			<tr>
-				<td>账号</td>
-				<td>${partyMember.account}</td>
-			</tr>
-			<tr>
-				<td>用户类别</td> 
-				<td>${partyMember.sort}</td>
-			</tr>
-			<tr>
-				<td>姓名</td>
-				<td>${partyMember.username}</td>
-			</tr>						
-			<tr>
-				<td>性别</td>
-				<td>${partyMember.sex}</td>
-			</tr>
-			<tr>
-				<td>年龄</td>
-				<td>${partyMember.age}</td>
-			</tr>
-			<tr>
-				<td>民族</td>
-				<td>${partyMember.nation}</td>
-			</tr>
-			<tr>
-				<td>出生日期</td>
-				<td>${partyMember.birthdate}</td>
-			</tr>
-			<tr>
-				<td>身份证号码</td>
-				<td>${partyMember.idCard}</td>
-			</tr>
-			<tr>
-				<td>籍贯</td>
-				<td>${partyMember.nativePlace}</td>
-			</tr>
-			<tr>
-				<td>入党日期</td>
-				<td>${partyMember.joinPartyDate}</td>
-			</tr>
-			<tr>
-				<td>职务</td>
-				<td>${partyMember.duties}</td>
-			</tr>
-			<tr>
-				<td>介绍人</td>
-				<td>${partyMember.introducer}</td>
-			</tr>
-			<tr>
-				<td>所在党支部</td>
-				<td>${partyMember.partyBranch}</td>
-			</tr>
-			<tr>
-				<td>学习时间</td>
-				<td>${learnTime}</td>
-			</tr>
-			<tr>
-				<td>手机号</td>
-				<td>${partyMember.phoneNo}</td>
-			</tr>
-			<tr>
-				<td>注册时间</td>
-				<td>${partyMember.loginDate}</td>
-			</tr>
-		</table> --%>
-	<div class="table-responsive">
-    <table class="table table-bordered table-hover table-striped">
-    <thead>
-      <tr class="two">
-         <th>账号</th>
-         <th>用户类型</th>
-         <th>姓名</th>
-         <th>性别</th>
-         <th>年龄</th>
-          <th>民族</th>
-         <th>出生日期</th>
-         <th>身份证号码</th>
-       </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>1</td>
-          <td>党员</td>
-          <td>静怡</td>
-          <td>女</td>
-          <td>1</td>
-          <td>汉</td>
-          <td>2016-12-03</td>
-          <td>1</td>
-        </tr>
-        <tr>
-         <th>籍贯</th>
-         <th>入党日期</th>
-         <th>职务</th>
-         <th>介绍人</th>
-         <th>所在党支部</th>
-         <th>学习时间</th>
-         <th>手机号</th>
-         <th>注册时间</th>
-        </tr>
-        <tr>
-          <td>汉</td>
-          <td>2016-12-03</td>
-          <td>党员</td>
-          <td>史蒂夫</td>
-          <td>河科院</td>
-          <td>1669</td>
-          <td>12657788922</td>
-          <td>2016-12-03</td>
-        </tr>
-      </tbody>
-    </table>
+<div id="header">
+     <div class="header-left">
+          <img src="${rootPath}images/header-logo.png">
+      </div>
+      <div class="header-center">
+              <p class="top"><b><strong>河南科技学院信息工程学院党委主办</strong></b></p>
+              <p class="bottom"><b><strong>河南科技学院党员在线</strong></b></p>
+       </div>
+       <div class="header-right">
+             <div>
+    		     <select>
+						<option>时事新闻</option>
+						<option>生活百科</option>
+						<option>新闻动态</option>
+						<option>通知公告</option>
+				 </select>
+                  <input type="text" name="select" placeholder="请输入您要搜索的内容">
+                   <button class="btn"><img src="images/sousuo.png" width="22" height="22"></button>
+             </div>
+       </div>
 </div>
-	
-	<div class="footer">
-		<img src="${rootPath}images/footer.png">
-		<div class="footer-one">
-			<p>河南科技学院党员网站 京ICP备11032580号</p>
-			<p>Copyright © 2012 by zgdsw.org.cn. all rights reserved</p>
-		</div>
-	</div>
-	
+<div class="nav">
+     <div class="row">
+       <div class="col-lg-8 col-lg-offset-3 col-md-8 col-md-offset-3 col-xs-8 col-xs-offset-3">
+         <ul class="nav navbar-nav">
+              <li><a href="${rootPath}party/partyLogin.action">网站首页</a></li>
+              <li><a href="${rootPath }party/partyMemberAction_getResPaper.action">红色文章</a></li>
+              <li><a href="${rootPath}party/partyMemberAction_viewVideos.action">红色视频</a></li>
+              <li><a href="${rootPath}party/partyMemberAction_startTest.action">在线考试</a></li>
+              <li class="dropdown"><a href="#" data-toggle="dropdown" class="dropdown-toggle">个人中心<span class="caret"></span></a>
+                   <ul class="dropdown-menu">
+                         <li><a href="${rootPath}party/partyMemberAction_seekPartyMemberInfo.action">个人信息</a></li>
+                         <li><a href="${rootPath}party/partyMemberAction_getInfoBeforeUpdate.action">修改信息</a></li>
+                         <li><a href="${rootPath}party/partyMemberAction_getMyExamLog.action">考试报告</a></li>
+                   </ul>
+               </li>
+              <li><a href="information.jsp">通知公告</a></li>
+              <li><a href="${rootPath}connect_us.jsp">联系我们</a></li>
+         </ul>
+        </div>
+     </div>
+</div>
+<div id="body">
+ <div id="body-one">
+   <p><img src="${rootPath}images/topimg.png"> <span>您的位置：首页>个人中心>个人信息</span></p>
+ </div>
+ <div id="body-two">
+  <p>个人信息</p>
+  <ol>
+  	<li><span>账号：</span><span>${partyMember.account}</span></li>
+	 <li><span>姓名：</span><span>${partyMember.username}</span></li>
+	 <li><span>性别：</span><span>${partyMember.sex}</span></li>
+	 <li><span>年龄：</span><span>${partyMember.age}</span></li>
+	 <li><span>民族：</span><span>${partyMember.nation}</span></li>
+	 <li><span>出生日期：</span><span>${partyMember.birthdate}</span></li>
+	 <li><span>籍贯：</span><span>${partyMember.nativePlace}</span></li>
+	 <li><span>身份证号码：</span><span>${partyMember.idCard}</span></li>
+	 <li><span>入党日期：</span><span>${partyMember.joinPartyDate}</span></li>
+	 <li><span>职务：</span><span>${partyMember.duties}</span></li>
+	 <li><span>介绍人：</span><span>${partyMember.introducer}</span></li>
+	 <li><span>所在党支部：</span><span>${partyMember.partyBranch}</span></li>
+	 <li><span>学习时间：</span><span>${partyMember.learnTime}</span></li>
+	 <li><span>手机号：</span><span>${partyMember.phoneNo}</span></li>
+	 <li><span>注册时间：</span><span>${partyMember.loginDate}</span></li>																						 
+  </ol>
+  </div>
+</div>
+<!-- <footer id="footer-warp">页脚开始
+		<p class="footer"><a href="">网站声明</a> &nbsp; &nbsp;<span>|</span> &nbsp; &nbsp;<a href="">关于我们 &nbsp; &nbsp;</a><span>|</span> &nbsp; &nbsp;<a href="">联系我们</a></p>
+		<p>Copyright @ 2016 All rights reserved.　　版权所有：河南科技学院党委</p>
+</footer>页脚结束	 -->
 </body>
 </html>
-
-	
