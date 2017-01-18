@@ -14,6 +14,7 @@ public class StartTest {
 	private String testTime;//考试时长
 	private int totalScore;//试卷总分
 	
+ 
 	public int getTotalScore() {
 		return totalScore;
 	}
@@ -21,6 +22,7 @@ public class StartTest {
 	public void setTotalScore(int totalScore) {
 		this.totalScore = totalScore;
 	}
+
 
 	public int getTestNum() {
 		return testNum;

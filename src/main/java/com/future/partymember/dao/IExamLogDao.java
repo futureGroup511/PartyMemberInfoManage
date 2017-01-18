@@ -13,4 +13,5 @@ public interface IExamLogDao{
 	public List<ExamLog> getAllExamLogBypartyMemberId(int partyMemberId,int partySort);
 	//根据用户id，用户身份，试卷id获得考试总分
 	public ExamLog getExamLogByTpId(int partyMemberId,int partySort,int tp_Id);
+
 }

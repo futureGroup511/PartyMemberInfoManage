@@ -31,6 +31,7 @@ public class ExamLogDaoImpl extends BaseDao<ExamLog> implements IExamLogDao {
 
 	@Override
 	public List<ExamLog> getAllExamLogBypartyMemberId(int partyMemberId, int partySort) {
+
 		String hql="from ExamLog e where e.partyMemberId='"+partyMemberId+"' and e.partySort='"+partySort+"'";
 		return this.getEntityList(hql);
 	}
@@ -39,6 +40,7 @@ public class ExamLogDaoImpl extends BaseDao<ExamLog> implements IExamLogDao {
 	public ExamLog getExamLogByTpId(int partyMemberId, int partySort, int tp_Id) {
 		String hql="from ExamLog e where  e.partyMemberId="+partyMemberId+" and e.partySort="+partySort +"and e.paper_Id="+tp_Id;
 		return (ExamLog)this.uniqueResult(hql);
+
 	}
 
 }

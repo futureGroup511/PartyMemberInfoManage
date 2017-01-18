@@ -18,12 +18,21 @@
 		<div>
 			<c:choose>
 				<c:when test="${q.myAnswer!=null}">
-					<div>你的答案：${q.myAnswer} <img src="${rootPath}images/cross.gif" style="height: 20px;width: 20px;"></div>
+					
+					A:${q.a}<br>
+					B:${q.b}<br>
+					C:${q.c}<br>
+					D:${q.d}<br>
+					<div>你的答案：${q.myAnswer} <img src="${rootPath}images/cross.gif" style="height: 20px;width: 20px;"></div>					
 					<div>正确答案${q.answer}</div>
 					<div>解析：${q.analysis}</div>
 				</c:when>
 				<c:otherwise>
-					<div>你的答案：${q.answer} <img src="${rootPath}images/complete.gif" style="height: 20px;width: 20px;"></div>				
+					A:${q.a}<br>
+					B:${q.b}<br>
+					C:${q.c}<br>
+					D:${q.d}<br>
+					<div>你的答案：${q.answer} <img src="${rootPath}images/complete.gif" style="height: 20px;width: 20px;"></div>									
 					<div>解析：${q.analysis}</div>
 				</c:otherwise>
 			</c:choose>		
