@@ -3,6 +3,7 @@ package com.future.partymember.dao;
 import java.util.List;
 
 import com.future.partymember.entity.ExamLog;
+import com.future.partymember.util.PageCut;
 
 public interface IExamLogDao{
 	public Boolean addExamLog(ExamLog examLog);
@@ -14,4 +15,5 @@ public interface IExamLogDao{
 	//根据用户id，用户身份，试卷id获得考试总分
 	public ExamLog getExamLogByTpId(int partyMemberId,int partySort,int tp_Id);
 
+	PageCut<ExamLog> getPC(int current,int pageSize,String search);
 }

@@ -2,6 +2,8 @@ package com.future.partymember.entity;
 
 import static javax.persistence.GenerationType.IDENTITY;
 
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -36,6 +38,8 @@ public class RedVideo {
 	private String imgUrl;
 	private int watchNum;//观看次数
 	private int rv_tag;//视频状态
+	
+	private Date createTime;
 	
 	public RedVideo(){
 		
@@ -105,6 +109,14 @@ public class RedVideo {
 	public String toString() {
 		return "RedVideo [rv_Id=" + rv_Id + ", name=" + name + ", description=" + description + ", videoUrl=" + videoUrl
 				+ ", imgUrl=" + imgUrl + ", watchNum=" + watchNum + ", rv_tag=" + rv_tag + "]";
+	}
+
+	public Date getCreateTime() {
+		return createTime;
+	}
+
+	public void setCreateTime(Date createTime) {
+		this.createTime = createTime;
 	}
 	
 	

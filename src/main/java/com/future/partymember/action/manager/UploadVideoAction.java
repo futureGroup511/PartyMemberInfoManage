@@ -69,7 +69,7 @@ public class UploadVideoAction extends BaseAction {
 		RedVideo rv=new RedVideo(videoFileName,videoDescription,"upload/video/"+fileName,0,1);
 		
 		rv.setImgUrl("upload/video/"+imgName);
-		
+		rv.setCreateTime(new Date());
 		redVideoService.addVideo(rv);
 		this.getRequest().setAttribute("remind", videoFileName+"上传成功");
 		return SUCCESS;
@@ -99,7 +99,9 @@ public class UploadVideoAction extends BaseAction {
 		inImg.close();
 		outImg.close();
 		redVideo.setImgUrl(imgName);
+		redVideo.setCreateTime(new Date());
 		redVideoService.addVideo(redVideo);
+		
 		this.getRequest().setAttribute("remind", "添加成功");
 		return SUCCESS;
 	}

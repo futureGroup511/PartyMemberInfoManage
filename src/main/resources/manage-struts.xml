@@ -47,6 +47,7 @@
 			<result name="toStartTest">/WEB-INF/manager/testPaper_manage/startTest.jsp</result>	
 			<result name="startTest">/WEB-INF/manager/testPaper_manage/startTest.jsp</result>					
 			<result name="update">/WEB-INF/manager/testPaper_manage/questionChange.jsp</result>
+			<result name="log">/WEB-INF/manager/testPaper_manage/log.jsp</result>
 		</action>
 		
 		<action name="index_*" method="{1}"
