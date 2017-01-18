@@ -92,7 +92,7 @@
 $(".leftsidebar_box dt").css({"background-color":"#B9160A"/*一级菜单未点击背景颜色*/});
 $(".leftsidebar_box dt img").attr("src","${rootPath }images/select_xl01.png");
 $(function(){
-	$("#box-scroll").height=$("#box-scroll").offsetHeight - 1;
+	//$("#box-scroll").height=$("#box-scroll").offsetHeight - 1;
     $(".leftsidebar_box dd").hide();
     $(".leftsidebar_box dt").click(function(){
         $(".leftsidebar_box dt").css({"background-color":"#B9160A"/*一级菜单非点击状态的菜单颜色*/})
