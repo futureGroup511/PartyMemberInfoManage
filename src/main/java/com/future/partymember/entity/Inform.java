@@ -31,6 +31,7 @@ public class Inform {
 	private Date sendDate;//发布时间
 	@Column(length=20)
 	private String partBranch;//所属党支部
+
 	/**
 	 * 添加人：丁赵雷
 	 * 目的：通知应有应该有四种情况 管理员可看 书记 党员 全体
@@ -121,6 +122,15 @@ public class Inform {
 			return "未定义";
 		}
 	}
+	
+	
+	@Override
+	public String toString() {
+		return "Inform [info_Id=" + info_Id + ", title=" + title + ", content=" + content + ", senderId=" + senderId
+				+ ", senderType=" + senderType + ", addresser=" + addresser + ", sendDate=" + sendDate + ", partBranch="
+				+ partBranch + ", info_tag=" + info_tag + "]";
+	}
+
 
 	public int getSenderId() {
 		return senderId;

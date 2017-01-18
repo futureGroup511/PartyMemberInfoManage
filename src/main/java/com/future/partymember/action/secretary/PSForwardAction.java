@@ -28,8 +28,9 @@ public class PSForwardAction extends BaseAction {
 	private static final long serialVersionUID = 1L;
 	
 	private PartySecretaryInfo  partySecretaryInfo;//书记实体类
+	private Inform inform;
 	
-	
+
 	public String login() throws Exception{
 		//判断登录
 		if((partySecretaryInfo=partySecretaryInfoService.
@@ -43,6 +44,14 @@ public class PSForwardAction extends BaseAction {
 		}
 	}
 	
+	
+	//转发到修改通知页面
+	public String fUpdateInform(){
+		Inform i=informService.getById(inform.getInfo_Id());
+		this.getRequest().setAttribute("inform", i);
+		return "fUpdateInform";
+	}
+	
 	//转发到发布通知页面
 	public String fAddInform(){	
 		return "addInform";
@@ -52,7 +61,7 @@ public class PSForwardAction extends BaseAction {
 	public String fManageInfom(){
 		//先得到书记对象
 		PartySecretaryInfo psi=(PartySecretaryInfo) session.get("secretary");
-		PageCut<Inform> pc=informService.getQuery(1, 5, psi.getPst_Id());
+		PageCut<Inform> pc=informService.getQuery(1, 5,psi.getPst_Id());
 		this.getRequest().setAttribute("pc", pc);
 		return "manageInfom";
 	}
@@ -63,14 +72,14 @@ public class PSForwardAction extends BaseAction {
 		
 	}
 	
-	//转发到在线视频列表页
+/*	//转发到在线视频列表页
 	public String videoList() throws Exception{
 		List<RedVideo> videosList=new ArrayList<RedVideo>();
 		videosList=redVideoService.getAll();
 		this.getRequest().setAttribute("videosList", videosList);
 		return "videoList";
 	}
-	
+	*/
 	//转发到在线文章列表页
 	public String paperList() throws Exception{
 		List<RedPaper> paperList=redPaperService.findPaperByType();
@@ -86,6 +95,13 @@ public class PSForwardAction extends BaseAction {
 	}
 	public void setPartySecretaryInfo(PartySecretaryInfo partySecretaryInfo) {
 		this.partySecretaryInfo = partySecretaryInfo;
+	}
+	
+	public Inform getInform() {
+		return inform;
+	}
+	public void setInform(Inform inform) {
+		this.inform = inform;
 	}
 
 }

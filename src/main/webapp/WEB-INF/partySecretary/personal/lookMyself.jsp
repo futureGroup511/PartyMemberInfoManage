@@ -15,7 +15,7 @@
 				<span>民族：</span><span>${secretary.nation}</span><br>
 				<span>籍贯：</span><span>${secretary.nativePlace}</span><br>
 				<span>手机号：</span><span id="phone">${secretary.phoneNo}</span><input type="button"  value="修改" onclick="updatePhone()"><br>
-				<span>学习时长：</span><span>${secretary.strLearnTime }</span>
+				<span>学习时长：</span><span>${secretary.strLearnTime }</span><br>
 				<span>注册日期：</span><span>${secretary.loginDate}</span><br>
 				<span>出生日期：</span><span>${secretary.birthdate}</span><br>
 				<span>身份证号：</span><span>${secretary.idCard}</span><br>

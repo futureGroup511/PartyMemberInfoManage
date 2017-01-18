@@ -23,8 +23,8 @@
 						<li><a href="${rootPath }secretary/partySecretary_lookMyself">查看所属党员个人信息</a></li>
 						<li><a href="${rootPath }secretary/pSForward_fUpdataPerson">查看所属党员考试记录</a></li>
 					</ol>
-				<li><a href="${rootPath }secretary/pSForward_videoList">通知消息</a></li>
-				<li><a href="${rootPath }secretary/pSForward_videoList">在线视频</a></li>
+				<li><a href="${rootPath }secretary/partySecretary_informList">通知消息</a></li>
+				<li><a href="${rootPath }secretary/partySecretary_videoList">在线视频</a></li>
 				<li><a href="${rootPath }secretary/pSForward_paperList">在线文章</a></li>
 				<li><a href="${rootPath }secretary/pSForward_paperList">在线考试</a></li>
 				<li><a href="${rootPath }secretary/pSForward_paperList">通知管理</a>

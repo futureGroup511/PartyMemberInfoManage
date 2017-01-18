@@ -3,7 +3,6 @@ package com.future.partymember.action.secretary;
 import java.util.Date;
 import java.util.List;
 
-import javax.persistence.Column;
 
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
@@ -29,6 +28,8 @@ public class PartySecretaryAction extends BaseAction {
 	private PartySecretaryInfo partySecretaryInfo;
 	private PageCut<?> pageCut; 
 	private Inform inform;//用来封装通知消息的
+	private int page=1;
+
 
 
 
@@ -41,6 +42,64 @@ public class PartySecretaryAction extends BaseAction {
 	 */
 	public String lookMyself() throws Exception{
 		return "lookMyself";
+	}
+	
+	
+	//查看通知
+	public String lookInform(){
+		if(inform.getInfo_Id()!=0){
+			Inform i=informService.getById(inform.getInfo_Id());
+			this.getRequest().setAttribute("inform", i);
+		}
+		
+		return "lookInform";
+	}
+	
+	
+	//通知列表
+	public String informList(){
+		
+		System.out.println("通知列表的分页"+page);
+		PageCut<Inform> pc=informService.getInformList(page, 5);
+		this.getRequest().setAttribute("pc", pc);
+		return "informList";
+	}
+	
+	//修改通知
+	public String updateInform(){
+		Inform i=informService.getById(inform.getInfo_Id());
+		System.out.println("修改通知的id"+inform.getInfo_Id());
+		if(inform.getTitle().equals("")||inform.getContent().equals("")){
+			this.getRequest().setAttribute("notice", "内容不能为空");
+		}else{
+			System.out.println("修改通知的内容"+inform.getContent());
+			System.out.println("修改通知的标题"+inform.getTitle());
+			i.setContent(inform.getContent());
+			i.setTitle(inform.getTitle());
+			System.out.println(i);
+			informService.updateInform(i);//更新通知
+			this.getRequest().setAttribute("notice", "修改成功");
+		}
+		return "updateInform";
+	}
+	
+	
+	//删除通知
+	public String deleteInform(){
+		if(inform.getInfo_Id()!=0){
+			informService.deleteInform(inform.getInfo_Id());//删除记录
+			this.getRequest().setAttribute("notice", "编号为"+inform.getInfo_Id()+"的通知删除成功");
+		}else{
+			this.getRequest().setAttribute("notice", "您的操作不合法");
+		}
+
+		int page = Integer.parseInt(this.getRequest().getParameter("page"));
+		System.out.println("通知的分页"+page);
+		//先得到书记对象
+		PartySecretaryInfo psi=(PartySecretaryInfo) session.get("secretary");
+		PageCut<Inform> pc=informService.getQuery(page, 5, psi.getPartyBranch());
+		this.getRequest().setAttribute("pc", pc);
+		return "manageInfom";
 	}
 	
 	
@@ -68,6 +127,7 @@ public class PartySecretaryAction extends BaseAction {
 			inform.setSendDate(new Date());
 			inform.setSenderId(psi.getPst_Id());
 			inform.setInfo_tag(7);
+			inform.setPartBranch(psi.getPartyBranch());
 			informService.addInform(inform);//插入一条记录
 			this.getRequest().setAttribute("notice", "发布成功");
 		}
@@ -133,6 +193,13 @@ public class PartySecretaryAction extends BaseAction {
 	}
 	
 	
+	//视频列表和分页
+	public String videoList(){
+		
+		return "videoList";
+	}
+	
+	
 	//观看视频
 	public String lookVideo() throws Exception{
 		int id=Integer.parseInt(this.getRequest().getParameter("rv_Id"));//视频id
@@ -177,7 +244,7 @@ public class PartySecretaryAction extends BaseAction {
 	
 	
 	/**
-	 * 更新党员的学习时间和视频播放记录历史 丁赵雷 ---焦祥宇修改过
+	 * 更新书记的学习时间和视频播放记录历史 丁赵雷 
 	 */
 	public void updateLearnTime() throws Exception {
 
@@ -196,7 +263,7 @@ public class PartySecretaryAction extends BaseAction {
 		partySecretaryInfoService.updatePersonInfo(psi);//更新个人学习时间
 		
 		// 视频播放记录历史
-		System.out.println("*******视频vvvcvdd1播放记录历史******");
+		System.out.println("*******视频播放记录历史******");
 		String vt = getRequest().getParameter("currentTime");
 		long currentTime = 0;
 		if (vt.indexOf(".") > 0) {
@@ -274,11 +341,11 @@ public class PartySecretaryAction extends BaseAction {
 		this.partySecretaryInfo = partySecretaryInfo;
 	}
 	
-	public PageCut getPageCut() {
+	public PageCut<?> getPageCut() {
 		return pageCut;
 	}
 
-	public void setPageCut(PageCut pageCut) {
+	public void setPageCut(PageCut<?> pageCut) {
 		this.pageCut = pageCut;
 	}
 	
@@ -290,6 +357,16 @@ public class PartySecretaryAction extends BaseAction {
 	public void setInform(Inform inform) {
 		this.inform = inform;
 	}
+	
+	public int getPage() {
+		return page;
+	}
+
+
+	public void setPage(int page) {
+		this.page = page;
+	}
+
 
 
 }

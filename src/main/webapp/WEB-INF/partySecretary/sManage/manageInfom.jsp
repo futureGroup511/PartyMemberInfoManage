@@ -30,8 +30,8 @@
 					<td>${inform.info_Id }</td>
 					<td>${inform.title }</td>
 					<td>${inform.sendDate }</td>
-					<td><a href="${rootPath }manage/inform_change?inform.info_Id=${inform.info_Id}">管理</a></td>
-					<td><a href="${rootPath }manage/inform_delete?page=${pc.currentPage }&inform.info_Id=${inform.info_Id}">删除</a></td>
+					<td><a href="${rootPath }secretary/pSForward_fUpdateInform?inform.info_Id=${inform.info_Id}">管理</a></td>
+					<td><a href="${rootPath }secretary/partySecretary_deleteInform?page=${pc.currentPage }&inform.info_Id=${inform.info_Id}">删除</a></td>
 				</tr>
 			</c:forEach>
 
@@ -41,7 +41,7 @@
 		<ul class="pagination">
 			<li><a href="${rootPath }secretary/partySecretary_paperInform?page=${pc.prePage}">上一页</a></li>
 			<c:if test="${1 < pc.currentPage -3}">
-				<li><a href="${rootPath }secretary/partySecretary_paperInform">1</a></li>
+				<li><a href="${rootPath }secretary/partySecretary_paperInform?page=1">1</a></li>
 			</c:if>
 			
 			<c:forEach var="i" begin="${pc.currentPage-3>0?pc.currentPage-3:1 }" end="${pc.currentPage+3>pc.pageNum?pc.pageNum:pc.currentPage+3  }">
@@ -59,6 +59,14 @@
 		</ul>
 
 	</div>
-
+<script type="text/javascript">
+	var notice = "${notice}";
+	if(notice===""){
+		
+	}else{
+		alert(notice);
+	}
+	
+</script>
 </body>
 </html>

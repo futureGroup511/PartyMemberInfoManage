@@ -47,4 +47,22 @@ public class InformServiceImpl implements IInformService{
 		String hqlCount="select count(*) from Inform where senderId=? and senderType =1";
 		return informDao.getQuery(curr, pageSize, hql, hqlCount,objects);
 	}
+
+	//书记在查看通知时用到的方法
+	@Override
+	public PageCut<Inform> getInformList(int curr, int pageSize, Object... objects) {
+		String hql="from Inform where  senderType =1 order by info_Id desc";
+		String hqlCount="select count(*) from Inform where senderType =1";
+		return informDao.getQuery(curr, pageSize, hql, hqlCount,objects);
+	}
+	
+	
+/*	public PageCut<Inform> getQuery(int curr, int pageSize ,Object ...objects) {
+		String hql="from Inform where partBranch=? and senderType =1 order by info_Id desc";
+		String hqlCount="select count(*) from Inform where partBranch=? and senderType =1";
+		return informDao.getQuery(curr, pageSize, hql, hqlCount,objects);
+	}*/
+
+	
+	
 }
