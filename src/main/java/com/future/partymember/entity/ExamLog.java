@@ -26,6 +26,7 @@ public class ExamLog {
 	private int paper_Id;//试卷id
 	private String paperName;//试卷名称
 	private int partyMemberId;//党员的id
+	private String partyMemberName;//党员名称
 	private int  partySort;//党员身份     1:书记  0：党员
 	private int totalScore;//考试总成绩
 	private Date examTime;//考试时间
@@ -35,14 +36,14 @@ public class ExamLog {
 	
 	public ExamLog() {
 		
-	}
-	
-	public ExamLog(int paper_Id, String paperName, int partyMemberId, int partySort, int totalScore, Date examTime,
-			String testTime, int testTotalScore, int testNum) {
+	}		
+	public ExamLog(int paper_Id, String paperName, int partyMemberId, String partyMemberName, int partySort,
+			int totalScore, Date examTime, String testTime, int testTotalScore, int testNum) {
 		super();
 		this.paper_Id = paper_Id;
 		this.paperName = paperName;
 		this.partyMemberId = partyMemberId;
+		this.partyMemberName = partyMemberName;
 		this.partySort = partySort;
 		this.totalScore = totalScore;
 		this.examTime = examTime;
@@ -50,7 +51,6 @@ public class ExamLog {
 		this.testTotalScore = testTotalScore;
 		this.testNum = testNum;
 	}
-
 
 
 	@Id
@@ -90,6 +90,14 @@ public class ExamLog {
 		this.partyMemberId = partyMemberId;
 	}
 	
+	public String getPartyMemberName() {
+		return partyMemberName;
+	}
+
+	public void setPartyMemberName(String partyMemberName) {
+		this.partyMemberName = partyMemberName;
+	}
+
 	@Temporal(TemporalType.DATE)
 	@Column(name = "examTime",  nullable = false)
 	public Date getExamTime() {

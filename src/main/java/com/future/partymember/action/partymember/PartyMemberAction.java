@@ -211,9 +211,9 @@ public class PartyMemberAction extends BaseAction {
 		int tp_Id=startTest.getTestPaper().getTp_Id();//试卷id
 		String paperName=startTest.getPaperName();//试卷名称
 		int testNum=startTest.getTestNum();//题数
-
 		int testTotalScore=startTest.getTotalScore();
 		String testTime=startTest.getTestTime();//考试时长
+		
 		//试题集合
 		@SuppressWarnings("unchecked")
 		List<Question> questionsList=(List<Question>) this.getSession().get("questionsList");
@@ -237,8 +237,8 @@ public class PartyMemberAction extends BaseAction {
 			//保存考试详细记录		
 			examPerRecordService.addExamPerRecord(examPerRecord);			
 		}
-
-		ExamLog examLog=new ExamLog(tp_Id,paperName,userId,userSort,totalScore,new Date(),testTime,testTotalScore,testNum);
+		String partyMemberName=partyMemberInfoService.getPartyMemberInfoById(userId).getUsername();
+		ExamLog examLog=new ExamLog(tp_Id,paperName,userId,partyMemberName,userSort,totalScore,new Date(),testTime,testTotalScore,testNum);
 		Boolean bool=examLogService.addExamLog(examLog);
 		if(bool==true){
 			this.getRequest().setAttribute("addExamLogMsg", "提交成功！");

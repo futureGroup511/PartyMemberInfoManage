@@ -1,0 +1,163 @@
+@charset "utf-8";
+/* CSS Document */
+*{
+	padding:0;
+	margin:0;
+}
+body{
+	font-family: 微软雅黑;
+}
+#header{
+	margin-top: 32px;
+}
+#header{
+	height:130px;
+}
+#header div{
+	float: left;
+}
+#header .header-left{
+	width:7%;
+	margin-left: 12%;
+}
+#header .header-left img{
+	width:90%;
+}
+#header .header-center{
+	color:#E91F2F;
+	padding-top: 10px;
+}
+#header .header-center .top{
+	font-size: 16px;
+	font-weight: 100;
+	font-family: 微软雅黑;
+}
+#header .header-center .bottom{
+	font-size: 33px;
+	text-shadow:1px 1px 2px grey;
+	font-family: 微软雅黑;
+	font-weight: 900;}
+#header .header-center{
+	width:30%;
+}
+#header .header-right{
+	width:28%;
+	margin-left:10%;
+	margin-top: 18px;
+}
+.header-right div{
+	border: 2px solid #DB0B18;
+	width: 85%;
+	margin-top: 5%;
+	margin-left:6%;
+	border-radius: 6px;
+}
+.header-right div select{
+  border:none;
+	width:25%;
+	height:40px;
+	appearance:none;
+  -moz-appearance:none;
+  -webkit-appearance:none;
+  background:url(../images/xiala.png) no-repeat right;
+	font-family: 微软雅黑;
+}
+.header-right div button{
+	background-color: #DB0B18;
+	float:right;
+	height:41px;
+	font-family: 微软雅黑;
+}
+.header-right div select option{
+	background-color: none;
+	color: black;
+	border: none;
+	font-family: 微软雅黑;
+}
+
+.header-right div select option a:hover{
+	background-color: #FFFFFF;
+}
+.header-right input{
+	margin-top: 10px;
+	border: none;
+	font-family: 微软雅黑;
+}
+.nav{
+	margin-top: 10px;
+	background-color: #DB0B18;
+}
+.nav .row{
+	width:100%;
+}
+.nav .row li{
+	font-size: 16px;
+	font-weight: 550;
+	font-family: 微软雅黑;
+}
+.nav .row li a{
+	color:black;
+}
+.nav .row li a:hover{
+  color:white;
+	background-color:#DB0B18!important;
+}
+.nav .dropdown-menu{
+  min-width: inherit;
+}
+
+.btn-group{
+  width: 100%;
+}
+#body-one{
+	width: 70%;
+	margin: 0 auto;
+	margin-top: 10px;
+	border-bottom:2px solid #DDE1E4;
+	font-family:微软雅黑; 
+}
+#body-two {
+	width:70%;
+	margin: 0 auto;
+	margin-top: 40px;
+}
+#body-two span{
+	float:right;
+}
+#body-two p{
+	line-height: 30px;
+	border-bottom: 1px dotted #D0D0D0;
+}
+#body-two a{
+	text-decoration: none;
+	color:black;
+}
+#body-two a:hover{
+	color:#DB0B18;
+}
+#footer-warp{
+	width: 100%;
+	height:90px;
+	background-color: #F3F2F2;
+/* 	position: absolute; */
+  	bottom: 0px;
+	 padding-bottom: 0;
+	 clear:both;
+	margin-top: 50px;
+}
+#footer-warp p{
+  text-align: center;
+	font-size: 12px;
+	color:grey;
+	font-family: 微软雅黑;
+}
+#footer-warp .footer{
+	padding-top: 30px;
+}
+#footer-warp a{
+	color:grey;
+	text-decoration: none;
+}
+#footer-warp a:hover{
+	color:red;
+}
