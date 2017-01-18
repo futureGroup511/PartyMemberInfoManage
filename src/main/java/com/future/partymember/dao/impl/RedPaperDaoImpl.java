@@ -109,14 +109,36 @@ public class RedPaperDaoImpl extends BaseDao<RedPaper> implements IRedPaperDao {
 	//查询最后一条记录
 	@Override
 	public List<RedPaper> getLastRecordById(int typeId) {
-		String sql="select * from red_paper rp where rp.paper_type_id=? and rp.rp_tag=1 order by rp.rp_Id desc limit 1";
+		String sql="select * from red_paper as rp where rp.paper_type_id=? and rp.rp_tag=1 order by rp.rp_Id desc limit 1";
 		return executeSQLQuery(RedPaper.class,sql, typeId);
 	}
 
 	@Override
 	public List<RedPaper> getFristRecordById(int typeId) {
-		String sql="select * from red_paper rp where rp.paper_type_id=? and rp.rp_tag=1 order by rp.rp_Id asc limit 1";
+		String sql="select * from red_paper as rp where rp.paper_type_id=? and rp.rp_tag=1 order by rp.rp_Id asc limit 1";
 		return executeSQLQuery(RedPaper.class,sql, typeId);
+	}
+
+	@Override
+	public PageCut<RedPaper> getPCByNew(int curr, int pageSize, String search) {
+		// TODO Auto-generated method stub
+		System.out.println(search);
+		if(search == null || search.length()==0){
+			return this.getPCByNew(curr, pageSize);
+		}
+		String hql="select count(*) from RedPaper as rp where rp.title like :search";
+		Query query= this.getSession().createQuery(hql);
+		query.setString("search","%"+search+"%");
+		int count = ((Long)query.uniqueResult()).intValue();
+		PageCut<RedPaper> pCut=new PageCut<>(curr,pageSize,count);
+		hql="from RedPaper as rp where rp.title like :search";
+		query= this.getSession().createQuery(hql);
+		query.setString("search","%"+search+"%");
+		query.setFirstResult((curr-1)*pageSize);
+		query.setMaxResults(pageSize);
+		pCut.setData(query.list());
+		return pCut;
+		
 	}
 	
 

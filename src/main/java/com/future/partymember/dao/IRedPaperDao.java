@@ -16,6 +16,8 @@ public interface IRedPaperDao {
 	public boolean updateRedPaper(RedPaper rp);
 	//分页查询
 	public PageCut<RedPaper> getPCByNew(int curr, int pageSize);
+	//分页查询，带上标题搜索，搜索可为空
+	public PageCut<RedPaper> getPCByNew(int curr, int pageSize,String search);
 	//根据id查询
 	public RedPaper getById(int id);
 	//根据名字精确查询

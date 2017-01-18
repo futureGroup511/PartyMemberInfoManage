@@ -89,4 +89,10 @@ public class RedPaperServiceImpl implements IRedPaperService{
 		return iRedPaperDao.getFristRecordById(typeId);
 	}
 
+	@Override
+	public PageCut<RedPaper> getPCByNew(int curr, int pageSize, String search) {
+		// TODO Auto-generated method stub
+		return iRedPaperDao.getPCByNew(curr, pageSize, search);
+	}
+
 }

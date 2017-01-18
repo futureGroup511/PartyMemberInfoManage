@@ -38,8 +38,11 @@
 						placeholder="请输入考试名称或者党员姓名搜索">
 
 				</div>
-				<div class="col-xs-6">
+				<div class="col-xs-3">
 					<button type="submit" class="btn btn-success">搜索</button>
+				</div>
+				<div class="col-xs-3">
+					<a class="btn  btn-danger" href="${rootPath }manage/testManage_logDelAll">删除所有记录</a>
 				</div>
 			</form>
 		</div>
@@ -84,9 +87,8 @@
 
 								<td>${e.examTime }</td>
 								
-								
 								<td><a
-									href="${rootPath }manage/partSecretary_delete?id=${ps.pst_Id}">删除</a></td>
+									href="${rootPath }manage/testManage_logDel?id=${e.el_Id}">删除</a></td>
 							</tr>
 						</c:forEach>
 
@@ -98,7 +100,7 @@
 		<div id="pagecut" style="margin-right: 100px; text-align: right;">
 			<ul class="pagination">
 				<li><a
-					href="${rootPath }manage/partSecretary?page=${pc.prePage}">上一页</a></li>
+					href="${rootPath }manage/testManage_log?page=${pc.prePage}">上一页</a></li>
 				<c:if test="${1 < pc.currentPage -3}">
 					<li><a href="#">1</a></li>
 				</c:if>
@@ -108,22 +110,24 @@
 					<c:choose>
 						<c:when test="${i>0 && i == pc.currentPage }">
 							<li class="active"><a
-								href="${rootPath }manage/partSecretary?page=${i }">${i}</a></li>
+								href="${rootPath }manage/testManage_log?page=${i }">${i}</a></li>
 						</c:when>
 
 						<c:when test="${i>0 && i != postPS.currentPage }">
-							<li><a href="${rootPath }manage/partSecretary?page=${i }">${i}</a></li>
+							<li><a href="${rootPath }manage/testManage_log?page=${i }">${i}</a></li>
 						</c:when>
 					</c:choose>
 				</c:forEach>
 				<li><a
-					href="${rootPath }manage/partSecretary?page=${pc.nextPage}">下一页</a></li>
+					href="${rootPath }manage/testManage_log?page=${pc.nextPage}">下一页</a></li>
 			</ul>
 
 		</div>
 	</div>
+	
 	<div class="background navbar-fixed-top"  style="position:absolute; z-index:-1;width:100%;height:100%;opacity:0.1;">
     	<img  class="img-responsive" width="100%;" src="${rootPath }images/577a4c594718d_610.jpg" />
     </div>
+    
 </body>
 </html>

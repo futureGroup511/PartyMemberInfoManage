@@ -62,4 +62,16 @@ public class ExamLogServiceImpl implements IExamLogService{
 		return examLogDao.getPC(current, pageSize, search);
 	}
 
+	@Override
+	public boolean deleteById(int id) {
+		// TODO Auto-generated method stub
+		return examLogDao.deleteById(id);
+	}
+
+	@Override
+	public boolean deleteAll() {
+		// TODO Auto-generated method stub
+		return examLogDao.deleteAll();
+	}
+
 }

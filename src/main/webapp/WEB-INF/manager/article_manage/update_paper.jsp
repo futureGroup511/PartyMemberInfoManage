@@ -10,6 +10,13 @@
 itor1_4_3/ueditor.all.min.js"></script>
 <script type="text/javascript" charset="utf-8" src="${rootPath}ueditor1_4_3/lang/zh-cn/zh-cn.js"></script>
 <title>编辑新闻</title>
+<link rel="stylesheet" href="${rootPath }css/bootstrap.css" />
+<style type="text/css">
+.row{
+	margin:10px 0;
+}
+
+</style>
 <script type="text/javascript">
     function modifyContent() {
         var content = document.getElementById("content");
@@ -81,36 +88,54 @@ var ue = UE.getEditor('editor', {
 	    <li>文章管理</li>
 	    <li class="active">写文章</li>
 	</ol>
+	<div class="container">
+	
 	
 	
 	<form action="${rootPath }manage/managePaper_updatePaper" method="post"   onsubmit="modifyContent()">
 			<input type="hidden" name="redPaper.rp_Id" value="${ paper.rp_Id}">
-			标题：<input type="text"  name="redPaper.title"  value="${paper.title }"/><br>
-			作者：<input type="text"  name="redPaper.author"  value="${paper.author }"/><br>
-			来源：<input type="text"  name="redPaper.source"  value="${paper.source}"/><br>
-			版块：
-			<select name="redPaper.paperTypeId">
-				<c:forEach items="${ redPaperTypeList}" var="type">
-					<option value="${type.rpt_Id}">${type.paperType }</option> 
-				</c:forEach>
-			</select>
-			<br>
-			
-			
-			<select name="redPaper.rp_tag">
-					<option value="0">作为草稿</option> 
-					<option value="1"  selected="selected">发布文章</option> 
-			</select>
-			<br>
+			<div class="row">
+				<div class="col-lg-3 col-lg-offset-2 col-md-4 col-md-offset-2 col-xs-5 col-xs-offset-1">
+					标题：<input type="text"  name="redPaper.title"  value="${paper.title }"/>
+				</div>
+				<div class="col-lg-3 col-md-4  col-xs-5">
+					作者：<input type="text"  name="redPaper.author"  value="${paper.author }"/>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-3 col-lg-offset-2 col-md-4 col-md-offset-2 col-xs-5 col-xs-offset-1">
+					来源：<input type="text"  name="redPaper.source"  value="${paper.source}"/>
+				</div>
+				<div class="col-lg-3 col-md-4  col-xs-5">
+					版块：
+					<select name="redPaper.paperTypeId">
+						<c:forEach items="${ redPaperTypeList}" var="type">
+							<option value="${type.rpt_Id}">${type.paperType }</option> 
+						</c:forEach>
+					</select>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-3  col-lg-offset-5 col-md-4  col-md-offset-6 col-xs-5 col-xs-offset-6">
+					<label>选择操作：</label>
+					<select name="redPaper.rp_tag">
+						<option value="0">作为草稿</option> 
+						<option value="1"  selected="selected">发布文章</option> 
+					</select>
+				</div>
+			</div>
+			<div class="row">
 			
 			<textarea rows="20" cols="25" name="redPaper.content"  id="content"   style="display:none"></textarea><br>
 			 <p>正文：</p>
-             <script id="editor" type="text/plain" style="width: 1024px; height: 500px;">${paper.content}</script>
-		<input type="submit"   value="一键发布"/>
-	</form>
-	<input id="remind" type="hidden"  value="${p}">
-	<div class="background navbar-fixed-top"  style="position:absolute; z-index:-1;width:100%;height:100%;opacity:0.1;">
-    	<img  class="img-responsive" width="100%;" src="${rootPath }images/577a4c594718d_610.jpg" />
+             <script id="editor" type="text/plain" style="width:100%; height: 500px;">${paper.content}</script>
+			<button type="submit" class="btn btn-success" style="width:100%;margin-top:20px;">一键发布</button>
+			</div>
+		</form>
+		<input id="remind" type="hidden"  value="${p}">
+		<div class="background navbar-fixed-top"  style="position:absolute; z-index:-1;width:100%;height:100%;opacity:0.1;">
+    		<img  class="img-responsive" width="100%;" src="${rootPath }images/577a4c594718d_610.jpg" />
+    	</div>
     </div>
 </body>
 <script type="text/javascript"  src="${rootPath }js/jquery-3.1.1.min.js"></script>
