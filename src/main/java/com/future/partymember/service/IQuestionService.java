@@ -18,6 +18,9 @@ public interface IQuestionService {
 	public List<Question> getQuestionsByTpId(int paperId);
 	//根据试题id获得答案
 	public Question getAnswersByQtId(int qt_Id);
+	//根据试题id获得该试题的所有信息
+	public Question getQuestionByQtId(int qt_Id);
+	
 	public PageCut<Question> getPC(int curr ,int pageSize);
 	
 	/**

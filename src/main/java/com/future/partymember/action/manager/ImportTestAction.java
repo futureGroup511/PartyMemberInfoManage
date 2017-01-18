@@ -88,6 +88,7 @@ public class ImportTestAction extends BaseAction {
 
 		// 添加试题
 		question.setPaperId(tp_Id);
+
 		String bool = questionService.addQuestion(question);
 		if (bool.equals("su"))
 			this.getRequest().setAttribute("questionMag", "添加成功");
@@ -99,11 +100,17 @@ public class ImportTestAction extends BaseAction {
 	// 添加试卷名称和描述
 	public String addTestPaper() throws Exception {
 		testPap.setCreateDate(SwitchTime.dateToStr(new Date()));
+		
+		TestPaper testPaper=testPaperService.getTestPaperByName(testPap.getPaperName());
+		if(testPaper != null){
+			this.getRequest().setAttribute("testPapMeg", "添加失败，试卷名称已经存在。");
+			return "addTestPaper";
+		}
 		Boolean bool = testPaperService.addTestPaper(testPap);
 		if (bool == true) {
 			this.getRequest().setAttribute("testPapMeg", "添加成功");
 		} else {
-			this.getRequest().setAttribute("testPapMeg", "添加失败");
+			this.getRequest().setAttribute("testPapMeg", "添加失败，数据有问题。");
 		}
 		return "addTestPaper";
 	}

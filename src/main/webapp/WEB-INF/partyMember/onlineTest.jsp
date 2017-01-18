@@ -15,15 +15,17 @@
 		<c:otherwise>
 			<div>
 				<form action="${rootPath}party/partyMemberAction_getExamRecord.action">
-					<h3>${startTest.paperName}(${startTest.testTime})</h3>
+
+					<h3>${startTest.paperName}(总分：${startTest.totalScore})   考试时间：${startTest.testTime}</h3>
 					<c:forEach items="${questionsList}" var="q" varStatus="status">
-						<div>${status.index+1}.${q.questions_stems} (分数:${q.question_socre})</div>
+						<div>${status.index+1}.${q.questions_stems} (分值:${q.question_socre})</div>
 						<div>
 							<ul style="list-style-type: none;list-style-position: outside;">						
 								<li><input type="radio" name="answer${status.index}" value="A${q.qt_Id}" >A:${q.a}</li>
 								<li><input type="radio" name="answer${status.index}" value="B${q.qt_Id}">B:${q.b}</li>
 								<li><input type="radio" name="answer${status.index}" value="C${q.qt_Id}">C:${q.c}</li>
 								<li><input type="radio" name="answer${status.index}" value="D${q.qt_Id}">D:${q.d}</li>
+
 							</ul> 						 	
 						</div>
 																					

@@ -186,8 +186,17 @@ public class PartyMemberAction extends BaseAction {
 		if (startTest != null) {
 			if (SwitchTime.strToTime(startTest.getEndTime()).after(new Date())) {
 				List<Question> questionsList = questionService.getQuestionsByTpId(startTest.getTestPaper().getTp_Id());
-				((StartTest)this.getRequest().getSession().getServletContext().getAttribute("startTest")).setTestNum(questionsList.size());;
+
+				//计算考试时长和总分
+				int totalScore=0;
+				for(Question q:questionsList){
+					totalScore+=q.getQuestion_socre();
+				}
+				startTest.setTotalScore(totalScore);
+				startTest.setTestNum(questionsList.size());				
 				this.getSession().put("questionsList", questionsList);				
+			}else {
+				this.getRequest().setAttribute("NoTest", "暂时没有考试！");								
 			} 
 		}
 		else {
@@ -196,12 +205,14 @@ public class PartyMemberAction extends BaseAction {
 		return "startTest";
 	}
 	//考试提交
-	public String getExamRecord() throws Exception{			
+	public String getExamRecord() throws Exception{					
 		//考试的试卷信息
 		StartTest startTest=(StartTest)this.getRequest().getSession().getServletContext().getAttribute("startTest");
 		int tp_Id=startTest.getTestPaper().getTp_Id();//试卷id
 		String paperName=startTest.getPaperName();//试卷名称
 		int testNum=startTest.getTestNum();//题数
+
+		int testTotalScore=startTest.getTotalScore();
 		String testTime=startTest.getTestTime();//考试时长
 		//试题集合
 		@SuppressWarnings("unchecked")
@@ -209,14 +220,14 @@ public class PartyMemberAction extends BaseAction {
 		int totalScore=0;//总成绩
 		int userId=(Integer)this.getSession().get("userId");//用户id
 		int userSort=(Integer)this.getSession().get("userSort");//用户身份
-		for(int i=0;i<testNum;i++){			
-			String str=(String)this.getRequest().getParameter("answer"+i);			
-			String userAnswer=String.valueOf((Character)str.charAt(0));//考生答案
+		for(int i=0;i<testNum;i++){						
+			String str=(String)this.getRequest().getParameter("answer"+i);
+			String userAnswer=((Character)str.charAt(0)).toString();//考生答案
 			int qt_Id=Integer.valueOf(str.substring(1));//试题id
 			int score=0;//该题得分
-			Question question=(Question)questionsList.toArray()[i];//该题信息					
-			if(userAnswer.equals(questionService.getAnswersByQtId(qt_Id).getAnswer())){
-				
+			Question question=(Question)questionsList.toArray()[i];//该题信息		
+			if(userAnswer.equals(question.getAnswer())){
+
 				score=question.getQuestion_socre();
 				totalScore+=score;
 			}
@@ -226,7 +237,8 @@ public class PartyMemberAction extends BaseAction {
 			//保存考试详细记录		
 			examPerRecordService.addExamPerRecord(examPerRecord);			
 		}
-		ExamLog examLog=new ExamLog(tp_Id,paperName,userId,userSort,totalScore,new Date(),testTime);
+
+		ExamLog examLog=new ExamLog(tp_Id,paperName,userId,userSort,totalScore,new Date(),testTime,testTotalScore,testNum);
 		Boolean bool=examLogService.addExamLog(examLog);
 		if(bool==true){
 			this.getRequest().setAttribute("addExamLogMsg", "提交成功！");
@@ -251,7 +263,27 @@ public class PartyMemberAction extends BaseAction {
 			
 		return "getMyExamLog";
 	}
-	
+	//查看考试记录详情
+	public String getExamDetails() throws Exception{
+		int userId=(Integer)this.getSession().get("userId");
+		int userSort=(Integer)this.getSession().get("userSort");
+		int tp_Id=Integer.valueOf(this.getRequest().getParameter("tp_Id"));
+		List<ExamPerRecord> examPerRecordsList=examPerRecordService.getExamPerRecordsByUserId(userId, tp_Id, userSort);
+		List<Question> questionsList=new ArrayList<>();
+		for(ExamPerRecord e:examPerRecordsList){
+			Question question=questionService.getQuestionByQtId(e.getQt_Id());
+			if(!question.getAnswer().equals(e.getAnswer())){
+				question.setMyAnswer(e.getAnswer());
+			}			
+			question.setMyScore(e.getSocre());
+			questionsList.add(question);
+		}
+		ExamLog examLog=examLogService.getExamLogByTpId(userId, userSort, tp_Id);
+		this.getRequest().setAttribute("examLog", examLog);
+		this.getRequest().setAttribute("questionsList", questionsList);
+		return "getExamDetails";
+	}
+		
 	public void setPartyMemberInfo(PartyMemberInfo partyMemberInfo) {
 		this.partyMemberInfo = partyMemberInfo;
 	}

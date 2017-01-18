@@ -43,10 +43,12 @@ public class ExamPerRecordServiceImpl implements IExamPerRecordService {
 	}
 
 	@Override
-	public List<ExamPerRecord> getExamPerRecordsByUserId(int userId, int tp_Id) {
+	public List<ExamPerRecord> getExamPerRecordsByUserId(int pt_Id, int tp_Id, int partySort) {
 		// TODO Auto-generated method stub
-		return null;
+		return examPerRecordDao.getExamPerRecordsByUserId(pt_Id, tp_Id, partySort);
 	}
+
+	
 
 	
 	

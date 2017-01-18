@@ -29,7 +29,7 @@
             <result name="getExamRecord">/WEB-INF/partyMember/onlineTest.jsp</result>
             
             <result name="getMyExamLog">/WEB-INF/partyMember/myExamLog.jsp</result>
-                                   
+            <result name="getExamDetails">/WEB-INF/partyMember/examDetails.jsp</result>                                                   
         </action>
 
 	</package>

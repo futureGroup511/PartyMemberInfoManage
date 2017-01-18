@@ -3,7 +3,7 @@ package com.future.partymember.action.manager;
 *@author 焦祥宇
 */
 
-import java.util.Date;
+
 import java.util.List;
 
 
@@ -124,6 +124,7 @@ public class TestManageAction extends BaseAction {
 		long time=SwitchTime.strToTime(startTest.getEndTime()).getTime()-SwitchTime.strToTime(startTest.getStartTime()).getTime();
 		String testTime=SwitchTime.switchTime(time);		
 		startTest.setTestTime(testTime);
+		startTest.setTestPaper(testPaper);				
 		this.getRequest().getSession().getServletContext().setAttribute("startTest",startTest);		
 		this.getRequest().setAttribute("startMeg", "开启成功");		
 		return "startTest";

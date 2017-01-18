@@ -53,23 +53,6 @@
 			</tbody>
 		</table>
 		<div>
-			<div id="page"></div>
-			
-		</div>
 		
 </body>
-	<script type="text/javascript">
-		$(function(){
-			var pageNum=Number("${pageCut.pageNum}");//必须强制转换成int型
-			$("#page").Page({
-		          totalPages: pageNum,//分页总数
-		          liNums: 3,//分页的数字按钮数(建议取奇数)
-		          //activeClass: 'activP', //active 类样式定义
-		          callBack : function(page){
-		        	  var url="${rootPath }"+"secretary/partySecretary_lookOfPartyMember"
-		        	  location.href=url+"?pageCut.currentPage="+page;
-		          }
-      		});
-		})
-	</script>
 </html>

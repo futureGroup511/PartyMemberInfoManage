@@ -26,19 +26,19 @@ public class ExamLog {
 	private int paper_Id;//试卷id
 	private String paperName;//试卷名称
 	private int partyMemberId;//党员的id
-	private int partySort;//党员身份     1:书记  0：党员
+	private int  partySort;//党员身份     1:书记  0：党员
 	private int totalScore;//考试总成绩
 	private Date examTime;//考试时间
 	private String testTime;//考试时长
-	
+	private int testTotalScore;//试卷总分
+	private int testNum;//试卷总题数
 	
 	public ExamLog() {
 		
 	}
 	
-	
 	public ExamLog(int paper_Id, String paperName, int partyMemberId, int partySort, int totalScore, Date examTime,
-			String testTime) {
+			String testTime, int testTotalScore, int testNum) {
 		super();
 		this.paper_Id = paper_Id;
 		this.paperName = paperName;
@@ -47,7 +47,10 @@ public class ExamLog {
 		this.totalScore = totalScore;
 		this.examTime = examTime;
 		this.testTime = testTime;
+		this.testTotalScore = testTotalScore;
+		this.testNum = testNum;
 	}
+
 
 
 	@Id
@@ -69,8 +72,7 @@ public class ExamLog {
 		this.paperName = paperName;
 	}
 
-	@Column(name = "totalScore",  nullable = false)
-	
+	@Column(name = "totalScore",  nullable = false)	
 	public int getTotalScore() {
 		return totalScore;
 	}
@@ -80,6 +82,7 @@ public class ExamLog {
 	}
 	
 	@Column(name = "partyMember_id",  nullable = false)
+
 	public int getPartyMemberId() {
 		return partyMemberId;
 	}
@@ -118,6 +121,24 @@ public class ExamLog {
 
 	public void setTestTime(String testTime) {
 		this.testTime = testTime;
+	}
+
+	public int getTestTotalScore() {
+		return testTotalScore;
+	}
+
+
+	public void setTestTotalScore(int testTotalScore) {
+		this.testTotalScore = testTotalScore;
+	}
+
+
+	public int getTestNum() {
+		return testNum;
+	}
+
+	public void setTestNum(int testNum) {
+		this.testNum = testNum;
 	}
 
 	@Override

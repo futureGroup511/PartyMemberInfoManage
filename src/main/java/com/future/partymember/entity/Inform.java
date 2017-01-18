@@ -29,7 +29,8 @@ public class Inform {
 	private int senderType;//0管理员，1书记
 	private String addresser;//发布人
 	private Date sendDate;//发布时间
-	
+	@Column(length=20)
+	private String partBranch;//所属党支部
 	/**
 	 * 添加人：丁赵雷
 	 * 目的：通知应有应该有四种情况 管理员可看 书记 党员 全体
@@ -135,6 +136,14 @@ public class Inform {
 
 	public void setSenderType(int senderType) {
 		this.senderType = senderType;
+	}
+
+	public String getPartBranch() {
+		return partBranch;
+	}
+
+	public void setPartBranch(String partBranch) {
+		this.partBranch = partBranch;
 	}
 
 }
