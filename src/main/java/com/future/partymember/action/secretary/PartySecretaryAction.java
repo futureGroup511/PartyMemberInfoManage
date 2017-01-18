@@ -105,7 +105,6 @@ public class PartySecretaryAction extends BaseAction {
 	
 	//通知的分页
 	public String paperInform(){
-		int page = Integer.parseInt(this.getRequest().getParameter("page"));
 		System.out.println("通知的分页"+page);
 		//先得到书记对象
 		PartySecretaryInfo psi=(PartySecretaryInfo) session.get("secretary");
@@ -195,6 +194,11 @@ public class PartySecretaryAction extends BaseAction {
 	
 	//视频列表和分页
 	public String videoList(){
+		System.out.println("通知的分页"+page);
+		//先得到书记对象
+		PageCut<RedVideo> pc=redVideoService.getPC(16, page);
+		this.getRequest().setAttribute("pc", pc);
+		
 		
 		return "videoList";
 	}

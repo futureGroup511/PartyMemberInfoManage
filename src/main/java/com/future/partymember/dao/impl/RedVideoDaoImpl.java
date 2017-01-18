@@ -111,7 +111,6 @@ public class RedVideoDaoImpl extends BaseDao<RedVideo> implements IRedVideoDao {
 
 	@Override
 	public PageCut<RedVideo> getPC(int pageSize, int curr, String search) {
-		// TODO Auto-generated method stub
 
 		if(search==null || search.length()==0){
 			return this.getPC(pageSize, curr);

@@ -43,11 +43,7 @@ form{
 .btn-default:hover{
   background:#FFD71F;
 }
-#yan{
-  margin-left:118%;
-  margin-top:-55px;
-}
-#yan{
+.form-group img{
   width:95px;
 }
 /* CSS Document */

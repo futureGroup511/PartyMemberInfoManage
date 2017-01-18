@@ -12,7 +12,7 @@
 			<div>
 				<span>党建巡礼</span>
 				<span>+</span>
-				<span>查看更多</span>
+				<span><a href="${rootPath }secretary/partySecretary_paperSection?paperTypeId=${}">查看更多</a></span>
 			</div>
 				<div>
 					<ol>

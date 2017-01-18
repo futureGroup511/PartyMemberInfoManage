@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>通知管理</title>
 <link rel="stylesheet" href="${rootPath }css/bootstrap.css" />
 
 </head>
