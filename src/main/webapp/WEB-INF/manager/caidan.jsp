@@ -11,6 +11,7 @@
 <div class="container">
 
     <div class="leftsidebar_box">
+    <div id="box-scroll">
         <div class="line"></div>
            <dl class="system_log">
                <dt onClick="changeImage()">书记管理<img src="images/select_xl01.png"></dt>
@@ -80,6 +81,7 @@
 					<a target="_top" href="${rootPath }manage/info_logout">退出登录</a>
 				</dd>
 			</dl>
+		</div>
     </div>
 
 </div>
@@ -90,6 +92,7 @@
 $(".leftsidebar_box dt").css({"background-color":"#B9160A"/*一级菜单未点击背景颜色*/});
 $(".leftsidebar_box dt img").attr("src","${rootPath }images/select_xl01.png");
 $(function(){
+	$("#box-scroll").height=$("#box-scroll").offsetHeight - 1;
     $(".leftsidebar_box dd").hide();
     $(".leftsidebar_box dt").click(function(){
         $(".leftsidebar_box dt").css({"background-color":"#B9160A"/*一级菜单非点击状态的菜单颜色*/})

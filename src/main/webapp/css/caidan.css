@@ -12,11 +12,10 @@ a{text-decoration:none;}
 	
 .leftsidebar_box{
     width:100%;
-    height:auto !important;
-    overflow:visible !important;
-    height:100% !important;
+    height:100%;
+    overflow-y:auto;
     background-image:url(../images/caidan.jpg);
-    padding-left:16px;
+    padding-left:0px;
 	
 	
 	/*background: -moz-linear-gradient(top,  red 0%, white 100%);
@@ -27,6 +26,11 @@ a{text-decoration:none;}
 	background: linear-gradient(top,  red 0%,white 100%);	/*娑撯偓缁狙嗗綅閸楁洜鍋ｉ崥搴″綁閻ㄥ嫰顤侀懝锟�*/*/
 	
     }
+#box-scroll{
+	width:100%;
+    overflow-y:auto;
+    height:100%;
+}
 .line{
     height:24px;
     width:100%;
