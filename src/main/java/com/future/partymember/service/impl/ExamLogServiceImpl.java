@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import com.future.partymember.dao.IExamLogDao;
 import com.future.partymember.entity.ExamLog;
 import com.future.partymember.service.IExamLogService;
+import com.future.partymember.util.PageCut;
 
 @Service
 public class ExamLogServiceImpl implements IExamLogService{
@@ -53,6 +54,12 @@ public class ExamLogServiceImpl implements IExamLogService{
 	public ExamLog getExamLogByTpId(int partyMemberId, int partySort, int tp_Id) {
 		
 		return examLogDao.getExamLogByTpId(partyMemberId, partySort, tp_Id);
+	}
+
+	@Override
+	public PageCut<ExamLog> getPC(int current, int pageSize, String search) {
+		// TODO Auto-generated method stub
+		return examLogDao.getPC(current, pageSize, search);
 	}
 
 }

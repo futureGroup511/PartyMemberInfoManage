@@ -6,9 +6,10 @@ package com.future.partymember.action.manager;
 
 import java.util.List;
 
-
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.future.partymember.base.BaseAction;
+import com.future.partymember.entity.ExamLog;
 import com.future.partymember.entity.Question;
 import com.future.partymember.entity.StartTest;
 import com.future.partymember.entity.TestPaper;
@@ -128,6 +129,26 @@ public class TestManageAction extends BaseAction {
 		this.getRequest().getSession().getServletContext().setAttribute("startTest",startTest);		
 		this.getRequest().setAttribute("startMeg", "开启成功");		
 		return "startTest";
+	}
+	
+	public String log(){
+		if(page<1){
+			return null;
+		}
+		String search=this.getRequest().getParameter("search");
+		PageCut<ExamLog> pCut=examLogService.getPC(page, 10, search);
+		String s1=String.format("<span class=\"search\">%s</span>",search);
+		if(search == null || "".equals(search)){
+			
+		}else{
+			for(ExamLog e:pCut.getData()){
+				e.setPaperName(e.getPaperName().replaceAll(search, s1));
+				e.setPartyMemberName(e.getPartyMemberName().replaceAll(search, s1));
+			}
+		}
+		this.getRequest().setAttribute("pc",pCut);
+		this.getRequest().setAttribute("search",search);
+		return "log";
 	}
 
 	public int getPage() {

@@ -14,15 +14,15 @@ public class PartyLoginAction extends BaseAction {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-
+ 
 	@Override	
 	public String  execute() throws Exception{
 		//获得视频
-		List<RedVideo> videosList=new ArrayList<RedVideo>();		
-		this.getRequest().setAttribute("videosList", videosList);
-		
-		//获得文章
-		
+		List<RedVideo> recommendVideosList=redVideoService.getRecommend(7);
+		List<RedVideo> newVideosList=redVideoService.getNew(7);				
+		this.getRequest().setAttribute("newVideosList", newVideosList);
+		this.getRequest().setAttribute("recommendVideosList", recommendVideosList);
+		//获得文章		
 		return SUCCESS;
 	}
 }
