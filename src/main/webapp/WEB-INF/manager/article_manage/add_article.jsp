@@ -83,11 +83,12 @@ var ue = UE.getEditor('editor', {
 
 
 <body>
-	<ol class="breadcrumb">
+<ol class="breadcrumb">
 	    <li>当前位置：</li>
 	    <li>文章管理</li>
 	    <li class="active">添加文章</li>
-	</ol>
+</ol>
+	<div class="container">
 	<form action="${rootPath }manage/managePaper_addPaper" method="post"   onsubmit="modifyContent()">
 			<div class="row">
 				<div class="col-lg-3 col-lg-offset-2 col-md-4 col-md-offset-2 col-xs-5 col-xs-offset-1">
@@ -112,21 +113,27 @@ var ue = UE.getEditor('editor', {
 			</div>
 			<div class="row">
 				<div class="col-lg-3  col-lg-offset-5 col-md-4  col-md-offset-6 col-xs-5 col-xs-offset-6">
-					<select name="redPaper.rp_tag" style="width:80%;margin-left:12%;height:25px;">
+					<label>选择操作：</label>
+					<select name="redPaper.rp_tag" style="">
 						<option value="0">作为草稿</option> 
 						<option value="1"  selected="selected">发布文章</option> 
 			        </select>
 				</div>
 			</div>
-			<textarea rows="20" cols="25" name="redPaper.content"  id="content"   style="display:none"></textarea><br>
-			 <p>正文：</p>
-             <script id="editor" type="text/plain" style="width: 1024px; height: 500px;"></script>
-		<input style="margin-left:88%;" type="submit"   value="一键发布"/>
-	</form>
-	<input id="remind" type="hidden"  value="${paper }">
-	<div class="background navbar-fixed-top"  style="position:absolute; z-index:-1;width:100%;height:100%;opacity:0.1;">
-    	<img  class="img-responsive" width="100%;" src="${rootPath }images/577a4c594718d_610.jpg" />
-    </div>
+			<div class="row">
+			
+				<textarea rows="20" cols="25" name="redPaper.content"  id="content"   style="display:none"></textarea><br>
+				 <p>正文：</p>
+	             <script id="editor" type="text/plain" style="width:100%; height: 500px;"></script>
+				<button type="submit" class="btn btn-success" style="width:100%;margin-top:20px;">一键发布</button>
+			</div>
+		</form>
+				<input id="remind" type="hidden"  value="${paper }">
+				<div class="background navbar-fixed-top"  style="position:absolute; z-index:-1;width:100%;height:100%;opacity:0.1;">
+			    	<img  class="img-responsive" width="100%;" src="${rootPath }images/577a4c594718d_610.jpg" />
+			    </div>
+    		
+   </div>
 </body>
 <script type="text/javascript"  src="${rootPath }js/jquery-3.1.1.min.js"></script>
 <script type="text/javascript">

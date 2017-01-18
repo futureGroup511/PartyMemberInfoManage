@@ -7,7 +7,13 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>管理文章</title>
 <link rel="stylesheet" href="${rootPath }css/bootstrap.css" />
+<style type="text/css">
+.search{
+	font-size:1.2em;
+	color:red;
+}
 
+</style>
 </head>
 <body>
 
@@ -16,7 +22,33 @@
 	    <li>文章管理</li>
 	    <li class="active">管理文章</li>
 	</ol>
-	<table class="table table-bordered" style="width:80%;margin:100px auto 0 auto;">
+	<div class="container">
+	
+	<div class="row">
+			<div class="col-xs-12">
+				<span style="font-size:1.4em;color:red;">${remind }</span>
+			</div>
+		</div>
+	
+		<div class="row" style="margin-bottom:30px;">
+			<form action="" method="post">
+			<div class="col-xs-6">
+				
+				<input type="text" name="search" class="form-control" value="${search }" placeholder="请输入文章标题搜索"> 
+				 
+			</div>
+			<div class="col-xs-6">
+				<button type="submit" class="btn btn-success">搜索</button>
+			</div>
+			</form>	
+		</div>
+		<div class="row">
+			<div class="col-xs-12">
+				共找到 &nbsp; <span style="color:red;">${pc.count }</span> &nbsp; 条数据
+			</div>
+		</div>
+	
+	<table class="table table-bordered">
 
 		<tbody>
 			<tr>
@@ -27,8 +59,7 @@
 				<td>发布时间</td>
 				<td>阅读次数</td>
 				<td>文章状态</td>
-				<td>文章内容</td>
-				<td>管理</td>
+				<td>详细内容/管理</td>
 				<td>删除</td>
 			</tr>
 			<c:forEach var="paper" items="${pc.data }">
@@ -40,8 +71,7 @@
 					<td>${paper.releaseDate}</td>
 					<td>${paper.readNum }</td>
 					<td>${paper.strTag}</td>
-					<td><a href="${rootPath }manage/managePaper_lookPaper?rp_Id=${paper.rp_Id}" target="_blank">详细</a></td>
-					<td><a href="${rootPath }manage/fPaper_fUpdatePaper?rp_Id=${paper.rp_Id}"  target="main">管理</a></td>
+					<td><a href="${rootPath }manage/fPaper_fUpdatePaper?rp_Id=${paper.rp_Id}"  target="main">详细内容/管理</a></td>
 					<td onClick="que_ren(${paper.rp_Id})">删除</td>
 				</tr>
 			</c:forEach>
@@ -72,6 +102,7 @@
 	<div class="background navbar-fixed-top"  style="position:absolute; z-index:-1;width:100%;height:100%;opacity:0.1;">
     	<img  class="img-responsive" width="100%;" src="${rootPath }images/577a4c594718d_610.jpg" />
     </div>
+    </div>  <!-- end container -->
 </body>
 <script type="text/javascript">
 		var tag="${dTag}";

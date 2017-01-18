@@ -80,4 +80,18 @@ public class ExamLogDaoImpl extends BaseDao<ExamLog> implements IExamLogDao {
 		return pc;
 	}
 
+	@Override
+	public boolean deleteById(int id) {
+		// TODO Auto-generated method stub
+		return this.deleteEntity(this.getEntity(id));
+	}
+
+	@Override
+	public boolean deleteAll() {
+		// TODO Auto-generated method stub
+		String hql="delete from ExamLog";
+		this.executeUpdate(hql);
+		return true;
+	}
+
 }

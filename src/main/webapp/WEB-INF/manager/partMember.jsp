@@ -57,7 +57,7 @@
 			<div class="col-xs-6">
 				<button type="submit" class="btn btn-success">搜索</button>
 			</div>
-		</form>	
+			</form>	
 		</div>
 		<div class="row">
 			<div class="col-xs-12">

@@ -30,13 +30,14 @@ public class ManagePaperAction extends BaseAction{
 
 	
 	//查看文章详细信息
+	/*
 	public String lookPaper() throws Exception{
 		int id=Integer.parseInt(this.getRequest().getParameter("rp_Id"));
 		RedPaper rp=redPaperService.getById(id);
 		this.getRequest().setAttribute("paper", rp);
 		return "lookPaper";
 	}
-	
+	*/
 	//删除文章
 	public String deletePaper() throws Exception{
 		String id=this.getRequest().getParameter("rp_Id");
@@ -75,12 +76,20 @@ public class ManagePaperAction extends BaseAction{
 		if(page==0){
 			page=1;
 		}
-		
-		PageCut<RedPaper> pc=redPaperService.getPCByNew(page, 2);
+		String search =this.getRequest().getParameter("search");
+		PageCut<RedPaper> pc=redPaperService.getPCByNew(page, 2,search);
+		if(search == null || search.length()==0){
+			
+		}else{
+			String s1=String.format("<span class=\"search\">%s</span>",search);
+			for(RedPaper rp:pc.getData()){
+				rp.setTitle(rp.getTitle().replaceAll(search, s1));
+			}
+		}
 		this.getRequest().setAttribute("pc", pc);
+		this.getRequest().setAttribute("search", search);
 		return "managePaper";
 	}
-
 
 	//添加文章
 	public String addPaper() throws Exception{

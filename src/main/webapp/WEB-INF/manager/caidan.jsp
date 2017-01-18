@@ -42,7 +42,7 @@
 					<a target="main" href="${rootPath }manage/fPaper_addPaper">添加文章</a>
 				</dd>
 				<dd>
-					<a target="main" href="${rootPath }manage/fPaper_fManagePaper">管理文章</a>
+					<a target="main" href="${rootPath }manage/managePaper_paper">管理文章</a>
 				</dd>
 			</dl>
             

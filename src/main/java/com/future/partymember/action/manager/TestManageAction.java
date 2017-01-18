@@ -133,7 +133,7 @@ public class TestManageAction extends BaseAction {
 	
 	public String log(){
 		if(page<1){
-			return null;
+			page=1;
 		}
 		String search=this.getRequest().getParameter("search");
 		PageCut<ExamLog> pCut=examLogService.getPC(page, 10, search);
@@ -149,6 +149,27 @@ public class TestManageAction extends BaseAction {
 		this.getRequest().setAttribute("pc",pCut);
 		this.getRequest().setAttribute("search",search);
 		return "log";
+	}
+	
+	public String logDel(){
+		if(id<1){
+			return null;
+		}
+		if(examLogService.deleteById(id)){
+			this.getRequest().setAttribute("remind", "删除成功。");
+		}else{
+			this.getRequest().setAttribute("remind", "删除失败。");
+		}
+		return this.log();
+	}
+	
+	public String logDelAll(){
+		if(examLogService.deleteAll()){
+			this.getRequest().setAttribute("remind", "删除成功。");
+		}else{
+			this.getRequest().setAttribute("remind", "删除失败。");
+		}
+		return this.log();
 	}
 
 	public int getPage() {

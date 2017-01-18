@@ -7,6 +7,16 @@ import com.future.partymember.util.PageCut;
 
 public interface IExamLogService {
 	public Boolean addExamLog(ExamLog examLog);
+	
+	/**
+	 * @param id
+	 * @return
+	 * 删除单个记录，宋
+	 */
+	boolean deleteById(int id);
+	
+	boolean deleteAll();
+	
 	//根据用户id和身份删除考试记录
 	public Boolean deleteExamLog(int partyMemberId,int partySort);
 	public Boolean updateExamLog(ExamLog examLog);

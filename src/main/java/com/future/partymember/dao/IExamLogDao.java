@@ -6,6 +6,10 @@ import com.future.partymember.entity.ExamLog;
 import com.future.partymember.util.PageCut;
 
 public interface IExamLogDao{
+	
+	boolean deleteById(int id);
+	boolean deleteAll();
+	
 	public Boolean addExamLog(ExamLog examLog);
 	//根据用户id和身份删除考试记录
 	public Boolean deleteExamLog(int partyMemberId,int partySort);
