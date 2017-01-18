@@ -12,7 +12,7 @@
 			<div>
 				<span>党建巡礼</span>
 				<span>+</span>
-				<span><a href="${rootPath }secretary/partySecretary_paperSection?paperTypeId=${}">查看更多</a></span>
+				<span><a href="${rootPath }secretary/partySecretary_paperSection?paperTypeId=1">查看更多</a></span>
 			</div>
 				<div>
 					<ol>
@@ -27,7 +27,7 @@
 			<div>
 				<span>党建巡礼</span>
 				<span>+</span>
-				<span>查看更多</span>
+				<span><a href="${rootPath }secretary/partySecretary_paperSection?paperTypeId=2">查看更多</a></span>
 			</div>
 				<div>
 					<ol>
@@ -41,7 +41,7 @@
 			<div>
 				<span>党建巡礼</span>
 				<span>+</span>
-				<span>查看更多</span>
+				<span><a href="${rootPath }secretary/partySecretary_paperSection?paperTypeId=3">查看更多</a></span>
 			</div>
 				<div>
 					<ol>
@@ -55,7 +55,7 @@
 			<div>
 				<span>党建巡礼</span>
 				<span>+</span>
-				<span>查看更多</span>
+				<span><a href="${rootPath }secretary/partySecretary_paperSection?paperTypeId=4">查看更多</a></span>
 			</div>
 				<div>
 					<ol>
@@ -69,7 +69,7 @@
 			<div>
 				<span>党建巡礼</span>
 				<span>+</span>
-				<span>查看更多</span>
+				<span><a href="${rootPath }secretary/partySecretary_paperSection?paperTypeId=5">查看更多</a></span>
 			</div>
 				<div>
 					<ol>
@@ -83,7 +83,7 @@
 			<div>
 				<span>党建巡礼</span>
 				<span>+</span>
-				<span>查看更多</span>
+				<span><a href="${rootPath }secretary/partySecretary_paperSection?paperTypeId=6">查看更多</a></span>
 			</div>
 				<div>
 					<ol>

@@ -141,5 +141,23 @@ public class RedPaperDaoImpl extends BaseDao<RedPaper> implements IRedPaperDao {
 		
 	}
 	
+	
+	public int getNum( int paperTypeId) {
+		String hql="select count(*) from RedPaper where  paperTypeId=?";
+		return ((Long) this.uniqueResult(hql,paperTypeId)).intValue();
+	}
+	
+	
+	//分页查询按文章类别的id
+	@Override
+	public PageCut<RedPaper> getPCByNew(int curr, int pageSize, int paperTypeId) {
+		int first=(curr-1)*pageSize;
+		String hql="from RedPaper where paperTypeId=? order by rp_Id desc";
+		List<RedPaper> list=this.getEntityLimitList(hql, first,pageSize,paperTypeId);
+		PageCut<RedPaper> pc=new PageCut<>(curr,pageSize,this.getNum(paperTypeId));
+		pc.setData(list);
+		return pc;	
+	}
+	
 
 }

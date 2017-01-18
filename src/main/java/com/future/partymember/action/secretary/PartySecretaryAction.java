@@ -14,6 +14,7 @@ import com.future.partymember.entity.PartySecretaryInfo;
 import com.future.partymember.entity.RedPaper;
 import com.future.partymember.entity.RedVideo;
 import com.future.partymember.entity.WatchVideoRecord;
+import com.future.partymember.service.IRedPaperService;
 import com.future.partymember.util.PageCut;
 import com.future.partymember.util.SwitchTime;
 
@@ -300,6 +301,17 @@ public class PartySecretaryAction extends BaseAction {
 
 		}
 	}
+	
+	
+	//进入某个文章版块
+	public String paperSection(){
+		int paperTypeId=Integer.parseInt(this.getRequest().getParameter("paperTypeId"));
+		pageCut=redPaperService.getPCByNew(page, 15, paperTypeId);
+		this.getRequest().setAttribute("pc", pageCut);
+		this.getRequest().setAttribute("paper", pageCut.getData().get(0));
+		return "paperSection";
+	}
+	
 	
 	//阅读文章
 	public String lookPaper() throws Exception{
