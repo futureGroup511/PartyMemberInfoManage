@@ -5,11 +5,10 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>在线测试</title>
+<title>在线考试</title>
 
 <link rel="stylesheet" href="${rootPath}css/partyMember/bootstrap.css">
-<link rel="stylesheet"
-	href="${rootPath}css/partyMember/online learning.css">
+<link rel="stylesheet" href="${rootPath}css/partyMember/online learning.css">
 <script src="${rootPath}js/jquery-2.2.3.min.js"></script>
 <script src="${rootPath}js/bootstrap.js"></script>
 </head>
@@ -71,16 +70,14 @@
 	<div id="body">
 		<div id="body-one">
 			<p>
-				<img src="${rootPath}images/topimg.png"> <span>您的位置：首页>在线学习</span>
+				<img src="${rootPath}images/topimg.png"> <span>您的位置：首页>在线考试</span>
 			</p>
 		</div>
-
 		<c:choose>
 			<c:when test="${NoTest!=null}">
 				<div id="body-two">
 					<p>${NoTest}</p>
 				</div>
-
 			</c:when>
 			<c:otherwise>
 				<div id="body-two">
@@ -92,13 +89,7 @@
 				<div id="body-four">
 					<p>单选题</p>
 				</div>
-
-				<form
-					action="${rootPath}party/partyMemberAction_getExamRecord.action">
-
-					<%-- <h3>${startTest.paperName}(总分：${startTest.totalScore})考
-
-						试时间：${startTest.testTime}</h3> --%>
+				<form action="${rootPath}party/partyMemberAction_getExamRecord.action">				
 					<c:forEach items="${questionsList}" var="q" varStatus="status">
 						<div id="body-five">
 							<p>
@@ -144,36 +135,3 @@
 	<!--页脚结束-->
 </body>
 </html>
-
-<%-- </head>
-<body>
-	<c:choose>
-		<c:when test="${NoTest!=null}">
-			<h4>${NoTest}</h4>
-		</c:when>
-		<c:otherwise>
-			<div>
-				<form action="${rootPath}party/partyMemberAction_getExamRecord.action">
-
-					<h3>${startTest.paperName}(总分：${startTest.totalScore})   考试时间：${startTest.testTime}</h3>
-					<c:forEach items="${questionsList}" var="q" varStatus="status">
-						<div>${status.index+1}.${q.questions_stems} (分值:${q.question_socre})</div>
-						<div>
-							<ul style="list-style-type: none;list-style-position: outside;">						
-								<li><input type="radio" name="answer${status.index}" value="A${q.qt_Id}" >A:${q.a}</li>
-								<li><input type="radio" name="answer${status.index}" value="B${q.qt_Id}">B:${q.b}</li>
-								<li><input type="radio" name="answer${status.index}" value="C${q.qt_Id}">C:${q.c}</li>
-								<li><input type="radio" name="answer${status.index}" value="D${q.qt_Id}">D:${q.d}</li>
-
-							</ul> 						 	
-						</div>
-																					
-					</c:forEach>					
-					<input type="submit" value="提交">
-				</form>
-			</div>
-		</c:otherwise>
-	</c:choose>
-	${addExamLogMsg}
-</body>
-</html> --%>
