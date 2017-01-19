@@ -7,7 +7,11 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
-
+/**
+ * 考试的详细记录
+ * @author Administrator
+ *
+ */
 @Entity
 @Table(name = "exam_per_record", catalog = "partymember")
 public class ExamPerRecord {

@@ -180,6 +180,7 @@ public class PartyMemberAction extends BaseAction {
 		return "viewVideos";
 	}
 
+	
 	// 在线考试
 	public String startTest() throws Exception {
 		StartTest startTest = (StartTest) this.getRequest().getSession().getServletContext().getAttribute("startTest");

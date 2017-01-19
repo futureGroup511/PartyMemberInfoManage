@@ -5,12 +5,12 @@ package com.future.partymember.entity;
 */
 public class StartTest {
 	
-	private String paperName;
-	private String startTime;
-	private String endTime;
-	private int testNum;
-	private String testPeople;
-	private TestPaper testPaper;
+	private String paperName;//试卷名称
+	private String startTime;//开始时间
+	private String endTime;//结束时间
+	private int testNum;//试题数目
+	private String testPeople;//考试人的身份
+	private TestPaper testPaper;//试卷类
 	private String testTime;//考试时长
 	private int totalScore;//试卷总分
 	
