@@ -96,15 +96,15 @@
  <div id="body-two">
    <div class="body-two-left">
        <p><span>党建</span>巡礼</p>
-       <p><a href="the party.html">更多</a></p>
+       <p><a href="${rootPath }party/partyMemberAction_paperSection?paperTypeId=1">更多</a></p>
    </div>  
    <div class="body-two-center">
        <p><span>高校</span>咨询</p>
-       <p><a href="#">更多</a></p>
+       <p><a href="${rootPath }party/partyMemberAction_paperSection?paperTypeId=2">更多</a></p>
    </div>  
    <div class="body-two-right">
        <p><span>新乡</span>风貌</p>
-       <p><a href="#">更多</a></p>
+       <p><a href="${rootPath }party/partyMemberAction_paperSection?paperTypeId=3">更多</a></p>
    </div>  
  </div>
  <div id="body-three">
@@ -132,13 +132,16 @@
  </div>
  <div id="body-four">
     <div class="body-four-left">
-        <p><span>媒体头条</span><a href="#"><img src="images/jiahao.png"> 查看更多</a></p>
+        <p><span>媒体头条</span><a href="${rootPath }party/partyMemberAction_paperSection?paperTypeId=4">
+        <img src="images/jiahao.png"> 查看更多</a></p>
     </div>
     <div class="body-four-center">
-        <p><span>神州大地</span><a href="#"><img src="images/jiahao.png"> 查看更多</a></p>
+        <p><span>神州大地</span><a href="${rootPath }party/partyMemberAction_paperSection?paperTypeId=5">
+        <img src="images/jiahao.png"> 查看更多</a></p>
     </div>
     <div class="body-four-right">
-        <p><span>环球动态</span><a href="#"><img src="images/jiahao.png"> 查看更多</a></p>
+        <p><span>环球动态</span><a href="${rootPath }party/partyMemberAction_paperSection?paperTypeId=6">
+        <img src="images/jiahao.png"> 查看更多</a></p>
     </div>
  </div>
  <div id="body-five">

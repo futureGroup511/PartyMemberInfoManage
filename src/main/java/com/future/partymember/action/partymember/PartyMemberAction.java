@@ -7,6 +7,7 @@ import java.util.List;
 import com.future.partymember.base.BaseAction;
 import com.future.partymember.entity.ExamLog;
 import com.future.partymember.entity.ExamPerRecord;
+import com.future.partymember.entity.Inform;
 import com.future.partymember.entity.PartyMemberInfo;
 import com.future.partymember.entity.Question;
 import com.future.partymember.entity.RedPaper;
@@ -27,6 +28,12 @@ public class PartyMemberAction extends BaseAction {
 	 */
 	private static final long serialVersionUID = 1L;
 	private int page = 1;
+	
+	/**
+	 * 下面两行添加人 丁赵雷
+	 */
+	private PageCut<?> pageCut; //封装分页信息的
+	private Inform inform;//用来封装通知消息的
 
 	private PartyMemberInfo partyMemberInfo;// 从表单获得党员对象
 	// 查询党员个人信息
@@ -187,6 +194,17 @@ public class PartyMemberAction extends BaseAction {
 		this.getRequest().setAttribute("paperList", paperList);
 		return "getResPaper";
 	}
+	
+	
+	//进入某个文章版块的列表   如党建巡礼的文章列表
+	public String paperSection(){
+		int paperTypeId=Integer.parseInt(this.getRequest().getParameter("paperTypeId"));
+		pageCut=redPaperService.getPCByNew(page, 15, paperTypeId);
+		this.getRequest().setAttribute("pc", pageCut);
+		this.getRequest().setAttribute("paper", pageCut.getData().get(0));
+		return "paperSection";
+	}
+	
 
 	// 阅读文章
 	public String lookPaper() throws Exception {
@@ -346,6 +364,22 @@ public class PartyMemberAction extends BaseAction {
 
 	public void setPage(int page) {
 		this.page = page;
+	}
+
+	public PageCut<?> getPageCut() {
+		return pageCut;
+	}
+
+	public void setPageCut(PageCut<?> pageCut) {
+		this.pageCut = pageCut;
+	}
+
+	public Inform getInform() {
+		return inform;
+	}
+
+	public void setInform(Inform inform) {
+		this.inform = inform;
 	}
 
 	/*
