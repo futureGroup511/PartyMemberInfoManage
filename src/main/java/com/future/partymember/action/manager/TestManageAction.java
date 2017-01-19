@@ -4,6 +4,8 @@ package com.future.partymember.action.manager;
 */
 
 
+import java.io.UnsupportedEncodingException;
+import java.security.spec.ECField;
 import java.util.List;
 
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -49,6 +51,7 @@ public class TestManageAction extends BaseAction {
 	
 	// 试卷的增删改查
 	public String getTestPaper() throws Exception {
+		
 		String search=this.getRequest().getParameter("search");
 		PageCut<TestPaper> pc=testPaperService.getPC(page, 10,search);
 		
@@ -135,7 +138,18 @@ public class TestManageAction extends BaseAction {
 		if(page<1){
 			page=1;
 		}
+		
 		String search=this.getRequest().getParameter("search");
+		String encode = this.getRequest().getParameter("encode");
+		if("1".equals(encode)){
+			try {
+				byte[] str1=search.getBytes("iso8859-1");
+				search=new String(str1, "utf-8");
+			} catch (UnsupportedEncodingException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
 		PageCut<ExamLog> pCut=examLogService.getPC(page, 10, search);
 		String s1=String.format("<span class=\"search\">%s</span>",search);
 		if(search == null || "".equals(search)){

@@ -99,6 +99,11 @@
 			<result name="add">/WEB-INF/manager/informAdd.jsp</result>
 			<result name="change">/WEB-INF/manager/informChange.jsp</result>
 		</action>
+		
+		<action name="startTest_*" method="{1}" class="com.future.partymember.action.manager.StartTestAction">
+			<result name="startTestLog">/WEB-INF/manager/testPaper_manage/startTestLog.jsp</result>
+		</action>
+		
 		<action name="caidan">
 			<result>/WEB-INF/manager/caidan.jsp</result>
 		</action>
