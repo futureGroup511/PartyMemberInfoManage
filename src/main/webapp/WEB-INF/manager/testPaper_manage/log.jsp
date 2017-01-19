@@ -41,9 +41,11 @@
 				<div class="col-xs-3">
 					<button type="submit" class="btn btn-success">搜索</button>
 				</div>
+				<%-- 
 				<div class="col-xs-3">
 					<a class="btn  btn-danger" href="${rootPath }manage/testManage_logDelAll">删除所有记录</a>
 				</div>
+				 --%>
 			</form>
 		</div>
 

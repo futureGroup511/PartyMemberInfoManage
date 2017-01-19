@@ -179,6 +179,8 @@ public class TestManageAction extends BaseAction {
 	
 	public String logDelAll(){
 		if(examLogService.deleteAll()){
+			examPerRecordService.deleteAll();
+			startTestService.deleteAll();
 			this.getRequest().setAttribute("remind", "删除成功。");
 		}else{
 			this.getRequest().setAttribute("remind", "删除失败。");

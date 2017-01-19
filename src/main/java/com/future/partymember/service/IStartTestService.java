@@ -17,6 +17,7 @@ public interface IStartTestService {
 	 * 宋民举
 	 */
 	PageCut<StartTest> getPC(int current,int pageSize,String search);
+	boolean deleteAll();
 	boolean deleteById(int id);
 	StartTest getById(int id);
 }

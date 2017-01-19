@@ -46,5 +46,11 @@ public class StartTestServiceImpl implements IStartTestService {
 		// TODO Auto-generated method stub
 		return startTestDao.getById(id);
 	}
+
+	@Override
+	public boolean deleteAll() {
+		// TODO Auto-generated method stub
+		return startTestDao.deleteAll();
+	}
 	
 }

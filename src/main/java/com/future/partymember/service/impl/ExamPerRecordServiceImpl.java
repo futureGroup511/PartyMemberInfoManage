@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import com.future.partymember.dao.IExamPerRecordDao;
 import com.future.partymember.entity.ExamPerRecord;
 import com.future.partymember.service.IExamPerRecordService;
+import com.future.partymember.util.PageCut;
 
 
 @Service
@@ -46,6 +47,18 @@ public class ExamPerRecordServiceImpl implements IExamPerRecordService {
 	public List<ExamPerRecord> getExamPerRecordsByUserId(int pt_Id, int tp_Id, int partySort) {
 		// TODO Auto-generated method stub
 		return examPerRecordDao.getExamPerRecordsByUserId(pt_Id, tp_Id, partySort);
+	}
+
+	@Override
+	public PageCut<ExamPerRecord> getPC(int current, int pageSize, String search) {
+		// TODO Auto-generated method stub
+		return examPerRecordDao.getPC(current, pageSize, search);
+	}
+
+	@Override
+	public boolean deleteAll() {
+		// TODO Auto-generated method stub
+		return examPerRecordDao.deleteAll();
 	}
 
 	

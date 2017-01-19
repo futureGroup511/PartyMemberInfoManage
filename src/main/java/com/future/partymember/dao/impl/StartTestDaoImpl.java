@@ -57,4 +57,12 @@ public class StartTestDaoImpl  extends BaseDao<StartTest> implements IStartTestD
 		return this.getEntity(id);
 	}
 
+	@Override
+	public boolean deleteAll() {
+		// TODO Auto-generated method stub
+		String hql="delete from StartTest";
+		this.executeUpdate(hql);
+		return true;
+	}
+
 }

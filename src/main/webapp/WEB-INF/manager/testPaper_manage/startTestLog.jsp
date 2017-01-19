@@ -42,7 +42,7 @@
 					<button type="submit" class="btn btn-success">搜索</button>
 				</div>
 				<div class="col-xs-3">
-					<a class="btn  btn-danger" href="${rootPath }manage/testManage_logDelAll">删除所有记录</a>
+					<a class="btn  btn-danger" onclick="deleteAll()" href="#">删除所有记录</a>
 				</div>
 			</form>
 		</div>
@@ -118,6 +118,13 @@
 	<div class="background navbar-fixed-top"  style="position:absolute; z-index:-1;width:100%;height:100%;opacity:0.1;">
     	<img  class="img-responsive" width="100%;" src="${rootPath }images/577a4c594718d_610.jpg" />
     </div>
+    <script type="text/javascript">
+    	function deleteAll(){
+    		if(confirm("确认删除?此操作将删除所有考试记录，无法恢复！")){
+				location.href="${rootPath }manage/startTest_deleteAll";
+			}
+    	}
     
+    </script>
 </body>
 </html>

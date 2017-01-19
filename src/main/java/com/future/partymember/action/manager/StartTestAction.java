@@ -15,12 +15,18 @@ public class StartTestAction extends BaseAction{
 	private int id;
 	
 	public String startTestLog(){
+		
 		if(page<1){
 			page=1;
 		}
 		String search=this.getRequest().getParameter("search");
 		PageCut<StartTest> pCut=startTestService.getPC(page, 10, search);
+		
 		String s1=String.format("<span class=\"search\">%s</span>",search);
+		
+		//防止前台提交参数错误，注释掉高亮搜索词的功能。
+		
+		/*
 		if(search == null || "".equals(search)){
 			
 		}else{
@@ -28,9 +34,21 @@ public class StartTestAction extends BaseAction{
 				e.setPaperName(e.getPaperName().replaceAll(search, s1));
 			}
 		}
+		*/
 		this.getRequest().setAttribute("pc",pCut);
 		this.getRequest().setAttribute("search",search);
 		return "startTestLog";
+	}
+	
+	public String deleteAll(){
+		if(examLogService.deleteAll()){
+			examPerRecordService.deleteAll();
+			startTestService.deleteAll();
+			this.getRequest().setAttribute("remind", "删除成功。");
+		}else{
+			this.getRequest().setAttribute("remind", "删除失败。");
+		}
+		return this.startTestLog();
 	}
 	
 	public String startTestDel(){

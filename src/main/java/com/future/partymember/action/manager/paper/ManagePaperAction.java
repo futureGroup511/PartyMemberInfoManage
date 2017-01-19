@@ -47,7 +47,9 @@ public class ManagePaperAction extends BaseAction{
 			redPaperService.deleteRedPaper(Integer.parseInt(id));
 			this.getRequest().setAttribute("dTag", "删除成功");
 		}
-		return  "managePaper";
+		
+		return this.paper();
+		//return  "managePaper";
 	}
 	
 	

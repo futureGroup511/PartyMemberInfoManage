@@ -1,7 +1,7 @@
 @charset "utf-8";
 /* CSS Document */
 body{margin:0 auto;overflow-x:hidden;}
-html, body{height:100%;width:96%;}
+html, body{height:100%;width:100%;}
 img{border:none;}
 *{font-family:'微软雅黑';font-size:15px;color:#20634d;/*颜色无影响*/}
 dl,dt,dd{display:block;margin-left:-3%;margin:0 0 0 -3%;}
