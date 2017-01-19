@@ -187,7 +187,6 @@ public class PartyMemberAction extends BaseAction {
 		return "viewVideos";
 	}
 
-
 	// 链接到红色文章
 	public String getResPaper() throws Exception {
 		List<RedPaper> paperList = redPaperService.findPaperByType();
@@ -242,7 +241,6 @@ public class PartyMemberAction extends BaseAction {
 		return "lookPaper";
 	}
 
-
 	// 在线考试
 	public String startTest() throws Exception {
 		StartTest startTest = (StartTest) this.getRequest().getSession().getServletContext().getAttribute("startTest");
@@ -269,9 +267,12 @@ public class PartyMemberAction extends BaseAction {
 
 	// 考试提交
 	public String getExamRecord() throws Exception {
+		// 考试记录详情集合
+		List<ExamPerRecord> examPerRecordList = new ArrayList<ExamPerRecord>();
 		// 考试的试卷信息
 		StartTest startTest = (StartTest) this.getRequest().getSession().getServletContext().getAttribute("startTest");
 		int tp_Id = startTest.getTestPaper().getTp_Id();// 试卷id
+		int st_Id=startTest.getSt_Id();//开启试卷记录id
 		String paperName = startTest.getPaperName();// 试卷名称
 		int testNum = startTest.getTestNum();// 题数
 		int testTotalScore = startTest.getTotalScore();// 试卷总分
@@ -291,26 +292,39 @@ public class PartyMemberAction extends BaseAction {
 			Question question = (Question) questionsList.toArray()[i];// 该题信息
 			if (userAnswer.equals(questionService.getAnswersByQtId(qt_Id).getAnswer())) {
 				score = question.getQuestion_socre();
-				System.out.println(score);
 				totalScore += score;
-				System.out.println(totalScore);
 			}
 
 			ExamPerRecord examPerRecord = new ExamPerRecord(tp_Id, qt_Id, userAnswer, score, userId, userSort);
-			// 保存考试详细记录
-			examPerRecordService.addExamPerRecord(examPerRecord);
+			examPerRecordList.add(examPerRecord);
+
 		}
 		String partyMemberName = partyMemberInfoService.getPartyMemberInfoById(userId).getUsername();
-		ExamLog examLog = new ExamLog(tp_Id, paperName, userId, partyMemberName, userSort, totalScore, new Date(),
-				testTime, testTotalScore, testNum);
-		Boolean bool = examLogService.addExamLog(examLog);
-		if (bool == true) {
-			
-			this.getRequest().setAttribute("addExamLogMsg", "提交成功！");
-		} else {
-			this.getRequest().setAttribute("addExamLogMsg", "提交失败！");
-		}
+		String date = SwitchTime.dateToTimeStr(new Date());
+		ExamLog examLog = new ExamLog(st_Id,tp_Id, paperName, userId, partyMemberName, userSort, totalScore, date, testTime,
+				testTotalScore, testNum);
 
+		int datebool = examLogService.grtElIdByDate(st_Id,date);
+		if (datebool==0) {
+			Boolean bool = examLogService.addExamLog(examLog);
+			if (bool == true) {
+				int el_Id = examLogService.grtElIdByDate(st_Id,date);
+				/*if (el_Id == 0) {
+					this.getRequest().setAttribute("addExamLogMsg", "已提交过！");
+				} else {*/
+					for (ExamPerRecord e : examPerRecordList) {
+						e.setEl_Id(el_Id);
+						// 保存考试详细记录
+						examPerRecordService.addExamPerRecord(e);
+					}
+					this.getRequest().setAttribute("addExamLogMsg", "提交成功！");
+				/*}*/
+			} else {
+				this.getRequest().setAttribute("addExamLogMsg", "提交失败！");
+			}
+		} else {
+			this.getRequest().setAttribute("addExamLogMsg", "一分钟内已提交过,请一分钟后提交！");
+		}
 		return "getExamRecord";
 	}
 
@@ -333,7 +347,8 @@ public class PartyMemberAction extends BaseAction {
 		int userId = (Integer) this.getSession().get("userId");
 		int userSort = (Integer) this.getSession().get("userSort");
 		int tp_Id = Integer.valueOf(this.getRequest().getParameter("tp_Id"));
-		List<ExamPerRecord> examPerRecordsList = examPerRecordService.getExamPerRecordsByUserId(userId, tp_Id,
+		int el_Id = Integer.valueOf(this.getRequest().getParameter("el_Id"));
+		List<ExamPerRecord> examPerRecordsList = examPerRecordService.getExamPerRecordsByUserId(userId, tp_Id, el_Id,
 				userSort);
 		List<Question> questionsList = new ArrayList<>();
 		for (ExamPerRecord e : examPerRecordsList) {

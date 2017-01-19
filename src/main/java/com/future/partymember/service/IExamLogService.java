@@ -25,7 +25,8 @@ public interface IExamLogService {
 
 	//根据用户id，用户身份，试卷id获得考试总分
 	public ExamLog getExamLogByTpId(int partyMemberId,int partySort,int tp_Id);
-	
+	//根据开启试卷记录st_Id和时间获得考试记录的id
+	public int grtElIdByDate(int st_Id,String date);
 	
 	/**
 	 * @param current

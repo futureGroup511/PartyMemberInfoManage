@@ -6,6 +6,7 @@ package com.future.partymember.action.manager;
 
 import java.io.UnsupportedEncodingException;
 import java.security.spec.ECField;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -128,9 +129,24 @@ public class TestManageAction extends BaseAction {
 		long time=SwitchTime.strToTime(startTest.getEndTime()).getTime()-SwitchTime.strToTime(startTest.getStartTime()).getTime();
 		String testTime=SwitchTime.switchTime(time);		
 		startTest.setTestTime(testTime);				
-		this.getRequest().getSession().getServletContext().setAttribute("startTest",startTest);	
-		
-		this.getRequest().setAttribute("startMeg", "开启成功");		
+		String date=SwitchTime.dateToTimeStr((new Date()));
+		startTest.setCreateDate(date);
+		//判断是否开启
+		int  wetherAdd=startTestService.getStIdByDate(startTest.getPaperName(), date);
+		if(wetherAdd==0){
+		Boolean bool=startTestService.addStartTest(startTest);
+		if(bool==true){
+			int st_Id=startTestService.getStIdByDate(startTest.getPaperName(), date);
+			startTest.setSt_Id(st_Id);
+			this.getRequest().getSession().getServletContext().setAttribute("startTest",startTest);	
+			this.getRequest().setAttribute("startMeg", "开启成功！");	
+		}else{
+			this.getRequest().setAttribute("startMeg", "开启失败！");
+		}
+		}
+		else{
+			this.getRequest().setAttribute("startMeg", "一分钟内已开启该卷，请一分钟后刷新再开启！");
+		}
 		return "startTest";
 	}
 	
