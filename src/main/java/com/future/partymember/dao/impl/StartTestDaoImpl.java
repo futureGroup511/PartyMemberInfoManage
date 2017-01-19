@@ -1,10 +1,12 @@
 package com.future.partymember.dao.impl;
 
+import org.hibernate.Query;
 import org.springframework.stereotype.Repository;
 
 import com.future.partymember.base.BaseDao;
 import com.future.partymember.dao.IStartTestDao;
 import com.future.partymember.entity.StartTest;
+import com.future.partymember.util.PageCut;
 
 @Repository
 public class StartTestDaoImpl  extends BaseDao<StartTest> implements IStartTestDao {
@@ -13,6 +15,46 @@ public class StartTestDaoImpl  extends BaseDao<StartTest> implements IStartTestD
 	public Boolean addStartTest(StartTest startTest) {
 		this.saveEntity(startTest);
 		return true;
+	}
+
+	@Override
+	public PageCut<StartTest> getPC(int current, int pageSize, String search) {
+		if(search==null|| search.length()==0){
+			String hql="select count(*) from StartTest";
+			int count=( (Long)this.uniqueResult(hql)).intValue();
+			PageCut<StartTest> pCut=new PageCut<>(current,pageSize,count);
+			
+			hql="from StartTest order by id desc";
+			
+			pCut.setData(this.getEntityLimitList(hql, (current-1)*pageSize, pageSize));
+			
+			return pCut;
+		}else{
+			String hql="select count(*) from StartTest as st where st.paperName like :search";
+			Query query=this.getSession().createQuery(hql);
+			query.setString("search", "%" + search + "%");
+			int count=( (Long)query.uniqueResult()).intValue();
+			PageCut<StartTest> pCut=new PageCut<>(current,pageSize,count);
+			hql="from StartTest as st where st.paperName like :search order by id desc";
+			query=this.getSession().createQuery(hql);
+			query.setString("search","%"+search+"%");
+			query.setFirstResult(current*pageSize - pageSize);
+			query.setMaxResults(pageSize);
+			pCut.setData(query.list());	
+			return pCut;
+		}
+	}
+
+	@Override
+	public boolean deleteById(int id) {
+		// TODO Auto-generated method stub
+		return this.deleteEntity(this.getEntity(id));
+	}
+
+	@Override
+	public StartTest getById(int id) {
+		// TODO Auto-generated method stub
+		return this.getEntity(id);
 	}
 
 }

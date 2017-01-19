@@ -53,8 +53,14 @@
                  <dd><a target="main" href="${rootPath}manage/import_toAddQuestion">添加试题</a></dd>
                 <dd><a target="main" href="${rootPath}manage/testManage_getTestPaper">管理试卷</a></dd>
                  <dd><a target="main" href="${rootPath}manage/testManage_manageQuestion">管理试题</a></dd>
-                 <dd><a target="main" href="${rootPath}manage/testManage_log">考试记录</a></dd>
                   <dd><a target="main" href="${rootPath}manage/testManage_toStartTest">开启考试</a></dd>
+            </dl>
+            
+            <dl class="channel">
+                <dt>考试记录管理<img src="images/select_xl01.png"></dt>
+					<dd><a target="main" href="${rootPath}manage/startTest_startTestLog">考试记录</a></dd>
+                 	<dd><a target="main" href="${rootPath}manage/testManage_log">成绩记录</a></dd>
+                 	<dd><a target="main" href="${rootPath}manage/testManage">做题记录</a></dd>
             </dl>
 
 

@@ -6,7 +6,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" href="${rootPath }css/bootstrap.css" />
-<title>成绩记录</title>
+<title>考试记录</title>
 
 <style type="text/css">
 .search {
@@ -20,7 +20,7 @@
 	<ol class="breadcrumb">
 		<li>当前位置：</li>
 		<li>考试记录</li>
-		<li class="active">成绩记录</li>
+		<li class="active">考试记录</li>
 	</ol>
 
 	<div class="container">
@@ -30,12 +30,12 @@
 			</div>
 		</div>
 		<div class="row" style="margin-bottom: 30px;">
-			<form action="" method="post">
+			<form action="${rootPath }manage/startTest_startTestLog" method="post">
 				<div class="col-xs-6">
 
 					<input type="text" name="search" class="form-control"
 						value="${search }"
-						placeholder="请输入考试名称或者党员姓名搜索">
+						placeholder="请输入考试名称">
 
 				</div>
 				<div class="col-xs-3">
@@ -46,7 +46,7 @@
 				</div>
 			</form>
 		</div>
-
+		
 		<div class="row">
 			<div class="col-xs-12">
 				共找到 &nbsp; <span style="color: red;">${pc.count }</span> &nbsp; 条数据
@@ -60,39 +60,25 @@
 
 						<tr>
 							<td>试卷名称</td>
-							<td>姓名</td>
-							<td>党员身份</td>
-							<td>试卷总分</td>
-							<td>考试成绩</td>
-							<td>考试时间</td>
+							<td>开始时间</td>
+							<td>结束时间</td>
+							<td>考试时长</td>
 							
+							<td>查看参加此次考试的成员</td>
 							<td>删除</td>
 						</tr>
 
-						<c:forEach var="e" items="${pc.data }">
+						<c:forEach var="st" items="${pc.data }">
 							<tr>
-								<td>${e.paperName }</td>
-								<td>${e.partyMemberName }</td>
-								<c:if test="${e.partySort == 0 }">
-									<td>党员</td>
-								</c:if>
+								<td>${st.paperName }</td>
+								<td>${st.startTime }</td>
+								<td>${st.endTime }</td>
+								<td>${st.testTime }</td>
 								
-								<c:if test="${e.partySort == 1 }">
-									<td>书记</td>
-								</c:if>
+								<td><a href="manage/testManage_log?search=${st.paperName }&encode=1">查看参加此次考试的成员</a></td>
 								
-								<c:if test="${e.partySort < 0 || e.partySort > 2 }">
-									<td>未知</td>
-								</c:if>
+								<td><a href="${rootPath }manage/startTest_startTestDel?id=${st.st_Id }">删除</a></td>
 								
-								<td>${e.testTotalScore }</td>
-								<td>${e.totalScore }</td>
-						
-
-								<td>${e.examTime }</td>
-								
-								<td><a
-									href="${rootPath }manage/testManage_logDel?id=${e.el_Id}">删除</a></td>
 							</tr>
 						</c:forEach>
 
@@ -104,7 +90,7 @@
 		<div id="pagecut" style="margin-right: 100px; text-align: right;">
 			<ul class="pagination">
 				<li><a
-					href="${rootPath }manage/testManage_log?page=${pc.prePage}">上一页</a></li>
+					href="${rootPath }manage/startTest_startTestLog?page=${pc.prePage}">上一页</a></li>
 				<c:if test="${1 < pc.currentPage -3}">
 					<li><a href="#">1</a></li>
 				</c:if>
@@ -114,16 +100,16 @@
 					<c:choose>
 						<c:when test="${i>0 && i == pc.currentPage }">
 							<li class="active"><a
-								href="${rootPath }manage/testManage_log?page=${i }">${i}</a></li>
+								href="${rootPath }manage/startTest_startTestLog?page=${i }">${i}</a></li>
 						</c:when>
 
 						<c:when test="${i>0 && i != postPS.currentPage }">
-							<li><a href="${rootPath }manage/testManage_log?page=${i }">${i}</a></li>
+							<li><a href="${rootPath }manage/startTest_startTestLog?page=${i }">${i}</a></li>
 						</c:when>
 					</c:choose>
 				</c:forEach>
 				<li><a
-					href="${rootPath }manage/testManage_log?page=${pc.nextPage}">下一页</a></li>
+					href="${rootPath }manage/manage/startTest_startTestLog?page=${pc.nextPage}">下一页</a></li>
 			</ul>
 
 		</div>

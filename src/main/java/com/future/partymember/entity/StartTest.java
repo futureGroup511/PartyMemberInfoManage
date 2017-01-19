@@ -15,7 +15,7 @@ import javax.persistence.Transient;
 @Entity
 @Table(name = "start_test", catalog = "partymember")
 public class StartTest {
-
+	
 	private int st_Id;
 	private String paperName;//试卷名称
 	private String startTime;//开始时间
@@ -85,6 +85,7 @@ public class StartTest {
 	public void setEndTime(String endTime) {
 		this.endTime = endTime;
 	}
+
 	@Transient
 	public TestPaper getTestPaper() {
 		return testPaper;
