@@ -75,8 +75,8 @@ public class ExamLogServiceImpl implements IExamLogService{
 	}
 
 	@Override
-	public int grtElIdByDate(int st_Id, String date) {		
-		return examLogDao.grtElIdByDate(st_Id, date);
+	public int grtElIdByDate(int st_Id) {		
+		return examLogDao.grtElIdByDate(st_Id);
 	}
 
 

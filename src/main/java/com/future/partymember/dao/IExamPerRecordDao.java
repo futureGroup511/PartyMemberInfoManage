@@ -11,8 +11,8 @@ public interface IExamPerRecordDao {
 	public Boolean deleteExamPerRecord(int pt_Id);//根据考生id删除
 	public Boolean updateExamPerRecord(ExamPerRecord examPerRecord);
 	//根据用户id，试卷id和用户类型获得该卷的考试记录
-<<<<<<< Updated upstream
-	public List<ExamPerRecord> getExamPerRecordsByUserId(int pt_Id,int tp_Id,int partySort);
+	public List<ExamPerRecord> getExamPerRecordsByUserId(int pt_Id,int tp_Id,int el_Id,int partySort);
+
 	
 	/**
 	 * @param current
@@ -23,7 +23,6 @@ public interface IExamPerRecordDao {
 	 */
 	PageCut<ExamPerRecord> getPC(int current,int pageSize,String search);
 	boolean deleteAll();
-=======
-	public List<ExamPerRecord> getExamPerRecordsByUserId(int pt_Id,int tp_Id,int el_Id,int partySort);
->>>>>>> Stashed changes
+
+	
 }

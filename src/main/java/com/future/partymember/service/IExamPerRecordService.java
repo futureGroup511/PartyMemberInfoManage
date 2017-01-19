@@ -9,9 +9,9 @@ public interface IExamPerRecordService {
 	public Boolean addExamPerRecord(ExamPerRecord examPerRecord);
 	public Boolean deleteExamPerRecord(int pt_Id);//根据考生id删除
 	public Boolean updateExamPerRecord(ExamPerRecord examPerRecord);
-<<<<<<< Updated upstream
-	//根据用户id，试卷id和用户类型获得该卷的考试记录
-	public List<ExamPerRecord> getExamPerRecordsByUserId(int pt_Id,int tp_Id,int partySort);
+	//根据用户id，试卷id,用户类型和考试记录id 获得该卷的考试记录
+	public List<ExamPerRecord> getExamPerRecordsByUserId(int pt_Id,int tp_Id,int el_Id,int partySort);
+		
 	
 	/**
 	 * @param current
@@ -23,9 +23,6 @@ public interface IExamPerRecordService {
 	PageCut<ExamPerRecord> getPC(int current,int pageSize,String search);
 	
 	boolean deleteAll();
-=======
-	//根据用户id，试卷id,用户类型和考试记录id 获得该卷的考试记录
-	public List<ExamPerRecord> getExamPerRecordsByUserId(int pt_Id,int tp_Id,int el_Id,int partySort);
->>>>>>> Stashed changes
+
 
 }

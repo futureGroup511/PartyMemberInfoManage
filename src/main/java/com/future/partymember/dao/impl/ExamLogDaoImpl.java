@@ -95,8 +95,8 @@ public class ExamLogDaoImpl extends BaseDao<ExamLog> implements IExamLogDao {
 	}
 
 	@Override
-	public int grtElIdByDate(int st_Id,String date) {
-		String hql="from ExamLog e where e.examTime='"+date+"' and e.st_Id='"+st_Id+"'";	
+	public int grtElIdByDate(int st_Id) {
+		String hql="from ExamLog e where  e.st_Id='"+st_Id+"'";	
 		List<ExamLog> list=this.getEntityList(hql);
 		if(list==null || list.size()==0){
 			return 0;

@@ -61,13 +61,12 @@ public class StartTestDaoImpl  extends BaseDao<StartTest> implements IStartTestD
 	}
 
 	@Override
-<<<<<<< Updated upstream
 	public boolean deleteAll() {
 		// TODO Auto-generated method stub
 		String hql="delete from StartTest";
 		this.executeUpdate(hql);
 		return true;
-=======
+	}
 	public int getStIdByDate(String paperName, String createDate) {
 		String hql="from StartTest s where s.paperName='"+paperName+"' and s.createDate='"+createDate+"'";
 		List<StartTest> list=this.getEntityList(hql);
@@ -76,7 +75,6 @@ public class StartTestDaoImpl  extends BaseDao<StartTest> implements IStartTestD
 		}else{
 			return ((StartTest)list.toArray()[0]).getSt_Id();
 		}		
->>>>>>> Stashed changes
 	}
 
 }

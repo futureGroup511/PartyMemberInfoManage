@@ -47,15 +47,15 @@ public class StartTestServiceImpl implements IStartTestService {
 	}
 
 	@Override
-<<<<<<< Updated upstream
+
 	public boolean deleteAll() {
 		// TODO Auto-generated method stub
 		return startTestDao.deleteAll();
-=======
+	}
 	public int getStIdByDate(String paperName, String createDate) {
 		
 		return startTestDao.getStIdByDate(paperName, createDate);
->>>>>>> Stashed changes
+
 	}
 	
 }

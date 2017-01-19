@@ -28,12 +28,12 @@ public class PartyMemberAction extends BaseAction {
 	 */
 	private static final long serialVersionUID = 1L;
 	private int page = 1;
-	
+
 	/**
 	 * 下面两行添加人 丁赵雷
 	 */
-	private PageCut<?> pageCut; //封装分页信息的
-	private Inform inform;//用来封装通知消息的
+	private PageCut<?> pageCut; // 封装分页信息的
+	private Inform inform;// 用来封装通知消息的
 
 	private PartyMemberInfo partyMemberInfo;// 从表单获得党员对象
 	// 查询党员个人信息
@@ -193,17 +193,15 @@ public class PartyMemberAction extends BaseAction {
 		this.getRequest().setAttribute("paperList", paperList);
 		return "getResPaper";
 	}
-	
-	
-	//进入某个文章版块的列表   如党建巡礼的文章列表
-	public String paperSection(){
-		int paperTypeId=Integer.parseInt(this.getRequest().getParameter("paperTypeId"));
-		pageCut=redPaperService.getPCByNew(page, 15, paperTypeId);
+
+	// 进入某个文章版块的列表 如党建巡礼的文章列表
+	public String paperSection() {
+		int paperTypeId = Integer.parseInt(this.getRequest().getParameter("paperTypeId"));
+		pageCut = redPaperService.getPCByNew(page, 15, paperTypeId);
 		this.getRequest().setAttribute("pc", pageCut);
 		this.getRequest().setAttribute("paper", pageCut.getData().get(0));
 		return "paperSection";
 	}
-	
 
 	// 阅读文章
 	public String lookPaper() throws Exception {
@@ -294,36 +292,30 @@ public class PartyMemberAction extends BaseAction {
 				score = question.getQuestion_socre();
 				totalScore += score;
 			}
-
 			ExamPerRecord examPerRecord = new ExamPerRecord(tp_Id, qt_Id, userAnswer, score, userId, userSort);
 			examPerRecordList.add(examPerRecord);
-
 		}
 		String partyMemberName = partyMemberInfoService.getPartyMemberInfoById(userId).getUsername();
 		String date = SwitchTime.dateToTimeStr(new Date());
 		ExamLog examLog = new ExamLog(st_Id,tp_Id, paperName, userId, partyMemberName, userSort, totalScore, date, testTime,
 				testTotalScore, testNum);
 
-		int datebool = examLogService.grtElIdByDate(st_Id,date);
+		int datebool = examLogService.grtElIdByDate(st_Id);
 		if (datebool==0) {
 			Boolean bool = examLogService.addExamLog(examLog);
 			if (bool == true) {
-				int el_Id = examLogService.grtElIdByDate(st_Id,date);
-				/*if (el_Id == 0) {
-					this.getRequest().setAttribute("addExamLogMsg", "已提交过！");
-				} else {*/
-					for (ExamPerRecord e : examPerRecordList) {
-						e.setEl_Id(el_Id);
-						// 保存考试详细记录
-						examPerRecordService.addExamPerRecord(e);
-					}
-					this.getRequest().setAttribute("addExamLogMsg", "提交成功！");
-				/*}*/
+				int el_Id = examLogService.grtElIdByDate(st_Id);				
+				for (ExamPerRecord e : examPerRecordList) {
+					e.setEl_Id(el_Id);
+					// 保存考试详细记录
+					examPerRecordService.addExamPerRecord(e);
+				}
+				this.getRequest().setAttribute("addExamLogMsg", "提交成功！");				
 			} else {
 				this.getRequest().setAttribute("addExamLogMsg", "提交失败！");
 			}
 		} else {
-			this.getRequest().setAttribute("addExamLogMsg", "一分钟内已提交过,请一分钟后提交！");
+			this.getRequest().setAttribute("addExamLogMsg", "已提交！");
 		}
 		return "getExamRecord";
 	}
