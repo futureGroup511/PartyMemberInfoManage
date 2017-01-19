@@ -124,9 +124,9 @@ public class TestManageAction extends BaseAction {
 		startTest.setTestPaper(testPaper);
 		long time=SwitchTime.strToTime(startTest.getEndTime()).getTime()-SwitchTime.strToTime(startTest.getStartTime()).getTime();
 		String testTime=SwitchTime.switchTime(time);		
-		startTest.setTestTime(testTime);
-		startTest.setTestPaper(testPaper);				
-		this.getRequest().getSession().getServletContext().setAttribute("startTest",startTest);		
+		startTest.setTestTime(testTime);				
+		this.getRequest().getSession().getServletContext().setAttribute("startTest",startTest);	
+		
 		this.getRequest().setAttribute("startMeg", "开启成功");		
 		return "startTest";
 	}

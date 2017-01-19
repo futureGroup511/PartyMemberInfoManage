@@ -24,6 +24,7 @@ import com.future.partymember.service.IRedPaperService;
 import com.future.partymember.service.IRedPaperTypeService;
 import com.future.partymember.service.IRedVideoService;
 import com.future.partymember.service.IRelationTransformService;
+import com.future.partymember.service.IStartTestService;
 import com.future.partymember.service.ITestPaperService;
 import com.future.partymember.service.IWatchVideoRecordService;
 import com.opensymphony.xwork2.ActionSupport;
@@ -72,7 +73,8 @@ public class BaseAction extends ActionSupport implements SessionAware{
 	protected ITestPaperService testPaperService;
 	@Resource
 	protected IExamPerRecordService examPerRecordService;
-
+	@Resource
+	protected IStartTestService startTestService;
 	
 	
 	protected HttpServletRequest getRequest(){
