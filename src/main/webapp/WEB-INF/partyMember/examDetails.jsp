@@ -46,7 +46,7 @@
 				class="col-lg-8 col-lg-offset-3 col-md-8 col-md-offset-3 col-xs-8 col-xs-offset-3">
 				<ul class="nav navbar-nav">
 					<li><a href="${rootPath}party/partyLogin.action">网站首页</a></li>
-					<li><a href="${rootPath }secretary/pSForward_paperList.action">红色文章</a></li>
+					<li><a href="${rootPath }party/partyMemberAction_getResPaper.action">红色文章</a></li>
 					<li><a
 						href="${rootPath}party/partyMemberAction_viewVideos.action">红色视频</a></li>
 					<li><a
@@ -70,7 +70,7 @@
 	<div id="body">
 		<div id="body-one">
 			<p>
-				<img src="${rootPath}images/topimg.png"> <span>您的位置：首页>在线考试>考试详情</span>
+				<img src="${rootPath}images/topimg.png"> <span>您的位置：首页>个人中心>考试报告>考试详情</span>
 			</p>
 		</div>
 		<div id="body-big">

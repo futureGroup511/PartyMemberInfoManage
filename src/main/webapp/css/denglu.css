@@ -46,5 +46,12 @@ form{
 .form-group img{
   width:95px;
 }
+.form-group a{
+  width:95px!important;
+  display: block;
+  margin-left:110%;
+  margin-top: -8%;
+}
+
 /* CSS Document */
 

@@ -14,22 +14,24 @@
 			<result >/WEB-INF/partyMember/index.jsp</result> 
 		</action>
 		
-		<action name="partyMemberAction_*"  class="com.future.partymember.action.partymember.PartyMemberAction" method="{1}">  					       
+		<action name="partyMemberAction_*"  class="com.future.partymember.action.partymember.PartyMemberAction" method="{1}">  	
+			<!-- 党员个人信息查询修改 -->				       
             <result name="seekPartyMemberInfo">/WEB-INF/partyMember/getPartyMemberInfo.jsp</result> 
             <result name="getInfoBeforeUpdate">/WEB-INF/partyMember/updatePartyMemberInfo.jsp</result>                         
-            <result name="updatePartyMemberInfo">/WEB-INF/partyMember/updatePartyMemberInfo.jsp</result>  
-            <result name="viewVideos">/WEB-INF/partyMember/viewVideos.jsp</result>            
-            
-            <result name="viewVideos">/WEB-INF/partyMember/viewVideos.jsp</result>
-            
+            <result name="updatePartyMemberInfo">/WEB-INF/partyMember/updatePartyMemberInfo.jsp</result> 
+            <!-- 红色视频  -->                                
+            <result name="viewVideos">/WEB-INF/partyMember/viewVideos.jsp</result>           
             <result name="viewing">/WEB-INF/partyMember/videoplay.jsp</result>
             <result name="viewing_remote">/WEB-INF/partyMember/videoplay_remote.jsp</result>
-            
+          	<!-- 红色文章 -->
+          	<result name="getResPaper">/WEB-INF/partyMember/redPaper.jsp</result>
+          	<result name="lookPaper">/WEB-INF/partyMember/readRedPaper.jsp</result>
+            <!-- 在线考试 -->
             <result name="startTest">/WEB-INF/partyMember/onlineTest.jsp</result>
-            <result name="getExamRecord">/WEB-INF/partyMember/onlineTest.jsp</result>
-            
+            <result name="getExamRecord">/WEB-INF/partyMember/onlineTest.jsp</result>            
             <result name="getMyExamLog">/WEB-INF/partyMember/myExamLog.jsp</result>
-            <result name="getExamDetails">/WEB-INF/partyMember/examDetails.jsp</result>                                                   
+            <result name="getExamDetails">/WEB-INF/partyMember/examDetails.jsp</result>
+                                                               
         </action>
 
 	</package>

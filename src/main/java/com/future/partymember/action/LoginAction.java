@@ -22,7 +22,7 @@ public class LoginAction extends BaseAction {
 		String vCode=(String)this.getRequest().getSession().getAttribute("randStr");
 		this.getRequest().getSession().removeAttribute("randStr");
 		if(randStr==null || !randStr.equals(vCode) ){
-			this.getRequest().setAttribute("remind", "验证码错误，请重试");
+			this.getRequest().setAttribute("loginMeg", "验证码错误，请重试");
 			return "login";
 		}
 		
