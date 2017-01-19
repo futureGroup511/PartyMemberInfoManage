@@ -15,4 +15,5 @@
   <table-filter match-catalog="partymember" match-name="due_payment_records"/>
   <table-filter match-catalog="partymember" match-name="watch_video_record"/>
   <table-filter match-catalog="partymember" match-name="exam_per_record"/>
+  <table-filter match-catalog="partymember" match-name="start_test"/>
 </hibernate-reverse-engineering>

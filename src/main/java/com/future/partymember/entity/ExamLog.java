@@ -72,7 +72,7 @@ public class ExamLog {
 		this.paperName = paperName;
 	}
 
-	@Column(name = "totalScore",  nullable = false)	
+	@Column(name = "totalScore")	
 	public int getTotalScore() {
 		return totalScore;
 	}
@@ -99,7 +99,7 @@ public class ExamLog {
 	}
 
 	@Temporal(TemporalType.DATE)
-	@Column(name = "examTime",  nullable = false)
+	@Column(name = "examTime")
 	public Date getExamTime() {
 		return examTime;
 	}

@@ -1,10 +1,22 @@
 package com.future.partymember.entity;
 
+import static javax.persistence.GenerationType.IDENTITY;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.persistence.Transient;
+
 /*
 *@author 焦祥宇
 */
+@Entity
+@Table(name = "start_test", catalog = "partymember")
 public class StartTest {
-	
+
+	private int st_Id;
 	private String paperName;//试卷名称
 	private String startTime;//开始时间
 	private String endTime;//结束时间
@@ -14,16 +26,26 @@ public class StartTest {
 	private String testTime;//考试时长
 	private int totalScore;//试卷总分
 	
- 
-	public int getTotalScore() {
-		return totalScore;
+	@Id
+	@GeneratedValue(strategy = IDENTITY)
+
+	@Column(name = "st_Id", unique = true, nullable = false)
+	public int getSt_Id() {
+		return st_Id;
 	}
 
+	public void setSt_Id(int st_Id) {
+		this.st_Id = st_Id;
+	}
+	@Transient
+	public int getTotalScore() {
+		return totalScore;
+	}	
 	public void setTotalScore(int totalScore) {
 		this.totalScore = totalScore;
 	}
 
-
+	@Transient
 	public int getTestNum() {
 		return testNum;
 	}
@@ -31,7 +53,7 @@ public class StartTest {
 	public void setTestNum(int testNum) {
 		this.testNum = testNum;
 	}
-
+	@Transient
 	public String getTestPeople() {
 		return testPeople;
 	}
@@ -63,7 +85,7 @@ public class StartTest {
 	public void setEndTime(String endTime) {
 		this.endTime = endTime;
 	}
-
+	@Transient
 	public TestPaper getTestPaper() {
 		return testPaper;
 	}
@@ -71,7 +93,7 @@ public class StartTest {
 	public void setTestPaper(TestPaper testPaper) {
 		this.testPaper = testPaper;
 	}
-
+	
 	public String getTestTime() {
 		return testTime;
 	}

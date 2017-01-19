@@ -287,6 +287,7 @@ public class PartyMemberAction extends BaseAction {
 				testTime, testTotalScore, testNum);
 		Boolean bool = examLogService.addExamLog(examLog);
 		if (bool == true) {
+			
 			this.getRequest().setAttribute("addExamLogMsg", "提交成功！");
 		} else {
 			this.getRequest().setAttribute("addExamLogMsg", "提交失败！");
