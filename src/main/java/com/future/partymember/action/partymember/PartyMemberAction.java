@@ -84,12 +84,12 @@ public class PartyMemberAction extends BaseAction {
 	// 红色视频
 	public String viewVideos() throws Exception {
 
-		PageCut<RedVideo> pc = redVideoService.getPC(page, 12);
+		PageCut<RedVideo> pc = redVideoService.getPC(page, 16);
+		System.out.println(pc.getData());
 		this.getRequest().setAttribute("pc", pc);
-		System.out.println(pc.getData().size());
-		List<RedVideo> videosList = new ArrayList<RedVideo>();
-		videosList = redVideoService.getAll();
-		this.getRequest().setAttribute("videosList", videosList);
+		System.out.println(pc.getData());
+		
+		this.getRequest().setAttribute("pc",pc);
 		return "viewVideos";
 	}
 
@@ -102,10 +102,10 @@ public class PartyMemberAction extends BaseAction {
 	 */
 	public String viewing() throws Exception {
 		// 从路径获得视频id
-		int videoId = Integer.valueOf(this.getRequest().getParameter("videoId"));
-
+		int videoId = Integer.valueOf(this.getRequest().getParameter("rv_Id"));
+		int userId=(Integer)this.getSession().get("userId");
 		// 获得视频观看记录
-		WatchVideoRecord watchVideoRecord = watchVideoRecordService.getWVR(videoId, 1, 0);
+		WatchVideoRecord watchVideoRecord = watchVideoRecordService.getWVR(videoId, userId, 0);
 		if (watchVideoRecord != null)
 			this.getRequest().setAttribute("currentTime", watchVideoRecord.getCurrentTime());
 		// 视频浏览次数加一
@@ -130,9 +130,8 @@ public class PartyMemberAction extends BaseAction {
 	 * 更新党员的学习时间和视频播放记录历史 丁赵雷 ---焦祥宇修改过
 	 */
 	public void updateLearnTime() throws Exception {
-		/* PartyMemberInfo p=(PartyMemberInfo)session.get("partyMember"); */// 从session获得用户信息
-		/* int ptm_id=p.getPtm_Id(); */// 用户id
-		partyMemberInfo = partyMemberInfoService.getPartyMemberInfoById(1);
+		int userId=(Integer)this.getSession().get("userId");// 用户id
+		partyMemberInfo = partyMemberInfoService.getPartyMemberInfoById(userId);
 
 		long time = Integer.parseInt(getRequest().getParameter("time"));
 		System.out.println("time" + time);
@@ -154,21 +153,21 @@ public class PartyMemberAction extends BaseAction {
 
 		System.out.println("currentTime" + currentTime);
 
-		int videoId = Integer.valueOf(getRequest().getParameter("videoId"));
+		int videoId = Integer.valueOf(getRequest().getParameter("rv_Id"));
 		System.out.println("vidoeId:" + videoId);
 		WatchVideoRecord watchVideoRecord;
-		watchVideoRecord = watchVideoRecordService.getWVR(videoId, 1, 0);
+		watchVideoRecord = watchVideoRecordService.getWVR(videoId, userId, 0);
 
 		System.out.println(watchVideoRecord);
 		if (watchVideoRecord == null) {
 			watchVideoRecord = new WatchVideoRecord();
 			watchVideoRecord.setRv_id(videoId);
-			watchVideoRecord.setPm_id(1);
+			watchVideoRecord.setPm_id(userId);
 			watchVideoRecord.setCurrentTime(currentTime);
 			watchVideoRecordService.addWVR(watchVideoRecord);
 		} else {
 			watchVideoRecord.setRv_id(videoId);
-			watchVideoRecord.setPm_id(1);
+			watchVideoRecord.setPm_id(userId);
 			watchVideoRecord.setCurrentTime(currentTime);
 			watchVideoRecordService.updateWVR(watchVideoRecord);
 		}

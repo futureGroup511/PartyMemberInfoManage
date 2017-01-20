@@ -66,13 +66,12 @@ public class ExamLogServiceImpl implements IExamLogService{
 	}
 
 	@Override
-<<<<<<< HEAD
 	public ExamLog getById(int id) {
 		// TODO Auto-generated method stub
 		return examLogDao.getById(id);
 	}
 
-=======
+
 	public int grtElIdByDate(int st_Id) {		
 		return examLogDao.grtElIdByDate(st_Id);
 	}
@@ -84,5 +83,4 @@ public class ExamLogServiceImpl implements IExamLogService{
 	}
 
 
->>>>>>> b81875919f1806c8e2023ce29da7ddf7fc97fdfa
 }
