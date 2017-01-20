@@ -6,7 +6,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" href="${rootPath}css/bootstrap.css">
-<title>试题管理</title>
+<title>查看试题详情-试题管理</title>
 <style type="text/css">
 .search {
 	color: red;
@@ -19,7 +19,7 @@
 	<ol class="breadcrumb">
 		<li>当前位置：</li>
 		<li>考试管理</li>
-		<li class="active">管理试题</li>
+		<li class="active">查看试题详情</li>
 	</ol>
 
 
