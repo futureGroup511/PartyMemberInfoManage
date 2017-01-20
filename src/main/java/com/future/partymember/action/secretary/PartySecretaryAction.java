@@ -126,8 +126,9 @@ public class PartySecretaryAction extends BaseAction {
 			examPerRecordList.add(examPerRecord);
 		}
 		String partySecretaryName = partySecretaryInfoService.findById(userId).getUsername();
+		String partyBranch=partySecretaryInfoService.findById(userId).getPartyBranch();
 		String date = SwitchTime.dateToTimeStr(new Date());
-		ExamLog examLog = new ExamLog(st_Id,tp_Id, paperName, userId, partySecretaryName, userSort, totalScore, date, testTime,
+		ExamLog examLog = new ExamLog(st_Id,tp_Id, paperName, userId, partySecretaryName, partyBranch,userSort, totalScore, date, testTime,
 				testTotalScore, testNum);
 
 		int datebool = examLogService.grtElIdByDate(st_Id);
