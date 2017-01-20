@@ -11,6 +11,8 @@ public interface IInformService {
 	
 	PageCut<Inform> getPCByNew(int curr,int pageSize);
 	
+	PageCut<Inform> getPCByNew(int curr,int pageSize,String search);
+	
 	Inform getById(int id);
 	//书记管理通知的方法
 	PageCut<Inform> getQuery(int curr, int pageSize,Object ...objects);

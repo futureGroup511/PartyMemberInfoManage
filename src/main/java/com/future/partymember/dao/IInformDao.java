@@ -17,6 +17,8 @@ public interface IInformDao {
 	//获取hql  Query，业务由service填写
 	PageCut<Inform> getQuery(int curr, int pageSize,String hql,String hqlCount,Object ...objects);
 	
+	PageCut<Inform> getPCByNew(int curr,int pageSize,String search);
+	
 	Inform getById(int id);
 
 }
