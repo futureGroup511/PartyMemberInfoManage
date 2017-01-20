@@ -30,7 +30,7 @@
 						<option>通知公告</option>
 				 </select>
                   <input type="text" name="select" placeholder="请输入您要搜索的内容">
-                   <button class="btn"><img src="images/sousuo.png" width="22" height="22"></button>
+                   <button class="btn"><img src="${rootPath}images/sousuo.png" width="22" height="22"></button>
              </div>
        </div>
 </div>
@@ -50,12 +50,53 @@
                    </ul>
                </li>
               <li><a href="information.jsp">通知公告</a></li>
-              <li><a href="${rootPath}connect_us.jsp">联系我们</a></li>
+              <li><a href="${rootPath}party/partyMemberAction_connectUs.action">联系我们</a></li>
          </ul>
         </div>
      </div>
 </div>
 <div id="body">
+  <div id="body-one">
+     <p><img src="${rootPath}images/topimg.png"> <span>您的位置：首页&nbsp;&nbsp;>&nbsp;&nbsp;修改密码</span></p>
+  </div>
+  <div id="body-big">
+   <div id="body-two">
+     <p>提示：密码必须是字母和数字的组合长度为8到16位</p>
+   </div>
+  <div id="body-four">
+          <ul class="nav nav-tabs" role="tablist">
+                  <li role="presentation" class="active"><a href="#home" role="tab" data-toggle="tab">修改密码</a></li>
+                  <li role="presentation"><a href="#profile" role="tab" data-toggle="tab">修改手机号</a></li>
+          </ul>
+ <!-- Tab panes -->
+     <div class="tab-content">
+        <div role="tabpanel" class="tab-pane active" id="home">
+           <div id="body-three">
+               <p><input type="text" name="username" class="form-control" placeholder="请输入密码" autocomplete="off"/></p>
+               <p><input type="text" name="username" class="form-control" placeholder="请再次输入密码" autocomplete="off"/></p>
+               <button class="btn btn-primary sure" type="button">重置</button>
+               <button class="btn btn-primary" type="button">确认添加</button>
+            </div>
+        </div>
+       <div role="tabpanel" class="tab-pane" id="profile">
+           <div id="body-three">
+               <p><input type="text" name="username" class="form-control" placeholder="请输入新的手机号" autocomplete="off"/></p>
+               <button class="btn btn-primary sure" type="button">重置</button>
+                <button class="btn btn-primary" type="button">确认添加</button>
+            </div>
+       </div>
+   </div>
+ </div>
+ </div>
+</div>
+<footer id="footer-warp"><!--页脚开始-->
+		<p class="footer"><a href="">网站声明</a> &nbsp; &nbsp;<span>|</span> &nbsp; &nbsp;<a href="">关于我们 &nbsp; &nbsp;</a><span>|</span> &nbsp; &nbsp;<a href="">联系我们</a></p>
+		<p>Copyright @ 2016 All rights reserved.　　版权所有：河南科技学院党委</p>
+</footer><!--页脚结束-->	
+</body>
+</html>
+
+<%-- <div id="body">
  <div id="body-one">
    <p><img src="${rootPath}images/topimg.png"> <span>您的位置：<a href="${rootPath}party/partyLogin.action">首页</a>>个人中心>修改信息</span></p>
  </div>
@@ -95,7 +136,7 @@
 </footer><!--页脚结束-->	
 </body>
 </html>
-<%-- <link rel="stylesheet" href="${rootPath}css/bootstrap.css">
+<link rel="stylesheet" href="${rootPath}css/bootstrap.css">
 <link rel="stylesheet" href="${rootPath}css/index-one.css">
 <script src="${rootPath}js/jquery-2.2.3.min.js"></script>
 <script src="${rootPath}js/bootstrap.js"></script>
@@ -265,5 +306,5 @@
 	
 </body>
 </html>
- --%>
-	
+
+	 --%>

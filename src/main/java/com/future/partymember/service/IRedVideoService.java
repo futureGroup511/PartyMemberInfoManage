@@ -11,6 +11,9 @@ public interface IRedVideoService {
 	RedVideo get(int id);
 	//最新视频
 	List<RedVideo> getNew(int num);
+	//最热视频，size若小于总数，返回数量小于size
+	List<RedVideo> getHot(int size);
+	
 	//推荐视频
 	List<RedVideo> getRecommend(int num);
 	List<RedVideo> getList(int first,int num);

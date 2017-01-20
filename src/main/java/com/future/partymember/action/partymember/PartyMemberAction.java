@@ -84,13 +84,8 @@ public class PartyMemberAction extends BaseAction {
 
 	// 红色视频
 	public String viewVideos() throws Exception {
-
-		PageCut<RedVideo> pc = redVideoService.getPC(page, 16);
-		System.out.println(pc.getData());
-		this.getRequest().setAttribute("pc", pc);
-		System.out.println(pc.getData());
-		
-		this.getRequest().setAttribute("pc",pc);
+		PageCut<RedVideo> pc = redVideoService.getPC(16,page );		
+		this.getRequest().setAttribute("pc", pc);		
 		return "viewVideos";
 	}
 
@@ -394,6 +389,10 @@ public class PartyMemberAction extends BaseAction {
 		return "lookInform";
 	}
 
+	public String connectUs() throws Exception{
+		return "connectUs";
+	}
+	
 	public void setPartyMemberInfo(PartyMemberInfo partyMemberInfo) {
 		this.partyMemberInfo = partyMemberInfo;
 	}

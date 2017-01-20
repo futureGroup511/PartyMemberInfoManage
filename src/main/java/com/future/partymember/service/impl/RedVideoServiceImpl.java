@@ -83,5 +83,10 @@ public class RedVideoServiceImpl implements IRedVideoService{
 	public List<RedVideo> getRecommend(int num) {		
 		return redVideoDao.getRecommend(num);
 	}
+	@Override
+	public List<RedVideo> getHot(int size) {
+		// TODO Auto-generated method stub
+		return redVideoDao.getHot(size);
+	}
 
 }

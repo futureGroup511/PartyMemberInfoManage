@@ -134,6 +134,10 @@ public class RedVideoDaoImpl extends BaseDao<RedVideo> implements IRedVideoDao {
 		return pc;
 	}
 
-	
-
+	@Override
+	public List<RedVideo> getHot(int size) {
+		// TODO Auto-generated method stub
+		String hql="from RedVideo as rv order by rv.watchNum desc";
+		return this.getEntityLimitList(hql,0,size);
+	}
 }
