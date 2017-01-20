@@ -13,9 +13,9 @@
 				<li>
 					个人中心
 					<ol>
-						<li><a href="${rootPath }secretary/partySecretary_lookMyself">查看个人信息</a></li>
-						<li><a href="${rootPath }secretary/pSForward_fUpdataPerson">修改个人密码</a></li>
-						<li><a href="${rootPath }secretary/pSForward_fUpdataPerson">查看个人成绩</a></li>
+						<li><a href="${rootPath }secretary/partySecretary_lookMyself">个人信息</a></li>
+						<li><a href="${rootPath }secretary/pSForward_fUpdataPerson">修改信息</a></li>
+						<li><a href="${rootPath}secretary/partySecretary_getMyExamLog">考试报告</a></li>
 					</ol>
 				</li>
 				<li><a href="${rootPath }secretary/partySecretary_lookOfPartyMember">党员管理</a></li>
@@ -26,7 +26,7 @@
 				
 				<li><a href="${rootPath }secretary/partySecretary_videoList">在线视频</a></li>
 				<li><a href="${rootPath }secretary/pSForward_paperList">在线文章</a></li>
-				<li><a href="${rootPath }secretary/pSForward_paperList">在线考试</a></li>
+				<li><a href="${rootPath }secretary/pSForward_startTest">在线考试</a></li>
 				<li><a href="${rootPath }secretary/pSForward_paperList">通知消息</a>
 					<ol>
 						<li><a href="${rootPath }secretary/partySecretary_informList">查看通知</a></li>

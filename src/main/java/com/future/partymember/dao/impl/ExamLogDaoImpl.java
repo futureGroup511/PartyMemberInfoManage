@@ -83,7 +83,6 @@ public class ExamLogDaoImpl extends BaseDao<ExamLog> implements IExamLogDao {
 
 	@Override
 	public boolean deleteAll() {
-		// TODO Auto-generated method stub
 		String hql="delete from ExamLog";
 		this.executeUpdate(hql);
 		return true;
@@ -91,9 +90,9 @@ public class ExamLogDaoImpl extends BaseDao<ExamLog> implements IExamLogDao {
 
 	@Override
 	public ExamLog getById(int id) {
-		// TODO Auto-generated method stub
 		return this.getEntity(id);
 	}
+
 	public int grtElIdByDate(int st_Id) {
 		String hql="from ExamLog e where  e.st_Id='"+st_Id+"'";	
 		List<ExamLog> list=this.getEntityList(hql);
