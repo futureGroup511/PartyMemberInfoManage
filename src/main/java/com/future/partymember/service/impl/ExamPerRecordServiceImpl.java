@@ -61,6 +61,12 @@ public class ExamPerRecordServiceImpl implements IExamPerRecordService {
 		return examPerRecordDao.deleteAll();
 	}
 
+	@Override
+	public List<ExamPerRecord> getExamPerRecordsByUserId(int pt_Id, int tp_Id, int partySort) {
+		// TODO Auto-generated method stub
+		return examPerRecordDao.getExamPerRecordsByUserId(pt_Id, tp_Id, partySort);
+	}
+
 	
 
 	

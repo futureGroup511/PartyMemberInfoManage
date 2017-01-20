@@ -63,6 +63,7 @@ public class ExamLogServiceImpl implements IExamLogService{
 		return examLogDao.getById(id);
 	}
 
+
 	public int grtElIdByDate(int st_Id) {		
 		return examLogDao.grtElIdByDate(st_Id);
 	}
@@ -71,4 +72,5 @@ public class ExamLogServiceImpl implements IExamLogService{
 	public PageCut<ExamLog> getExamLogsBypartyMemberId(int curr, int pageSize, int partyMemberId, int partySort) {
 		return examLogDao.getExamLogsBypartyMemberId(curr, pageSize, partyMemberId, partySort);
 	}
+
 }

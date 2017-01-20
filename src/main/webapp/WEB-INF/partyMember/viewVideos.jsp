@@ -119,7 +119,7 @@
 		<div id="body-three">
 			<c:forEach items="${pc.data}" var="v" begin="0" end="3">
 				<div>
-					<li><a href="${rootPath}/video_${v.rv_Id}.action"><img
+					<li><a href="${rootPath }party/partyMemberAction_viewing?rv_Id=${v.rv_Id}.action"><img
 							src="${rootPath}${v.imgUrl}"></a></li> <span>${v.name}</span>
 					<img src="${rootPath}images/play.png" id="img1">
 				</div>
@@ -128,7 +128,7 @@
 		<div id="body-three">
 			<c:forEach items="${pc.data}" var="v" begin="4" end="7">
 				<div>
-					<li><a href="${rootPath}/video_${v.rv_Id}.action"><img
+					<li><a href="${rootPath }party/partyMemberAction_viewing?rv_Id=${v.rv_Id}.action"><img
 							src="${rootPath}${v.imgUrl}"></a></li> <span>${v.name}</span>
 					<img src="${rootPath}images/play.png" id="img1">
 				</div>
@@ -137,7 +137,7 @@
 		<div id="body-three">
 			<c:forEach items="${pc.data}" var="v" begin="4" end="11">
 				<div>
-					<li><a href="${rootPath}/video_${v.rv_Id}.action"><img
+					<li><a href="${rootPath }party/partyMemberAction_viewing?rv_Id=${v.rv_Id}.action"><img
 							src="${rootPath}${v.imgUrl}"></a></li> <span>${v.name}</span>
 					<img src="${rootPath}images/play.png" id="img1">
 				</div>
@@ -146,7 +146,7 @@
 		<div id="body-three">
 			<c:forEach items="${pc.data}" var="v" begin="12" end="15">
 				<div>
-					<li><a href="${rootPath}/video_${v.rv_Id}.action"><img
+					<li><a href="${rootPath }party/partyMemberAction_viewing?rv_Id=${v.rv_Id}.action"><img
 							src="${rootPath}${v.imgUrl}"></a></li> <span>${v.name}</span>
 					<img src="${rootPath}images/play.png" id="img1">
 				</div>
