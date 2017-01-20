@@ -9,6 +9,7 @@ import com.future.partymember.base.BaseDao;
 import com.future.partymember.dao.IInformDao;
 import com.future.partymember.entity.Inform;
 import com.future.partymember.util.PageCut;
+import com.opensymphony.xwork2.util.finder.ClassFinder.Info;
 
 @Repository
 public class InformDaoImpl extends BaseDao<Inform> implements IInformDao {
@@ -64,6 +65,30 @@ public class InformDaoImpl extends BaseDao<Inform> implements IInformDao {
 		PageCut<Inform> pc=new PageCut<>(curr,pageSize,this.getNum(hqlCount,objects));
 		pc.setData(list);
 		return pc;	
+	}
+	@Override
+	public PageCut<Inform> getPCByNew(int curr, int pageSize, String search) {
+		// TODO Auto-generated method stub
+		
+		if(search == null || search.length()==0){
+			return this.getPCByNew(curr, pageSize);
+		}
+		String hql="select count(*) from Inform as i where i.title like :search or i.content like :search";
+		Query query = this.getSession().createQuery(hql);
+		query.setString("search","%" + search + "%");
+		int count =((Long)query.uniqueResult()).intValue();
+		PageCut<Inform> pCut= new PageCut<>(curr,pageSize,count);
+		if(count==0){
+			return pCut;
+		}
+		hql="from Inform as i where i.title like :search or i.content like :search order by i.info_Id desc";
+		query=this.getSession().createQuery(hql);
+		query.setString("search","%"+search+ "%");
+		query.setFirstResult(pageSize*curr-pageSize);
+		query.setMaxResults(pageSize);
+		pCut.setData(query.list());
+		return pCut;
+		
 	}
 	
 

@@ -99,4 +99,16 @@ public class RedPaperServiceImpl implements IRedPaperService{
 		return iRedPaperDao.getPCByNew(curr, pageSize, paperTypeId);
 	}
 
+	@Override
+	public List<RedPaper> getNew(int size) {
+		// TODO Auto-generated method stub
+		return iRedPaperDao.getNew(size);
+	}
+
+	@Override
+	public List<RedPaper> getHot(int size) {
+		// TODO Auto-generated method stub
+		return iRedPaperDao.getHot(size);
+	}
+
 }

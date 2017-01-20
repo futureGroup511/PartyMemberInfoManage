@@ -37,4 +37,18 @@ public interface IRedPaperDao {
 	public List<RedPaper> getLastRecordById( int typeId);
 	//查询符合条件的第一条内容
 	public List<RedPaper> getFristRecordById(int typeId);
+	
+		//获取最新文章
+		/**
+		 * @param size 获取的条数，注意，当数据库总数少于size时，获取条数会小于size
+		 * @return
+		 */
+		public List<RedPaper> getNew(int size);
+		
+		//获取最热文章
+		/**
+		 * @param size 获取的条数，注意，当数据库总数少于size时，获取条数会小于size
+		 * @return
+		 */
+		public List<RedPaper> getHot(int size);
 }

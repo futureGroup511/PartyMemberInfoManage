@@ -55,6 +55,12 @@ public class InformServiceImpl implements IInformService{
 		String hqlCount="select count(*) from Inform where info_tag=? or info_tag=?";
 		return informDao.getQuery(curr, pageSize, hql, hqlCount,objects);
 	}
+
+	@Override
+	public PageCut<Inform> getPCByNew(int curr, int pageSize, String search) {
+		// TODO Auto-generated method stub
+		return informDao.getPCByNew(curr, pageSize);
+	}
 	
 	
 /*	public PageCut<Inform> getQuery(int curr, int pageSize ,Object ...objects) {
