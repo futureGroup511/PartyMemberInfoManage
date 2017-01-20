@@ -21,13 +21,11 @@ public class ExamLogDaoImpl extends BaseDao<ExamLog> implements IExamLogDao {
 
 	@Override
 	public Boolean deleteExamLog(int partyMemberId, int partySort) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public Boolean updateExamLog(ExamLog examLog) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
@@ -43,8 +41,6 @@ public class ExamLogDaoImpl extends BaseDao<ExamLog> implements IExamLogDao {
 	@SuppressWarnings("unchecked")
 	@Override
 	public PageCut<ExamLog> getPC(int current, int pageSize, String search) {
-		// TODO Auto-generated method stub
-		//return null;
 		String hql ="";
 		int count=0;
 		

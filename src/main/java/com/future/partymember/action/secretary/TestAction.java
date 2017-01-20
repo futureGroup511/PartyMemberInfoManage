@@ -1,11 +1,14 @@
 package com.future.partymember.action.secretary;
 
+import java.io.UnsupportedEncodingException;
+
 import javax.annotation.Resource;
 
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
 import com.future.partymember.base.BaseAction;
+import com.future.partymember.entity.ExamLog;
 import com.future.partymember.entity.PartySecretaryInfo;
 import com.future.partymember.entity.StartTest;
 import com.future.partymember.service.IExamPerRecordService;
@@ -63,6 +66,38 @@ public class TestAction extends BaseAction{
 		return "startTestLog";
 	}
 	
+	
+	//查看参加这次考试的党员的成绩记录
+	public String log(){
+		if(page<1){
+			page=1;
+		}
+		
+		String search=this.getRequest().getParameter("search");
+		String encode = this.getRequest().getParameter("encode");
+		if("1".equals(encode)){
+			try {
+				byte[] str1=search.getBytes("iso8859-1");
+				search=new String(str1, "utf-8");
+			} catch (UnsupportedEncodingException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		PageCut<ExamLog> pCut=examLogService.getPC(page, 10, search);
+		String s1=String.format("<span class=\"search\">%s</span>",search);
+		if(search == null || "".equals(search)){
+			
+		}else{
+			for(ExamLog e:pCut.getData()){
+				e.setPaperName(e.getPaperName().replaceAll(search, s1));
+				e.setPartyMemberName(e.getPartyMemberName().replaceAll(search, s1));
+			}
+		}
+		this.getRequest().setAttribute("pc",pCut);
+		this.getRequest().setAttribute("search",search);
+		return "log";
+	}
 	
 	
 	public PartySecretaryInfo getPartySecretaryInfo() {

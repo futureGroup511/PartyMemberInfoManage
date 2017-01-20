@@ -24,6 +24,7 @@ public class ExamLog {
 	private String paperName;//试卷名称
 	private int partyMemberId;//党员的id
 	private String partyMemberName;//党员名称
+	private String partyBranch;//所在党支部
 	private int  partySort;//党员身份     1:书记  0：党员
 	private int totalScore;//考试总成绩
 	private String examTime;//考试时间
@@ -35,14 +36,16 @@ public class ExamLog {
 		
 	}		
 	
-	public ExamLog(int st_Id, int paper_Id, String paperName, int partyMemberId, String partyMemberName, int partySort,
-			int totalScore, String examTime, String testTime, int testTotalScore, int testNum) {
+	public ExamLog(int st_Id, int paper_Id, String paperName, int partyMemberId, String partyMemberName,
+			String partyBranch, int partySort, int totalScore, String examTime, String testTime, int testTotalScore,
+			int testNum) {
 		super();
 		this.st_Id = st_Id;
 		this.paper_Id = paper_Id;
 		this.paperName = paperName;
 		this.partyMemberId = partyMemberId;
 		this.partyMemberName = partyMemberName;
+		this.partyBranch = partyBranch;
 		this.partySort = partySort;
 		this.totalScore = totalScore;
 		this.examTime = examTime;
@@ -50,6 +53,8 @@ public class ExamLog {
 		this.testTotalScore = testTotalScore;
 		this.testNum = testNum;
 	}
+
+
 
 	@Id
 	@GeneratedValue(strategy = IDENTITY)
@@ -137,6 +142,14 @@ public class ExamLog {
 		return testTotalScore;
 	}
 
+
+	public String getPartyBranch() {
+		return partyBranch;
+	}
+
+	public void setPartyBranch(String partyBranch) {
+		this.partyBranch = partyBranch;
+	}
 
 	public void setTestTotalScore(int testTotalScore) {
 		this.testTotalScore = testTotalScore;

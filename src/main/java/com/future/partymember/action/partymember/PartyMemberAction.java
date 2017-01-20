@@ -297,8 +297,9 @@ public class PartyMemberAction extends BaseAction {
 				examPerRecordList.add(examPerRecord);
 			}
 			String partyMemberName = partyMemberInfoService.getPartyMemberInfoById(userId).getUsername();
+			String partyBranch=partyMemberInfoService.getPartyMemberInfoById(userId).getPartyBranch();
 			String date = SwitchTime.dateToTimeStr(new Date());
-			ExamLog examLog = new ExamLog(st_Id, tp_Id, paperName, userId, partyMemberName, userSort, totalScore, date,
+			ExamLog examLog = new ExamLog(st_Id, tp_Id, paperName, userId, partyMemberName,partyBranch, userSort, totalScore, date,
 					testTime, testTotalScore, testNum);
 
 			int wetherAdd = examLogService.grtElIdByDate(st_Id);

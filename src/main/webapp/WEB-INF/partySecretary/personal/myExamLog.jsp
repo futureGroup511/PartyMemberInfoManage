@@ -104,7 +104,7 @@
 										<td>${e.testTotalScore}</td>
 										<td>${e.totalScore}</td>
 										<td><a
-											href="${rootPath }secretary/partySecretary_getExamDetails?tp_Id=${e.paper_Id}&el_Id=${e.el_Id}">详情</a></td>
+											href="${rootPath }secretary/partySecretary_getExamDetails?tp_Id=${e.paper_Id}&el_Id=${e.el_Id}&st_Id=${e.st_Id}">详情</a></td>
 									</tr>
 								</c:forEach>
 							</tbody>

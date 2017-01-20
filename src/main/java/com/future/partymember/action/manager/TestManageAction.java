@@ -164,7 +164,6 @@ public class TestManageAction extends BaseAction {
 				byte[] str1=search.getBytes("iso8859-1");
 				search=new String(str1, "utf-8");
 			} catch (UnsupportedEncodingException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
