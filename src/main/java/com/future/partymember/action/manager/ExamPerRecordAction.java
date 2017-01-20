@@ -18,7 +18,6 @@ public class ExamPerRecordAction extends BaseAction{
 	private int page;
 	private String search;
 	
-	
 	public String manage(){
 		if(page<1){
 			page=1;

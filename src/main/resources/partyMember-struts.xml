@@ -28,11 +28,12 @@
           	<result name="lookPaper">/WEB-INF/partyMember/readRedPaper.jsp</result>
           	<!-- 丁赵雷添加 -->
           	<result name="paperSection">/WEB-INF/partyMember/paperSectionList.jsp</result>
-          	<result name="lookPaper">/WEB-INF/partyMember/lookPaper.jsp</result>
+          	
             <!-- 在线考试 -->
             <result name="startTest">/WEB-INF/partyMember/onlineTest.jsp</result>
             <result name="getExamRecord">/WEB-INF/partyMember/onlineTest.jsp</result>            
             <result name="getMyExamLog">/WEB-INF/partyMember/myExamLog.jsp</result>
+            <!-- <result name="getgetMyExamLogPage">/WEB-INF/partyMember/myExamLog.jsp</result> -->           
             <result name="getExamDetails">/WEB-INF/partyMember/examDetails.jsp</result>
                                                                
         </action>

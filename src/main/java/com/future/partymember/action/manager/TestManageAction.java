@@ -5,14 +5,17 @@ package com.future.partymember.action.manager;
 
 
 import java.io.UnsupportedEncodingException;
+<<<<<<< HEAD
+=======
 import java.security.spec.ECField;
 import java.util.Date;
+>>>>>>> b81875919f1806c8e2023ce29da7ddf7fc97fdfa
 import java.util.List;
 
-import org.springframework.web.bind.annotation.RequestMapping;
-
 import com.future.partymember.base.BaseAction;
+import com.future.partymember.entity.EPRModel;
 import com.future.partymember.entity.ExamLog;
+import com.future.partymember.entity.ExamPerRecord;
 import com.future.partymember.entity.Question;
 import com.future.partymember.entity.StartTest;
 import com.future.partymember.entity.TestPaper;
@@ -179,6 +182,48 @@ public class TestManageAction extends BaseAction {
 		this.getRequest().setAttribute("pc",pCut);
 		this.getRequest().setAttribute("search",search);
 		return "log";
+	}
+	
+	public String info(){
+		if(id<1){
+			return null;
+		}
+		ExamLog examLog= examLogService.getById(id);
+		if(examLog == null){
+			return null;
+		}
+		List<ExamPerRecord> examPerRecords=examPerRecordService.getExamPerRecordsByUserId(examLog.getPartyMemberId(), examLog.getPaper_Id(), examLog.getPartySort());
+		if(examPerRecords==null || examPerRecords.size() < 1){
+			this.getRequest().setAttribute("remind","找不到记录");
+			return "info";
+		}
+		EPRModel[] eprModels=new EPRModel[examPerRecords.size() - 1];
+		
+		
+		for(int i=0;i < eprModels.length;i++){
+			eprModels[i].setExamPerRecord(examPerRecords.get(i));
+			eprModels[i].setTestPaper(testPaperService.getTestPaper(examPerRecords.get(i).getTp_Id()));
+			eprModels[i].setQuestion(questionService.getById(examPerRecords.get(i).getQt_Id()));
+			eprModels[i].setAnswer(examPerRecords.get(i).getAnswer());
+			if(examPerRecords.get(i).getPartySort()==0){
+				try{
+					eprModels[i].setPersonName(partyMemberInfoService.getPartyMemberInfoById(examPerRecords.get(i).getPt_Id()).getUsername());
+				}catch(Exception e){
+					e.printStackTrace();
+					eprModels[i].setPersonName("未知");
+				}
+			}else{
+				try{
+					eprModels[i].setPersonName(partySecretaryInfoService.findById(examPerRecords.get(i).getPt_Id()).getUsername());
+				}catch(Exception e){
+					e.printStackTrace();
+					eprModels[i].setPersonName("未知");
+				}
+			}
+			
+		}
+		this.getRequest().setAttribute("eprModels", eprModels);
+		return "info";
 	}
 	
 	public String logDel(){

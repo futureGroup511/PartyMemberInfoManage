@@ -6,195 +6,162 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>红色视频</title>
-<link rel="stylesheet" href="${rootPath}css/bootstrap.css">
-<link rel="stylesheet" href="${rootPath}css/index-one.css">
+<link rel="stylesheet" href="${rootPath}css/partyMember/bootstrap.css">
+<link rel="stylesheet"
+	href="${rootPath}css/partyMember/learning world.css">
 <script src="${rootPath}js/jquery-2.2.3.min.js"></script>
 <script src="${rootPath}js/bootstrap.js"></script>
 </head>
 
 <body>
-
-
-	<!-- 这是一个搜索框 -->
-	<div>
-		请输入视频名字 ：<input type="text" name="videoName" />
-	</div>
-
-
-
-	<div class="container">
-		<div class="header">
-			<div class="row">
-				<div
-					class="col-lg-1 col-lg-offset-3 col-md-1 col-md-offset-3 col-xs-1 col-xs-offset-3">
-					<img src="${rootPath}images/header-logo.png">
-				</div>
-				<div class="col-lg-8 col-md-8 col-xs-8">
-					<p>河南科技学院党员信息管理系统</p>
-				</div>
+	<div id="header">
+		<div class="header-left">
+			<img src="${rootPath}images/header-logo.png">
+		</div>
+		<div class="header-center">
+			<p class="top">
+				<b><strong>河南科技学院信息工程学院党委主办</strong></b>
+			</p>
+			<p class="bottom">
+				<b><strong>河南科技学院党员在线</strong></b>
+			</p>
+		</div>
+		<div class="header-right">
+			<div>
+				<select>
+					<option>时事新闻</option>
+					<option>生活百科</option>
+					<option>新闻动态</option>
+					<option>通知公告</option>
+				</select> <input type="text" name="select"
+					placeholder="&nbsp;&nbsp;&nbsp;请输入您要搜索的内容">
+				<button class="btn">
+					<img src="${rootPath}images/sousuo.png" width="22" height="22">
+				</button>
 			</div>
 		</div>
 	</div>
-	<div class="body">
-		<div class="header-one">
-			<img src="${rootPath}images/header-one.png">
-		</div>
-		<div class="header-two">
-			<img src="${rootPath}images/header-two.png">
-		</div>
-		<div class="header-three">
-			<p id="headline" class="demo-text one">河南科技学院党员信息管理</p>
-			<p class="two">河南科技学院党委主办</p>
-		</div>
-	</div>
-	<div class="nav navbar-top">
+	<div class="nav">
 		<div class="row">
 			<div
-				class="col-lg-7 col-lg-offset-2 col-md-7 col-md-offset-2 col-xs-7 col-xs-offset-2">
-				<ul class=" nav navbar-nav">
-					<li class="active"><a href="partyLogin.action">首页</a></li>
-					<li><a href="partyMemberAction_viewVideos.action">红色视频</a></li>
-					<li class="dropdown"><a href="##" data-toggle="dropdown"
-						class="dropdown-toggle">个人信息<span class="caret"></span></a>
+				class="col-lg-9 col-lg-offset-3 col-md-9 col-md-offset-3 col-xs-9 col-xs-offset-3">
+				<ul class="nav navbar-nav">
+					<li><a href="${rootPath}party/partyLogin.action">网站首页</a></li>
+					<li><a
+						href="${rootPath }party/partyMemberAction_getResPaper.action">红色文章</a></li>
+					<li><a
+						href="${rootPath}party/partyMemberAction_viewVideos.action">红色视频</a></li>
+					<li><a
+						href="${rootPath}party/partyMemberAction_startTest.action">在线考试</a></li>
+					<li class="dropdown"><a href="#" data-toggle="dropdown"
+						class="dropdown-toggle">个人中心<span class="caret"></span></a>
 						<ul class="dropdown-menu">
-							<li><a href="partyMemberAction_seekPartyMemberInfo.action">查看个人信息</a></li>
-							<li><a href="partyMemberAction_getInfoBeforeUpdate.action">修改个人信息</a></li>
+							<li><a
+								href="${rootPath}party/partyMemberAction_seekPartyMemberInfo.action">个人信息</a></li>
+							<li><a
+								href="${rootPath}party/partyMemberAction_getInfoBeforeUpdate.action">修改信息</a></li>
+							<li><a
+								href="${rootPath}party/partyMemberAction_getMyExamLog.action">考试报告</a></li>
 						</ul></li>
-					<!-- <li><a href="partyMemberAction_seekPartyMemberInfo.action">查看个人信息</a></li>
-					<li><a href="partyMemberAction_getInfoBeforeUpdate.action">修改个人信息</a></li> -->
-					<li><a href="##">红色文章</a></li>
-					<li><a href="##">在线考试</a></li>
+					<li><a href="information.jsp">通知公告</a></li>
+					<li><a href="${rootPath}connect_us.jsp">联系我们</a></li>
 				</ul>
 			</div>
-			<div class="col-lg-2 col-md-2 col-xs-2">
-				<span class="one"> <!-- <a href="##">登录</a></span> <span class="two"> -->
-					<a href="##">退出</a>
-				</span>
-				<div class="col-lg-3 col-md-3 col-xs-3">
-					<span class="one" style="margin-left: 85%;"> <!-- <a href="##">登录</a></span> <span class="two"> -->
-						<a href="##">退出</a>
-					</span> <br> <input class="people_input w117" name="names" id="names"
-						type="text"> <input
-						src="http://img02.people.com.cn/img/2011people/images/style_button_searchn.gif"
-						class="people_button_n hn" width="50" type="image" border="0"
-						height="20">
+		</div>
+	</div>
+	<div id="banner">
+		<div class="col-lg-12 col-md-12 col-xs-12">
+			<div id="slidershow" class="carousel slide" data-ride="carousel">
+				<!--设置图片轮番的顺序-->
+				<ol class="carousel-indicators">
+					<li class="active" data-target="#slidershow" data-slide-to="0"></li>
+					<li data-target="#slidershow" data-slide-to="1"></li>
+					<li data-target="#slidershow" data-slide-to="2"></li>
+					<li data-target="#slidershow" data-slide-to="3"></li>
+				</ol>
+				<!--设置轮播图片-->
+				<div class="carousel-inner">
+					<div class="item active">
+						<a href="#"><img src="${rootPath}images/banner-one.jpg"
+							width="100%" height="300"></a>
+					</div>
+					<div class="item">
+						<a href="#"><img src="${rootPath}images/banner-two.jpg"
+							width="100%" height="300"></a>
+					</div>
+					<div class="item">
+						<a href="#"><img src="${rootPath}images/banner-three.jpg"
+							width="100%" height="300"></a>
+					</div>
+					<div class="item">
+						<a href="#"><img src="${rootPath}images/banner-four.jpg"
+							width="100%" height="300"></a>
+					</div>
+					<a class="left carousel-control" href="#slidershow" role="button"
+						data-slide="prev"> <span class="sr-only">Previous</span>
+					</a> <a class="right carousel-control" href="#slidershow" role="button"
+						data-slide="next"> <span class="sr-only">Next</span>
+					</a>
 				</div>
 			</div>
 		</div>
-		<div class="body-five">
-			<img src="${rootPath}images/footer-one.png">
+	</div>
+	<div id="body">
+		<div id="body-one">
+			<p>
+				<img src="${rootPath}images/topimg.png"> <span>您的位置：首页&nbsp;&nbsp;>&nbsp;&nbsp;时事新闻</span>
+			</p>
+		</div>
+		<div id="body-two">
+			<p>推荐课件</p>
 		</div>
 
-		<%-- <!-- 视频列表 -->
-		<div style="padding-left: 190px;">
-			<c:forEach items="${pc.data}" var="v" varStatus="status">
-				<c:choose>
-					<c:when test="${(status.index)%6==0}">
-						<div style="clear: both;"></div>
-						<div style="width: 158px; float: left;">
-							<div>
-								<img src="${rootPath}${v.imgUrl}"
-									style="height: 180px; width: 120px;">
-							</div>
-							<div style="height: 25px;">
-								<a href="${rootPath}/video_${v.rv_Id}.action" target="_blank">${v.name}</a>
-							</div>
-						</div>
-					</c:when>
-				</c:choose>
-			</c:forEach>
-	</div> --%>
-		<!-- 这是一个搜索框 -->
-		<div>
-			<form action="${rootPath }party/partyMemberAction_findByName"
-				method="post">
-				请输入视频名字 ：<input type="text" name="videoName" /> <input
-					type="submit" value="搜索" />
-			</form>
+		<div id="body-three">
+			<c:forEach items="${pc.data}" var="v" begin="0" end="3">
+				<div>
+					<li><a href="${rootPath}/video_${v.rv_Id}.action"><img
+							src="${rootPath}${v.imgUrl}"></a></li> <span>${v.name}</span>
+					<img src="${rootPath}images/play.png" id="img1">
+				</div>
+			</c:forEach>			
 		</div>
-
-
-		<!-- 视频列表 -->
-		<div style="padding-left: 190px;">
-			<c:forEach items="${pc.data}" var="v" varStatus="status">
-				<c:choose>
-					<c:when test="${(status.index)%6==0}">
-						<div style="clear: both;"></div>
-						<div style="width: 158px; float: left;">
-							<div>
-								<img src="${rootPath}${v.imgUrl}"
-									style="height: 180px; width: 120px;">
-							</div>
-						</div>
-					</c:when>
-					<c:otherwise>
-
-
-						<div style="float: left; width: 150px;">
-							<div>
-								<img src="${rootPath}${v.imgUrl}"
-									style="height: 180px; width: 120px;">
-							</div>
-							<div>
-								<a href="${rootPath}/video_${v.rv_Id}.action" target="_blank">${v.name}</a>
-							</div>
-						</div>
-					</c:otherwise>
-				</c:choose>
-			</c:forEach>
+		<div id="body-three">
+			<c:forEach items="${pc.data}" var="v" begin="4" end="7">
+				<div>
+					<li><a href="${rootPath}/video_${v.rv_Id}.action"><img
+							src="${rootPath}${v.imgUrl}"></a></li> <span>${v.name}</span>
+					<img src="${rootPath}images/play.png" id="img1">
+				</div>
+			</c:forEach>			
 		</div>
-		<div id="pageCut">
-			<a href="${rootPath }manage/partMember?page=${pc.prePage}">上一页</a> <a
-				href="#">${pc.currentPage}/${pc.pageNum}</a> <a
-				href="${rootPath }manage/partMember?page=${pc.nextPage}">下一页</a>
+		<div id="body-three">
+			<c:forEach items="${pc.data}" var="v" begin="4" end="11">
+				<div>
+					<li><a href="${rootPath}/video_${v.rv_Id}.action"><img
+							src="${rootPath}${v.imgUrl}"></a></li> <span>${v.name}</span>
+					<img src="${rootPath}images/play.png" id="img1">
+				</div>
+			</c:forEach>			
 		</div>
-
-
-
-		<%-- 	</c:forEach> --%>
-
-
-		<%-- </c:forEach> --%>
-
-		<%-- </div>
-=======
-	</c:forEach>
+		<div id="body-three">
+			<c:forEach items="${pc.data}" var="v" begin="12" end="15">
+				<div>
+					<li><a href="${rootPath}/video_${v.rv_Id}.action"><img
+							src="${rootPath}${v.imgUrl}"></a></li> <span>${v.name}</span>
+					<img src="${rootPath}images/play.png" id="img1">
+				</div>
+			</c:forEach>			
+		</div>
 
 	</div>
->>>>>>> Stashed changes
-	
-		<div id="pageCut">
-					<a href="${rootPath }manage/partMember?page=${pc.prePage}">上一页</a>
-					<a href="#">${pc.currentPage}/${pc.pageNum}</a>
-					<a href="${rootPath }manage/partMember?page=${pc.nextPage}">下一页</a>
-		</div>
-<<<<<<< Updated upstream
-	 --%>
-
-
-		<div class="footer">
-			<img src="${rootPath}images/footer.png">
-			<div class="footer-one">
-				<p>河南科技学院党员网站 京ICP备11032580号</p>
-				<p>Copyright © 2012 by zgdsw.org.cn. all rights reserved</p>
-
-			</div>
-		</div>
-		<%-- <div id="pageCut">
-			<a href="${rootPath }manage/partMember?page=${pc.prePage}">上一页</a> <a
-				href="#">${pc.currentPage}/${pc.pageNum}</a> <a
-				href="${rootPath }manage/partMember?page=${pc.nextPage}">下一页</a>
-		</div>
-
-
-
-		<div class="footer">
-			<img src="${rootPath}images/footer.png">
-
-			<div class="footer-one">
-				<p>河南科技学院党员网站 京ICP备11032580号</p>
-				<p>Copyright © 2012 by zgdsw.org.cn. all rights reserved</p>
-			</div>
-		</div> --%>
+	<br />
+	<footer id="footer-warp">
+		<!--页脚开始-->
+		<p class="footer">
+			<a href="">网站声明</a> &nbsp; &nbsp;<span>|</span> &nbsp; &nbsp;<a
+				href="">关于我们 &nbsp; &nbsp;</a><span>|</span> &nbsp; &nbsp;<a href="">联系我们</a>
+		</p>
+		<p>Copyright @ 2016 All rights reserved. 版权所有：河南科技学院党委</p>
+	</footer>
+	<!--页脚结束-->
 </body>
-</html>

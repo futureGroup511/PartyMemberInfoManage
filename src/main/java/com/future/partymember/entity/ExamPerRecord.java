@@ -22,7 +22,7 @@ public class ExamPerRecord {
 	private String answer;//答题答案	
 	private int socre;//得分
 	private int pt_Id;//考生id
-	private int partySort;//考生身份
+	private int partySort;//考生身份,0党员，1书记
 	public ExamPerRecord(){
 		
 	}

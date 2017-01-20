@@ -57,7 +57,7 @@
 </div>
 <div id="body">
  <div id="body-one">
-   <p><img src="${rootPath}images/topimg.png"> <span>您的位置：首页>个人中心>修改信息</span></p>
+   <p><img src="${rootPath}images/topimg.png"> <span>您的位置：<a href="${rootPath}party/partyLogin.action">首页</a>>个人中心>修改信息</span></p>
  </div>
  <div id="body-two">
  

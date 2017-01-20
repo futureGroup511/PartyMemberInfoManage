@@ -8,10 +8,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.struts2.ServletActionContext;
-
 import org.apache.struts2.interceptor.SessionAware;
 
 import com.future.partymember.service.IDuePaymentRecordsService;
+import com.future.partymember.service.IEPRModelService;
 import com.future.partymember.service.IExamLogService;
 import com.future.partymember.service.IExamPerRecordService;
 import com.future.partymember.service.IInformService;
@@ -76,6 +76,8 @@ public class BaseAction extends ActionSupport implements SessionAware{
 	@Resource
 	protected IStartTestService startTestService;
 	
+	@Resource
+	protected IEPRModelService ePRModelService;
 	
 	protected HttpServletRequest getRequest(){
 		return ServletActionContext.getRequest();
