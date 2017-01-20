@@ -36,8 +36,9 @@ public class PartyMemberAction extends BaseAction {
 	private Inform inform;// 用来封装通知消息的
 
 	private PartyMemberInfo partyMemberInfo;// 从表单获得党员对象
+	
+	
 	// 查询党员个人信息
-
 	public String seekPartyMemberInfo() throws Exception {
 		partyMemberInfo = partyMemberInfoService.getPartyMemberInfoById(1);
 		// 学习时间
@@ -364,6 +365,33 @@ public class PartyMemberAction extends BaseAction {
 		this.getRequest().setAttribute("examLog", examLog);
 		this.getRequest().setAttribute("questionsList", questionsList);
 		return "getExamDetails";
+	}
+	
+	/**通知列表
+	 * 查看通知
+	 * 这个两个方法   
+	 * 
+	 * 丁赵雷添加
+	 * @return
+	 */
+	
+	//通知列表
+	public String informList(){
+		
+		System.out.println("通知列表的分页"+page);
+		PageCut<Inform> pc=informService.getInformList(page, 5, 2,3);//2 3 代表通知的权限
+		this.getRequest().setAttribute("pc", pc);
+		return "informList";
+	}
+	
+	//查看通知
+	public String lookInform(){
+		if(inform.getInfo_Id()!=0){
+			Inform i=informService.getById(inform.getInfo_Id());
+			this.getRequest().setAttribute("inform", i);
+		}
+		
+		return "lookInform";
 	}
 
 	public void setPartyMemberInfo(PartyMemberInfo partyMemberInfo) {

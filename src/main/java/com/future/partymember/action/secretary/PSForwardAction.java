@@ -42,6 +42,7 @@ public class PSForwardAction extends BaseAction {
 			
 			session.put("secretary",partySecretaryInfo);
 			session.put("userSort", 1);//书记的身份
+			session.put("partyBranch", partySecretaryInfo.getPartyBranch());
 			session.put("userId", partySecretaryInfo.getPst_Id());//保存书记的id
 			return "login";
 		}else{

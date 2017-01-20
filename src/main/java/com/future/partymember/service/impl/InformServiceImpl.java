@@ -48,11 +48,11 @@ public class InformServiceImpl implements IInformService{
 		return informDao.getQuery(curr, pageSize, hql, hqlCount,objects);
 	}
 
-	//书记在查看通知时用到的方法
+	//书记  和党员在查看通知时用到的方法
 	@Override
 	public PageCut<Inform> getInformList(int curr, int pageSize, Object... objects) {
-		String hql="from Inform where  senderType =1 order by info_Id desc";
-		String hqlCount="select count(*) from Inform where senderType =1";
+		String hql="from Inform where  info_tag=? or info_tag=? order by info_Id desc";
+		String hqlCount="select count(*) from Inform where info_tag=? or info_tag=?";
 		return informDao.getQuery(curr, pageSize, hql, hqlCount,objects);
 	}
 	

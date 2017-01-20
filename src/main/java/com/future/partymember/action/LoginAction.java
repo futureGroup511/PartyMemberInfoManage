@@ -26,7 +26,7 @@ public class LoginAction extends BaseAction {
 			return "login";
 		}
 		
-		if(userInfo.getAccount().length()==8){
+		if(userInfo.getAccount().length()>=8){
 			PartyMemberInfo partyMemberInfo=partyMemberInfoService.login(userInfo.getAccount(), userInfo.getPassword());
 			if(partyMemberInfo!=null){
 				this.getSession().put("userId", partyMemberInfo.getPtm_Id());
@@ -36,7 +36,7 @@ public class LoginAction extends BaseAction {
 				this.getRequest().setAttribute("loginMeg", "用户名或密码错误！");
 				return LOGIN;
 			}			
-		}else if(userInfo.getAccount().length()==6){
+		}else if(userInfo.getAccount().length()>=6&&userInfo.getAccount().length()<8){
 			return "partySecretary";
 		}else {
 			this.getRequest().setAttribute("loginMeg", "用户名或密码错误！");

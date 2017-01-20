@@ -21,4 +21,6 @@ public interface IExamLogDao{
 	public int grtElIdByDate(int st_Id);
 	
 	PageCut<ExamLog> getPC(int current,int pageSize,String search);
+	//书记专用
+	PageCut<ExamLog> getPC(int current,int pageSize,String search , String partyBranch);
 }

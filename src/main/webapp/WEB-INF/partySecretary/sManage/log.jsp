@@ -6,7 +6,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" href="${rootPath }css/bootstrap.css" />
-<title>考试记录</title>
+<title>成绩记录</title>
 
 <style type="text/css">
 .search {
@@ -18,22 +18,23 @@
 </head>
 <body>
 
-
+	<div class="container">
 		<div class="row" style="margin-bottom: 30px;">
-			<form action="${rootPath }secretary/test_startTestLog" method="post">
+			<form action="" method="post">
 				<div class="col-xs-6">
 
 					<input type="text" name="search" class="form-control"
 						value="${search }"
-						placeholder="请输入考试名称">
+						placeholder="请输入考试名称或者党员姓名搜索">
 
 				</div>
 				<div class="col-xs-3">
 					<button type="submit" class="btn btn-success">搜索</button>
 				</div>
+
 			</form>
 		</div>
-		
+
 		<div class="row">
 			<div class="col-xs-12">
 				共找到 &nbsp; <span style="color: red;">${pc.count }</span> &nbsp; 条数据
@@ -47,23 +48,38 @@
 
 						<tr>
 							<td>试卷名称</td>
-							<td>开始时间</td>
-							<td>结束时间</td>
-							<td>考试时长</td>
-							
-							<td>查看参加此次考试的成员</td>
+							<td>姓名</td>
+							<td>党员身份</td>
+							<td>试卷总分</td>
+							<td>考试成绩</td>
+							<td>考试时间</td>
+							<td>查看详细记录</td>
 						</tr>
 
-						<c:forEach var="st" items="${pc.data }">
+						<c:forEach var="e" items="${pc.data }">
 							<tr>
-								<td>${st.paperName }</td>
-								<td>${st.startTime }</td>
-								<td>${st.endTime }</td>
-								<td>${st.testTime }</td>
+								<td>${e.paperName }</td>
+								<td>${e.partyMemberName }</td>
+								<c:if test="${e.partySort == 0 }">
+									<td>党员</td>
+								</c:if>
 								
-								<td><a href="${rootPath }secretary/test_log?search=${st.paperName }&encode=1">查看参加此次考试的成员</a></td>
+								<c:if test="${e.partySort == 1 }">
+									<td>书记</td>
+								</c:if>
 								
+								<c:if test="${e.partySort < 0 || e.partySort > 2 }">
+									<td>未知</td>
+								</c:if>
 								
+								<td>${e.testTotalScore }</td>
+								<td>${e.totalScore }</td>
+						
+
+								<td>${e.examTime }</td>
+								
+								<td><a
+									href="${rootPath }secretary/test_info?id=${e.el_Id}">查看详细信息</a></td>
 							</tr>
 						</c:forEach>
 
@@ -75,7 +91,7 @@
 		<div id="pagecut" style="margin-right: 100px; text-align: right;">
 			<ul class="pagination">
 				<li><a
-					href="${rootPath }secretary/test_startTestLog?page=${pc.prePage}">上一页</a></li>
+					href="${rootPath }secretary/test_log?page=${pc.prePage}">上一页</a></li>
 				<c:if test="${1 < pc.currentPage -3}">
 					<li><a href="#">1</a></li>
 				</c:if>
@@ -85,22 +101,24 @@
 					<c:choose>
 						<c:when test="${i>0 && i == pc.currentPage }">
 							<li class="active"><a
-								href="${rootPath }secretary/test_startTestLog?page=${i }">${i}</a></li>
+								href="${rootPath }secretary/test_log?page=${i }">${i}</a></li>
 						</c:when>
 
 						<c:when test="${i>0 && i != postPS.currentPage }">
-							<li><a href="${rootPath }secretary/test_startTestLog?page=${i }">${i}</a></li>
+							<li><a href="${rootPath }secretary/test_log?page=${i }">${i}</a></li>
 						</c:when>
 					</c:choose>
 				</c:forEach>
 				<li><a
-					href="${rootPath }secretary/test_startTestLog?page=${pc.nextPage}">下一页</a></li>
+					href="${rootPath }secretary/test_log?page=${pc.nextPage}">下一页</a></li>
 			</ul>
 
 		</div>
+	</div>
 	
 	<div class="background navbar-fixed-top"  style="position:absolute; z-index:-1;width:100%;height:100%;opacity:0.1;">
     	<img  class="img-responsive" width="100%;" src="${rootPath }images/577a4c594718d_610.jpg" />
     </div>
+    
 </body>
 </html>

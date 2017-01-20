@@ -182,6 +182,8 @@ public class TestManageAction extends BaseAction {
 		return "log";
 	}
 	
+	
+	
 	public String info(){
 		if(id<1){
 			return null;

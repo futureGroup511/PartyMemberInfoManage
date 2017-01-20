@@ -36,5 +36,8 @@ public interface IExamLogService {
 	 * 宋民举
 	 */
 	PageCut<ExamLog> getPC(int current,int pageSize,String search);
+	
+	//书记专用  搜索所属党员的考试记录
+	PageCut<ExamLog> getPC(int current,int pageSize,String search, String partyBranch);
 
 }

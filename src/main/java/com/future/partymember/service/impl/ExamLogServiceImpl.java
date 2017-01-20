@@ -73,4 +73,9 @@ public class ExamLogServiceImpl implements IExamLogService{
 		return examLogDao.getExamLogsBypartyMemberId(curr, pageSize, partyMemberId, partySort);
 	}
 
+	@Override
+	public PageCut<ExamLog> getPC(int current, int pageSize, String search, String partyBranch) {
+		return examLogDao.getPC(current, pageSize, search, partyBranch);
+	}
+
 }

@@ -50,7 +50,7 @@
                          <li><a href="${rootPath}party/partyMemberAction_getMyExamLog.action">考试报告</a></li>
                    </ul>
                </li>
-              <li><a href="information.jsp">通知公告</a></li>
+              <li><a href="${rootPath}party/partyMemberAction_informList">通知公告</a></li>
               <li><a href="${rootPath}connect_us.jsp">联系我们</a></li>
          </ul>
         </div>

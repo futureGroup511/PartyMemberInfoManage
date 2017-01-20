@@ -166,7 +166,7 @@ public class PartySecretaryAction extends BaseAction {
 	public String informList(){
 		
 		System.out.println("通知列表的分页"+page);
-		PageCut<Inform> pc=informService.getInformList(page, 5);
+		PageCut<Inform> pc=informService.getInformList(page, 5,1,3);//1 3 通知的权限
 		this.getRequest().setAttribute("pc", pc);
 		return "informList";
 	}

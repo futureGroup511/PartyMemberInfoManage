@@ -1,6 +1,7 @@
 package com.future.partymember.action.secretary;
 
 import java.io.UnsupportedEncodingException;
+import java.util.List;
 
 import javax.annotation.Resource;
 
@@ -8,7 +9,9 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
 import com.future.partymember.base.BaseAction;
+import com.future.partymember.entity.EPRModel;
 import com.future.partymember.entity.ExamLog;
+import com.future.partymember.entity.ExamPerRecord;
 import com.future.partymember.entity.PartySecretaryInfo;
 import com.future.partymember.entity.StartTest;
 import com.future.partymember.service.IExamPerRecordService;
@@ -34,10 +37,14 @@ public class TestAction extends BaseAction{
 	private PartySecretaryInfo partySecretaryInfo;
 	private PageCut<?> pageCut; 
 	private int page=1;
+	private int id;
 	
 /*	 testPaperService;
 	 examPerRecordService;
 	 startTestService;*/
+
+
+
 
 	//查看所有的的考试记录
 	public String startTestLog(){
@@ -73,6 +80,7 @@ public class TestAction extends BaseAction{
 			page=1;
 		}
 		
+		String partyBranch=(String) session.get("partyBranch");
 		String search=this.getRequest().getParameter("search");
 		String encode = this.getRequest().getParameter("encode");
 		if("1".equals(encode)){
@@ -80,11 +88,10 @@ public class TestAction extends BaseAction{
 				byte[] str1=search.getBytes("iso8859-1");
 				search=new String(str1, "utf-8");
 			} catch (UnsupportedEncodingException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
-		PageCut<ExamLog> pCut=examLogService.getPC(page, 10, search);
+		PageCut<ExamLog> pCut=examLogService.getPC(page, 10, search,partyBranch);
 		String s1=String.format("<span class=\"search\">%s</span>",search);
 		if(search == null || "".equals(search)){
 			
@@ -97,6 +104,52 @@ public class TestAction extends BaseAction{
 		this.getRequest().setAttribute("pc",pCut);
 		this.getRequest().setAttribute("search",search);
 		return "log";
+	}
+	
+	
+	//查看某个党员详细的试题记录
+	public String info(){
+		if(id<1){
+			return null;
+		}
+		ExamLog examLog= examLogService.getById(id);
+		if(examLog == null){
+			return null;
+		}
+		List<ExamPerRecord> examPerRecords=examPerRecordService.getExamPerRecordsByUserId(
+				examLog.getPartyMemberId(), examLog.getPaper_Id(), examLog.getPartySort());
+		if(examPerRecords==null || examPerRecords.size() < 1){
+			this.getRequest().setAttribute("remind","找不到记录");
+			return "info";
+		}
+		EPRModel[] eprModels=new EPRModel[examPerRecords.size() - 1];
+		
+		for(int i=0;i < eprModels.length;i++){
+			eprModels[i]=new EPRModel();
+			eprModels[i].setExamPerRecord(examPerRecords.get(i));
+			eprModels[i].setTestPaper(testPaperService.getTestPaper(examPerRecords.get(i).getTp_Id()));
+			eprModels[i].setQuestion(questionService.getById(examPerRecords.get(i).getQt_Id()));
+			eprModels[i].setAnswer(examPerRecords.get(i).getAnswer());
+			if(examPerRecords.get(i).getPartySort()==0){
+				try{
+					eprModels[i].setPersonName(partyMemberInfoService.getPartyMemberInfoById(
+							examPerRecords.get(i).getPt_Id()).getUsername());
+				}catch(Exception e){
+					e.printStackTrace();
+					eprModels[i].setPersonName("未知");
+				}
+			}else{
+				try{
+					eprModels[i].setPersonName(partySecretaryInfoService.findById(examPerRecords.get(i).getPt_Id()).getUsername());
+				}catch(Exception e){
+					e.printStackTrace();
+					eprModels[i].setPersonName("未知");
+				}
+			}
+			
+		}
+		this.getRequest().setAttribute("eprModels", eprModels);
+		return "info";
 	}
 	
 	
@@ -117,5 +170,11 @@ public class TestAction extends BaseAction{
 	}
 	public void setPage(int page) {
 		this.page = page;
+	}
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
 	}
 }
