@@ -3,6 +3,7 @@ package com.future.partymember.dao.impl;
 import java.util.List;
 
 import org.hibernate.Query;
+import org.hibernate.context.internal.ThreadLocalSessionContext;
 import org.springframework.stereotype.Repository;
 
 import com.future.partymember.base.BaseDao;
@@ -157,6 +158,20 @@ public class RedPaperDaoImpl extends BaseDao<RedPaper> implements IRedPaperDao {
 		PageCut<RedPaper> pc=new PageCut<>(curr,pageSize,this.getNum(paperTypeId));
 		pc.setData(list);
 		return pc;	
+	}
+
+	@Override
+	public List<RedPaper> getNew(int size) {
+		// TODO Auto-generated method stub
+		String hql="from RedPaper as rp order by rp.releaseDate desc";
+		return this.getEntityLimitList(hql, 0, size);
+	}
+
+	@Override
+	public List<RedPaper> getHot(int size) {
+		// TODO Auto-generated method stub
+		String hql="from RedPaper as rp order by rp.readNum desc";
+		return this.getEntityLimitList(hql, 0, size);
 	}
 	
 
