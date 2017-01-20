@@ -28,8 +28,8 @@
             </div>
         </div>
     </div>
-    <div class="background navbar-fixed-top"  style="position:absolute; z-index:-1;width:100%;">
-    	<img  class="img-responsive" width="100%;" src="${rootPath }images/head.png" />
+    <div class="background navbar-fixed-top"  style="position:absonlute; z-index:-1;width:100%;">
+    	<img class="img-responsive" width="100%;" src="${rootPath }images/head.png" />
     </div>
 </div>
 <script type="text/javascript">

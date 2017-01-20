@@ -67,7 +67,7 @@
 							<td>试卷总分</td>
 							<td>考试成绩</td>
 							<td>考试时间</td>
-							
+							<td>查看详细记录</td>
 							<td>删除</td>
 						</tr>
 
@@ -92,6 +92,9 @@
 						
 
 								<td>${e.examTime }</td>
+								
+								<td><a
+									href="${rootPath }manage/testManage_info?id=${e.el_Id}">查看详细信息</a></td>
 								
 								<td><a
 									href="${rootPath }manage/testManage_logDel?id=${e.el_Id}">删除</a></td>

@@ -9,6 +9,7 @@ public interface IExamLogDao{
 	
 	boolean deleteById(int id);
 	boolean deleteAll();
+	ExamLog getById(int id);
 	
 	public Boolean addExamLog(ExamLog examLog);
 	//根据用户id和身份删除考试记录

@@ -14,6 +14,7 @@ public interface IExamLogService {
 	 * 删除单个记录，宋
 	 */
 	boolean deleteById(int id);
+	ExamLog getById(int id);
 	
 	boolean deleteAll();
 	

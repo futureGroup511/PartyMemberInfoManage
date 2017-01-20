@@ -48,6 +48,7 @@
 			<result name="startTest">/WEB-INF/manager/testPaper_manage/startTest.jsp</result>					
 			<result name="update">/WEB-INF/manager/testPaper_manage/questionChange.jsp</result>
 			<result name="log">/WEB-INF/manager/testPaper_manage/log.jsp</result>
+			<result name="info">/WEB-INF/manager/testPaper_manage/examLoginfo.jsp</result>
 		</action>
 		
 		<action name="index_*" method="{1}"
@@ -102,6 +103,10 @@
 		
 		<action name="startTest_*" method="{1}" class="com.future.partymember.action.manager.StartTestAction">
 			<result name="startTestLog">/WEB-INF/manager/testPaper_manage/startTestLog.jsp</result>
+		</action>
+		
+		<action name="examPerRecord_*" method="{1}" class="com.future.partymember.action.manager.ExamPerRecordAction">
+			<result name="manage">/WEB-INF/manager/testPaper_manage/examPerRecord_manage.jsp</result>
 		</action>
 		
 		<action name="caidan">

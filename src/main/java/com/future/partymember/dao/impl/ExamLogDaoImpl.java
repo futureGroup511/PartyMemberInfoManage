@@ -94,4 +94,10 @@ public class ExamLogDaoImpl extends BaseDao<ExamLog> implements IExamLogDao {
 		return true;
 	}
 
+	@Override
+	public ExamLog getById(int id) {
+		// TODO Auto-generated method stub
+		return this.getEntity(id);
+	}
+
 }

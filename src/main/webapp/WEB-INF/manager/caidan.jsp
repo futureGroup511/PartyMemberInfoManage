@@ -60,9 +60,7 @@
                 <dt>考试记录管理<img src="images/select_xl01.png"></dt>
 					<dd><a target="main" href="${rootPath}manage/startTest_startTestLog">考试记录</a></dd>
                  	<dd><a target="main" href="${rootPath}manage/testManage_log">成绩记录</a></dd>
-                 	<%-- 
-                 	<dd><a target="main" href="${rootPath}manage/testManage">做题记录</a></dd>
-                 	 --%>
+                 	<dd><a target="main" href="${rootPath}manage/examPerRecord_manage">做题记录</a></dd>
             </dl>
 
 

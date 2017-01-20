@@ -32,7 +32,6 @@ html {font-size: 62.5%;/*10 ÷ 16 × 100% = 62.5%*/}
 .row img{
 	margin-top:15%;
 	height:auto;
-	width:auto/9;
 	width:100%;
 }
 .row .first{

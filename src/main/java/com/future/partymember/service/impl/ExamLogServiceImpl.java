@@ -74,4 +74,10 @@ public class ExamLogServiceImpl implements IExamLogService{
 		return examLogDao.deleteAll();
 	}
 
+	@Override
+	public ExamLog getById(int id) {
+		// TODO Auto-generated method stub
+		return examLogDao.getById(id);
+	}
+
 }
