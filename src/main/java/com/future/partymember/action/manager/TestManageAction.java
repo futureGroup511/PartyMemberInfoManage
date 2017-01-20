@@ -197,8 +197,8 @@ public class TestManageAction extends BaseAction {
 		}
 		EPRModel[] eprModels=new EPRModel[examPerRecords.size() - 1];
 		
-		
 		for(int i=0;i < eprModels.length;i++){
+			eprModels[i]=new EPRModel();
 			eprModels[i].setExamPerRecord(examPerRecords.get(i));
 			eprModels[i].setTestPaper(testPaperService.getTestPaper(examPerRecords.get(i).getTp_Id()));
 			eprModels[i].setQuestion(questionService.getById(examPerRecords.get(i).getQt_Id()));
