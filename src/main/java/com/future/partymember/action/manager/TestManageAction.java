@@ -5,11 +5,9 @@ package com.future.partymember.action.manager;
 
 
 import java.io.UnsupportedEncodingException;
-<<<<<<< HEAD
-=======
+
 import java.security.spec.ECField;
 import java.util.Date;
->>>>>>> b81875919f1806c8e2023ce29da7ddf7fc97fdfa
 import java.util.List;
 
 import com.future.partymember.base.BaseAction;
