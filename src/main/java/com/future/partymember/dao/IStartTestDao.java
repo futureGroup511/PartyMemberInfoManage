@@ -5,7 +5,8 @@ import com.future.partymember.util.PageCut;
 
 public interface IStartTestDao {
 	public Boolean addStartTest(StartTest startTest);
-	
+	//根据试卷名称和时间获得获得考试记录id
+	public int getStIdByDate(String paperName,String createDate);
 	/**
 	 * @param current
 	 * @param pageSize

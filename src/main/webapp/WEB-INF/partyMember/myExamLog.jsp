@@ -69,7 +69,7 @@
 	<div id="body">
 		<div id="body-one">
 			<p>
-				<img src="${rootPath}images/topimg.png"> <span>您的位置：首页>个人中心>考试报告</span>
+				<img src="${rootPath}images/topimg.png"> <span>您的位置：<a href="${rootPath}party/partyLogin.action">首页</a>>个人中心>考试报告</span>
 			</p>
 		</div>
 		<c:choose>
@@ -104,7 +104,7 @@
 										<td>${e.testTotalScore}</td>
 										<td>${e.totalScore}</td>
 										<td><a
-											href="partyMemberAction_getExamDetails.action?tp_Id=${e.paper_Id}">详情</a></td>
+											href="partyMemberAction_getExamDetails.action?tp_Id=${e.paper_Id}&el_Id=${e.el_Id}&st_Id=${e.st_Id}">详情</a></td>
 									</tr>
 								</c:forEach>
 							</tbody>
@@ -112,16 +112,15 @@
 					</div>
 				</div>
 
-				<div class="container">
-					<p class="xixnxi">每页显示10条，总记录数4条</p>
+				<div class="container">					
 					<nav>
 						<ul class="pagination">
 							</li>
-							<li><a href="#">首页</a></li>
-							<li><a href="#">上一页</a></li>
-							<li><a href="#">3</a></li>
-							<li><a href="#">下一页</a></li>
-							<li><a href="#">尾页</a></li>
+							<li><a href="${rootPath}party/partyMemberAction_getMyExamLog?page=0">首页</a></li>
+							<li><a href="${rootPath}party/partyMemberAction_getMyExamLog?page=${pc.nextPage}">上一页</a></li>
+							<li><a>${pc.currentPage}/${pc.pageNum}</a></li>
+							<li><a href="${rootPath}party/partyMemberAction_getMyExamLog?page=${pc.prePage}">下一页</a></li>
+							<li><a href="${rootPath}party/partyMemberAction_getMyExamLog?page=${pc.pageNum}">尾页</a></li>
 							</li>
 						</ul>
 					</nav>
@@ -129,6 +128,17 @@
 			</c:otherwise>
 		</c:choose>
 	</div>
+
+<%-- <div style="margin-left: 42%;">
+		<ul class="pagination">
+			<li><a
+				href="${rootPath }manage/testManage_getQuestion?page=${pc.prePage}">上一页</a></li>
+			<li><a href="#">${pc.currentPage}/${pc.pageNum}</a></li>
+			<li><a
+				href="${rootPath }manage/testManage_getQuestion?page=${pc.nextPage}">下一页</a></li>
+		</ul>
+	</div> --%>
+
 
 	<footer id="footer-warp">
 		<!--页脚开始-->

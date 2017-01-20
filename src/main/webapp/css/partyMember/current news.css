@@ -226,6 +226,17 @@ color:red;
 #body-three .body-three-right span{ 
 	float:right;
 }
+#body-three .body-three-left p a{
+	width:70%;
+	overflow: hidden;
+ display:block;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+#body-three .body-three-left p span{
+	width:20%;
+	margin-top: -20px;
+}
 #body-three div{
 	float:left;
 }

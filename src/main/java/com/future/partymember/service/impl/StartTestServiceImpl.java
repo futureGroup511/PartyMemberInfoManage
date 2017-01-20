@@ -5,7 +5,6 @@ import javax.annotation.Resource;
 import org.springframework.stereotype.Service;
 
 import com.future.partymember.dao.IStartTestDao;
-import com.future.partymember.dao.impl.StartTestDaoImpl;
 import com.future.partymember.entity.StartTest;
 import com.future.partymember.service.IStartTestService;
 import com.future.partymember.util.PageCut;
@@ -48,9 +47,15 @@ public class StartTestServiceImpl implements IStartTestService {
 	}
 
 	@Override
+
 	public boolean deleteAll() {
 		// TODO Auto-generated method stub
 		return startTestDao.deleteAll();
+	}
+	public int getStIdByDate(String paperName, String createDate) {
+		
+		return startTestDao.getStIdByDate(paperName, createDate);
+
 	}
 	
 }

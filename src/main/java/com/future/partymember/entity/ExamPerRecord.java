@@ -16,6 +16,7 @@ import javax.persistence.Table;
 @Table(name = "exam_per_record", catalog = "partymember")
 public class ExamPerRecord {
 	private int epr_id;
+	private int el_Id;//考试记录id
 	private int tp_Id;//试卷id  用来标志 试题是否属于一套试卷
 	private int qt_Id;//试题id
 	private String answer;//答题答案	
@@ -45,7 +46,15 @@ public class ExamPerRecord {
 	}
 	public void setEpr_id(int epr_id) {
 		this.epr_id = epr_id;
+	}	
+	public int getEl_Id() {
+		return el_Id;
 	}
+
+	public void setEl_Id(int el_Id) {
+		this.el_Id = el_Id;
+	}
+
 	public int getPt_Id() {
 		return pt_Id;
 	}

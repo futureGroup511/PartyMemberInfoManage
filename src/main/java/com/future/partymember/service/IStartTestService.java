@@ -1,13 +1,12 @@
 package com.future.partymember.service;
 
-import javax.swing.text.StyledEditorKit.BoldAction;
-
 import com.future.partymember.entity.StartTest;
 import com.future.partymember.util.PageCut;
 
 public interface IStartTestService {
 	public Boolean addStartTest(StartTest startTest);
-	
+	//根据试卷名称和时间获得获得考试记录id
+	public int getStIdByDate(String paperName,String createDate);
 	
 	/**
 	 * @param current

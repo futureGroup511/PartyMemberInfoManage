@@ -2,15 +2,11 @@ package com.future.partymember.entity;
 
 import static javax.persistence.GenerationType.IDENTITY;
 
-import java.util.Date;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 
 /**
  * 考试记录类
@@ -23,13 +19,14 @@ import javax.persistence.TemporalType;
 public class ExamLog {
 
 	private int el_Id;
-	private int paper_Id;//试卷id
+	private int st_Id;//开启试卷记录的id
+	private int paper_Id;//试卷id	
 	private String paperName;//试卷名称
 	private int partyMemberId;//党员的id
 	private String partyMemberName;//党员名称
 	private int  partySort;//党员身份     1:书记  0：党员
 	private int totalScore;//考试总成绩
-	private Date examTime;//考试时间
+	private String examTime;//考试时间
 	private String testTime;//考试时长
 	private int testTotalScore;//试卷总分
 	private int testNum;//试卷总题数
@@ -37,9 +34,11 @@ public class ExamLog {
 	public ExamLog() {
 		
 	}		
-	public ExamLog(int paper_Id, String paperName, int partyMemberId, String partyMemberName, int partySort,
-			int totalScore, Date examTime, String testTime, int testTotalScore, int testNum) {
+	
+	public ExamLog(int st_Id, int paper_Id, String paperName, int partyMemberId, String partyMemberName, int partySort,
+			int totalScore, String examTime, String testTime, int testTotalScore, int testNum) {
 		super();
+		this.st_Id = st_Id;
 		this.paper_Id = paper_Id;
 		this.paperName = paperName;
 		this.partyMemberId = partyMemberId;
@@ -52,7 +51,6 @@ public class ExamLog {
 		this.testNum = testNum;
 	}
 
-
 	@Id
 	@GeneratedValue(strategy = IDENTITY)
 
@@ -64,6 +62,12 @@ public class ExamLog {
 		this.el_Id = el_Id;
 	}
 	
+	public int getSt_Id() {
+		return st_Id;
+	}
+	public void setSt_Id(int st_Id) {
+		this.st_Id = st_Id;
+	}
 	public String getPaperName() {
 		return paperName;
 	}
@@ -98,19 +102,17 @@ public class ExamLog {
 		this.partyMemberName = partyMemberName;
 	}
 
-	@Temporal(TemporalType.DATE)
-	@Column(name = "examTime")
-	public Date getExamTime() {
+	/*@Temporal(TemporalType.DATE)
+	@Column(name = "examTime")*/
+	public String getExamTime() {
 		return examTime;
 	}
-	public void setExamTime(Date examTime) {
+	public void setExamTime(String examTime) {
 		this.examTime = examTime;
-	}
-	
+	}	
 	public int getPaper_Id() {
 		return paper_Id;
-	}
-
+	}	
 	public void setPaper_Id(int paper_Id) {
 		this.paper_Id = paper_Id;
 	}

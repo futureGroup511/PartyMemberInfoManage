@@ -1,5 +1,7 @@
 package com.future.partymember.dao.impl;
 
+import java.util.List;
+
 import org.hibernate.Query;
 import org.springframework.stereotype.Repository;
 
@@ -17,6 +19,7 @@ public class StartTestDaoImpl  extends BaseDao<StartTest> implements IStartTestD
 		return true;
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public PageCut<StartTest> getPC(int current, int pageSize, String search) {
 		if(search==null|| search.length()==0){
@@ -63,6 +66,15 @@ public class StartTestDaoImpl  extends BaseDao<StartTest> implements IStartTestD
 		String hql="delete from StartTest";
 		this.executeUpdate(hql);
 		return true;
+	}
+	public int getStIdByDate(String paperName, String createDate) {
+		String hql="from StartTest s where s.paperName='"+paperName+"' and s.createDate='"+createDate+"'";
+		List<StartTest> list=this.getEntityList(hql);
+		if(list==null || list.size()==0){
+			return 0;
+		}else{
+			return ((StartTest)list.toArray()[0]).getSt_Id();
+		}		
 	}
 
 }
