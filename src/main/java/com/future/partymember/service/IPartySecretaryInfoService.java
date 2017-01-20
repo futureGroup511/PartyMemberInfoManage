@@ -9,7 +9,7 @@ import com.future.partymember.util.PageCut;
 
 public interface IPartySecretaryInfoService {
 	//根据用户名和密码查询
-	public PartySecretaryInfo findByAccountAndPassword(PartySecretaryInfo partySecretaryInfo);
+	public PartySecretaryInfo findByAccountAndPassword(String account,String password);
 	//更新个人信息
 	public String updatePersonInfo(PartySecretaryInfo partySecretaryInfo);
 	//根据id得到书记对像

@@ -51,6 +51,16 @@ public class PartySecretaryAction extends BaseAction {
 	}
 	
 	
+	/**
+	 * 登录
+	 * @return
+	 * @throws Exception
+	 */
+	
+	public String login(){
+		return "login";
+	}
+	
 	// 查看考试记录
 	public String getMyExamLog() throws Exception {
 		int userId = (Integer) this.getSession().get("userId");

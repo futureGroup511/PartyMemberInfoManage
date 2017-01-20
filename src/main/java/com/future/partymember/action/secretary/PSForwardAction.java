@@ -34,21 +34,6 @@ public class PSForwardAction extends BaseAction {
 	private PartySecretaryInfo  partySecretaryInfo;//书记实体类
 	private Inform inform;
 	
-
-	public String login() throws Exception{
-		//判断登录
-		if((partySecretaryInfo=partySecretaryInfoService.
-				findByAccountAndPassword(partySecretaryInfo))!=null){
-			
-			session.put("secretary",partySecretaryInfo);
-			session.put("userSort", 1);//书记的身份
-			session.put("partyBranch", partySecretaryInfo.getPartyBranch());
-			session.put("userId", partySecretaryInfo.getPst_Id());//保存书记的id
-			return "login";
-		}else{
-			return "error";
-		}
-	}
 	
 	
 	// 在线考试

@@ -28,7 +28,7 @@
 		</action>
 		<action name="login" class="com.future.partymember.action.LoginAction">
 			<result name="partyMember" type="redirect" >${rootPath}party/partyLogin</result> 
-			<result name="partySecretary">/WEB-INF/partySecretary/personal/secretary-menu.jsp</result>
+			<result name="partySecretary"  type="redirect">${rootPath}secretary/partySecretary_login</result>
 			<result name="login">index.jsp</result>
 		</action>
 	</package>

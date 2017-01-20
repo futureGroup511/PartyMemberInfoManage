@@ -11,9 +11,7 @@
 <script type="text/javascript" src="${rootPath }jQueryPlug/jPage/src/jquery.page.js"></script>
 </head>
 <body>
-	<c:if test="">
-	
-	</c:if>
+		<input type="text"  name="pm_name"  ><button>搜索</button>
 		<table>
 			<thead>
 				<tr>
@@ -52,7 +50,6 @@
 				</c:forEach>
 			</tbody>
 		</table>
-		<div>
 		
 </body>
 </html>

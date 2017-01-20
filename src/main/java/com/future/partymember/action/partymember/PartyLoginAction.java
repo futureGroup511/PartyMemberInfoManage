@@ -1,6 +1,5 @@
 package com.future.partymember.action.partymember;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import com.future.partymember.base.BaseAction;

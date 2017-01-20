@@ -20,7 +20,7 @@
 				</li>
 				<li><a href="${rootPath }secretary/partySecretary_lookOfPartyMember">党员管理</a></li>
 					<ol>
-						<li><a href="${rootPath }secretary/partySecretary_lookMyself">查看所属党员个人信息</a></li>
+						<li><a href="${rootPath }secretary/partySecretary_lookOfPartyMember">查看所属党员个人信息</a></li>
 						<li><a href="${rootPath }secretary/test_startTestLog">查看所属党员考试记录</a></li>
 					</ol>
 				

@@ -19,8 +19,8 @@ public class PartySecretaryInfoServiceImpl implements IPartySecretaryInfoService
 	
 	
 	@Override
-	public PartySecretaryInfo findByAccountAndPassword(PartySecretaryInfo partySecretaryInfo) {
-		return iPartySecretaryInfoDao.findByAccountAndPassword(partySecretaryInfo);
+	public PartySecretaryInfo findByAccountAndPassword(String account,String password) {
+		return iPartySecretaryInfoDao.findByAccountAndPassword(account, password);
 	}
 
 	//更新个人信息
