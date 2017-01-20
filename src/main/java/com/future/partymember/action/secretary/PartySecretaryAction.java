@@ -55,7 +55,9 @@ public class PartySecretaryAction extends BaseAction {
 	public String getMyExamLog() throws Exception {
 		int userId = (Integer) this.getSession().get("userId");
 		int userSort = (Integer) this.getSession().get("userSort");
-		List<ExamLog> examLogList = examLogService.getAllExamLogBypartyMemberId(userId, userSort);
+		PageCut<ExamLog> pc = examLogService.getExamLogsBypartyMemberId(page, 8, userId, userSort);
+		this.getRequest().setAttribute("pc", pc);
+		List<ExamLog> examLogList = pc.getData();
 		if (examLogList.size() > 0) {
 			this.getSession().put("examLogList", examLogList);
 		} else {
@@ -71,6 +73,7 @@ public class PartySecretaryAction extends BaseAction {
 		int userSort = (Integer) this.getSession().get("userSort");
 		int tp_Id = Integer.valueOf(this.getRequest().getParameter("tp_Id"));
 		int el_Id = Integer.valueOf(this.getRequest().getParameter("el_Id"));
+		int st_Id = Integer.valueOf(this.getRequest().getParameter("st_Id"));
 		List<ExamPerRecord> examPerRecordsList = examPerRecordService.getExamPerRecordsByUserId(userId, tp_Id, el_Id,
 				userSort);
 		List<Question> questionsList = new ArrayList<>();
@@ -82,7 +85,7 @@ public class PartySecretaryAction extends BaseAction {
 			question.setMyScore(e.getSocre());
 			questionsList.add(question);
 		}
-		ExamLog examLog = examLogService.getExamLogByTpId(userId, userSort, tp_Id);
+		ExamLog examLog = examLogService.getExamLogByTpId(userId, userSort, tp_Id, st_Id);
 		this.getRequest().setAttribute("examLog", examLog);
 		this.getRequest().setAttribute("questionsList", questionsList);
 		return "getExamDetails";
