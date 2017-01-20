@@ -51,24 +51,11 @@
 					</c:forEach>
 				</tbody>
 			</table>
-
-
 		</div>
-
 	</div>
-
-
 
 	<div class="table-responsive"></div>
-	<div style="margin-left: 42%;">
-		<ul class="pagination">
-			<li><a
-				href="${rootPath }manage/testManage_getQuestion?page=${pc.prePage}">上一页</a></li>
-			<li><a href="#">${pc.currentPage}/${pc.pageNum}</a></li>
-			<li><a
-				href="${rootPath }manage/testManage_getQuestion?page=${pc.nextPage}">下一页</a></li>
-		</ul>
-	</div>
+	
 	<h3>${delectQtMsg}</h3>
 	<div class="background navbar-fixed-top"
 		style="position: absolute; z-index: -1; width: 100%; height: 100%; opacity: 0.1;">

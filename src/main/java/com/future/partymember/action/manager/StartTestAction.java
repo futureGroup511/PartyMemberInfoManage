@@ -35,6 +35,10 @@ public class StartTestAction extends BaseAction{
 			}
 		}
 		*/
+		for(StartTest st:pCut.getData()){
+			st.setStartTime(st.getStartTime().replaceAll("T"," "));
+			st.setEndTime(st.getEndTime().replaceAll("T", " "));
+		}
 		this.getRequest().setAttribute("pc",pCut);
 		this.getRequest().setAttribute("search",search);
 		return "startTestLog";
