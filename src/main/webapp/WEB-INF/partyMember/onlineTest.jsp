@@ -70,12 +70,12 @@
 	<div id="body">
 		<div id="body-one">
 			<p>
-				<img src="${rootPath}images/topimg.png"> <span>您的位置：首页>在线考试</span>
+				<img src="${rootPath}images/topimg.png"> <span>您的位置：<a href="${rootPath}party/partyLogin.action">首页</a>>在线考试</span>
 			</p>
 		</div>
 		<c:choose>
 			<c:when test="${NoTest!=null}">
-				<div id="body-two">
+				<div id="body-two" style="height: 120px;">
 					<p>${NoTest}</p>
 				</div>
 			</c:when>
@@ -117,10 +117,11 @@
 							</div>
 						</div>
 					</c:forEach>
-					<div style="margin-left: 500px;margin-top: 30px;">
-						<input type="submit" value="交卷" style="margin-button: 10px;">
+					<div class="submit">
+						<input type="submit" value="交卷"  class="btn btn-primary">
 						<h4>${addExamLogMsg}</h4>
-					</div>					
+					</div>	 
+							
 				</form>
 			</c:otherwise>
 		</c:choose>														

@@ -1,7 +1,5 @@
 package com.future.partymember.service.impl;
 
-import java.util.List;
-
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
@@ -44,16 +42,9 @@ public class ExamLogServiceImpl implements IExamLogService{
 	}
 
 	@Override
-	public List<ExamLog> getAllExamLogBypartyMemberId(int partyMemberId, int partySort) {
-		// TODO Auto-generated method stub
-
-		return examLogDao.getAllExamLogBypartyMemberId(partyMemberId, partySort);
-	}
-
-	@Override
-	public ExamLog getExamLogByTpId(int partyMemberId, int partySort, int tp_Id) {
+	public ExamLog getExamLogByTpId(int partyMemberId, int partySort, int tp_Id,int st_Id) {
 		
-		return examLogDao.getExamLogByTpId(partyMemberId, partySort, tp_Id);
+		return examLogDao.getExamLogByTpId(partyMemberId, partySort, tp_Id,st_Id);
 	}
 
 	@Override
@@ -77,6 +68,12 @@ public class ExamLogServiceImpl implements IExamLogService{
 	@Override
 	public int grtElIdByDate(int st_Id) {		
 		return examLogDao.grtElIdByDate(st_Id);
+	}
+
+	@Override
+	public PageCut<ExamLog> getExamLogsBypartyMemberId(int curr, int pageSize, int partyMemberId, int partySort) {
+		// TODO Auto-generated method stub
+		return examLogDao.getExamLogsBypartyMemberId(curr, pageSize, partyMemberId, partySort);
 	}
 
 

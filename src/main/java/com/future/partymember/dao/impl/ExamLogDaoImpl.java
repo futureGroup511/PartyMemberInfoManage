@@ -31,16 +31,11 @@ public class ExamLogDaoImpl extends BaseDao<ExamLog> implements IExamLogDao {
 		return null;
 	}
 
-	@Override
-	public List<ExamLog> getAllExamLogBypartyMemberId(int partyMemberId, int partySort) {
 
-		String hql="from ExamLog e where e.partyMemberId='"+partyMemberId+"' and e.partySort='"+partySort+"'";
-		return this.getEntityList(hql);
-	}
 
 	@Override
-	public ExamLog getExamLogByTpId(int partyMemberId, int partySort, int tp_Id) {
-		String hql="from ExamLog e where  e.partyMemberId="+partyMemberId+" and e.partySort="+partySort +"and e.paper_Id="+tp_Id;
+	public ExamLog getExamLogByTpId(int partyMemberId, int partySort, int tp_Id,int st_Id) {
+		String hql="from ExamLog e where  e.partyMemberId="+partyMemberId+" and e.partySort="+partySort +"and e.paper_Id="+tp_Id+" and e.st_Id="+st_Id;                        
 		return (ExamLog)this.uniqueResult(hql);
 
 	}
@@ -104,6 +99,15 @@ public class ExamLogDaoImpl extends BaseDao<ExamLog> implements IExamLogDao {
 		else{
 			return ((ExamLog)list.toArray()[0]).getEl_Id();
 		}
+		
+	}
+
+	@Override
+	public PageCut<ExamLog> getExamLogsBypartyMemberId(int curr, int pageSize, int partyMemberId, int partySort) {
+		PageCut<ExamLog> pageCut=new PageCut<>(curr,pageSize,this.getNum());		
+		String hql="from ExamLog e where e.partyMemberId='"+partyMemberId+"' and e.partySort='"+partySort+"'";
+		pageCut.setData(this.getEntityLimitList(hql,(curr-1)*pageSize,pageSize));
+		return pageCut;
 		
 	}
 

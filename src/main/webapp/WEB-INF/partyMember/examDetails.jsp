@@ -70,7 +70,7 @@
 	<div id="body">
 		<div id="body-one">
 			<p>
-				<img src="${rootPath}images/topimg.png"> <span>您的位置：首页>个人中心>考试报告>考试详情</span>
+				<img src="${rootPath}images/topimg.png"> <span>您的位置：<a href="${rootPath}party/partyLogin.action">首页</a>>个人中心><a href="${rootPath}party/partyMemberAction_getMyExamLog.action"">考试报告</a>>考试详情</span>
 			</p>
 		</div>
 		<div id="body-big">
@@ -117,7 +117,7 @@
 							<p class="three">
 								您的回答为：${q.myAnswer}.<img src="${rootPath}images/cuohao.png">
 							</p>
-							<P class="four">正确答案为：B.</P>
+							<P class="four">正确答案为：${q.answer}.</P>
 							<p class="four">解析：${q.analysis}</p>					
 						</c:when>
 						<c:otherwise>
