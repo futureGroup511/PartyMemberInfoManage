@@ -43,7 +43,7 @@
 	<div class="nav">
 		<div class="row">
 			<div
-				class="col-lg-8 col-lg-offset-3 col-md-8 col-md-offset-3 col-xs-8 col-xs-offset-3">
+				class="col-lg-9 col-lg-offset-3 col-md-9 col-md-offset-3 col-xs-9 col-xs-offset-3">
 				<ul class="nav navbar-nav">
 					<li><a href="${rootPath}party/partyLogin.action">网站首页</a></li>
 					<li><a href="${rootPath }party/partyMemberAction_getResPaper.action">红色文章</a></li>
@@ -62,7 +62,7 @@
 								href="${rootPath}party/partyMemberAction_getMyExamLog.action">考试报告</a></li>
 						</ul></li>
 					<li><a href="information.jsp">通知公告</a></li>
-					<li><a href="${rootPath}connect_us.jsp">联系我们</a></li>
+					<li><a href="${rootPath}party/partyMemberAction_connectUs.action">联系我们</a></li>
 				</ul>
 			</div>
 		</div>
@@ -105,8 +105,8 @@
 			</div>
 			<c:forEach items="${questionsList}" var="q" varStatus="status">
 				<div id="body-nine">
-					<p>${status.index+1}.${q.questions_stems}(分值:${q.question_socre})
-						得分：${q.myScore}</p>
+					<p>${status.index+1}.${q.questions_stems}&nbsp;&nbsp;&nbsp;(分值:${q.question_socre})
+						</p>
 					<p class="six">A. ${q.a}.</p>
 					<p class="six">B. ${q.b}.</p>
 					<p class="six">C. ${q.c}.</p>
@@ -118,13 +118,13 @@
 								您的回答为：${q.myAnswer}.<img src="${rootPath}images/cuohao.png">
 							</p>
 							<P class="four">正确答案为：${q.answer}.</P>
-							<p class="four">解析：${q.analysis}</p>					
+							<p class="four-two">解析：${q.analysis}</p>					
 						</c:when>
 						<c:otherwise>
 							<p class="five">
-								您的回答为：${q.answer}.<img src="${rootPath}images/duihao.png"><span>&nbsp;&nbsp;&nbsp;(得分：2)</span>
+								您的回答为：${q.answer}.<img src="${rootPath}images/duihao.png"><span>&nbsp;&nbsp;&nbsp;(得分：${q.myScore})</span>
 							</p>							
-							<p class="four">解析：${q.analysis}</p>						
+							<p class="four-two">解析：${q.analysis}</p>						
 						</c:otherwise>
 					</c:choose>					
 				</div>

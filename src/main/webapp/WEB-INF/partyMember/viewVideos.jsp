@@ -34,7 +34,7 @@
 					<option>新闻动态</option>
 					<option>通知公告</option>
 				</select> <input type="text" name="select"
-					placeholder="&nbsp;&nbsp;&nbsp;请输入您要搜索的内容">
+					placeholder="请输入您要搜索的内容">
 				<button class="btn">
 					<img src="${rootPath}images/sousuo.png" width="22" height="22">
 				</button>
@@ -64,7 +64,7 @@
 								href="${rootPath}party/partyMemberAction_getMyExamLog.action">考试报告</a></li>
 						</ul></li>
 					<li><a href="information.jsp">通知公告</a></li>
-					<li><a href="${rootPath}connect_us.jsp">联系我们</a></li>
+					<li><a href="${rootPath}party/partyMemberAction_connectUs.action">联系我们</a></li>
 				</ul>
 			</div>
 		</div>
