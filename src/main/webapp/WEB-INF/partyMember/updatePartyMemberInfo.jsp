@@ -38,8 +38,7 @@
              <div>
     		     <select>
 						<option>时事新闻</option>
-						<option>生活百科</option>
-						<option>新闻动态</option>
+						<option>学习园地</option>
 						<option>通知公告</option>
 				 </select>
                   <input type="text" name="select" placeholder="请输入您要搜索的内容">
@@ -52,8 +51,8 @@
        <div class="col-lg-8 col-lg-offset-3 col-md-8 col-md-offset-3 col-xs-8 col-xs-offset-3">
          <ul class="nav navbar-nav">
               <li><a href="${rootPath}party/partyLogin.action">网站首页</a></li>
-              <li><a href="${rootPath }party/partyMemberAction_getResPaper.action">红色文章</a></li>
-              <li><a href="${rootPath}party/partyMemberAction_viewVideos.action">红色视频</a></li>
+              <li><a href="${rootPath }party/partyMemberAction_getResPaper.action">时事新闻</a></li>
+              <li><a href="${rootPath}party/partyMemberAction_viewVideos.action">学习园地</a></li>
               <li><a href="${rootPath}party/partyMemberAction_startTest.action">在线考试</a></li>
               <li class="dropdown"><a href="#" data-toggle="dropdown" class="dropdown-toggle">个人中心<span class="caret"></span></a>
                    <ul class="dropdown-menu">
@@ -70,7 +69,7 @@
 </div>
 <div id="body">
   <div id="body-one">
-     <p><img src="${rootPath}images/topimg.png"> <span>您的位置：首页&nbsp;&nbsp;>&nbsp;&nbsp;修改密码</span></p>
+     <p><img src="${rootPath}images/topimg.png"> <span>您的位置：<a href="${rootPath}party/partyLogin.action">首页</a>&nbsp;&nbsp;>&nbsp;&nbsp;个人中心&nbsp;&nbsp;>&nbsp;&nbsp;修改信息</span></p>
   </div>
   <div id="body-big">
    <div id="body-two">
@@ -89,7 +88,7 @@
                		<p><input type="password" name="password" id="password" class="form-control" placeholder="请输入新密码" required="required" autocomplete="off"/></p>
                		<p><input type="password" name="newPassword" id="newPassword" class="form-control" placeholder="请再次输入密码" required="required" autocomplete="off"/></p>
                		<button class="btn btn-primary sure" type="reset">重置</button>
-               		<button class="btn btn-primary" type="submit" onclick="return judegePwd();">确认添加</button>
+               		<button class="btn btn-primary" type="submit" onclick="return judegePwd();">确认修改</button>
                </form>
                <h4>${updateMsg}</h4>
             </div>
@@ -99,7 +98,7 @@
            		<form action="${rootPath}party/partyMemberAction_updatePartyMemberInfo?judge=2" method="post">
               		<p><input type="number" name="newPhoneNum" class="form-control" placeholder="请输入新的手机号" required="required" autocomplete="off"/></p>
                		<button class="btn btn-primary sure" type="reset">重置</button>
-                	<button class="btn btn-primary" type="submit">确认添加</button>
+                	<button class="btn btn-primary" type="submit">确认修改</button>
                 </form>
                  <h4>${updateMsg}</h4>
             </div>

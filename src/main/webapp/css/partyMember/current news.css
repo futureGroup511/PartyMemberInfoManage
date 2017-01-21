@@ -158,6 +158,13 @@ color:red;
 	border-bottom:2px solid #DDE1E4;
 	font-family:微软雅黑; 
 }
+#body-one a{
+	color:black;
+	text-decoration: none;
+}
+#body-one a:hover{
+	color:#DB0B18;
+}
 #body-two{
 	width:93%;
 	margin: 0 auto;
@@ -399,11 +406,11 @@ margin-top: 20px;
 	border-bottom: 2px #DBDBDB dotted;
 }
 #body-five .body-five-left span:first-child{
-	background:url(../../images/li1.jpg) no-repeat;
-  display: inline-block;
-	width:25%;
-	padding-top:0px!important;
-	font-size:12px;
+	border:1px solid #E2E2E2;
+	border-radius:8px;
+    display: inline-block;
+	width:23%;
+	font-size:12px!important;
 	padding-left: 0.5%;
 	height:25px;
 	padding-bottom: 10px;
@@ -413,9 +420,12 @@ margin-top: 20px;
 	text-overflow:ellipsis;
 	white-space: nowrap;
 	width:73%;
-	margin-left: 2%;
+	margin-left: 4%;
 	 display: inline-block;
 	height:23px;
+}
+#body-five .body-five-left span:first-child{
+	font-size:12px;
 }
 #body-five .body-five-center{
 	width:30%;
@@ -430,9 +440,10 @@ margin-top: 20px;
 	padding-bottom: 10px!important;
 }
 #body-five .body-five-center span:first-child{
-	background:url(../../images/li1.jpg) no-repeat;
+	border:1px solid #E2E2E2;
+	border-radius:8px;
   display: inline-block;
-	width:25%;
+	width:23%;
 	padding-top:0px!important;
 	font-size:12px;
 	padding-left: 0.5%;
@@ -444,7 +455,7 @@ margin-top: 20px;
 	text-overflow:ellipsis;
 	white-space: nowrap;
 	width:73%;
-	margin-left: 2%;
+	margin-left: 4%;
 	 display: inline-block;
 	height:23px;
 }
@@ -459,9 +470,10 @@ margin-top: 20px;
 	border-bottom: 2px #DBDBDB dotted;
 }
 #body-five .body-five-right span:first-child{
-	background:url(../../images/li1.jpg) no-repeat;
+  border:1px solid #E2E2E2;
+	border-radius:8px;
   display: inline-block;
-	width:25%;
+	width:23%;
 	padding-top:0px!important;
 	font-size:12px;
 	padding-left: 0.5%;
@@ -473,7 +485,7 @@ margin-top: 20px;
 	text-overflow:ellipsis;
 	white-space: nowrap;
 	width:73%;
-	margin-left: 2%;
+	margin-left: 4%;
 	 display: inline-block;
 	height:23px;
 }
@@ -497,7 +509,7 @@ margin-top: 20px;
 	background-color: #F3F2F2;
 /* 	position: absolute; */
   	bottom: 0px;
-	margin-top: 80px;
+	
 	padding-bottom: 0;
 	clear:both;
 }

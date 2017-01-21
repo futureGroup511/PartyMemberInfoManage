@@ -12,6 +12,7 @@ import com.future.partymember.base.BaseAction;
 import com.future.partymember.entity.Inform;
 import com.future.partymember.entity.ManagerInfo;
 import com.future.partymember.util.PageCut;
+import com.future.partymember.util.SwitchTime;
 import com.opensymphony.xwork2.util.finder.ClassFinder.Info;
 public class InformAction extends BaseAction{
 	
