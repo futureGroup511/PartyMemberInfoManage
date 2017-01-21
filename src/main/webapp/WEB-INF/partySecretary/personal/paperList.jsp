@@ -108,156 +108,87 @@
 
 
 
+
 <div id="body">
  <div id="body-one">
-   <p><img src="images/topimg.png"> <span>您的位置：首页&nbsp;&nbsp;>&nbsp;&nbsp;时事新闻</span></p>
+   <p><img src="${rootPath}images/topimg.png"> <span>您的位置：首页&nbsp;&nbsp;>&nbsp;&nbsp;时事新闻</span></p>
  </div>
  <div id="body-two">
    <div class="body-two-left">
-       <p><span>党建</span>巡礼</p>
+       <p><span>党建</span> 巡礼</p>
        <p><a href="${rootPath }secretary/partySecretary_paperSection?paperTypeId=1">更多</a></p>
    </div>  
    <div class="body-two-center">
-       <p><span>高校</span>咨询</p>
-       <p><a href="#">更多</a></p>
+       <p><span>高校</span> 咨询</p>
+       <p><a href="${rootPath }secretary/partySecretary_paperSection?paperTypeId=2">更多</a></p>
    </div>  
    <div class="body-two-right">
-       <p><span>新乡</span>风貌</p>
-       <p><a href="#">更多</a></p>
+       <p><span>新乡</span> 风貌</p>
+       <p><a href="${rootPath }secretary/partySecretary_paperSection?paperTypeId=3">更多</a></p>
    </div>  
  </div>
  <div id="body-three">
     <div class="body-three-left">
-       <p><a href="paper.html"><span>》&nbsp;人人民日报社论：推进农业供给侧结构性…</span><span>2016-12-21</span></a></p>
+    	<c:forEach var="paper" items="${paperList}" begin="0" end="4">
+					<p>					
+						<a href="${rootPath }secretary/partySecretary_lookPaper?rp_Id=${paper.rp_Id}"><span>》&nbsp;&nbsp;&nbsp;${paper.title }</span><span>${paper.releaseDate}</span></a>
+					</p>
+		</c:forEach>     
     </div>
     <div class="body-three-center">
-       <p><a href="#"><span>》&nbsp;人人民日报社论：推进农业供给侧结构性…</span><span>2016-12-21</span></a></p>
+       <c:forEach var="paper" items="${paperList}" begin="5" end="9">
+					<p>					
+						<a href="${rootPath }secretary/partySecretary_lookPaper?rp_Id=${paper.rp_Id}"><span>》&nbsp;&nbsp;&nbsp;${paper.title }</span><span>${paper.releaseDate}</span></a>
+					</p>
+		</c:forEach> 
     </div>
     <div class="body-three-right">
-       <p><a href="#"><span>》&nbsp;人人民日报社论：推进农业供给侧结构性…</span><span>2016-12-21</span></a></p>
+       <c:forEach var="paper" items="${paperList}" begin="10" end="14">
+					<p>					
+							<a href="${rootPath }secretary/partySecretary_lookPaper?rp_Id=${paper.rp_Id}"><span>》&nbsp;&nbsp;&nbsp;${paper.title }</span><span>${paper.releaseDate}</span></a>
+					</p>
+		</c:forEach> 
     </div>
  </div>
  <div id="body-four">
     <div class="body-four-left">
-        <p><span>媒体头条</span><a href="#"><img src="images/jiahao.png"> 查看更多</a></p>
+        <p><span>媒体头条</span><a href="${rootPath }secretary/partySecretary_paperSection?paperTypeId=4">
+        <img src="${rootPath}images/jiahao.png"> 查看更多</a></p>
     </div>
     <div class="body-four-center">
-        <p><span>神州大地</span><a href="#"><img src="images/jiahao.png"> 查看更多</a></p>
+        <p><span>神州大地</span><a href="${rootPath }secretary/partySecretary_paperSection?paperTypeId=5">
+        <img src="${rootPath}images/jiahao.png"> 查看更多</a></p>
     </div>
     <div class="body-four-right">
-        <p><span>环球动态</span><a href="#"><img src="images/jiahao.png"> 查看更多</a></p>
+        <p><span>环球动态</span><a href="${rootPath }secretary/partySecretary_paperSection?paperTypeId=6"><img src="${rootPath}images/jiahao.png"> 查看更多</a></p>
     </div>
  </div>
  <div id="body-five">
     <div class="body-five-left">
-       <p><span>2016-12-21</span><span><a href="#">人民日报社论：推进农业供给侧结构性…</a></span></p>
+    	<c:forEach var="paper" items="${paperList}" begin="15" end="19">
+    		<p ><span>${paper.releaseDate}</span>
+    		<a href="${rootPath }secretary/partySecretary_lookPaper?rp_Id=${paper.rp_Id}">${paper.title }</a></p>					
+		</c:forEach>      
     </div>
   <div class="body-five-center">
-       <p><span>2016-12-21</span><span><a href="#">人民日报社论：推进农业供给侧结构性…</a></span></p>
+      <c:forEach var="paper" items="${paperList}" begin="20" end="24">
+    		<p ><span>${paper.releaseDate}</span>
+    		<a href="${rootPath }secretary/partySecretary_lookPaper?rp_Id=${paper.rp_Id}">${paper.title }</a></p>					
+		</c:forEach>
     </div>
   <div class="body-five-right">
-       <p><span>2016-12-21</span><span><a href="#">人民日报社论：推进农业供给侧结构性…</a></span></p>
+  		<c:forEach var="paper" items="${paperList}" begin="25" end="29">
+    		<p ><span>${paper.releaseDate}</span>
+    		<a href="${rootPath }secretary/partySecretary_lookPaper?rp_Id=${paper.rp_Id}">${paper.title }</a></p>					
+		</c:forEach>
     </div>
  </div>
 </div>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-	<div class="content-two-one">	
-			<div>
-				<span>党建巡礼</span>
-				<span>+</span>
-				<span></span>
-			</div>
-				<div>
-					<ol>
-						<c:forEach var="paper" items="${paperList }" begin="0" end="4">
-							<li><span>${paper.releaseDate }</span>
-							<span><a href="${rootPath }secretary/partySecretary_lookPaper?rp_Id=${paper.rp_Id}">${paper.title }</a></span></li>
-						</c:forEach>
-					</ol>
-				</div>
-		</div>
-			<div class="content-two-one">	
-			<div>
-				<span>党建巡礼</span>
-				<span>+</span>
-				<span><a href="${rootPath }secretary/partySecretary_paperSection?paperTypeId=2">查看更多</a></span>
-			</div>
-				<div>
-					<ol>
-						<c:forEach var="paper" items="${paperList }" begin="5" end="9">
-							<li><span>${paper.releaseDate }</span><span>${paper.title }</span></li>
-						</c:forEach>
-					</ol>
-				</div>
-		</div>
-			<div class="content-two-one">	
-			<div>
-				<span>党建巡礼</span>
-				<span>+</span>
-				<span><a href="${rootPath }secretary/partySecretary_paperSection?paperTypeId=3">查看更多</a></span>
-			</div>
-				<div>
-					<ol>
-						<c:forEach var="paper" items="${paperList }" begin="10" end="14">
-							<li><span>${paper.releaseDate }</span><span>${paper.title }</span></li>
-						</c:forEach>
-					</ol>
-				</div>
-		</div>
-			<div class="content-two-one">	
-			<div>
-				<span>党建巡礼</span>
-				<span>+</span>
-				<span><a href="${rootPath }secretary/partySecretary_paperSection?paperTypeId=4">查看更多</a></span>
-			</div>
-				<div>
-					<ol>
-						<c:forEach var="paper" items="${paperList }" begin="15" end="19">
-							<li><span>${paper.releaseDate }</span><span>${paper.title }</span></li>
-						</c:forEach>
-					</ol>
-				</div>
-		</div>
-			<div class="content-two-one">	
-			<div>
-				<span>党建巡礼</span>
-				<span>+</span>
-				<span><a href="${rootPath }secretary/partySecretary_paperSection?paperTypeId=5">查看更多</a></span>
-			</div>
-				<div>
-					<ol>
-						<c:forEach var="paper" items="${paperList }" begin="20" end="24">
-							<li><span>${paper.releaseDate }</span><span>${paper.title }</span></li>
-						</c:forEach>
-					</ol>
-				</div>
-		</div>
-			<div class="content-two-one">	
-			<div>
-				<span>党建巡礼</span>
-				<span>+</span>
-				<span><a href="${rootPath }secretary/partySecretary_paperSection?paperTypeId=6">查看更多</a></span>
-			</div>
-				<div>
-					<ol>
-						<c:forEach var="paper" items="${paperList }" begin="25" end="29">
-							<li><span>${paper.releaseDate }</span><span>${paper.title }</span></li>
-						</c:forEach>
-					</ol>
-				</div>
-		</div>
+<footer id="footer-warp"><!--页脚开始-->
+		<p class="footer"><a href="">网站声明</a> &nbsp; &nbsp;<span>|</span> &nbsp; &nbsp;<a href="">关于我们 &nbsp; &nbsp;</a><span>|</span> &nbsp; &nbsp;<a href="">联系我们</a></p>
+		<p>Copyright @ 2016 All rights reserved.　　版权所有：河南科技学院党委</p>
+</footer><!--页脚结束-->	
 </body>
 </html>

@@ -62,7 +62,7 @@ body{
 	appearance:none;
   -moz-appearance:none;
   -webkit-appearance:none;
-  background:url(../images/xiala.png) no-repeat right;
+  background:url(../../images/xiala.png) no-repeat right;
 	font-family: 微软雅黑;
 }
 .header-right div button{
@@ -122,7 +122,9 @@ body{
 	padding-left:29px;
 }
 .nav .row li a:hover{
-color:red;
+  color:red;
+	background-color:#EEEEEE;
+	border-radius: 5px;
 }
 .nav .dropdown-menu li{
   min-width: inherit;
@@ -167,14 +169,35 @@ color:red;
 #body-two .body-two-left{
 	width:30%;
 }
+#body-two .body-two-left span{
+	color:#EC4300;
+}
+#body-two .body-two-left a{
+	background-color:#EC4300; 
+}
+
 #body-two .body-two-center{
 	width:30%;
 	margin-left: 5%;
 }
+#body-two .body-two-center span{
+	color:#FF7417;
+}
+#body-two .body-two-center a{
+	background-color:#FF7417; 
+}
+
 #body-two .body-two-right{
 	width:30%;
 	margin-left: 5%;
 }
+#body-two .body-two-right span{
+	color:#FF9C00;
+}
+#body-two .body-two-right a{
+	background-color:#FF9C00; 
+}
+
 #body-two div{
 	float:left;
 }
@@ -330,7 +353,8 @@ margin-top: 20px;
 }
 #body-four .body-four-center{
 	margin-top:20px;
-	border-bottom: 3px solid #EC4300;
+	border-bottom: 3px solid #FF7417;
+;
 }
 #body-four .body-four-center a{
 	margin-top: 12px;
@@ -346,7 +370,8 @@ margin-top: 20px;
 }
 #body-four .body-four-right{
 	margin-top:20px;
-	border-bottom: 3px solid #EC4300;
+	border-bottom: 3px solid #FF9C00;
+
 }
 #body-four .body-four-right a{
 	margin-top: 12px;
@@ -360,7 +385,7 @@ margin-top: 20px;
 	width:13px;
 	margin-top:-3px;
 }
- #body-five{
+#body-five{
 	width:93%;
 	margin: 0 auto;
 	 font-family: 微软雅黑;
@@ -370,77 +395,79 @@ margin-top: 20px;
 	margin-left: 5%;
 	margin-top:30px;
 }
-#body-five .body-five-left a{
-	margin-left:6%;
-	border-bottom: 2px #DBDBDB dotted;
-	padding-bottom: 5px;
+#body-five .body-five-left p{
+	line-height: 20px;
 }
-#body-five .body-five-left img{
-	position: absolute;
-	z-index: -1;
-	margin-top: 3px;
-}
-#body-five .body-five-left span{
+#body-five .body-five-left span:first-child{
+	background:url(../../images/li1.jpg) no-repeat;
+  display: inline-block;
 	width:20%;
-	display: inline-block;
+	padding-top:0px!important;
 	font-size:12px;
-	margin-top:1px;
-	padding-left: 1.5%;
+	padding-left: 0.5%;
+	height:25px;
+	padding-bottom: 10px;
 }
-#body-five .body-five-left a{
-	display: inline-block;
-	width: 74%;
+#body-five .body-five-left span:last-child{
+	overflow:hidden;
+	text-overflow:ellipsis;
+	white-space: nowrap;
+	width:78%;
+	margin-left: 2%;
+	 display: inline-block;
+	height:23px;
 }
 #body-five .body-five-center{
 	width:30%;
-  margin-top: 30px;
+	margin-left: 5%;
+	margin-top:30px;
 }
-#body-five .body-five-center a{
-	margin-left:6%;
-	border-bottom: 2px #DBDBDB dotted;
-	padding-bottom: 5px;
+#body-five .body-five-center p{
+	line-height: 20px;
 }
-#body-five .body-five-center img{
-	position: absolute;
-	z-index: -1;
-	margin-top: 3px;
-}
-#body-five .body-five-center span{
+#body-five .body-five-center span:first-child{
+	background:url(../../images/li1.jpg) no-repeat;
+  display: inline-block;
 	width:20%;
-	display: inline-block;
+	padding-top:0px!important;
 	font-size:12px;
-	margin-top:1px;
-	padding-left: 1.5%;
+	height:25px;
+
 }
-#body-five .body-five-center a{
-	display: inline-block;
-	width: 74%;
+#body-five .body-five-center span:last-child{
+	overflow:hidden;
+	text-overflow:ellipsis;
+	white-space: nowrap;
+	width:78%;
+	margin-left: 2%;
+	 display: inline-block;
+	height:23px;
 }
 #body-five .body-five-right{
 	width:30%;
-	margin-right: 5%;
-	margin-top: 30px;
+	margin-top:30px;
 }
-#body-five .body-five-right span{
-	width:20%;
-	display: inline-block;
+#body-five .body-five-right p{
+	line-height: 20px;
+}
+
+#body-five .body-five-right span:first-child{
+	background:url(../../images/li1.jpg) no-repeat;
+  display: inline-block;
 	font-size:12px;
-	margin-top:1px;
-	padding-left: 1.5%;
+
+	padding-left: 0.5%;
+	height:25px;
+	width:20%;
 }
-#body-five .body-five-right a{
-	display: inline-block;
-	width: 74%;
-}
-#body-five .body-five-right img{
-	position: absolute;
-	z-index: -1;
-	margin-top: 3px;
-}
-#body-five .body-five-right a{
-	margin-left:6%;
-	border-bottom: 2px #DBDBDB dotted;
-	padding-bottom: 5px;
+#body-five .body-five-right span:last-child{
+	overflow:hidden;
+	text-overflow:ellipsis;
+	white-space: nowrap;
+	width:78%;
+	margin-left: 2%;
+	 display: inline-block;
+	height:23px;
 }
 #body-five div{
 	float:right;
