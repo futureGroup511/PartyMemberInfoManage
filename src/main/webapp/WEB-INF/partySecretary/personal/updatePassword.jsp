@@ -98,7 +98,7 @@
        <div role="tabpanel" class="tab-pane" id="profile">
            <div id="body-three">
            		<form action="${rootPath}secretary/partySecretary_updatePhone" method="post">
-              		<p><input type="number" name="phone" class="form-control" placeholder="请输入新的手机号" required="required" autocomplete="off"/></p>
+              		<p><input type="text" name="phone" class="form-control" placeholder="请输入新的手机号" required="required" autocomplete="off"/></p>
                		<button class="btn btn-primary sure" type="reset">重置</button>
                 	<button class="btn btn-primary" type="submit">确认添加</button>
                 </form>

@@ -166,7 +166,7 @@ body{
 #paper-warp{
 	width:90%;
 	margin: 0 auto;
-	padding-left: 5%;
+	padding-left:9%;
 	margin-top: 20px;
 	font-family: 微软雅黑;
 }
@@ -197,6 +197,12 @@ body{
 #paper-warp .paper-one li span{
 	display: inline-block;
 	margin-left: -7%;
+}
+#paper-warp .paper-one img{
+	margin-left:-7%;
+}
+#paper-warp .paper-two img{
+	margin-left:-7%;
 }
 #paper-warp .paper-one li span:first-child{
 	width:70%;

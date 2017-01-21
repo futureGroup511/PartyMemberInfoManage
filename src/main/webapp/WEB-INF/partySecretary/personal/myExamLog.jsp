@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>考试记录</title>
 <link rel="stylesheet" href="${rootPath }css/bootstrap.css">
-<link rel="stylesheet" href="${rootPath }css/partySecretary/my space.css">
+<link rel="stylesheet" href="${rootPath }css/partySecretary/list.css">
 <script src="${rootPath }js/jquery-2.2.3.min.js"></script>
 <script src="${rootPath }js/bootstrap.js"></script>
 </head>
@@ -64,7 +64,7 @@
 						<li><a href="${rootPath}secretary/partySecretary_getMyExamLog">考试报告</a></li>
                    </ul>
                </li>
-              <li><a href="connect us.html">联系我们</a></li>
+              <li><a href="${rootPath }connect_us.jsp">联系我们</a></li>
          </ul>
      </div>
 </div>

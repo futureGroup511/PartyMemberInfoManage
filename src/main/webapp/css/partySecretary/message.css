@@ -131,56 +131,34 @@ body{
 	font-family:微软雅黑; 
 }
 #body-two{
-	width:35%;
-	margin-top: 30px;
-	margin-left: 15.0%;
-}
-#body-two button{
-	display: inline;
-	float: right;
-	margin-top:-34px;
-	
+	width: 70%;
+	margin: 0 auto;
+	margin-top: 20px;
 }
 #body-two input{
-	width:85%;
+
+	width:30%;
 }
 #body-three{
 	width:70%;
 	margin: 0 auto;
-	margin-top: 40px;
+	height:600px;
+
 }
-#body-three td{
-	text-align: center;
-}
-#body-three th{
-	text-align: center;
-}
-#body-three a{
-	text-decoration: none;
-}
-#body-three a:hover{
-	color:#DB0B18;
-}
-.container{
-	width:60%;
-	margin: 0 auto;
-	margin-top: 30px;
-}
-.container p{
-	text-align: center;
-}
-.container nav{
-	text-align: center;
+#body-four{
+	width: 85%;
+	text-align: right;
+	margin-top: 20px;
 }
 #footer-warp{
 	width: 100%;
 	height:90px;
 	background-color: #F3F2F2;
- 	position: absolute; 
+/*  	position: absolute;  */
   	bottom: 0px;
 	 padding-bottom: 0;
 	 clear:both;
-	margin-top: 50px;
+	margin-top:30px;
 }
 #footer-warp p{
   text-align: center;
@@ -198,4 +176,3 @@ body{
 #footer-warp a:hover{
 	color:red;
 }
-
