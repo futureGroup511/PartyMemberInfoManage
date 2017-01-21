@@ -130,8 +130,8 @@
                  	
                  	<c:forEach items="${recommendVideosList}" var="new_video">
                      		<li style="float: left; width: 25%;">
-							 	<div class="pic"><a href="html/video.html"><img src="${rootPath}${new_video.imgUrl}"></a></div>
-							 	<div class="title"><a href="#">${new_video.name}</a></div>
+							 	<div class="pic"><a href="${rootPath }party/partyMemberAction_viewing?rv_Id=${new_video.rv_Id}"><img src="${rootPath}${new_video.imgUrl}"></a></div>
+							 	<div class="title"><a href="${rootPath }party/partyMemberAction_viewing?rv_Id=${new_video.rv_Id}">${new_video.name}</a></div>
 						 	</li>
                      </c:forEach> 						
 					</ul>
@@ -151,8 +151,8 @@
                      <ul class="picList" style="width:100%; position: relative; overflow: hidden; padding: 0px; margin: 0px;">
                      	 <c:forEach items="${newVideosList}" var="new_video">
                      		<li style="float: left; width: 25%;">
-							 	<div class="pic"><a href="html/video.html"><img src="${rootPath}${new_video.imgUrl}"></a></div>
-							 	<div class="title"><a href="#">${new_video.name}</a></div>
+							 	<div class="pic"><a href="${rootPath }party/partyMemberAction_viewing?rv_Id=${new_video.rv_Id}"><img src="${rootPath}${new_video.imgUrl}"></a></div>
+							 	<div class="title"><a href="${rootPath }party/partyMemberAction_viewing?rv_Id=${new_video.rv_Id}">${new_video.name}</a></div>
 						 	</li>
                      	</c:forEach> 					   
 					</ul>
