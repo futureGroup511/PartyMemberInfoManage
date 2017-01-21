@@ -166,14 +166,35 @@ color:red;
 #body-two .body-two-left{
 	width:30%;
 }
+#body-two .body-two-left span{
+	color:#EC4300;
+}
+#body-two .body-two-left a{
+	background-color:#EC4300; 
+}
+
 #body-two .body-two-center{
 	width:30%;
 	margin-left: 5%;
 }
+#body-two .body-two-center span{
+	color:#FF7417;
+}
+#body-two .body-two-center a{
+	background-color:#FF7417; 
+}
+
 #body-two .body-two-right{
 	width:30%;
 	margin-left: 5%;
 }
+#body-two .body-two-right span{
+	color:#FF9C00;
+}
+#body-two .body-two-right a{
+	background-color:#FF9C00; 
+}
+
 #body-two div{
 	float:left;
 }
@@ -329,7 +350,8 @@ margin-top: 20px;
 }
 #body-four .body-four-center{
 	margin-top:20px;
-	border-bottom: 3px solid #EC4300;
+	border-bottom: 3px solid #FF7417;
+;
 }
 #body-four .body-four-center a{
 	margin-top: 12px;
@@ -345,7 +367,8 @@ margin-top: 20px;
 }
 #body-four .body-four-right{
 	margin-top:20px;
-	border-bottom: 3px solid #EC4300;
+	border-bottom: 3px solid #FF9C00;
+
 }
 #body-four .body-four-right a{
 	margin-top: 12px;
@@ -377,7 +400,8 @@ margin-top: 20px;
 #body-five .body-five-left img{
 	position: absolute;
 	z-index: -1;
-	margin-top: 3px;
+	margin-top: 1px;
+	width:6.4%;
 }
 #body-five .body-five-left span{
 	width:23%;
@@ -402,7 +426,8 @@ margin-top: 20px;
 #body-five .body-five-center img{
 	position: absolute;
 	z-index: -1;
-	margin-top: 3px;
+	margin-top: 1px;
+	width:6.4%;
 }
 #body-five .body-five-center span{
 	width:23%;
@@ -434,7 +459,8 @@ margin-top: 20px;
 #body-five .body-five-right img{
 	position: absolute;
 	z-index: -1;
-	margin-top: 3px;
+	margin-top: 1px;
+	width:6.4%;
 }
 #body-five .body-five-right a{
 	margin-left:6%;

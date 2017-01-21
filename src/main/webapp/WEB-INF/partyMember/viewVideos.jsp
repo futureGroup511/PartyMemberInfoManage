@@ -117,44 +117,37 @@
 		</div>
 
 		<div id="body-three">
-			<c:forEach items="${pc.data}" var="v" begin="0" end="3">
+			<c:forEach items="${pc.data}" var="v" begin="0" end="15">
 				<div>
-					<li><a href="${rootPath }party/partyMemberAction_viewing?rv_Id=${v.rv_Id}.action"><img
+					<li><a href="${rootPath }party/partyMemberAction_viewing?rv_Id=${v.rv_Id}"><img
 							src="${rootPath}${v.imgUrl}"></a></li> <span>${v.name}</span>
 					<img src="${rootPath}images/play.png" id="img1">
 				</div>
 			</c:forEach>			
 		</div>
-		<div id="body-three">
-			<c:forEach items="${pc.data}" var="v" begin="4" end="7">
-				<div>
-					<li><a href="${rootPath }party/partyMemberAction_viewing?rv_Id=${v.rv_Id}.action"><img
-							src="${rootPath}${v.imgUrl}"></a></li> <span>${v.name}</span>
-					<img src="${rootPath}images/play.png" id="img1">
-				</div>
-			</c:forEach>			
-		</div>
-		<div id="body-three">
-			<c:forEach items="${pc.data}" var="v" begin="4" end="11">
-				<div>
-					<li><a href="${rootPath }party/partyMemberAction_viewing?rv_Id=${v.rv_Id}.action"><img
-							src="${rootPath}${v.imgUrl}"></a></li> <span>${v.name}</span>
-					<img src="${rootPath}images/play.png" id="img1">
-				</div>
-			</c:forEach>			
-		</div>
-		<div id="body-three">
-			<c:forEach items="${pc.data}" var="v" begin="12" end="15">
-				<div>
-					<li><a href="${rootPath }party/partyMemberAction_viewing?rv_Id=${v.rv_Id}.action"><img
-							src="${rootPath}${v.imgUrl}"></a></li> <span>${v.name}</span>
-					<img src="${rootPath}images/play.png" id="img1">
-				</div>
-			</c:forEach>			
-		</div>
+		<div id="pagecut" style="margin-right:250px;text-align:right;">
+			<ul class="pagination">
+				<li><a href="${rootPath }secretary/partySecretary_videoList?page=${pc.prePage}">上一页</a></li>
+				<c:if test="${1 < pc.currentPage -3}">
+				<li><a href="${rootPath }secretary/partySecretary_videoList?page=1">1</a></li>
+				</c:if>
+			
+				<c:forEach var="i" begin="${pc.currentPage-3>0?pc.currentPage-3:1 }" end="${pc.currentPage+3>pc.pageNum?pc.pageNum:pc.currentPage+3  }">
+				<c:choose>
+					<c:when test="${i>0 && i == pc.currentPage }">
+						<li class="active"><a href="${rootPath }secretary/partySecretary_videoList?page=${i }">${i}</a></li>
+					</c:when>
 
+					<c:when test="${i>0 && i != postPS.currentPage }">
+						<li><a href="${rootPath }secretary/partySecretary_videoList?page=${i }">${i}</a></li>
+					</c:when>
+				</c:choose>
+				</c:forEach>
+				<li><a href="${rootPath }secretary/partySecretary_videoList?page=${pc.nextPage}">下一页</a></li>
+			</ul>
+		</div>		
 	</div>
-	<br />
+	
 	<footer id="footer-warp">
 		<!--页脚开始-->
 		<p class="footer">
