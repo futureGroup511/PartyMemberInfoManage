@@ -50,7 +50,7 @@
                          <li><a href="${rootPath}party/partyMemberAction_getMyExamLog.action">考试报告</a></li>
                    </ul>
                </li>
-              <li><a href="information.jsp">通知公告</a></li>
+              <li><a href="${rootPath}party/partyMemberAction_informList.action">通知公告</a></li>
               <li><a href="${rootPath}party/partyMemberAction_connectUs.action">联系我们</a></li>
 
          </ul>
@@ -103,22 +103,18 @@
                     <img src="${rootPath}images/zxbt.png">
                     <span class="paper-img">最新文章</span>
 					<ol> 
-						<li><a href="#"><span>房产商一房二卖被判退一赔一 法官：遏制其他违约</span><span>2016-12-22</span></a></li>
-						<li><a href="#"><span>杨东升任鸡年央视春晚总导演：希望不被大家吐槽</span><span>2016-12-22</span></a></li>
-						<li><a href="#"><span>空姐面试官欲“潜规则”女考生？海航回应：已被开除</span><span>2016-12-22</span></a></li>
-						<li><a href="#"><span>手游公司员工偷为玩家充值 涉案价值3亿8千万</span><span>2016-12-22</span></a></li>
-						<li><a href="#"><span>捅杀广外女生嫌犯自供：没钱吃饭 想干坏事被抓</span><span>2016-12-22</span></a></li>
+						<c:forEach items="${newPaperList }" var="newPaper">
+							<li><a href="${rootPath}party/partyMemberAction_lookPaper?rp_Id=${newPaper.rp_Id}"><span>${newPaper.title }</span><span>${newPaper.releaseDate}</span></a></li>
+						</c:forEach>						
                      </ol>
                </div>
 				<div class="paper-two">
                     <img src="${rootPath}images/zxbt.png">
 					<span class="paper-img" id="pager-img-two">热门文章</span> 
 					<ol> 
-						<li><a href="#"><span>鸡年春晚语言类节目预计约10个 堪称近年之最</span><span>2016-12-22</span></a></li>
-						<li><a href="#"><span>中国尊明年主体完工 500米高度能冲破雾霾吗?</span><span>2016-12-22</span></a></li>
-						<li><a href="#"><span>十八大以来，湖北已为万余名受错告诬告干部还清白</span><span>2016-12-22</span></a></li>
-						<li><a href="#"><span>河北磁县城管无证执法车上路8年 交警令限期整改</span><span>2016-12-22</span></a></li>
-						<li><a href="#"><span>台籍女子竞选澳议员 叫嚣：亚裔分两种 好的支持我</span><span>2016-12-22</span></a></li>
+						<c:forEach items="${newPaperList}" var="hotPaper">
+							<li><a href="${rootPath}party/partyMemberAction_lookPaper?rp_Id=${hotPaper.rp_Id}"><span>${hotPaper.title }</span><span>${hotPaper.releaseDate}</span></a></li>
+						</c:forEach>						
 					</ol>
 				</div>
 </div><!--文章区结束-->

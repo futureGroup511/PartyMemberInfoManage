@@ -369,11 +369,14 @@ public class PartyMemberAction extends BaseAction {
 	 */
 	
 	//通知列表
-	public String informList(){
-		
-		System.out.println("通知列表的分页"+page);
+	public String informList(){				
 		PageCut<Inform> pc=informService.getInformList(page, 5, 2,3);//2 3 代表通知的权限
-		this.getRequest().setAttribute("pc", pc);
+		if(pc.getData().size()==0){
+			this.getRequest().setAttribute("informMsg", "暂时没有通知！");
+		}
+		else{			
+			this.getRequest().setAttribute("pc", pc);
+		}
 		return "informList";
 	}
 	

@@ -63,7 +63,7 @@
 							<li><a
 								href="${rootPath}party/partyMemberAction_getMyExamLog.action">考试报告</a></li>
 						</ul></li>
-					<li><a href="information.jsp">通知公告</a></li>
+					 <li><a href="${rootPath}party/partyMemberAction_informList.action">通知公告</a></li>
 					<li><a href="${rootPath}party/partyMemberAction_connectUs.action">联系我们</a></li>
 				</ul>
 			</div>
@@ -125,25 +125,26 @@
 				</div>
 			</c:forEach>			
 		</div>
-		<div id="pagecut" style="margin-right:250px;text-align:right;">
+		<div style="clear: both;"></div>
+		<div id="pagecut" style="margin-left:70%;">
 			<ul class="pagination">
-				<li><a href="${rootPath }secretary/partySecretary_videoList?page=${pc.prePage}">上一页</a></li>
+				<li><a href="${rootPath }party/partyMemberAction_viewVideos?page=${pc.prePage}">上一页</a></li>
 				<c:if test="${1 < pc.currentPage -3}">
-				<li><a href="${rootPath }secretary/partySecretary_videoList?page=1">1</a></li>
+				<li><a href="${rootPath }party/partyMemberAction_viewVideos?page=1">1</a></li>
 				</c:if>
 			
 				<c:forEach var="i" begin="${pc.currentPage-3>0?pc.currentPage-3:1 }" end="${pc.currentPage+3>pc.pageNum?pc.pageNum:pc.currentPage+3  }">
 				<c:choose>
 					<c:when test="${i>0 && i == pc.currentPage }">
-						<li class="active"><a href="${rootPath }secretary/partySecretary_videoList?page=${i }">${i}</a></li>
+						<li class="active"><a href="${rootPath }party/partyMemberAction_viewVideos?page=${i }">${i}</a></li>
 					</c:when>
 
 					<c:when test="${i>0 && i != postPS.currentPage }">
-						<li><a href="${rootPath }secretary/partySecretary_videoList?page=${i }">${i}</a></li>
+						<li><a href="${rootPath }party/partyMemberAction_viewVideos?page=${i }">${i}</a></li>
 					</c:when>
 				</c:choose>
 				</c:forEach>
-				<li><a href="${rootPath }secretary/partySecretary_videoList?page=${pc.nextPage}">下一页</a></li>
+				<li><a href="${rootPath }party/partyMemberAction_viewVideos?page=${pc.nextPage}">下一页</a></li>
 			</ul>
 		</div>		
 	</div>
