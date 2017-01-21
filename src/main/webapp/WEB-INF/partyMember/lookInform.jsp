@@ -55,8 +55,8 @@
 </div>
 <div id="body">
  <div id="body-one">
-   <p><img src="${rootPath}images/topimg.png"> <span>您的位置：<a href="${rootPath}party/partyLogin.action">首页</a>><a
-						href="${rootPath}party/partyMemberAction_informList.action">通知公告</a>>通知正文</span></p>
+   <p><img src="${rootPath}images/topimg.png"> <span>您的位置：<a href="${rootPath}party/partyLogin.action">首页</a>&nbsp;&nbsp;>&nbsp;&nbsp;<a
+						href="${rootPath}party/partyMemberAction_informList.action">通知公告</a>&nbsp;&nbsp;>&nbsp;&nbsp;通知正文</span></p>
  </div>
  <div id="body-two">
    <h4>${inform.title }</h4>   

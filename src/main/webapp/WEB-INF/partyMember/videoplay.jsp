@@ -65,7 +65,7 @@
 	<div id="body">
 		<div id="body-one">
 			<p>
-				<img src="${rootPath}images/topimg.png"> <span>您的位置：<a href="${rootPath}party/partyLogin.action">首页</a>><a href="${rootPath}party/partyMemberAction_viewVideos.action">学习园地</a>>${video.name}</span>
+				<img src="${rootPath}images/topimg.png"> <span>您的位置：<a href="${rootPath}party/partyLogin.action">首页</a>&nbsp;&nbsp;>&nbsp;&nbsp;<a href="${rootPath}party/partyMemberAction_viewVideos.action">学习园地</a>&nbsp;&nbsp;>&nbsp;&nbsp;${video.name}</span>
 			</p>
 		</div>
 		<div id="body-two">

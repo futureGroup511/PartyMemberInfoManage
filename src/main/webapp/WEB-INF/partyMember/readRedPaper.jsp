@@ -55,7 +55,7 @@
 </div>
 <div id="body">
  <div id="body-one">
-   <p><img src="${rootPath}images/topimg.png"> <span>您的位置：<a href="${rootPath}party/partyLogin.action">首页</a>><a href="${rootPath }party/partyMemberAction_getResPaper.action">时事新闻</a>>${paper.paperType}>正文</span></p>
+   <p><img src="${rootPath}images/topimg.png"> <span>您的位置：<a href="${rootPath}party/partyLogin.action">首页</a>&nbsp;&nbsp;>&nbsp;&nbsp;<a href="${rootPath }party/partyMemberAction_getResPaper.action">时事新闻</a>&nbsp;&nbsp;>&nbsp;&nbsp;${paper.paperType}&nbsp;&nbsp;>&nbsp;&nbsp;正文</span></p>
  </div>
  <div id="body-two">
    <h4>${paper.title}</h4>
