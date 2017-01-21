@@ -24,8 +24,7 @@
              <div>
     		     <select>
 						<option>时事新闻</option>
-						<option>生活百科</option>
-						<option>新闻动态</option>
+						<option>学习园地</option>
 						<option>通知公告</option>
 				 </select>
                   <input type="text" name="select" placeholder="请输入您要搜索的内容">
@@ -38,8 +37,8 @@
        <div class="col-lg-9 col-lg-offset-3 col-md-9 col-md-offset-3 col-xs-9 col-xs-offset-3">
          <ul class="nav navbar-nav">
                <li><a href="${rootPath}party/partyLogin.action">网站首页</a></li>
-              <li><a href="${rootPath }party/partyMemberAction_getResPaper.action">红色文章</a></li>
-              <li><a href="${rootPath}party/partyMemberAction_viewVideos.action">红色视频</a></li>
+              <li><a href="${rootPath }party/partyMemberAction_getResPaper.action">时事新闻</a></li>
+              <li><a href="${rootPath}party/partyMemberAction_viewVideos.action">学习园地</a></li>
               <li><a href="${rootPath}party/partyMemberAction_startTest.action">在线考试</a></li>
               <li class="dropdown"><a href="#" data-toggle="dropdown" class="dropdown-toggle">个人中心<span class="caret"></span></a>
                    <ul class="dropdown-menu">
@@ -56,7 +55,8 @@
 </div>
 <div id="body">
  <div id="body-one">
-   <p><img src="${rootPath}images/topimg.png"> <span>您的位置：首页>时事新闻>党建巡礼>正文</span></p>
+   <p><img src="${rootPath}images/topimg.png"> <span>您的位置：<a href="${rootPath}party/partyLogin.action">首页</a>&nbsp;&nbsp;>&nbsp;&nbsp;<a
+						href="${rootPath}party/partyMemberAction_informList.action">通知公告</a>&nbsp;&nbsp;>&nbsp;&nbsp;通知正文</span></p>
  </div>
  <div id="body-two">
    <h4>${inform.title }</h4>   

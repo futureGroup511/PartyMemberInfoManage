@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>红色文章</title>
+<title>时事新闻</title>
 <link rel="stylesheet" href="${rootPath}css/partyMember/bootstrap.css">
 <link rel="stylesheet"
 	href="${rootPath}css/partyMember/current news.css">
@@ -25,11 +25,10 @@
              <div>
     		     <select>
 						<option>时事新闻</option>
-						<option>生活百科</option>
-						<option>新闻动态</option>
+						<option>学习园地</option>
 						<option>通知公告</option>
 				 </select>
-                  <input type="text" name="select" placeholder="&nbsp;&nbsp;&nbsp;请输入您要搜索的内容">
+                  <input type="text" name="select" placeholder="请输入您要搜索的内容">
                    <button class="btn"><img src="${rootPath}images/sousuo.png" width="22" height="22"></button>
              </div>
        </div>
@@ -40,9 +39,9 @@
          <ul class="nav navbar-nav">
               <li><a href="${rootPath}party/partyLogin.action">网站首页</a></li>
 					<li><a
-						href="${rootPath }party/partyMemberAction_getResPaper.action">红色文章</a></li>
+						href="${rootPath }party/partyMemberAction_getResPaper.action">时事新闻</a></li>
 					<li><a
-						href="${rootPath}party/partyMemberAction_viewVideos.action">红色视频</a></li>
+						href="${rootPath}party/partyMemberAction_viewVideos.action">学习园地</a></li>
 					<li><a
 						href="${rootPath}party/partyMemberAction_startTest.action">在线考试</a></li>
 					<li class="dropdown"><a href="#" data-toggle="dropdown"
@@ -97,20 +96,20 @@
 </div>
 <div id="body">
  <div id="body-one">
-   <p><img src="${rootPath}images/topimg.png"> <span>您的位置：首页&nbsp;&nbsp;>&nbsp;&nbsp;时事新闻</span></p>
+   <p><img src="${rootPath}images/topimg.png"> <span>您的位置：<a href="${rootPath}party/partyLogin.action">首页</a>&nbsp;&nbsp;>&nbsp;&nbsp;时事新闻</span></p>
  </div>
  <div id="body-two">
    <div class="body-two-left">
        <p><span>党建</span> 巡礼</p>
-       <p><a href="the party.html">更多</a></p>
+       <p><a href="${rootPath }party/partyMemberAction_paperSection?paperTypeId=1">更多</a></p>
    </div>  
    <div class="body-two-center">
        <p><span>高校</span> 咨询</p>
-       <p><a href="#">更多</a></p>
+       <p><a href="${rootPath }party/partyMemberAction_paperSection?paperTypeId=2">更多</a></p>
    </div>  
    <div class="body-two-right">
        <p><span>新乡</span> 风貌</p>
-       <p><a href="#">更多</a></p>
+       <p><a href="${rootPath }party/partyMemberAction_paperSection?paperTypeId=3">更多</a></p>
    </div>  
  </div>
  <div id="body-three">
@@ -141,58 +140,35 @@
  </div>
  <div id="body-four">
     <div class="body-four-left">
-        <p><span>媒体头条</span><a href="#"><img src="${rootPath}images/jiahao.png"> 查看更多</a></p>
+        <p><span>媒体头条</span><a href="${rootPath }party/partyMemberAction_paperSection?paperTypeId=4"><img src="${rootPath}images/jiahao.png"> 查看更多</a></p>
     </div>
     <div class="body-four-center">
-        <p><span>神州大地</span><a href="#"><img src="${rootPath}images/jiahao.png"> 查看更多</a></p>
+        <p><span>神州大地</span><a href="${rootPath }party/partyMemberAction_paperSection?paperTypeId=5"><img src="${rootPath}images/jiahao.png"> 查看更多</a></p>
     </div>
     <div class="body-four-right">
-        <p><span>环球动态</span><a href="#"><img src="${rootPath}images/jiahao.png"> 查看更多</a></p>
+        <p><span>环球动态</span><a href="${rootPath }party/partyMemberAction_paperSection?paperTypeId=6"><img src="${rootPath}images/jiahao.png"> 查看更多</a></p>
     </div>
  </div>
- <%-- <div id="body-five">
-    <div class="body-five-left">
-    	<c:forEach var="paper" items="${paperList}" begin="15" end="19">
-    		<p ><img src="${rootPath}images/li1.jpg"><span>${paper.releaseDate}</span><a href="${rootPath}party/partyMemberAction_lookPaper?rp_Id=${paper.rp_Id}">${paper.title }</a></p>					
-		</c:forEach>      
-    </div>
-  <div class="body-five-center">
-      <c:forEach var="paper" items="${paperList}" begin="20" end="24">
-    		<p ><img src="${rootPath}images/li1.jpg"><span>${paper.releaseDate}</span><a href="${rootPath}party/partyMemberAction_lookPaper?rp_Id=${paper.rp_Id}">${paper.title }</a></p>					
-		</c:forEach>
-    </div>
-  <div class="body-five-right">
-  	<c:forEach var="paper" items="${paperList}" begin="25" end="29">
-    		<p ><img src="${rootPath}images/li1.jpg"><span>${paper.releaseDate}</span><a href="${rootPath}party/partyMemberAction_lookPaper?rp_Id=${paper.rp_Id}">${paper.title }</a></p>					
-		</c:forEach>
-      <!--  <p><img src="images/li1.jpg"><span>2016-12-21</span><a href="#">人民日报社论：推进农业供给侧结构性…</a></p>
-       <p><img src="images/li1.jpg"><span>2016-12-21</span><a href="#">人民日报评论员：稳中求进 奋发有为…</a></p>
-       <p><img src="images/li1.jpg"><span>2016-12-21</span><a href="#">喻云林：坚持民主集中制 保障党内政…</a></p>
-       <p><img src="images/li1.jpg"><span>2016-12-21</span><a href="#">政治局会议一年四议经济：稳政策性…</a></p>
-       <p><img src="images/li1.jpg"><span>2016-12-21</span><a href="#">以"四个率先"引领科技强国建设…</a></p> -->
-    </div>
- </div> --%>
  <div id="body-five">
     <div class="body-five-left">
-       <p><span>2016-12-21</span><span><a href="#">人民日报社论：推进农业供给侧结构性…</a></span></p>
+    	<c:forEach var="paper" items="${paperList}" begin="25" end="29">   		
+    		<p ><span>${paper.releaseDate}</span><span><a href="${rootPath}party/partyMemberAction_lookPaper?rp_Id=${paper.rp_Id}">${paper.title }</a></span></p>					
+		</c:forEach>
+     <!--   <p><span>2016-12-21</span><span><a href="#">人民日报社论：推进农业供给侧结构性…</a></span></p>
        <p><span>2016-12-21</span><span><a href="#">人民日报评论员：稳中求进 奋发有为…</a></span></p>
        <p><span>2016-12-21</span><span><a href="#">喻云林：坚持民主集中制 保障党内政…</a></span></p>
        <p><span>2016-12-21</span><span><a href="#">政治局会议一年四议经济：稳政策性…</a></span></p>
-       <p><span>2016-12-21</span><span><a href="#">以"四个率先"引领科技强国建设…</a></span></p>
+       <p><span>2016-12-21</span><span><a href="#">以"四个率先"引领科技强国建设…</a></span></p> -->
     </div>
   <div class="body-five-center">
-       <p><span>2016-12-21</span><span><a href="#">人民日报社论：推进农业供给侧结构性…</a></span></p>
-       <p><span>2016-12-21</span><span><a href="#">人民日报评论员：稳中求进 奋发有为…</a></span></p>
-       <p><span>2016-12-21</span><span><a href="#">喻云林：坚持民主集中制 保障党内政…</a></span></p>
-       <p><span>2016-12-21</span><span><a href="#">政治局会议一年四议经济：稳政策性…</a></span></p>
-       <p><span>2016-12-21</span><span><a href="#">以"四个率先"引领科技强国建设…</a></span></p>
+  <c:forEach var="paper" items="${paperList}" begin="20" end="24">   		
+    		<p ><span>${paper.releaseDate}</span><span><a href="${rootPath}party/partyMemberAction_lookPaper?rp_Id=${paper.rp_Id}">${paper.title }</a></span></p>					
+		</c:forEach>      
     </div>
   <div class="body-five-right">
-       <p><span>2016-12-21</span><span><a href="#">人民日报社论：推进农业供给侧结构性…</a></span></p>
-       <p><span>2016-12-21</span><span><a href="#">人民日报评论员：稳中求进 奋发有为…</a></span></p>
-       <p><span>2016-12-21</span><span><a href="#">喻云林：坚持民主集中制 保障党内政…</a></span></p>
-       <p><span>2016-12-21</span><span><a href="#">政治局会议一年四议经济：稳政策性…</a></span></p>
-       <p><span>2016-12-21</span><span><a href="#">以"四个率先"引领科技强国建设…</a></span></p>
+  <c:forEach var="paper" items="${paperList}" begin="15" end="19">   		
+    		<p ><span>${paper.releaseDate}</span><span><a href="${rootPath}party/partyMemberAction_lookPaper?rp_Id=${paper.rp_Id}">${paper.title }</a></span></p>					
+		</c:forEach>     
     </div>
  </div>
  

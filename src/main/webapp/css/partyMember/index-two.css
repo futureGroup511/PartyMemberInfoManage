@@ -154,6 +154,13 @@ color:red;
 	padding-top: 6px;
 	padding-left: 1.5%;
 }
+#banner-one .row a{
+	color:black;
+	text-decoration: none;
+}
+#banner-one .row a:hover{
+	color:#DB0B18;
+}
 #paper-warp{
 	width:83%;
 	margin: 0 auto;
