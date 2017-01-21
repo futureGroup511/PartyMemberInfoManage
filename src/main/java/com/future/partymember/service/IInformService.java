@@ -1,5 +1,7 @@
 package com.future.partymember.service;
 
+import java.util.List;
+
 import com.future.partymember.entity.Inform;
 import com.future.partymember.util.PageCut;
 import com.opensymphony.xwork2.util.finder.ClassFinder.Info;
@@ -18,4 +20,5 @@ public interface IInformService {
 	PageCut<Inform> getQuery(int curr, int pageSize,Object ...objects);
 	//书记查看通知的方法
 	PageCut<Inform> getInformList(int curr, int pageSize,Object ...objects);
+	public List<Inform> getNew(int size);
 }

@@ -1,5 +1,7 @@
 package com.future.partymember.service.impl;
 
+import java.util.List;
+
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
@@ -58,8 +60,12 @@ public class InformServiceImpl implements IInformService{
 
 	@Override
 	public PageCut<Inform> getPCByNew(int curr, int pageSize, String search) {
-		// TODO Auto-generated method stub
 		return informDao.getPCByNew(curr, pageSize);
+	}
+
+	@Override
+	public List<Inform> getNew(int size) {
+		return informDao.getNew(size);
 	}
 	
 	

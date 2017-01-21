@@ -1,7 +1,7 @@
 package com.future.partymember.action.secretary;
 
 
-import java.util.ArrayList;
+
 import java.util.Date;
 import java.util.List;
 
@@ -35,6 +35,22 @@ public class PSForwardAction extends BaseAction {
 	private Inform inform;
 	
 	
+	//返回首页
+	public String fIndex(){
+		List<RedPaper> hotPaperList=redPaperService.getHot(5);
+	 	List<RedPaper> newPaperList=redPaperService.getNew(5);
+	 	List<RedVideo> hotVideoList=redVideoService.getHot(9);
+	 	List<RedVideo> newVideoList=redVideoService.getNew(9);
+	 	List<Inform> newInformList= informService.getNew(2);
+
+	 	
+	 	this.getRequest().setAttribute("hotPaper", hotPaperList);
+	 	this.getRequest().setAttribute("newPaper", newPaperList);
+	 	this.getRequest().setAttribute("hotVideo", hotVideoList);
+	 	this.getRequest().setAttribute("newVideo", newVideoList);
+	 	this.getRequest().setAttribute("newInform", newInformList);
+		return "index";
+	}
 	
 	// 在线考试
 	public String startTest() throws Exception {

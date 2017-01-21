@@ -1,5 +1,6 @@
 @charset "utf-8";
 /* CSS Document */
+
 *{
 	padding:0;
 	margin:0;
@@ -62,7 +63,7 @@ body{
 	appearance:none;
   -moz-appearance:none;
   -webkit-appearance:none;
-  background:url(/PartyMemberInfoManage/images/xiala.png) no-repeat right;
+  background:url(../images/xiala.png) no-repeat right;
 	font-family: 微软雅黑;
 }
 .header-right div button{
@@ -88,11 +89,10 @@ body{
 	width:50%;
 	outline:none;
 }
-
 #banner{
 	height:325px;
 	width:100%;
-	margin-top: 10px;
+	margin-top: 5px;
 }
 #banner .col-lg-12{
 	margin-right:0px;
@@ -106,8 +106,9 @@ body{
 .nav .row{
 	width:100%;
 }
-.nav .row .navbar-nav{
-	margin-left:-10%;
+.nav .row  .navbar-nav{
+ width:80%;
+	margin-left:16.5%;
 }
 .nav .row li{
 	font-size: 16px;
@@ -117,8 +118,15 @@ body{
 .nav .row li a{
 	color:black;
 }
+.nav .row li{
+	padding-left:29px;
+}
 .nav .row li a:hover{
 color:red;
+}
+.nav .dropdown-menu li{
+  min-width: inherit;
+	padding:0px;
 }
 .nav .row li{
 	padding-left:29px;
@@ -134,11 +142,9 @@ color:red;
 .btn-group{
   width: 100%;
 }
-
 #banner-one{
 	height:40px;
 	background-color: #F5F5F5;
-	font-family: 微软雅黑;
 }
 #banner-one .row{
 	width:100%;
@@ -152,116 +158,74 @@ color:red;
 }
 #banner-one .row .col-lg-9{
 	padding-top: 6px;
-	padding-left: 1.5%;
 }
-#paper-warp{
+#body-one{
+	width: 90%;
+	margin: 0 auto;
+	margin-top: 10px;
+	border-bottom:2px solid #DDE1E4;
+	font-family:微软雅黑; 
+}
+#body-two {
 	width:90%;
-	margin: 0 auto;
-	padding-left: 5%;
+	margin:0 auto;
 	margin-top: 20px;
-	font-family: 微软雅黑;
 }
-.paper-img{
-	 position: absolute;
-   margin-left: -83px;
-	 color:white;
-	 margin-top: 3px;
+#body-two p{
+	font-size:23px;
+	border-bottom:3px solid  #EC4300;
 }
-#paper-warp ol{
-	list-style: none;
-}
-#paper-warp li{
-	list-style: none;
-}
-.paper-one a{
-	text-decoration: none;
-	color:black;
-}
-
-
-#paper-warp li{
-	padding-top: 7px;
-}
-#paper-warp .col-lg-1 li{
-	padding-top: 10px;
-	width:140%;
-}
-.paper-one a:hover{
-	color:red;
-}
-.paper-two a{
-	text-decoration: none;
-	color:black;
-}
-.paper-two a:hover{
-	color:red;
-}
-#paper-warp .col-lg-1{
-	margin-top: 40px;
-}
-/*视频列表区开始*/
-.picScroll-left{
-	width: 89%;
-	height:300px;
-	overflow: hidden;
-	position: relative;
+#body-three{
+	width:80%;
 	margin: 0 auto;
-	margin-left: auto;
-	margin-right: auto;
-	margin-top: 20px;
-	background-color: #ffffff;
-	font-family: 微软雅黑;
+	margin-top: 30px;
 }
-.picScroll-left .hd .prev p{display:block;  float:left; margin-top:90px;  overflow:hidden;
-  cursor:pointer;
-	width:30px;
-	height: 55px;
-	font-size: 50px;
-	text-shadow: 2px 2px 4px grey;
-	color: brown;	
+#body-three div{
+	width:25%;
 }
-.picScroll-left .hd .next p{ display:block;  float:right; margin-top:-157px;  overflow:hidden;
-			 cursor:pointer;
-  	width:30px;
-	height: 55px;
-	font-size: 50px;
-	text-shadow: 2px 2px 4px grey;
-	color: brown;	
-}	 
-.picScroll-left .bd{ 
-	padding-top:10px;
-	margin: 0 auto;
+#body-three div{
+	float: left;
 }
-.picScroll-left .bd ul{ overflow:hidden;padding-top:20px;}
-.picScroll-left .bd ul li{float:left;display:; overflow:hidden; text-align:center; border: 1px solid #E0E2E3; margin-left:20px;}
-.picScroll-left .bd ul li .pic{text-align:center;}
-.picScroll-left .bd ul li .pic img{ 
-	display:block;
-	margin: 0 auto;
+#body-three li{
+   list-style:none;
 }
-.picScroll-left .bd ul li .title{ line-height:50px;}
-#video-warp a{
-	text-decoration:none; color:#333;
+#body-three div li img{
+	width:85%;
 }
-#video-warp img{
-	border: 0;
-	height:186px;
+#body-three img:hover{
+	opacity: 0.8;
+}
+#body-three span{
+	position :absolute;
+	background-color: grey;
+	width:17%;
+	opacity: 0.8;
+	margin-top: -30px;
+	text-align: center;
+	height:30px;
+	vertical-align:middle!important;
+	padding-top: 5px;
+}
+#body-three #img1{
+	width:10%;
+  margin-left: 35%;
+	margin-top: -250px;	
+}
+#body-three li img{
+	width:25%;
+	height:200px;
+}
+#body{
 	width: 100%;
 }
-#video-warp .second{
-	margin-top: -10px;
-}
-#video-warp span{
-  margin-left: 5.5%;
-	font-size: 20px;
-	font-weight:500;
-	font-family: "微软雅黑";
-}
-/*视频列表区结束*/
 #footer-warp{
 	width: 100%;
 	height:90px;
 	background-color: #F3F2F2;
+/* 	position: absolute; */
+  	bottom: 0px;
+	 padding-bottom: 0;
+	 clear:both;
 }
 #footer-warp p{
   text-align: center;
