@@ -1,12 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<!DOCTYPE HTML>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>阅读文章</title>
+<title>联系我们</title>
 <link rel="stylesheet" href="${rootPath}css/partyMember/bootstrap.css">
-<link rel="stylesheet" href="${rootPath}css/partyMember/paper.css">
+<link rel="stylesheet" href="${rootPath}css/partyMember/connect us.css">
 <script src="${rootPath}js/jquery-2.2.3.min.js"></script>
 <script src="${rootPath}js/bootstrap.js"></script>
 </head>
@@ -37,8 +38,8 @@
      <div class="row">
        <div class="col-lg-9 col-lg-offset-3 col-md-9 col-md-offset-3 col-xs-9 col-xs-offset-3">
          <ul class="nav navbar-nav">
-               <li><a href="${rootPath}party/partyLogin.action">网站首页</a></li>
-              <li><a href="${rootPath }party/partyMemberAction_getResPaper.action">红色文章</a></li>
+             <li><a href="${rootPath}party/partyLogin.action">网站首页</a></li>
+               <li><a href="${rootPath }party/partyMemberAction_getResPaper.action">红色文章</a></li>
               <li><a href="${rootPath}party/partyMemberAction_viewVideos.action">红色视频</a></li>
               <li><a href="${rootPath}party/partyMemberAction_startTest.action">在线考试</a></li>
               <li class="dropdown"><a href="#" data-toggle="dropdown" class="dropdown-toggle">个人中心<span class="caret"></span></a>
@@ -49,32 +50,21 @@
                    </ul>
                </li>
               <li><a href="information.jsp">通知公告</a></li>
-              <li><a href="${rootPath}party/partyMemberAction_connectUs.action">联系我们</a></li>
+              <li><a href="#">联系我们</a></li>
          </ul>
         </div>
      </div>
 </div>
 <div id="body">
  <div id="body-one">
-   <p><img src="${rootPath}images/topimg.png"> <span>您的位置：首页>时事新闻>党建巡礼>正文</span></p>
+   <p><img src="${rootPath}images/topimg.png"> <span>您的位置：首页>我的空间</span></p>
  </div>
  <div id="body-two">
-   <h4>${paper.title}</h4>
-   <p>作者：${paper.author }&nbsp;&nbsp;&nbsp;&nbsp; 来源：${paper.source }&nbsp;&nbsp;&nbsp;&nbsp; 日期：2016-12-18&nbsp;&nbsp;&nbsp;&nbsp;日期：${paper.releaseDate }</p>
+   <p>来函请寄：新乡高校教师党员在线学习管理中心，新乡市洪门镇红旗区清河小营东路12号</p>
+   <p>邮编：100192</p>
+   <p>QQ：1524334009</p>
+   <p>E-mail: dy@bjedu.gov.cn</p>
  </div>
- <%-- <section class="pre-next">
-				<p><span>上一篇：<a href="${rootPath }party/partyMemberAction_lookPaper?rp_Id=${prev.rp_Id}">${prev.title }</a></span>
-				<span>下一篇：<a href="${rootPath }party/partyMemberAction_lookPaper?rp_Id=${next.rp_Id}">${next.title}</a></span></p>
-</section> --%>
- <div id="body-three">
- 	${paper.content }
- </div>
-</div>
-<div id="body-four">
-  <section class="pre-next">
-				<p><span>上一篇：<a href="${rootPath }party/partyMemberAction_lookPaper?rp_Id=${prev.rp_Id}">${prev.title }</a></span>
-				<span>下一篇：<a href="${rootPath }party/partyMemberAction_lookPaper?rp_Id=${next.rp_Id}">${next.title}</a></span></p>
-  </section>
 </div>
 <footer id="footer-warp"><!--页脚开始-->
 		<p class="footer"><a href="">网站声明</a> &nbsp; &nbsp;<span>|</span> &nbsp; &nbsp;<a href="">关于我们 &nbsp; &nbsp;</a><span>|</span> &nbsp; &nbsp;<a href="">联系我们</a></p>
@@ -82,44 +72,3 @@
 </footer><!--页脚结束-->	
 </body>
 </html>
-<script type="text/javascript">
-	var notice = "${notice}";
-	if(notice===""){
-		
-	}else{
-		alert(notice);
-	}
-	
-</script>
-<%-- </head>
-<body>
-		<section class="paper">
-				<header class="title">
-					${paper.title }
-				</header>
-				<div class="jieshou">
-					<span>作者：${paper.author }</span>
-					<span>来源：${paper.source }</span>
-					<span>日期：${paper.releaseDate }</span>
-					<span>点击：${paper.readNum}</span>
-				</div>
-				<div class="main-body">
-					${paper.content }
-				</div>
-			</section>
-			<span></span></li>
-			<section class="pre-next">
-				<p><span>上一篇：<a href="${rootPath }secretary/partySecretary_lookPaper?rp_Id=${prev.rp_Id}">${prev.title }</a></span>
-				<span>下一篇：<a href="${rootPath }secretary/partySecretary_lookPaper?rp_Id=${next.rp_Id}">${next.title}</a></span></p>
-			</section>
-</body>
-<script type="text/javascript">
-	var notice = "${notice}";
-	if(notice===""){
-		
-	}else{
-		alert(notice);
-	}
-	
-</script>
-</html> --%>

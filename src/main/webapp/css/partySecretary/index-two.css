@@ -1,4 +1,4 @@
-@charset "utf-8";
+@charset "@charset "utf-8";
 /* CSS Document */
 *{
 	padding:0;
@@ -62,7 +62,7 @@ body{
 	appearance:none;
   -moz-appearance:none;
   -webkit-appearance:none;
-  background:url(/PartyMemberInfoManage/images/xiala.png) no-repeat right;
+  background:url(../../images/xiala.png) no-repeat right;
 	font-family: 微软雅黑;
 }
 .header-right div button{
@@ -88,11 +88,10 @@ body{
 	width:50%;
 	outline:none;
 }
-
 #banner{
 	height:325px;
 	width:100%;
-	margin-top: 10px;
+	margin-top: 5px;
 }
 #banner .col-lg-12{
 	margin-right:0px;
@@ -106,9 +105,11 @@ body{
 .nav .row{
 	width:100%;
 }
-.nav .row .navbar-nav{
-	margin-left:-10%;
+.nav .row  .navbar-nav{
+ width:80%;
+	margin-left:16.5%;
 }
+
 .nav .row li{
 	font-size: 16px;
 	font-weight: 550;
@@ -118,7 +119,9 @@ body{
 	color:black;
 }
 .nav .row li a:hover{
-color:red;
+  color:red;
+	background-color:#EEEEEE;
+	border-radius: 5px;
 }
 .nav .row li{
 	padding-left:29px;
@@ -134,7 +137,6 @@ color:red;
 .btn-group{
   width: 100%;
 }
-
 #banner-one{
 	height:40px;
 	background-color: #F5F5F5;
@@ -150,12 +152,19 @@ color:red;
 #banner-one img{
 	width:30px;
 }
+#banner-one a{
+	color:black;
+	text-decoration: none;
+}
+#banner-one a:hover{
+	color:#DB0B18;
+}
 #banner-one .row .col-lg-9{
 	padding-top: 6px;
 	padding-left: 1.5%;
 }
 #paper-warp{
-	width:83%;
+	width:90%;
 	margin: 0 auto;
 	padding-left: 5%;
 	margin-top: 20px;
@@ -187,45 +196,30 @@ color:red;
 }
 #paper-warp .paper-one li span{
 	display: inline-block;
-
-}
-#paper-warp .paper-one {
-	margin-left:-4%;
+	margin-left: -7%;
 }
 #paper-warp .paper-one li span:first-child{
 	width:70%;
-   text-align: left;
-   overflow:hidden;
-	text-overflow:ellipsis;
-	white-space: nowrap;
-	 display: inline-block;
-	
+ text-align: left;
 }
 #paper-warp .paper-one li span:last-child{
 	 width:30%;
 	text-align: right;
-	 display: inline-block;
 }
 #paper-warp .paper-two ol{
 	list-style: none;
 }
 #paper-warp .paper-two li span{
 	display: inline-block;
-	
+	margin-left: -7%;
 }
 #paper-warp .paper-two li span:first-child{
 	width:70%;
-   text-align: left;
-   text-align: left;
-   overflow:hidden;
-	text-overflow:ellipsis;
-	white-space: nowrap;
-	 display: inline-block;
+ text-align: left;
 }
 #paper-warp .paper-two li span:last-child{
 	 width:30%;
 	text-align: right;
-	 display: inline-block;
 }
 #paper-warp .paper-two{
 	width:47%;
@@ -240,7 +234,7 @@ color:red;
 	margin: 0 auto;
 	margin-left: auto;
 	margin-right: auto;
-	margin-top: 20px;
+	margin-top: 220px;
 	background-color: #ffffff;
 	font-family: 微软雅黑;
 }
@@ -274,6 +268,9 @@ color:red;
 .picScroll-left .bd ul li .title{ line-height:50px;}
 #video-warp a{
 	text-decoration:none; color:#333;
+}
+#video-warp{
+	margin-top: 20px;
 }
 #video-warp img{
 	border: 0;

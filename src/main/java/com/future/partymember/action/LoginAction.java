@@ -2,6 +2,7 @@ package com.future.partymember.action;
 
 import com.future.partymember.base.BaseAction;
 import com.future.partymember.entity.PartyMemberInfo;
+import com.future.partymember.entity.PartySecretaryInfo;
 import com.future.partymember.entity.UserInfo;
 
 public class LoginAction extends BaseAction {
@@ -27,7 +28,8 @@ public class LoginAction extends BaseAction {
 		}
 		
 		if(userInfo.getAccount().length()>=8){
-			PartyMemberInfo partyMemberInfo=partyMemberInfoService.login(userInfo.getAccount(), userInfo.getPassword());
+			PartyMemberInfo partyMemberInfo=partyMemberInfoService.login(userInfo.getAccount(), 
+					userInfo.getPassword());
 			if(partyMemberInfo!=null){
 				this.getSession().put("userId", partyMemberInfo.getPtm_Id());
 				this.getSession().put("userSort", 0);
@@ -37,12 +39,25 @@ public class LoginAction extends BaseAction {
 				return LOGIN;
 			}			
 		}else if(userInfo.getAccount().length()>=6&&userInfo.getAccount().length()<8){
+			
+			PartySecretaryInfo  partySecretaryInfo=null;//书记实体类
+			
+			if((partySecretaryInfo=partySecretaryInfoService.findByAccountAndPassword(userInfo.getAccount(), 
+					userInfo.getPassword()))!=null){	
+				session.put("secretary",partySecretaryInfo);
+				session.put("userSort", 1);//书记的身份
+				session.put("partyBranch", partySecretaryInfo.getPartyBranch());
+				session.put("userId", partySecretaryInfo.getPst_Id());//保存书记的id
+				
+			}
 			return "partySecretary";
 		}else {
 			this.getRequest().setAttribute("loginMeg", "用户名或密码错误！");
 			return LOGIN;
 		}
 	}
+	
+	
 	
 	public UserInfo getUserInfo() {
 		return userInfo;

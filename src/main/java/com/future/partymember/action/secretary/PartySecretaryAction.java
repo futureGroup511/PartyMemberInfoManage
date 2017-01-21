@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import javax.annotation.Resource;
 
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
@@ -20,6 +21,7 @@ import com.future.partymember.entity.RedVideo;
 import com.future.partymember.entity.StartTest;
 import com.future.partymember.entity.WatchVideoRecord;
 import com.future.partymember.service.IRedPaperService;
+import com.future.partymember.service.IRedVideoService;
 import com.future.partymember.util.PageCut;
 import com.future.partymember.util.SwitchTime;
 
@@ -47,9 +49,34 @@ public class PartySecretaryAction extends BaseAction {
 	 * @throws Exception
 	 */
 	public String lookMyself() throws Exception{
+
 		return "lookMyself";
 	}
 	
+	
+	/**
+	 * 登录
+	 * @return
+	 */
+	
+	public String login(){
+		
+		 
+		List<RedPaper> hotPaperList=redPaperService.getHot(5);
+	 	List<RedPaper> newPaperList=redPaperService.getNew(5);
+	 	List<RedVideo> hotVideoList=redVideoService.getHot(9);
+	 	List<RedVideo> newVideoList=redVideoService.getNew(9);
+	 	List<Inform> newInformList= informService.getNew(2);
+	 	
+	 	
+	 	this.getRequest().setAttribute("hotPaper", hotPaperList);
+	 	this.getRequest().setAttribute("newPaper", newPaperList);
+	 	this.getRequest().setAttribute("hotVideo", hotVideoList);
+	 	this.getRequest().setAttribute("newVideo", newVideoList);
+	 	this.getRequest().setAttribute("newInform", newInformList);
+	 	
+		return "login";
+	}
 	
 	// 查看考试记录
 	public String getMyExamLog() throws Exception {

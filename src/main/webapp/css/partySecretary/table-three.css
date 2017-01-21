@@ -1,6 +1,5 @@
 @charset "utf-8";
 /* CSS Document */
-
 *{
 	padding:0;
 	margin:0;
@@ -63,7 +62,7 @@ body{
 	appearance:none;
   -moz-appearance:none;
   -webkit-appearance:none;
-  background:url(../../images/xiala.png) no-repeat right;
+  background:url(../images/xiala.png) no-repeat right;
 	font-family: 微软雅黑;
 }
 .header-right div button{
@@ -87,17 +86,16 @@ body{
 	border: none;
 	font-family: 微软雅黑;
 	width:50%;
-	outline:none;s
+	outline:none;
 }
 .nav{
 	background-color: #DB0B18;
-}
-
-.nav .row{
+}.nav .row{
 	width:100%;
 }
 .nav .row  .navbar-nav{
-	margin-left:-10%;
+ width:80%;
+	margin-left:16.5%;
 }
 .nav .row li{
 	font-size: 16px;
@@ -133,57 +131,52 @@ body{
 	font-family:微软雅黑; 
 }
 #body-two{
-	width:70%;
-	margin: 0 auto;
-	margin-top: 40px;
+	width:35%;
+	margin-top: 30px;
+	margin-left: 15.0%;
 }
-#body-two h4{
-	color:#DB0B18;
-	text-align: center;
-	border-bottom: 1px solid #DDE1E4;
-	padding-bottom: 20px;
+#body-two button{
+	display: inline;
+	float: right;
+	margin-top:-34px;
+	
 }
-#body-two p{
-	text-align: center;
-	color:grey;
-	padding-bottom: 20px;
+#body-two input{
+	width:85%;
 }
 #body-three{
 	width:70%;
 	margin: 0 auto;
+	margin-top: 40px;
 }
-#body p{
-	margin-top: 20px;
-	line-height: 25px;
+#body-three td{
+	text-align: center;
 }
-#body-four{
-	width:70%;
-	margin:0 auto;
+#body-three th{
+	text-align: center;
 }
-#body-four a{
-	color:black;
-	text-decoration:none;
+#body-three a{
+	text-decoration: none;
 }
-#body-four a:hover{
-	color:#FA8830;
+#body-three a:hover{
+	color:#DB0B18;
 }
-#body-four .pre-next p span:first-child{
-	width:50%;
-	float:left;
-	display:inline-block;
-	
+.container{
+	width:60%;
+	margin: 0 auto;
+	margin-top: 30px;
 }
-#body-four  .pre-next p span:last-child{
-	width:50%;
-   float:right;
-	display:inline-block;
-	
+.container p{
+	text-align: center;
+}
+.container nav{
+	text-align: center;
 }
 #footer-warp{
 	width: 100%;
 	height:90px;
 	background-color: #F3F2F2;
-/* 	position: absolute; */
+ 	position: absolute; 
   	bottom: 0px;
 	 padding-bottom: 0;
 	 clear:both;
@@ -205,3 +198,4 @@ body{
 #footer-warp a:hover{
 	color:red;
 }
+

@@ -2,6 +2,8 @@ package com.future.partymember.dao;
 
 
 
+import java.util.List;
+
 import com.future.partymember.entity.Inform;
 import com.future.partymember.util.PageCut;
 
@@ -20,5 +22,7 @@ public interface IInformDao {
 	PageCut<Inform> getPCByNew(int curr,int pageSize,String search);
 	
 	Inform getById(int id);
+	
+	public List<Inform> getNew(int size);
 
 }

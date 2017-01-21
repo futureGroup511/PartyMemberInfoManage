@@ -1,7 +1,7 @@
 package com.future.partymember.action.secretary;
 
 
-import java.util.ArrayList;
+
 import java.util.Date;
 import java.util.List;
 
@@ -34,22 +34,23 @@ public class PSForwardAction extends BaseAction {
 	private PartySecretaryInfo  partySecretaryInfo;//书记实体类
 	private Inform inform;
 	
-
-	public String login() throws Exception{
-		//判断登录
-		if((partySecretaryInfo=partySecretaryInfoService.
-				findByAccountAndPassword(partySecretaryInfo))!=null){
-			
-			session.put("secretary",partySecretaryInfo);
-			session.put("userSort", 1);//书记的身份
-			session.put("partyBranch", partySecretaryInfo.getPartyBranch());
-			session.put("userId", partySecretaryInfo.getPst_Id());//保存书记的id
-			return "login";
-		}else{
-			return "error";
-		}
-	}
 	
+	//返回首页
+	public String fIndex(){
+		List<RedPaper> hotPaperList=redPaperService.getHot(5);
+	 	List<RedPaper> newPaperList=redPaperService.getNew(5);
+	 	List<RedVideo> hotVideoList=redVideoService.getHot(9);
+	 	List<RedVideo> newVideoList=redVideoService.getNew(9);
+	 	List<Inform> newInformList= informService.getNew(2);
+
+	 	
+	 	this.getRequest().setAttribute("hotPaper", hotPaperList);
+	 	this.getRequest().setAttribute("newPaper", newPaperList);
+	 	this.getRequest().setAttribute("hotVideo", hotVideoList);
+	 	this.getRequest().setAttribute("newVideo", newVideoList);
+	 	this.getRequest().setAttribute("newInform", newInformList);
+		return "index";
+	}
 	
 	// 在线考试
 	public String startTest() throws Exception {

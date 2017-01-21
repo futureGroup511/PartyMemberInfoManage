@@ -162,14 +162,12 @@ public class RedPaperDaoImpl extends BaseDao<RedPaper> implements IRedPaperDao {
 
 	@Override
 	public List<RedPaper> getNew(int size) {
-		// TODO Auto-generated method stub
 		String hql="from RedPaper as rp order by rp.releaseDate desc";
 		return this.getEntityLimitList(hql, 0, size);
 	}
 
 	@Override
 	public List<RedPaper> getHot(int size) {
-		// TODO Auto-generated method stub
 		String hql="from RedPaper as rp order by rp.readNum desc";
 		return this.getEntityLimitList(hql, 0, size);
 	}

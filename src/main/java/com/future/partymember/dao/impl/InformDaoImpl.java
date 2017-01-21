@@ -90,6 +90,12 @@ public class InformDaoImpl extends BaseDao<Inform> implements IInformDao {
 		return pCut;
 		
 	}
+	@Override
+	public List<Inform> getNew(int size) {
+		String hql="from Inform where info_tag=1 or info_tag=3 order by info_Id desc";
+		
+		return getEntityLimitList(hql,0,size);
+	}
 	
 
 

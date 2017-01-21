@@ -1,7 +1,10 @@
-<!doctype html>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<!DOCTYPE HTML>
 <html>
 <head>
-<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>notification message</title>
 <link rel="stylesheet" href="css/bootstrap.css">
 <link rel="stylesheet" href="css/notification message.css">
@@ -33,7 +36,7 @@
 </div>
 <div class="nav">
      <div class="row">
-       <div class="col-lg-8 col-lg-offset-3 col-md-8 col-md-offset-3 col-xs-8 col-xs-offset-3">
+       <div class="col-lg-9 col-lg-offset-3 col-md-9 col-md-offset-3 col-xs-9 col-xs-offset-3">
          <ul class="nav navbar-nav">
               <li><a href="index-two.html">网站首页</a></li>
               <li><a href="current news.html">时事新闻</a></li>
@@ -47,7 +50,7 @@
                    </ul>
                </li>
               <li><a href="#">通知公告</a></li>
-              <li><a href="connect us.html">联系我们</a></li>
+              <li><a href="${rootPath}party/partyMemberAction_connectUs.action">联系我们</a></li>
          </ul>
         </div>
      </div>
