@@ -108,31 +108,44 @@ public class PartMemberManagerAction extends BaseAction {
 			this.getRequest().setAttribute("partyMember", partyMemberInfo);
 			return "add";
 		}
+		String temp="";
 		try{
 			String idc=partyMemberInfo.getIdCard();
+			temp +="1";
 			int year=Integer.parseInt(idc.substring(6, 10));
+			temp +="2";
 			String birth=idc.substring(6,14);
+			temp +="3";
 			partyMemberInfo.setBirthdate(SwitchTime.strToDate(birth));
+			temp +="4";
 			int s=Integer.parseInt(idc.charAt(16)+"");
+			temp +="5";
 			if(s%2==0){
 				partyMemberInfo.setSex("女");
+				temp +="6";
 			}else{
 				partyMemberInfo.setSex("男");
 			}
+			temp +="7";
 			Calendar calendar=Calendar.getInstance();
+			temp +="8";
 			int nowY=calendar.get(Calendar.YEAR);
+			temp +="9";
 			int age=nowY-year;
 			partyMemberInfo.setAge(age);
-			
+			temp +="10";
 			partyMemberInfo.setLoginDate(new Date());
-			System.out.println(1234);
+			temp +="11";
+			temp +=dateStr;
 			partyMemberInfo.setJoinPartyDate(SwitchTime.strToDate(dateStr));
 			partyMemberInfo.setIdAccessory("");
+			temp +="12";
 			partyMemberInfoService.addPartyMemberInfo(partyMemberInfo);
 			this.getRequest().setAttribute("remind", "添加成功");
+			temp +="13";
 			return "add";
 		}catch(Exception e){
-			this.getRequest().setAttribute("remind", "请正确填写数据.");
+			this.getRequest().setAttribute("remind", "请正确填写数据."+temp);
 			this.getRequest().setAttribute("partyMember", partyMemberInfo);
 			return "add";
 		}

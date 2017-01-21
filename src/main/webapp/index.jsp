@@ -5,8 +5,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>无标题文档</title>
-<link rel="stylesheet" href="/PartyMemberInfoManage/css/bootstrap.css">
-<link rel="stylesheet" href="/PartyMemberInfoManage/css/denglu.css" />
+<link rel="stylesheet" href="${rootPath }css/bootstrap.css">
+<link rel="stylesheet" href="${rootPath }css/denglu.css" />
 </head>
 
 <body>

@@ -5,8 +5,8 @@
 <head>
 <meta charset="utf-8">
 <title>后台首页</title>
-<link rel="stylesheet" href="/PartyMemberInfoManage/css/bootstrap.css">
-<link rel="stylesheet" href="/PartyMemberInfoManage/css/index.css">
+<link rel="stylesheet" href="${rootPath }css/bootstrap.css">
+<link rel="stylesheet" href="${rootPath }css/index.css">
 </head>
 
 <body>
