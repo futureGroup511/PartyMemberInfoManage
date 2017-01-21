@@ -6,66 +6,70 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>考试记录</title>
-<link rel="stylesheet" href="${rootPath}css/partyMember/bootstrap.css">
-<link rel="stylesheet" href="${rootPath}css/partyMember/myExamLog.css">
-<script src="${rootPath}js/jquery-2.2.3.min.js"></script>
-<script src="${rootPath}js/bootstrap.js"></script>
+<link rel="stylesheet" href="${rootPath }css/bootstrap.css">
+<link rel="stylesheet" href="${rootPath }css/partySecretary/my space.css">
+<script src="${rootPath }js/jquery-2.2.3.min.js"></script>
+<script src="${rootPath }js/bootstrap.js"></script>
 </head>
 
 <body>
-	<div id="header">
-		<div class="header-left">
-			<img src="${rootPath}images/header-logo.png">
-		</div>
-		<div class="header-center">
-			<p class="top">
-				<b><strong>河南科技学院信息工程学院党委主办</strong></b>
-			</p>
-			<p class="bottom">
-				<b><strong>河南科技学院党员在线</strong></b>
-			</p>
-		</div>
-		<div class="header-right">
-			<div>
-				<select>
-					<option>时事新闻</option>
-					<option>生活百科</option>
-					<option>新闻动态</option>
-					<option>通知公告</option>
-				</select> <input type="text" name="select" placeholder="请输入您要搜索的内容">
-				<button class="btn">
-					<img src="${rootPath}images/sousuo.png" width="22" height="22">
-				</button>
-			</div>
-		</div>
-	</div>
-	<div class="nav">
-		<div class="row">
-			<div
-				class="col-lg-8 col-lg-offset-3 col-md-8 col-md-offset-3 col-xs-8 col-xs-offset-3">
-				<ul class="nav navbar-nav">
-					<li><a href="${rootPath}party/partyLogin.action">网站首页</a></li>
-					<li><a href="${rootPath }party/partyMemberAction_getResPaper.action">红色文章</a></li>
-					<li><a
-						href="${rootPath}party/partyMemberAction_viewVideos.action">红色视频</a></li>
-					<li><a
-						href="${rootPath}party/partyMemberAction_startTest.action">在线考试</a></li>
-					<li class="dropdown"><a href="#" data-toggle="dropdown"
-						class="dropdown-toggle">个人中心<span class="caret"></span></a>
-						<ul class="dropdown-menu">
-							<li><a
-								href="${rootPath}party/partyMemberAction_seekPartyMemberInfo.action">个人信息</a></li>
-							<li><a
-								href="${rootPath}party/partyMemberAction_getInfoBeforeUpdate.action">修改信息</a></li>
-							<li><a
-								href="${rootPath}party/partyMemberAction_getMyExamLog.action">考试报告</a></li>
-						</ul></li>
-					<li><a href="information.jsp">通知公告</a></li>
-					<li><a href="${rootPath}connect_us.jsp">联系我们</a></li>
-				</ul>
-			</div>
-		</div>
-	</div>
+
+<div id="header">
+     <div class="header-left">
+          <img src="${rootPath }images/header-logo.png">
+      </div>
+      <div class="header-center">
+              <p class="top"><b><strong>河南科技学院信息工程学院党委主办</strong></b></p>
+              <p class="bottom"><b><strong>河南科技学院党员在线</strong></b></p>
+       </div>
+       <div class="header-right">
+             <div>
+    		     <select>
+						<option>时事新闻</option>
+						<option>生活百科</option>
+						<option>新闻动态</option>
+						<option>通知公告</option>
+				 </select>
+                  <input type="text" name="select" placeholder="&nbsp;&nbsp;&nbsp;请输入您要搜索的内容">
+                   <button class="btn"><img src="${rootPath }images/sousuo.png" width="22" height="22"></button>
+             </div>
+       </div>
+</div>
+<div class="nav">
+     <div class="row">
+         <ul class="nav navbar-nav">
+              <li><a href="${rootPath }secretary/pSForward_fIndex">网站首页</a></li>
+              <li class="dropdown"><a href="#" data-toggle="dropdown" class="dropdown-toggle">通知消息<span class="caret"></span></a>
+                   <ul class="dropdown-menu">
+                   		<li><a href="${rootPath }secretary/partySecretary_informList">查看通知</a></li>
+						<li><a href="${rootPath }secretary/pSForward_fAddInform">发布通知</a></li>
+						<li><a href="${rootPath }secretary/pSForward_fManageInfom">管理通知</a></li>
+                   </ul>
+               </li>
+              <li class="dropdown"><a href="#" data-toggle="dropdown" class="dropdown-toggle">党员管理<span class="caret"></span></a>
+                   <ul class="dropdown-menu">
+						<li><a href="${rootPath }secretary/partySecretary_lookOfPartyMember">查看所属党员个人信息</a></li>
+						<li><a href="${rootPath }secretary/test_startTestLog">查看所属党员考试记录</a></li>
+                   </ul>
+               </li>
+               				
+
+              <li><a href="${rootPath }secretary/partySecretary_videoList">在线视频</a></li>
+				<li><a href="${rootPath }secretary/pSForward_paperList">在线文章</a></li>
+				<li><a href="${rootPath }secretary/pSForward_startTest">在线考试</a></li>
+               <li class="dropdown"><a href="#" data-toggle="dropdown" class="dropdown-toggle">个人中心<span class="caret"></span></a>
+                   <ul class="dropdown-menu">
+						<li><a href="${rootPath }secretary/partySecretary_lookMyself">个人信息</a></li>
+						<li><a href="${rootPath }secretary/pSForward_fUpdataPerson">修改信息</a></li>
+						<li><a href="${rootPath}secretary/partySecretary_getMyExamLog">考试报告</a></li>
+                   </ul>
+               </li>
+              <li><a href="connect us.html">联系我们</a></li>
+         </ul>
+     </div>
+</div>
+
+<!--以上为头部-->
 	<div id="body">
 		<div id="body-one">
 			<p>
@@ -141,40 +145,3 @@
 	<!--页脚结束-->
 </body>
 </html>
-
-<%-- </head>
-<body>
-	<c:choose>
-		<c:when test="${myExamLogMsg!=null }">
-			<h4>${myExamLogMsg}</h4>
-		</c:when>
-		<c:otherwise>
-			<table>
-				<tr>
-					<td>试卷名称</td>
-					<td>试卷题数</td>					
-					<td>考试时长</td>
-					<td>考试时间</td>
-					<td>试卷总分</td>
-					<td>考试成绩</td>
-					<td>考试详情</td>					
-				</tr>
-				
-				<c:forEach items="${examLogList}" var="e">
-					<tr>
-						<td>${e.paperName}</td>
-						<td>${e.testNum}</td>										
-						<td>${e.testTime}</td>
-						<td>${e.examTime}</td>
-						<td>${e.testTotalScore}</td>
-						<td>${e.totalScore}</td>
-						<td><a href="partyMemberAction_getExamDetails.action?tp_Id=${e.paper_Id}">详情</a></td>	
-					</tr>					
-				</c:forEach>
-				
-			</table>
-			
-		</c:otherwise>
-	</c:choose>
-</body>
-</html> --%>
