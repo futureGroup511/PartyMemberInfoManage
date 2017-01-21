@@ -18,7 +18,9 @@ public class PartyLoginAction extends BaseAction {
 	public String  execute() throws Exception{
 		//获得视频
 		List<RedVideo> recommendVideosList=redVideoService.getRecommend(7);
-		List<RedVideo> newVideosList=redVideoService.getNew(7);				
+		System.out.println("recommendVideosList"+recommendVideosList);
+		List<RedVideo> newVideosList=redVideoService.getNew(7);	
+		System.out.println("newVideosList"+newVideosList);
 		this.getRequest().setAttribute("newVideosList", newVideosList);
 		this.getRequest().setAttribute("recommendVideosList", recommendVideosList);
 		//获得文章		

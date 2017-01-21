@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -99,48 +99,28 @@
    </div>
 </div>
 <div id="paper-warp"><!--文章区开始-->
-			<div class="row">
-              <div class="col-lg-4 col-md-4 col-xs-4">
-				<div class="paper-one">
+			   <div class="paper-one">
                     <img src="${rootPath}images/zxbt.png">
                     <span class="paper-img">最新文章</span>
 					<ol> 
-						<li><span><a href="#">房产商一房二卖被判退一赔一 法官：遏制其他违约</a></span></li>
-						<li><span><a href="#">杨东升任鸡年央视春晚总导演：希望不被大家吐槽</a></span></li>
-						<li><span><a href="#">空姐面试官欲“潜规则”女考生？海航回应：已被开除</a></span></li>
-						<li><span><a href="#">手游公司员工偷为玩家充值 涉案价值3亿8千万</a></span></li>
-						<li><span><a href="#">捅杀广外女生嫌犯自供：没钱吃饭 想干坏事被抓</a></span></li>
-					</ol>
-				</div>
+						<li><a href="#"><span>房产商一房二卖被判退一赔一 法官：遏制其他违约</span><span>2016-12-22</span></a></li>
+						<li><a href="#"><span>杨东升任鸡年央视春晚总导演：希望不被大家吐槽</span><span>2016-12-22</span></a></li>
+						<li><a href="#"><span>空姐面试官欲“潜规则”女考生？海航回应：已被开除</span><span>2016-12-22</span></a></li>
+						<li><a href="#"><span>手游公司员工偷为玩家充值 涉案价值3亿8千万</span><span>2016-12-22</span></a></li>
+						<li><a href="#"><span>捅杀广外女生嫌犯自供：没钱吃饭 想干坏事被抓</span><span>2016-12-22</span></a></li>
+                     </ol>
                </div>
-               <div class="col-lg-1 col-md-1 col-xs-1" style="font-size:12px;">
-                   <li><span>2016-12-22</span></li>
-				   <li><span>2016-12-22</span></li>
-				   <li><span>2016-12-22</span></li>
-				   <li><span>2016-12-22</span></li>
-				   <li><span>2016-12-22</span></li>  
-               </div>
-               <div class="col-lg-4 col-lg-offset-1 col-md-4 col-md-offset-1 col-xs-4 col-xs-offset-1">
 				<div class="paper-two">
                     <img src="${rootPath}images/zxbt.png">
 					<span class="paper-img" id="pager-img-two">热门文章</span> 
 					<ol> 
-						<li><span><a href="#">鸡年春晚语言类节目预计约10个 堪称近年之最</a></span></li>
-						<li><span><a href="#">中国尊明年主体完工 500米高度能冲破雾霾吗?</a></span></li>
-						<li><span><a href="#">十八大以来，湖北已为万余名受错告诬告干部还清白</a></span></li>
-						<li><span><a href="#">河北磁县城管无证执法车上路8年 交警令限期整改</a></span></li>
-						<li><span><a href="#">台籍女子竞选澳议员 叫嚣：亚裔分两种 好的支持我</a></span></li>
+						<li><a href="#"><span>鸡年春晚语言类节目预计约10个 堪称近年之最</span><span>2016-12-22</span></a></li>
+						<li><a href="#"><span>中国尊明年主体完工 500米高度能冲破雾霾吗?</span><span>2016-12-22</span></a></li>
+						<li><a href="#"><span>十八大以来，湖北已为万余名受错告诬告干部还清白</span><span>2016-12-22</span></a></li>
+						<li><a href="#"><span>河北磁县城管无证执法车上路8年 交警令限期整改</span><span>2016-12-22</span></a></li>
+						<li><a href="#"><span>台籍女子竞选澳议员 叫嚣：亚裔分两种 好的支持我</span><span>2016-12-22</span></a></li>
 					</ol>
 				</div>
-               </div>
-               <div class="col-lg-1 col-md-1 col-xs-1" style="font-size:12px;">
-                   <li><span>2016-12-22</span></li>
-				   <li><span>2016-12-22</span></li>
-				   <li><span>2016-12-22</span></li>
-				   <li><span>2016-12-22</span></li>
-				   <li><span>2016-12-22</span></li>  
-              </div>
-			</div>
 </div><!--文章区结束-->
 <div id="video-warp"><!--视频列表区开始-->
 	<div class="picScroll-left">

@@ -155,7 +155,7 @@ color:red;
 	padding-left: 1.5%;
 }
 #paper-warp{
-	width:90%;
+	width:83%;
 	margin: 0 auto;
 	padding-left: 5%;
 	margin-top: 20px;
@@ -167,37 +167,69 @@ color:red;
 	 color:white;
 	 margin-top: 3px;
 }
-#paper-warp ol{
+#paper-warp div{
+	float:left;
+}
+#paper-warp .paper-one{
+	width:47%;
+}
+#paper-warp .paper-one ol{
 	list-style: none;
 }
+#paper-warp li a{
+	color:black;
+}
+#paper-warp li a:hover{
+	color:#DB0B18;
+}
 #paper-warp li{
+	line-height: 28px;
+}
+#paper-warp .paper-one li span{
+	display: inline-block;
+
+}
+#paper-warp .paper-one {
+	margin-left:-4%;
+}
+#paper-warp .paper-one li span:first-child{
+	width:70%;
+   text-align: left;
+   overflow:hidden;
+	text-overflow:ellipsis;
+	white-space: nowrap;
+	 display: inline-block;
+	
+}
+#paper-warp .paper-one li span:last-child{
+	 width:30%;
+	text-align: right;
+	 display: inline-block;
+}
+#paper-warp .paper-two ol{
 	list-style: none;
 }
-.paper-one a{
-	text-decoration: none;
-	color:black;
+#paper-warp .paper-two li span{
+	display: inline-block;
+	
 }
-
-
-#paper-warp li{
-	padding-top: 7px;
+#paper-warp .paper-two li span:first-child{
+	width:70%;
+   text-align: left;
+   text-align: left;
+   overflow:hidden;
+	text-overflow:ellipsis;
+	white-space: nowrap;
+	 display: inline-block;
 }
-#paper-warp .col-lg-1 li{
-	padding-top: 10px;
-	width:140%;
+#paper-warp .paper-two li span:last-child{
+	 width:30%;
+	text-align: right;
+	 display: inline-block;
 }
-.paper-one a:hover{
-	color:red;
-}
-.paper-two a{
-	text-decoration: none;
-	color:black;
-}
-.paper-two a:hover{
-	color:red;
-}
-#paper-warp .col-lg-1{
-	margin-top: 40px;
+#paper-warp .paper-two{
+	width:47%;
+	margin-left: 6%;
 }
 /*视频列表区开始*/
 .picScroll-left{
