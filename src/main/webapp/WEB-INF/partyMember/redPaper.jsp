@@ -150,7 +150,7 @@
         <p><span>环球动态</span><a href="#"><img src="${rootPath}images/jiahao.png"> 查看更多</a></p>
     </div>
  </div>
- <div id="body-five">
+ <%-- <div id="body-five">
     <div class="body-five-left">
     	<c:forEach var="paper" items="${paperList}" begin="15" end="19">
     		<p ><img src="${rootPath}images/li1.jpg"><span>${paper.releaseDate}</span><a href="${rootPath}party/partyMemberAction_lookPaper?rp_Id=${paper.rp_Id}">${paper.title }</a></p>					
@@ -171,7 +171,31 @@
        <p><img src="images/li1.jpg"><span>2016-12-21</span><a href="#">政治局会议一年四议经济：稳政策性…</a></p>
        <p><img src="images/li1.jpg"><span>2016-12-21</span><a href="#">以"四个率先"引领科技强国建设…</a></p> -->
     </div>
+ </div> --%>
+ <div id="body-five">
+    <div class="body-five-left">
+       <p><span>2016-12-21</span><span><a href="#">人民日报社论：推进农业供给侧结构性…</a></span></p>
+       <p><span>2016-12-21</span><span><a href="#">人民日报评论员：稳中求进 奋发有为…</a></span></p>
+       <p><span>2016-12-21</span><span><a href="#">喻云林：坚持民主集中制 保障党内政…</a></span></p>
+       <p><span>2016-12-21</span><span><a href="#">政治局会议一年四议经济：稳政策性…</a></span></p>
+       <p><span>2016-12-21</span><span><a href="#">以"四个率先"引领科技强国建设…</a></span></p>
+    </div>
+  <div class="body-five-center">
+       <p><span>2016-12-21</span><span><a href="#">人民日报社论：推进农业供给侧结构性…</a></span></p>
+       <p><span>2016-12-21</span><span><a href="#">人民日报评论员：稳中求进 奋发有为…</a></span></p>
+       <p><span>2016-12-21</span><span><a href="#">喻云林：坚持民主集中制 保障党内政…</a></span></p>
+       <p><span>2016-12-21</span><span><a href="#">政治局会议一年四议经济：稳政策性…</a></span></p>
+       <p><span>2016-12-21</span><span><a href="#">以"四个率先"引领科技强国建设…</a></span></p>
+    </div>
+  <div class="body-five-right">
+       <p><span>2016-12-21</span><span><a href="#">人民日报社论：推进农业供给侧结构性…</a></span></p>
+       <p><span>2016-12-21</span><span><a href="#">人民日报评论员：稳中求进 奋发有为…</a></span></p>
+       <p><span>2016-12-21</span><span><a href="#">喻云林：坚持民主集中制 保障党内政…</a></span></p>
+       <p><span>2016-12-21</span><span><a href="#">政治局会议一年四议经济：稳政策性…</a></span></p>
+       <p><span>2016-12-21</span><span><a href="#">以"四个率先"引领科技强国建设…</a></span></p>
+    </div>
  </div>
+ 
 </div>
 <footer id="footer-warp"><!--页脚开始-->
 		<p class="footer"><a href="">网站声明</a> &nbsp; &nbsp;<span>|</span> &nbsp; &nbsp;<a href="">关于我们 &nbsp; &nbsp;</a><span>|</span> &nbsp; &nbsp;<a href="">联系我们</a></p>

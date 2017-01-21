@@ -11,7 +11,7 @@
 
 <script src="${rootPath}js/jquery-2.2.3.min.js"></script>
 <script src="${rootPath}js/bootstrap.js"></script>
-<script type="text/javascript" src="${rootPath }js/learn_video_date.js"></script>
+<script type="text/javascript" src="${rootPath}js/learn_video_date.js"></script>
 </head>
 
 <body>
