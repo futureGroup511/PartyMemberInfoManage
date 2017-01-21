@@ -59,20 +59,18 @@ public class PartyMemberAction extends BaseAction {
 
 	// 修改党员个人基本信息
 	public String updatePartyMemberInfo() throws Exception {
-		PartyMemberInfo oldPartyMemberInfo = (PartyMemberInfo) this.getSession().get("partyMember");
-		partyMemberInfo.updatePartyMemberInfo(oldPartyMemberInfo.getPtm_Id(), oldPartyMemberInfo.getAccount(),
-				oldPartyMemberInfo.getLoginDate(), oldPartyMemberInfo.getJoinPartyDate(),
-				oldPartyMemberInfo.getDuties(), oldPartyMemberInfo.getIntroducer(), oldPartyMemberInfo.getPartyBranch(),
-				oldPartyMemberInfo.getLearnTime());
-		// 附件待定
-		partyMemberInfo.setIdAccessory("####");
-		// 判断是否修改了密码
-		if (partyMemberInfo.getPassword().equals("******")) {
-			partyMemberInfo.setPassword(oldPartyMemberInfo.getPassword());
+		int judge=Integer.valueOf(this.getRequest().getParameter("judge"));
+		int userId =(Integer)this.getSession().get("userId");
+		PartyMemberInfo partyMemberInfo=partyMemberInfoService.getPartyMemberInfoById(userId);
+		if(judge==1){//修改密码
+			// 密码加密还没加
+			String password =this.getRequest().getParameter("newPassword");
+			partyMemberInfo.setPassword(password);
 		}
-
-		// 密码加密还没加
-
+		else if(judge==2){
+			String phoneNum =this.getRequest().getParameter("newPhoneNum");
+			partyMemberInfo.setPhoneNo(phoneNum);
+		}			
 		Boolean bool = partyMemberInfoService.updatePartyMemberInfo(partyMemberInfo);
 		if (bool == true) {
 			this.getRequest().setAttribute("updateMsg", "修改成功");
@@ -371,11 +369,14 @@ public class PartyMemberAction extends BaseAction {
 	 */
 	
 	//通知列表
-	public String informList(){
-		
-		System.out.println("通知列表的分页"+page);
+	public String informList(){				
 		PageCut<Inform> pc=informService.getInformList(page, 5, 2,3);//2 3 代表通知的权限
-		this.getRequest().setAttribute("pc", pc);
+		if(pc.getData().size()==0){
+			this.getRequest().setAttribute("informMsg", "暂时没有通知！");
+		}
+		else{			
+			this.getRequest().setAttribute("pc", pc);
+		}
 		return "informList";
 	}
 	

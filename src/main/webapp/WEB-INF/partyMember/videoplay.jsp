@@ -11,7 +11,7 @@
 
 <script src="${rootPath}js/jquery-2.2.3.min.js"></script>
 <script src="${rootPath}js/bootstrap.js"></script>
-<script type="text/javascript" src="${rootPath }js/learn_video_date.js"></script>
+<script type="text/javascript" src="${rootPath}js/learn_video_date.js"></script>
 </head>
 
 <body>
@@ -57,7 +57,7 @@
                          	<li><a href="${rootPath}party/partyMemberAction_getMyExamLog.action">考试报告</a></li>
                    		</ul>
                		</li>
-              		<li><a href="information.jsp">通知公告</a></li>
+              		 <li><a href="${rootPath}party/partyMemberAction_informList.action">通知公告</a></li>
               		<li><a href="${rootPath}party/partyMemberAction_connectUs.action">联系我们</a></li>
 				</ul>
 			</div>

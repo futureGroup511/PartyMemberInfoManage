@@ -1,5 +1,6 @@
 @charset "utf-8";
 /* CSS Document */
+
 *{
 	padding:0;
 	margin:0;
@@ -86,7 +87,7 @@ body{
 	border: none;
 	font-family: 微软雅黑;
 	width:50%;
-	outline:none;
+	outline:none;s
 }
 .nav{
 	background-color: #DB0B18;
@@ -132,39 +133,31 @@ body{
 	font-family:微软雅黑; 
 }
 #body-two{
-	width: 70%;
+	width:70%;
 	margin: 0 auto;
-	margin-top: 20px;
+	margin-top: 40px;
+}
+#body-two h4{
+	color:#DB0B18;
+	text-align: center;
+	border-bottom: 1px solid #DDE1E4;
+	padding-bottom: 20px;
 }
 #body-two p{
 	text-align: center;
-	color:#DB0B18;
+	color:grey;
+	padding-bottom: 20px;
+}
+#body-three{
+	width:70%;
+	margin: 0 auto;
+}
+#body p{
+	margin-top: 20px;
+	line-height: 25px;
 }
 #body-three {
-	width:70%;
-	margin: 0 auto;
-	text-align: center;
-}
-#body-three video{
-	width:70%;
-	height:400px;
-	padding: 0;
-	margin: 0;
-}
-#body-four{
-	width:40%;
-	margin: 0 auto;
-	margin-top:30px;
-}
-#body-four span:last-child{
-	float:right;
-}
-#body-four a{
-	color:black;
-	text-decoration:none;
-}
-#body-four a:hover{
-	color:#DB0B18;
+	height:180px;
 }
 #footer-warp{
 	width: 100%;
@@ -174,7 +167,7 @@ body{
   	bottom: 0px;
 	 padding-bottom: 0;
 	 clear:both;
-	margin-top: 40px;
+	margin-top: 50px;
 }
 #footer-warp p{
   text-align: center;

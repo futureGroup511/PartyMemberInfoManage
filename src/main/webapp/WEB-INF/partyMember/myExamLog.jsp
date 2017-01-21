@@ -45,7 +45,8 @@
 				class="col-lg-9 col-lg-offset-3 col-md-9 col-md-offset-3 col-xs-9 col-xs-offset-3">
 				<ul class="nav navbar-nav">
 					<li><a href="${rootPath}party/partyLogin.action">网站首页</a></li>
-					<li><a href="${rootPath }party/partyMemberAction_getResPaper.action">红色文章</a></li>
+					<li><a
+						href="${rootPath }party/partyMemberAction_getResPaper.action">红色文章</a></li>
 					<li><a
 						href="${rootPath}party/partyMemberAction_viewVideos.action">红色视频</a></li>
 					<li><a
@@ -60,8 +61,10 @@
 							<li><a
 								href="${rootPath}party/partyMemberAction_getMyExamLog.action">考试报告</a></li>
 						</ul></li>
-					<li><a href="information.jsp">通知公告</a></li>
-					<li><a href="${rootPath}party/partyMemberAction_connectUs.action">联系我们</a></li>
+					<li><a
+						href="${rootPath}party/partyMemberAction_informList.action">通知公告</a></li>
+					<li><a
+						href="${rootPath}party/partyMemberAction_connectUs.action">联系我们</a></li>
 				</ul>
 			</div>
 		</div>
@@ -69,7 +72,9 @@
 	<div id="body">
 		<div id="body-one">
 			<p>
-				<img src="${rootPath}images/topimg.png"> <span>您的位置：<a href="${rootPath}party/partyLogin.action">首页</a>>个人中心>考试报告</span>
+				<img src="${rootPath}images/topimg.png"> <span>您的位置：<a
+					href="${rootPath}party/partyLogin.action">首页</a>>个人中心>考试报告
+				</span>
 			</p>
 		</div>
 		<c:choose>
@@ -112,15 +117,32 @@
 					</div>
 				</div>
 
-				<div class="container">					
+				<div class="container">
 					<nav>
 						<ul class="pagination">
 							</li>
-							<li><a href="${rootPath}party/partyMemberAction_getMyExamLog?page=0">首页</a></li>
-							<li><a href="${rootPath}party/partyMemberAction_getMyExamLog?page=${pc.nextPage}">上一页</a></li>
-							<li><a>${pc.currentPage}/${pc.pageNum}</a></li>
-							<li><a href="${rootPath}party/partyMemberAction_getMyExamLog?page=${pc.prePage}">下一页</a></li>
-							<li><a href="${rootPath}party/partyMemberAction_getMyExamLog?page=${pc.pageNum}">尾页</a></li>
+							<li><a
+								href="${rootPath }party/partyMemberAction_getMyExamLog?page=${pc.prePage}">上一页</a></li>
+							<c:if test="${1 < pc.currentPage -3}">
+								<li><a
+									href="${rootPath }party/partyMemberAction_getMyExamLog?page=1">1</a></li>
+							</c:if>
+							<c:forEach var="i"
+								begin="${pc.currentPage-3>0?pc.currentPage-3:1 }"
+								end="${pc.currentPage+3>pc.pageNum?pc.pageNum:pc.currentPage+3  }">
+								<c:choose>
+									<c:when test="${i>0 && i == pc.currentPage }">
+										<li class="active"><a
+											href="${rootPath }party/partyMemberAction_getMyExamLog?page=${i }">${i}</a></li>
+									</c:when>
+									<c:when test="${i>0 && i != postPS.currentPage }">
+										<li><a
+											href="${rootPath }party/partyMemberAction_getMyExamLog?page=${i }">${i}</a></li>
+									</c:when>
+								</c:choose>
+							</c:forEach>
+							<li><a
+								href="${rootPath }party/partyMemberAction_getMyExamLog?page=${pc.nextPage}">下一页</a></li>
 							</li>
 						</ul>
 					</nav>
@@ -128,18 +150,6 @@
 			</c:otherwise>
 		</c:choose>
 	</div>
-
-<%-- <div style="margin-left: 42%;">
-		<ul class="pagination">
-			<li><a
-				href="${rootPath }manage/testManage_getQuestion?page=${pc.prePage}">上一页</a></li>
-			<li><a href="#">${pc.currentPage}/${pc.pageNum}</a></li>
-			<li><a
-				href="${rootPath }manage/testManage_getQuestion?page=${pc.nextPage}">下一页</a></li>
-		</ul>
-	</div> --%>
-
-
 	<footer id="footer-warp">
 		<!--页脚开始-->
 		<p class="footer">
@@ -151,40 +161,3 @@
 	<!--页脚结束-->
 </body>
 </html>
-
-<%-- </head>
-<body>
-	<c:choose>
-		<c:when test="${myExamLogMsg!=null }">
-			<h4>${myExamLogMsg}</h4>
-		</c:when>
-		<c:otherwise>
-			<table>
-				<tr>
-					<td>试卷名称</td>
-					<td>试卷题数</td>					
-					<td>考试时长</td>
-					<td>考试时间</td>
-					<td>试卷总分</td>
-					<td>考试成绩</td>
-					<td>考试详情</td>					
-				</tr>
-				
-				<c:forEach items="${examLogList}" var="e">
-					<tr>
-						<td>${e.paperName}</td>
-						<td>${e.testNum}</td>										
-						<td>${e.testTime}</td>
-						<td>${e.examTime}</td>
-						<td>${e.testTotalScore}</td>
-						<td>${e.totalScore}</td>
-						<td><a href="partyMemberAction_getExamDetails.action?tp_Id=${e.paper_Id}">详情</a></td>	
-					</tr>					
-				</c:forEach>
-				
-			</table>
-			
-		</c:otherwise>
-	</c:choose>
-</body>
-</html> --%>

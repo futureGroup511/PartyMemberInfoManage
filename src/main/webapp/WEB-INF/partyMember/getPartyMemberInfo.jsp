@@ -49,7 +49,7 @@
                          <li><a href="${rootPath}party/partyMemberAction_getMyExamLog.action">考试报告</a></li>
                    </ul>
                </li>
-              <li><a href="information.jsp">通知公告</a></li>
+               <li><a href="${rootPath}party/partyMemberAction_informList.action">通知公告</a></li>
               <li><a href="${rootPath}party/partyMemberAction_connectUs.action">联系我们</a></li>
          </ul>
         </div>
@@ -74,7 +74,7 @@
 	 <li><span>职   务：</span><span>${partyMember.duties}</span></li>
 	 <li><span>介 绍 人：</span><span>${partyMember.introducer}</span></li>
 	 <li><span>所在党支部：</span><span>${partyMember.partyBranch}</span></li>
-	 <li><span>学习时间：</span><span>${partyMember.learnTime}</span></li>
+	 <li><span>学习时间：</span><span>${partyMember.strLearnTime}</span></li>
 	 <li><span>手 机 号：</span><span>${partyMember.phoneNo}</span></li>
 	 <li><span>注册时间：</span><span>${partyMember.loginDate}</span></li>	
     </ol>

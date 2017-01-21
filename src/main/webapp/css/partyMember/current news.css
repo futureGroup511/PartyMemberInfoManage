@@ -392,80 +392,90 @@ margin-top: 20px;
 	margin-left: 5%;
 	margin-top:30px;
 }
-#body-five .body-five-left a{
-	margin-left:6%;
+#body-five .body-five-left p{
+	line-height: 20px;
+}
+#body-five .body-five-left span:last-child{
 	border-bottom: 2px #DBDBDB dotted;
-	padding-bottom: 5px;
 }
-#body-five .body-five-left img{
-	position: absolute;
-	z-index: -1;
-	margin-top: 1px;
-	width:6.4%;
-}
-#body-five .body-five-left span{
-	width:23%;
-	display: inline-block;
+#body-five .body-five-left span:first-child{
+	background:url(../../images/li1.jpg) no-repeat;
+  display: inline-block;
+	width:25%;
+	padding-top:0px!important;
 	font-size:12px;
-	margin-top:1px;
-	padding-left: 1.5%;
+	padding-left: 0.5%;
+	height:25px;
+	padding-bottom: 10px;
 }
-#body-five .body-five-left a{
-	display: inline-block;
-	width: 71%;
+#body-five .body-five-left span:last-child{
+	overflow:hidden;
+	text-overflow:ellipsis;
+	white-space: nowrap;
+	width:73%;
+	margin-left: 2%;
+	 display: inline-block;
+	height:23px;
 }
 #body-five .body-five-center{
 	width:30%;
-  margin-top: 30px;
+	margin-left: 5%;
+	margin-top:30px;
 }
-#body-five .body-five-center a{
-	margin-left:6%;
+#body-five .body-five-center p{
+	line-height: 20px;
+}
+#body-five .body-five-center span:last-child{
 	border-bottom: 2px #DBDBDB dotted;
-	padding-bottom: 5px;
+	padding-bottom: 10px!important;
 }
-#body-five .body-five-center img{
-	position: absolute;
-	z-index: -1;
-	margin-top: 1px;
-	width:6.4%;
-}
-#body-five .body-five-center span{
-	width:23%;
-	display: inline-block;
+#body-five .body-five-center span:first-child{
+	background:url(../../images/li1.jpg) no-repeat;
+  display: inline-block;
+	width:25%;
+	padding-top:0px!important;
 	font-size:12px;
-	margin-top:1px;
-	padding-left: 1.5%;
+	padding-left: 0.5%;
+	height:25px;
+	padding-bottom: 10px;
 }
-#body-five .body-five-center a{
-	display: inline-block;
-	width: 71%;
+#body-five .body-five-center span:last-child{
+	overflow:hidden;
+	text-overflow:ellipsis;
+	white-space: nowrap;
+	width:73%;
+	margin-left: 2%;
+	 display: inline-block;
+	height:23px;
 }
 #body-five .body-five-right{
 	width:30%;
-	margin-right: 5%;
-	margin-top: 30px;
+	margin-top:30px;
 }
-#body-five .body-five-right span{
-	width:23%;
-	display: inline-block;
-	font-size:12px;
-	margin-top:1px;
-	padding-left: 1.5%;
+#body-five .body-five-right p{
+	line-height: 20px;
 }
-#body-five .body-five-right a{
-	display: inline-block;
-	width: 71%;
-}
-#body-five .body-five-right img{
-	position: absolute;
-	z-index: -1;
-	margin-top: 1px;
-	width:6.4%;
-}
-#body-five .body-five-right a{
-	margin-left:6%;
+#body-five .body-five-right span:last-child{
 	border-bottom: 2px #DBDBDB dotted;
-	padding-bottom: 5px;
+}
+#body-five .body-five-right span:first-child{
+	background:url(../../images/li1.jpg) no-repeat;
+  display: inline-block;
+	width:25%;
+	padding-top:0px!important;
+	font-size:12px;
+	padding-left: 0.5%;
+	height:25px;
+	padding-bottom: 10px;
+}
+#body-five .body-five-right span:last-child{
+	overflow:hidden;
+	text-overflow:ellipsis;
+	white-space: nowrap;
+	width:73%;
+	margin-left: 2%;
+	 display: inline-block;
+	height:23px;
 }
 #body-five div{
 	float:right;
@@ -480,10 +490,7 @@ margin-top: 20px;
 #body-five a:hover{
 	color:#EC4300;
 }
-#body{
- height:640px;
-	width: 100%;
-}
+
 #footer-warp{
 	width: 100%;
 	height:90px;
