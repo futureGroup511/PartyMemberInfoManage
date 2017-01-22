@@ -81,7 +81,8 @@
 		</div>
 		<div id="body-four">
 			<p>
-				<span>上一篇：<a href="#">坚持民主集中制</a></span><span>下一篇：<a href="#">推进农业供给侧结构性改革</a></span>
+				<span>上一部：<a href="${rootPath}party/partyMemberAction_viewing?rv_Id=${prev.rv_Id}">${prev.name }</a></span>
+				<span>下一部：<a href="${rootPath}party/partyMemberAction_viewing?rv_Id=${next.rv_Id}">${next.name}</a></span>			
 			</p>
 		</div>
 	</div>
