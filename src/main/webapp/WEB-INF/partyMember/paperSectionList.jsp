@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -11,7 +11,6 @@
 <script src="${rootPath}js/jquery-2.2.3.min.js"></script>
 <script src="${rootPath}js/bootstrap.js"></script>
 </head>
-
 <body>
 	<div id="header">
 		<div class="header-left">
@@ -73,9 +72,6 @@
 				<img src="${rootPath}images/topimg.png"> <span>您的位置：首页&nbsp;&nbsp;>&nbsp;&nbsp;时事新闻&nbsp;&nbsp;>&nbsp;&nbsp;党建巡礼</span>
 			</p>
 		</div>
-
-
-
 		<div id="body-two">
 			<ol>
 				<c:forEach items="${pc.data }" var="paper">
@@ -85,8 +81,6 @@
 					</p>
 				</c:forEach>
 			</ol>
-
-
 			<div id="pagecut" style="margin-right: 100px; text-align: right;">
 				<ul class="pagination">
 					<li><a
@@ -114,10 +108,7 @@
 					<li><a
 						href="${rootPath}party/partyMemberAction_paperSection?page=${pc.nextPage}&&paperTypeId=${paper.paperTypeId}">下一页</a></li>
 				</ul>
-
 			</div>
-
-
 		</div>
 	</div>
 	<footer id="footer-warp"><!--页脚开始-->
@@ -130,7 +121,6 @@
 	<!--页脚结束-->
 </body>
 </html>
-
 <script type="text/javascript">
 	var notice = "${notice}";
 	if (notice === "") {

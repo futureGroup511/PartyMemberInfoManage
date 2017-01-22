@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -153,12 +153,7 @@
     <div class="body-five-left">
     	<c:forEach var="paper" items="${paperList}" begin="25" end="29">   		
     		<p ><span>${paper.releaseDate}</span><span><a href="${rootPath}party/partyMemberAction_lookPaper?rp_Id=${paper.rp_Id}">${paper.title }</a></span></p>					
-		</c:forEach>
-     <!--   <p><span>2016-12-21</span><span><a href="#">人民日报社论：推进农业供给侧结构性…</a></span></p>
-       <p><span>2016-12-21</span><span><a href="#">人民日报评论员：稳中求进 奋发有为…</a></span></p>
-       <p><span>2016-12-21</span><span><a href="#">喻云林：坚持民主集中制 保障党内政…</a></span></p>
-       <p><span>2016-12-21</span><span><a href="#">政治局会议一年四议经济：稳政策性…</a></span></p>
-       <p><span>2016-12-21</span><span><a href="#">以"四个率先"引领科技强国建设…</a></span></p> -->
+		</c:forEach>     
     </div>
   <div class="body-five-center">
   <c:forEach var="paper" items="${paperList}" begin="20" end="24">   		

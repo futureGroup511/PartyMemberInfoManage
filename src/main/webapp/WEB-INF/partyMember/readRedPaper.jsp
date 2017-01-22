@@ -10,7 +10,6 @@
 <script src="${rootPath}js/jquery-2.2.3.min.js"></script>
 <script src="${rootPath}js/bootstrap.js"></script>
 </head>
-
 <body>
 <div id="header">
      <div class="header-left">
@@ -61,10 +60,6 @@
    <h4>${paper.title}</h4>
    <p>作者：${paper.author }&nbsp;&nbsp;&nbsp;&nbsp; 来源：${paper.source }&nbsp;&nbsp;&nbsp;&nbsp; 日期：2016-12-18&nbsp;&nbsp;&nbsp;&nbsp;日期：${paper.releaseDate }</p>
  </div>
- <%-- <section class="pre-next">
-				<p><span>上一篇：<a href="${rootPath }party/partyMemberAction_lookPaper?rp_Id=${prev.rp_Id}">${prev.title }</a></span>
-				<span>下一篇：<a href="${rootPath }party/partyMemberAction_lookPaper?rp_Id=${next.rp_Id}">${next.title}</a></span></p>
-</section> --%>
  <div id="body-three">
  	${paper.content }
  </div>
@@ -88,6 +83,5 @@
 		
 	}else{
 		alert(notice);
-	}
-	
+	}	
 </script>

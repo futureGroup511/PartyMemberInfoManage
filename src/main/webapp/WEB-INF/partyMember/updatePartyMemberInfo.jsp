@@ -11,8 +11,7 @@
 <script src="${rootPath}js/jquery-2.2.3.min.js"></script>
 <script src="${rootPath}js/bootstrap.js"></script>
 <script type="text/javascript">
-	function judegePwd() {
-		
+	function judegePwd() {		
 		var pwd1=document.getElementById("password").value ;
 		var pwd2=document.getElementById("newPassword").value ;
 		if(pwd1==pwd2){
@@ -24,7 +23,6 @@
 	}
 </script>
 </head>
-
 <body>
 <div id="header">
      <div class="header-left">

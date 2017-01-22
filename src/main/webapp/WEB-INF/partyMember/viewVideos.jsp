@@ -130,8 +130,7 @@
 				<li><a href="${rootPath }party/partyMemberAction_viewVideos?page=${pc.prePage}">上一页</a></li>
 				<c:if test="${1 < pc.currentPage -3}">
 				<li><a href="${rootPath }party/partyMemberAction_viewVideos?page=1">1</a></li>
-				</c:if>
-			
+				</c:if>			
 				<c:forEach var="i" begin="${pc.currentPage-3>0?pc.currentPage-3:1 }" end="${pc.currentPage+3>pc.pageNum?pc.pageNum:pc.currentPage+3  }">
 				<c:choose>
 					<c:when test="${i>0 && i == pc.currentPage }">
@@ -158,3 +157,4 @@
 	</footer>
 	<!--页脚结束-->
 </body>
+</html>
