@@ -36,8 +36,8 @@ public class WatchVideoRecordDaoImpl extends BaseDao<WatchVideoRecord> implement
 
 	//丁赵雷修改 增加了一个辨识身份的参数
 	@Override
-	public WatchVideoRecord getWVR(int wvr_id, int pm_id,int partySort) {
-		String hql="from WatchVideoRecord wvr where wvr.wvr_id="+wvr_id+" and wvr.pm_id="+pm_id+
+	public WatchVideoRecord getWVR(int rv_id, int pm_id,int partySort) {
+		String hql="from WatchVideoRecord wvr where wvr.rv_id="+rv_id+" and wvr.pm_id="+pm_id+
 				"and wvr.partySort="+partySort; 
 		List<WatchVideoRecord> list=new ArrayList<>();
 		list=this.getEntityList(hql);

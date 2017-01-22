@@ -71,8 +71,8 @@
 			<p>${video.name}</p>
 		</div>
 		<div id="body-three">
-			<input type="hidden" value="${video.rv_Id}" id="videoId" />
-			<input type="hidden" value="${currentTime}" id="oldcurrentTime" />
+			<input type="hidden" value="${video.rv_Id}" name="videoId" id="videoId" />
+			<input type="hidden" value="${currentTime}" name="oldcurrentTime" id="oldcurrentTime" />
 			<video id="videos" width="320" height="240" controls
 				onplay="startVideo()">
 			<source src="${rootPath }${video.videoUrl}" type="video/mp4">

@@ -135,32 +135,23 @@ public class PartyMemberAction extends BaseAction {
 
 		return "viewing";
 	}
-
-	/*
-	 * //查询个人党费交纳
-	 * 
-	 * public String getPartyFree(){
-	 * 
-	 * return "getPartyFree"; }
-	 */
-
+	
 	/**
 	 * 更新党员的学习时间和视频播放记录历史 丁赵雷 ---焦祥宇修改过
 	 */
 	public void updateLearnTime() throws Exception {
 		int userId=(Integer)this.getSession().get("userId");// 用户id
 		partyMemberInfo = partyMemberInfoService.getPartyMemberInfoById(userId);
-
-		long time = Integer.parseInt(getRequest().getParameter("time"));
-		System.out.println("time" + time);
-
+		long time = Integer.parseInt(getRequest().getParameter("time"));		
 		time = time + partyMemberInfo.getLearnTime();
 		String strTime = SwitchTime.switchTime(time);
-		partyMemberInfo.setLearnTime(time);
+		System.out.println("time="+time);
+		System.out.println("strtime="+strTime);
+		partyMemberInfo.setLearnTime(time);				
 		partyMemberInfo.setStrLearnTime(strTime);
 		partyMemberInfoService.updatePartyMemberInfo(partyMemberInfo);
 		// 视频播放记录历史
-		System.out.println("*******视频播放记录历史******");
+		
 		String vt = getRequest().getParameter("currentTime");
 		long currentTime = 0;
 		if (vt.indexOf(".") > 0) {
@@ -168,15 +159,11 @@ public class PartyMemberAction extends BaseAction {
 		} else {
 			currentTime = Integer.valueOf(vt);
 		}
-
-		System.out.println("currentTime" + currentTime);
-
-		int videoId = Integer.valueOf(getRequest().getParameter("rv_Id"));
-		System.out.println("vidoeId:" + videoId);
+		int videoId = Integer.valueOf(getRequest().getParameter("videoId"));
 		WatchVideoRecord watchVideoRecord;
 		watchVideoRecord = watchVideoRecordService.getWVR(videoId, userId, 0);
 
-		System.out.println(watchVideoRecord);
+		System.out.println("watchVideoRecord="+watchVideoRecord);
 		if (watchVideoRecord == null) {
 			watchVideoRecord = new WatchVideoRecord();
 			watchVideoRecord.setRv_id(videoId);
@@ -223,7 +210,6 @@ public class PartyMemberAction extends BaseAction {
 	// 阅读文章
 	public String lookPaper() throws Exception {
 		int id = Integer.parseInt(this.getRequest().getParameter("rp_Id"));
-		System.out.println("文章id" + id);
 		redPaperService.updatePaperReadNum(id);// 文章阅读次数加一
 		RedPaper rp = redPaperService.getById(id);
 		this.getRequest().setAttribute("paper", rp);
@@ -413,7 +399,13 @@ public class PartyMemberAction extends BaseAction {
 		
 		return "lookInform";
 	}
-
+	/*
+	 * //查询个人党费交纳
+	 * 
+	 * public String getPartyFree(){
+	 * 
+	 * return "getPartyFree"; }
+	 */
 	public String connectUs() throws Exception{
 		return "connectUs";
 	}
