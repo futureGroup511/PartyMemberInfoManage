@@ -71,7 +71,7 @@
   </div>
   <div id="body-big">
    <div id="body-two">
-     <p>提示：密码必须是字母和数字的组合长度为8到16位</p>
+     <p>提示：密码必须是字母开头，长度在6~18之间，只能包含字母、数字和下划线</p>
    </div>
   <div id="body-four">
           <ul class="nav nav-tabs" role="tablist">
@@ -83,8 +83,8 @@
         <div role="tabpanel" class="tab-pane active" id="home">
            <div id="body-three">
            		<form action="${rootPath}party/partyMemberAction_updatePartyMemberInfo?judge=1" method="post" >          			
-               		<p><input type="password" name="password" id="password" class="form-control" placeholder="请输入新密码" required="required" autocomplete="off"/></p>
-               		<p><input type="password" name="newPassword" id="newPassword" class="form-control" placeholder="请再次输入密码" required="required" autocomplete="off"/></p>
+               		<p><input type="password" name="password" id="password" class="form-control" placeholder="请输入新密码" required="required" pattern="^[a-zA-Z]\w{5,17}$" autocomplete="off"/></p>
+               		<p><input type="password" name="newPassword" id="newPassword" class="form-control" placeholder="请再次输入密码" required="required" pattern="^[a-zA-Z]\w{5,17}$" autocomplete="off"/></p>
                		<button class="btn btn-primary sure" type="reset">重置</button>
                		<button class="btn btn-primary" type="submit" onclick="return judegePwd();">确认修改</button>
                </form>
@@ -94,7 +94,7 @@
        <div role="tabpanel" class="tab-pane" id="profile">
            <div id="body-three">
            		<form action="${rootPath}party/partyMemberAction_updatePartyMemberInfo?judge=2" method="post">
-              		<p><input type="number" name="newPhoneNum" class="form-control" placeholder="请输入新的手机号" required="required" autocomplete="off"/></p>
+              		<p><input type="text" name="newPhoneNum" class="form-control" placeholder="请输入新的手机号" pattern="^(13[0-9]|14[5|7]|15[0|1|2|3|5|6|7|8|9]|18[0|1|2|3|5|6|7|8|9])\d{8}$" required="required" autocomplete="off"/></p>
                		<button class="btn btn-primary sure" type="reset">重置</button>
                 	<button class="btn btn-primary" type="submit">确认修改</button>
                 </form>
