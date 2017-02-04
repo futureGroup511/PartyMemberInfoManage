@@ -17,7 +17,6 @@ import javax.persistence.TemporalType;
 public class UserInfo {
 	private String sex;//性别
 	private String account ;//账号
-
 	
 	private String username;//姓名
 	private String password;//登录密码
@@ -28,8 +27,8 @@ public class UserInfo {
 	private String idCard;//身份证号
 	private Date loginDate;//注册日期
 	private String phoneNo;//手机号
-	private long learnTime;//学习时长 
-	private String strLearnTime;//格式转化过的学习时长
+	private long learnTime=0L;//学习时长 
+	private String strLearnTime="0";//格式转化过的学习时长
 	
 	
 	public UserInfo(String username, String password, int age, String nation, Date birthdate,
