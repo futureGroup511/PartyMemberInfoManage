@@ -2,13 +2,12 @@ package com.future.partymember.listener;
 
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
-import javax.servlet.annotation.WebListener;
 
 /**
  * Application Lifecycle Listener implementation class AppStartListener
  *
  */
-@WebListener
+
 public class AppStartListener implements ServletContextListener {
 
     /**
