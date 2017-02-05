@@ -140,8 +140,9 @@ body{
 }
 #body-two{
 	width:60%;
-  margin: 0 auto;
-	margin-top: 30px;
+  	margin: 0 auto;
+	margin-top: 160px;
+	height: 190px;
 }
 #body-two p{
 	text-align: center;

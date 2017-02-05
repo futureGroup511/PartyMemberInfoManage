@@ -11,6 +11,9 @@
 <link rel="stylesheet" href="${rootPath}css/partyMember/online learning.css">
 <script src="${rootPath}js/jquery-2.2.3.min.js"></script>
 <script src="${rootPath}js/bootstrap.js"></script>
+<script type="text/javascript">
+
+</script>
 </head>
 
 <body>
@@ -74,7 +77,7 @@
 		</div>
 		<c:choose>
 			<c:when test="${NoTest!=null}">
-				<div id="body-two" style="height: 180px;padding-top: 80px;">
+				<div id="body-two1">
 					<p>${NoTest}</p>
 				</div>
 			</c:when>

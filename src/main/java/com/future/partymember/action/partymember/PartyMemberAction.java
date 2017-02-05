@@ -40,7 +40,8 @@ public class PartyMemberAction extends BaseAction {
 	
 	// 查询党员个人信息
 	public String seekPartyMemberInfo() throws Exception {
-		partyMemberInfo = partyMemberInfoService.getPartyMemberInfoById(1);
+		int userId=(Integer)this.getSession().get("userId");
+		partyMemberInfo = partyMemberInfoService.getPartyMemberInfoById(userId);
 		// 学习时间
 		String time = SwitchTime.switchTime(partyMemberInfo.getLearnTime());
 		this.getRequest().setAttribute("learnTime", time);
@@ -50,10 +51,10 @@ public class PartyMemberAction extends BaseAction {
 
 	// 修改党员个人信息时，先获得党员信息以便修改
 	public String getInfoBeforeUpdate() throws Exception {
-		partyMemberInfo = partyMemberInfoService.getPartyMemberInfoById(1);
+		/*partyMemberInfo = partyMemberInfoService.getPartyMemberInfoById(1);
 		String time = SwitchTime.switchTime(partyMemberInfo.getLearnTime());
 		this.getRequest().setAttribute("learnTime", time);
-		this.getSession().put("partyMember", partyMemberInfo);
+		this.getSession().put("partyMember", partyMemberInfo);*/
 		return "getInfoBeforeUpdate";
 	}
 
@@ -340,7 +341,7 @@ public class PartyMemberAction extends BaseAction {
 		if (examLogList.size() > 0) {
 			this.getSession().put("examLogList", examLogList);
 		} else {
-			this.getRequest().setAttribute("myExamLogMsg", "暂时没有考试记录！");
+			this.getRequest().setAttribute("myExamLogMsg", "暂时没有考试报告！");
 		}
 
 		return "getMyExamLog";

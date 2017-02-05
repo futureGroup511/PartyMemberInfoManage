@@ -138,6 +138,17 @@ body{
 #body-one a:hover{
 	color:#DB0B18;
 }
+#body-two1{
+	width:60%;
+  	margin: 0 auto;
+	margin-top: 160px;
+	height: 190px;
+}
+#body-two1 p{
+	text-align: center;
+	color:#DB0B18;
+	font-size:30px;
+}
 #body-two{
 	width:100%;
 	margin-top: 20px;
