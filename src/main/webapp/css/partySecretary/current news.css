@@ -239,7 +239,7 @@ body{
 	color:#E91F2F;
 }
 #body-three p{
-	line-height: 22px;
+	line-height: 23px;
 	border-bottom: 2px #DBDBDB dotted;
 	padding-bottom: 5px;
 }
@@ -250,28 +250,30 @@ body{
 #body-three .body-three-left p span:first-child{
 	text-align: left;
 	width:70%;
-	overflow:hidden;
+/* 	overflow:hidden;
 	text-overflow:ellipsis;
 	white-space: nowrap;
-	display: inline-block;
+	display: inline-block; */
 }
 #body-three .body-three-left span:last-child{
 	width:30%;
   text-align: right;
 	display: inline-block;
+	float: right;
 }
 #body-three .body-three-center p span:first-child{
 	text-align: left;
 	width:70%;
-	overflow:hidden;
+/* 	overflow:hidden;
 	text-overflow:ellipsis;
 	white-space: nowrap;
-	display: inline-block;
+	display: inline-block; */
 }
 #body-three .body-three-center span:last-child{
 	width:30%;
   text-align: right;
 	display: inline-block;
+	float: right;
 }
 #body-three .body-three-center{
 	margin-left: 5%;
@@ -286,15 +288,16 @@ body{
 #body-three .body-three-right p span:first-child{
 	text-align: left;
 	width:70%;
-	overflow:hidden;
+/* 	overflow:hidden;
 	text-overflow:ellipsis;
 	white-space: nowrap;
-	display: inline-block;
+	display: inline-block; */
 }
 #body-three .body-three-right span:last-child{
 	width:30%;
   text-align: right;
 	display: inline-block;
+	float: right;
 }
 #body-four{
 	width: 93%;
@@ -401,7 +404,7 @@ margin-top: 20px;
 #body-five .body-five-left span:first-child{
 	background:url(../../images/li1.jpg) no-repeat;
   display: inline-block;
-	width:20%;
+	width:25%;
 	padding-top:0px!important;
 	font-size:12px;
 	padding-left: 0.5%;
@@ -409,12 +412,12 @@ margin-top: 20px;
 	padding-bottom: 10px;
 }
 #body-five .body-five-left span:last-child{
-	overflow:hidden;
+/* 	overflow:hidden;
 	text-overflow:ellipsis;
-	white-space: nowrap;
-	width:78%;
+	white-space: nowrap; */
+	width:73%;
 	margin-left: 2%;
-	 display: inline-block;
+/* 	 display: inline-block; */
 	height:23px;
 }
 #body-five .body-five-center{
@@ -428,19 +431,19 @@ margin-top: 20px;
 #body-five .body-five-center span:first-child{
 	background:url(../../images/li1.jpg) no-repeat;
   display: inline-block;
-	width:20%;
+	width:25%;
 	padding-top:0px!important;
 	font-size:12px;
 	height:25px;
 
 }
 #body-five .body-five-center span:last-child{
-	overflow:hidden;
+/* 	overflow:hidden;
 	text-overflow:ellipsis;
-	white-space: nowrap;
-	width:78%;
+	white-space: nowrap; */
+	width:73%;
 	margin-left: 2%;
-	 display: inline-block;
+/* 	 display: inline-block; */
 	height:23px;
 }
 #body-five .body-five-right{
@@ -458,15 +461,15 @@ margin-top: 20px;
 
 	padding-left: 0.5%;
 	height:25px;
-	width:20%;
+	width:25%;
 }
 #body-five .body-five-right span:last-child{
-	overflow:hidden;
+/* 	overflow:hidden;
 	text-overflow:ellipsis;
-	white-space: nowrap;
-	width:78%;
+	white-space: nowrap; */
+	width:73%;
 	margin-left: 2%;
-	 display: inline-block;
+/* 	 display: inline-block; */
 	height:23px;
 }
 #body-five div{
@@ -492,7 +495,7 @@ margin-top: 20px;
 	background-color: #F3F2F2;
 /* 	position: absolute; */
   	bottom: 0px;
-	margin-top: 80px;
+	margin-top: 40px;
 	padding-bottom: 0;
 	clear:both;
 }

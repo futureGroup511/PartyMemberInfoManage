@@ -23,6 +23,7 @@ import com.future.partymember.entity.WatchVideoRecord;
 import com.future.partymember.service.IRedPaperService;
 import com.future.partymember.service.IRedVideoService;
 import com.future.partymember.util.PageCut;
+import com.future.partymember.util.PaperUtil;
 import com.future.partymember.util.SwitchTime;
 
 @Controller(value="partySecretaryAction")
@@ -54,6 +55,20 @@ public class PartySecretaryAction extends BaseAction {
 	}
 	
 	
+	
+	/**
+	 * 注销
+	 */
+	public String logout(){
+		if(session.get("secretary")!=null){
+			session.remove("secretary");
+		}
+		return "logout";
+	}
+	
+	
+	
+	
 	/**
 	 * 登录
 	 * @return
@@ -64,13 +79,15 @@ public class PartySecretaryAction extends BaseAction {
 		 
 		List<RedPaper> hotPaperList=redPaperService.getHot(5);
 	 	List<RedPaper> newPaperList=redPaperService.getNew(5);
+	 	
+	 	
 	 	List<RedVideo> hotVideoList=redVideoService.getHot(9);
 	 	List<RedVideo> newVideoList=redVideoService.getNew(9);
 	 	List<Inform> newInformList= informService.getNew(2);
 	 	
 	 	
-	 	this.getRequest().setAttribute("hotPaper", hotPaperList);
-	 	this.getRequest().setAttribute("newPaper", newPaperList);
+	 	this.getRequest().setAttribute("hotPaper", PaperUtil.titleLength(hotPaperList, 15));
+	 	this.getRequest().setAttribute("newPaper", PaperUtil.titleLength(newPaperList,15));
 	 	this.getRequest().setAttribute("hotVideo", hotVideoList);
 	 	this.getRequest().setAttribute("newVideo", newVideoList);
 	 	this.getRequest().setAttribute("newInform", newInformList);

@@ -123,8 +123,8 @@
                     <span class="paper-img">最新文章</span>
 					<ol>
 						<c:forEach var="paper" items="${ newPaper}">
-							<li><span><a href="${rootPath }secretary/partySecretary_lookPaper?rp_Id=${paper.rp_Id}">${paper.title }</a></span>
-									<span>${paper.releaseDate }</span>
+							<li><a href="${rootPath }secretary/partySecretary_lookPaper?rp_Id=${paper.rp_Id}"><span>${paper.title }</span>
+									<span>${paper.releaseDate }</span></a>
 							</li>
 						</c:forEach> 
 
@@ -135,8 +135,8 @@
 					<span class="paper-img" id="pager-img-two">热门文章</span> 
 					<ol> 
 						<c:forEach var="paper" items="${hotPaper}">
-							<li><span><a href="${rootPath }secretary/partySecretary_lookPaper?rp_Id=${paper.rp_Id}">${paper.title }</a></span>
-									<span>${paper.releaseDate }</span>
+							<li><a href="${rootPath }secretary/partySecretary_lookPaper?rp_Id=${paper.rp_Id}"><span>${paper.title }</span>
+									<span>${paper.releaseDate }</span></a>
 							</li>
 						</c:forEach>
 					</ol>

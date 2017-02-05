@@ -61,6 +61,9 @@ public class SwitchTime {
 		
 	}
 	
+	
+	
+	
 	//String to 年月日时分秒
 	public static Date strToTime(String str){
 		SimpleDateFormat s=new SimpleDateFormat("yyyy-MM-dd HH:mm");

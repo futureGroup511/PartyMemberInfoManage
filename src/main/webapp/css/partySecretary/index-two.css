@@ -164,7 +164,7 @@ body{
 	padding-left: 1.5%;
 }
 #paper-warp{
-	width:90%;
+	width:96%;
 	margin: 0 auto;
 	padding-left:9%;
 	margin-top: 20px;
@@ -192,7 +192,7 @@ body{
 	color:#DB0B18;
 }
 #paper-warp li{
-	line-height: 28px;
+	line-height: 32px;
 }
 #paper-warp .paper-one li span{
 	display: inline-block;
@@ -207,10 +207,17 @@ body{
 #paper-warp .paper-one li span:first-child{
 	width:70%;
  text-align: left;
+/* 	overflow:hidden;
+	text-overflow:ellipsis;
+	white-space: nowrap;
+	display: inline-block; */
+
 }
 #paper-warp .paper-one li span:last-child{
 	 width:30%;
 	text-align: right;
+	display: inline-block;
+
 }
 #paper-warp .paper-two ol{
 	list-style: none;
@@ -218,10 +225,17 @@ body{
 #paper-warp .paper-two li span{
 	display: inline-block;
 	margin-left: -7%;
+	
 }
 #paper-warp .paper-two li span:first-child{
 	width:70%;
  text-align: left;
+/* 	display: inline-block;
+	overflow:hidden;
+	text-overflow:ellipsis;
+	white-space: nowrap;
+	display: inline-block; */
+
 }
 #paper-warp .paper-two li span:last-child{
 	 width:30%;
@@ -233,7 +247,7 @@ body{
 }
 /*视频列表区开始*/
 .picScroll-left{
-	width: 89%;
+	width: 94%;
 	height:300px;
 	overflow: hidden;
 	position: relative;
@@ -244,7 +258,7 @@ body{
 	background-color: #ffffff;
 	font-family: 微软雅黑;
 }
-.picScroll-left .hd .prev p{display:block;  float:left; margin-top:90px;  overflow:hidden;
+.picScroll-left .hd .prev p{display:block;  float:left; margin-top:90px; 
   cursor:pointer;
 	width:30px;
 	height: 55px;
@@ -252,7 +266,7 @@ body{
 	text-shadow: 2px 2px 4px grey;
 	color: brown;	
 }
-.picScroll-left .hd .next p{ display:block;  float:right; margin-top:-157px;  overflow:hidden;
+.picScroll-left .hd .next p{ display:block;  float:right; margin-top:-157px;
 			 cursor:pointer;
   	width:30px;
 	height: 55px;
@@ -265,7 +279,7 @@ body{
 	margin: 0 auto;
 }
 .picScroll-left .bd ul{ overflow:hidden;padding-top:20px;}
-.picScroll-left .bd ul li{float:left;display:; overflow:hidden; text-align:center; border: 1px solid #E0E2E3; margin-left:20px;}
+.picScroll-left .bd ul li{float:left;display:; overflow:hidden; text-align:center; border: 1px solid #E0E2E3; margin-left:5px;}
 .picScroll-left .bd ul li .pic{text-align:center;}
 .picScroll-left .bd ul li .pic img{ 
 	display:block;

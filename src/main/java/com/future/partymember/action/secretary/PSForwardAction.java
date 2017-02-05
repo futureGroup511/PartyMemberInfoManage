@@ -16,6 +16,7 @@ import com.future.partymember.entity.RedPaper;
 import com.future.partymember.entity.RedVideo;
 import com.future.partymember.entity.StartTest;
 import com.future.partymember.util.PageCut;
+import com.future.partymember.util.PaperUtil;
 import com.future.partymember.util.SwitchTime;
 /**
  * 书记的转发类
@@ -44,8 +45,8 @@ public class PSForwardAction extends BaseAction {
 	 	List<Inform> newInformList= informService.getNew(2);
 
 	 	
-	 	this.getRequest().setAttribute("hotPaper", hotPaperList);
-	 	this.getRequest().setAttribute("newPaper", newPaperList);
+	 	this.getRequest().setAttribute("hotPaper", PaperUtil.titleLength(hotPaperList, 15));
+	 	this.getRequest().setAttribute("newPaper", PaperUtil.titleLength(newPaperList,15));
 	 	this.getRequest().setAttribute("hotVideo", hotVideoList);
 	 	this.getRequest().setAttribute("newVideo", newVideoList);
 	 	this.getRequest().setAttribute("newInform", newInformList);
@@ -115,7 +116,7 @@ public class PSForwardAction extends BaseAction {
 	//转发到在线文章列表页
 	public String paperList() throws Exception{
 		List<RedPaper> paperList=redPaperService.findPaperByType();
-		this.getRequest().setAttribute("paperList", paperList);
+		this.getRequest().setAttribute("paperList", PaperUtil.titleLength(paperList, 15));
 		return "paperList";
 	}
 
