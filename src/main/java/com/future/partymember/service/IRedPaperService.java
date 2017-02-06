@@ -27,7 +27,9 @@ public interface IRedPaperService {
 	//分页查询，带上标题搜索，搜索可为空
 	public PageCut<RedPaper> getPCByNew(int curr, int pageSize,String search);
 	//分页查询，按照文章类别的id
-	public PageCut<RedPaper> getPCByNew(int curr, int pageSize,int paperTypeId);
+	public PageCut<RedPaper> getPCByNew(int curr, int pageSize,int paperTypeId, String search);
+	//分页查询，带上标题搜索，搜索可为空  权限不可为空
+	public PageCut<RedPaper> getPCByNew(int curr, int pageSize,String search, int rp_tag);
 	//根据id查询
 	public RedPaper getById(int id);
 	//根据文章类别进行查询,每个类别只取最新的五条
@@ -57,5 +59,21 @@ public interface IRedPaperService {
 	 * @return
 	 */
 	public List<RedPaper> getHot(int size);
+	
+	
+	/**
+	 * 这四个根据阅读权限进行检索
+	 * @param id
+	 * @return
+	 */
+	//查询当前id的下一条内容
+	public List<RedPaper> getNextRecordById(int id );
+	//查询当前id的上一条内容
+	public List<RedPaper> getPrevRecordById(int id);
+	
+	//查询符合条件的最后一条内容
+	public List<RedPaper> getLastRecordById( );
+	//查询符合条件的第一条内容
+	public List<RedPaper> getFristRecordById();
 
 }

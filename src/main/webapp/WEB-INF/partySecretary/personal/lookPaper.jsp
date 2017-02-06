@@ -23,12 +23,14 @@
        </div>
        <div class="header-right">
              <div>
-    		     <select>
-						<option>时事新闻</option>
-						<option>学习园地</option>
-				 </select>
-                  <input type="text" name="select" placeholder="&nbsp;&nbsp;&nbsp;请输入您要搜索的内容">
-                   <button class="btn"><img src="${rootPath }images/sousuo.png" width="22" height="22"></button>
+             	<form action="${rootPath }secretary/partySecretary_select" method="post">
+    		     	<select name="type">
+							<option value="news">时事新闻</option>
+							<option value="video">学习园地</option>
+				 	</select>
+                  	<input type="text" name="search" placeholder="&nbsp;&nbsp;&nbsp;请输入您要搜索的内容">
+                   	<button class="btn"><img src="${rootPath }images/sousuo.png" width="22" height="22"></button>
+             	</form>
              </div>
        </div>
 </div>
@@ -62,7 +64,7 @@
 						<li><a href="${rootPath}secretary/partySecretary_logout">退出登陆</a></li>
                    </ul>
                </li>
-              <li><a href="connect us.html">联系我们</a></li>
+              <li><a href="${rootPath}secretary/partySecretary_connectUs">联系我们</a></li>
          </ul>
      </div>
 </div>

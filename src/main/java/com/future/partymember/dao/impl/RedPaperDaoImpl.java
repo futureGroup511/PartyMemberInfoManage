@@ -143,33 +143,113 @@ public class RedPaperDaoImpl extends BaseDao<RedPaper> implements IRedPaperDao {
 	}
 	
 	
-	public int getNum( int paperTypeId) {
-		String hql="select count(*) from RedPaper where  paperTypeId=?";
-		return ((Long) this.uniqueResult(hql,paperTypeId)).intValue();
+	public int getNum( int paperTypeId, String search) {
+		if(search==null || search.length()==0){
+			String hql="select count(*) from RedPaper where  paperTypeId=? and rp_tag=1";
+			return ((Long) this.uniqueResult(hql,paperTypeId)).intValue();
+		}else{
+			String hql="select count(*) from RedPaper where  paperTypeId=? and title like ? and rp_tag=1";
+			return ((Long) this.uniqueResult(hql,paperTypeId,"%"+search+"%")).intValue();
+		}
 	}
 	
 	
 	//分页查询按文章类别的id
 	@Override
-	public PageCut<RedPaper> getPCByNew(int curr, int pageSize, int paperTypeId) {
-		int first=(curr-1)*pageSize;
-		String hql="from RedPaper where paperTypeId=? order by rp_Id desc";
-		List<RedPaper> list=this.getEntityLimitList(hql, first,pageSize,paperTypeId);
-		PageCut<RedPaper> pc=new PageCut<>(curr,pageSize,this.getNum(paperTypeId));
-		pc.setData(list);
-		return pc;	
+	public PageCut<RedPaper> getPCByNew(int curr, int pageSize, int paperTypeId, String search) {
+		System.out.println(search);
+		if(search == null || search.length()==0){
+			int first=(curr-1)*pageSize;
+			String hql="from RedPaper where paperTypeId=? and rp_tag=1 order by rp_Id desc";
+			List<RedPaper> list=this.getEntityLimitList(hql, first,pageSize,paperTypeId);
+			PageCut<RedPaper> pc=new PageCut<>(curr,pageSize,this.getNum(paperTypeId,search));
+			pc.setData(list);
+			return pc;
+		}else{
+			int first=(curr-1)*pageSize;
+			String hql="from RedPaper where paperTypeId=? and rp_tag=1 and title like ? order by rp_Id desc ";
+			List<RedPaper> list=this.getEntityLimitList(hql, first,pageSize,paperTypeId,"%"+search+"%");
+			PageCut<RedPaper> pc=new PageCut<>(curr,pageSize,this.getNum(paperTypeId,search));
+			pc.setData(list);
+			return pc;
+		}
 	}
 
 	@Override
 	public List<RedPaper> getNew(int size) {
-		String hql="from RedPaper as rp order by rp.releaseDate desc";
+		String hql="from RedPaper as rp where rp_tag=1 order by rp.releaseDate desc";
 		return this.getEntityLimitList(hql, 0, size);
 	}
 
 	@Override
 	public List<RedPaper> getHot(int size) {
-		String hql="from RedPaper as rp order by rp.readNum desc";
+		String hql="from RedPaper as rp where rp_tag=1 order by rp.readNum desc";
 		return this.getEntityLimitList(hql, 0, size);
+	}
+
+	
+	
+	
+
+
+	@Override
+	public PageCut<RedPaper> getPCByNew(int curr, int pageSize, String search, int rp_tag) {
+		System.out.println(search);
+		if(search == null || search.length()==0){
+			int first=(curr-1)*pageSize;
+			String hql="from RedPaper where rp_tag=? order by rp_Id desc";
+			List<RedPaper> list=this.getEntityLimitList(hql, first,pageSize,rp_tag);
+			
+			String countHql="select count(*) from RedPaper where rp_tag=?";
+			int num=((Long) this.uniqueResult(countHql,rp_tag)).intValue();
+			
+			PageCut<RedPaper> pc=new PageCut<>(curr,pageSize,num);
+			pc.setData(list);
+			return pc;
+		}else{
+			int first=(curr-1)*pageSize;
+			String hql="from RedPaper where rp_tag=? and title like ? order by rp_Id desc ";
+			List<RedPaper> list=this.getEntityLimitList(hql, first,pageSize,rp_tag,"%"+search+"%");
+			
+			String countHql="select count(*) from RedPaper where  rp_tag=?  and title like ? and rp_tag=1";
+			int num=((Long) this.uniqueResult(countHql,rp_tag,"%"+search+"%")).intValue();
+			
+			PageCut<RedPaper> pc=new PageCut<>(curr,pageSize,num);
+			pc.setData(list);
+			return pc;
+		}
+	}
+
+	//查询当前id的下一条记录
+	@Override
+	public List<RedPaper> getNextRecordById(int id) {
+		String sql="select * from red_paper rp where rp_Id>? "
+				+ " and rp.rp_tag=1 order by rp_Id asc limit 1";
+		return executeSQLQuery(RedPaper.class,sql, id);
+	}
+
+	
+	//查询当前id的上一条记录
+	@Override
+	public List<RedPaper> getPrevRecordById(int id) {
+		String sql="select * from red_paper rp where rp.rp_Id<? "
+				+ " and rp.rp_tag=1 order by rp.rp_Id desc limit 1";
+		return executeSQLQuery(RedPaper.class,sql, id);
+	}
+	
+
+	//查询最后一条记录
+	@Override
+	public List<RedPaper> getLastRecordById() {
+		String sql="select * from red_paper as rp where  rp.rp_tag=1 order by rp.rp_Id desc limit 1";
+		return executeSQLQuery(RedPaper.class,sql);
+	}
+
+	//查询符合条件的第一条
+	@Override
+	public List<RedPaper> getFristRecordById() {
+		String sql="select * from red_paper as rp where rp.rp_tag=1 order by rp.rp_Id asc limit 1";
+		return executeSQLQuery(RedPaper.class,sql);
 	}
 	
 

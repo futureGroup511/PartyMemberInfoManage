@@ -140,4 +140,5 @@ public class RedVideoDaoImpl extends BaseDao<RedVideo> implements IRedVideoDao {
 		String hql="from RedVideo as rv order by rv.watchNum desc";
 		return this.getEntityLimitList(hql,0,size);
 	}
+
 }

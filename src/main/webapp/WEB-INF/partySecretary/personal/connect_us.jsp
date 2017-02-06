@@ -46,7 +46,7 @@
                    <ul class="dropdown-menu">
                          <li><a href="${rootPath}party/partyMemberAction_seekPartyMemberInfo.action">个人信息</a></li>
                          <li><a href="${rootPath}party/partyMemberAction_getInfoBeforeUpdate.action">修改信息</a></li>
-                         <li><a href="${rootPath}party/partyMemberAction_getMyExamLog.action">考试报告</a></li>
+                         <li><a href="${rootPath}party/partyMemberAction_getMyExamLog">考试报告</a></li>
                    </ul>
                </li>
               <li><a href="information.jsp">通知公告</a></li>

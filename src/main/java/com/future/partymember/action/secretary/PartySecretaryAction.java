@@ -344,9 +344,10 @@ public class PartySecretaryAction extends BaseAction {
 	
 	//视频列表和分页
 	public String videoList(){
-		System.out.println("通知的分页"+page);
-		//先得到书记对象
-		PageCut<RedVideo> pc=redVideoService.getPC(16, page);
+		System.out.println("分页"+page);
+		String search=this.getRequest().getParameter("search");
+		System.out.println("search  "+search);
+		PageCut<RedVideo> pc=redVideoService.getPC(16, page, search);
 		this.getRequest().setAttribute("pc", pc);
 		
 		
@@ -454,11 +455,57 @@ public class PartySecretaryAction extends BaseAction {
 	
 	//进入某个文章版块
 	public String paperSection(){
+		String search=this.getRequest().getParameter("search");
 		int paperTypeId=Integer.parseInt(this.getRequest().getParameter("paperTypeId"));
-		pageCut=redPaperService.getPCByNew(page, 15, paperTypeId);
+		pageCut=redPaperService.getPCByNew(page, 15, paperTypeId , search);
 		this.getRequest().setAttribute("pc", pageCut);
 		this.getRequest().setAttribute("paper", pageCut.getData().get(0));
 		return "paperSection";
+	}
+	
+	//文章列表
+	public String paperList(){
+		String search=this.getRequest().getParameter("search");
+		pageCut=redPaperService.getPCByNew(page, 15,search,1);//1代表权限
+		this.getRequest().setAttribute("pc", pageCut);
+		return "paperList";
+	}
+	
+	
+	//阅读文章  根据阅读权限
+	public String lookPaperByTag() throws Exception{
+		int id=Integer.parseInt(this.getRequest().getParameter("rp_Id"));
+		System.out.println("文章id"+id);
+		redPaperService.updatePaperReadNum(id);//文章阅读次数加一
+		RedPaper rp=redPaperService.getById(id);
+		this.getRequest().setAttribute("paper", rp);
+		
+		//查询第一篇 最后一篇 作为临界点
+		RedPaper lastPaper=redPaperService.getLastRecordById().get(0);
+		RedPaper fristPaper=redPaperService.getFristRecordById().get(0);
+		
+		//查询上一篇 下一篇
+		if(lastPaper.getRp_Id()==id){
+			this.getRequest().setAttribute("next", lastPaper);
+			this.getRequest().setAttribute("notice", "后面没有了");			
+		}else{
+			List<RedPaper> rpNext=redPaperService.getNextRecordById(id);
+			if(rpNext!=null){
+				RedPaper rp1=rpNext.get(0);
+				this.getRequest().setAttribute("next",rp1 );
+			}
+		}
+		
+		if(fristPaper.getRp_Id()==id){
+			this.getRequest().setAttribute("prev", fristPaper);
+			this.getRequest().setAttribute("notice", "前面没有了");
+		}else{
+			List<RedPaper> rpPrev=redPaperService.getPrevRecordById(id);
+			RedPaper rp2=rpPrev.get(0);
+			this.getRequest().setAttribute("prev", rp2);
+		}
+
+		return "lookPaperByTag";
 	}
 	
 	
@@ -496,6 +543,24 @@ public class PartySecretaryAction extends BaseAction {
 		}
 
 		return "lookPaper";
+	}
+	
+	//跳转到联系我们页面
+	public String connectUs(){
+		return "connectUs";
+	}
+	
+	//搜索时事新闻与学习园地的数据的方法
+	public String select(){
+		String type=this.getRequest().getParameter("type");
+		//String select=this.getRequest().getParameter("select");
+		if(type.equals("news")){
+			return paperList();
+		}
+		if(type.equals("video")){
+			return videoList();
+		}
+		return null;
 	}
 
 	public PartySecretaryInfo getPartySecretaryInfo() {

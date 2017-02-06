@@ -95,20 +95,43 @@ public class RedPaperServiceImpl implements IRedPaperService{
 	}
 
 	@Override
-	public PageCut<RedPaper> getPCByNew(int curr, int pageSize, int paperTypeId) {
-		return iRedPaperDao.getPCByNew(curr, pageSize, paperTypeId);
+	public PageCut<RedPaper> getPCByNew(int curr, int pageSize, int paperTypeId, String search) {
+		return iRedPaperDao.getPCByNew(curr, pageSize, paperTypeId,search);
 	}
 
 	@Override
 	public List<RedPaper> getNew(int size) {
-		// TODO Auto-generated method stub
 		return iRedPaperDao.getNew(size);
 	}
 
 	@Override
 	public List<RedPaper> getHot(int size) {
-		// TODO Auto-generated method stub
 		return iRedPaperDao.getHot(size);
+	}
+
+	@Override
+	public PageCut<RedPaper> getPCByNew(int curr, int pageSize, String search, int rp_tag) {
+		return iRedPaperDao.getPCByNew(curr, pageSize, search, rp_tag);
+	}
+
+	@Override
+	public List<RedPaper> getNextRecordById(int id) {
+		return iRedPaperDao.getNextRecordById(id);
+	}
+
+	@Override
+	public List<RedPaper> getPrevRecordById(int id) {
+		return iRedPaperDao.getPrevRecordById(id);
+	}
+
+	@Override
+	public List<RedPaper> getLastRecordById() {
+		return iRedPaperDao.getLastRecordById();
+	}
+
+	@Override
+	public List<RedPaper> getFristRecordById() {
+		return iRedPaperDao.getFristRecordById();
 	}
 
 }

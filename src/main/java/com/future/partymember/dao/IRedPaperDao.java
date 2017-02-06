@@ -18,8 +18,20 @@ public interface IRedPaperDao {
 	public PageCut<RedPaper> getPCByNew(int curr, int pageSize);
 	//分页查询，带上标题搜索，搜索可为空
 	public PageCut<RedPaper> getPCByNew(int curr, int pageSize,String search);
+	
+	
+	/**
+	 * 下面这个方法是书记和党员所用
+	 * 分页查询
+	 * @param curr
+	 * @param pageSize
+	 * @return
+	 */
+	//分页查询，带上标题搜索，搜索可为空  权限不可为空
+	public PageCut<RedPaper> getPCByNew(int curr, int pageSize,String search, int rp_tag);
+	
 	//分页查询， 按类别
-	public PageCut<RedPaper> getPCByNew(int curr, int pageSize,int paperTypeId);
+	public PageCut<RedPaper> getPCByNew(int curr, int pageSize,int paperTypeId, String search);
 	//根据id查询
 	public RedPaper getById(int id);
 	//根据名字精确查询
@@ -28,6 +40,14 @@ public interface IRedPaperDao {
 	public List<RedPaper> findPaperByType();
 	//文章的阅读次数加一
 	public boolean updatePaperReadNum(int rp_id);
+	
+	
+	/**
+	 * 下面这四个方法是根据文章类别进行检索
+	 * @param id
+	 * @param typeId
+	 * @return
+	 */
 	//查询当前id的下一条内容
 	public List<RedPaper> getNextRecordById(int id, int typeId);
 	//查询当前id的上一条内容
@@ -37,6 +57,23 @@ public interface IRedPaperDao {
 	public List<RedPaper> getLastRecordById( int typeId);
 	//查询符合条件的第一条内容
 	public List<RedPaper> getFristRecordById(int typeId);
+	
+	
+	
+	/**
+	 * 这四个根据阅读权限进行检索
+	 * @param id
+	 * @return
+	 */
+	//查询当前id的下一条内容
+	public List<RedPaper> getNextRecordById(int id );
+	//查询当前id的上一条内容
+	public List<RedPaper> getPrevRecordById(int id);
+	
+	//查询符合条件的最后一条内容
+	public List<RedPaper> getLastRecordById( );
+	//查询符合条件的第一条内容
+	public List<RedPaper> getFristRecordById();
 	
 		//获取最新文章
 		/**
