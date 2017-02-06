@@ -88,8 +88,8 @@
 </div>
 <div id="body-four">
   <section class="pre-next">
-				<p><span>上一篇：<a href="${rootPath }secretary/partySecretary_lookPaperByTag?rp_Id=${prev.rp_Id}">${prev.title }</a></span>
-				<span>下一篇：<a href="${rootPath }secretary/partySecretary_lookPaperByTag?rp_Id=${next.rp_Id}">${next.title}</a></span></p>
+				<p><span>上一篇：<a href="${rootPath }secretary/partySecretary_lookPaperByTag?rp_Id=${prev.rp_Id}&&search=${search}">${prev.title }</a></span>
+				<span>下一篇：<a href="${rootPath }secretary/partySecretary_lookPaperByTag?rp_Id=${next.rp_Id}&&search=${search}">${next.title}</a></span></p>
   </section>
 </div>
 <footer id="footer-warp"><!--页脚开始-->

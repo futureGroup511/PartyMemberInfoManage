@@ -67,13 +67,13 @@ public interface IRedPaperService {
 	 * @return
 	 */
 	//查询当前id的下一条内容
-	public List<RedPaper> getNextRecordById(int id );
+	public List<RedPaper> getNextRecordById(int id , String search);
 	//查询当前id的上一条内容
-	public List<RedPaper> getPrevRecordById(int id);
+	public List<RedPaper> getPrevRecordById(int id, String search);
 	
 	//查询符合条件的最后一条内容
-	public List<RedPaper> getLastRecordById( );
+	public List<RedPaper> getLastRecordById(String search );
 	//查询符合条件的第一条内容
-	public List<RedPaper> getFristRecordById();
+	public List<RedPaper> getFristRecordById(String search);
 
 }

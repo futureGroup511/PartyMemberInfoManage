@@ -1,5 +1,6 @@
 package com.future.partymember.action.secretary;
 
+import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -247,7 +248,7 @@ public class PartySecretaryAction extends BaseAction {
 		System.out.println("通知的分页"+page);
 		//先得到书记对象
 		PartySecretaryInfo psi=(PartySecretaryInfo) session.get("secretary");
-		PageCut<Inform> pc=informService.getQuery(page, 5, psi.getPartyBranch());
+		PageCut<Inform> pc=informService.getQuery(page, 5, psi.getPst_Id());
 		this.getRequest().setAttribute("pc", pc);
 		return "manageInfom";
 	}
@@ -287,11 +288,41 @@ public class PartySecretaryAction extends BaseAction {
 	//查看所管理的党员信息
 	public String lookOfPartyMember() throws Exception{
 		//先得到书记对象
-		PartySecretaryInfo psi=(PartySecretaryInfo) session.get("secretary");
-		List<PartyMemberInfo>  list=null;
-		int curPage =1;
+		String search=this.getRequest().getParameter("search");
 		
-		if(pageCut==null){
+		try {
+			if (search!=null&&search.equals(new String(search.getBytes("iso8859-1"), "iso8859-1"))) {
+				//判断是不是utf-8如果不是进行转码
+				try {
+					search= new String(search.getBytes("iso8859-1"),"utf-8");
+				} catch (UnsupportedEncodingException e) {
+					e.printStackTrace();
+				}
+			}
+		} catch (UnsupportedEncodingException e) {
+			e.printStackTrace();
+		}
+		System.out.println("search"+search);
+		System.out.println("page"+page);
+		PartySecretaryInfo psi=(PartySecretaryInfo) session.get("secretary");
+		PageCut<PartyMemberInfo>  pCut=partyMemberInfoService.getPageCut(page, 5, search, psi.getPartyBranch());
+		
+		
+		if( search==null || search.length()==0){
+			
+		}else{
+			for(PartyMemberInfo p:pCut.getData()){
+				String format="<span class=\"search\">%s</span>";
+				p.setNation(p.getNation().replaceAll(search, String.format(format, search)));
+				p.setUsername(p.getUsername().replaceAll(search, String.format(format, search)));
+				p.setNativePlace(p.getNativePlace().replaceAll(search, String.format(format, search)));
+				p.setPhoneNo(p.getPhoneNo().replaceAll(search, String.format(format, search)));
+			}
+		}
+		
+		
+		
+/*		if(pageCut==null){
 			list=partyMemberInfoService.findAllPartyMemberInfo(psi,curPage,15);//一页15条记录
 			pageCut=partyMemberInfoService.getPagerCut(15, curPage, psi);
 		}else{
@@ -299,10 +330,11 @@ public class PartySecretaryAction extends BaseAction {
 			
 			list=partyMemberInfoService.findAllPartyMemberInfo(psi,curPage,15);//一页15条记录
 			pageCut=partyMemberInfoService.getPagerCut(15, curPage, psi);
-		}
+		}*/
 
 		
-		this.getRequest().setAttribute("PMIlist", list);
+		this.getRequest().setAttribute("pc", pCut);
+		this.getRequest().setAttribute("search", search);
 		return "lookOfPartyMember";
 	}
 	
@@ -466,15 +498,47 @@ public class PartySecretaryAction extends BaseAction {
 	
 	//文章列表
 	public String paperList(){
+		
+		
 		String search=this.getRequest().getParameter("search");
+		try {
+			if (search.equals(new String(search.getBytes("iso8859-1"), "iso8859-1"))) {
+				//判断是不是utf-8如果不是进行转码
+				try {
+					search= new String(search.getBytes("iso8859-1"),"utf-8");
+				} catch (UnsupportedEncodingException e) {
+					e.printStackTrace();
+				}
+			}
+		} catch (UnsupportedEncodingException e) {
+			e.printStackTrace();
+		}
+		
 		pageCut=redPaperService.getPCByNew(page, 15,search,1);//1代表权限
 		this.getRequest().setAttribute("pc", pageCut);
+		this.getRequest().setAttribute("search", search);
 		return "paperList";
 	}
 	
 	
 	//阅读文章  根据阅读权限
 	public String lookPaperByTag() throws Exception{
+		
+		String search=this.getRequest().getParameter("search");
+		try {
+			if (search.equals(new String(search.getBytes("iso8859-1"), "iso8859-1"))) {
+				//判断是不是utf-8如果不是进行转码
+				try {
+					search= new String(search.getBytes("iso8859-1"),"utf-8");
+				} catch (UnsupportedEncodingException e) {
+					e.printStackTrace();
+				}
+			}
+		} catch (UnsupportedEncodingException e) {
+			e.printStackTrace();
+		}
+		
+		
 		int id=Integer.parseInt(this.getRequest().getParameter("rp_Id"));
 		System.out.println("文章id"+id);
 		redPaperService.updatePaperReadNum(id);//文章阅读次数加一
@@ -482,15 +546,15 @@ public class PartySecretaryAction extends BaseAction {
 		this.getRequest().setAttribute("paper", rp);
 		
 		//查询第一篇 最后一篇 作为临界点
-		RedPaper lastPaper=redPaperService.getLastRecordById().get(0);
-		RedPaper fristPaper=redPaperService.getFristRecordById().get(0);
+		RedPaper lastPaper=redPaperService.getLastRecordById(search).get(0);
+		RedPaper fristPaper=redPaperService.getFristRecordById(search).get(0);
 		
 		//查询上一篇 下一篇
 		if(lastPaper.getRp_Id()==id){
 			this.getRequest().setAttribute("next", lastPaper);
 			this.getRequest().setAttribute("notice", "后面没有了");			
 		}else{
-			List<RedPaper> rpNext=redPaperService.getNextRecordById(id);
+			List<RedPaper> rpNext=redPaperService.getNextRecordById(id,search);
 			if(rpNext!=null){
 				RedPaper rp1=rpNext.get(0);
 				this.getRequest().setAttribute("next",rp1 );
@@ -501,11 +565,11 @@ public class PartySecretaryAction extends BaseAction {
 			this.getRequest().setAttribute("prev", fristPaper);
 			this.getRequest().setAttribute("notice", "前面没有了");
 		}else{
-			List<RedPaper> rpPrev=redPaperService.getPrevRecordById(id);
+			List<RedPaper> rpPrev=redPaperService.getPrevRecordById(id,search);
 			RedPaper rp2=rpPrev.get(0);
 			this.getRequest().setAttribute("prev", rp2);
 		}
-
+		this.getRequest().setAttribute("search", search);
 		return "lookPaperByTag";
 	}
 	

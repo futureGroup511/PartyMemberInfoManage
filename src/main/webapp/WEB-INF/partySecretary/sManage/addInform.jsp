@@ -145,7 +145,7 @@ var ue = UE.getEditor('editor', {
 <div id="body">
  <div id="body-one">
    <p><img src="${rootPath }images/topimg.png"> <span>您的位置：
-   <a href="${rootPath }secretary/pSForward_fIndex">首页</a>&nbsp;&nbsp;>&nbsp;&nbsp;发布通知&nbsp;&nbsp;>&nbsp;&nbsp;发布通知</span></p>
+   <a href="${rootPath }secretary/pSForward_fIndex">首页</a>&nbsp;&nbsp;>&nbsp;&nbsp;通知消息&nbsp;&nbsp;>&nbsp;&nbsp;发布通知</span></p>
  </div>
  <form  method="POST" action="${rootPath}secretary/partySecretary_addInform"  onsubmit="modifyContent()">
  <div id="body-two">

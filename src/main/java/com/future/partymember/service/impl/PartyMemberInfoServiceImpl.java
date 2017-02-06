@@ -92,6 +92,11 @@ public class PartyMemberInfoServiceImpl implements IPartyMemberInfoService{
 	}
 	public PartyMemberInfo login(String account, String password) {		
 		return partyMemberInfoDao.login(account, password);
+	}
+
+	@Override
+	public PageCut<PartyMemberInfo> getPageCut(int currentPage, int pageSize, String search, String partyBranch) {
+		return partyMemberInfoDao.getPageCut(currentPage, pageSize, search, partyBranch) ;
 	}	
 	
 }

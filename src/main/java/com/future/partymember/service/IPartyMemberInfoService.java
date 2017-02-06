@@ -38,6 +38,9 @@ public interface IPartyMemberInfoService {
 	 * @return
 	 */
 	public PageCut<PartyMemberInfo> getPageCut(int currentPage,int pageSize,String search);
+	
+	//用来查询某一党支部的党员
+	public PageCut<PartyMemberInfo> getPageCut(int currentPage,int pageSize,String search, String partyBranch);
 	//是否存在账号
 	public boolean exist(String account);
 	//登录

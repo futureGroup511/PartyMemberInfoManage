@@ -222,34 +222,34 @@ public class RedPaperDaoImpl extends BaseDao<RedPaper> implements IRedPaperDao {
 
 	//查询当前id的下一条记录
 	@Override
-	public List<RedPaper> getNextRecordById(int id) {
-		String sql="select * from red_paper rp where rp_Id>? "
+	public List<RedPaper> getNextRecordById(int id, String search) {
+		String sql="select * from red_paper rp where rp.title like ? and rp_Id>? "
 				+ " and rp.rp_tag=1 order by rp_Id asc limit 1";
-		return executeSQLQuery(RedPaper.class,sql, id);
+		return executeSQLQuery(RedPaper.class,sql,"%"+search+"%", id);
 	}
 
 	
 	//查询当前id的上一条记录
 	@Override
-	public List<RedPaper> getPrevRecordById(int id) {
+	public List<RedPaper> getPrevRecordById(int id, String search) {
 		String sql="select * from red_paper rp where rp.rp_Id<? "
 				+ " and rp.rp_tag=1 order by rp.rp_Id desc limit 1";
-		return executeSQLQuery(RedPaper.class,sql, id);
+		return executeSQLQuery(RedPaper.class,sql, "%"+search+"%", id);
 	}
 	
 
 	//查询最后一条记录
 	@Override
-	public List<RedPaper> getLastRecordById() {
-		String sql="select * from red_paper as rp where  rp.rp_tag=1 order by rp.rp_Id desc limit 1";
-		return executeSQLQuery(RedPaper.class,sql);
+	public List<RedPaper> getLastRecordById(String search) {
+		String sql="select * from red_paper as rp where rp.title like ? and rp.rp_tag=1 order by rp.rp_Id desc limit 1";
+		return executeSQLQuery(RedPaper.class,sql, "%"+search+"%");
 	}
 
 	//查询符合条件的第一条
 	@Override
-	public List<RedPaper> getFristRecordById() {
-		String sql="select * from red_paper as rp where rp.rp_tag=1 order by rp.rp_Id asc limit 1";
-		return executeSQLQuery(RedPaper.class,sql);
+	public List<RedPaper> getFristRecordById(String search) {
+		String sql="select * from red_paper as rp where rp.title like ? and rp.rp_tag=1 order by rp.rp_Id asc limit 1";
+		return executeSQLQuery(RedPaper.class,sql, "%"+search+"%");
 	}
 	
 

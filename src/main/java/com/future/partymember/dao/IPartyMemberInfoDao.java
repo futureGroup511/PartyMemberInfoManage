@@ -39,4 +39,7 @@ public interface IPartyMemberInfoDao {
 
 	//登录
 	public PartyMemberInfo login(String account,String password);
+	
+	//用来查询某一党支部的党员  丁赵雷
+	public PageCut<PartyMemberInfo> getPageCut(int currentPage,int pageSize,String search, String partyBranch);
 }

@@ -134,4 +134,42 @@ public class PartyMemberInfoDaoImpl extends BaseDao<PartyMemberInfo> implements 
 		
 		return (PartyMemberInfo)this.uniqueResult(hql);
 	}
+
+	//书记所用 丁赵雷
+	@Override
+	public PageCut<PartyMemberInfo> getPageCut(int currentPage, int pageSize, String search, String partyBranch) {
+		String hql ;
+		int count=0;
+		
+		if(search ==null || search.length()==0){
+			hql = "select count(*) from PartyMemberInfo p where p.partyBranch=?";
+			count = ((Long) this.uniqueResult(hql,partyBranch)).intValue();
+		}else{
+			hql = "select count(*) from PartyMemberInfo as p "
+					+ "where p.partyBranch=? and p.account like :search or p.username like :search or p.idCard like :search";
+			Query query=this.getSession().createQuery(hql);
+			query.setParameter(0,partyBranch);
+			query.setString("search","%"+search+"%");
+			
+			count=((Long)query.uniqueResult()).intValue();
+		}
+		
+		
+		PageCut<PartyMemberInfo> pc = new PageCut<PartyMemberInfo>(currentPage, pageSize, count);
+		if(search==null || search.length()==0){
+			hql="from PartyMemberInfo p where p.partyBranch=?";
+			pc.setData(this.getEntityLimitList(hql, (currentPage-1)*pageSize, pageSize, partyBranch));
+		}else{
+			hql="from PartyMemberInfo as p where p.partyBranch=? and "
+					+ "p.phoneNo like :search or p.username like :search "
+					+ "or p.nativePlace like :search  or p.nation like :search";
+			Query query=this.getSession().createQuery(hql);
+			query.setParameter(0,partyBranch);
+			query.setString("search","%"+search+"%");
+			query.setFirstResult((currentPage-1)*pageSize);
+			query.setMaxResults(pageSize);
+			pc.setData(query.list());
+		}
+		return pc;
+	}
 }
