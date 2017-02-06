@@ -73,7 +73,9 @@
 
 <div id="body">
  <div id="body-one">
-   <p><img src="${rootPath}images/topimg.png"> <span>您的位置：首页>时事新闻>党建巡礼>正文</span></p>
+   <p><img src="${rootPath}images/topimg.png"> <span>您的位置：<a href="${rootPath }secretary/pSForward_fIndex">首页</a>>
+   <a href="${rootPath }secretary/pSForward_paperList">时事新闻</a>>
+   <a href="${rootPath }secretary/partySecretary_paperSection?paperTypeId=${paper.paperTypeId}">${paper.paperType}</a>>正文</span></p>
  </div>
  <div id="body-two">
    <h4>${paper.title}</h4>

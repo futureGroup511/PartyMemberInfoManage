@@ -460,6 +460,7 @@ public class PartySecretaryAction extends BaseAction {
 		pageCut=redPaperService.getPCByNew(page, 15, paperTypeId , search);
 		this.getRequest().setAttribute("pc", pageCut);
 		this.getRequest().setAttribute("paper", pageCut.getData().get(0));
+		System.out.println("文章板块"+pageCut.getData().get(0));
 		return "paperSection";
 	}
 	

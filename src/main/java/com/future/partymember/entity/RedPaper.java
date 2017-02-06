@@ -19,7 +19,6 @@ import javax.persistence.Transient;
 @Table(name = "red_paper", catalog = "partymember")
 public class RedPaper {
 
-
 	private int rp_Id;
 	private int paperTypeId;//文章类别的id
 	private String paperType;//作为一个辅助字段
@@ -152,5 +151,13 @@ public class RedPaper {
 		default :
 			return "未定义"; 
 		}
+	}
+	
+
+	@Override
+	public String toString() {
+		return "RedPaper [rp_Id=" + rp_Id + ", paperTypeId=" + paperTypeId + ", paperType=" + paperType + ", title="
+				+ title + ", content=" + content + ", readNum=" + readNum + ", rp_tag=" + rp_tag + ", author=" + author
+				+ ", source=" + source + ", releaseDate=" + releaseDate + "]";
 	}
 }

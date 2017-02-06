@@ -15,7 +15,7 @@
 <body>
 <div id="header">
      <div class="header-left">
-          <img src="${rootPath}images/header-logo.png">
+          <img src="${rootPath }images/header-logo.png">
       </div>
       <div class="header-center">
               <p class="top"><b><strong>河南科技学院信息工程学院党委主办</strong></b></p>
@@ -23,41 +23,57 @@
        </div>
        <div class="header-right">
              <div>
-    		     <select>
-						<option>时事新闻</option>
-						<option>生活百科</option>
-						<option>新闻动态</option>
-						<option>通知公告</option>
-				 </select>
-                  <input type="text" name="select" placeholder="请输入您要搜索的内容">
-                   <button class="btn"><img src="${rootPath}images/sousuo.png" width="22" height="22"></button>
+             	<form action="${rootPath }secretary/partySecretary_select" method="post">
+    		     	<select name="type">
+							<option value="news">时事新闻</option>
+							<option value="video">学习园地</option>
+				 	</select>
+                  	<input type="text" name="search" placeholder="&nbsp;&nbsp;&nbsp;请输入您要搜索的内容">
+                   	<button class="btn"><img src="${rootPath }images/sousuo.png" width="22" height="22"></button>
+             	</form>
              </div>
        </div>
 </div>
 <div class="nav">
      <div class="row">
-       <div class="col-lg-8 col-lg-offset-3 col-md-8 col-md-offset-3 col-xs-8 col-xs-offset-3">
          <ul class="nav navbar-nav">
-             <li><a href="${rootPath}party/partyLogin.action">网站首页</a></li>
-              <li><a href="${rootPath }secretary/pSForward_paperList.action">红色文章</a></li>
-              <li><a href="${rootPath}party/partyMemberAction_viewVideos.action">红色视频</a></li>
-              <li><a href="${rootPath}party/partyMemberAction_startTest.action">在线考试</a></li>
-              <li class="dropdown"><a href="#" data-toggle="dropdown" class="dropdown-toggle">个人中心<span class="caret"></span></a>
+              <li><a href="${rootPath }secretary/pSForward_fIndex">网站首页</a></li>
+              <li class="dropdown"><a href="#" data-toggle="dropdown" class="dropdown-toggle">通知消息<span class="caret"></span></a>
                    <ul class="dropdown-menu">
-                         <li><a href="${rootPath}party/partyMemberAction_seekPartyMemberInfo.action">个人信息</a></li>
-                         <li><a href="${rootPath}party/partyMemberAction_getInfoBeforeUpdate.action">修改信息</a></li>
-                         <li><a href="${rootPath}party/partyMemberAction_getMyExamLog">考试报告</a></li>
+                   		<li><a href="${rootPath }secretary/partySecretary_informList">查看通知</a></li>
+						<li><a href="${rootPath }secretary/pSForward_fAddInform">发布通知</a></li>
+						<li><a href="${rootPath }secretary/pSForward_fManageInfom">管理通知</a></li>
                    </ul>
                </li>
-              <li><a href="information.jsp">通知公告</a></li>
-              <li><a href="#">联系我们</a></li>
+              <li class="dropdown"><a href="#" data-toggle="dropdown" class="dropdown-toggle">党员管理<span class="caret"></span></a>
+                   <ul class="dropdown-menu">
+						<li><a href="${rootPath }secretary/partySecretary_lookOfPartyMember">查看所属党员个人信息</a></li>
+						<li><a href="${rootPath }secretary/test_startTestLog">查看所属党员考试记录</a></li>
+                   </ul>
+               </li>
+               				
+
+              <li><a href="${rootPath }secretary/partySecretary_videoList">学习园地</a></li>
+				<li><a href="${rootPath }secretary/pSForward_paperList">时事新闻</a></li>
+				<li><a href="${rootPath }secretary/pSForward_startTest">在线考试</a></li>
+               <li class="dropdown"><a href="#" data-toggle="dropdown" class="dropdown-toggle">个人中心<span class="caret"></span></a>
+                   <ul class="dropdown-menu">
+						<li><a href="${rootPath }secretary/partySecretary_lookMyself">个人信息</a></li>
+						<li><a href="${rootPath }secretary/pSForward_fUpdataPerson">修改信息</a></li>
+						<li><a href="${rootPath}secretary/partySecretary_getMyExamLog">考试报告</a></li>
+						<li><a href="${rootPath}secretary/partySecretary_logout">退出登陆</a></li>
+                   </ul>
+               </li>
+              <li><a href="${rootPath}secretary/partySecretary_connectUs">联系我们</a></li>
          </ul>
-        </div>
      </div>
 </div>
+
+<!--以上为头部-->
+
 <div id="body">
  <div id="body-one">
-   <p><img src="${rootPath}images/topimg.png"> <span>您的位置：首页>我的空间</span></p>
+   <p><img src="${rootPath}images/topimg.png"> <span>您的位置：<a href="${rootPath }secretary/pSForward_fIndex">首页</a>>联系我们</span></p>
  </div>
  <div id="body-two">
    <p>来函请寄：新乡高校教师党员在线学习管理中心，新乡市洪门镇红旗区清河小营东路12号</p>

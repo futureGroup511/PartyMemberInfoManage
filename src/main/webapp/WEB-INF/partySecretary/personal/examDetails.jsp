@@ -24,14 +24,14 @@
        </div>
        <div class="header-right">
              <div>
-    		     <select>
-						<option>时事新闻</option>
-						<option>生活百科</option>
-						<option>新闻动态</option>
-						<option>通知公告</option>
-				 </select>
-                  <input type="text" name="select" placeholder="&nbsp;&nbsp;&nbsp;请输入您要搜索的内容">
-                   <button class="btn"><img src="${rootPath }images/sousuo.png" width="22" height="22"></button>
+             	<form action="${rootPath }secretary/partySecretary_select" method="post">
+    		     	<select name="type">
+							<option value="news">时事新闻</option>
+							<option value="video">学习园地</option>
+				 	</select>
+                  	<input type="text" name="search" placeholder="&nbsp;&nbsp;&nbsp;请输入您要搜索的内容">
+                   	<button class="btn"><img src="${rootPath }images/sousuo.png" width="22" height="22"></button>
+             	</form>
              </div>
        </div>
 </div>
@@ -54,17 +54,18 @@
                </li>
                				
 
-              <li><a href="${rootPath }secretary/partySecretary_videoList">在线视频</a></li>
-				<li><a href="${rootPath }secretary/pSForward_paperList">在线文章</a></li>
+              <li><a href="${rootPath }secretary/partySecretary_videoList">学习园地</a></li>
+				<li><a href="${rootPath }secretary/pSForward_paperList">时事新闻</a></li>
 				<li><a href="${rootPath }secretary/pSForward_startTest">在线考试</a></li>
                <li class="dropdown"><a href="#" data-toggle="dropdown" class="dropdown-toggle">个人中心<span class="caret"></span></a>
                    <ul class="dropdown-menu">
 						<li><a href="${rootPath }secretary/partySecretary_lookMyself">个人信息</a></li>
 						<li><a href="${rootPath }secretary/pSForward_fUpdataPerson">修改信息</a></li>
 						<li><a href="${rootPath}secretary/partySecretary_getMyExamLog">考试报告</a></li>
+						<li><a href="${rootPath}secretary/partySecretary_logout">退出登陆</a></li>
                    </ul>
                </li>
-              <li><a href="connect us.html">联系我们</a></li>
+              <li><a href="${rootPath}secretary/partySecretary_connectUs">联系我们</a></li>
          </ul>
      </div>
 </div>
@@ -73,7 +74,9 @@
 	<div id="body">
 		<div id="body-one">
 			<p>
-				<img src="${rootPath}images/topimg.png"> <span>您的位置：首页>个人中心>考试报告>考试详情</span>
+				<img src="${rootPath}images/topimg.png"> <span>您的位置：
+				<a href="${rootPath }secretary/pSForward_fIndex">首页</a>><a href="#" data-toggle="dropdown" class="dropdown-toggle">个人中心
+				></a><a href="${rootPath}secretary/partySecretary_getMyExamLog">考试报告</a>>考试详情</span>
 			</p>
 		</div>
 		<div id="body-big">
