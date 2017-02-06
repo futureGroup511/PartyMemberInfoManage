@@ -467,8 +467,10 @@ public class PartySecretaryAction extends BaseAction {
 	//文章列表
 	public String paperList(){
 		String search=this.getRequest().getParameter("search");
+		
 		pageCut=redPaperService.getPCByNew(page, 15,search,1);//1代表权限
 		this.getRequest().setAttribute("pc", pageCut);
+		
 		return "paperList";
 	}
 	

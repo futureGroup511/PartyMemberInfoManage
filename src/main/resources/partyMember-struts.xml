@@ -25,7 +25,8 @@
             <result name="viewing_remote">/WEB-INF/partyMember/videoplay_remote.jsp</result>
           	<!-- 红色文章 -->
           	<result name="getResPaper">/WEB-INF/partyMember/redPaper.jsp</result>
-          	<result name="lookPaper">/WEB-INF/partyMember/readRedPaper.jsp</result>
+          	<result name="lookPaper">/WEB-INF/partyMember/readRedPaper.jsp</result>          	
+          	<result name="paperList">/WEB-INF/partyMember/paperList.jsp</result>
           	<!-- 丁赵雷添加 -->
           	<result name="paperSection">/WEB-INF/partyMember/paperSectionList.jsp</result>
           	

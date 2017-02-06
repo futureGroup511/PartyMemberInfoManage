@@ -27,14 +27,14 @@
 		</div>
 		<div class="header-right">
 			<div>
-				<select>
-					<option>时事新闻</option>
-					<option>学习园地</option>
-					<option>通知公告</option>
-				</select> <input type="text" name="select" placeholder="请输入您要搜索的内容">
-				<button class="btn">
-					<img src="${rootPath}images/sousuo.png" width="22" height="22">
-				</button>
+				<form action="${rootPath}party/partyMemberAction_select.action" method="post">
+    		     	<select name="type">
+							<option value="news">时事新闻</option>
+							<option value="video">学习园地</option>
+				 	</select>
+                  	<input type="text" name="search" placeholder=" 请输入您要搜索的内容">
+                   	<button class="btn"><img src="${rootPath }images/sousuo.png" width="22" height="22"></button>
+             	</form>  
 			</div>
 		</div>
 	</div>
