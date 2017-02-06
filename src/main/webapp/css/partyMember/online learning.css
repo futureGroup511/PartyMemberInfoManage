@@ -138,6 +138,26 @@ body{
 #body-one a:hover{
 	color:#DB0B18;
 }
+.up{
+	position: fixed;
+	top:240px;
+	right:20px;
+	width:140px;
+	height: 80px;
+	background-color:#dbdbdb;
+	border: 1px #DB0B18 solid;
+	border-radius: 10px;
+}
+.up h5{
+
+	margin-left: 30px;
+	margin-top: 15px;
+}
+.timer{
+	margin-left: 5px;
+	font-size: 16px;
+	color: #DB0B18;
+}
 #body-two1{
 	width:60%;
   	margin: 0 auto;

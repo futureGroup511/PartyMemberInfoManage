@@ -15,6 +15,7 @@ import com.future.partymember.entity.RedVideo;
 import com.future.partymember.entity.StartTest;
 import com.future.partymember.entity.WatchVideoRecord;
 import com.future.partymember.util.PageCut;
+import com.future.partymember.util.PaperUtil;
 import com.future.partymember.util.SwitchTime;
 
 /*
@@ -195,14 +196,16 @@ public class PartyMemberAction extends BaseAction {
 	// 链接到红色文章
 	public String getResPaper() throws Exception {
 		List<RedPaper> paperList = redPaperService.findPaperByType();
+		paperList = PaperUtil.titleLength(paperList, 16);
 		this.getRequest().setAttribute("paperList", paperList);
 		return "getResPaper";
 	}
 
 	// 进入某个文章版块的列表 如党建巡礼的文章列表
 	public String paperSection() {
-		int paperTypeId = Integer.parseInt(this.getRequest().getParameter("paperTypeId"));
-		pageCut = redPaperService.getPCByNew(page, 15, paperTypeId);
+		String search=this.getRequest().getParameter("search");
+		int paperTypeId=Integer.parseInt(this.getRequest().getParameter("paperTypeId"));
+		pageCut=redPaperService.getPCByNew(page, 15, paperTypeId , search);
 		this.getRequest().setAttribute("pc", pageCut);
 		this.getRequest().setAttribute("paper", pageCut.getData().get(0));
 		return "paperSection";
@@ -258,6 +261,10 @@ public class PartyMemberAction extends BaseAction {
 				startTest.setTotalScore(totalScore);
 				startTest.setTestNum(questionsList.size());
 				this.getSession().put("questionsList", questionsList);
+				long time=SwitchTime.strToTime(startTest.getEndTime()).getTime();
+				
+				System.out.println("考试结束时间："+time);
+				this.getSession().put("time", time);
 			} else {
 				this.getRequest().setAttribute("NoTest", "暂时没有考试！");
 			}

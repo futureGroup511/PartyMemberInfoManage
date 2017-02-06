@@ -254,28 +254,30 @@ color:red;
 #body-three .body-three-left p span:first-child{
 	text-align: left;
 	width:70%;
-	overflow:hidden;
+	/* overflow:hidden;
 	text-overflow:ellipsis;
 	white-space: nowrap;
-	display: inline-block;
+	display: inline-block; */
 }
 #body-three .body-three-left span:last-child{
 	width:30%;
   text-align: right;
 	display: inline-block;
+	float:right;
 }
 #body-three .body-three-center p span:first-child{
 	text-align: left;
 	width:70%;
-	overflow:hidden;
+	/* overflow:hidden;
 	text-overflow:ellipsis;
 	white-space: nowrap;
-	display: inline-block;
+	display: inline-block; */
 }
 #body-three .body-three-center span:last-child{
 	width:30%;
   text-align: right;
 	display: inline-block;
+	float:right;
 }
 #body-three .body-three-center{
 	margin-left: 5%;
@@ -290,15 +292,16 @@ color:red;
 #body-three .body-three-right p span:first-child{
 	text-align: left;
 	width:70%;
-	overflow:hidden;
+	/* overflow:hidden;
 	text-overflow:ellipsis;
 	white-space: nowrap;
-	display: inline-block;
+	display: inline-block; */
 }
 #body-three .body-three-right span:last-child{
 	width:30%;
   text-align: right;
 	display: inline-block;
+	float:right;
 }
 #body-four{
 	width: 93%;
@@ -404,24 +407,25 @@ margin-top: 20px;
 }
 #body-five .body-five-left span:last-child{
 	border-bottom: 2px #DBDBDB dotted;
+	padding-bottom: 10px!important;
 }
 #body-five .body-five-left span:first-child{
-	border:1px solid #E2E2E2;
+	 background:url(../../images/li1.jpg) no-repeat;
 	border-radius:8px;
     display: inline-block;
-	width:23%;
+	width:25%;
 	font-size:12px!important;
 	padding-left: 0.5%;
 	height:25px;
 	padding-bottom: 10px;
 }
 #body-five .body-five-left span:last-child{
-	overflow:hidden;
+	/* overflow:hidden;
 	text-overflow:ellipsis;
-	white-space: nowrap;
-	width:73%;
+	white-space: nowrap; */
+	width:71%;
 	margin-left: 4%;
-	 display: inline-block;
+	 /* display: inline-block; */
 	height:23px;
 }
 #body-five .body-five-left span:first-child{
@@ -440,10 +444,10 @@ margin-top: 20px;
 	padding-bottom: 10px!important;
 }
 #body-five .body-five-center span:first-child{
-	border:1px solid #E2E2E2;
+	 background:url(../../images/li1.jpg) no-repeat;
 	border-radius:8px;
   display: inline-block;
-	width:23%;
+	width:25%;
 	padding-top:0px!important;
 	font-size:12px;
 	padding-left: 0.5%;
@@ -451,12 +455,12 @@ margin-top: 20px;
 	padding-bottom: 10px;
 }
 #body-five .body-five-center span:last-child{
-	overflow:hidden;
+	/* overflow:hidden;
 	text-overflow:ellipsis;
-	white-space: nowrap;
-	width:73%;
+	white-space: nowrap; */
+	width:71%;
 	margin-left: 4%;
-	 display: inline-block;
+	 /* display: inline-block; */
 	height:23px;
 }
 #body-five .body-five-right{
@@ -468,12 +472,13 @@ margin-top: 20px;
 }
 #body-five .body-five-right span:last-child{
 	border-bottom: 2px #DBDBDB dotted;
+	padding-bottom: 10px!important;
 }
 #body-five .body-five-right span:first-child{
-  border:1px solid #E2E2E2;
+    background:url(../../images/li1.jpg) no-repeat;
 	border-radius:8px;
   display: inline-block;
-	width:23%;
+	width:25%;
 	padding-top:0px!important;
 	font-size:12px;
 	padding-left: 0.5%;
@@ -481,12 +486,12 @@ margin-top: 20px;
 	padding-bottom: 10px;
 }
 #body-five .body-five-right span:last-child{
-	overflow:hidden;
+	/* overflow:hidden;
 	text-overflow:ellipsis;
-	white-space: nowrap;
-	width:73%;
+	white-space: nowrap; */
+	width:71%;
 	margin-left: 4%;
-	 display: inline-block;
+	 /* display: inline-block; */
 	height:23px;
 }
 #body-five div{
@@ -509,7 +514,6 @@ margin-top: 20px;
 	background-color: #F3F2F2;
 /* 	position: absolute; */
   	bottom: 0px;
-	
 	padding-bottom: 0;
 	clear:both;
 }
