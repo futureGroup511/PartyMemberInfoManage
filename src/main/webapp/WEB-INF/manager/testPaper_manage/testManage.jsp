@@ -41,7 +41,9 @@ font-size:25px;
 					</div>
 				</form>
 			</div>
-			
+			<div class="row">
+				<h3 style="color:red;">${delectTpMsg}</h3>
+			</div>
 			<div class="row">
 				<div class="col-xs-12">
 					共找到 &nbsp; <span style="color:red;">${pc.count }</span> &nbsp; 条数据
@@ -85,7 +87,7 @@ font-size:25px;
 				href="${rootPath }manage/testManage_getTestPaper?page=${pc.nextPage}">下一页</a></li>
 		</ul>
 	</nav>
-	<h3>${delectTpMsg}</h3>
+	
 	<div class="background navbar-fixed-top"  style="position:absolute; z-index:-1;width:100%;height:100%;opacity:0.1;">
     	<img  class="img-responsive" width="100%;" src="${rootPath }images/577a4c594718d_610.jpg" />
     </div>

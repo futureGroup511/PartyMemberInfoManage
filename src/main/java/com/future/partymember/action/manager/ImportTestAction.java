@@ -53,20 +53,20 @@ public class ImportTestAction extends BaseAction {
 		return "linking";
 	}
 
-	// 将excel表导入数据库
+	// 将excel表导入数据库，宋修改
 	public String importTest() throws Exception {
 
 		String type = testPaperFileName.substring(testPaperFileName.lastIndexOf("."));
 
+		this.getRequest().setAttribute("reminder", "导入成功。");
+		
 		if (type.equals(".xlsx")) {
 			util2010();// 2010excel
 		}
 
-		if (type.equals(".xls")) {
+		if (type.equals(".xls")) { 
 			util2003();// 2003 -2007 excel
 		}
-
-		this.getRequest().setAttribute("reminder", "导入成功");
 
 		return "importTest";
 	}
@@ -115,6 +115,7 @@ public class ImportTestAction extends BaseAction {
 		return "addTestPaper";
 	}
 
+	
 	public void util2003() throws IOException {
 		// 需要解析的Excel文件
 		File is = new File(testPaper.getPath());
@@ -161,6 +162,9 @@ public class ImportTestAction extends BaseAction {
 						q.setAnswer(String.valueOf(answer));
 						q.setAnalysis(String.valueOf(analysis));
 						list.add(q);
+					}else{
+						this.getRequest().setAttribute("reminder", "部分或全部导入失败，试卷名称不存在或者文件格式错误。");
+						break;
 					}
 					
 				}
@@ -217,6 +221,9 @@ public class ImportTestAction extends BaseAction {
 						q.setAnswer(String.valueOf(answer));
 						q.setAnalysis(String.valueOf(analysis));
 						list.add(q);
+					}else{
+						this.getRequest().setAttribute("reminder", "部分或全部导入失败，试卷名称不存在或者文件格式错误。");
+						break;
 					}
 					
 				}

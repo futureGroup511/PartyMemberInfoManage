@@ -93,10 +93,10 @@
 	<div style="margin-left: 42%;">
 		<ul class="pagination">
 			<li><a
-				href="${rootPath }manage/testManage_getQuestion?page=${pc.prePage}">上一页</a></li>
+				href="${rootPath }manage/testManage_manageQuestion?page=${pc.prePage}">上一页</a></li>
 			<li><a href="#">${pc.currentPage}/${pc.pageNum}</a></li>
 			<li><a
-				href="${rootPath }manage/testManage_getQuestion?page=${pc.nextPage}">下一页</a></li>
+				href="${rootPath }manage/testManage_manageQuestion?page=${pc.nextPage}">下一页</a></li>
 		</ul>
 	</div>
 	<h3>${delectQtMsg}</h3>
