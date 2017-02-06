@@ -26,6 +26,7 @@ public class StartTest {
 	private String testPeople;//考试人的身份	
 	private TestPaper testPaper;//试卷类
 	private String testTime;//考试时长
+ 
 	private int totalScore;//试卷总分
 	
 	@Id

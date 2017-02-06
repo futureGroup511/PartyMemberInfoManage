@@ -7,6 +7,7 @@ import com.future.partymember.entity.Inform;
 import com.future.partymember.entity.RedPaper;
 import com.future.partymember.entity.RedVideo;
 import com.future.partymember.util.PageCut;
+import com.future.partymember.util.PaperUtil;
 
 /*
 *@author 焦祥宇
@@ -24,7 +25,9 @@ public class PartyLoginAction extends BaseAction {
 		this.getRequest().setAttribute("informList",informList);
 		//获得文章	
 		List<RedPaper> newPaperList=redPaperService.getNew(5);
+		newPaperList =PaperUtil.titleLength(newPaperList, 15);
 		List<RedPaper> hotPaperList=redPaperService.getHot(5);
+		hotPaperList = PaperUtil.titleLength(hotPaperList, 15);
 		this.getRequest().setAttribute("newPaperList",newPaperList);
 		this.getRequest().setAttribute("hotPaperList",hotPaperList);
 		//获得视频

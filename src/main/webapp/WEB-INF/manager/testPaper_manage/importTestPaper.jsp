@@ -55,15 +55,17 @@
 			</form>
 		</div>
 		<h3>根据Excel导入试卷</h3>
+		<h3 style="color:red;">${reminder}</h3>
 		<div class="main" style="">
 			<form action="${rootPath }manage/import_importTest" method="post"
 				enctype="multipart/form-data">
-				Excel文件：<input required="required" type="file" name="testPaper"
+				Excel文件：<a href="${rootPath }file/example.xlsx">下载试卷样例</a>
+				<input required="required" type="file" name="testPaper"
 					accept="application/vnd.ms-excel, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet">
 					<br>
 				<button type="submit" class="btn btn-success">上传</button>
 			</form>
-			<h3 style="color:red;margin-left:27%;">${reminder}</h3>
+			
 		</div>
 
 		
