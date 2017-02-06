@@ -5,8 +5,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>阅读文章</title>
-<link rel="stylesheet" href="${rootPath }css/bootstrap.css">
-<link rel="stylesheet" href="${rootPath }css/partySecretary/paper.css">
+<link rel="stylesheet" href="${rootPath}css/bootstrap.css">
+<link rel="stylesheet" href="${rootPath}css/partySecretary/paper.css">
 <script src="${rootPath }js/jquery-2.2.3.min.js"></script>
 <script src="${rootPath }js/bootstrap.js"></script>
 </head>

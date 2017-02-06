@@ -285,7 +285,43 @@ public class PartyMemberAction extends BaseAction {
 
 		return "lookPaper";
 	}
+	
+	//阅读文章  根据阅读权限
+		public String lookPaperByTag() throws Exception{
+			int id=Integer.parseInt(this.getRequest().getParameter("rp_Id"));
+			System.out.println("文章id"+id);
+			redPaperService.updatePaperReadNum(id);//文章阅读次数加一
+			RedPaper rp=redPaperService.getById(id);
+			this.getRequest().setAttribute("paper", rp);
+			
+			//查询第一篇 最后一篇 作为临界点
+			RedPaper lastPaper=redPaperService.getLastRecordById().get(0);
+			RedPaper fristPaper=redPaperService.getFristRecordById().get(0);
+			
+			//查询上一篇 下一篇
+			if(lastPaper.getRp_Id()==id){
+				this.getRequest().setAttribute("next", lastPaper);
+				this.getRequest().setAttribute("notice", "后面没有了");			
+			}else{
+				List<RedPaper> rpNext=redPaperService.getNextRecordById(id);
+				if(rpNext!=null){
+					RedPaper rp1=rpNext.get(0);
+					this.getRequest().setAttribute("next",rp1 );
+				}
+			}
+			
+			if(fristPaper.getRp_Id()==id){
+				this.getRequest().setAttribute("prev", fristPaper);
+				this.getRequest().setAttribute("notice", "前面没有了");
+			}else{
+				List<RedPaper> rpPrev=redPaperService.getPrevRecordById(id);
+				RedPaper rp2=rpPrev.get(0);
+				this.getRequest().setAttribute("prev", rp2);
+			}
 
+			return "lookPaperByTag";
+	}
+		
 	// 在线考试
 	public String startTest() throws Exception {
 		StartTest startTest = (StartTest) this.getRequest().getSession().getServletContext().getAttribute("startTest");

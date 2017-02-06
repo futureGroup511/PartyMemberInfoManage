@@ -83,7 +83,7 @@
  </div>
  <div id="body-two">
  		<c:forEach items="${pc.data }"  var="paper">
-		 	<p><a href="${rootPath }secretary/partySecretary_lookPaper?rp_Id=${paper.rp_Id}">
+		 	<p><a href="${rootPath }secretary/partySecretary_lookPaperByTag?rp_Id=${paper.rp_Id}">
 		 	${paper.title }<span>${ paper.releaseDate}</span></a></p>
 		</c:forEach>
  </div>
