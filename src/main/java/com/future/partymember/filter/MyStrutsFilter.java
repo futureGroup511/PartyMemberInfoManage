@@ -8,6 +8,7 @@ import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter;
 
@@ -19,11 +20,17 @@ import org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter;
 public class MyStrutsFilter extends StrutsPrepareAndExecuteFilter implements Filter {
        
 
-	public void doFilter(ServletRequest req, ServletResponse res, FilterChain chain) throws IOException, ServletException {
-        HttpServletRequest request = (HttpServletRequest) req;    
+	public void doFilter(ServletRequest req, ServletResponse res, FilterChain chain) 
+			throws IOException, ServletException {
+
+		
+        HttpServletRequest request = (HttpServletRequest) req;  
+        HttpServletResponse response=(HttpServletResponse)res;
+		request.setCharacterEncoding("UTF-8");
+		response.setCharacterEncoding("UTF-8");
         //不过滤的url    
         String url = request.getRequestURI();    
-       /* System.out.println(url);*/
+        System.out.println("编辑器"+url);
  
         if ("/PartyMemberInfoManage/ueditor1_4_3/jsp/controller.jsp".equals(url)) {  //注意路径  
         	System.out.println(url);

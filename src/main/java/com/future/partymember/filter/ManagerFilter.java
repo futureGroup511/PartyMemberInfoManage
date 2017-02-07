@@ -39,10 +39,8 @@ public class ManagerFilter implements Filter {
 	 * @see Filter#doFilter(ServletRequest, ServletResponse, FilterChain)
 	 */
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
-		// TODO Auto-generated method stub
-		// place your code here
 
-		// pass the request along the filter chain
+		
 		
 		HttpServletRequest req=(HttpServletRequest)request;
 		
@@ -52,7 +50,7 @@ public class ManagerFilter implements Filter {
 			search = new String(search.getBytes("ISO8859-1"), "utf8");
 		}
 		req.setAttribute("search",search);
-		
+		System.out.println("管理员"+req.getRequestURI());
 		if(req.getRequestURI().equals(req.getContextPath()+"/manage/index_login")||req.getRequestURI().equals(req.getContextPath()+"/manage/index_loginDo")){
 			chain.doFilter(request, response);
 			return;
@@ -67,6 +65,8 @@ public class ManagerFilter implements Filter {
 		}
 	}
 
+	
+	
 	/**
 	 * @see Filter#init(FilterConfig)
 	 */
