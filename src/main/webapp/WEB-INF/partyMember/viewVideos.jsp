@@ -60,6 +60,7 @@
 								href="${rootPath}party/partyMemberAction_getInfoBeforeUpdate.action">修改信息</a></li>
 							<li><a
 								href="${rootPath}party/partyMemberAction_getMyExamLog.action">考试报告</a></li>
+							<li><a href="${rootPath}login_logout">退出登录</a></li>
 						</ul></li>
 					 <li><a href="${rootPath}party/partyMemberAction_informList.action">通知公告</a></li>
 					<li><a href="${rootPath}party/partyMemberAction_connectUs.action">联系我们</a></li>
@@ -107,11 +108,11 @@
 	<div id="body">
 		<div id="body-one">
 			<p>
-				<img src="${rootPath}images/topimg.png"> <span>您的位置：<a href="${rootPath}party/partyLogin.action">首页</a>&nbsp;&nbsp;>&nbsp;&nbsp;时事新闻</span>
+				<img src="${rootPath}images/topimg.png"> <span>您的位置：<a href="${rootPath}party/partyLogin.action">首页</a>&nbsp;&nbsp;>&nbsp;&nbsp;学习园地</span>
 			</p>
 		</div>
 		<div id="body-two">
-			<p>推荐课件</p>
+			<p>党建课程</p>
 		</div>
 
 		<div id="body-three">
