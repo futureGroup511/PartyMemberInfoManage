@@ -232,7 +232,7 @@ public class RedPaperDaoImpl extends BaseDao<RedPaper> implements IRedPaperDao {
 	//查询当前id的上一条记录
 	@Override
 	public List<RedPaper> getPrevRecordById(int id, String search) {
-		String sql="select * from red_paper rp where rp.rp_Id<? "
+		String sql="select * from red_paper rp where rp.title like ? and rp.rp_Id<? "
 				+ " and rp.rp_tag=1 order by rp.rp_Id desc limit 1";
 		return executeSQLQuery(RedPaper.class,sql, "%"+search+"%", id);
 	}

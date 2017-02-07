@@ -527,7 +527,7 @@ public class PartySecretaryAction extends BaseAction {
 		
 		String search=this.getRequest().getParameter("search");
 		try {
-			if (search.equals(new String(search.getBytes("iso8859-1"), "iso8859-1"))) {
+			if (search!=null&&search.equals(new String(search.getBytes("iso8859-1"), "iso8859-1"))) {
 				//判断是不是utf-8如果不是进行转码
 				try {
 					search= new String(search.getBytes("iso8859-1"),"utf-8");

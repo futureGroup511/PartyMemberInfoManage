@@ -25,12 +25,8 @@ public interface IPartyMemberInfoDao {
 	// 限制数量查询党员个人信息
 	public List<PartyMemberInfo> getSomePartyMember(int first, int max,List<PartyMemberInfo> partyMemberList);
 
-	//查询某个书记所管理的党员
-	public List<PartyMemberInfo> findAllPartyMemberInfo(PartySecretaryInfo partySecretaryInfo, int curPage,int pageSize);
-	
-	//获得某个书记所管理的党员的数量
-	public int getAllPartyMember(PartySecretaryInfo partySecretaryInfo);
-	
+
+
 	//获取指定条件的分页对象  宋民举
 	public PageCut<PartyMemberInfo> getPageCut(int currentPage,int pageSize);
 	public PageCut<PartyMemberInfo> getPageCut(int currentPage,int pageSize,String search);
