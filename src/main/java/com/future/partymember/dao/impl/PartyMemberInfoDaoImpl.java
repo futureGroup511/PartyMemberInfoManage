@@ -3,6 +3,7 @@ package com.future.partymember.dao.impl;
 import java.util.List;
 
 import org.hibernate.Query;
+import org.hibernate.context.internal.ThreadLocalSessionContext;
 import org.springframework.stereotype.Repository;
 
 import com.future.partymember.base.BaseDao;
@@ -24,8 +25,8 @@ public class PartyMemberInfoDaoImpl extends BaseDao<PartyMemberInfo> implements 
 		List<PartyMemberInfo> list = getEntityLimitList(hql, curPage, pageSize, partySecretaryInfo.getPartyBranch());
 		return list;
 	}
-
-	/* 执行限制数量的hql 丁赵雷 */
+/*
+	 执行限制数量的hql 丁赵雷 
 	protected List<PartyMemberInfo> getEntityLimitList(String hql, int curPage, int pageSize, Object... objects) {
 		Query query = this.getSession().createQuery(hql);
 		for (int i = 0; i < objects.length; i++) {
@@ -35,7 +36,7 @@ public class PartyMemberInfoDaoImpl extends BaseDao<PartyMemberInfo> implements 
 		query.setMaxResults(pageSize);
 		return query.list();
 	}
-
+*/
 	// 得到某个书记所管理的党员的数量以便分页查询 丁赵雷
 	@Override
 	public int getAllPartyMember(PartySecretaryInfo partySecretaryInfo) {
@@ -117,7 +118,10 @@ public class PartyMemberInfoDaoImpl extends BaseDao<PartyMemberInfo> implements 
 		PageCut<PartyMemberInfo> pc = new PageCut<PartyMemberInfo>(page, pageSize, count);
 		if(search==null || search.length()==0){
 			hql="from PartyMemberInfo";
+			System.out.println(page);
+			System.out.println(pageSize);
 			pc.setData(this.getEntityLimitList(hql, (page-1)*pageSize, pageSize));
+			System.out.println(this.getEntityLimitList(hql, (page-1)*pageSize, pageSize));
 		}else{
 			hql="from PartyMemberInfo as p where p.account like :search or p.username like :search or p.idCard like :search";
 			Query query=this.getSession().createQuery(hql);

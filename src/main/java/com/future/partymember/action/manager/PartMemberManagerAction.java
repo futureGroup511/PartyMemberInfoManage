@@ -16,7 +16,7 @@ public class PartMemberManagerAction extends BaseAction {
 	public String execute() {
 		String search=this.getRequest().getParameter("search");
 		PageCut<PartyMemberInfo> pCut=partyMemberInfoService.getPageCut(page,10, search);
-		
+		System.out.println(pCut.getData().size());
 		if( search==null || search.length()==0){
 			
 		}else{
