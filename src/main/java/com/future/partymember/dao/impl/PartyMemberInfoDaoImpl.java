@@ -25,7 +25,7 @@ public class PartyMemberInfoDaoImpl extends BaseDao<PartyMemberInfo> implements 
 		return list;
 	}
 
-	/* 执行限制数量的hql 丁赵雷 */
+	 //执行限制数量的hql 丁赵雷 
 	protected List<PartyMemberInfo> getEntityLimitList(String hql, int curPage, int pageSize, Object... objects) {
 		Query query = this.getSession().createQuery(hql);
 		for (int i = 0; i < objects.length; i++) {
@@ -158,7 +158,7 @@ public class PartyMemberInfoDaoImpl extends BaseDao<PartyMemberInfo> implements 
 		PageCut<PartyMemberInfo> pc = new PageCut<PartyMemberInfo>(currentPage, pageSize, count);
 		if(search==null || search.length()==0){
 			hql="from PartyMemberInfo p where p.partyBranch=?";
-			pc.setData(this.getEntityLimitList(hql, (currentPage-1)*pageSize, pageSize, partyBranch));
+			pc.setData(this.getEntityLimitList(hql, currentPage, pageSize, partyBranch));
 		}else{
 			hql="from PartyMemberInfo as p where p.partyBranch=? and "
 					+ "p.phoneNo like :search or p.username like :search "

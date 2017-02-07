@@ -1,5 +1,6 @@
 package com.future.partymember.action.partymember;
 
+import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -83,11 +84,28 @@ public class PartyMemberAction extends BaseAction {
 	}
 
 	// 红色视频
-	public String viewVideos() throws Exception {
-		PageCut<RedVideo> pc = redVideoService.getPC(16,page );		
-		this.getRequest().setAttribute("pc", pc);		
+	public String viewVideos()  {
+		String search=this.getRequest().getParameter("search");
+		
+		try {
+			if (search!=null&&search.equals(new String(search.getBytes("iso8859-1"), "iso8859-1"))) {
+				//判断是不是utf-8如果不是进行转码
+				try {
+					search= new String(search.getBytes("iso8859-1"),"utf-8");
+				} catch (UnsupportedEncodingException e) {
+					e.printStackTrace();
+				}
+			}
+		} catch (UnsupportedEncodingException e) {
+			e.printStackTrace();
+		}
+		PageCut<RedVideo> pc=redVideoService.getPC(16, page, search);
+		this.getRequest().setAttribute("pc", pc);
+		this.getRequest().setAttribute("search", search);
 		return "viewVideos";
 	}
+	
+	
 
 	/**
 	 * 看视频 ---丁赵雷修改 2017-01-14
@@ -183,7 +201,7 @@ public class PartyMemberAction extends BaseAction {
 	/**
 	 * @author 丁赵雷 根据名字模糊查询视频
 	 */
-	public String findByName() throws Exception {
+	/*public String findByName() throws Exception {
 		String name = this.getRequest().getParameter("videoName"); // 视频名字
 		PageCut<RedVideo> pc = redVideoService.getPC(12, page);
 		System.out.println("模糊查询视频");
@@ -191,7 +209,7 @@ public class PartyMemberAction extends BaseAction {
 		List<RedVideo> videosList = redVideoService.findByName(name);
 		this.getRequest().setAttribute("videosList", videosList);
 		return "viewVideos";
-	}
+	}*/
 
 	// 链接到红色文章
 	public String getResPaper() throws Exception {
@@ -207,8 +225,30 @@ public class PartyMemberAction extends BaseAction {
 		int paperTypeId=Integer.parseInt(this.getRequest().getParameter("paperTypeId"));
 		pageCut=redPaperService.getPCByNew(page, 15, paperTypeId , search);
 		this.getRequest().setAttribute("pc", pageCut);
-		this.getRequest().setAttribute("paper", pageCut.getData().get(0));
+		this.getRequest().setAttribute("paper", pageCut.getData().get(0));		
 		return "paperSection";
+	}
+	
+	//文章列表
+	public String paperList(){
+		String search=this.getRequest().getParameter("search");
+		try {
+			if (search.equals(new String(search.getBytes("iso8859-1"), "iso8859-1"))) {
+				//判断是不是utf-8如果不是进行转码
+				try {
+					search= new String(search.getBytes("iso8859-1"),"utf-8");
+				} catch (UnsupportedEncodingException e) {
+					e.printStackTrace();
+				}
+			}
+		} catch (UnsupportedEncodingException e) {
+			e.printStackTrace();
+		}
+		
+		pageCut=redPaperService.getPCByNew(page, 15,search,1);//1代表权限
+		this.getRequest().setAttribute("pc", pageCut);
+		this.getRequest().setAttribute("search", search);			
+		return "paperList";
 	}
 
 	// 阅读文章
@@ -245,7 +285,43 @@ public class PartyMemberAction extends BaseAction {
 
 		return "lookPaper";
 	}
+	
+	//阅读文章  根据阅读权限
+		public String lookPaperByTag() throws Exception{
+			int id=Integer.parseInt(this.getRequest().getParameter("rp_Id"));
+			System.out.println("文章id"+id);
+			redPaperService.updatePaperReadNum(id);//文章阅读次数加一
+			RedPaper rp=redPaperService.getById(id);
+			this.getRequest().setAttribute("paper", rp);
+			
+			//查询第一篇 最后一篇 作为临界点
+			RedPaper lastPaper=redPaperService.getLastRecordById().get(0);
+			RedPaper fristPaper=redPaperService.getFristRecordById().get(0);
+			
+			//查询上一篇 下一篇
+			if(lastPaper.getRp_Id()==id){
+				this.getRequest().setAttribute("next", lastPaper);
+				this.getRequest().setAttribute("notice", "后面没有了");			
+			}else{
+				List<RedPaper> rpNext=redPaperService.getNextRecordById(id);
+				if(rpNext!=null){
+					RedPaper rp1=rpNext.get(0);
+					this.getRequest().setAttribute("next",rp1 );
+				}
+			}
+			
+			if(fristPaper.getRp_Id()==id){
+				this.getRequest().setAttribute("prev", fristPaper);
+				this.getRequest().setAttribute("notice", "前面没有了");
+			}else{
+				List<RedPaper> rpPrev=redPaperService.getPrevRecordById(id);
+				RedPaper rp2=rpPrev.get(0);
+				this.getRequest().setAttribute("prev", rp2);
+			}
 
+			return "lookPaperByTag";
+	}
+		
 	// 在线考试
 	public String startTest() throws Exception {
 		StartTest startTest = (StartTest) this.getRequest().getSession().getServletContext().getAttribute("startTest");
@@ -407,6 +483,19 @@ public class PartyMemberAction extends BaseAction {
 		
 		return "lookInform";
 	}
+	
+	//搜索时事新闻与学习园地的数据的方法
+		public String select() {
+			String type=this.getRequest().getParameter("type");
+			//String select=this.getRequest().getParameter("select");
+			if(type.equals("news")){
+				return paperList();
+			}
+			if(type.equals("video")){
+				return viewVideos();
+			}
+			return null;
+		}
 	/*
 	 * //查询个人党费交纳
 	 * 
