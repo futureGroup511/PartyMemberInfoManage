@@ -3,13 +3,11 @@ package com.future.partymember.dao.impl;
 import java.util.List;
 
 import org.hibernate.Query;
-import org.hibernate.context.internal.ThreadLocalSessionContext;
 import org.springframework.stereotype.Repository;
 
 import com.future.partymember.base.BaseDao;
 import com.future.partymember.dao.IPartyMemberInfoDao;
 import com.future.partymember.entity.PartyMemberInfo;
-import com.future.partymember.entity.PartySecretaryInfo;
 import com.future.partymember.util.PageCut;
 
 @Repository
