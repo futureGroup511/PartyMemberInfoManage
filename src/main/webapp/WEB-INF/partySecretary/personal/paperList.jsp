@@ -123,7 +123,7 @@
        <p><a href="${rootPath }secretary/partySecretary_paperSection?paperTypeId=1">更多</a></p>
    </div>  
    <div class="body-two-center">
-       <p><span>高校</span> 咨询</p>
+       <p><span>高校</span> 咨讯</p>
        <p><a href="${rootPath }secretary/partySecretary_paperSection?paperTypeId=2">更多</a></p>
    </div>  
    <div class="body-two-right">
@@ -160,11 +160,11 @@
         <img src="${rootPath}images/jiahao.png"> 查看更多</a></p>
     </div>
     <div class="body-four-center">
-        <p><span>神州大地</span><a href="${rootPath }secretary/partySecretary_paperSection?paperTypeId=5">
+        <p><span>环球动态</span><a href="${rootPath }secretary/partySecretary_paperSection?paperTypeId=5">
         <img src="${rootPath}images/jiahao.png"> 查看更多</a></p>
     </div>
     <div class="body-four-right">
-        <p><span>环球动态</span><a href="${rootPath }secretary/partySecretary_paperSection?paperTypeId=6"><img src="${rootPath}images/jiahao.png"> 查看更多</a></p>
+        <p><span>神州大地</span><a href="${rootPath }secretary/partySecretary_paperSection?paperTypeId=6"><img src="${rootPath}images/jiahao.png"> 查看更多</a></p>
     </div>
  </div>
  <div id="body-five">
