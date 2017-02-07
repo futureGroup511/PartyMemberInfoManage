@@ -70,7 +70,7 @@
 						<li><a href="${rootPath }secretary/partySecretary_lookMyself">个人信息</a></li>
 						<li><a href="${rootPath }secretary/pSForward_fUpdataPerson">修改信息</a></li>
 						<li><a href="${rootPath}secretary/partySecretary_getMyExamLog">考试报告</a></li>
-						<li><a href="${rootPath}secretary/partySecretary_logout">退出登陆</a></li>
+						<li><a href="${rootPath}login_logout">退出登录</a></li>
                    </ul>
                </li>
               <li><a href="${rootPath}secretary/partySecretary_connectUs">联系我们</a></li>
@@ -86,14 +86,16 @@
 <div id="body">
  <div id="body-one">
    <p><img src="${rootPath }images/topimg.png"> <span>您的位置：
-   <a href="${rootPath }secretary/pSForward_fIndex">首页</a>&nbsp;&nbsp;>&nbsp;&nbsp;党员管理&nbsp;&nbsp;>&nbsp;&nbsp;考试记录</span></p>
+   <a href="${rootPath }secretary/pSForward_fIndex">首页</a>&nbsp;&nbsp;>&nbsp;&nbsp;党员管理&nbsp;&nbsp;>&nbsp;&nbsp;
+ <a href="${rootPath }secretary/test_startTestLog"> 考试记录</a>
+   &nbsp;&nbsp;>&nbsp;&nbsp;党员考试记录</span></p>
  </div>
  <div id="body-two">
- 	<form action="" method="post">
+ 	<form action="${rootPath }secretary/test_log" method="post">
     	<input type="text"  name="search" class="form-control"
 						value="${search }"
 						placeholder="请输入考试名称或者党员姓名搜索"autocomplete="off"/>
-     	<button class="btn btn-primary sure" type="button">搜索</button>
+     	<button class="btn btn-primary sure" type="submit">搜索</button>
      </form>
  </div>
  <div id="body-three">
@@ -110,7 +112,6 @@
 							<td>考试成绩</td>
 							<td>考试时间</td>
 							<td>查看详细记录</td>
-							<td>删除</td>
 						</tr>
       </thead>
    
@@ -139,10 +140,7 @@
 								<td>${e.examTime }</td>
 								
 								<td><a
-									href="${rootPath }manage/testManage_info?id=${e.el_Id}">查看详细信息</a></td>
-								
-								<td><a
-									href="${rootPath }manage/testManage_logDel?id=${e.el_Id}">删除</a></td>
+									href="${rootPath }secretary/test_info?id=${e.el_Id}">查看详细信息</a></td>
 							</tr>
 						</c:forEach>
 

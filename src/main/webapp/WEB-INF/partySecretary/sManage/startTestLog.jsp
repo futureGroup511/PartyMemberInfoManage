@@ -70,7 +70,7 @@
 						<li><a href="${rootPath }secretary/partySecretary_lookMyself">个人信息</a></li>
 						<li><a href="${rootPath }secretary/pSForward_fUpdataPerson">修改信息</a></li>
 						<li><a href="${rootPath}secretary/partySecretary_getMyExamLog">考试报告</a></li>
-						<li><a href="${rootPath}secretary/partySecretary_logout">退出登陆</a></li>
+						<li><a href="${rootPath}login_logout">退出登录</a></li>
                    </ul>
                </li>
               <li><a href="${rootPath}secretary/partySecretary_connectUs">联系我们</a></li>
@@ -88,8 +88,8 @@
  <div id="body-two">
  <form action="${rootPath }secretary/test_startTestLog" method="post">
     <input type="text" name="search" class="form-control"
-						value="${search }" autocomplete="off"   placeholder="请输入考试名称"/>
-     <button class="btn btn-primary sure" type="button">搜索</button>
+						 autocomplete="off"   placeholder="请输入考试名称"/>
+     <button class="btn btn-primary sure" type="submit">搜索</button>
  </form>
  </div>
  <div id="body-three">
@@ -149,6 +149,9 @@
 
 		</div>
 	
-
+     <footer id="footer-warp"><!--页脚开始-->
+		<p class="footer"><a href="">网站声明</a> &nbsp; &nbsp;<span>|</span> &nbsp; &nbsp;<a href="">关于我们 &nbsp; &nbsp;</a><span>|</span> &nbsp; &nbsp;<a href="">联系我们</a></p>
+		<p>Copyright @ 2016 All rights reserved.　　版权所有：河南科技学院党委</p>
+</footer><!--页脚结束-->	
 </body>
 </html>

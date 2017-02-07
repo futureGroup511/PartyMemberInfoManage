@@ -45,8 +45,8 @@ public class PSForwardAction extends BaseAction {
 	 	List<Inform> newInformList= informService.getNew(2);
 
 	 	
-	 	this.getRequest().setAttribute("hotPaper", PaperUtil.titleLength(hotPaperList, 15));
-	 	this.getRequest().setAttribute("newPaper", PaperUtil.titleLength(newPaperList,15));
+	 	this.getRequest().setAttribute("hotPaper", PaperUtil.titleLength(hotPaperList, 17));
+	 	this.getRequest().setAttribute("newPaper", PaperUtil.titleLength(newPaperList,17));
 	 	this.getRequest().setAttribute("hotVideo", hotVideoList);
 	 	this.getRequest().setAttribute("newVideo", newVideoList);
 	 	this.getRequest().setAttribute("newInform", newInformList);

@@ -57,16 +57,7 @@ public class PartySecretaryAction extends BaseAction {
 	
 	
 	
-	/**
-	 * 注销
-	 */
-	public String logout(){
-		if(session.get("secretary")!=null){
-			session.remove("secretary");
-		}
-		return "logout";
-	}
-	
+
 	
 	
 	
@@ -87,8 +78,8 @@ public class PartySecretaryAction extends BaseAction {
 	 	List<Inform> newInformList= informService.getNew(2);
 	 	
 	 	
-	 	this.getRequest().setAttribute("hotPaper", PaperUtil.titleLength(hotPaperList, 15));
-	 	this.getRequest().setAttribute("newPaper", PaperUtil.titleLength(newPaperList,15));
+	 	this.getRequest().setAttribute("hotPaper", PaperUtil.titleLength(hotPaperList, 17));
+	 	this.getRequest().setAttribute("newPaper", PaperUtil.titleLength(newPaperList,17));
 	 	this.getRequest().setAttribute("hotVideo", hotVideoList);
 	 	this.getRequest().setAttribute("newVideo", newVideoList);
 	 	this.getRequest().setAttribute("newInform", newInformList);
@@ -319,18 +310,6 @@ public class PartySecretaryAction extends BaseAction {
 				p.setPhoneNo(p.getPhoneNo().replaceAll(search, String.format(format, search)));
 			}
 		}
-		
-		
-		
-/*		if(pageCut==null){
-			list=partyMemberInfoService.findAllPartyMemberInfo(psi,curPage,15);//一页15条记录
-			pageCut=partyMemberInfoService.getPagerCut(15, curPage, psi);
-		}else{
-			curPage=pageCut.getCurrentPage();
-			
-			list=partyMemberInfoService.findAllPartyMemberInfo(psi,curPage,15);//一页15条记录
-			pageCut=partyMemberInfoService.getPagerCut(15, curPage, psi);
-		}*/
 
 		
 		this.getRequest().setAttribute("pc", pCut);
@@ -347,7 +326,7 @@ public class PartySecretaryAction extends BaseAction {
 		psi.setPhoneNo(phone);
 		partySecretaryInfoService.updatePersonInfo(psi);
 		this.getRequest().setAttribute("notice", "修改成功");
-		return "lookMyself";
+		return "updatePhone";
 	}
 	
 	
@@ -368,7 +347,7 @@ public class PartySecretaryAction extends BaseAction {
 			partySecretaryInfoService.updatePersonInfo(psi);//更新个人信息
 			this.getRequest().setAttribute("notice", "修改成功");
 		}else{
-			this.getRequest().setAttribute("notice", "两次密码不一致");
+			this.getRequest().setAttribute("notice", "密码必须是字母和数字的组合长度为8到16位");
 		}
 		return "updatePassword";
 	}
@@ -619,7 +598,6 @@ public class PartySecretaryAction extends BaseAction {
 	//搜索时事新闻与学习园地的数据的方法
 	public String select(){
 		String type=this.getRequest().getParameter("type");
-		//String select=this.getRequest().getParameter("select");
 		if(type.equals("news")){
 			return paperList();
 		}
