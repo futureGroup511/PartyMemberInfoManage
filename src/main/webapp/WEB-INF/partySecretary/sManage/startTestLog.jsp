@@ -82,7 +82,8 @@
 
 <div id="body">
  <div id="body-one">
-   <p><img src="${rootPath }images/topimg.png"> <span>您的位置：首页&nbsp;&nbsp;>&nbsp;&nbsp;时事新闻&nbsp;&nbsp;>&nbsp;&nbsp;党建巡礼</span></p>
+   <p><img src="${rootPath }images/topimg.png"> 
+   <span>您的位置：<a href="${rootPath }secretary/pSForward_fIndex">首页</a>&nbsp;&nbsp;>&nbsp;&nbsp;党员管理&nbsp;&nbsp;>&nbsp;&nbsp;考试记录</span></p>
  </div>
  <div id="body-two">
  <form action="${rootPath }secretary/test_startTestLog" method="post">

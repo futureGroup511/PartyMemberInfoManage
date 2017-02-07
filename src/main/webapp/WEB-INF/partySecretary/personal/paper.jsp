@@ -83,7 +83,7 @@
  </div>
  <div id="body-two">
  		<c:forEach items="${pc.data }"  var="paper">
-		 	<p><a href="${rootPath }secretary/partySecretary_lookPaperByTag?rp_Id=${paper.rp_Id}">
+		 	<p><a href="${rootPath }secretary/partySecretary_lookPaperByTag?rp_Id=${paper.rp_Id}&&search=${search}">
 		 	${paper.title }<span>${ paper.releaseDate}</span></a></p>
 		</c:forEach>
  </div>
@@ -91,25 +91,25 @@
 
 	
 	
-		<div id="pagecut" style="margin-right:100px;text-align:right;">
+	<div id="pagecut" style="margin-right:100px;text-align:right;">
 		<ul class="pagination">
-			<li><a href="${rootPath }secretary/partySecretary_paperList?page=${pc.prePage}">上一页</a></li>
+			<li><a href="${rootPath }secretary/partySecretary_paperList?page=${pc.prePage}&&search=${search}">上一页</a></li>
 			<c:if test="${1 < pc.currentPage -3}">
-				<li><a href="${rootPath }secretary/partySecretary_paperList?page=1">1</a></li>
+				<li><a href="${rootPath }secretary/partySecretary_paperList?page=1&&search=${search}">1</a></li>
 			</c:if>
 			
 			<c:forEach var="i" begin="${pc.currentPage-3>0?pc.currentPage-3:1 }" end="${pc.currentPage+3>pc.pageNum?pc.pageNum:pc.currentPage+3  }">
 				<c:choose>
 					<c:when test="${i>0 && i == pc.currentPage }">
-						<li class="active"><a href="${rootPath }secretary/partySecretary_paperList?page=${i }">${i}</a></li>
+						<li class="active"><a href="${rootPath }secretary/partySecretary_paperList?page=${i }&&search=${search}">${i}</a></li>
 					</c:when>
 
 					<c:when test="${i>0 && i != postPS.currentPage }">
-						<li><a href="${rootPath }secretary/partySecretary_paperList?page=${i }">${i}</a></li>
+						<li><a href="${rootPath }secretary/partySecretary_paperList?page=${i }&&search=${search}">${i}</a></li>
 					</c:when>
 				</c:choose>
 			</c:forEach>
-			<li><a href="${rootPath }secretary/partySecretary_paperList?page=${pc.nextPage}">下一页</a></li>
+			<li><a href="${rootPath }secretary/partySecretary_paperList?page=${pc.nextPage}&&search=${search}">下一页</a></li>
 		</ul>
 
 	</div>

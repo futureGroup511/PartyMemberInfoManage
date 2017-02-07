@@ -101,17 +101,22 @@
      <div class="table-responsive">
     <table class="table table-bordered table-hover table-striped">
     <thead>
-      <tr class="two">
-         <th>试卷名称</th>
-         <th>开始时间</th>
-         <th>结束时间</th>
-         <th>考试时长</th>
-         <th>查看参加此次考试的成员</th>
-       </tr>
+
+						<tr class="two">
+							<td>试卷名称</td>
+							<td>姓名</td>
+							<td>党员身份</td>
+							<td>试卷总分</td>
+							<td>考试成绩</td>
+							<td>考试时间</td>
+							<td>查看详细记录</td>
+							<td>删除</td>
+						</tr>
       </thead>
-      <tbody>
- 
-			<c:forEach var="e" items="${pc.data }">
+   
+
+ 					<tbody>
+						<c:forEach var="e" items="${pc.data }">
 							<tr>
 								<td>${e.paperName }</td>
 								<td>${e.partyMemberName }</td>
@@ -133,10 +138,15 @@
 
 								<td>${e.examTime }</td>
 								
-								<td><a href="${rootPath }secretary/test_info?id=${e.el_Id}">查看详细信息</a></td>
+								<td><a
+									href="${rootPath }manage/testManage_info?id=${e.el_Id}">查看详细信息</a></td>
+								
+								<td><a
+									href="${rootPath }manage/testManage_logDel?id=${e.el_Id}">删除</a></td>
 							</tr>
-				</c:forEach>
-      </tbody>
+						</c:forEach>
+
+					</tbody>
     </table>
  </div>
  </div>

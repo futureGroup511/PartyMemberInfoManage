@@ -79,8 +79,10 @@
    <a href="${rootPath }secretary/pSForward_fIndex">首页</a>&nbsp;&nbsp;>&nbsp;&nbsp;党员管理&nbsp;&nbsp;>&nbsp;&nbsp;所属党员信息</span></p>
  </div>
  <div id="body-two">
-    <input type="text" name="username" class="form-control" placeholder="请输入考试名称" autocomplete="off"/></span>
-     <button class="btn btn-primary sure" type="button">搜索</button>
+ 	<form action="${rootPath }secretary/partySecretary_lookOfPartyMember" method="post">
+    	<input type="text" name="search" class="form-control" placeholder="您可以通过/姓名/民族/籍贯/手机号/搜索" autocomplete="off"/>
+     	<button class="btn btn-primary sure" type="button">搜索</button>
+     </form>
  </div>
  <div id="body-three">
      <div class="table-responsive">
@@ -103,7 +105,7 @@
        </tr>
       </thead>
       <tbody>
-      			<c:forEach items="${PMIlist}" var="pmi">
+      			<c:forEach items="${pc.data}" var="pmi">
 				  <tr>
 						<td>${pmi.username}</td>
 						<td>${pmi.age}</td>
@@ -127,20 +129,27 @@
  </div>
 	
 	
-	 <div class="container">
-      <p class="xixnxi">每页显示10条，总记录数4条</p>
-         <nav>
-          <ul class="pagination">
-               </li>
-               <li><a href="#">首页</a></li>
-               <li><a href="#">上一页</a></li>
-               <li><a href="#">3</a></li>
-               <li><a href="#">下一页</a></li>
-               <li><a href="#">尾页</a></li>
-               </li>
-          </ul>
-        </nav>
-</div>	
+	<div id="pagecut" style="margin-right:100px;text-align:right;">
+		<ul class="pagination">
+			<li><a href="${rootPath }secretary/partySecretary_lookOfPartyMember?page=${pc.prePage}&&search=${search}">上一页</a></li>
+			<c:if test="${1 < pc.currentPage -3}">
+				<li><a href="${rootPath }secretary/partySecretary_lookOfPartyMember?page=1&&search=${search}">1</a></li>
+			</c:if>
+			
+			<c:forEach var="i" begin="${pc.currentPage-3>0?pc.currentPage-3:1 }" end="${pc.currentPage+3>pc.pageNum?pc.pageNum:pc.currentPage+3  }">
+				<c:choose>
+					<c:when test="${i>0 && i == pc.currentPage }">
+						<li class="active"><a href="${rootPath }secretary/partySecretary_lookOfPartyMember?page=${i }&&search=${search}">${i}</a></li>
+					</c:when>
+
+					<c:when test="${i>0 && i != postPS.currentPage }">
+						<li><a href="${rootPath }secretary/partySecretary_lookOfPartyMember?page=${i }&&search=${search}">${i}</a></li>
+					</c:when>
+				</c:choose>
+			</c:forEach>
+			<li><a href="${rootPath }secretary/partySecretary_lookOfPartyMember?page=${pc.nextPage}&&search=${search}">下一页</a></li>
+		</ul>
+	</div>
 		
 	 <footer id="footer-warp"><!--页脚开始-->
 		<p class="footer"><a href="">网站声明</a> &nbsp; &nbsp;<span>|</span> &nbsp; &nbsp;<a href="">关于我们 &nbsp; &nbsp;</a><span>|</span> &nbsp; &nbsp;<a href="">联系我们</a></p>

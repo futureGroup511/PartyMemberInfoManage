@@ -115,23 +115,23 @@ public class RedPaperServiceImpl implements IRedPaperService{
 	}
 
 	@Override
-	public List<RedPaper> getNextRecordById(int id) {
-		return iRedPaperDao.getNextRecordById(id);
+	public List<RedPaper> getNextRecordById(int id, String search) {
+		return iRedPaperDao.getNextRecordById(id, search);
 	}
 
 	@Override
-	public List<RedPaper> getPrevRecordById(int id) {
-		return iRedPaperDao.getPrevRecordById(id);
+	public List<RedPaper> getPrevRecordById(int id, String search) {
+		return iRedPaperDao.getPrevRecordById(id, search);
 	}
 
 	@Override
-	public List<RedPaper> getLastRecordById() {
-		return iRedPaperDao.getLastRecordById();
+	public List<RedPaper> getLastRecordById(String search) {
+		return iRedPaperDao.getLastRecordById( search);
 	}
 
 	@Override
-	public List<RedPaper> getFristRecordById() {
-		return iRedPaperDao.getFristRecordById();
+	public List<RedPaper> getFristRecordById(String search) {
+		return iRedPaperDao.getFristRecordById( search);
 	}
 
 }

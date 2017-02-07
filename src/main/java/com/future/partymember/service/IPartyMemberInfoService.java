@@ -23,12 +23,7 @@ public interface IPartyMemberInfoService {
 	public List<PartyMemberInfo> getAllPartyMember();
 	//限制数量查询党员个人信息
 	public List<PartyMemberInfo> getSomePartyMember(int first,int max); 
-	//查询某个书记所管理的党员
-	public List<PartyMemberInfo> findAllPartyMemberInfo(PartySecretaryInfo partySecretaryInfo,
-			int curPage,int pageSize);
-	//初始化pagerCut类以便分页 丁赵雷
-	public PageCut<PartyMemberInfo> getPagerCut(int pageSize, int curPage, PartySecretaryInfo partySecretaryInfo);
-	
+
 	//获取指定条件的分页对象  宋民举
 	public PageCut<PartyMemberInfo> getPageCut(int currentPage,int pageSize);
 	/**
@@ -38,6 +33,9 @@ public interface IPartyMemberInfoService {
 	 * @return
 	 */
 	public PageCut<PartyMemberInfo> getPageCut(int currentPage,int pageSize,String search);
+	
+	//用来查询某一党支部的党员
+	public PageCut<PartyMemberInfo> getPageCut(int currentPage,int pageSize,String search, String partyBranch);
 	//是否存在账号
 	public boolean exist(String account);
 	//登录
