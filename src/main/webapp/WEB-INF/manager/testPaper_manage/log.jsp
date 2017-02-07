@@ -30,8 +30,8 @@
 			</div>
 		</div>
 		<div class="row" style="margin-bottom: 30px;">
-			<form action="" method="post">
-				<div class="col-xs-6">
+			<form action="${rootPath }manage/testManage_log" method="post">
+				<div class="col-xs-6"> 
 
 					<input type="text" name="search" class="form-control"
 						value="${search }"
