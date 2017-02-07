@@ -80,23 +80,23 @@
 	</table>
 	<div id="pagecut" style="margin-right:100px;text-align:right;">
 		<ul class="pagination">
-			<li><a href="${rootPath }manage/managePaper_paper?page=${pc.prePage}">上一页</a></li>
+			<li><a href="${rootPath }manage/managePaper_paper?page=${pc.prePage}?&search=${search }">上一页</a></li>
 			<c:if test="${1 < pc.currentPage -3}">
-				<li><a href="${rootPath }manage/managePaper_paper">1</a></li>
+				<li><a href="${rootPath }manage/managePaper_paper?search=${search }">1</a></li>
 			</c:if>
 			
 			<c:forEach var="i" begin="${pc.currentPage-3>0?pc.currentPage-3:1 }" end="${pc.currentPage+3>pc.pageNum?pc.pageNum:pc.currentPage+3  }">
 				<c:choose>
 					<c:when test="${i>0 && i == pc.currentPage }">
-						<li class="active"><a href="${rootPath }manage/managePaper_paper?page=${i }">${i}</a></li>
+						<li class="active"><a href="${rootPath }manage/managePaper_paper?page=${i }&search=${search }">${i}</a></li>
 					</c:when>
 
 					<c:when test="${i>0 && i != postPS.currentPage }">
-						<li><a href="${rootPath }manage/managePaper_paper?page=${i }">${i}</a></li>
+						<li><a href="${rootPath }manage/managePaper_paper?page=${i }&search=${search }">${i}</a></li>
 					</c:when>
 				</c:choose>
 			</c:forEach>
-			<li><a href="${rootPath }manage/managePaper_paper?page=${pc.nextPage}">下一页</a></li>
+			<li><a href="${rootPath }manage/managePaper_paper?page=${pc.nextPage}&search=${search }">下一页</a></li>
 		</ul>
 	</div>
 	<div class="background navbar-fixed-top"  style="position:absolute; z-index:-1;width:100%;height:100%;opacity:0.1;">

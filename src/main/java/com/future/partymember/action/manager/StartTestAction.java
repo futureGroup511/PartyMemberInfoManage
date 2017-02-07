@@ -19,7 +19,7 @@ public class StartTestAction extends BaseAction{
 		if(page<1){
 			page=1;
 		}
-		String search=this.getRequest().getParameter("search");
+		String search=(String)this.getRequest().getAttribute("search");
 		PageCut<StartTest> pCut=startTestService.getPC(page, 10, search);
 		
 		String s1=String.format("<span class=\"search\">%s</span>",search);

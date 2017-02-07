@@ -115,7 +115,7 @@
 		<div id="pagecut" style="margin-right: 100px; text-align: right;">
 			<ul class="pagination">
 				<li><a
-					href="${rootPath }manage/partSecretary?page=${pc.prePage}">上一页</a></li>
+					href="${rootPath }manage/partSecretary?page=${pc.prePage}&search=${search }">上一页</a></li>
 				<c:if test="${1 < pc.currentPage -3}">
 					<li><a href="#">1</a></li>
 				</c:if>
@@ -125,16 +125,16 @@
 					<c:choose>
 						<c:when test="${i>0 && i == pc.currentPage }">
 							<li class="active"><a
-								href="${rootPath }manage/partSecretary?page=${i }">${i}</a></li>
+								href="${rootPath }manage/partSecretary?page=${i }&search=${search }">${i}</a></li>
 						</c:when>
 
 						<c:when test="${i>0 && i != postPS.currentPage }">
-							<li><a href="${rootPath }manage/partSecretary?page=${i }">${i}</a></li>
+							<li><a href="${rootPath }manage/partSecretary?page=${i }&search=${search }">${i}</a></li>
 						</c:when>
 					</c:choose>
 				</c:forEach>
 				<li><a
-					href="${rootPath }manage/partSecretary?page=${pc.nextPage}">下一页</a></li>
+					href="${rootPath }manage/partSecretary?page=${pc.nextPage}&search=${search }">下一页</a></li>
 			</ul>
 
 		</div>

@@ -5,9 +5,6 @@ package com.future.partymember.action.manager;
 
 
 import java.io.UnsupportedEncodingException;
-
-
-
 import java.util.Date;
 import java.util.List;
 
@@ -54,8 +51,7 @@ public class TestManageAction extends BaseAction {
 	
 	// 试卷的增删改查
 	public String getTestPaper() throws Exception {
-		
-		String search=this.getRequest().getParameter("search");
+		String search=(String)this.getRequest().getAttribute("search");
 		PageCut<TestPaper> pc=testPaperService.getPC(page, 10,search);
 		
 		if(search ==null || search.length()==0){
@@ -89,7 +85,7 @@ public class TestManageAction extends BaseAction {
 
 	// 试题的增删改查
 	public String manageQuestion() throws Exception {
-		String search=this.getRequest().getParameter("search");
+		String search=(String)this.getRequest().getAttribute("search");
 		PageCut<Question> pc=questionService.getPC(page, 10,search);
 		
 		if(search ==null || search.length()==0){
@@ -157,7 +153,7 @@ public class TestManageAction extends BaseAction {
 			page=1;
 		}
 		
-		String search=this.getRequest().getParameter("search");
+		String search=(String)this.getRequest().getAttribute("search");
 		String encode = this.getRequest().getParameter("encode");
 		if("1".equals(encode)){
 			try {

@@ -1,11 +1,6 @@
 package com.future.partymember.action.manager;
 
-import java.io.UnsupportedEncodingException;
-
 import com.future.partymember.base.BaseAction;
-import com.future.partymember.entity.ExamPerRecord;
-import com.future.partymember.entity.StartTest;
-import com.future.partymember.util.PageCut;
 
 /*
 * @author 宋民举 860080937@qq.com  

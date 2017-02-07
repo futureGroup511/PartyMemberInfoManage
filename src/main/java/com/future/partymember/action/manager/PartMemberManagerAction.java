@@ -5,7 +5,6 @@ import java.util.Date;
 
 import com.future.partymember.base.BaseAction;
 import com.future.partymember.entity.PartyMemberInfo;
-import com.future.partymember.entity.PartySecretaryInfo;
 import com.future.partymember.util.PageCut;
 import com.future.partymember.util.SwitchTime;
 
@@ -14,12 +13,13 @@ public class PartMemberManagerAction extends BaseAction {
 	private PartyMemberInfo partyMemberInfo;
 
 	public String execute() {
-		String search=this.getRequest().getParameter("search");
+		String search=(String)this.getRequest().getAttribute("search");
+
 		PageCut<PartyMemberInfo> pCut=partyMemberInfoService.getPageCut(page,10, search);
-		System.out.println(pCut.getData().size());
 		if( search==null || search.length()==0){
 			
 		}else{
+			
 			for(PartyMemberInfo p:pCut.getData()){
 				String format="<span class=\"search\">%s</span>";
 				p.setAccount(p.getAccount().replaceAll(search, String.format(format, search)));

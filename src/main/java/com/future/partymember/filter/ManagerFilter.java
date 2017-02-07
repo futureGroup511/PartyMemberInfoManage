@@ -45,6 +45,14 @@ public class ManagerFilter implements Filter {
 		// pass the request along the filter chain
 		
 		HttpServletRequest req=(HttpServletRequest)request;
+		
+		String search = req.getParameter("search");
+		
+		if(search !=null && search.length()>0){
+			search = new String(search.getBytes("ISO8859-1"), "utf8");
+		}
+		req.setAttribute("search",search);
+		
 		if(req.getRequestURI().equals(req.getContextPath()+"/manage/index_login")||req.getRequestURI().equals(req.getContextPath()+"/manage/index_loginDo")){
 			chain.doFilter(request, response);
 			return;

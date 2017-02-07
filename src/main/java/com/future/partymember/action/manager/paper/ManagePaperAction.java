@@ -78,7 +78,7 @@ public class ManagePaperAction extends BaseAction{
 		if(page==0){
 			page=1;
 		}
-		String search =this.getRequest().getParameter("search");
+		String search=(String)this.getRequest().getAttribute("search");
 		PageCut<RedPaper> pc=redPaperService.getPCByNew(page, 2,search);
 		if(search == null || search.length()==0){
 			

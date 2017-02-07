@@ -80,11 +80,11 @@ font-size:25px;
 	<nav style="margin-left: 42%;">
 		<ul class="pagination">
 			<li><a
-				href="${rootPath }manage/testManage_getTestPaper?page=${pc.prePage}">上一页</a>
+				href="${rootPath }manage/testManage_getTestPaper?page=${pc.prePage}&search=${search }">上一页</a>
 			</li>
 			<li><a href="#">${pc.currentPage}/${pc.pageNum}</a></li>
 			<li><a
-				href="${rootPath }manage/testManage_getTestPaper?page=${pc.nextPage}">下一页</a></li>
+				href="${rootPath }manage/testManage_getTestPaper?page=${pc.nextPage}&search=${search }">下一页</a></li>
 		</ul>
 	</nav>
 	

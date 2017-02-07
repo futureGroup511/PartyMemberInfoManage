@@ -4,13 +4,8 @@ package com.future.partymember.action.manager;
 import java.util.Calendar;
 import java.util.Date;
 
-import javax.print.attribute.ResolutionSyntax;
-
-import org.apache.xmlbeans.impl.xb.xsdschema.Public;
-
 import com.future.partymember.base.BaseAction;
 import com.future.partymember.entity.PartySecretaryInfo;
-import com.future.partymember.entity.UserInfo;
 import com.future.partymember.util.PageCut;
 import com.future.partymember.util.SwitchTime;
 /*
@@ -26,7 +21,7 @@ public class PartSecretaryManagerAction extends BaseAction {
 	private PartySecretaryInfo partySecretaryInfo;
 	public String execute(){
 		
-		String search=this.getRequest().getParameter("search");
+		String search=(String)this.getRequest().getAttribute("search");		
 		PageCut<PartySecretaryInfo> pCut=partySecretaryInfoService.getPageCut(page,10, search);
 		if( search==null || search.length()==0){
 			
