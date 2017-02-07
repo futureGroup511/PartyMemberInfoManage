@@ -57,7 +57,19 @@ public class LoginAction extends BaseAction {
 		}
 	}
 	
-	
+	/**
+	 * 注销
+	 */
+	public String logout(){
+		if(session.get("userId")!=null && session.get("userSort")!=null ){
+				session.remove("userId");
+				session.remove("userSort");
+		}
+		if(session.get("secretary")!=null){
+			session.remove("secretary");
+		}
+		return "logout";
+	}
 	
 	public UserInfo getUserInfo() {
 		return userInfo;

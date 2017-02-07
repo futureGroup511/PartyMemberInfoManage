@@ -58,6 +58,7 @@
 								href="${rootPath}party/partyMemberAction_getInfoBeforeUpdate.action">修改信息</a></li>
 							<li><a
 								href="${rootPath}party/partyMemberAction_getMyExamLog.action">考试报告</a></li>
+							<li><a href="${rootPath}login_logout">退出登录</a></li>
 						</ul></li>
 					 <li><a href="${rootPath}party/partyMemberAction_informList.action">通知公告</a></li>
 					<li><a href="${rootPath}party/partyMemberAction_connectUs.action">联系我们</a></li>
@@ -68,12 +69,12 @@
 	<div id="body">
 		<div id="body-one">
 			<p>
-				<img src="${rootPath}images/topimg.png"> <span>您的位置：首页&nbsp;&nbsp;>&nbsp;&nbsp;时事新闻&nbsp;&nbsp;>&nbsp;&nbsp;党建巡礼</span>
+				<img src="${rootPath}images/topimg.png"> <span>您的位置：首页&nbsp;&nbsp;>&nbsp;&nbsp;时事新闻&nbsp;&nbsp;>&nbsp;&nbsp;搜索结果</span>
 			</p>
 		</div>
  <div id="body-two">
  		<c:forEach items="${pc.data }"  var="paper">
-		 	<p><a href="${rootPath}party/partyMemberAction_lookPaperByTag?rp_Id=${paper.rp_Id}">
+		 	<p><a href="${rootPath}party/partyMemberAction_lookPaperByTag?rp_Id=${paper.rp_Id}&search=${search}">
 		 	${paper.title }<span>${ paper.releaseDate}</span></a></p>
 		</c:forEach>
  </div>

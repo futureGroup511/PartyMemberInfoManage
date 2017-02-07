@@ -43,7 +43,8 @@
             <result name="lookInform">/WEB-INF/partyMember/lookInform.jsp</result>                                             
 
            	<!--  联系我们  -->
-           	<result name="connectUs">/WEB-INF/partyMember/connectUs.jsp</result>           	                                                  
+           	<result name="connectUs">/WEB-INF/partyMember/connectUs.jsp</result>
+           	      	                                                  
         </action>
 
 	</package>

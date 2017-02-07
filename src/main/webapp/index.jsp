@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>无标题文档</title>
+<title>河南科技学院党员在线-登录</title>
 <link rel="stylesheet" href="${rootPath }css/bootstrap.css">
 <link rel="stylesheet" href="${rootPath }css/denglu.css" />
 </head>
@@ -12,7 +12,7 @@
 <body>
 <div class="container">
 <div class="beijing"  style="position:absolute; z-index:-1;">
-    	<img  class="img-responsive" width="100%;" src="images/denglubeijingyi.png">
+    	<img  class="img-responsive" width="100%;" src="${rootPath }images/denglubeijingyi.png">
 </div>
 <div class="title">
 	<p>河南科技学院党员在线</p>

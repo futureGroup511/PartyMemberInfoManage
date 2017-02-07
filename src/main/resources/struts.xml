@@ -26,10 +26,11 @@
 		
 		<action name="validation"   class="validationAction"  method="validation">
 		</action>
-		<action name="login" class="com.future.partymember.action.LoginAction">
+		<action name="login_*" class="com.future.partymember.action.LoginAction" method="{1}">
 			<result name="partyMember" type="redirect" >${rootPath}party/partyLogin</result> 
 			<result name="partySecretary"  type="redirect">${rootPath}secretary/partySecretary_login</result>
 			<result name="login">index.jsp</result>
+           	<result name="logout">index.jsp</result> 
 		</action>
 	</package>
 </struts>
