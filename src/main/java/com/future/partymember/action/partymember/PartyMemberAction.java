@@ -76,11 +76,12 @@ public class PartyMemberAction extends BaseAction {
 		}			
 		Boolean bool = partyMemberInfoService.updatePartyMemberInfo(partyMemberInfo);
 		if (bool == true) {
-			this.getRequest().setAttribute("updateMsg", "修改成功");
+			return "NoUpdatePWD"; 
 		} else {
 			this.getRequest().setAttribute("updateMsg", "修改失败");
+			return "updatePartyMemberInfo";
 		}
-		return "updatePartyMemberInfo";
+		
 	}
 
 	// 红色视频
@@ -101,7 +102,10 @@ public class PartyMemberAction extends BaseAction {
 		}
 		PageCut<RedVideo> pc=redVideoService.getPC(16, page, search);
 		this.getRequest().setAttribute("pc", pc);
-		this.getRequest().setAttribute("search", search);
+		this.getRequest().setAttribute("search", search);		
+		if(pc.getData().size()==0){
+			this.getRequest().setAttribute("NoVideo", "搜索的内容不存在！");			
+		}
 		return "viewVideos";
 	}
 	
@@ -229,7 +233,7 @@ public class PartyMemberAction extends BaseAction {
 		return "paperSection";
 	}
 	
-	//文章列表
+	//搜索文章列表
 	public String paperList(){
 		String search=this.getRequest().getParameter("search");
 		try {
@@ -247,7 +251,10 @@ public class PartyMemberAction extends BaseAction {
 		
 		pageCut=redPaperService.getPCByNew(page, 15,search,1);//1代表权限
 		this.getRequest().setAttribute("pc", pageCut);
-		this.getRequest().setAttribute("search", search);			
+		this.getRequest().setAttribute("search", search);		
+		if(pageCut.getData().size()==0){
+			this.getRequest().setAttribute("NoSearch", "搜索的内容不存在！");			
+		}
 		return "paperList";
 	}
 

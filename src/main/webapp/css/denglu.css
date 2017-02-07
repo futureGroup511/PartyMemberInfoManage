@@ -46,7 +46,10 @@ form{
 .form-group img{
   width:95px;
 }
-
+.tip{
+	margin-top:2%;
+  margin-left:-5%;
+}
 
 /* CSS Document */
 

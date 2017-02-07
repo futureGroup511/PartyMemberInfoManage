@@ -138,6 +138,12 @@ body{
 #body-one a:hover{
 	color:#DB0B18;
 }
+#body-two1 h2{
+	height: 300px;
+	color:#DB0B18;
+	text-align:center;
+	margin-top: 100px;
+}
 #body-two {
 	width:70%;
 	margin: 0 auto;

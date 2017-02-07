@@ -60,10 +60,13 @@
       <input  type="text" class="form-control" id="inputEmail3"  name="randStr"  >
     </div>
           <a href="javascript:void(0)"onclick="refresh()">
-           <img alt="点击刷新" src="${rootPath }validation" id="yan" /></a> 
+           <img alt="点击刷新" src="${rootPath }validation" id="yan" /></a>
     </div>
   </div>
  </div>
+  <div class="tip">
+           <h5>${loginMeg}</h5>
+    </div>
 </div>
   <button type="submit" class="btn btn-default">登录</button>
 </form>

@@ -114,8 +114,13 @@
 		<div id="body-two">
 			<p>党建课程</p>
 		</div>
-
-		<div id="body-three">
+		<c:if test="${NoVideo!=null}">
+			<div id="body-three1">
+				<h2>${NoVideo }</h2>
+			</div>
+		</c:if>
+		<c:if test="${NoVideo==null}">
+			<div id="body-three">
 			<c:forEach items="${pc.data}" var="v" begin="0" end="15">
 				<div>
 					<li><a href="${rootPath }party/partyMemberAction_viewing?rv_Id=${v.rv_Id}"><img
@@ -144,7 +149,8 @@
 				</c:forEach>
 				<li><a href="${rootPath }party/partyMemberAction_viewVideos?page=${pc.nextPage}&search=${search}">下一页</a></li>
 			</ul>
-		</div>		
+		</div>	
+		</c:if>	
 	</div>
 	
 	<footer id="footer-warp">

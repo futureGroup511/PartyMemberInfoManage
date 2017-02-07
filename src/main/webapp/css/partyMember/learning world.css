@@ -179,6 +179,12 @@ color:red;
 	font-size:23px;
 	border-bottom:3px solid  #EC4300;
 }
+#body-three1 h2{
+	height: 100px;
+	color:#DB0B18;
+	text-align:center;
+	margin-top: 50px;
+}
 #body-three{
 	width:80%;
 	margin: 0 auto;
