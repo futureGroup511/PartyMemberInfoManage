@@ -70,7 +70,7 @@ public class UserInfo {
 	}
 	
 	
-	@Column(name = "password", nullable = false, length = 50)
+	@Column(name = "password", nullable = false, length = 500)
 	public String getPassword() {
 		return password;
 	}
