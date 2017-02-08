@@ -89,7 +89,7 @@
 							<label style="line-height:50px;">密码</label>							
 						</div>
 						<div class="col-xs-8">
-							<input class="form-control" type="password" required="required" name="partyMemberInfo.password" value="${partyMemberInfo.password  }" placeholder="请输入密码">
+							<input class="form-control" type="password" required="required" name="partyMemberInfo.password" value="" placeholder="请输入密码,8-16位,为空则不修改" maxlength="16">
 						</div>
 					</div>
 					<div class="form-group">

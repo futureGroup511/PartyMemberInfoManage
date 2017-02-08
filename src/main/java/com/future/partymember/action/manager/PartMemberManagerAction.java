@@ -67,6 +67,9 @@ public class PartMemberManagerAction extends BaseAction {
 			this.getRequest().setAttribute("partyMember", partyMemberInfoService.getPartyMemberInfoById(partyMemberInfo.getPtm_Id()));
 			return "update";
 		}
+		if(partyMemberInfo.getPassword().length()<8){
+			partyMemberInfo.setPassword(part.getPassword());;
+		}
 		try{
 			String idc=partyMemberInfo.getIdCard();
 			int year=Integer.parseInt(idc.substring(6, 10));
@@ -140,6 +143,9 @@ public class PartMemberManagerAction extends BaseAction {
 			partyMemberInfo.setJoinPartyDate(SwitchTime.strToDate(dateStr));
 			partyMemberInfo.setIdAccessory("");
 			temp +="12";
+			
+			//默认密码为a123456789,存入数据库的是sha1加密后
+			partyMemberInfo.setPassword("82e19fa12aab7cfc718a002fc82c0f074bf070e7");
 			partyMemberInfoService.addPartyMemberInfo(partyMemberInfo);
 			this.getRequest().setAttribute("remind", "添加成功");
 			temp +="13";

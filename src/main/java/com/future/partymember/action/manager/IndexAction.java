@@ -1,6 +1,8 @@
 package com.future.partymember.action.manager;
 
 import java.io.IOException;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 
 import com.future.partymember.base.BaseAction;
 import com.future.partymember.entity.ManagerInfo;
@@ -30,7 +32,25 @@ public class IndexAction extends BaseAction{
 			return "login";
 		}
 		ManagerInfo managerInfo=managerInfoService.getByAccount(account);
-		if (managerInfo!=null && managerInfo.getPassword().equals(password)) {
+		MessageDigest messageDigest = null;
+		try {
+			messageDigest = MessageDigest.getInstance("SHA-1");
+		} catch (NoSuchAlgorithmException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		String reqlPassword = "";
+		if(messageDigest!=null){
+			byte[] bytes = managerInfo.getPassword().getBytes();
+			bytes = new String("123456").getBytes();
+			messageDigest.update(bytes);
+			byte[] results = messageDigest.digest();
+			reqlPassword = byteArrayToHex(results).toLowerCase();
+			System.out.println("input"+password);
+			System.out.println("real pw"+managerInfo.getPassword());
+			System.out.println("real"+reqlPassword);
+		}
+		if (managerInfo!=null && reqlPassword.equals(password.toLowerCase())) {
 			this.getRequest().getSession().setAttribute("user",managerInfo);
 			this.getResponse().sendRedirect("index");
 			return null;
@@ -56,6 +76,30 @@ public class IndexAction extends BaseAction{
 	}
 	public void setRandStr(String randStr) {
 		this.randStr = randStr;
+	}
+	
+	public static String byteArrayToHex(byte[] byteArray) {  
+
+		   // 首先初始化一个字符数组，用来存放每个16进制字符  
+
+		   char[] hexDigits = {'0','1','2','3','4','5','6','7','8','9', 'A','B','C','D','E','F' };  
+
+		   // new一个字符数组，这个就是用来组成结果字符串的（解释一下：一个byte是八位二进制，也就是2位十六进制字符（2的8次方等于16的2次方））  
+
+		   char[] resultCharArray =new char[byteArray.length * 2];  
+
+		   // 遍历字节数组，通过位运算（位运算效率高），转换成字符放到字符数组中去  
+
+		   int index = 0;  
+
+		   for (byte b : byteArray) {  
+
+		      resultCharArray[index++] = hexDigits[b>>> 4 & 0xf];  
+
+		      resultCharArray[index++] = hexDigits[b& 0xf];  
+
+		   }
+		   return new String(resultCharArray);  
 	}
 	
 }

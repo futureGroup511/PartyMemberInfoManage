@@ -19,14 +19,14 @@
 		<div class="body">
 			<div class="box">
 				<form class="form-inline"
-					action="${rootPath }manage/index_loginDo" method="POST" onsubmit="return md5(obj)">
+					action="${rootPath }manage/index_loginDo" method="POST" onsubmit="return md5()">
 					<h2>${remind }</h2>
 					<div class="input-one">
 						<label for="account">账号</label> <input type="text" name="account"
 							class="form-control" placeholder="请输入账号">
 					</div>
 					<div class="input-two">
-						<label for="password">密码</label> <input type="password" name="password"
+						<label for="password">密码</label> <input id="password-in" type="password" name="password"
 							class="form-control" placeholder="请输入密码">
 					</div>
 					<div class="input-three" class="form-control">
@@ -56,9 +56,10 @@
 	}
 	
 	function md5(){
-		var sha = hex_sha1('mima123465');
-		alert(sha);
-		return false;
+		
+		var sha = hex_sha1($('#password-in').val());
+		$('#password-in').val(sha);
+		return true;
 	}
 
 </script>

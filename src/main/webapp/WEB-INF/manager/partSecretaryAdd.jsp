@@ -82,7 +82,7 @@
 							<label style="line-height:50px;">密码</label>							
 						</div>
 						<div class="col-xs-8">
-							<input class="form-control" type="password" required="required" name="partySecretaryInfo.password" value="${partySecretaryInfo.password  }" placeholder="请输入密码">
+							<label style="line-height:50px;" >a123456789</label>
 						</div>
 					</div>
 					<div class="form-group">
