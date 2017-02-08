@@ -13,8 +13,13 @@ public class ChangeAction extends BaseAction{
 	private ManagerInfo user;
 	public String info(){
 		ManagerInfo old=(ManagerInfo)this.getRequest().getSession().getAttribute("user");
+		
+		if(user.getPassword()== null || user.getPassword().length()<8){
+			user.setPassword(old.getPassword());
+		}
 		user.setId(old.getId());
 		user.setAccount(old.getAccount());
+		
 		user.setSort(old.getSort());
 		managerInfoService.updateManager(user);
 		this.getRequest().getSession().setAttribute("user", user);

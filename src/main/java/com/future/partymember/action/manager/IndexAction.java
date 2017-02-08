@@ -32,25 +32,8 @@ public class IndexAction extends BaseAction{
 			return "login";
 		}
 		ManagerInfo managerInfo=managerInfoService.getByAccount(account);
-		MessageDigest messageDigest = null;
-		try {
-			messageDigest = MessageDigest.getInstance("SHA-1");
-		} catch (NoSuchAlgorithmException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		String reqlPassword = "";
-		if(messageDigest!=null){
-			byte[] bytes = managerInfo.getPassword().getBytes();
-			bytes = new String("123456").getBytes();
-			messageDigest.update(bytes);
-			byte[] results = messageDigest.digest();
-			reqlPassword = byteArrayToHex(results).toLowerCase();
-			System.out.println("input"+password);
-			System.out.println("real pw"+managerInfo.getPassword());
-			System.out.println("real"+reqlPassword);
-		}
-		if (managerInfo!=null && reqlPassword.equals(password.toLowerCase())) {
+		
+		if (managerInfo!=null && managerInfo.getPassword().equals(password.toLowerCase())) {
 			this.getRequest().getSession().setAttribute("user",managerInfo);
 			this.getResponse().sendRedirect("index");
 			return null;
