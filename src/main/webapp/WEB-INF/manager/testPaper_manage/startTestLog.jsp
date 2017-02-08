@@ -75,7 +75,7 @@
 								<td>${st.endTime }</td>
 								<td>${st.testTime }</td>
 								
-								<td><a href="manage/testManage_log?search=${st.paperName }&encode=1">查看参加此次考试的成员</a></td>
+								<td><a href="manage/testManage_log?search=${st.paperName }">查看参加此次考试的成员</a></td>
 								
 								<td><a href="${rootPath }manage/startTest_startTestDel?id=${st.st_Id }">删除</a></td>
 								
