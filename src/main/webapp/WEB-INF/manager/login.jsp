@@ -7,6 +7,7 @@
 <title>后台首页</title>
 <link rel="stylesheet" href="${rootPath }css/bootstrap.css">
 <link rel="stylesheet" href="${rootPath }css/index.css">
+
 </head>
 
 <body>
@@ -18,7 +19,7 @@
 		<div class="body">
 			<div class="box">
 				<form class="form-inline"
-					action="${rootPath }manage/index_loginDo" method="POST">
+					action="${rootPath }manage/index_loginDo" method="POST" onsubmit="return md5(obj)">
 					<h2>${remind }</h2>
 					<div class="input-one">
 						<label for="account">账号</label> <input type="text" name="account"
@@ -45,6 +46,7 @@
 
 	<script src="${rootPath }js/jquery-2.2.3.min.js"></script>
 	<script src="${rootPath }js/bootstrap.js"></script>
+	<script src="${rootPath }js/sha1.js"></script>
 	
 </body>
 <script type="text/javascript">
@@ -52,5 +54,12 @@
 		document.getElementById("yan").src = "${rootPath}validation?s="
 				+ new Date();
 	}
+	
+	function md5(){
+		var sha = hex_sha1('mima123465');
+		alert(sha);
+		return false;
+	}
+
 </script>
 </html>
