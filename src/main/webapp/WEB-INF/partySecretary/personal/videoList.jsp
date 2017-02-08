@@ -61,7 +61,7 @@
 						<li><a href="${rootPath }secretary/partySecretary_lookMyself">个人信息</a></li>
 						<li><a href="${rootPath }secretary/pSForward_fUpdataPerson">修改信息</a></li>
 						<li><a href="${rootPath}secretary/partySecretary_getMyExamLog">考试报告</a></li>
-						<li><a href="${rootPath}secretary/partySecretary_logout">退出登陆</a></li>
+					<li><a href="${rootPath}login_logout">退出登录</a></li>
                    </ul>
                </li>
               <li><a href="${rootPath}secretary/partySecretary_connectUs">联系我们</a></li>
@@ -114,7 +114,7 @@
 			</p>
 		</div>
 		<div id="body-two">
-			<p>推荐课件</p>
+			<p>党建课程</p>
 		</div>
 
 		<div id="body-three">
@@ -127,7 +127,7 @@
 			</c:forEach>			
 		</div>
 	
-	
+	<div style="clear: both;"></div>
 	<div id="pagecut" style="margin-right:100px;text-align:right;">
 		<ul class="pagination">
 			<li><a href="${rootPath }secretary/partySecretary_videoList?page=${pc.prePage}">上一页</a></li>

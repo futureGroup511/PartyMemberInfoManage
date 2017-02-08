@@ -15,15 +15,31 @@
   </context-param>
   
   <filter>
-  	<filter-name>manage</filter-name>
-  	<filter-class>com.future.partymember.filter.ManagerFilter</filter-class>
+    <filter-name>party</filter-name>
+    <filter-class>com.future.partymember.filter.PartyMemberInfoFilter</filter-class>
   </filter>
   <filter-mapping>
-  	<filter-name>manage</filter-name>
-  	<url-pattern>/manage/*</url-pattern>
+    <filter-name>party</filter-name>
+    <url-pattern>/party/*</url-pattern>
   </filter-mapping>
   
-   <!-- 自定义的过滤器 为了使用百度的富文本编辑器 -->
+  <filter>
+    <filter-name>secretary</filter-name>
+    <filter-class>com.future.partymember.filter.SecretaryFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>secretary</filter-name>
+    <url-pattern>/secretary/*</url-pattern>
+  </filter-mapping>
+  
+  <filter>
+    <filter-name>manage</filter-name>
+    <filter-class>com.future.partymember.filter.ManagerFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>manage</filter-name>
+    <url-pattern>/manage/*</url-pattern>
+  </filter-mapping>
   <filter>
     <filter-name>struts2</filter-name>
     <filter-class>com.future.partymember.filter.MyStrutsFilter</filter-class>
@@ -32,5 +48,4 @@
     <filter-name>struts2</filter-name>
     <url-pattern>/*</url-pattern>
   </filter-mapping>
-
 </web-app>

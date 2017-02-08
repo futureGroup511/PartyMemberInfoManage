@@ -35,13 +35,13 @@ margin-top:2%;
 	    <div class="row">
 					<div class="col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3 col-xs-8 col-xs-offset-2">
 						<label class="lable_1">开考时间：</label>
-						<input  style="width:60%;height:25px;"  type="datetime-local" name="startTest.startTime">
+						<input  style="width:60%;height:25px;"  type="datetime-local" required="required" name="startTest.startTime">
 					</div>
 	    </div>
 	    <div class="row">
 					<div class="col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3 col-xs-8 col-xs-offset-2">
 						<label class="lable_1">结束时间：</label>
-						<input   style="width:60%;height:25px;" type="datetime-local" name="startTest.endTime">
+						<input   style="width:60%;height:25px;" type="datetime-local" required="required" name="startTest.endTime">
 					</div>
 	    </div>
 	     <div class="row" style="margin-top:5%;">

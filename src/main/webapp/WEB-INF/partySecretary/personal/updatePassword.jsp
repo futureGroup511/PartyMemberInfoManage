@@ -61,7 +61,7 @@
 						<li><a href="${rootPath }secretary/partySecretary_lookMyself">个人信息</a></li>
 						<li><a href="${rootPath }secretary/pSForward_fUpdataPerson">修改信息</a></li>
 						<li><a href="${rootPath}secretary/partySecretary_getMyExamLog">考试报告</a></li>
-						<li><a href="${rootPath}secretary/partySecretary_logout">退出登陆</a></li>
+						<li><a href="${rootPath}login_logout">退出登录</a></li>
                    </ul>
                </li>
               <li><a href="${rootPath}secretary/partySecretary_connectUs">联系我们</a></li>
@@ -121,6 +121,19 @@
 	}else{
 		alert(notice);
 	}
+	
+	
+	function judegePwd() {		
+		var pwd1=document.getElementById("password").value ;
+		var pwd2=document.getElementById("newPassword").value ;
+		if(pwd1==pwd2){
+			return true;
+		}else{
+			alert("两次密码输入不一致，请重新输入");
+			return false;
+		}
+	}
+
 	
 </script>
 </html>
