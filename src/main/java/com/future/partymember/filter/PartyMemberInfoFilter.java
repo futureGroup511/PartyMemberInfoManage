@@ -39,10 +39,8 @@ public class PartyMemberInfoFilter implements Filter {
         HttpServletRequest request = (HttpServletRequest) req;  
         HttpServletResponse response = (HttpServletResponse) resp;
         //不过滤的url    
-        String url = request.getRequestURI();    
-        System.out.println("党员"+url);
-        Object userId=request.getSession().getAttribute("userId");
-        System.out.println(userId+"      sasas");
+        String url = request.getRequestURI();           
+        Object userId=request.getSession().getAttribute("userId");        
         if(userId!=null){
         	chain.doFilter(request, response);
         }else{

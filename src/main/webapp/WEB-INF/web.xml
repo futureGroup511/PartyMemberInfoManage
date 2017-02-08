@@ -20,10 +20,8 @@
   </filter>
   <filter-mapping>
     <filter-name>party</filter-name>
-    <url-pattern>/partymember/*</url-pattern>
+    <url-pattern>/party/*</url-pattern>
   </filter-mapping>
-  
-  
   
   <filter>
     <filter-name>secretary</filter-name>
@@ -32,15 +30,6 @@
   <filter-mapping>
     <filter-name>secretary</filter-name>
     <url-pattern>/secretary/*</url-pattern>
-  </filter-mapping>
-  
-  <filter>
-    <filter-name>PartyMemberInfo</filter-name>
-    <filter-class>com.future.partymember.filter.PartyMemberInfoFilter</filter-class>
-  </filter>
-  <filter-mapping>
-    <filter-name>PartyMemberInfo</filter-name>
-    <url-pattern>/partymember/*</url-pattern>
   </filter-mapping>
   
   <filter>

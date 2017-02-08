@@ -121,7 +121,7 @@ public class TestManageAction extends BaseAction {
 
 	// 开启考试
 	public String startTest() throws Exception {
-
+		System.out.println(startTest);
 		TestPaper testPaper = testPaperService.getTestPaperByName(startTest.getPaperName());
 		startTest.setTestPaper(testPaper);
 		long time=SwitchTime.strToTime(startTest.getEndTime()).getTime()-SwitchTime.strToTime(startTest.getStartTime()).getTime();
@@ -129,6 +129,7 @@ public class TestManageAction extends BaseAction {
 		startTest.setTestTime(testTime);				
 		String date=SwitchTime.dateToTimeStr((new Date()));
 		startTest.setCreateDate(date);
+		System.out.println(startTest);
 		//判断是否开启
 		int  wetherAdd=startTestService.getStIdByDate(startTest.getPaperName(), date);
 		if(wetherAdd==0){
@@ -146,6 +147,7 @@ public class TestManageAction extends BaseAction {
 			this.getRequest().setAttribute("startMeg", "一分钟内已开启该卷，请一分钟后刷新再开启！");
 		}
 		return "startTest";
+		
 	}
 	
 	public String log(){

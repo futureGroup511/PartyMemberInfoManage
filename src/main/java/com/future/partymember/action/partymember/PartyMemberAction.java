@@ -349,6 +349,8 @@ public class PartyMemberAction extends BaseAction {
 		StartTest startTest = (StartTest) this.getRequest().getSession().getServletContext().getAttribute("startTest");
 		if (startTest != null) {
 			if (SwitchTime.strToTime(startTest.getEndTime()).after(new Date())) {
+				System.out.println(startTest.getTestPaper());
+				System.out.println(startTest.getTestPaper().getTp_Id());
 				List<Question> questionsList = questionService.getQuestionsByTpId(startTest.getTestPaper().getTp_Id());
 
 				// 计算考试时长和总分

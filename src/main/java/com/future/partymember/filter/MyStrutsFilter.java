@@ -30,10 +30,10 @@ public class MyStrutsFilter extends StrutsPrepareAndExecuteFilter implements Fil
 		response.setCharacterEncoding("UTF-8");
         //不过滤的url    
         String url = request.getRequestURI();    
-        System.out.println("编辑器"+url);
+        
  
-        if ("/PartyMemberInfoManage/ueditor1_4_3/jsp/controller.jsp".equals(url)) {  //注意路径  
-        	System.out.println(url);
+        if ((request.getSession().getServletContext().getContextPath()+"/ueditor1_4_3/jsp/controller.jsp").equals(url)) {  //注意路径  
+        	
             chain.doFilter(req, res);    
         }else{    
 
