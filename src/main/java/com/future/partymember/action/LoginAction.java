@@ -30,6 +30,7 @@ public class LoginAction extends BaseAction {
 		if(userInfo.getAccount().length()>=8){
 			PartyMemberInfo partyMemberInfo=partyMemberInfoService.login(userInfo.getAccount(), 
 					userInfo.getPassword());
+			System.out.println(userInfo.getPassword());
 			if(partyMemberInfo!=null){
 				this.getSession().put("userId", partyMemberInfo.getPtm_Id());
 				this.getSession().put("userSort", 0);

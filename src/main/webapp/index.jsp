@@ -7,6 +7,7 @@
 <title>河南科技学院党员在线-登录</title>
 <link rel="stylesheet" href="${rootPath }css/bootstrap.css">
 <link rel="stylesheet" href="${rootPath }css/denglu.css" />
+<script src="${rootPath }js/sha1.js"></script>
 </head>
 
 <body>
@@ -17,7 +18,7 @@
 <div class="title">
 	<p>河南科技学院党员在线</p>
 </div>
-<form role="form"  action="login.action"  method="POST">
+<form role="form"  action="login.action"  method="POST" onsubmit="return md5()">
 <!--用户名一栏-->
 <div class="row">
  <div class="col-lg-4 col-lg-offset-4 col-md-8 col-md-offset-2 col-xs-8 col-xs-offset-2">
@@ -83,8 +84,13 @@ $(function(){
 		document.getElementById("yan").src = "${rootPath}validation?s="
 				+ new Date();
 	}
+	function md5(){
+		var list=document.getElementsByTagName("input");
+		var pwd=list[1].value;		
+		var sha = hex_sha1(pwd);
+		list[1].value=sha;
+	}
 </script>
 </body>
 </html>
-
 
