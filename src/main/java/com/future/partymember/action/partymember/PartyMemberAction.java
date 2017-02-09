@@ -481,11 +481,13 @@ public class PartyMemberAction extends BaseAction {
 		List<Question> questionsList = new ArrayList<>();
 		for (ExamPerRecord e : examPerRecordsList) {
 			Question question = questionService.getQuestionByQtId(e.getQt_Id());
-			if (!question.getAnswer().equals(e.getAnswer())) {
-				question.setMyAnswer(e.getAnswer());
-			}
-			question.setMyScore(e.getSocre());
-			questionsList.add(question);
+			if(question!=null){
+				if (!question.getAnswer().equals(e.getAnswer())) {
+					question.setMyAnswer(e.getAnswer());
+				}
+				question.setMyScore(e.getSocre());
+				questionsList.add(question);
+			}			
 		}
 		ExamLog examLog = examLogService.getExamLogByTpId(userId, userSort, tp_Id, st_Id);
 		if(examLog!=null && questionsList.size()>0){

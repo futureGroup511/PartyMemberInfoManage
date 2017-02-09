@@ -115,15 +115,22 @@ public class PartySecretaryAction extends BaseAction {
 		List<Question> questionsList = new ArrayList<>();
 		for (ExamPerRecord e : examPerRecordsList) {
 			Question question = questionService.getQuestionByQtId(e.getQt_Id());
-			if (!question.getAnswer().equals(e.getAnswer())) {
-				question.setMyAnswer(e.getAnswer());
-			}
-			question.setMyScore(e.getSocre());
-			questionsList.add(question);
+			if(question!=null){
+				if (!question.getAnswer().equals(e.getAnswer())) {
+					question.setMyAnswer(e.getAnswer());
+				}
+				question.setMyScore(e.getSocre());
+				questionsList.add(question);
+			}		
 		}
 		ExamLog examLog = examLogService.getExamLogByTpId(userId, userSort, tp_Id, st_Id);
-		this.getRequest().setAttribute("examLog", examLog);
-		this.getRequest().setAttribute("questionsList", questionsList);
+		if(examLog!=null && questionsList.size()>0){
+			this.getRequest().setAttribute("examLog", examLog);
+			this.getRequest().setAttribute("questionsList", questionsList);
+		}
+		else{
+			this.getRequest().setAttribute("NotQusetionInfo", "试题信息可能已被删除，无法查询！");
+		}
 		return "getExamDetails";
 	}
 

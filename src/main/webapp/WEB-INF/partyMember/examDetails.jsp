@@ -73,6 +73,12 @@
 				<img src="${rootPath}images/topimg.png"> <span>您的位置：<a href="${rootPath}party/partyLogin.action">首页</a>&nbsp;&nbsp;>&nbsp;&nbsp;个人中心&nbsp;&nbsp;>&nbsp;&nbsp;<a href="${rootPath}party/partyMemberAction_getMyExamLog.action"">考试报告</a>&nbsp;&nbsp;>&nbsp;&nbsp;考试详情</span>
 			</p>
 		</div>
+		<c:if test="${NotQusetionInfo!=null}">
+			<div id="NotMsg">
+				<h4>${NotQusetionInfo }</h4>
+			</div>
+		</c:if>
+		<c:if test="${NotQusetionInfo==null}">
 		<div id="body-big">
 			<div id="body-two">
 				<p>${examLog.paperName}</p>
@@ -129,6 +135,7 @@
 				</div>
 			</c:forEach>					
 		</div>
+		</c:if>
 	</div>
 	<footer id="footer-warp"><!--页脚开始-->
 	<p class="footer">

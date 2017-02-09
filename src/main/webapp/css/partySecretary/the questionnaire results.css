@@ -131,6 +131,14 @@ body{
 	border-bottom:2px solid #DDE1E4;
 	font-family:微软雅黑; 
 }
+#NotMsg {
+	height: 200px;
+}
+#NotMsg h4{
+	text-align: center;
+	color:#DB0B18;
+	padding-top: 100px;
+}
 #body-big{
 	width:63%;
 	margin: 0 auto;

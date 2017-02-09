@@ -138,6 +138,14 @@ body{
 #body-one a:hover{
 	color:#DB0B18;
 }
+#NotMsg {
+	height: 200px;
+}
+#NotMsg h4{
+	text-align: center;
+	color:#DB0B18;
+	padding-top: 100px;
+}
 #body-big{
 	width:63%;
 	margin: 0 auto;
