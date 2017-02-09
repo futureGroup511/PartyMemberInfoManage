@@ -48,10 +48,6 @@ public class SecretaryFilter implements Filter {
         	yesUrl=url.split("/")[3].split("_")[1];
         }
         
-        
-        System.out.println(yesUrl);
-        
-        System.out.println("书记"+url);
         Object ps=request.getSession().getAttribute("secretary");
      
         if(ps !=null || yesUrl.equals("login")){
