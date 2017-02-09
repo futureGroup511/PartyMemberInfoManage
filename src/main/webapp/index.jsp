@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -18,7 +18,7 @@
 <div class="title">
 	<p>河南科技学院党员在线</p>
 </div>
-<form role="form"  action="login.action"  method="POST" onsubmit="return md5()">
+<form role="form"  action="login.action"  method="POST" onsubmit=" md5()">
 <!--用户名一栏-->
 <div class="row">
  <div class="col-lg-4 col-lg-offset-4 col-md-8 col-md-offset-2 col-xs-8 col-xs-offset-2">
@@ -28,7 +28,7 @@
     <label for="inputEmail3" class="control-label">账号:</label>
     </div>
     <div class="col-lg-8  col-md-8 col-xs-8">
-      <input  type="text"  name="userInfo.account" class="form-control" id="inputEmail3">
+      <input  type="text"  name="userInfo.account" required="required" pattern="^.{6,10}$" class="form-control" id="inputEmail3">
     </div>
     </div>
   </div>
@@ -43,8 +43,8 @@
     <label for="inputEmail3" class="control-label">密码:</label>
     </div>
     <div class="col-lg-8  col-md-8 col-xs-8">
-      <input  type="password"   name="userInfo.password" class="form-control" id="inputEmail3" >
-    </div>
+      <input  type="password" name="userInfo.password"  required="required"  pattern="^.{8,}$" class="form-control" id="inputEmail3"  >
+    </div>   
     </div>
   </div>
  </div>
@@ -66,7 +66,7 @@
   </div>
  </div>
   <div class="tip">
-           <h5>${loginMeg}</h5>
+           <h5>${codeMeg}</h5>
     </div>
 </div>
   <button type="submit" class="btn btn-default">登录</button>
@@ -87,8 +87,9 @@ $(function(){
 	function md5(){
 		var list=document.getElementsByTagName("input");
 		var pwd=list[1].value;		
-		var sha = hex_sha1(pwd);
+		var sha = hex_sha1(pwd);		
 		list[1].value=sha;
+		
 	}
 </script>
 </body>
