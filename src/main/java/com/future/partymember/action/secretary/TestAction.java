@@ -39,11 +39,6 @@ public class TestAction extends BaseAction{
 	private int page=1;
 	private int id;
 	
-/*	 testPaperService;
-	 examPerRecordService;
-	 startTestService;*/
-
-
 
 
 	//查看所有的的考试记录
