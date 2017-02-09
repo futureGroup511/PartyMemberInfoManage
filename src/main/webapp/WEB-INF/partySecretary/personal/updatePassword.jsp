@@ -91,7 +91,7 @@
         <div role="tabpanel" class="tab-pane active" id="home">
            <div id="body-three">
            		<form action="${rootPath}secretary/partySecretary_updatePassword" method="post" >          			
-               		<p><input type="password" name="password1" id="password" class="form-control" placeholder="请输入新密码" required="required" pattern="^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{8,16}$" autocomplete="off"/></p>
+               		<p><input type="password"  id="password" class="form-control" placeholder="请输入新密码" required="required" pattern="^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{8,16}$" autocomplete="off"/></p>
                		<p><input type="password" name="password2" id="newPassword" class="form-control" placeholder="请再次输入密码" required="required" pattern="^.{8,}$"  autocomplete="off"/></p>              		
                		<button class="btn btn-primary" type="submit" onclick="return judegePwd();">确认添加</button>
                		<button class="btn btn-primary sure" type="reset">重置</button>
@@ -125,12 +125,11 @@
 	
 	
 	function judegePwd() {		
-		var pwd1=document.getElementById("password").value ;
-		var pwd2=document.getElementById("newPassword").value ;
-				
-		if(pwd1==pwd2){
-			var sha = hex_sha1(pwd1);			
-			pwd2.value=sha;
+		var pwd1=document.getElementById("password");
+		var pwd2=document.getElementById("newPassword");
+		if(pwd1.value ==pwd2.value ){
+			var sha = hex_sha1(pwd1.value );		
+			pwd2.value=sha;			
 			return true;
 		}else{
 			alert("两次密码输入不一致，请重新输入");

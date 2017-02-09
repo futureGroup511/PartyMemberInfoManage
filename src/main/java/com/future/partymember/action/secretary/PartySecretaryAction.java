@@ -336,20 +336,27 @@ public class PartySecretaryAction extends BaseAction {
 		PartySecretaryInfo psi=(PartySecretaryInfo) session.get("secretary");
 		System.out.println("psi"+psi);
 
-		String password1=(String)this.getRequest().getParameter("password1");//密码
 		String password2=(String)this.getRequest().getParameter("password2");//确认密码
-		System.out.println("新密码"+password1);
+		System.out.println("新密码"+password2);
 		
 		//判断密码必须是字母和数字的组合长度为8到16位
-		String regex = "^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{8,16}$";
-		if(password1.matches(regex)&&password2.matches(regex)&&password1.equals(password2)){
+		
 			psi.setPassword(password2);
 			partySecretaryInfoService.updatePersonInfo(psi);//更新个人信息
 			this.getRequest().setAttribute("notice", "修改成功");
-		}else{
-			this.getRequest().setAttribute("notice", "密码必须是字母和数字的组合长度为8到16位");
-		}
-		return "updatePassword";
+			
+			String returnUrl = this.getRequest().getContextPath() + "/index.jsp";
+			this.getRequest().setCharacterEncoding("UTF-8");
+			this.getResponse().setContentType("text/html; charset=UTF-8"); // 转码
+			this.getResponse()
+					.getWriter()
+					.println(
+							"<script language=\"javascript\">alert(\"密码修改成功，请重新登录!\");"
+							+ "if(window.opener==null){window.top.location.href=\""
+									+ returnUrl+ "\";}else{window.opener.top.location.href=\""
+									+ returnUrl
+									+ "\";window.close();}</script>");
+			return null;
 	}
 	
 	

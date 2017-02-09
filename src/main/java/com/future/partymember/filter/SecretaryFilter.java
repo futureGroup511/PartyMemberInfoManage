@@ -42,8 +42,12 @@ public class SecretaryFilter implements Filter {
          
         String url = request.getRequestURI();
         
-        //不过滤的url   
-        String yesUrl=url.split("/")[3].split("_")[1];
+        //不过滤的url
+        String yesUrl="";
+        if(url.split("/").length>3&&url.split("/")[3].split("_").length>1){
+        	yesUrl=url.split("/")[3].split("_")[1];
+        }
+        
         
         System.out.println(yesUrl);
         

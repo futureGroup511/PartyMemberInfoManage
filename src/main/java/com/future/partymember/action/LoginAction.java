@@ -48,13 +48,13 @@ public class LoginAction extends BaseAction {
 				session.put("userSort", 1);//书记的身份
 				session.put("partyBranch", partySecretaryInfo.getPartyBranch());
 				session.put("userId", partySecretaryInfo.getPst_Id());//保存书记的id
-				
+				return "partySecretary";
+			}else {
+				this.getRequest().setAttribute("loginMeg", "用户名或密码错误！");
+				return LOGIN;
 			}
-			return "partySecretary";
-		}else {
-			this.getRequest().setAttribute("loginMeg", "用户名或密码错误！");
-			return LOGIN;
 		}
+		return LOGIN;
 	}
 	
 	/**

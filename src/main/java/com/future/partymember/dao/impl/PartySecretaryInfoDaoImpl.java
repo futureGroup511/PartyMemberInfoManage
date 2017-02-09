@@ -23,7 +23,9 @@ public class PartySecretaryInfoDaoImpl extends BaseDao<PartySecretaryInfo>
 	@Override
 	public PartySecretaryInfo findByAccountAndPassword(String account,String password) {
 		String hql="from PartySecretaryInfo psi where psi.account=? and psi.password=?";
+		System.out.println("dao"+password);
 		PartySecretaryInfo psi=(PartySecretaryInfo)uniqueResult(hql, account, password);
+		System.out.println(psi);
 		return psi;
 	}
 
