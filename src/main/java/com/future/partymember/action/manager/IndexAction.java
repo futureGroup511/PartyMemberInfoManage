@@ -24,7 +24,7 @@ public class IndexAction extends BaseAction{
 		return "login";
 	}
 	public String loginDo() throws IOException{
-		
+		System.out.println("管理员"+password);
 		String vCode=(String)this.getRequest().getSession().getAttribute("randStr");
 		this.getRequest().getSession().removeAttribute("randStr");
 		if(randStr==null || !randStr.equals(vCode) ){
