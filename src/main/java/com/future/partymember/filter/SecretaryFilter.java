@@ -39,11 +39,18 @@ public class SecretaryFilter implements Filter {
 	public void doFilter(ServletRequest req, ServletResponse resp, FilterChain chain) throws IOException, ServletException {
         HttpServletRequest request = (HttpServletRequest) req;  
         HttpServletResponse response = (HttpServletResponse) resp;
-        //不过滤的url    
-        String url = request.getRequestURI();    
+         
+        String url = request.getRequestURI();
+        
+        //不过滤的url   
+        String yesUrl=url.split("/")[3].split("_")[1];
+        
+        System.out.println(yesUrl);
+        
         System.out.println("书记"+url);
         Object ps=request.getSession().getAttribute("secretary");
-        if(ps instanceof PartySecretaryInfo){
+     
+        if(ps !=null || yesUrl.equals("login")){
         	chain.doFilter(request, response);
         }else{
 			// 用户不存在,踢回登录页面
