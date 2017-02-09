@@ -7,6 +7,7 @@ package com.future.partymember.entity;
 
 //不是实体类，管理员专用，用于TestManageAction
 public class EPRModel {
+	
 	private ExamPerRecord examPerRecord;
 	private TestPaper testPaper;
 	private Question question;
