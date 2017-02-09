@@ -67,7 +67,10 @@ public class PartSecretaryManagerAction extends BaseAction {
 			partySecretaryInfo.setLoginDate(new Date());
 			partySecretaryInfo.setJoinPartyDate(SwitchTime.strToDate(dateStr));
 			
+			//默认密码为a123456789,存入数据库的是sha1加密后
+			partySecretaryInfo.setPassword("82e19fa12aab7cfc718a002fc82c0f074bf070e7");
 			partySecretaryInfoService.add(partySecretaryInfo);
+			
 			this.getRequest().setAttribute("remind", "添加成功");
 			this.getRequest().removeAttribute("dateStr");
 			return "add";
@@ -91,6 +94,9 @@ public class PartSecretaryManagerAction extends BaseAction {
 			this.getRequest().setAttribute("remind", "账号已经存在，请重新填写。");
 			this.getRequest().setAttribute("partySecretaryInfo", partySecretaryInfoService.findById(partySecretaryInfo.getPst_Id()));
 			return "update";
+		}
+		if(partySecretaryInfo.getPassword().length()<8){
+			partySecretaryInfo.setPassword(p.getPassword());;
 		}
 		try{
 			String idc=partySecretaryInfo.getIdCard();

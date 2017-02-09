@@ -26,11 +26,10 @@ public class LoginAction extends BaseAction {
 			this.getRequest().setAttribute("codeMeg", "验证码错误!");
 			return "login";
 		}
-		
+		System.out.println(userInfo.getPassword());
 		if(userInfo.getAccount().length()>=8){
 			PartyMemberInfo partyMemberInfo=partyMemberInfoService.login(userInfo.getAccount(), 
 					userInfo.getPassword());
-			System.out.println(userInfo.getPassword());
 			if(partyMemberInfo!=null){
 				this.getSession().put("userId", partyMemberInfo.getPtm_Id());
 				this.getSession().put("userSort", 0);

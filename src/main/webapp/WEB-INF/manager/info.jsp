@@ -8,23 +8,24 @@
 <script type="text/javascript" src="${rootPath }js/jquery-3.1.1.min.js"></script>
 <link rel="stylesheet" href="${rootPath }css/bootstrap.css" />
 <style type="text/css">
-.remind{
-	color:red;
-	font-size:1.4em;
+.remind {
+	color: red;
+	font-size: 1.4em;
 }
 </style>
 </head>
 <body>
 	<ol class="breadcrumb">
-	 	<li>当前位置：</li>
+		<li>当前位置：</li>
 		<li>个人中心</li>
 		<li class="active">个人信息</li>
 	</ol>
 	<div class="content">
-	
+
 		<span class="remind">${remind }</span>
-	
-		<form class="form-horizontal" role="form" method="POST" action="${rootPath}manage/change_info">
+
+		<form class="form-horizontal" role="form" method="POST"
+			action="${rootPath}manage/change_info" onsubmit="md5()">
 			<%-- 
 			<input type="hidden" name="user.account" value="${user.account }">
 			<input type="hidden" name="user.id" value="${user.id }">
@@ -44,38 +45,43 @@
 			<div class="form-group">
 				<label for="lastname" class="col-sm-2 control-label">用户名：</label>
 				<div class="col-sm-10">
-					<input type="text" class="form-control"name="user.username" value="${user.username}" placeholder="请输入姓">
+					<input type="text" class="form-control" name="user.username"
+						value="${user.username}" placeholder="请输入姓">
 				</div>
 			</div>
-			
+
 			<div class="form-group">
 				<label for="lastname" class="col-sm-2 control-label">密码：</label>
 				<div class="col-sm-10">
-					<input type="password" class="form-control" value="${user.password}" name="user.password" placeholder="******">
+					<input id="password-in" type="password" class="form-control"
+						value="" name="user.password" placeholder="输入密码修改,8-16位，不输入或者位数不对则不修改。">
 				</div>
 			</div>
-			
+
 			<div class="form-group">
 				<label for="lastname" class="col-sm-2 control-label">手机号：</label>
 				<div class="col-sm-10">
-					<input type="text" class="form-control" name="user.phoneNo" value="${user.phoneNo}" placeholder="请输入姓">
+					<input type="text" class="form-control" name="user.phoneNo"
+						value="${user.phoneNo}" placeholder="请输入姓">
 				</div>
 			</div>
-			
+
 			<div class="form-group">
 				<label for="lastname" class="col-sm-2 control-label">年龄：</label>
 				<div class="col-sm-10">
-					<input type="number" required="required" class="form-control"  name="user.age" value="${user.age}">
+					<input type="number" required="required" class="form-control"
+						name="user.age" value="${user.age}">
 				</div>
 			</div>
-			
+
 			<div class="form-group">
 				<label for="lastname" class="col-sm-2 control-label">性别：</label>
 				<div class="col-sm-10">
-					<input type="text" class="form-control" name="user.sex" value="${user.sex}" placeholder="请输入姓">
+					<input type="text" class="form-control" name="user.sex"
+						value="${user.sex}" placeholder="请输入姓">
 				</div>
 			</div>
-			
+
 			<div class="form-group">
 				<div class="col-sm-offset-2 col-sm-10">
 					<button type="submit" class="btn btn-default">修改</button>
@@ -84,24 +90,23 @@
 		</form>
 
 	</div>
-	<div class="background navbar-fixed-top"  style="position:absolute; z-index:-1;width:100%;height:100%;opacity:0.1;">
-    	<img  class="img-responsive" width="100%;" src="${rootPath }images/577a4c594718d_610.jpg" />
-    </div>
+	<div class="background navbar-fixed-top"
+		style="position: absolute; z-index: -1; width: 100%; height: 100%; opacity: 0.1;">
+		<img class="img-responsive" width="100%;"
+			src="${rootPath }images/577a4c594718d_610.jpg" />
+	</div>
 </body>
+<script src="${rootPath }js/sha1.js"></script>
 <script type="text/javascript">
-	/*
-	var changeUrl = "${rootPath}manage/change_info";
-	$("button").click(function() {
-		var str = $(this).parent().prev().find("input").first();
-		var name = str.attr('name');
-		var val = str.val();
-
-		$.post(changeUrl, {
-			name : val
-		}, function(result) {
-			alert("修改成功");
-		});
-	});
-	*/
+	function md5() {
+		
+		if($('#password-in').val().length<8){
+			return true;
+		}
+		
+		var sha = hex_sha1($('#password-in').val());
+		$('#password-in').val(sha);
+		return true;
+	}
 </script>
 </html>

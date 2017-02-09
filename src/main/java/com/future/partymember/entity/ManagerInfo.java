@@ -91,7 +91,7 @@ public class ManagerInfo {
 	}
 	
 	
-	@Column(name = "password", nullable = false, length = 19)
+	@Column(name = "password", nullable = false, length = 500)
 	public String getPassword() {
 		return password;
 	}

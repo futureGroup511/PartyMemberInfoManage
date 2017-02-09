@@ -1,5 +1,6 @@
 package com.future.partymember.action.partymember;
 
+import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.Date;
@@ -66,7 +67,7 @@ public class PartyMemberAction extends BaseAction {
 		int userId =(Integer)this.getSession().get("userId");
 		PartyMemberInfo partyMemberInfo=partyMemberInfoService.getPartyMemberInfoById(userId);
 		if(judge==1){//修改密码
-			// 密码加密还没加
+			
 			String password =this.getRequest().getParameter("newPassword");
 			partyMemberInfo.setPassword(password);
 		}
@@ -76,6 +77,11 @@ public class PartyMemberAction extends BaseAction {
 		}			
 		Boolean bool = partyMemberInfoService.updatePartyMemberInfo(partyMemberInfo);
 		if (bool == true) {
+			PrintWriter out = this.getResponse().getWriter(); 
+			out.println("<script type='text/javascript'>");
+			out.println("alert('密码修改成功，请重新登录');");
+
+			out.println("</script>");
 			return "NoUpdatePWD"; 
 		} else {
 			this.getRequest().setAttribute("updateMsg", "修改失败");

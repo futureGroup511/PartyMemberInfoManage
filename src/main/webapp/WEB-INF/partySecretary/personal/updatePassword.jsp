@@ -9,6 +9,7 @@
 <link rel="stylesheet" href="${rootPath }css/partySecretary/changepassword.css">
 <script src="${rootPath }js/jquery-2.2.3.min.js"></script>
 <script src="${rootPath }js/bootstrap.js"></script>
+<script src="${rootPath }js/sha1.js"></script>
 </head>
 
 <body>
@@ -78,7 +79,7 @@
   </div>
   <div id="body-big">
    <div id="body-two">
-     <p>提示：密码必须是字母和数字的组合长度为8到16位</p>
+     <p>提示：密码必须是字母和数字的组合,长度为8~16位</p>
    </div>
   <div id="body-four">
           <ul class="nav nav-tabs" role="tablist">
@@ -90,19 +91,19 @@
         <div role="tabpanel" class="tab-pane active" id="home">
            <div id="body-three">
            		<form action="${rootPath}secretary/partySecretary_updatePassword" method="post" >          			
-               		<p><input type="password" name="password1" id="password" class="form-control" placeholder="请输入新密码" required="required" autocomplete="off"/></p>
-               		<p><input type="password" name="password2" id="newPassword" class="form-control" placeholder="请再次输入密码" required="required" autocomplete="off"/></p>
-               		<button class="btn btn-primary sure" type="reset">重置</button>
+               		<p><input type="password" name="password1" id="password" class="form-control" placeholder="请输入新密码" required="required" pattern="^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{8,16}$" autocomplete="off"/></p>
+               		<p><input type="password" name="password2" id="newPassword" class="form-control" placeholder="请再次输入密码" required="required" pattern="^.{8,}$"  autocomplete="off"/></p>              		
                		<button class="btn btn-primary" type="submit" onclick="return judegePwd();">确认添加</button>
+               		<button class="btn btn-primary sure" type="reset">重置</button>
                </form>
             </div>
         </div>
        <div role="tabpanel" class="tab-pane" id="profile">
            <div id="body-three">
            		<form action="${rootPath}secretary/partySecretary_updatePhone" method="post">
-              		<p><input type="text" name="phone" class="form-control" placeholder="请输入新的手机号" required="required" autocomplete="off" maxlength=""/></p>
-               		<button class="btn btn-primary sure" type="reset">重置</button>
+              		<p><input type="text" name="phone" class="form-control" placeholder="请输入新的手机号" required="required" pattern="^1\d{10}$" autocomplete="off"/></p>               		
                 	<button class="btn btn-primary" type="submit">确认添加</button>
+                	<button class="btn btn-primary sure" type="reset">重置</button>
                 </form>
             </div>
        </div>
@@ -126,7 +127,10 @@
 	function judegePwd() {		
 		var pwd1=document.getElementById("password").value ;
 		var pwd2=document.getElementById("newPassword").value ;
+				
 		if(pwd1==pwd2){
+			var sha = hex_sha1(pwd1);			
+			pwd2.value=sha;
 			return true;
 		}else{
 			alert("两次密码输入不一致，请重新输入");
