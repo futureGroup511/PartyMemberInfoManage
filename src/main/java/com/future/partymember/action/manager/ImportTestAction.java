@@ -54,18 +54,34 @@ public class ImportTestAction extends BaseAction {
 	}
 
 	// 将excel表导入数据库，宋修改
-	public String importTest() throws Exception {
+	public String importTest()  {
 
 		String type = testPaperFileName.substring(testPaperFileName.lastIndexOf("."));
 
-		this.getRequest().setAttribute("reminder", "导入成功。");
+		
 		
 		if (type.equals(".xlsx")) {
-			util2010();// 2010excel
+			
+			try{
+				util2010();// 2010excel
+				this.getRequest().setAttribute("reminder", "导入成功。");
+			}catch(Exception e){
+				e.printStackTrace();
+				this.getRequest().setAttribute("reminder", "导入失败。");
+				return "importTest";
+			}
+			
 		}
 
 		if (type.equals(".xls")) { 
-			util2003();// 2003 -2007 excel
+			try{
+				util2003();// 2003-2007 excel
+				this.getRequest().setAttribute("reminder", "导入成功。");
+			}catch(Exception e){
+				e.printStackTrace();
+				this.getRequest().setAttribute("reminder", "导入失败。");
+				return "importTest";
+			}
 		}
 
 		return "importTest";
@@ -116,7 +132,129 @@ public class ImportTestAction extends BaseAction {
 	}
 
 	
+	
+	
 	public void util2003() throws IOException {
+		// 需要解析的Excel文件
+		File is = new File(testPaper.getPath());
+		// 创建Excel，读取文件内容
+		HSSFWorkbook hssfWorkbook = new HSSFWorkbook(FileUtils.openInputStream(is));
+		Question q = null;
+		List<Question> list = new ArrayList<Question>();
+		// 循环工作表Sheet
+		for (int numSheet = 0; numSheet < hssfWorkbook.getNumberOfSheets(); numSheet++) {
+			HSSFSheet hssfSheet = hssfWorkbook.getSheetAt(numSheet);
+			if (hssfSheet == null) {
+				continue;
+			}
+			// 循环行Row
+			for (int rowNum = 1; rowNum <= hssfSheet.getLastRowNum(); rowNum++) {
+				HSSFRow hssfRow = hssfSheet.getRow(rowNum);
+				if (hssfRow != null) {
+					q = new Question();
+					/*HSSFCell paperName = hssfRow.getCell(0);*/
+					HSSFCell questions_stems = hssfRow.getCell(0);
+					HSSFCell A = hssfRow.getCell(1);
+					HSSFCell B = hssfRow.getCell(2);
+					HSSFCell C = hssfRow.getCell(3);
+					HSSFCell D = hssfRow.getCell(4);
+					HSSFCell question_socre = hssfRow.getCell(5);
+					HSSFCell answer = hssfRow.getCell(6);
+					HSSFCell analysis = hssfRow.getCell(7);
+
+				
+					/*int paper_Id = existTest(String.valueOf(paperName));*/
+					
+/*						q.setPaperId(paper_Id);// 这个地方应该动态的去判断导入试卷的id
+						q.setPaperName(String.valueOf(paperName));*/
+						q.setQuestions_stems(String.valueOf(questions_stems));
+						q.setA(String.valueOf(A));
+						q.setB(String.valueOf(B));
+						q.setC(String.valueOf(C));
+						q.setD(String.valueOf(D));
+						int index = String.valueOf(question_socre).trim().indexOf('.');
+						String question_socre1 = String.valueOf(question_socre).trim().substring(0, index);
+						q.setQuestion_socre(Integer.parseInt(question_socre1));
+						q.setAnswer(String.valueOf(answer));
+						q.setAnalysis(String.valueOf(analysis));
+						list.add(q);
+				}
+			}
+		}
+		for (int i = 0; i < list.size(); i++) {
+			questionService.addQuestion(list.get(i));
+		}
+	}
+
+	public void util2010()   {
+		// 需要解析的Excel文件
+		File is = new File(testPaper.getPath());
+		// 创建Excel，读取文件内容
+		XSSFWorkbook xssfWorkbook=null;
+		try {
+			xssfWorkbook = new XSSFWorkbook(FileUtils.openInputStream(is));
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		Question q = null;
+		List<Question> list = new ArrayList<Question>();
+		// 循环工作表Sheet
+		for (int numSheet = 0; numSheet < xssfWorkbook.getNumberOfSheets(); numSheet++) {
+			XSSFSheet xssfSheet = xssfWorkbook.getSheetAt(numSheet);
+			if (xssfSheet == null) {
+				continue;
+			}
+			// 循环行Row
+			for (int rowNum = 1; rowNum <= xssfSheet.getLastRowNum(); rowNum++) {
+				XSSFRow xssfRow = xssfSheet.getRow(rowNum);
+				if (xssfRow != null) {
+					q = new Question();
+				/*	XSSFCell paperName = xssfRow.getCell(0);*/
+					XSSFCell questions_stems = xssfRow.getCell(0);
+					XSSFCell A = xssfRow.getCell(1);
+					XSSFCell B = xssfRow.getCell(2);
+					XSSFCell C = xssfRow.getCell(3);
+					XSSFCell D = xssfRow.getCell(4);
+					XSSFCell question_socre = xssfRow.getCell(5);
+					XSSFCell answer = xssfRow.getCell(6);
+					XSSFCell analysis = xssfRow.getCell(7);
+
+					/**
+					 * 根据试卷名判断没有这套试卷 没有的话不进行导入试卷
+					 */
+					//int paper_Id = existTest(String.valueOf(paperName));
+					//if (paper_Id != -1) {
+						//q.setPaperId(paper_Id);// 这个地方应该动态的去判断导入试卷的id
+						//q.setPaperName(String.valueOf(paperName));
+						q.setQuestions_stems(String.valueOf(questions_stems));
+						q.setA(String.valueOf(A));
+						q.setB(String.valueOf(B));
+						q.setC(String.valueOf(C));
+						q.setD(String.valueOf(D));
+						int index = String.valueOf(question_socre).trim().indexOf('.');
+						String question_socre1 = String.valueOf(question_socre).trim().substring(0, index);
+						q.setQuestion_socre(Integer.parseInt(question_socre1));
+						q.setAnswer(String.valueOf(answer));
+						q.setAnalysis(String.valueOf(analysis));
+						list.add(q);
+/*					}else{
+						this.getRequest().setAttribute("reminder", "部分或全部导入失败，试卷名称不存在或者文件格式错误。");
+						break;
+					}*/
+					
+				}
+			}
+		}
+		for (int i = 0; i < list.size(); i++) {
+			questionService.addQuestion(list.get(i));
+		}
+	}
+	
+	
+	
+	
+	public void oldUtil2003() throws IOException {
 		// 需要解析的Excel文件
 		File is = new File(testPaper.getPath());
 		// 创建Excel，读取文件内容
@@ -175,7 +313,7 @@ public class ImportTestAction extends BaseAction {
 		}
 	}
 
-	public void util2010() throws IOException {
+	public void oldUtil2010() throws IOException {
 		// 需要解析的Excel文件
 		File is = new File(testPaper.getPath());
 		// 创建Excel，读取文件内容
