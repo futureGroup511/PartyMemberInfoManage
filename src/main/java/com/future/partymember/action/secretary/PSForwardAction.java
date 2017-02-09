@@ -57,7 +57,7 @@ public class PSForwardAction extends BaseAction {
 	public String startTest() throws Exception {
 		StartTest startTest = (StartTest) this.getRequest().getSession().getServletContext().getAttribute("startTest");
 		if (startTest != null) {
-			if (SwitchTime.strToTime(startTest.getStartTime()).before(new Date())) {
+			if (SwitchTime.strToTime(startTest.getStartTime()).before(new Date())&& SwitchTime.strToTime(startTest.getEndTime()).after(new Date())) {
 				List<Question> questionsList = questionService.getQuestionsByTpId(startTest.getTestPaper().getTp_Id());
 
 				// 计算考试时长和总分

@@ -33,7 +33,7 @@ public class ExamLogDaoImpl extends BaseDao<ExamLog> implements IExamLogDao {
 
 	@Override
 	public ExamLog getExamLogByTpId(int partyMemberId, int partySort, int tp_Id,int st_Id) {
-		String hql="from ExamLog e where  e.partyMemberId="+partyMemberId+" and e.partySort="+partySort +"and e.paper_Id="+tp_Id+" and e.st_Id="+st_Id;                        
+		String hql="from ExamLog e where  e.partyMemberId="+partyMemberId+" and e.partySort="+partySort +"and e.paper_Id="+tp_Id+" and e.st_Id="+st_Id+"order by e.el_Id desc";                        
 		return (ExamLog)this.uniqueResult(hql);
 
 	}
