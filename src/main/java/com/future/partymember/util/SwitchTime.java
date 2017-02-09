@@ -19,11 +19,8 @@ public class SwitchTime {
 	  
 	    Long day = time / dd;  
 	    Long hour = day*24+(time - day * dd) / hh;  
-	    System.out.println("hour "+hour);
 	    Long minute = (time - hour * hh) / mi;
-	    System.out.println("minute"+minute);
 	    Long second = (time -  hour * hh - minute * mi) / ss;
-	    System.out.println("second"+second);
 	   // Long milliSecond = time - day * dd - hour * hh - minute * mi - second * ss;  
 	      
 	    StringBuffer sb = new StringBuffer();  

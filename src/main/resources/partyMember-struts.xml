@@ -18,9 +18,7 @@
 			<!-- 党员个人信息查询修改 -->				       
             <result name="seekPartyMemberInfo">/WEB-INF/partyMember/getPartyMemberInfo.jsp</result> 
             <result name="getInfoBeforeUpdate">/WEB-INF/partyMember/updatePartyMemberInfo.jsp</result>                         
-            <result name="updatePartyMemberInfo">/WEB-INF/partyMember/updatePartyMemberInfo.jsp</result> 
-           
-            <result name="NoUpdatePWD" type="redirect">/index.jsp</result> 
+            <result name="updatePartyMemberInfo">/WEB-INF/partyMember/updatePartyMemberInfo.jsp</result>                        
             <!-- 红色视频  -->                                
             <result name="viewVideos">/WEB-INF/partyMember/viewVideos.jsp</result>           
             <result name="viewing">/WEB-INF/partyMember/videoplay.jsp</result>

@@ -11,9 +11,53 @@
 <link rel="stylesheet" href="${rootPath}css/partySecretary/online learning.css">
 <script src="${rootPath}js/jquery-2.2.3.min.js"></script>
 <script src="${rootPath}js/bootstrap.js"></script>
-</head>
+<script type="text/javascript">
+function timer()  
+{  	
+	if("${NoTest}"==null){
+		
+	}
+	else{
+		var endtime="${time}";
+		var nowtime=(new Date()).getTime();
+		
+	    var ts =endtime-nowtime;//计算剩余的毫秒数   	 	
+	    var hh = parseInt((ts/1000/60/60), 10);//计算剩余的小时数  
+	    var mm = parseInt((ts/1000/60%60), 10);//计算剩余的分钟数  
+	    var ss = parseInt((ts/1000%60), 10);//计算剩余的秒数  
+	      
+	    hh = checkTime(hh);  
+	    mm = checkTime(mm);  
+	    ss = checkTime(ss);  
+	    document.getElementById("timer").innerHTML =  hh + " 时 " + mm + " 分 " + ss + " 秒";  
+	    var rootPath="${rootPath}";  
+	    if(hh==00&&mm==01&&ss==00){	    	
+	    	alert("还有一分钟考试结束，请尽快交卷！");	    	
+	    } 
+	    if(hh==00&&mm==00&&ss==00){     	
+	     	alert("考试结束！");	     	
+	     	window.location=rootPath+"party/partyMemberAction_startTest.action";	     	
+	    } 
+	    
+	    setInterval("timer()",1000);
+	}
+}  
+function checkTime( i)    
+{    
+   if (i < 10) {    
+       i = "0" + i;    
+    }    
+   return i;    
+}    
 
-<div id="header">
+if('${addExamLogMsg}'!=null && '${addExamLogMsg}'!=""){   	
+	alert('${addExamLogMsg}');
+}
+
+</script >
+</head>
+<body onload="timer()">
+<div id="header" >
      <div class="header-left">
           <img src="${rootPath }images/header-logo.png">
       </div>
@@ -79,11 +123,17 @@
 		</div>
 		<c:choose>
 			<c:when test="${NoTest!=null}">
-				<div id="body-two">
+				<div id="body-two1">
 					<p>${NoTest}</p>
 				</div>
 			</c:when>
 			<c:otherwise>
+				<!-- 考试倒计时 -->
+				<div class="up">
+					<h5>剩余时间为：</h5>
+					<div id="timer" class="timer"></div>
+				</div>
+				<!-- 倒计时结束 -->
 				<div id="body-two">
 					<p>${startTest.paperName}</p>
 				</div>

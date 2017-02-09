@@ -57,7 +57,7 @@ public class PSForwardAction extends BaseAction {
 	public String startTest() throws Exception {
 		StartTest startTest = (StartTest) this.getRequest().getSession().getServletContext().getAttribute("startTest");
 		if (startTest != null) {
-			if (SwitchTime.strToTime(startTest.getEndTime()).after(new Date())) {
+			if (SwitchTime.strToTime(startTest.getStartTime()).before(new Date())) {
 				List<Question> questionsList = questionService.getQuestionsByTpId(startTest.getTestPaper().getTp_Id());
 
 				// 计算考试时长和总分
@@ -68,6 +68,8 @@ public class PSForwardAction extends BaseAction {
 				startTest.setTotalScore(totalScore);
 				startTest.setTestNum(questionsList.size());
 				this.getSession().put("questionsList", questionsList);
+				long time=SwitchTime.strToTime(startTest.getEndTime()).getTime();				
+				this.getSession().put("time", time);
 			} else {
 				this.getRequest().setAttribute("NoTest", "暂时没有考试！");
 			}

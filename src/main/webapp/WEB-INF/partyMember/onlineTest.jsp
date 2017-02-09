@@ -37,7 +37,8 @@ function timer()
 	    if(hh==00&&mm==00&&ss==00){     	
 	     	alert("考试结束！");	     	
 	     	window.location=rootPath+"party/partyMemberAction_startTest.action";	     	
-	    } 	   
+	    } 
+	    
 	    setInterval("timer()",1000);
 	}
 }  
@@ -48,6 +49,11 @@ function checkTime( i)
     }    
    return i;    
 }    
+
+if('${addExamLogMsg}'!=null && '${addExamLogMsg}'!=""){   	
+	alert('${addExamLogMsg}');
+}
+
 </script>
 </head>
 
@@ -163,7 +169,7 @@ function checkTime( i)
 					</c:forEach>
 					<div class="submit">
 						<input type="submit" value="交卷"  class="btn btn-primary">
-						<h4>${addExamLogMsg}</h4>
+						
 					</div>	 
 							
 				</form>

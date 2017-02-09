@@ -1,6 +1,5 @@
 package com.future.partymember.action.partymember;
 
-import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.Date;
@@ -77,17 +76,30 @@ public class PartyMemberAction extends BaseAction {
 		}			
 		Boolean bool = partyMemberInfoService.updatePartyMemberInfo(partyMemberInfo);
 		if (bool == true) {
-			PrintWriter out = this.getResponse().getWriter(); 
-			out.println("<script type='text/javascript'>");
-			out.println("alert('密码修改成功，请重新登录');");
-
-			out.println("</script>");
-			return "NoUpdatePWD"; 
+			if(judge==1){
+				//转到登录页面			
+				String returnUrl = this.getRequest().getContextPath() + "/index.jsp";
+				this.getRequest().setCharacterEncoding("UTF-8");
+				this.getResponse().setContentType("text/html; charset=UTF-8"); // 转码
+				this.getResponse()
+					.getWriter()
+						.println(
+							"<script language=\"javascript\">alert(\"密码修改成功，请重新登录!\");"
+								+ "if(window.opener==null){window.top.location.href=\""
+									+ returnUrl+ "\";}else{window.opener.top.location.href=\""
+										+ returnUrl
+											+ "\";window.close();}</script>");
+				return null;				
+			}
+			else{
+				this.getRequest().setAttribute("updateMsg", "手机号修改成功！");
+				return "updatePartyMemberInfo";
+			}
+			 
 		} else {
-			this.getRequest().setAttribute("updateMsg", "修改失败");
+			this.getRequest().setAttribute("updateMsg", "修改失败！");
 			return "updatePartyMemberInfo";
-		}
-		
+		}				
 	}
 
 	// 红色视频
@@ -354,9 +366,7 @@ public class PartyMemberAction extends BaseAction {
 	public String startTest() throws Exception {
 		StartTest startTest = (StartTest) this.getRequest().getSession().getServletContext().getAttribute("startTest");
 		if (startTest != null) {
-			if (SwitchTime.strToTime(startTest.getEndTime()).after(new Date())) {
-				System.out.println(startTest.getTestPaper());
-				System.out.println(startTest.getTestPaper().getTp_Id());
+			if (SwitchTime.strToTime(startTest.getStartTime()).before(new Date())) {				
 				List<Question> questionsList = questionService.getQuestionsByTpId(startTest.getTestPaper().getTp_Id());
 
 				// 计算考试时长和总分
@@ -368,8 +378,7 @@ public class PartyMemberAction extends BaseAction {
 				startTest.setTestNum(questionsList.size());
 				this.getSession().put("questionsList", questionsList);
 				long time=SwitchTime.strToTime(startTest.getEndTime()).getTime();
-				
-				System.out.println("考试结束时间："+time);
+							
 				this.getSession().put("time", time);
 			} else {
 				this.getRequest().setAttribute("NoTest", "暂时没有考试！");
@@ -479,8 +488,13 @@ public class PartyMemberAction extends BaseAction {
 			questionsList.add(question);
 		}
 		ExamLog examLog = examLogService.getExamLogByTpId(userId, userSort, tp_Id, st_Id);
-		this.getRequest().setAttribute("examLog", examLog);
-		this.getRequest().setAttribute("questionsList", questionsList);
+		if(examLog!=null && questionsList.size()>0){
+			this.getRequest().setAttribute("examLog", examLog);
+			this.getRequest().setAttribute("questionsList", questionsList);
+		}
+		else{
+			this.getRequest().setAttribute("NotQusetionInfo", "试题信息可能已被删除，无法查询！");
+		}
 		return "getExamDetails";
 	}
 	
