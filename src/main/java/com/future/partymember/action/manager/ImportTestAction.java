@@ -167,6 +167,9 @@ public class ImportTestAction extends BaseAction {
 					
 /*						q.setPaperId(paper_Id);// 这个地方应该动态的去判断导入试卷的id
 						q.setPaperName(String.valueOf(paperName));*/
+						q.setPaperId(1);//这是默认的
+						q.setPaperName("默认考试名");
+						
 						q.setQuestions_stems(String.valueOf(questions_stems));
 						q.setA(String.valueOf(A));
 						q.setB(String.valueOf(B));
@@ -227,6 +230,10 @@ public class ImportTestAction extends BaseAction {
 					//if (paper_Id != -1) {
 						//q.setPaperId(paper_Id);// 这个地方应该动态的去判断导入试卷的id
 						//q.setPaperName(String.valueOf(paperName));
+					
+						q.setPaperId(1);//这是默认的
+						q.setPaperName("默认考试名");
+					
 						q.setQuestions_stems(String.valueOf(questions_stems));
 						q.setA(String.valueOf(A));
 						q.setB(String.valueOf(B));

@@ -1,28 +1,37 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<!DOCTYPE html>
+    pageEncoding="UTF-8"%>
+<%@taglib prefix="c"   uri="http://java.sun.com/jsp/jstl/core"%>
+<!DOCTYPE html >
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>修改书记信息</title>
-<link rel="stylesheet" href="${rootPath }css/bootstrap.css" />
-<style type="text/css">
-.remind {
-	font-size: 1.4em;
-	color: red;
-}
-</style>
+<title>查看所属党员信息</title>
+<link rel="stylesheet" href="${rootPath }css/bootstrap.css">
+<link rel="stylesheet" href="${rootPath }css/partySecretary/partyinformation.css">
+<script src="${rootPath }js/jquery-2.2.3.min.js"></script>
+<script src="${rootPath }js/bootstrap.js"></script>
 </head>
+
 <body>
-	<ol class="breadcrumb">
-		<li>当前位置：</li>
-		<li>书记管理</li>
-		<li class="active">修改书记信息</li>
-	</ol>
+
+<%@ include file="../head.jsp"%>
+
+<!--以上为头部-->
+
+		
+<div id="body">
+ <div id="body-one">
+   <p><img src="${rootPath }images/topimg.png"> <span>您的位置：
+   <a href="${rootPath }secretary/pSForward_fIndex">首页</a>&nbsp;&nbsp;>&nbsp;&nbsp;
+   <a href="${rootPath }secretary/partySecretary_lookOfPartyMember">党员管理</a>&nbsp;&nbsp;>&nbsp;&nbsp;党员信息详细</span></p>
+ </div>
+ <div id="body-two">
+ 	<form action="${rootPath }secretary/partySecretary_lookOfPartyMember" method="post">
+    	<input type="text" name="search" class="form-control" placeholder="您可以通过/姓名/民族/籍贯/手机号/搜索" autocomplete="off"/>
+     	<button class="btn btn-primary sure" type="button">搜索</button>
+     </form>
+ </div>
 	<div class="container">
-		<form class="form-horizontal" role="form" method="post"
-			action="${rootPath }manage/partSecretary_updateDo">
 			<div class="row">
 				<span class="remind">${remind }</span>
 			</div>
@@ -139,23 +148,11 @@
 
 				</div>
 			</div>
-
-			<div class="row">
-				<div class="col-xs-2">
-					<button class="btn btn-default" type="reset">重新填写</button>
-
-				</div>
-				<div class="col-xs-6">
-					<button class="btn btn-success" type="submit">&nbsp; 提交
-						&nbsp;</button>
-				</div>
-
-			</div>
-
-		</form>
-	</div>
-	<div class="background navbar-fixed-top"  style="position:absolute; z-index:-1;width:100%;height:100%;opacity:0.1;">
-    	<img  class="img-responsive" width="100%;" src="${rootPath }images/577a4c594718d_610.jpg" />
-    </div>
+ </div>
+		
+	 <footer id="footer-warp"><!--页脚开始-->
+		<p class="footer"><a href="">网站声明</a> &nbsp; &nbsp;<span>|</span> &nbsp; &nbsp;<a href="">关于我们 &nbsp; &nbsp;</a><span>|</span> &nbsp; &nbsp;<a href="">联系我们</a></p>
+		<p>Copyright @ 2016 All rights reserved.　　版权所有：河南科技学院党委</p>
+</footer><!--页脚结束-->		
 </body>
 </html>

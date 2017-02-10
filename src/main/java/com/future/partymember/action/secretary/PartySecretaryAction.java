@@ -21,6 +21,7 @@ import com.future.partymember.entity.RedPaper;
 import com.future.partymember.entity.RedVideo;
 import com.future.partymember.entity.StartTest;
 import com.future.partymember.entity.WatchVideoRecord;
+import com.future.partymember.service.IPartyMemberInfoService;
 import com.future.partymember.service.IRedPaperService;
 import com.future.partymember.service.IRedVideoService;
 import com.future.partymember.util.PageCut;
@@ -57,7 +58,14 @@ public class PartySecretaryAction extends BaseAction {
 	
 	
 	
-
+	//查看党员的详细信息
+	public String PartyMemberData(){
+		if(this.getRequest().getParameter("pmiId")!=null){
+			int id=Integer.parseInt(this.getRequest().getParameter("pmiId"));
+			partyMemberInfoService.getPartyMemberInfoById(id);
+		}
+		return "PartyMemberData";
+	}
 	
 	
 	
