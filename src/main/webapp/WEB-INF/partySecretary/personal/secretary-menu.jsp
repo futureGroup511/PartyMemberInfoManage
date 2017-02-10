@@ -57,6 +57,7 @@
               <li><a href="${rootPath }secretary/partySecretary_videoList">学习园地</a></li>
 				<li><a href="${rootPath }secretary/pSForward_paperList">时事新闻</a></li>
 				<li><a href="${rootPath }secretary/pSForward_startTest">在线考试</a></li>
+				<li><a href="${rootPath }secretary/pSForward_onlineSelfTest">在线测试</a></li>
                <li class="dropdown"><a href="#" data-toggle="dropdown" class="dropdown-toggle">个人中心<span class="caret"></span></a>
                    <ul class="dropdown-menu">
 						<li><a href="${rootPath }secretary/partySecretary_lookMyself">个人信息</a></li>

@@ -79,7 +79,26 @@ public class PSForwardAction extends BaseAction {
 		return "startTest";
 	}
 	
-	
+	/*
+	 * <!-- 在线测试-焦祥宇加 -->
+	 * 链接在线自测
+	 * */
+	public String onlineSelfTest() throws Exception{
+		List<Question> questionList=questionService.getRandomQuestions(4);
+		if(questionList.size()>0){
+			int testScore=0;
+			for(Question q :questionList){
+				testScore=testScore+q.getQuestion_socre();
+			}
+			this.getSession().put("questionList", questionList);
+			this.getSession().put("testNum", questionList.size());
+			this.getSession().put("testScore", testScore);
+		}
+		else{
+			this.getRequest().setAttribute("NoQuestion", "暂时题库没有题！");
+		}
+		return "onlineSelfTest";
+	}
 	//转发到修改通知页面
 	public String fUpdateInform(){
 		Inform i=informService.getById(inform.getInfo_Id());
