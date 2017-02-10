@@ -26,12 +26,12 @@
 	<div class="table-responsive">
 		<div class="container">
 			<div class="row" style="margin-bottom: 30px;">
-				<form action="" method="post">
+				<form action="" method="get"> <!-- 方法必须为get -->
 					<div class="col-xs-6">
 
 						<input type="text" name="search" class="form-control"
 							value="${search }"
-							placeholder="请输入问题题干或者所属试卷名称搜索">
+							placeholder="请输入问题题干搜索">
 
 					</div>
 					<div class="col-xs-6">
@@ -50,7 +50,9 @@
 				<div class="col-xs-12">
 					<table class="table table-bordered table-hover" >
 						<tr>
+							<!-- 
 							<td>所属试卷名称</td>
+							 -->
 							<td>题干</td>
 							<td>答案</td>
 							<td>解析</td>
@@ -64,7 +66,9 @@
 						</tr>
 						<c:forEach items="${pc.data}" var="q">
 							<tr>
+								<%-- 
 								<td>${q.paperName}</td>
+								 --%>
 								<td>${q.questions_stems}</td>
 								<td>${q.answer}</td>
 								<td>${q.analysis}</td>

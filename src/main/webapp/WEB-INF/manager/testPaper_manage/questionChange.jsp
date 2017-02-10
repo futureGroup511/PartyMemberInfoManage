@@ -25,16 +25,21 @@ margin-top:2%;
 				<input type="hidden" name="question.qt_Id" value="${question.qt_Id }">
 				<input type="hidden" name="question.paperName" value="${question.paperName }">
 				<div class="row">
+					<%-- 
 					<div class="col-lg-5 col-lg-offset-2 col-md-5 col-md-offset-2 col-xs-5 col-xs-offset-2">
 						
 						<label class="lable_1">所属试卷名称：${question.paperName}</label>
 						
 						
 					</div>
-					<div class="col-lg-5 col-md-5  col-xs-5 ">
-						<label class="lable_1">题干：</label>
-						<input required="required" type="text" style="width:40%;" name="question.questions_stems" value="${question.questions_stems }"> 
+					 --%>
+					 <div class="col-xs-10 col-xs-offset-2">
+						
+						<label class="lable_1" style="margin-left:6%;">&nbsp;&nbsp;题干：</label>
+						<input required="required" style="width:60%;" type="text" name="question.questions_stems" value="${question.questions_stems }"> 
+						
 					</div>
+				
 				</div>
 				<div class="row">
 					<div class="col-lg-5 col-lg-offset-2 col-md-5 col-md-offset-2 col-xs-5 col-xs-offset-2">
@@ -100,11 +105,14 @@ margin-top:2%;
 					</div>
 				</div>
 				</div><div class="row">
+					<%-- 
 					<div class="col-lg-5 col-lg-offset-2 col-md-5 col-md-offset-2 col-xs-5 col-xs-offset-2">
 						<label class="lable_1" style="margin-left:14%;">分数：</label>
 						<input required="required"  style="width:40%;" type="number" name="question.question_socre"  value="${question.question_socre }">
 					</div>
-					<div class="col-lg-5 col-md-5  col-xs-5 ">
+					 --%>
+					<input required="required" type="hidden" name="question.question_socre"  value="${question.question_socre }">
+					<div class="col-lg-5 col-md-5  col-xs-5 col-xs-offset-4">
 						  <input type="reset" value="重置"  style="margin-left:11%;border-radius:0px;" class="btn btn-primary"> 
 			    		  <input type="submit"  style="margin-left:14%;border-radius:0px;" value="添加" class="btn btn-primary">	
 					</div>
