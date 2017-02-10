@@ -64,6 +64,11 @@ public class QuestionServiceImpl implements IQuestionService{
 		
 		return questionDao.getQuestionByQtId(qt_Id);
 	}
+	@Override
+	public List<Question> getRandomQuestions(int num) {
+		
+		return questionDao.getRandomQuestions(num);
+	}
 	
 
 }

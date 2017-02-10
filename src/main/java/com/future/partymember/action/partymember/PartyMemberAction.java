@@ -19,6 +19,8 @@ import com.future.partymember.util.PageCut;
 import com.future.partymember.util.PaperUtil;
 import com.future.partymember.util.SwitchTime;
 
+import javafx.scene.control.Toggle;
+
 /*
  * 党员信息控制层
  * @author 焦祥宇
@@ -430,7 +432,7 @@ public class PartyMemberAction extends BaseAction {
 					testTime, testTotalScore, testNum);
 
 			int wetherAdd = examLogService.grtElIdByDate(st_Id);
-			System.out.println("examLog wetherAdd="+wetherAdd);
+			
 			if (wetherAdd == 0) {
 				Boolean bool = examLogService.addExamLog(examLog);
 				if (bool == true) {
@@ -500,6 +502,51 @@ public class PartyMemberAction extends BaseAction {
 		return "getExamDetails";
 	}
 	
+	
+	/*
+	 * 链接在线自测
+	 * */
+	public String onlineSelfTest() throws Exception{
+		List<Question> questionList=questionService.getRandomQuestions(4);
+		if(questionList.size()>0){
+			int testScore=0;
+			for(Question q :questionList){
+				testScore=testScore+q.getQuestion_socre();
+			}
+			this.getSession().put("questionList", questionList);
+			this.getSession().put("testNum", questionList.size());
+			this.getSession().put("testScore", testScore);
+		}
+		else{
+			this.getRequest().setAttribute("NoQuestion", "暂时题库没有题！");
+		}
+		return "onlineSelfTest";
+	}
+	//获得自测考试详情记录
+	public String selfExamDetails() throws Exception{
+		int testNum=(Integer)this.getSession().get("testNum");
+		int totalScore=0;//考试成绩				
+		@SuppressWarnings("unchecked")
+		List<Question> questionList = (List<Question>) this.getSession().get("questionList");
+		for (int i = 0; i < testNum; i++) {
+			String str = (String) this.getRequest().getParameter("answer" + i);
+			String userAnswer = ((Character) str.charAt(0)).toString();// 考生答案
+			int qt_Id = Integer.valueOf(str.substring(1));// 试题id
+			int score = 0;// 该题得分
+			Question question = (Question) questionList.toArray()[i];// 该题信息
+			if (userAnswer.equals(questionService.getAnswersByQtId(qt_Id).getAnswer())) {
+				score = question.getQuestion_socre();
+				totalScore += score;			
+			}else{
+				question.setMyScore(0);
+				question.setMyAnswer(userAnswer);
+			}
+			
+		}
+		this.getRequest().setAttribute("questionList", questionList);
+		this.getRequest().setAttribute("totalScore",totalScore);
+		return "selfExamDetails";
+	}
 	/**通知列表
 	 * 查看通知
 	 * 这个两个方法   

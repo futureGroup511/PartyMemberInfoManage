@@ -31,4 +31,7 @@ public interface IQuestionService {
 	 * 根据问题名称或者所属试卷搜索 ，宋民举
 	 */
 	public PageCut<Question> getPC(int curr ,int pageSize,String search);
+	
+	//随机获得num个试题
+	public List<Question> getRandomQuestions(int num);
 }

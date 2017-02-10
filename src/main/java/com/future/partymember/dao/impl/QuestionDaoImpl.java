@@ -95,6 +95,13 @@ public class QuestionDaoImpl extends BaseDao<Question> implements IQuestionDao{
 		return (Question)this.uniqueResult(hql);
 	}
 
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<Question> getRandomQuestions(int num) {
+		String sql="SELECT * FROM question  ORDER BY  RAND() LIMIT " +num;
+		return this.executeSQLQuery(Question.class,sql);
+	}
+
 	
 	
 

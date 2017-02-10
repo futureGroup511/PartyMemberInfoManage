@@ -22,4 +22,7 @@ public interface IQuestionDao{
 	public PageCut<Question> getPC(int curr ,int pageSize);
 	
 	public PageCut<Question> getPC(int curr ,int pageSize,String search);
+	
+	//随机获得num个试题
+	public List<Question> getRandomQuestions(int num);
 }

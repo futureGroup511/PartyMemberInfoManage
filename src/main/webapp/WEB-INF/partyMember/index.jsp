@@ -42,12 +42,13 @@
               <li><a href="${rootPath}party/partyLogin.action">网站首页</a></li>
               <li><a href="${rootPath }party/partyMemberAction_getResPaper.action">时事新闻</a></li>
               <li><a href="${rootPath}party/partyMemberAction_viewVideos.action">学习园地</a></li>
-              <li><a href="${rootPath}party/partyMemberAction_startTest.action">在线考试</a></li>
+              <%-- <li><a href="${rootPath}party/partyMemberAction_startTest.action">在线考试</a></li>    --%>          
+              <li><a href="${rootPath}party/partyMemberAction_onlineSelfTest.action">在线自测</a></li>
               <li class="dropdown"><a href="#" data-toggle="dropdown" class="dropdown-toggle">个人中心<span class="caret"></span></a>
                    <ul class="dropdown-menu">
                          <li><a href="${rootPath}party/partyMemberAction_seekPartyMemberInfo.action">个人信息</a></li>
                          <li><a href="${rootPath}party/partyMemberAction_getInfoBeforeUpdate.action">修改信息</a></li>
-                         <li><a href="${rootPath}party/partyMemberAction_getMyExamLog.action">考试报告</a></li>
+                         <%-- <li><a href="${rootPath}party/partyMemberAction_getMyExamLog.action">考试报告</a></li> --%>
                          <li><a href="${rootPath}login_logout">退出登录</a></li>
                    </ul>
                </li>
