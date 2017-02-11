@@ -1,18 +1,19 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html >
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>在线测试</title>
-<link rel="stylesheet" href="css/reset.css" />
-<link rel="stylesheet" href="css/toup.css" />
-<script src="js/fontSize.js"></script>
+<link rel="stylesheet" href="${rootPath }css/reset.css" />
+<link rel="stylesheet" href="${rootPath }css/toup.css" />
+<script src="${rootPath }js/fontSize.js"></script>
 </head>
 <body>
 	<section class="toup" id="t1">
 		<div class="swipers">
-			<a href="#" class="jion">党员在线测试</a>
+			<a href="#" class="jion">在线测试</a>
 		</div>
 	</section>
 	<form>
@@ -21,59 +22,39 @@
 				<!-- 中间试题-->
 				<div class="swiper-container">
 					<div class="swiper-wrapper">
+					<p class="testNum">共 ${testNum} 题，总分 ${testScore} 分。</p>
 						<div class="swiper-slide">
+							
+
 							<div class="scores">
-								<h3>1、《党章》规定，党的建设的基本要求是　　</h3>
-								<div class="choose">
-									<div class="input"><input type="radio" name="score" id="2"/><label for="2">社会主义国家的综合国力 </label></div>
-									<div class="input"><input type="radio" name="score" id="3"/><label for="3">社会主义国家的经济实力  </label></div>
-									<div class="input"><input type="radio" name="score" id="4"/><label for="4">社会主义国家的国家安全 </label></div>
-								</div>
-								<h3>2、《党章》规定，党的建设的基本要求是</h3>
-								<div class="choose">
-									<div class="input">
-										<input type="radio" name="score" id="2" /><label for="2">社会主义国家的综合国力
-										</label>
+								<c:forEach items="${questionList}" var="q" varStatus="status">
+									<h3>${status.index+1}.${q.questions_stems}<span> *
+											分值:${q.question_socre}</span>
+									</h3>
+									<div class="choose">
+										<div class="input">
+											<input type="radio" name="answer${status.index}"
+												required="required" value="A${q.qt_Id}" /><label>A.
+												${q.a} </label>
+										</div>
+										<div class="input">
+											<input type="radio" name="answer${status.index}"
+												required="required" value="B${q.qt_Id}" /><label>B.
+												${q.b} </label>
+										</div>
+										<div class="input">
+											<input type="radio" name="answer${status.index}"
+												required="required" value="C${q.qt_Id}" /><label>C.
+												${q.c} </label>
+										</div>
+										<div class="input">
+											<input type="radio" name="answer${status.index}"
+												required="required" value="D${q.qt_Id}" /><label>D.
+												${q.d} </label>
+										</div>
+
 									</div>
-									<div class="input">
-										<input type="radio" name="score" id="3" /><label for="3">社会主义国家的经济实力
-										</label>
-									</div>
-									<div class="input">
-										<input type="radio" name="score" id="4" /><label for="4">社会主义国家的国家安全
-										</label>
-									</div>
-								</div>
-								<h3>3、《党章》规定，党的建设的基本要求是</h3>
-								<div class="choose">
-									<div class="input">
-										<input type="radio" name="score" id="2" /><label for="2">社会主义国家的综合国力
-										</label>
-									</div>
-									<div class="input">
-										<input type="radio" name="score" id="3" /><label for="3">社会主义国家的经济实力
-										</label>
-									</div>
-									<div class="input">
-										<input type="radio" name="score" id="4" /><label for="4">社会主义国家的国家安全
-										</label>
-									</div>
-								</div>
-								<h3>3、《党章》规定，党的建设的基本要求是</h3>
-								<div class="choose">
-									<div class="input">
-										<input type="radio" name="score" id="2" /><label for="2">社会主义国家的综合国力
-										</label>
-									</div>
-									<div class="input">
-										<input type="radio" name="score" id="3" /><label for="3">社会主义国家的经济实力
-										</label>
-									</div>
-									<div class="input">
-										<input type="radio" name="score" id="4" /><label for="4">社会主义国家的国家安全
-										</label>
-									</div>
-								</div>
+								</c:forEach>
 								<div class="tijiao">
 									<input type="submit" name="submit" value="提交试卷">
 								</div>
