@@ -59,12 +59,20 @@ public class PartySecretaryAction extends BaseAction {
 	
 	
 	//查看党员的详细信息
-	public String PartyMemberData(){
+	public String partyMemberData(){
 		if(this.getRequest().getParameter("pmiId")!=null){
 			int id=Integer.parseInt(this.getRequest().getParameter("pmiId"));
-			partyMemberInfoService.getPartyMemberInfoById(id);
+			PartyMemberInfo pmi=partyMemberInfoService.getPartyMemberInfoById(id);
+			
+			if(pmi!=null){
+				this.getRequest().setAttribute("pmi", pmi);
+			}else{
+				this.getRequest().setAttribute("notice", "没有此人详细信息");
+			}
+		}else{
+			this.getRequest().setAttribute("notice", "没有此人详细信息");
 		}
-		return "PartyMemberData";
+		return "partyMemberData";
 	}
 	
 	

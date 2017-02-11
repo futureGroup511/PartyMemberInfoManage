@@ -68,7 +68,7 @@
 						<td>${pmi.joinPartyDate}</td>
 						<td>${pmi.duties}</td>
 						<td>${pmi.partyBranch}</td>
-						<td><a href="${rootPath }secretary/partySecretary_PartyMemberData?pmiId=${pmi.ptm_Id}">详细信息</a></td>
+						<td><a href="${rootPath }secretary/partySecretary_partyMemberData?pmiId=${pmi.ptm_Id}">详细信息</a></td>
 					</tr>
 				</c:forEach>
       </tbody>

@@ -71,6 +71,62 @@ public class LoginAction extends BaseAction {
 		return "logout";
 	}
 	
+	
+	/**
+	 * 手机登录入口
+	 * @return
+	 * @throws Exception
+	 */
+	public String phoneLogin() throws Exception {
+		
+		/**
+		 * 专门用来接受手机客户端传来的参数,判断到底跳转到那个页面
+		 */
+		String phone=this.getRequest().getParameter("phone");
+		session.put("phoneJump",phone);//将参数保存到session中 
+		
+		System.out.println("手机"+phone);
+		/**
+		 * 这是用来校验验证码的
+		 */
+		String vCode=(String)this.getRequest().getSession().getAttribute("randStr");
+		this.getRequest().getSession().removeAttribute("randStr");
+		if(randStr==null || !randStr.equals(vCode) ){
+			this.getRequest().setAttribute("notice", "验证码错误!");
+			return "login";
+		}
+		/*System.out.println(userInfo.getPassword());*/
+		if(userInfo.getAccount().length()>=8){
+			PartyMemberInfo partyMemberInfo=partyMemberInfoService.login(userInfo.getAccount(), 
+					userInfo.getPassword());
+			if(partyMemberInfo!=null){
+				this.getSession().put("userId", partyMemberInfo.getPtm_Id());
+				this.getSession().put("userSort", 0);
+				return "partyMember";
+			}else{
+				this.getRequest().setAttribute("notice", "用户名或密码错误！");
+				return LOGIN;
+			}			
+		}else if(userInfo.getAccount().length()>=6&&userInfo.getAccount().length()<8){
+			
+			PartySecretaryInfo  partySecretaryInfo=null;//书记实体类
+			if((partySecretaryInfo=partySecretaryInfoService.findByAccountAndPassword(userInfo.getAccount(), 
+					userInfo.getPassword()))!=null){
+				System.out.println("书记有");
+				session.put("secretary",partySecretaryInfo);
+				session.put("userSort", 1);//书记的身份
+				session.put("partyBranch", partySecretaryInfo.getPartyBranch());
+				session.put("userId", partySecretaryInfo.getPst_Id());//保存书记的id
+				return "partySecretary";
+			}else {
+				this.getRequest().setAttribute("notice", "用户名或密码错误！");
+				return LOGIN;
+			}
+		}
+		return LOGIN;
+	}
+	
+	
 	public UserInfo getUserInfo() {
 		return userInfo;
 	}
