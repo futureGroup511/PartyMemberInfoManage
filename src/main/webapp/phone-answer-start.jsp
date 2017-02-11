@@ -96,12 +96,12 @@ function refresh() {
 			+ new Date();
 }
 function md5(){
-	alert("c");
+
 	var list=document.getElementsByTagName("input");
 	var pwd=list[1].value;
-	alert("pwd"+pwd);
+
 	var sha = hex_sha1(pwd);
-	alert("sha"+sha);
+
 	list[1].value=sha;
 	
 }

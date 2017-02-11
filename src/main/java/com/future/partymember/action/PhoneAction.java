@@ -3,6 +3,8 @@ package com.future.partymember.action;
 import java.util.List;
 
 import com.future.partymember.base.BaseAction;
+import com.future.partymember.entity.PartyMemberInfo;
+import com.future.partymember.entity.PartySecretaryInfo;
 import com.future.partymember.entity.Question;
 
 public class PhoneAction extends BaseAction {
@@ -11,6 +13,42 @@ public class PhoneAction extends BaseAction {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	
+	
+	//手机页面   分发控制 
+	public String phoneController() throws Exception{
+		/**
+		 * 1 个人信息
+		 * 2 考试
+		 * 3 视频
+		 */
+		
+		if(session.get("phoneJump")!=null&&session.get("phoneJump")!=""){
+			int phoneFlag=Integer.parseInt((String) session.get("phoneJump"));
+			System.out.println("phoneFlag "+phoneFlag);
+			
+			
+			if(phoneFlag==1){
+				int userSort=(Integer)session.get("userSort");
+				if(userSort==0){
+					PartyMemberInfo pm=(PartyMemberInfo) session.get("partyMember");
+					this.getRequest().setAttribute("userInfo", pm);
+				}else if(userSort==1){
+					PartySecretaryInfo ps=(PartySecretaryInfo)session.get("secretary");
+					session.put("userInfo",ps);
+				}
+			}else if(phoneFlag==2){
+				System.out.println("这是手机在线测评");
+				return phoneTest();
+			}
+		}
+
+		return "";
+	}
+	
+	
+	
+	
 	
 	//手机在线测试
 		public String phoneTest() throws Exception{
@@ -55,5 +93,6 @@ public class PhoneAction extends BaseAction {
 			this.getRequest().setAttribute("totalScore",totalScore);
 			return "phoneExamDetails";
 		}
+		
 
 }

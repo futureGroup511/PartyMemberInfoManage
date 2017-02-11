@@ -1,5 +1,6 @@
 package com.future.partymember.action;
 
+import java.io.IOException;
 import java.util.List;
 
 import com.future.partymember.base.BaseAction;
@@ -77,19 +78,45 @@ public class LoginAction extends BaseAction {
 
 	
 	/**
+	 * 在进入登录页面之前调用此方法
+	 * @throws IOException 
+	 */
+	public String preLogin() throws IOException{
+		/**
+		 * 专门用来接受手机客户端传来的参数,判断到底跳转到那个页面
+		 * 1 个人信息
+		 * 2考试
+		 * 3视频
+		 */
+		String phone=this.getRequest().getParameter("phone");
+		if(phone!=null&&!phone.equals("")){
+			session.put("phoneJump",phone);//将参数保存到session中 
+			System.out.println("手机"+phone);
+			return "phoneLogin";
+		}else{
+			this.getRequest().setCharacterEncoding("UTF-8");
+			this.getResponse().setContentType("text/html; charset=UTF-8"); // 转码
+			this.getResponse()
+					.getWriter()
+					.println(
+							"<script language=\"javascript\">alert(\"您登录的地址不正确!\");</script>");
+			
+		}
+
+		return null;
+	}
+	
+	
+	
+	
+	/**
 	 * 手机登录入口
 	 * @return
 	 * @throws Exception
 	 */
 	public String phoneLogin() throws Exception {
 		
-		/**
-		 * 专门用来接受手机客户端传来的参数,判断到底跳转到那个页面
-		 */
-		String phone=this.getRequest().getParameter("phone");
-		session.put("phoneJump",phone);//将参数保存到session中 
-		
-		System.out.println("手机"+phone);
+
 		/**
 		 * 这是用来校验验证码的
 		 */
@@ -97,7 +124,7 @@ public class LoginAction extends BaseAction {
 		this.getRequest().getSession().removeAttribute("randStr");
 		if(randStr==null || !randStr.equals(vCode) ){
 			this.getRequest().setAttribute("notice", "验证码错误!");
-			return "login";
+			return "phoneLogin";
 		}
 		/*System.out.println(userInfo.getPassword());*/
 		if(userInfo.getAccount().length()>=8){
@@ -106,10 +133,11 @@ public class LoginAction extends BaseAction {
 			if(partyMemberInfo!=null){
 				this.getSession().put("userId", partyMemberInfo.getPtm_Id());
 				this.getSession().put("userSort", 0);
-				return "partyMember";
+				session.put("partyMember", partyMemberInfo);
+				return "user";
 			}else{
 				this.getRequest().setAttribute("notice", "用户名或密码错误！");
-				return LOGIN;
+				return "phoneLogin";
 			}			
 		}else if(userInfo.getAccount().length()>=6&&userInfo.getAccount().length()<8){
 			
@@ -121,13 +149,13 @@ public class LoginAction extends BaseAction {
 				session.put("userSort", 1);//书记的身份
 				session.put("partyBranch", partySecretaryInfo.getPartyBranch());
 				session.put("userId", partySecretaryInfo.getPst_Id());//保存书记的id
-				return "partySecretary";
+				return "user";
 			}else {
 				this.getRequest().setAttribute("notice", "用户名或密码错误！");
-				return LOGIN;
+				return "phoneLogin";
 			}
 		}
-		return LOGIN;
+		return "phoneLogin";
 	}
 	
 	
