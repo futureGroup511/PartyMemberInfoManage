@@ -28,7 +28,7 @@ public class MyStrutsFilter extends StrutsPrepareAndExecuteFilter implements Fil
         HttpServletResponse response=(HttpServletResponse)res;
 		request.setCharacterEncoding("UTF-8");
 		response.setCharacterEncoding("UTF-8");
-        //不过滤的url    
+        //不过滤的hurl    
         String url = request.getRequestURI();    
         
  
