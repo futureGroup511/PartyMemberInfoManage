@@ -1,8 +1,6 @@
 package com.future.partymember.action.manager;
 import java.util.Date;
 
-import org.aspectj.weaver.Dump.INode;
-
 /*
 * @author 宋民举 860080937@qq.com  
 * @date 2016年12月16日 上午11:31:44 
@@ -12,8 +10,6 @@ import com.future.partymember.base.BaseAction;
 import com.future.partymember.entity.Inform;
 import com.future.partymember.entity.ManagerInfo;
 import com.future.partymember.util.PageCut;
-import com.future.partymember.util.SwitchTime;
-import com.opensymphony.xwork2.util.finder.ClassFinder.Info;
 public class InformAction extends BaseAction{
 	
 	/**

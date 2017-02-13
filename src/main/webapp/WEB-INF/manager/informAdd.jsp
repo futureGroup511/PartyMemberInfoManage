@@ -101,11 +101,11 @@
 			<div class="form-group">
 				<label for="name" class="col-sm-2 control-label">权限</label>
 				<div class="col-sm-10">
-					<select class="form-control">
-						<option name="inform.info_tag" value="0">仅管理员</option>
-						<option name="inform.info_tag" value="1">书记可看</option>
-						<option name="inform.info_tag" value="2">党员可看</option>
-						<option name="inform.info_tag" value="3">全体可看</option>
+					<select name="inform.info_tag" class="form-control">
+						<option value="0">仅管理员</option>
+						<option value="1">书记可看</option>
+						<option value="2">党员可看</option>
+						<option value="3">全体可看</option>
 					</select>
 				</div>
 
