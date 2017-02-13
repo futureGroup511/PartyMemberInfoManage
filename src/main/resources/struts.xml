@@ -37,6 +37,7 @@
 		<action name="phone_*" class="com.future.partymember.action.PhoneAction" method="{1}">
 				<result name="phoneTest">/WEB-INF/phoneTest.jsp</result>
 				<result name="phoneExamDetails">/WEB-INF/phoneExamDetails.jsp</result>
+				<result name="phoneVideoList">/WEB-INF/phone-video-list.jsp</result>
 		</action>
 	</package>
 </struts>

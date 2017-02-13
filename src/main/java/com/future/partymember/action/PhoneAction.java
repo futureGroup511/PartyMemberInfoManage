@@ -6,6 +6,7 @@ import com.future.partymember.base.BaseAction;
 import com.future.partymember.entity.PartyMemberInfo;
 import com.future.partymember.entity.PartySecretaryInfo;
 import com.future.partymember.entity.Question;
+import com.future.partymember.entity.RedVideo;
 
 public class PhoneAction extends BaseAction {
 
@@ -40,6 +41,9 @@ public class PhoneAction extends BaseAction {
 			}else if(phoneFlag==2){
 				System.out.println("这是手机在线测评");
 				return phoneTest();
+			}else if(phoneFlag==3){
+				System.out.println("手机视频列表");
+				return phoneVideoList();
 			}
 		}
 
@@ -92,6 +96,22 @@ public class PhoneAction extends BaseAction {
 			this.getRequest().setAttribute("questionList", questionList);
 			this.getRequest().setAttribute("totalScore",totalScore);
 			return "phoneExamDetails";
+		}
+		
+		
+		//手机在线视频列表页
+		public String phoneVideoList(){
+		 	List<RedVideo> phoneHotVideoList=redVideoService.getHot(4);
+		 	List<RedVideo> phoneNewVideoList=redVideoService.getNew(10);
+		 	
+		 	
+		 	
+		 	this.getRequest().setAttribute("phoneHotFristVideo", phoneHotVideoList.get(0));
+		 	this.getRequest().setAttribute("phoneHotLastVideo", phoneHotVideoList.get(3));
+		 	this.getRequest().setAttribute("phoneHotVideoList", phoneHotVideoList);
+		 	this.getRequest().setAttribute("phoneNewVideoList", phoneNewVideoList);
+			
+			return "phoneVideoList";
 		}
 		
 

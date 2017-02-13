@@ -21,24 +21,27 @@
 			.mui-content{
 				background: rgba(252,252,252,0.8);
 				box-shadow: 2px 1px 1px #AAAAAA;
-				margin: 180px 30px;
+				margin: 150px 15px;
 			}
 			.mui-bar-nav ~ .mui-content{
 				padding-top: 0;
 			}
 			.mui-input-group{
 				background: rgba(252,252,252,0);
-				padding: 20px;
+				padding: 10px;
+			}
+			.mui-input-row label{
+			    width:30%;
 			}
 			#yanzheng{
 				width: 45%!important;
 				float: left;
 			}
 			.mui-input-row .yanzhengma{
-				width: 20%;
+				width: 25%;
 				float: right;
 				display: block;
-				background: #B2C1C1;
+				
 			}
 			.anniu{
 				margin-top: 30px;
@@ -60,11 +63,11 @@
 			<form class="mui-input-group" action="login_phoneLogin"  method="POST" onsubmit="md5()">
 				<div class="mui-input-row">
 					<label>用户名</label>
-					<input type="text" name="userInfo.account" required="required" pattern="^.{6,10}$" class="mui-input-clear" placeholder="请输入用户名">
+					<input style="width:45%!important;float:left;" type="text" name="userInfo.account" required="required" pattern="^.{6,10}$" class="mui-input-clear" placeholder="请输入用户名">
 				</div>
 				<div class="mui-input-row">
 					<label>密码</label>
-					<input type="password"  name="userInfo.password"  required="required"  pattern="^.{8,}$" class="mui-input-password" placeholder="请输入密码">
+					<input style="width:50%!important;float:left;" type="password"  name="userInfo.password"  required="required"  pattern="^.{8,}$" class="mui-input-password" placeholder="请输入密码">
 				</div>
 				<div class="mui-input-row">
 					<label>验证码</label>
@@ -89,22 +92,15 @@ if(notice==""){
 }else{
 	alert(notice);
 }
-
-
 function refresh() {
 	document.getElementById("yan").src = "${rootPath}validation?s="
 			+ new Date();
 }
 function md5(){
-
 	var list=document.getElementsByTagName("input");
 	var pwd=list[1].value;
-
 	var sha = hex_sha1(pwd);
-
 	list[1].value=sha;
 	
 }
-
 </script>
-</html>
