@@ -2,11 +2,16 @@ package com.future.partymember.action;
 
 import java.util.List;
 
+import org.hibernate.type.IntegerType;
+
 import com.future.partymember.base.BaseAction;
 import com.future.partymember.entity.PartyMemberInfo;
 import com.future.partymember.entity.PartySecretaryInfo;
 import com.future.partymember.entity.Question;
 import com.future.partymember.entity.RedVideo;
+import com.future.partymember.entity.UserInfo;
+import com.future.partymember.entity.WatchVideoRecord;
+import com.future.partymember.util.SwitchTime;
 
 public class PhoneAction extends BaseAction {
 
@@ -114,6 +119,116 @@ public class PhoneAction extends BaseAction {
 		 	this.getRequest().setAttribute("phoneNewVideoList", phoneNewVideoList);
 			
 			return "phoneVideoList";
+		}
+		
+		
+		//手机看视频
+		public String lookVideo(){
+			//先判断身份在跳转
+			
+			int userSort=(Integer) session.get("userSort");
+			System.out.println("this.getRequest().getParameter(rv_Id)"+this.getRequest().getParameter("rv_Id"));
+			int id=Integer.parseInt(this.getRequest().getParameter("rv_Id"));//视频id
+			int userId=5;
+			
+			//书记
+			if(userSort==1){
+				
+				PartySecretaryInfo user =(PartySecretaryInfo)session.get("secretary");
+				userId=user.getPst_Id();//书记的id
+			}
+			if(userSort==0){
+				PartyMemberInfo user =(PartyMemberInfo)session.get("partyMember");
+				userId=user.getPtm_Id();//党员的id
+			}
+			
+			
+			//获得视频观看记录
+			WatchVideoRecord watchVideoRecord=watchVideoRecordService.getWVR(id, userId,userSort);
+			if(watchVideoRecord!=null)//设置上次观看该视频的时间
+				this.getRequest().setAttribute("currentTime", watchVideoRecord.getCurrentTime());
+			
+			redVideoService.updatewatchNumById(id);//视频观看次数加一
+			RedVideo v =redVideoService.get(id);
+			this.getRequest().setAttribute("video", v);
+			
+			
+			return "phoneLookVideo";
+		}
+		
+		
+		
+		/**
+		 * 更新书记的学习时间和视频播放记录历史 丁赵雷 
+		 */
+		public void updateLearnTime() throws Exception {
+			
+			
+			//先判断身份
+			String userSort=(String) session.get("userSort");
+			int userId=0;
+
+			long time = Integer.parseInt(getRequest().getParameter("time"));//观看视频的时间
+			System.out.println("手机time" + time);
+			String strTime = SwitchTime.switchTime(time);
+			
+			//书记
+			if(userSort.equals("1")){
+				
+				PartySecretaryInfo user =(PartySecretaryInfo)session.get("secretary");
+				userId=user.getPst_Id();
+				
+				time = time + user.getLearnTime();
+				System.out.println("书记的学习时长"+strTime);
+				user.setLearnTime(time);
+				user.setStrLearnTime(strTime);
+				partySecretaryInfoService.updatePersonInfo(user);//更新个人学习时间
+			}
+			if(userSort.equals("0")){
+				PartyMemberInfo user =(PartyMemberInfo) session.get("partyMember");
+				userId=user.getPtm_Id();
+				
+				time = time + user.getLearnTime();
+				
+				System.out.println("党员的学习时长"+strTime);
+				user.setLearnTime(time);
+				user.setStrLearnTime(strTime);
+				partyMemberInfoService.updatePartyMemberInfo(user);//更新个人学习时间
+			}
+			
+			
+			// 视频播放记录历史
+			System.out.println("*******视频播放记录历史******");
+			String vt = getRequest().getParameter("currentTime");
+			long currentTime = 0;
+			if (vt.indexOf(".") > 0) {
+				currentTime = Integer.valueOf(vt.substring(0, vt.indexOf(".")));
+			} else {
+				currentTime = Integer.valueOf(vt);
+			}
+
+			System.out.println("currentTime" + currentTime);
+
+			int videoId = Integer.valueOf(getRequest().getParameter("videoId"));
+			WatchVideoRecord watchVideoRecord;
+			watchVideoRecord=watchVideoRecordService.getWVR(videoId, userId,1);
+
+			System.out.println(watchVideoRecord);
+			if (watchVideoRecord == null) {
+				watchVideoRecord = new WatchVideoRecord();
+				watchVideoRecord.setRv_id(videoId);
+				watchVideoRecord.setPm_id(userId);
+				watchVideoRecord.setCurrentTime(currentTime);
+				watchVideoRecord.setPartySort(1);
+				watchVideoRecordService.addWVR(watchVideoRecord);//添加一条视频播放记录
+				
+			} else {
+				watchVideoRecord.setRv_id(videoId);
+				watchVideoRecord.setPm_id(userId);
+				watchVideoRecord.setCurrentTime(currentTime);
+				watchVideoRecordService.updateWVR(watchVideoRecord);//更新视频播放记录
+
+			}
 		}
 		
 

@@ -32,6 +32,9 @@
 				padding-left: 10px;
 				padding-right: 10px;
 			}
+			.mui-card{
+				margin: 0px;
+			}
 		</style>
 	</head>
 	<body>
@@ -46,14 +49,14 @@
 					<!-- 额外增加的一个节点(循环轮播：第一个节点是最后一张轮播) -->
 					<!--这个额外增加的节点和第五个一样，相当于前后两个不算在轮播里面-->
 					<div class="mui-slider-item mui-slider-item-duplicate">
-						<a href="${rootPath}phone_lookVideo?rv_id=${phoneHotLastVideo.rv_Id}">
+						<a href="${rootPath}phone_lookVideo?rv_Id=${phoneHotLastVideo.rv_Id}">
 							<img src="${rootPath }${phoneHotLastVideo.imgUrl}">
 							<p class="mui-slider-title">${phoneHotLastVideo.name }</p>
 						</a>
 					</div>
 					<c:forEach var="video" items="${phoneHotVideoList}">
 						<div class="mui-slider-item">
-							<a href="#">
+							<a href="${rootPath}phone_lookVideo?rv_Id=${phoneHotLastVideo.rv_Id}">
 								<img src="${rootPath }${video.imgUrl}">
 								<p class="mui-slider-title">${video.name }</p>
 							</a>
@@ -63,7 +66,7 @@
 					<!-- 额外增加的一个节点(循环轮播：最后一个节点是第一张轮播) -->
 					<!--这个节点必须和第二个图片一样-->
 					<div class="mui-slider-item mui-slider-item-duplicate">
-						<a href="${rootPath}phone_lookVideo?rv_id=${phoneHotFristVideo.rv_Id}">
+						<a href="${rootPath}phone_lookVideo?rv_Id=${phoneHotFristVideo.rv_Id}">
 							<img src="${rootPath }${phoneHotFristVideo.imgUrl}">
 							<p class="mui-slider-title">${phoneHotFristVideo.name }</p>
 						</a>
@@ -83,21 +86,25 @@
 					<c:if test="${videoStatus.index%2==0 }">
 						<div class="left">
 								<div class="mui-card-header mui-card-media" 
-									style="height:40vw;background-image:url(${rootPath }${phoneHotFristVideo.imgUrl})">
+									style="height:40vw;background-image:url(${rootPath }${video.imgUrl})">
 								</div>
 									<div class="mui-card-content">
 									<div class="mui-card-content-inner">
-									<p>${phoneHotFristVideo.name }</p>
+									<a href="${rootPath}phone_lookVideo?rv_Id=${video.rv_Id}">
+										<center><p>${video.name }</p><center>
+									</a>
 									</div>
 								</div>
 						</div>
 					</c:if>
 					<c:if test="${videoStatus.index%2==1 }">
 					<div class="right">
-						<div class="mui-card-header mui-card-media" style="height:40vw;background-image:url(${rootPath }${phoneHotFristVideo.imgUrl})"></div>
+						<div class="mui-card-header mui-card-media" style="height:40vw;background-image:url(${rootPath }${video.imgUrl})"></div>
 						<div class="mui-card-content">
 						<div class="mui-card-content-inner">
-							<p>${phoneHotFristVideo.name }</p>
+							<a href="${rootPath}phone_lookVideo?rv_Id=${video.rv_Id}">
+								<center><p>${video.name }</p></center>
+							</a>
 						</div>
 					</div>
 					</div>

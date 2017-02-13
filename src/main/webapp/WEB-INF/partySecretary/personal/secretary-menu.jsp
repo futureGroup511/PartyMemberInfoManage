@@ -102,7 +102,7 @@
                  	<ul class="picList" style="width:100%; position: relative; overflow: hidden; padding: 0px; margin: 0px;">
                  		<c:forEach var="video" items="${ hotVideo}">
                  			 <li style="float: left; width: 25%;">
-							 	<div class="pic"><a href="html/video.html"><img src="${rootPath}${video.imgUrl}"></a></div>
+							 	<div class="pic"><a href="${rootPath }secretary/partySecretary_lookVideo?rv_Id=${video.rv_Id}"><img src="${rootPath}${video.imgUrl}"></a></div>
 							 	<div class="title"><a href="${rootPath }secretary/partySecretary_lookVideo?rv_Id=${video.rv_Id}">${video.name}</a></div>
 						 	</li>
                  		</c:forEach>

@@ -496,7 +496,6 @@ public class PartySecretaryAction extends BaseAction {
 		System.out.println("currentTime" + currentTime);
 
 		int videoId = Integer.valueOf(getRequest().getParameter("videoId"));
-		System.out.println("vidoeId:" + videoId);
 		WatchVideoRecord watchVideoRecord;
 		watchVideoRecord=watchVideoRecordService.getWVR(videoId, psi.getPst_Id(),1);
 
