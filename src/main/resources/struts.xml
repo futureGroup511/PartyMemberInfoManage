@@ -30,7 +30,21 @@
 			<result name="partyMember" type="redirect" >${rootPath}party/partyLogin</result> 
 			<result name="partySecretary"  type="redirect">${rootPath}secretary/partySecretary_login</result>
 			<result name="login">index.jsp</result>
-           	<result name="logout">index.jsp</result> 
+
+           	<result name="logout">index.jsp</result>   
+           	<result name="phoneLogin">/phone-answer-start.jsp</result> 
+           	<result name="user" type="redirect" >${rootPath}phone_phoneController</result>      	          
+		</action>
+		<action name="phone_*" class="com.future.partymember.action.PhoneAction" method="{1}">
+				<result name="phoneTest">/WEB-INF/phoneTest.jsp</result>
+				<result name="phoneExamDetails">/WEB-INF/phoneExamDetails.jsp</result>
+				<result name="phoneVideoList">/WEB-INF/phone-video-list.jsp</result>			
+				<result name="getInfo">/WEB-INF/phonePeopleInfo.jsp</result>
+
+
+           		<result name="logout">index.jsp</result>            	
+           		<result name="phoneTest">/WEB-INF/phoneTest.jsp</result>
+
 		</action>
 	</package>
 </struts>

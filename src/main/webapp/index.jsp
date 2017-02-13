@@ -60,7 +60,7 @@
     <div class="col-lg-4 col-md-4 col-xs-4">
       <input  type="text" class="form-control" id="inputEmail3"  name="randStr"  >
     </div>
-          <a href="javascript:void(0)"onclick="refresh()">
+          <a href="javascript:void(0)" onclick="refresh()">
            <img alt="点击刷新" src="${rootPath }validation" id="yan" /></a>
     </div>
   </div>

@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>考试记录详情</title>
+<title>测试结果</title>
 <link rel="stylesheet" href="${rootPath}css/partyMember/bootstrap.css">
 <link rel="stylesheet"
 	href="${rootPath}css/partyMember/the questionnaire results.css">

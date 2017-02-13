@@ -21,6 +21,7 @@ import com.future.partymember.entity.RedPaper;
 import com.future.partymember.entity.RedVideo;
 import com.future.partymember.entity.StartTest;
 import com.future.partymember.entity.WatchVideoRecord;
+import com.future.partymember.service.IPartyMemberInfoService;
 import com.future.partymember.service.IRedPaperService;
 import com.future.partymember.service.IRedVideoService;
 import com.future.partymember.util.PageCut;
@@ -57,7 +58,22 @@ public class PartySecretaryAction extends BaseAction {
 	
 	
 	
-
+	//查看党员的详细信息
+	public String partyMemberData(){
+		if(this.getRequest().getParameter("pmiId")!=null){
+			int id=Integer.parseInt(this.getRequest().getParameter("pmiId"));
+			PartyMemberInfo pmi=partyMemberInfoService.getPartyMemberInfoById(id);
+			
+			if(pmi!=null){
+				this.getRequest().setAttribute("pmi", pmi);
+			}else{
+				this.getRequest().setAttribute("notice", "没有此人详细信息");
+			}
+		}else{
+			this.getRequest().setAttribute("notice", "没有此人详细信息");
+		}
+		return "partyMemberData";
+	}
 	
 	
 	
@@ -193,7 +209,32 @@ public class PartySecretaryAction extends BaseAction {
 		}
 		return "getExamRecord";
 	}
-	
+	/* 在线测试-焦祥宇加*/
+	//获得自测考试详情记录
+		public String selfExamDetails() throws Exception{
+			int testNum=(Integer)this.getSession().get("testNum");
+			int totalScore=0;//考试成绩				
+			@SuppressWarnings("unchecked")
+			List<Question> questionList = (List<Question>) this.getSession().get("questionList");
+			for (int i = 0; i < testNum; i++) {
+				String str = (String) this.getRequest().getParameter("answer" + i);
+				String userAnswer = ((Character) str.charAt(0)).toString();// 考生答案
+				int qt_Id = Integer.valueOf(str.substring(1));// 试题id
+				int score = 0;// 该题得分
+				Question question = (Question) questionList.toArray()[i];// 该题信息
+				if (userAnswer.equals(questionService.getAnswersByQtId(qt_Id).getAnswer())) {
+					score = question.getQuestion_socre();
+					totalScore += score;			
+				}else{
+					question.setMyScore(0);
+					question.setMyAnswer(userAnswer);
+				}
+				
+			}
+			this.getRequest().setAttribute("questionList", questionList);
+			this.getRequest().setAttribute("totalScore",totalScore);
+			return "selfExamDetails";
+		}
 	//查看通知
 	public String lookInform(){
 		if(inform.getInfo_Id()!=0){

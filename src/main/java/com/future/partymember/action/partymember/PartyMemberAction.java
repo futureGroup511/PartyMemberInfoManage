@@ -524,27 +524,7 @@ public class PartyMemberAction extends BaseAction {
 	}
 	//获得自测考试详情记录
 	public String selfExamDetails() throws Exception{
-		int testNum=(Integer)this.getSession().get("testNum");
-		int totalScore=0;//考试成绩				
-		@SuppressWarnings("unchecked")
-		List<Question> questionList = (List<Question>) this.getSession().get("questionList");
-		for (int i = 0; i < testNum; i++) {
-			String str = (String) this.getRequest().getParameter("answer" + i);
-			String userAnswer = ((Character) str.charAt(0)).toString();// 考生答案
-			int qt_Id = Integer.valueOf(str.substring(1));// 试题id
-			int score = 0;// 该题得分
-			Question question = (Question) questionList.toArray()[i];// 该题信息
-			if (userAnswer.equals(questionService.getAnswersByQtId(qt_Id).getAnswer())) {
-				score = question.getQuestion_socre();
-				totalScore += score;			
-			}else{
-				question.setMyScore(0);
-				question.setMyAnswer(userAnswer);
-			}
-			
-		}
-		this.getRequest().setAttribute("questionList", questionList);
-		this.getRequest().setAttribute("totalScore",totalScore);
+		
 		return "selfExamDetails";
 	}
 	/**通知列表
