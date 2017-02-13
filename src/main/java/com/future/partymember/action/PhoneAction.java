@@ -21,7 +21,7 @@ public class PhoneAction extends BaseAction {
 	private static final long serialVersionUID = 1L;
 	
 	
-	//手机页面   分发控制 
+	//手机页面   分发控制 phoneController
 	public String phoneController() throws Exception{
 		/**
 		 * 1 个人信息

@@ -38,7 +38,8 @@
 				<result name="phoneExamDetails">/WEB-INF/phoneExamDetails.jsp</result>
 				<result name="phoneVideoList">/WEB-INF/phone-video-list.jsp</result>			
 				<result name="getInfo">/WEB-INF/phonePeopleInfo.jsp</result>
-				<result name="phoneLookVideo">/WEB-INF/phoneLookVideo.jsp</result>
+				<result name="phoneLookVideo">/WEB-INF/phoneLookVideo.jsp</result>				
+				
 		</action>
 	</package>
 </struts>
