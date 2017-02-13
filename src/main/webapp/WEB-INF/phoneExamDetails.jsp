@@ -5,11 +5,10 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>测试结果</title>
 <link rel="stylesheet" href="${rootPath }css/reset2.css" />
-	<link rel="stylesheet" href="${rootPath }css/toup2.css" />
-	<script src="${rootPath }js/fontSize.js"></script>
-	<title>在线试题</title>
+<link rel="stylesheet" href="${rootPath }css/toup2.css" />
+<script src="${rootPath }js/fontSize.js"></script>	
 </head>
 <body>
     <div class="toup"  id="t1">
@@ -20,9 +19,9 @@
 			   <h2>成绩单</h2>
 			   <table border="1">
                   <tr>
-                    <td>测试题数：${testNum } </td>
-					<td>问卷满分：${testScore} </td>
-					<td>您的得分：${totalScore} </td>
+                    <td>测试题数：${testNum } 题</td>
+					<td>问卷满分：${testScore} 分</td>
+					<td>您的得分：${totalScore} 分</td>
                   </tr>
               </table>
 			</div>

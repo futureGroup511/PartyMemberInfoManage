@@ -13,7 +13,7 @@
 <body>
 	<section class="toup" id="t1">
 		<div class="swipers">
-			<a href="#" class="jion">在线测试</a>
+			<p class="jion" style="font-size:0.43rem">在线测试</p>
 		</div>
 	</section>
 	<form action="${rootPath}phone_phoneExamDetails" method="post">
@@ -29,27 +29,27 @@
 							<div class="scores">
 								<c:forEach items="${questionList}" var="q" varStatus="status">
 									<h3>${status.index+1}.${q.questions_stems}<span> *
-											分值:${q.question_socre}</span>
+											</span>分值:${q.question_socre}
 									</h3>
 									<div class="choose">
 										<div class="input">
 											<input type="radio" name="answer${status.index}"
-												required="required" value="A${q.qt_Id}" /><label>A.
+												required="required" value="A${q.qt_Id}" /><label> A.
 												${q.a} </label>
 										</div>
 										<div class="input">
 											<input type="radio" name="answer${status.index}"
-												required="required" value="B${q.qt_Id}" /><label>B.
+												required="required" value="B${q.qt_Id}" /><label> B.
 												${q.b} </label>
 										</div>
 										<div class="input">
 											<input type="radio" name="answer${status.index}"
-												required="required" value="C${q.qt_Id}" /><label>C.
+												required="required" value="C${q.qt_Id}" /><label> C.
 												${q.c} </label>
 										</div>
 										<div class="input">
 											<input type="radio" name="answer${status.index}"
-												required="required" value="D${q.qt_Id}" /><label>D.
+												required="required" value="D${q.qt_Id}" /><label> D.
 												${q.d} </label>
 										</div>
 
