@@ -93,10 +93,13 @@ public class TestManageAction extends BaseAction {
 		} else {
 			this.getRequest().setAttribute("search", search);
 			String format = String.format("<span class=\"search\">%s</span>", search);
+			
 			for (Question q : pc.getData()) {
-				q.setPaperName(q.getPaperName().replaceAll(search, format));
+				//q.setPaperName(q.getPaperName().replaceAll(search, format));
 				q.setQuestions_stems(q.getQuestions_stems().replaceAll(search, format));
 			}
+			
+			
 		}
 		this.getRequest().setAttribute("pc", pc);
 		return "getQuestion";

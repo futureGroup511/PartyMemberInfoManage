@@ -33,8 +33,9 @@
 	<li class="active">上传试卷</li>
 </ol>
 	<div class="content">
-	<h4 style="color:red;">温馨提示：导入试卷文件之前，必须先添加试卷名称和描述；也可以只添加试卷名称和描述，不导入试卷文件</h4>
+	<h4 style="color:red;">直接选择符合规范的Excel 文件上传即可</h4>
 	<h3 style="margin-bottom:30px;">添加试卷</h3>
+		<%-- 
 		<div>
 			<form action="${rootPath}/manage/import_addTestPaper" method="post">
 				<table style="margin-top:-20px;">
@@ -54,7 +55,8 @@
 				<h3 style="color:red;margin-left:27%;" >${testPapMeg }</h3>
 			</form>
 		</div>
-		<h3>根据Excel导入试卷</h3>
+		 --%>
+		<h3>根据Excel导入试题</h3>
 		<h3 style="color:red;">${reminder}</h3>
 		<div class="main" style="">
 			<form action="${rootPath }manage/import_importTest" method="post"

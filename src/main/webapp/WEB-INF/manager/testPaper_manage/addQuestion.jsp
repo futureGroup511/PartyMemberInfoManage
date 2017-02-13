@@ -25,6 +25,7 @@
 	<h2 style="margin-left: 5%; color: red;">${questionMag }</h2>
 
 	<form action="${rootPath }manage/import_question" class="form-horizontal" role="form" style="margin-right:50px;">
+		<%-- 
 		<div class="form-group">
 			<label for="firstname" class="col-sm-2 control-label">所属试卷名称：</label>
 			<div class="col-sm-6">
@@ -35,6 +36,8 @@
 				</select>
 			</div>
 		</div>
+		 --%>
+		<input type="hidden" name="question.paperName" value="默认">
 		<div class="form-group">
 			<label for="lastname" class="col-sm-2 control-label">题干：</label>
 			<div class="col-sm-10">
@@ -81,7 +84,7 @@
 				</select>
 			</div>
 		</div>
-		
+		<!-- 
 		<div class="form-group">
 			<label for="lastname" class="col-sm-2 control-label">分数：</label>
 			<div class="col-sm-4">
@@ -89,6 +92,9 @@
 					name="question.question_socre">
 			</div>
 		</div>
+		 -->
+		 <input type="hidden" value="5" name="question.question_socre">
+		
 		<div class="form-group">
 			<label for="lastname" class="col-sm-2 control-label">解析：</label>
 			<div class="col-sm-10">

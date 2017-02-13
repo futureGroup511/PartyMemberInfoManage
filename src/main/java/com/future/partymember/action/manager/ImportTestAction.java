@@ -98,12 +98,15 @@ public class ImportTestAction extends BaseAction {
 	// 添加试题
 	public String question() throws Exception {
 		// 根据试卷名称获得试卷id
+		/*
 		String paperName = this.getRequest().getParameter("question.paperName");
 		TestPaper testPaper = testPaperService.getTestPaperByName(paperName);
 		int tp_Id = testPaper.getTp_Id();
 
 		// 添加试题
-		question.setPaperId(tp_Id);
+		 * 
+		 */
+		question.setPaperId(0);
 
 		String bool = questionService.addQuestion(question);
 		if (bool.equals("su"))

@@ -91,7 +91,7 @@
 							<label style="line-height:50px;">密码</label>							
 						</div>
 						<div class="col-xs-8">
-							<label style="line-height:50px;" >a12345678</label>
+							<label style="line-height:50px;" >a123456789</label>
 						</div>
 					</div>
 					<div class="form-group">
