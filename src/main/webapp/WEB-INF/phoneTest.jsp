@@ -16,7 +16,7 @@
 			<a href="#" class="jion">在线测试</a>
 		</div>
 	</section>
-	<form>
+	<form action="${rootPath}phone_phoneExamDetails" method="post">
 		<section class="toup" id="t2">
 			<div class="swipers">
 				<!-- 中间试题-->
