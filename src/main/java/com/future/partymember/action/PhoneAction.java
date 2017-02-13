@@ -37,6 +37,7 @@ public class PhoneAction extends BaseAction {
 					PartySecretaryInfo ps=(PartySecretaryInfo)session.get("secretary");
 					session.put("userInfo",ps);
 				}
+				return "getInfo";
 			}else if(phoneFlag==2){
 				System.out.println("这是手机在线测评");
 				return phoneTest();
@@ -51,7 +52,7 @@ public class PhoneAction extends BaseAction {
 	
 	
 	//手机在线测试
-		public String phoneTest() throws Exception{
+	public String phoneTest() throws Exception{
 			List<Question> questionList=questionService.getRandomQuestions(4);
 			if(questionList.size()>0){
 				int testScore=0;
@@ -93,6 +94,10 @@ public class PhoneAction extends BaseAction {
 			this.getRequest().setAttribute("totalScore",totalScore);
 			return "phoneExamDetails";
 		}
-		
+		//
+		/*public String getInfo() throws Exception{
+			
+			return "getInfo";
+		}*/
 
 }
