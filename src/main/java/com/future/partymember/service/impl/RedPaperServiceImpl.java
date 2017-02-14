@@ -134,4 +134,10 @@ public class RedPaperServiceImpl implements IRedPaperService{
 		return iRedPaperDao.getFristRecordById( search);
 	}
 
+	@Override
+	public List<RedPaper> getPaperByTpId(int tp_Id, int num) {
+		
+		return iRedPaperDao.getPaperByTpId(tp_Id, num);
+	}
+
 }

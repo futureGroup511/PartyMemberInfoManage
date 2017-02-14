@@ -38,6 +38,8 @@ public interface IRedPaperDao {
 	public List<RedPaper> findPaperByNameOne(String name);
 	//根据文章类别分类查询 只取前五条
 	public List<RedPaper> findPaperByType();
+	//根据文章类别id进行查询，获得最新的num条
+	public List<RedPaper> getPaperByTpId(int tp_Id,int num);
 	//文章的阅读次数加一
 	public boolean updatePaperReadNum(int rp_id);
 	

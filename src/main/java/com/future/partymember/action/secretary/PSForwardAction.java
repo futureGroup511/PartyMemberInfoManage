@@ -136,8 +136,30 @@ public class PSForwardAction extends BaseAction {
 	*/
 	//转发到在线文章列表页
 	public String paperList() throws Exception{
-		List<RedPaper> paperList=redPaperService.findPaperByType();
-		this.getRequest().setAttribute("paperList", PaperUtil.titleLength(paperList, 15));
+		//党建巡礼
+				List<RedPaper> partyBuilding=redPaperService.getPaperByTpId(1, 5);
+				partyBuilding=PaperUtil.titleLength(partyBuilding, 16);
+				this.getRequest().setAttribute("partyBuilding", partyBuilding);
+				//高校咨讯
+				List<RedPaper> universityCounseling=redPaperService.getPaperByTpId(2, 5);
+				universityCounseling=PaperUtil.titleLength(universityCounseling, 16);
+				this.getRequest().setAttribute("universityCounseling", universityCounseling);
+				//新乡风貌
+				List<RedPaper> xinxiangStyle=redPaperService.getPaperByTpId(3, 5);
+				xinxiangStyle=PaperUtil.titleLength(xinxiangStyle, 16);
+				this.getRequest().setAttribute("xinxiangStyle", xinxiangStyle);
+				//媒体头条
+				List<RedPaper> mediaHeadlines=redPaperService.getPaperByTpId(4, 5);
+				mediaHeadlines=PaperUtil.titleLength(mediaHeadlines, 16);
+				this.getRequest().setAttribute("mediaHeadlines", mediaHeadlines);
+				//环球动态
+				List<RedPaper> globalDynamics=redPaperService.getPaperByTpId(5, 5);
+				globalDynamics=PaperUtil.titleLength(globalDynamics, 16);
+				this.getRequest().setAttribute("globalDynamics", globalDynamics);
+				//神州大地
+				List<RedPaper> divineLand=redPaperService.getPaperByTpId(6, 5);
+				divineLand=PaperUtil.titleLength(divineLand, 16);
+				this.getRequest().setAttribute("divineLand", divineLand);
 		return "paperList";
 	}
 

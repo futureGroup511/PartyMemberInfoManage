@@ -86,7 +86,8 @@
 					</p>
 				</c:forEach>
 			</div>
-			<div id="pagecut" style="margin-right: 240px; text-align: right;">
+			
+			<div id="pagecut">
 				<ul class="pagination">
 					<li><a
 						href="${rootPath }party/partyMemberAction_informList?page=${pc.prePage}">上一页</a></li>
@@ -115,8 +116,9 @@
 				</ul>
 
 			</div>
-
+			
 		</c:if>
+		
 		<c:if test="${informMsg!=null}">
 			<h3 style="height: 200px;margin-left: 550px;margin-top: 160px;color: #DB0B18;">暂时没有通知！</h3>
 		</c:if>

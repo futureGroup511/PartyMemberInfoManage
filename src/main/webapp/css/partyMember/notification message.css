@@ -157,6 +157,10 @@ body{
 #body-two a:hover{
 	color:#DB0B18;
 }
+#pagecut{
+	float:right;
+	 margin-right: 200px; 
+}
 #footer-warp{
 	width: 100%;
 	height:90px;

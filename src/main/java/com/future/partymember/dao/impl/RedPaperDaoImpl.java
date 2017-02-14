@@ -80,7 +80,15 @@ public class RedPaperDaoImpl extends BaseDao<RedPaper> implements IRedPaperDao {
 				+ " ORDER BY paper_type_id ASC";
 		return executeSQLQuery(RedPaper.class, sql);
 	}
-
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<RedPaper> getPaperByTpId(int tp_Id, int num) {
+		String sql="select * from red_paper r  WHERE r.paper_type_id="+tp_Id+" and r.rp_tag=1 limit "+num; 
+ 
+		
+		return executeSQLQuery(RedPaper.class, sql);
+	}
+	
 	
 	//文章阅读次数加一
 	@Override
@@ -251,6 +259,7 @@ public class RedPaperDaoImpl extends BaseDao<RedPaper> implements IRedPaperDao {
 		String sql="select * from red_paper as rp where rp.title like ? and rp.rp_tag=1 order by rp.rp_Id asc limit 1";
 		return executeSQLQuery(RedPaper.class,sql, "%"+search+"%");
 	}
+
 	
 
 }

@@ -34,6 +34,8 @@ public interface IRedPaperService {
 	public RedPaper getById(int id);
 	//根据文章类别进行查询,每个类别只取最新的五条
 	public List<RedPaper> findPaperByType();
+	//根据文章类别id进行查询，获得最新的num条
+	public List<RedPaper> getPaperByTpId(int tp_Id,int num);
 	//文章阅读次数加一
 	public boolean updatePaperReadNum(int rp_id); 
 	//查询当前id的下一条内容

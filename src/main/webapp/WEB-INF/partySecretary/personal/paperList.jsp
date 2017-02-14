@@ -79,21 +79,21 @@
  </div>
  <div id="body-three">
     <div class="body-three-left">
-    	<c:forEach var="paper" items="${paperList}" begin="0" end="4">
+    	<c:forEach var="paper" items="${partyBuilding}">
 					<p>					
 						<a href="${rootPath }secretary/partySecretary_lookPaper?rp_Id=${paper.rp_Id}"><span>》&nbsp;&nbsp;&nbsp;${paper.title }</span><span>${paper.releaseDate}</span></a>
 					</p>
 		</c:forEach>     
     </div>
     <div class="body-three-center">
-       <c:forEach var="paper" items="${paperList}" begin="5" end="9">
+       <c:forEach var="paper" items="${universityCounseling}">
 					<p>					
 						<a href="${rootPath }secretary/partySecretary_lookPaper?rp_Id=${paper.rp_Id}"><span>》&nbsp;&nbsp;&nbsp;${paper.title }</span><span>${paper.releaseDate}</span></a>
 					</p>
 		</c:forEach> 
     </div>
     <div class="body-three-right">
-       <c:forEach var="paper" items="${paperList}" begin="10" end="14">
+       <c:forEach var="paper" items="${xinxiangStyle}">
 					<p>					
 							<a href="${rootPath }secretary/partySecretary_lookPaper?rp_Id=${paper.rp_Id}"><span>》&nbsp;&nbsp;&nbsp;${paper.title }</span><span>${paper.releaseDate}</span></a>
 					</p>
@@ -115,19 +115,19 @@
  </div>
  <div id="body-five">
     <div class="body-five-left">
-    	<c:forEach var="paper" items="${paperList}" begin="15" end="19">
+    	<c:forEach var="paper" items="${divineLand}">
     		<p ><span>${paper.releaseDate}</span>
     		<a href="${rootPath }secretary/partySecretary_lookPaper?rp_Id=${paper.rp_Id}">${paper.title }</a></p>					
 		</c:forEach>      
     </div>
   <div class="body-five-center">
-      <c:forEach var="paper" items="${paperList}" begin="20" end="24">
+      <c:forEach var="paper" items="${globalDynamics}">
     		<p ><span>${paper.releaseDate}</span>
     		<a href="${rootPath }secretary/partySecretary_lookPaper?rp_Id=${paper.rp_Id}">${paper.title }</a></p>					
 		</c:forEach>
     </div>
   <div class="body-five-right">
-  		<c:forEach var="paper" items="${paperList}" begin="25" end="29">
+  		<c:forEach var="paper" items="${mediaHeadlines}" >
     		<p ><span>${paper.releaseDate}</span>
     		<a href="${rootPath }secretary/partySecretary_lookPaper?rp_Id=${paper.rp_Id}">${paper.title }</a></p>					
 		</c:forEach>
