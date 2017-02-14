@@ -24,7 +24,6 @@ public class IndexAction extends BaseAction{
 		return "login";
 	}
 	public String loginDo() throws IOException{
-		System.out.println("管理员"+password);
 		String vCode=(String)this.getRequest().getSession().getAttribute("randStr");
 		this.getRequest().getSession().removeAttribute("randStr");
 		if(randStr==null || !randStr.equals(vCode) ){
@@ -32,7 +31,6 @@ public class IndexAction extends BaseAction{
 			return "login";
 		}
 		ManagerInfo managerInfo=managerInfoService.getByAccount(account);
-		
 		if (managerInfo!=null && managerInfo.getPassword().equals(password.toLowerCase())) {
 			this.getRequest().getSession().setAttribute("user",managerInfo);
 			this.getResponse().sendRedirect("index");

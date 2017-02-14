@@ -65,7 +65,7 @@ font-size:25px;
 								<td>${t.description}</td>
 								<td>${t.createDate }</td>
 								<td><a
-									href="${rootPath }manage/testManage_delete?id=${t.tp_Id}">刪除</a></td>
+									href="javascript:isdelete(${t.tp_Id})">刪除</a></td>
 							</tr>
 						</c:forEach>
 					</table>
@@ -92,4 +92,14 @@ font-size:25px;
     	<img  class="img-responsive" width="100%;" src="${rootPath }images/577a4c594718d_610.jpg" />
     </div>
 </body>
+<script type="text/javascript">
+	function isdelete(id){
+		if(confirm("确定吗？")){
+			window.location.href = '${rootPath }manage/testManage_delete?id='+id;
+		}else{
+			
+		}
+	}
+
+</script>
 </html>

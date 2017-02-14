@@ -33,6 +33,7 @@ public class RedVideo {
 	private String xid;//视频播放id,由url生成。
 	
 	*/
+	@Column(length=200)
 	private String videoUrl;//视频地址
 	@Column(length=30)
 	private String imgUrl;

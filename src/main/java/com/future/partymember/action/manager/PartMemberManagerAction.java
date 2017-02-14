@@ -110,8 +110,14 @@ public class PartMemberManagerAction extends BaseAction {
 			this.getRequest().setAttribute("remind", "账号已经存在，请重新填写。");
 			this.getRequest().setAttribute("partyMember", partyMemberInfo);
 			return "add";
+		}else if (partyMemberInfo.getAccount().length()>10 || partyMemberInfo.getAccount().length()<8){
+			this.getRequest().setAttribute("remind", "错误，账号长度需要为8-10位");
+			this.getRequest().setAttribute("partyMember", partyMemberInfo);
+			return "add";
 		}
+		String remind = "";
 		try{
+			remind = "身份证填写有误";
 			String idc=partyMemberInfo.getIdCard();
 			int year=Integer.parseInt(idc.substring(6, 10));
 			String birth=idc.substring(6,14);
@@ -136,13 +142,10 @@ public class PartMemberManagerAction extends BaseAction {
 			this.getRequest().setAttribute("remind", "添加成功");
 			return "add";
 		}catch(Exception e){
-			this.getRequest().setAttribute("remind", "请正确填写数据.");
+			this.getRequest().setAttribute("remind", remind);
 			this.getRequest().setAttribute("partyMember", partyMemberInfo);
 			return "add";
 		}
-		
-		
-		
 	}
 
 	public int getPage() {

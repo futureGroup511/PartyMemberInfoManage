@@ -13,12 +13,12 @@ import com.future.partymember.entity.ManagerInfo;
 */
 public class InfoAction extends BaseAction {
 	public String execute(){
+		ManagerInfo managerInfo = (ManagerInfo)this.getRequest().getSession().getAttribute("user");
 		return SUCCESS;
 	}
 	public String logout() throws IOException{
 		this.getRequest().getSession().invalidate();
 		this.getResponse().sendRedirect("index");
-		
 		return null;
 	}
 }

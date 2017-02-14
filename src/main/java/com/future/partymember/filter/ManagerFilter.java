@@ -67,7 +67,13 @@ public class ManagerFilter implements Filter {
 			return;
 		}else{
 			
-			res.sendRedirect(req.getContextPath()+"/manage/index_login");
+			String loginUrl = req.getSession().getServletContext().getContextPath() + "/manage/index_login";
+			response
+			.getWriter()
+			.println(
+					"<script language=\"javascript\">\n top.location.href = '"
+					+ loginUrl + "' ; \n</script>");
+			//res.sendRedirect(req.getContextPath()+"/manage/index_login");
 		}
 	}
 

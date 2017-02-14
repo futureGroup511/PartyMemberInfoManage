@@ -79,7 +79,7 @@
 								<td>${q.d}</td>
 								<td><a href="${rootPath }manage/testManage_update?id=${q.qt_Id}">详细信息修改</a></td>
 								<td><a
-									href="${rootPath }manage/testManage_deleteQuestion?id=${q.qt_Id}">刪除</a></td>
+									href="javascript:isdelete(${q.qt_Id})">刪除</a></td>
 							</tr>
 						</c:forEach>
 					</table>
@@ -106,6 +106,17 @@
 	<h3>${delectQtMsg}</h3>
 <div class="background navbar-fixed-top"  style="position:absolute; z-index:-1;width:100%;height:100%;opacity:0.1;">
     	<img  class="img-responsive" width="100%;" src="${rootPath }images/577a4c594718d_610.jpg" />
-</div>	
+</div>
+<script type="text/javascript">
+	function isdelete(id){
+		if(confirm("确定吗？")){
+			window.location.href = 'manage/testManage_deleteQuestion?id='+id;
+		}else{
+			
+		}
+	}
+
+</script>
+	
 </body>
 </html>

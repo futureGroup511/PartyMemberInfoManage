@@ -33,7 +33,7 @@
 					<td>${inform.title }</td>
 					<td>${inform.sendDate }</td>
 					<td><a href="${rootPath }manage/inform_change?inform.info_Id=${inform.info_Id}">管理</a></td>
-					<td><a href="${rootPath }manage/inform_delete?page=${pc.currentPage }&inform.info_Id=${inform.info_Id}">删除</a></td>
+					<td><a href="javascript:isdelete('${rootPath }manage/inform_delete?page=${pc.currentPage }&inform.info_Id=${inform.info_Id}')">删除</a></td>
 				</tr>
 			</c:forEach>
 
@@ -66,4 +66,14 @@
     </div>
 
 </body>
+<script type="text/javascript">
+	function isdelete(url){
+		if(confirm("确定吗？")){
+			window.location.href = url;
+		}else{
+			
+		}
+	}
+
+</script>
 </html>

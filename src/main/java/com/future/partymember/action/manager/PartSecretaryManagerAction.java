@@ -48,7 +48,12 @@ public class PartSecretaryManagerAction extends BaseAction {
 			this.getRequest().setAttribute("remind", "账号已经存在，请重新填写。");
 			this.getRequest().setAttribute("partySecretaryInfo", partySecretaryInfo);
 			return "add";
+		}else if(partySecretaryInfo.getAccount().length()<6 || partySecretaryInfo.getAccount().length()>7){
+			this.getRequest().setAttribute("remind", "错误，账号只能为6-7位。");
+			this.getRequest().setAttribute("partySecretaryInfo", partySecretaryInfo);
+			return "add";
 		}
+		String remind = "身份证不符合规范。";
 		try{
 			String idc=partySecretaryInfo.getIdCard();
 			int year=Integer.parseInt(idc.substring(6, 10));
@@ -75,7 +80,7 @@ public class PartSecretaryManagerAction extends BaseAction {
 			this.getRequest().removeAttribute("dateStr");
 			return "add";
 		}catch(Exception e){
-			this.getRequest().setAttribute("remind", "填写的数据有误,请重新填写.");
+			this.getRequest().setAttribute("remind",remind);
 			this.getRequest().setAttribute("partySecretaryInfo", partySecretaryInfo);
 			return "add";
 		}

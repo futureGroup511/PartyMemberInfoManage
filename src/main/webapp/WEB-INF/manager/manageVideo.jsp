@@ -65,7 +65,7 @@
 								<td>${video.rv_Id }</td>
 								<td>${video.name }</td>
 								<td>${video.watchNum }</td>
-								<td><a href="manageVideo_delete?id=${video.rv_Id }">删除</a></td>
+								<td><a href="javascript:isdelete('manageVideo_delete?id=${video.rv_Id }')">删除</a></td>
 							</tr>
 						</c:forEach>
 					</tbody>
@@ -104,4 +104,14 @@
     	<img  class="img-responsive" width="100%;" src="${rootPath }images/577a4c594718d_610.jpg" />
     </div>
 </body>
+<script type="text/javascript">
+	function isdelete(url){
+		if(confirm("确定吗？")){
+			window.location.href = url;
+		}else{
+			
+		}
+	}
+
+</script>
 </html>
