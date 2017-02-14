@@ -9,7 +9,7 @@
 <link rel="stylesheet" href="${rootPath }css/denglu.css" />
 <script src="${rootPath }js/sha1.js"></script>
 </head>
-
+<script type="text/javascript"></script>
 <body>
 <div class="container">
 <div class="beijing"  style="position:absolute; z-index:-1;">

@@ -142,42 +142,60 @@ public class PartyMemberAction extends BaseAction {
 		// 从路径获得视频id
 		int videoId = Integer.valueOf(this.getRequest().getParameter("rv_Id"));
 		int userId=(Integer)this.getSession().get("userId");
-		// 获得视频观看记录
-		WatchVideoRecord watchVideoRecord = watchVideoRecordService.getWVR(videoId, userId, 0);
-		if (watchVideoRecord != null)
-			this.getRequest().setAttribute("currentTime", watchVideoRecord.getCurrentTime());
-		// 视频浏览次数加一
-		redVideoService.updatewatchNumById(videoId);
-
 		// 播放视频
 		RedVideo redVideo = redVideoService.get(videoId);
+		if(redVideo.getVideoUrl().startsWith("upload/video/")){
+			// 获得视频观看记录
+			WatchVideoRecord watchVideoRecord = watchVideoRecordService.getWVR(videoId, userId, 0);
+			if (watchVideoRecord != null)
+				this.getRequest().setAttribute("currentTime", watchVideoRecord.getCurrentTime());
+			// 视频浏览次数加一
+			redVideoService.updatewatchNumById(videoId);
 
-		this.getRequest().setAttribute("video", redVideo);
+			
+
+			this.getRequest().setAttribute("video", redVideo);
+			
+			//查询第一个和最后一个视频作为临界点
+					RedVideo lastVideo=redVideoService.getLastRecordById().get(0);
+					RedVideo fristVideo=redVideoService.getFristRecordById().get(0);
+					
+					//查询上一个 下一个
+					if(lastVideo.getRv_Id()==videoId){
+						this.getRequest().setAttribute("next", lastVideo);
+						this.getRequest().setAttribute("notice", "后面没有了");			
+					}else{
+						List<RedVideo> rvNext=redVideoService.getNextRecordById(videoId);
+						RedVideo rv1=rvNext.get(0);
+						this.getRequest().setAttribute("next",rv1 );
+					}
+					
+					if(fristVideo.getRv_Id()==videoId){
+						this.getRequest().setAttribute("prev", fristVideo);
+						this.getRequest().setAttribute("notice", "前面没有了");
+					}else{
+						List<RedVideo> rpPrev=redVideoService.getPrevRecordById(videoId);
+						RedVideo rv2=rpPrev.get(0);
+						this.getRequest().setAttribute("prev", rv2);
+					}
+					return "viewing";
+
+		}else{
+			String  strVar="";
+			strVar += "<script language=\"javascript\">";
+			strVar += "window.top.location.href=\""+redVideo.getVideoUrl()+"\";";
+			strVar += "</script>";
+
+
+			this.getRequest().setCharacterEncoding("UTF-8");
+			this.getResponse().setContentType("text/html; charset=UTF-8"); // 转码
+			this.getResponse()
+					.getWriter()
+					.println(strVar);
+			return null;
+		}
 		
-		//查询第一个和最后一个视频作为临界点
-				RedVideo lastVideo=redVideoService.getLastRecordById().get(0);
-				RedVideo fristVideo=redVideoService.getFristRecordById().get(0);
-				
-				//查询上一个 下一个
-				if(lastVideo.getRv_Id()==videoId){
-					this.getRequest().setAttribute("next", lastVideo);
-					this.getRequest().setAttribute("notice", "后面没有了");			
-				}else{
-					List<RedVideo> rvNext=redVideoService.getNextRecordById(videoId);
-					RedVideo rv1=rvNext.get(0);
-					this.getRequest().setAttribute("next",rv1 );
-				}
-				
-				if(fristVideo.getRv_Id()==videoId){
-					this.getRequest().setAttribute("prev", fristVideo);
-					this.getRequest().setAttribute("notice", "前面没有了");
-				}else{
-					List<RedVideo> rpPrev=redVideoService.getPrevRecordById(videoId);
-					RedVideo rv2=rpPrev.get(0);
-					this.getRequest().setAttribute("prev", rv2);
-				}
-
-		return "viewing";
+		
 	}
 	
 	/**
