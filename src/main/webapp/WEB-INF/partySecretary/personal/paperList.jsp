@@ -140,5 +140,13 @@
 		<p class="footer"><a href="">网站声明</a> &nbsp; &nbsp;<span>|</span> &nbsp; &nbsp;<a href="">关于我们 &nbsp; &nbsp;</a><span>|</span> &nbsp; &nbsp;<a href="">联系我们</a></p>
 		<p>Copyright @ 2016 All rights reserved.　　版权所有：河南科技学院党委</p>
 </footer><!--页脚结束-->	
+
+<c:forEach var="paper" items="${paperList}" varStatus="status">
+			${status.count }
+    		<p ><span>${paper.releaseDate}</span>
+    		${paper.rp_Id }
+    		<a href="${rootPath }secretary/partySecretary_lookPaper?rp_Id=${paper.rp_Id}">${paper.title }</a></p>					
+</c:forEach>
+
 </body>
 </html>

@@ -34,8 +34,9 @@
 </ol>
 	<div class="content">
 	<h4 style="color:red;">直接选择符合规范的Excel 文件上传即可</h4>
-	<h3 style="margin-bottom:30px;">添加试卷</h3>
+	
 		<%-- 
+		<h3 style="margin-bottom:30px;">添加试卷</h3>
 		<div>
 			<form action="${rootPath}/manage/import_addTestPaper" method="post">
 				<table style="margin-top:-20px;">
@@ -57,7 +58,7 @@
 		</div>
 		 --%>
 		<h3>根据Excel导入试题</h3>
-		<h3 style="color:red;">${reminder}</h3>
+		
 		<div class="main" style="">
 			<form action="${rootPath }manage/import_importTest" method="post"
 				enctype="multipart/form-data">
@@ -65,8 +66,9 @@
 				<input required="required" type="file" name="testPaper"
 					accept="application/vnd.ms-excel, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet">
 					<br>
-				<button type="submit" class="btn btn-success">上传</button>
+				<button type="submit" class="btn btn-success" style="padding:7px 150px;">上&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;传</button>
 			</form>
+			<h3 style="color:red;">${reminder}</h3>
 			
 		</div>
 

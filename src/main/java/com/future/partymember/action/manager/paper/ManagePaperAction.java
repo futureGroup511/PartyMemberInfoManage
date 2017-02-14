@@ -79,7 +79,7 @@ public class ManagePaperAction extends BaseAction{
 			page=1;
 		}
 		String search=(String)this.getRequest().getAttribute("search");
-		PageCut<RedPaper> pc=redPaperService.getPCByNew(page, 2,search);
+		PageCut<RedPaper> pc=redPaperService.getPCByNew(page, 8,search);
 		if(search == null || search.length()==0){
 			
 		}else{
