@@ -427,40 +427,56 @@ public class PartySecretaryAction extends BaseAction {
 		
 		partySecretaryInfo =(PartySecretaryInfo)session.get("secretary");
 		int psiId=partySecretaryInfo.getPst_Id();//书记的id
-		
-		//获得视频观看记录
-		WatchVideoRecord watchVideoRecord=watchVideoRecordService.getWVR(id, psiId,1);
-		if(watchVideoRecord!=null)//设置上次观看该视频的时间
-			this.getRequest().setAttribute("currentTime", watchVideoRecord.getCurrentTime());
-		
-		redVideoService.updatewatchNumById(id);//视频观看次数加一
 		RedVideo v =redVideoService.get(id);
-		this.getRequest().setAttribute("video", v);
-		
-		//查询第一个和最后一个视频作为临界点
-		RedVideo lastVideo=redVideoService.getLastRecordById().get(0);
-		RedVideo fristVideo=redVideoService.getFristRecordById().get(0);
-		
-		//查询上一个 下一个
-		if(lastVideo.getRv_Id()==id){
-			this.getRequest().setAttribute("next", lastVideo);
-			this.getRequest().setAttribute("notice", "后面没有了");			
-		}else{
-			List<RedVideo> rvNext=redVideoService.getNextRecordById(id);
-			RedVideo rv1=rvNext.get(0);
-			this.getRequest().setAttribute("next",rv1 );
-		}
-		
-		if(fristVideo.getRv_Id()==id){
-			this.getRequest().setAttribute("prev", fristVideo);
-			this.getRequest().setAttribute("notice", "前面没有了");
-		}else{
-			List<RedVideo> rpPrev=redVideoService.getPrevRecordById(id);
-			RedVideo rv2=rpPrev.get(0);
-			this.getRequest().setAttribute("prev", rv2);
-		}
+		if(v.getVideoUrl().startsWith("upload/video/")){
+			//获得视频观看记录
+			WatchVideoRecord watchVideoRecord=watchVideoRecordService.getWVR(id, psiId,1);
+			if(watchVideoRecord!=null)//设置上次观看该视频的时间
+				this.getRequest().setAttribute("currentTime", watchVideoRecord.getCurrentTime());
+			
+			redVideoService.updatewatchNumById(id);//视频观看次数加一
+			
+			this.getRequest().setAttribute("video", v);
+			
+			//查询第一个和最后一个视频作为临界点
+			RedVideo lastVideo=redVideoService.getLastRecordById().get(0);
+			RedVideo fristVideo=redVideoService.getFristRecordById().get(0);
+			
+			//查询上一个 下一个
+			if(lastVideo.getRv_Id()==id){
+				this.getRequest().setAttribute("next", lastVideo);
+				this.getRequest().setAttribute("notice", "后面没有了");			
+			}else{
+				List<RedVideo> rvNext=redVideoService.getNextRecordById(id);
+				RedVideo rv1=rvNext.get(0);
+				this.getRequest().setAttribute("next",rv1 );
+			}
+			
+			if(fristVideo.getRv_Id()==id){
+				this.getRequest().setAttribute("prev", fristVideo);
+				this.getRequest().setAttribute("notice", "前面没有了");
+			}else{
+				List<RedVideo> rpPrev=redVideoService.getPrevRecordById(id);
+				RedVideo rv2=rpPrev.get(0);
+				this.getRequest().setAttribute("prev", rv2);
+			}
 
-		return "lookVideo";
+			return "lookVideo";
+		}else{
+			String  strVar="";
+			strVar += "<script language=\"javascript\">";
+			strVar += "window.top.location.href=\""+v.getVideoUrl()+"\";";
+			strVar += "</script>";
+
+
+			this.getRequest().setCharacterEncoding("UTF-8");
+			this.getResponse().setContentType("text/html; charset=UTF-8"); // 转码
+			this.getResponse()
+					.getWriter()
+					.println(strVar);
+			return null;
+		}
+		
 	}
 	
 	

@@ -2,7 +2,6 @@ package com.future.partymember.action;
 
 import java.util.List;
 
-import org.hibernate.type.IntegerType;
 
 import com.future.partymember.base.BaseAction;
 import com.future.partymember.entity.PartyMemberInfo;
@@ -123,7 +122,7 @@ public class PhoneAction extends BaseAction {
 		
 		
 		//手机看视频
-		public String lookVideo(){
+		public String lookVideo() throws Exception{
 			//先判断身份在跳转
 			
 			int userSort=(Integer) session.get("userSort");
@@ -142,18 +141,34 @@ public class PhoneAction extends BaseAction {
 				userId=user.getPtm_Id();//党员的id
 			}
 			
-			
-			//获得视频观看记录
-			WatchVideoRecord watchVideoRecord=watchVideoRecordService.getWVR(id, userId,userSort);
-			if(watchVideoRecord!=null)//设置上次观看该视频的时间
-				this.getRequest().setAttribute("currentTime", watchVideoRecord.getCurrentTime());
-			
-			redVideoService.updatewatchNumById(id);//视频观看次数加一
 			RedVideo v =redVideoService.get(id);
-			this.getRequest().setAttribute("video", v);
-			
-			
-			return "phoneLookVideo";
+			if(v.getVideoUrl().startsWith("upload/video/")){
+				//获得视频观看记录
+				WatchVideoRecord watchVideoRecord=watchVideoRecordService.getWVR(id, userId,userSort);
+				if(watchVideoRecord!=null)//设置上次观看该视频的时间
+					this.getRequest().setAttribute("currentTime", watchVideoRecord.getCurrentTime());
+				
+				redVideoService.updatewatchNumById(id);//视频观看次数加一
+				
+				this.getRequest().setAttribute("video", v);
+				
+				
+				return "phoneLookVideo";
+			}
+			else{
+				String  strVar="";
+				strVar += "<script language=\"javascript\">";
+				strVar += "window.top.location.href=\""+v.getVideoUrl()+"\";";
+				strVar += "</script>";
+
+
+				this.getRequest().setCharacterEncoding("UTF-8");
+				this.getResponse().setContentType("text/html; charset=UTF-8"); // 转码
+				this.getResponse()
+						.getWriter()
+						.println(strVar);
+				return null;
+			}
 		}
 		
 		
