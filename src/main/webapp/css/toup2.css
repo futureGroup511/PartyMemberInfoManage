@@ -44,7 +44,8 @@
 /*     height:6.28rem; */
     /*! float: left; */}
 .scores h3{
-	font-size:0.4rem;
+	font-size:0.43rem;
+	font-weight:bold;
 	line-height:0.61rem;
 	word-wrap:break-word;
 	display:block;

@@ -61,7 +61,7 @@ public class PhoneAction extends BaseAction {
 	
 	//手机在线测试
 	public String phoneTest() throws Exception{
-			List<Question> questionList=questionService.getRandomQuestions(4);
+			List<Question> questionList=questionService.getRandomQuestions(10);
 			if(questionList.size()>0){
 				int testScore=0;
 				for(Question q :questionList){
