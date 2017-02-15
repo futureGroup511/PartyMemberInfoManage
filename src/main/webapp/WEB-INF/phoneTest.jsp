@@ -33,23 +33,23 @@
 									</h3>
 									<div class="choose">
 										<div class="input">
-											<input type="radio" name="answer${status.index}"
-												required="required" value="A${q.qt_Id}" /><label> A.
+											<label><input type="radio" name="answer${status.index}"
+												required="required" value="A${q.qt_Id}" /> A.
 												${q.a} </label>
 										</div>
 										<div class="input">
-											<input type="radio" name="answer${status.index}"
-												required="required" value="B${q.qt_Id}" /><label> B.
+											<label><input type="radio" name="answer${status.index}"
+												required="required" value="B${q.qt_Id}" /> B.
 												${q.b} </label>
 										</div>
 										<div class="input">
-											<input type="radio" name="answer${status.index}"
-												required="required" value="C${q.qt_Id}" /><label> C.
+											<label><input type="radio" name="answer${status.index}"
+												required="required" value="C${q.qt_Id}" /> C.
 												${q.c} </label>
 										</div>
 										<div class="input">
-											<input type="radio" name="answer${status.index}"
-												required="required" value="D${q.qt_Id}" /><label> D.
+											<label><input type="radio" name="answer${status.index}"
+												required="required" value="D${q.qt_Id}" /> D.
 												${q.d} </label>
 										</div>
 

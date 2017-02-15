@@ -41,8 +41,8 @@
 		</div>
 		<div id="body-four">
 			<p>
-				<span>上一部：<a href="${rootPath }secretary/partySecretary_lookVideo?rv_Id=${prev.rv_Id}">${prev.name }</a></span>
-				<span>下一部：<a href="${rootPath }secretary/partySecretary_lookVideo?rv_Id=${next.rv_Id}">${next.name}</a></span>
+				<span>上一部：<a href="${rootPath }secretary/partySecretary_lookVideo?rv_Id=${prev.rv_Id}">${prev.name }三大东方健康拉几个做什么的发</a></span>
+				<span>下一部：<a href="${rootPath }secretary/partySecretary_lookVideo?rv_Id=${next.rv_Id}">${next.name}三大东方健康拉几个做什么的发</a></span>
 			</p>
 		</div>
 	</div>

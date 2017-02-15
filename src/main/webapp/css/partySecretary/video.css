@@ -95,8 +95,8 @@ body{
 	width:100%;
 }
 .nav .row  .navbar-nav{
- width:80%;
-	margin-left:16.5%;
+ width:90%;
+	margin-left:10%;
 }
 .nav .row li{
 	font-size: 16px;
@@ -145,14 +145,14 @@ body{
 	margin: 0 auto;
 	text-align: center;
 }
-#body-three iframe{
-	width:60%;
+#body-three video{
+	width:80%;
 	height:400px;
 	padding: 0;
 	margin: 0;
 }
 #body-four{
-	width:40%;
+	width:56%;
 	margin: 0 auto;
 	margin-top:30px;
 }
