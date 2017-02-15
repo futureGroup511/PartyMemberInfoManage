@@ -126,8 +126,9 @@ public class PhoneAction extends BaseAction {
 			//先判断身份在跳转
 			
 			int userSort=(Integer) session.get("userSort");
-			System.out.println("this.getRequest().getParameter(rv_Id)"+this.getRequest().getParameter("rv_Id"));
+			
 			int id=Integer.parseInt(this.getRequest().getParameter("rv_Id"));//视频id
+			
 			int userId=5;
 			
 			//书记
@@ -180,32 +181,30 @@ public class PhoneAction extends BaseAction {
 			
 			
 			//先判断身份
-			String userSort=(String) session.get("userSort");
+			int  userSort=(Integer)session.get("userSort");
 			int userId=0;
 
-			long time = Integer.parseInt(getRequest().getParameter("time"));//观看视频的时间
-			System.out.println("手机time" + time);
-			String strTime = SwitchTime.switchTime(time);
+			long time = Integer.parseInt(getRequest().getParameter("time"));//观看视频的时间			
+			
 			
 			//书记
-			if(userSort.equals("1")){
+			if(userSort==1){
 				
 				PartySecretaryInfo user =(PartySecretaryInfo)session.get("secretary");
 				userId=user.getPst_Id();
 				
 				time = time + user.getLearnTime();
-				System.out.println("书记的学习时长"+strTime);
+				String strTime = SwitchTime.switchTime(time);				
 				user.setLearnTime(time);
 				user.setStrLearnTime(strTime);
 				partySecretaryInfoService.updatePersonInfo(user);//更新个人学习时间
 			}
-			if(userSort.equals("0")){
+			if(userSort==0){
 				PartyMemberInfo user =(PartyMemberInfo) session.get("partyMember");
 				userId=user.getPtm_Id();
 				
 				time = time + user.getLearnTime();
-				
-				System.out.println("党员的学习时长"+strTime);
+				String strTime = SwitchTime.switchTime(time);
 				user.setLearnTime(time);
 				user.setStrLearnTime(strTime);
 				partyMemberInfoService.updatePartyMemberInfo(user);//更新个人学习时间
@@ -213,7 +212,6 @@ public class PhoneAction extends BaseAction {
 			
 			
 			// 视频播放记录历史
-			System.out.println("*******视频播放记录历史******");
 			String vt = getRequest().getParameter("currentTime");
 			long currentTime = 0;
 			if (vt.indexOf(".") > 0) {
@@ -222,13 +220,10 @@ public class PhoneAction extends BaseAction {
 				currentTime = Integer.valueOf(vt);
 			}
 
-			System.out.println("currentTime" + currentTime);
-
 			int videoId = Integer.valueOf(getRequest().getParameter("videoId"));
 			WatchVideoRecord watchVideoRecord;
-			watchVideoRecord=watchVideoRecordService.getWVR(videoId, userId,1);
+			watchVideoRecord=watchVideoRecordService.getWVR(videoId, userId,userSort);
 
-			System.out.println(watchVideoRecord);
 			if (watchVideoRecord == null) {
 				watchVideoRecord = new WatchVideoRecord();
 				watchVideoRecord.setRv_id(videoId);

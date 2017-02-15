@@ -135,7 +135,7 @@ public class PartyMemberInfoDaoImpl extends BaseDao<PartyMemberInfo> implements 
 		PageCut<PartyMemberInfo> pc = new PageCut<PartyMemberInfo>(currentPage, pageSize, count);
 		if(search==null || search.length()==0){
 			hql="from PartyMemberInfo p where p.partyBranch=?";
-			pc.setData(this.getEntityLimitList(hql, currentPage, pageSize, partyBranch));
+			pc.setData(this.getEntityLimitList(hql, (currentPage-1)*pageSize, pageSize, partyBranch));
 		}else{
 			hql="from PartyMemberInfo as p where p.partyBranch=? and "
 					+ "p.phoneNo like :search or p.username like :search "

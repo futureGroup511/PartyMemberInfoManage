@@ -85,9 +85,11 @@
 				<c:forEach var="video" items="${phoneNewVideoList}" varStatus="videoStatus">
 					<c:if test="${videoStatus.index%2==0 }">
 						<div class="left">
+								<a href="${rootPath}phone_lookVideo?rv_Id=${video.rv_Id}">
 								<div class="mui-card-header mui-card-media" 
 									style="height:40vw;background-image:url(${rootPath }${video.imgUrl})">
 								</div>
+								</a>
 									<div class="mui-card-content">
 									<div class="mui-card-content-inner">
 									<a href="${rootPath}phone_lookVideo?rv_Id=${video.rv_Id}">
@@ -99,7 +101,9 @@
 					</c:if>
 					<c:if test="${videoStatus.index%2==1 }">
 					<div class="right">
+					<a href="${rootPath}phone_lookVideo?rv_Id=${video.rv_Id}">
 						<div class="mui-card-header mui-card-media" style="height:40vw;background-image:url(${rootPath }${video.imgUrl})"></div>
+					</a>
 						<div class="mui-card-content">
 						<div class="mui-card-content-inner">
 							<a href="${rootPath}phone_lookVideo?rv_Id=${video.rv_Id}">

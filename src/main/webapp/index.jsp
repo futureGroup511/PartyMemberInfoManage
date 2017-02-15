@@ -39,12 +39,16 @@
  <div class="col-lg-4 col-lg-offset-4 col-md-8 col-md-offset-2 col-xs-8 col-xs-offset-2">
   <div class="row">
   <div class="form-group">
-  	<div class="col-lg-3  col-md-3 col-xs-3">
+  	<div class="col-lg-4   col-md-4 col-xs-4">
     <label for="inputEmail3" class="control-label">密码:</label>
     </div>
-    <div class="col-lg-8  col-md-8 col-xs-8">
+    <div class="col-lg-8 col-lg-pull-1 col-md-8 col-xs-8">
       <input  type="password" name="userInfo.password"  required="required"  pattern="^.{8,}$" class="form-control" id="inputEmail3"  >
-    </div>   
+    </div> 
+    <!-- <div class="col-lg-1  col-md-1 col-xs-1">
+      b zsgxf'
+    </div> -->
+      <h4>${loginMeg}</h4>  
     </div>
   </div>
  </div>
@@ -58,20 +62,19 @@
     <label for="inputEmail3" class="control-label">验证码:</label>
     </div>
     <div class="col-lg-4 col-md-4 col-xs-4">
-      <input  type="text" class="form-control" id="inputEmail3"  name="randStr"  >
+      <input  type="text" class="form-control" id="codeMeg" placeholder=""  name="randStr"  >
     </div>
+    
           <a href="javascript:void(0)" onclick="refresh()">
            <img alt="点击刷新" src="${rootPath }validation" id="yan" /></a>
     </div>
   </div>
  </div>
-  <div class="tip">
-           <h5>${codeMeg}</h5>
-    </div>
+  
 </div>
   <button type="submit" class="btn btn-default">登录</button>
 </form>
-<h4>${loginMeg}</h4>
+
 </div>
 <script type="text/javascript">
 $(function(){
@@ -80,6 +83,10 @@ $(function(){
 });
 </script>
 <script type="text/javascript">
+	if('${codeMeg}'!=null){
+		document.getElementById("codeMeg").setAttribute("placeholder",'${codeMeg}');
+		
+	}
 	function refresh() {
 		document.getElementById("yan").src = "${rootPath}validation?s="
 				+ new Date();

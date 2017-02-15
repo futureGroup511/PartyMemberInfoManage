@@ -344,6 +344,7 @@ public class PartySecretaryAction extends BaseAction {
 		System.out.println("search"+search);
 		System.out.println("page"+page);
 		PartySecretaryInfo psi=(PartySecretaryInfo) session.get("secretary");
+		System.out.println("书记所属党支部"+psi.getPartyBranch());
 		PageCut<PartyMemberInfo>  pCut=partyMemberInfoService.getPageCut(page, 5, search, psi.getPartyBranch());
 		
 		
@@ -358,7 +359,6 @@ public class PartySecretaryAction extends BaseAction {
 				p.setPhoneNo(p.getPhoneNo().replaceAll(search, String.format(format, search)));
 			}
 		}
-
 		
 		this.getRequest().setAttribute("pc", pCut);
 		this.getRequest().setAttribute("search", search);

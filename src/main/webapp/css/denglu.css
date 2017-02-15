@@ -46,10 +46,22 @@ form{
 .form-group img{
   width:95px;
 }
-.tip{
-	margin-top:2%;
-  margin-left:-5%;
+.row .form-group h4{
+	padding-top:33px!important;
+	padding-left:120px!important;
+	color:red;
 }
-
+.tip{
+  width:100%;
+  padding-left:20%;
+}
+.tip h5{
+  height:30px;
+  width:80%;
+  margin-top:18px;
+}
+.row .form-group .col-lg-4 input{
+	width:110%;	
+}
 /* CSS Document */
 

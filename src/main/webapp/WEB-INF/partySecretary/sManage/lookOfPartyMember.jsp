@@ -27,7 +27,7 @@
  <div id="body-two">
  	<form action="${rootPath }secretary/partySecretary_lookOfPartyMember" method="post">
     	<input type="text" name="search" class="form-control" placeholder="您可以通过/姓名/民族/籍贯/手机号/搜索" autocomplete="off"/>
-     	<button class="btn btn-primary sure" type="button">搜索</button>
+     	<button class="btn btn-primary sure" type="submit">搜索</button>
      </form>
  </div>
  <div id="body-three">
@@ -78,7 +78,7 @@
  </div>
 	
 	
-	<div id="pagecut" style="margin-right:100px;text-align:right;">
+	<div id="pagecut" style="text-align:center;">
 		<ul class="pagination">
 			<li><a href="${rootPath }secretary/partySecretary_lookOfPartyMember?page=${pc.prePage}&&search=${search}">上一页</a></li>
 			<c:if test="${1 < pc.currentPage -3}">

@@ -63,7 +63,7 @@
 
 
 
-	<div id="pagecut" style="margin-right:100px;text-align:right;">
+	<div id="pagecut" style="text-align:center;">
 		<ul class="pagination">
 			<li><a href="${rootPath }secretary/partySecretary_paperInform?page=${pc.prePage}">上一页</a></li>
 			<c:if test="${1 < pc.currentPage -3}">
