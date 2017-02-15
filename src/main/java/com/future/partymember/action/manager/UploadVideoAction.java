@@ -37,6 +37,11 @@ public class UploadVideoAction extends BaseAction {
 		}
 		
 		String type=videoFileName.substring(videoFileName.lastIndexOf("."));
+		String name = videoFileName.substring(0, videoFileName.lastIndexOf("."));
+		if(name.length()>20){
+			this.getRequest().setAttribute("remind","视频名字过长，要在20字内。" );
+			return SUCCESS;
+		}
 		if(!type.equals(".mp4")){
 			this.getRequest().setAttribute("remind","请上传MP4格式的视频");
 			return SUCCESS;
@@ -65,8 +70,7 @@ public class UploadVideoAction extends BaseAction {
 		inImg.close();
 		outImg.close();
 		
-		
-		RedVideo rv=new RedVideo(videoFileName.substring(0, videoFileName.lastIndexOf(".")),videoDescription,"upload/video/"+fileName,0,1);
+		RedVideo rv=new RedVideo( name,videoDescription,"upload/video/"+fileName,0,1);
 		
 		rv.setImgUrl("upload/video/"+imgName);
 		rv.setCreateTime(new Date());
