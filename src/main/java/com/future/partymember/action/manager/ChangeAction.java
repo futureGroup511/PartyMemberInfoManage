@@ -15,7 +15,9 @@ public class ChangeAction extends BaseAction{
 		ManagerInfo old=(ManagerInfo)this.getRequest().getSession().getAttribute("user");
 		
 		if(user.getPassword()== null || user.getPassword().length()<8){
-			user.setPassword(old.getPassword());
+			this.getRequest().setAttribute("remind", "失败，密码太短。");
+			return SUCCESS;
+			
 		}
 		user.setId(old.getId());
 		user.setAccount(old.getAccount());

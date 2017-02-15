@@ -67,9 +67,13 @@ public class PartMemberManagerAction extends BaseAction {
 			this.getRequest().setAttribute("partyMember", partyMemberInfoService.getPartyMemberInfoById(partyMemberInfo.getPtm_Id()));
 			return "update";
 		}
+		
 		if(partyMemberInfo.getPassword().length()<8){
-			partyMemberInfo.setPassword(part.getPassword());;
-		}
+			partyMemberInfo.setPassword(part.getPassword());
+			this.getRequest().setAttribute("remind", "失败，密码太短");
+			this.getRequest().setAttribute("partyMemberInfo", partyMemberInfoService.getPartyMemberInfoById(partyMemberInfo.getPtm_Id()));
+			return "update";
+		} 
 		try{
 			String idc=partyMemberInfo.getIdCard();
 			int year=Integer.parseInt(idc.substring(6, 10));

@@ -25,7 +25,7 @@
 		<span class="remind">${remind }</span>
 
 		<form class="form-horizontal" role="form" method="POST"
-			action="${rootPath}manage/change_info" onsubmit="md5()">
+			action="${rootPath}manage/change_info" onsubmit="return md5()">
 			<%-- 
 			<input type="hidden" name="user.account" value="${user.account }">
 			<input type="hidden" name="user.id" value="${user.id }">

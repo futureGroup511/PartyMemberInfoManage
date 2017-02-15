@@ -101,7 +101,10 @@ public class PartSecretaryManagerAction extends BaseAction {
 			return "update";
 		}
 		if(partySecretaryInfo.getPassword().length()<8){
-			partySecretaryInfo.setPassword(p.getPassword());;
+			partySecretaryInfo.setPassword(p.getPassword());
+			this.getRequest().setAttribute("remind", "错误，密码太短。");
+			this.getRequest().setAttribute("partySecretaryInfo", partySecretaryInfoService.findById(partySecretaryInfo.getPst_Id()));
+			return "update";
 		}
 		try{
 			String idc=partySecretaryInfo.getIdCard();
