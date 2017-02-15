@@ -70,7 +70,7 @@
 	<div id="body">
 		<div id="body-one">
 			<p>
-				<img src="${rootPath}images/topimg.png"> <span>您的位置：首页&nbsp;&nbsp;>&nbsp;&nbsp;时事新闻&nbsp;&nbsp;>&nbsp;&nbsp;${paper.paperType}</span>
+				<img src="${rootPath}images/topimg.png"> <span>您的位置：<a href="${rootPath}party/partyLogin.action">首页</a>&nbsp;&nbsp;>&nbsp;&nbsp;<a href="${rootPath }party/partyMemberAction_getResPaper.action">时事新闻</a>&nbsp;&nbsp;>&nbsp;&nbsp;${paper.paperType}</span>
 			</p>
 		</div>
 		<div id="body-two">

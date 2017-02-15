@@ -94,7 +94,7 @@
                		<button class="btn btn-primary" type="submit" onclick="return judegePwd();">确认修改</button>
                		<button class="btn btn-primary sure" type="reset">重置</button>
                </form>
-               <h4>${updateMsg}</h4>
+               <%-- <h4>${updateMsg}</h4> --%>
             </div>
         </div>
        <div role="tabpanel" class="tab-pane" id="profile">
@@ -104,7 +104,7 @@
                 	<button class="btn btn-primary" type="submit">确认修改</button>
                 	<button class="btn btn-primary sure" type="reset">重置</button>
                 </form>
-                 <h4>${updateMsg}</h4>
+                 <%-- <h4>${updateMsg}</h4> --%>
             </div>
        </div>
    </div>
@@ -112,6 +112,11 @@
  </div>
  
 </div>
+<script type="text/javascript">
+	if('${updateMsg}'!=null && '${updateMsg}'!=""){
+		alert('${updateMsg}');
+	}
+</script>
  <footer id="footer-warp"><!-- 页脚开始 -->
 		<p class="footer"><a href="">网站声明</a> &nbsp; &nbsp;<span>|</span> &nbsp; &nbsp;<a href="">关于我们 &nbsp; &nbsp;</a><span>|</span> &nbsp; &nbsp;<a href="">联系我们</a></p>
 		<p>Copyright @ 2016 All rights reserved.　　版权所有：河南科技学院党委</p>
