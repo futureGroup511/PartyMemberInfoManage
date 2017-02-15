@@ -12,6 +12,10 @@
 	color:red;
 	font-size:1.4em;
 }
+td{
+	text-align:center;
+	vertical-align:bottom;
+}
 </style>
 </head>
 <body>
@@ -61,7 +65,7 @@
 							<td>B</td>
 							<td>C</td>
 							<td>D</td>
-							<td>详细信息</td>
+							<td>修改</td>
 							<td>删除</td>
 						</tr>
 						<c:forEach items="${pc.data}" var="q">
@@ -77,7 +81,7 @@
 								<td>${q.b}</td>
 								<td>${q.c}</td>
 								<td>${q.d}</td>
-								<td><a href="${rootPath }manage/testManage_update?id=${q.qt_Id}">详细信息修改</a></td>
+								<td><a href="${rootPath }manage/testManage_update?id=${q.qt_Id}">修改</a></td>
 								<td><a
 									href="javascript:isdelete(${q.qt_Id})">刪除</a></td>
 							</tr>

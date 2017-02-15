@@ -46,7 +46,7 @@
 						<div class="col-xs-8">
 							<input type="text" maxlength="10" class="form-control"
 								required="required" name="partyMemberInfo.account"
-								value="${partyMemberInfo.account }" placeholder="6-7位">
+								value="${partyMemberInfo.account }" placeholder="8-10位">
 						</div>
 					</div>
 

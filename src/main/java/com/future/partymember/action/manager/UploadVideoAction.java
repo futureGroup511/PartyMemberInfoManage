@@ -66,7 +66,7 @@ public class UploadVideoAction extends BaseAction {
 		outImg.close();
 		
 		
-		RedVideo rv=new RedVideo(videoFileName,videoDescription,"upload/video/"+fileName,0,1);
+		RedVideo rv=new RedVideo(videoFileName.substring(0, videoFileName.lastIndexOf(".")),videoDescription,"upload/video/"+fileName,0,1);
 		
 		rv.setImgUrl("upload/video/"+imgName);
 		rv.setCreateTime(new Date());

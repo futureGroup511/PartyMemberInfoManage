@@ -20,50 +20,73 @@ margin-top:2%;
 	<li>试题管理</li>
 	<li class="active">修改试题</li>
 </ol>
-	<h2 style="margin-left:5%;color:red;">${questionMag }</h2>
-			<form action="${rootPath }manage/testManage_updateDo" method="post">
-				<input type="hidden" name="question.qt_Id" value="${question.qt_Id }">
-				<input type="hidden" name="question.paperName" value="${question.paperName }">
-				<div class="row">
-					<%-- 
-					<div class="col-lg-5 col-lg-offset-2 col-md-5 col-md-offset-2 col-xs-5 col-xs-offset-2">
-						
-						<label class="lable_1">所属试卷名称：${question.paperName}</label>
-						
-						
-					</div>
-					 --%>
-					 <div class="col-xs-10 col-xs-offset-2">
-						
-						<label class="lable_1" style="margin-left:6%;">&nbsp;&nbsp;题干：</label>
-						<input required="required" style="width:60%;" type="text" name="question.questions_stems" value="${question.questions_stems }"> 
-						
-					</div>
+
+	<div class="container">
+		<form action="${rootPath }manage/testManage_updateDo" method="post">
+			<div class="row">
+				<h2>${questionMag }</h2>
+			</div>
+			<div class="row">
+				<div class="col-xs-12">
+					<input class="form-control" type="hidden" name="question.qt_Id" value="${question.qt_Id }">
+				</div>
 				
+				<div class="col-xs-12">
+					<input class="form-control" type="hidden" name="question.paperName" value="${question.paperName }">
 				</div>
-				<div class="row">
-					<div class="col-lg-5 col-lg-offset-2 col-md-5 col-md-offset-2 col-xs-5 col-xs-offset-2">
-						<label class="lable_1" style="margin-left:12%;">A选项：</label>
-						<input required="required" style="width:40%;" type="text" name="question.a"  value="${question.a }">
-					</div>
-					<div class="col-lg-5 col-md-5  col-xs-5 ">
-						<label style="margin-left:-2.5%;" class="lable_1">B选项：</label>
-						<input required="required" style="width:40%;" type="text"name="question.b"  value="${question.b }">
-					</div>
+				
+			</div>
+			
+			<div class="row">
+				<div class="col-xs-2">
+					<label>&nbsp;&nbsp;题干：</label>
 				</div>
-				<div class="row">
-					<div class="col-lg-5 col-lg-offset-2 col-md-5 col-md-offset-2 col-xs-5 col-xs-offset-2">
-						<label class="lable_1" style="margin-left:12%;">C选项：</label>
-						<input  style="width:40%;" type="text" name="question.c"  value="${question.c }">
-					</div>
-					<div class="col-lg-5 col-md-5  col-xs-5 ">
-						<label style="margin-left:-2.5%;" class="lable_1">D选项：</label>
-						<input style="width:40%;" type="text"name="question.d"  value="${question.d }">
-					</div>
-				</div><div class="row">
-					<div class="col-lg-5 col-lg-offset-2 col-md-5 col-md-offset-2 col-xs-5 col-xs-offset-2">
-						<label class="lable_1" style="margin-left:14%;">答案：</label>
-						<select required="required"  style="width:40%;" type="text" name="question.answer"  value="${question.answer }">
+				<div class="col-xs-10">
+					<input class="form-control" required="required" type="text" name="question.questions_stems" value="${question.questions_stems }">
+				</div>
+			</div>
+			
+			<div class="row">
+				<div class="col-xs-2">
+					<label>A选项：</label>
+				</div>
+				<div class="col-xs-10">
+					<input class="form-control" required="required" type="text" name="question.a"  value="${question.a }">
+				</div>
+			</div>
+			
+			<div class="row">
+				<div class="col-xs-2">
+					<label>B选项：</label>
+				</div>
+				<div class="col-xs-10">
+					<input class="form-control" required="required" type="text" name="question.b"  value="${question.b }">
+				</div>
+			</div>
+			
+			<div class="row">
+				<div class="col-xs-2">
+					<label>C选项：</label>
+				</div>
+				<div class="col-xs-10">
+					<input class="form-control" required="required" type="text"name="question.c"  value="${question.c }">
+				</div>
+			</div>
+			
+			<div class="row">
+				<div class="col-xs-2">
+					<label class="lable_1">D选项：</label>
+				</div>
+				<div class="col-xs-10">
+					<input class="form-control" required="required" type="text" name="question.d"  value="${question.d }">
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-xs-2">
+					<label class="lable_1">答案：</label>
+				</div>
+				<div class="col-xs-10">
+					<select class="form-control" required="required" name="question.answer"  value="${question.answer }">
 							<c:if test="${question.answer == 'A' }">
 								<option value="A" selected="selected">A</option>
 								<option value="B">B</option>
@@ -97,27 +120,38 @@ margin-top:2%;
 							</c:if>
 							
 						</select>
-						
-					</div>
-					<div class="col-lg-5 col-md-5  col-xs-5 ">
-						<label style="margin-left:-0.5%;" class="lable_1">解析：</label>
-						<input style="width:40%;" type="text"name="question.analysis"  value="${question.analysis }">
-					</div>
 				</div>
-				</div><div class="row">
+			
+			</div>
+			
+			<div class="row">
+				<div class="col-xs-2">
+					<label>解析：</label>
+				</div>
+				<div class="col-xs-10">
+					<textarea class="form-control" name="question.analysis"  value="${question.analysis }"></textarea>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-xs-12">
+				
+					<input type="reset" value="重置"  style="margin-left:11%;border-radius:0px;" class="btn btn-primary"> 
+			    	<input type="submit"  style="margin-left:14%;border-radius:0px;" value="添加" class="btn btn-primary">	
+			    	
+				</div>
+			</div>
+		</form>
+	</div>
+	
+				
+				
 					<%-- 
 					<div class="col-lg-5 col-lg-offset-2 col-md-5 col-md-offset-2 col-xs-5 col-xs-offset-2">
 						<label class="lable_1" style="margin-left:14%;">分数：</label>
 						<input required="required"  style="width:40%;" type="number" name="question.question_socre"  value="${question.question_socre }">
 					</div>
 					 --%>
-					<input required="required" type="hidden" name="question.question_socre"  value="${question.question_socre }">
-					<div class="col-lg-5 col-md-5  col-xs-5 col-xs-offset-4">
-						  <input type="reset" value="重置"  style="margin-left:11%;border-radius:0px;" class="btn btn-primary"> 
-			    		  <input type="submit"  style="margin-left:14%;border-radius:0px;" value="添加" class="btn btn-primary">	
-					</div>
-				</div>
-			</form>
+				
 <div class="background navbar-fixed-top"  style="position:absolute; z-index:-1;width:100%;height:100%;opacity:0.1;">
     	<img  class="img-responsive" width="100%;" src="${rootPath }images/577a4c594718d_610.jpg" />
 </div>			

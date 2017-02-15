@@ -12,7 +12,10 @@
 	font-size:1.2em;
 	color:red;
 }
-
+td{
+	text-align:center;
+	vertical-align:bottom;
+}
 </style>
 </head>
 <body>
@@ -59,7 +62,7 @@
 				<td>发布时间</td>
 				<td>阅读次数</td>
 				<td>文章状态</td>
-				<td>详细内容/管理</td>
+				<td>修改</td>
 				<td>删除</td>
 			</tr>
 			<c:forEach var="paper" items="${pc.data }">
@@ -71,7 +74,7 @@
 					<td>${paper.releaseDate}</td>
 					<td>${paper.readNum }</td>
 					<td>${paper.strTag}</td>
-					<td><a href="${rootPath }manage/fPaper_fUpdatePaper?rp_Id=${paper.rp_Id}"  target="main">详细内容/管理</a></td>
+					<td><a href="${rootPath }manage/fPaper_fUpdatePaper?rp_Id=${paper.rp_Id}"  target="main">修改</a></td>
 					<td onClick="que_ren(${paper.rp_Id})">删除</td>
 				</tr>
 			</c:forEach>
