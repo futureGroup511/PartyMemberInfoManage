@@ -149,6 +149,12 @@ body{
 #body-two a:hover{
 	color:#DB0B18;
 }
+#body-two{
+	margin-bottom: 100px;
+}
+#pagecut{
+	margin-bottom: 100px;
+}
 #footer-warp{
 	width: 100%;
 	height:90px;
