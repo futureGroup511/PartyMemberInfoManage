@@ -27,7 +27,7 @@
         	<!-- 用户名 -->
         	<property name="username" value="root"></property>
         	<!-- 密码 -->
-        	<property name="password" value="root"></property>
+        	<property name="password" value="Wadad369"></property>
         </bean>
         
         <!-- 定义hibernate的SessionFactory -->

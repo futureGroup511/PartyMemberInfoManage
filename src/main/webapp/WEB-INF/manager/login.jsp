@@ -14,7 +14,7 @@
 	<div class="container">
 		<div class="header">
 			<img src="${rootPath }images/header-logo.png">
-			<p>河南科技学院党员信息管理系统</p>
+			<p style="margin-left:80px;">河南科技学院党员信息管理系统</p>
 		</div>
 		<div class="body">
 			<div class="box">
@@ -32,7 +32,7 @@
 					<div class="input-three" class="form-control">
 						<label>验证码</label> <input type="text" class="form-control" name="randStr"
 							placeholder="请输入验证码"> <a href="javascript:void(0)"
-							onclick="refresh()"><img alt="点击刷新" src="${rootPath }validation"
+							onclick="refresh()"><img style="margin-top:-12px;" alt="点击刷新" src="${rootPath }validation"
 							id="yan" /></a> <span id="code_error">环境异常</span>
 					</div>
 
