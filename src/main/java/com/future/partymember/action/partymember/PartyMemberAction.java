@@ -271,15 +271,15 @@ public class PartyMemberAction extends BaseAction {
 		this.getRequest().setAttribute("xinxiangStyle", xinxiangStyle);
 		//媒体头条
 		List<RedPaper> mediaHeadlines=redPaperService.getPaperByTpId(4, 5);
-		mediaHeadlines=PaperUtil.titleLength(mediaHeadlines, 20);
+		mediaHeadlines=PaperUtil.titleLength(mediaHeadlines, 18);
 		this.getRequest().setAttribute("mediaHeadlines", mediaHeadlines);
 		//环球动态
 		List<RedPaper> globalDynamics=redPaperService.getPaperByTpId(5, 5);
-		globalDynamics=PaperUtil.titleLength(globalDynamics, 20);
+		globalDynamics=PaperUtil.titleLength(globalDynamics, 18);
 		this.getRequest().setAttribute("globalDynamics", globalDynamics);
 		//神州大地
 		List<RedPaper> divineLand=redPaperService.getPaperByTpId(6, 5);
-		divineLand=PaperUtil.titleLength(divineLand, 20);
+		divineLand=PaperUtil.titleLength(divineLand, 18);
 		this.getRequest().setAttribute("divineLand", divineLand);		
 		return "getResPaper";
 	}
