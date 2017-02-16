@@ -83,8 +83,8 @@
 		</div>
 		<div id="body-four">
 			<p>
-				<span>上一部：<a href="${rootPath}party/partyMemberAction_viewing?rv_Id=${prev.rv_Id}">${prev.name }卡拉胶似懂非懂金坷垃副会长发型在</a></span>
-				<span>下一部：<a href="${rootPath}party/partyMemberAction_viewing?rv_Id=${next.rv_Id}">${next.name}卡拉胶似懂非懂金坷垃副会长发型在</a></span>			
+				<span>上一部：<a href="${rootPath}party/partyMemberAction_viewing?rv_Id=${prev.rv_Id}">${prev.name }</a></span>
+				<span>下一部：<a href="${rootPath}party/partyMemberAction_viewing?rv_Id=${next.rv_Id}">${next.name}</a></span>			
 			</p>
 		</div>
 	</div>
