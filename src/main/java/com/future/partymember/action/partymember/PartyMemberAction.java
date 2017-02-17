@@ -166,8 +166,10 @@ public class PartyMemberAction extends BaseAction {
 						this.getRequest().setAttribute("notice", "后面没有了");			
 					}else{
 						List<RedVideo> rvNext=redVideoService.getNextRecordById(videoId);
-						RedVideo rv1=rvNext.get(0);
-						this.getRequest().setAttribute("next",rv1 );
+						if(rvNext.size()>0){
+							RedVideo rv1=rvNext.get(0);
+							this.getRequest().setAttribute("next",rv1 );							
+						}
 					}
 					
 					if(fristVideo.getRv_Id()==videoId){
@@ -175,8 +177,10 @@ public class PartyMemberAction extends BaseAction {
 						this.getRequest().setAttribute("notice", "前面没有了");
 					}else{
 						List<RedVideo> rpPrev=redVideoService.getPrevRecordById(videoId);
-						RedVideo rv2=rpPrev.get(0);
-						this.getRequest().setAttribute("prev", rv2);
+						if(rpPrev.size()>0){
+							RedVideo rv2=rpPrev.get(0);
+							this.getRequest().setAttribute("prev", rv2);							
+						}
 					}
 					return "viewing";
 
@@ -339,7 +343,7 @@ public class PartyMemberAction extends BaseAction {
 			this.getRequest().setAttribute("notice", "后面没有了");
 		} else {
 			List<RedPaper> rpNext = redPaperService.getNextRecordById(id, rp.getPaperTypeId());
-			if (rpNext != null) {
+			if (rpNext.size()>0) {
 				RedPaper rp1 = rpNext.get(0);
 				this.getRequest().setAttribute("next", rp1);
 			}
@@ -350,8 +354,10 @@ public class PartyMemberAction extends BaseAction {
 			this.getRequest().setAttribute("notice", "前面没有了");
 		} else {
 			List<RedPaper> rpPrev = redPaperService.getPrevRecordById(id, rp.getPaperTypeId());
-			RedPaper rp2 = rpPrev.get(0);
-			this.getRequest().setAttribute("prev", rp2);
+			if(rpPrev.size()>0){
+				RedPaper rp2 = rpPrev.get(0);
+				this.getRequest().setAttribute("prev", rp2);				
+			}
 		}
 
 		return "lookPaper";
@@ -390,7 +396,7 @@ public class PartyMemberAction extends BaseAction {
 				this.getRequest().setAttribute("notice", "后面没有了");			
 			}else{
 				List<RedPaper> rpNext=redPaperService.getNextRecordById(id,search);
-				if(rpNext!=null){
+				if(rpNext.size()>0){
 					RedPaper rp1=rpNext.get(0);
 					this.getRequest().setAttribute("next",rp1 );
 				}
@@ -401,8 +407,10 @@ public class PartyMemberAction extends BaseAction {
 				this.getRequest().setAttribute("notice", "前面没有了");
 			}else{
 				List<RedPaper> rpPrev=redPaperService.getPrevRecordById(id,search);
-				RedPaper rp2=rpPrev.get(0);
-				this.getRequest().setAttribute("prev", rp2);
+				if(rpPrev.size()>0){
+					RedPaper rp2=rpPrev.get(0);
+					this.getRequest().setAttribute("prev", rp2);					
+				}
 			}
 			this.getRequest().setAttribute("search", search);
 			return "lookPaperByTag";
