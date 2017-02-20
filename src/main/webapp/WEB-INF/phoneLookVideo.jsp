@@ -13,8 +13,8 @@
 			mui.init();
 		</script>
 		<style>
-			.shipin{
-				margin-top: 50px;
+			.video-warp{
+				margin-top: 100px;
 			}
 			.jianjie{
 				
@@ -29,9 +29,11 @@
 		</style>
 	</head>
 	<body>
+	<div class="video-warp">
+	
 		<header class="mui-bar mui-bar-nav">
 			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
-			<h1 class="mui-title">视频播放</h1>
+			<h1 class="mui-title">${video.name }</h1>
 		</header>
 			<input type="hidden" value="${video.rv_Id}" id="videoId" />
 			<input type="hidden" value="${currentTime}" id="oldcurrentTime" />
@@ -42,10 +44,11 @@
 				<h3>您的浏览器不支持 HTML5 video 标签。</h3>
 			</video>
 			<div class="jianjie">
-				<p>${video.description }ddjskhka第三节课峰会上开发上课水电费烧开后付款是否开始电话方式发送客户垫付事发后是否会上的粉红色符合身份很舒服是
+				<p>${video.description }
 			    </p>
 			</div>
 		</div>
+	</div>
 	</body>
 <script src="${rootPath}js/jquery-2.2.3.min.js"></script>
 <script type="text/javascript">

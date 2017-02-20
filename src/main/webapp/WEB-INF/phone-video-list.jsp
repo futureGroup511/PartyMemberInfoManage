@@ -50,7 +50,7 @@
 					<!--这个额外增加的节点和第五个一样，相当于前后两个不算在轮播里面-->
 					<div class="mui-slider-item mui-slider-item-duplicate">
 						<a href="${rootPath}phone_lookVideo?rv_Id=${phoneHotLastVideo.rv_Id}">
-							<img src="${rootPath }${phoneHotLastVideo.imgUrl}">
+							<img src="${rootPath }${phoneHotLastVideo.imgUrl}"></img>
 							<p class="mui-slider-title">${phoneHotLastVideo.name }</p>
 						</a>
 					</div>
@@ -67,7 +67,7 @@
 					<!--这个节点必须和第二个图片一样-->
 					<div class="mui-slider-item mui-slider-item-duplicate">
 						<a href="${rootPath}phone_lookVideo?rv_Id=${phoneHotFristVideo.rv_Id}">
-							<img src="${rootPath }${phoneHotFristVideo.imgUrl}">
+							<img src="${rootPath }${phoneHotFristVideo.imgUrl}"></img>
 							<p class="mui-slider-title">${phoneHotFristVideo.name }</p>
 						</a>
 					</div>
@@ -102,7 +102,8 @@
 					<c:if test="${videoStatus.index%2==1 }">
 					<div class="right">
 					<a href="${rootPath}phone_lookVideo?rv_Id=${video.rv_Id}">
-						<div class="mui-card-header mui-card-media" style="height:40vw;background-image:url(${rootPath }${video.imgUrl})"></div>
+						<div class="mui-card-header mui-card-media" 
+						style="height:40vw;background-image:url(${rootPath }${video.imgUrl})"></div>
 					</a>
 						<div class="mui-card-content">
 						<div class="mui-card-content-inner">
