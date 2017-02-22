@@ -26,12 +26,16 @@
 							class="form-control" placeholder="请输入账号">
 					</div>
 					<div class="input-two">
-						<label for="password">密码</label> <input id="password-in" type="password" name="password"
+						<label for="password">密码</label> 
+						<input id="password-in" type="password" name="password"
 							class="form-control" placeholder="请输入密码">
 					</div>
 					<div class="input-three" class="form-control">
-						<label>验证码</label> <input type="text" class="form-control" name="randStr"
-							placeholder="请输入验证码"> <a href="javascript:void(0)"
+						<label>验证码</label>
+						
+						<input type="text" class="form-control" name="randStr" placeholder="请输入验证码"> 
+
+						<a href="javascript:void(0)"
 							onclick="refresh()"><img style="margin-top:-12px;" alt="点击刷新" src="${rootPath }validation"
 							id="yan" /></a> <span id="code_error">环境异常</span>
 					</div>
