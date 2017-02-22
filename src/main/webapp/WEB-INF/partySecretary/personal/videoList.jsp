@@ -62,7 +62,10 @@
 		<div id="body-two">
 			<p>党建课程</p>
 		</div>
-
+		<c:if test="${empty pc.data }">
+			<h4>暂时无任何记录</h4>
+		</c:if>
+		<c:if test="${not empty pc.data }">
 		<div id="body-three">
 			<c:forEach items="${pc.data}" var="v" begin="0" end="15">
 				<div>
@@ -72,8 +75,10 @@
 				</div>
 			</c:forEach>			
 		</div>
+		</c:if>
 	
 	<div style="clear: both;"></div>
+	<c:if test="${not empty pc.data }">
 	<div id="pagecut" style="text-align:center;">
 		<ul class="pagination">
 			<li><a href="${rootPath }secretary/partySecretary_videoList?page=${pc.prePage}">上一页</a></li>
@@ -95,7 +100,7 @@
 			<li><a href="${rootPath }secretary/partySecretary_videoList?page=${pc.nextPage}">下一页</a></li>
 		</ul>
 	</div>
-	
+	</c:if>
 		<footer id="footer-warp">
 		<!--页脚开始-->
 		<p class="footer">

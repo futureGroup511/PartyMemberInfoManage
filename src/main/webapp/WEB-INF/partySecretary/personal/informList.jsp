@@ -24,13 +24,18 @@
    <p><img src="${rootPath }images/topimg.png"> <span>您的位置：
    <a href="${rootPath }secretary/pSForward_fIndex">首页</a>&nbsp;&nbsp;>&nbsp;&nbsp;通知公告</span></p>
  </div>
+<c:if test="${empty pc.data}">
+	<h4>暂时无任何记录</h4>
+</c:if>
+<c:if test="${not empty pc.data }">
  <div id="body-two">
  	<c:forEach var="inform"  items="${pc.data}">
    		 <p><a href="${rootPath }secretary/partySecretary_lookInform?inform.info_Id=${inform.info_Id}">${inform.title }<span>${inform.sendDate}</span></a></p>
  	</c:forEach>
  </div>
+ </c:if>
 </div>
-
+<c:if test="${not empty pc.data }">
 	<div id="pagecut" style="text-align:center;">
 		<ul class="pagination">
 			<li><a href="${rootPath }secretary/partySecretary_informList?page=${pc.prePage}">上一页</a></li>
@@ -53,6 +58,7 @@
 		</ul>
 
 	</div>
+</c:if>
 <footer id="footer-warp"><!--页脚开始-->
 		<p class="footer"><a href="">网站声明</a> &nbsp; &nbsp;<span>|</span> &nbsp; &nbsp;<a href="">关于我们 &nbsp; &nbsp;</a><span>|</span> &nbsp; &nbsp;<a href="">联系我们</a></p>
 		<p>Copyright @ 2016 All rights reserved.　　版权所有：河南科技学院党委</p>

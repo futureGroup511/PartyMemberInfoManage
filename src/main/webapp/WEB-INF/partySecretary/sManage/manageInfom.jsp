@@ -34,6 +34,10 @@
  </div>
  <div id="body-three">
      <div class="table-responsive">
+     <c:if test="${empty pc.data }">
+     	<h4>暂时无任何记录</h4>
+     </c:if>
+     <c:if test="${not empty pc.data }">
     <table class="table table-bordered table-hover table-striped">
     <thead>
       <tr class="two">
@@ -56,13 +60,14 @@
 			</c:forEach>
       </tbody>
     </table>
+    </c:if>
  </div>
  </div>
  </div>
 
 
 
-
+<c:if test="${not empty pc.data }">
 	<div id="pagecut" style="text-align:center;">
 		<ul class="pagination">
 			<li><a href="${rootPath }secretary/partySecretary_paperInform?page=${pc.prePage}">上一页</a></li>
@@ -86,7 +91,7 @@
 
 	</div>
 	
-	
+</c:if>
 	 <footer id="footer-warp"><!--页脚开始-->
 		<p class="footer"><a href="">网站声明</a> &nbsp; &nbsp;<span>|</span> &nbsp; &nbsp;<a href="">关于我们 &nbsp; &nbsp;</a><span>|</span> &nbsp; &nbsp;<a href="">联系我们</a></p>
 		<p>Copyright @ 2016 All rights reserved.　　版权所有：河南科技学院党委</p>

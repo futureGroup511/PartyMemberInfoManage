@@ -146,6 +146,13 @@ body{
 	border: 4px solid #DDE1E4;
 	padding-bottom: 20px;
 }
+#body-one a{
+	text-decoration: none;
+	color: #333333;
+}
+#body-one a:hover{
+  color:#DB0B18;
+}
 #body-two{
 	width: 100%;
 	background-color:#DDE1E4;

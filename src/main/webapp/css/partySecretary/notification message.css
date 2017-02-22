@@ -132,6 +132,13 @@ body{
 	border-bottom:2px solid #DDE1E4;
 	font-family:微软雅黑; 
 }
+#body-one a{
+	text-decoration: none;
+	color: #333333;
+}
+#body-one a:hover{
+  color:#DB0B18;
+}
 #body-two {
 	width:70%;
 	margin: 0 auto;

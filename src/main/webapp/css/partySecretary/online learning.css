@@ -152,6 +152,13 @@ margin-left:10%;
 	font-size: 16px;
 	color: #DB0B18;
 }
+#body-one a{
+	text-decoration: none;
+	color: #333333;
+}
+#body-one a:hover{
+  color:#DB0B18;
+}
 #body-two1{
 	width:60%;
   	margin: 0 auto;

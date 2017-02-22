@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@taglib prefix="c"  uri="http://java.sun.com/jsp/jstl/core" %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -92,7 +92,7 @@ var ue = UE.getEditor('editor', {
 	<form action="${rootPath }manage/managePaper_addPaper" method="post"   onsubmit="modifyContent()">
 			<div class="row">
 				<div class="col-lg-3 col-lg-offset-2 col-md-4 col-md-offset-2 col-xs-5 col-xs-offset-1">
-					标题：<input type="text" style="width:80%;" name="redPaper.title"/>
+					标题：<input type="text" style="width:80%;" name="redPaper.title" maxlength="26" placeholder="标题的最大长度为26个字符"/>
 				</div>
 				<div class="col-lg-3 col-md-4  col-xs-5">
 					作者：<input type="text"  style="width:80%;" name="redPaper.author" />
