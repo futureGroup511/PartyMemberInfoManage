@@ -17,6 +17,9 @@ public class IndexImage {
 	@GeneratedValue(strategy = IDENTITY)
 	private int id;
 	
+	@Column
+	private String imgUrl;//图片本身的url，前台前面为${rootPath}+imgUrl
+	
 	@Column(length=200)
 	private String url;//图片对应的链接,需要包括http://
 	private Date createTime;
@@ -38,4 +41,11 @@ public class IndexImage {
 	public void setCreateTime(Date createTime) {
 		this.createTime = createTime;
 	}
+	public String getImgUrl() {
+		return imgUrl;
+	}
+	public void setImgUrl(String imgUrl) {
+		this.imgUrl = imgUrl;
+	}
+	
 }

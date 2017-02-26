@@ -74,8 +74,8 @@
 <body>
 <ol class="breadcrumb">
  	<li>当前位置：</li>
-	<li>通知管理</li>
-	<li class="active">添加通知</li>
+	<li>首页轮播图</li>
+	<li class="active">添加</li>
 </ol>
 	<div id="container">
 		<div id="output"></div>
@@ -83,33 +83,20 @@
 	<div style="width: 80%; margin: 0 auto;padding:100px;">
 		<h2>${remind }</h2>
 		<form class="form-horizontal" role="form" method="POST"
-			action="${rootPath }manage/inform_addDo">
+			action="${rootPath }manage/indexImage_addDo" enctype="multipart/form-data">
 			<div class="form-group">
-				<label for="firstname" class="col-sm-2 control-label">标题</label>
+				<label for="firstname" class="col-sm-2 control-label">图片</label>
 				<div class="col-sm-10">
-					<input type="text" class="form-control" id="firstname"
-						name="inform.title" placeholder="请输入标题">
+					<input type="file" class="form-control"
+						name="img" accept="image/png,image/jpeg">
 				</div>
 			</div>
 			<div class="form-group">
-				<label for="lastname" class="col-sm-2 control-label">内容</label>
+				<label class="col-sm-2 control-label">对应的网址</label>
 				<div class="col-sm-10">
-					<textarea type="text" class="form-control" id="lastname"
-						name="inform.content" placeholder="请输入内容"></textarea>
+					<textarea type="text" class="form-control"
+						name="url" placeholder="网址"></textarea>
 				</div>
-			</div>
-			<div class="form-group">
-				<label for="name" class="col-sm-2 control-label">权限</label>
-				<div class="col-sm-10">
-					<select name="inform.info_tag" class="form-control">
-						<option value="0">仅管理员</option>
-						<option value="1">书记可看</option>
-						<option value="2">党员可看</option>
-						<option value="3">全体可看</option>
-					</select>
-				</div>
-
-
 			</div>
 			<div class="form-group">
 				<div class="col-sm-offset-2 col-sm-10">
