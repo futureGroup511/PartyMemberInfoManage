@@ -16,7 +16,7 @@
     	<img  class="img-responsive" width="100%;" src="${rootPath }images/denglubeijingyi.png">
 </div>
 <div class="title">
-	<p>河南科技学院党员在线</p>
+	<p>河南科技学院信息工程学院星火在线</p>
 </div>
 <form role="form"  action="login.action"  method="POST" onsubmit=" md5()">
 <!--用户名一栏-->
