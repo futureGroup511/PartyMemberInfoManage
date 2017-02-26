@@ -1,0 +1,119 @@
+#header{
+	margin-top: 16px;
+}
+#header{
+	border-bottom:2px solid #DB0B18;
+	height:120px;
+}
+#header div{
+	float: left;
+}
+#header .header-left{
+	width:7%;
+	margin-left: 7%;
+}
+#header .header-left img{
+	width:85%;
+	margin-top:16px;
+}
+#header .header-center{
+	color:#E91F2F;
+	padding-top: 20px;
+}
+#header .header-center .top{
+	font-size: 16px;
+	font-weight: 100;
+	font-family: 微软雅黑;
+}
+#header .header-center .bottom{
+	font-size: 30px;
+	text-shadow:1px 1px 2px grey;
+	font-family: 微软雅黑;
+	font-weight: 900;
+	margin-top:-10px;
+}
+#header .header-center{
+	width:43%;
+}
+#header .header-right{
+	width:28%;
+	margin-left:10%;
+	margin-top: 18px;
+}
+.header-right div{
+	border: 2px solid #DB0B18;
+	width: 85%;
+	margin-top: 5%;
+	margin-left:6%;
+	border-radius: 6px;
+}
+.header-right div select{
+  border:none;
+	width:25%;
+	height:40px;
+	appearance:none;
+  -moz-appearance:none;
+  -webkit-appearance:none;
+  background:url(../../images/xiala.png) no-repeat right;
+	font-family: 微软雅黑;
+}
+.header-right div button{
+	background-color: #DB0B18;
+	float:right;
+	height:41px;
+	font-family: 微软雅黑;
+}
+.header-right div select option{
+	background-color: none;
+	color: black;
+	border: none;
+	font-family: 微软雅黑;
+}
+
+.header-right div select option a:hover{
+	background-color: #FFFFFF;
+}
+.header-right input{
+	margin-top: 10px;
+	border: none;
+	font-family: 微软雅黑;
+	width:50%;
+	outline:none;
+}
+.nav{
+	background-color: #DB0B18;
+}
+
+.nav .row{
+	width:100%;
+}
+.nav .row  .navbar-nav{
+    width:90%;
+	margin-left:10%;
+}
+.nav .row li{
+	font-size: 16px;
+	font-weight: 550;
+	font-family: 微软雅黑;
+}
+.nav .row li a{
+	color:black;
+}
+.nav .row li a:hover{
+  color:white;
+	background-color:#DB0B18!important;
+}
+.nav .row li{
+	padding-left:29px;
+}
+.nav .dropdown-menu li{
+  min-width: inherit;
+	padding:0px;
+}
+.nav .dropdown-menu{
+  min-width: inherit;
+	margin-left:29px;
+}
+.btn-group{
+  width: 100%;
+}

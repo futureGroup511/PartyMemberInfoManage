@@ -19,8 +19,8 @@ body {
 			}*/
 html {font-size: 62.5%;/*10 ÷ 16 × 100% = 62.5%*/}
 			
-			h2 { font-size:2vw;/*2.4 × 10px = 24px*/}
-      h3 { font-size:1.5vw;/*2.4 × 10px = 24px*/}
+			h2 { font-size:1.7vw;/*2.4 × 10px = 24px*/}
+      h3 { font-size:1.4vw;/*2.4 × 10px = 24px*/}
 .row{
 	width:100%;
 }
@@ -30,21 +30,22 @@ html {font-size: 62.5%;/*10 ÷ 16 × 100% = 62.5%*/}
 	background-image: max-width:100%;
 	}*/
 .row img{
-	margin-top:15%;
+	margin-top:19%;
 	height:auto;
 	width:100%;
+	margin-left: -60%;
 }
 .row .first{
 	color:#F7AA4B;
 	font-family:微软雅黑;
-	margin-top:9%;
-	margin-left:-8%;
+	margin-top:5%;
+	margin-left:-13%;
 }
 .row .second{
 	color:white;
   font-family: 微软雅黑;
 	margin-top:1%;
-  margin-left:-8%;
+  margin-left:-13%;
 	filter:DropShadow(Color=green,OffX=20,OffY=100,Positive=1);
 }
 .background img{

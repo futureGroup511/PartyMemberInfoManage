@@ -14,7 +14,7 @@
 	<div class="container">
 		<div class="header">
 			<img src="${rootPath }images/header-logo.png">
-			<p style="margin-left:80px;">河南科技学院党员信息管理系统</p>
+			<p style="margin-left:80px;">河南科技学院信息工程学院星火在线功能后台系统</p>
 		</div>
 		<div class="body">
 			<div class="box">

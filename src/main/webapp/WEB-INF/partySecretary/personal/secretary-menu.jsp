@@ -7,6 +7,7 @@
 <meta charset="utf-8">
 <title>网站首页</title>
 <link rel="stylesheet" href="${rootPath }css/bootstrap.css">
+<link rel="stylesheet" href="${rootPath }css/partySecretary/index_tou.css">
 <link rel="stylesheet" href="${rootPath }css/partySecretary/index-two.css">
 <script src="${rootPath }js/jquery-2.2.3.min.js"></script>
 <script src="${rootPath }js/bootstrap.js"></script>
@@ -29,18 +30,20 @@
     </ol>
    <!--设置轮播图片-->
     <div class="carousel-inner">
-      <div class="item active">
-            <a href="#"><img src="${rootPath }images/banner-one.jpg" width="100%" height="300"></a>
-      </div>
-      <div class="item">
-           <a href="#"><img src="${rootPath }images/banner-two.jpg" width="100%" height="300"></a> 
-      </div>
-      <div class="item">
-           <a href="#"><img src="${rootPath }images/banner-three.jpg" width="100%" height="300"></a>
-      </div>
-      <div class="item">
-           <a href="#"><img src="${rootPath }images/banner-four.jpg" width="100%" height="300"></a>
-      </div>
+    	<c:forEach items="${indexImages}" var="indexImage" varStatus="status">
+    		<c:choose>
+    			<c:when test="${status.index==0}">
+    				<div class="item active">
+            			<a href="${indexImage.url }"><img src="${rootPath}${indexImage.imgUrl }" width="100%" height="300"></a>
+     				 </div>
+    			</c:when>
+    			<c:otherwise>
+    				<div class="item ">
+            			<a href="${indexImage.url }"><img src="${rootPath}${indexImage.imgUrl }" width="100%" height="300"></a>
+     				 </div>
+    			</c:otherwise>
+    		</c:choose>   	   		
+    	</c:forEach>   
       <a class="left carousel-control" href="#slidershow" role="button" data-slide="prev">
            <span class="sr-only">Previous</span>
       </a>

@@ -13,17 +13,17 @@
 <div class="head">
 	<div class="row">
     	<div class="logol col-lg-1 col-lg-offset-1 col-md-1 col-md-offset-1  col-xs-2 col-xs-offset-1">
-        	<img src="${rootPath }images/2jfk5t06a8.png" />
+        	<img src="${rootPath }images/header-logo.png" />
         </div>
-        <div class="col-lg-3 col-md-3 col-xs-4">
+        <div class="col-lg-6 col-md-6 col-xs-7">
         	<div class="row">
             	<div class="col-lg-12 col-md-12 col-xs-12">
-                <h3 class="first">河南科技学院党课系统</h2>
+                <h3 class="first">河南科技学院信息工程学院党委主办</h2>
                 </div>
             </div>
             <div class="row">
             	<div class="col-lg-12 col-md-12 col-xs-12">
-                <h2 class="second">河南科技学院党课系统</h2>
+                <h2 class="second">河南科技学院信息工程学院星火在线功能后台系统</h2>
                 </div>
             </div>
         </div>

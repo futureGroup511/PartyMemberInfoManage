@@ -35,16 +35,16 @@
   bottom:0px;
 }
 .container img{
-	width:8%;
+	width:6.5%;
 	position: absolute;
 	margin-left: 16%;
-	padding-top:12px;
+	padding-top:19px;
 }
 .container p {
 	text-align: center;
 	color:#FEFCAC;
 	font-family:黑体;
-	font-size:3.5em;
+	font-size:2.6em;
 	padding-top:40px;
 }
 .body{

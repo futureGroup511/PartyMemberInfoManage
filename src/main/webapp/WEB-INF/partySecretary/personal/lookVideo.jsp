@@ -6,6 +6,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>观看视频</title>
 <link rel="stylesheet" href="${rootPath }css/bootstrap.css">
+<link rel="stylesheet" href="${rootPath }css/partySecretary/red_tou.css">
 <link rel="stylesheet" href="${rootPath }css/partySecretary/video.css">
 <script src="${rootPath }js/jquery-2.2.3.min.js"></script>
 <script src="${rootPath }js/bootstrap.js"></script>

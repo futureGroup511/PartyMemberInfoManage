@@ -13,6 +13,7 @@ import org.springframework.stereotype.Controller;
 import com.future.partymember.base.BaseAction;
 import com.future.partymember.entity.ExamLog;
 import com.future.partymember.entity.ExamPerRecord;
+import com.future.partymember.entity.IndexImage;
 import com.future.partymember.entity.Inform;
 import com.future.partymember.entity.PartyMemberInfo;
 import com.future.partymember.entity.PartySecretaryInfo;
@@ -84,7 +85,10 @@ public class PartySecretaryAction extends BaseAction {
 	
 	public String login(){
 		
-		 
+		//获得轮播图片
+		List<IndexImage> indexImages=indexImageService.getByNew(4);
+		this.getRequest().setAttribute("indexImages",indexImages);
+		
 		List<RedPaper> hotPaperList=redPaperService.getHot(5);
 	 	List<RedPaper> newPaperList=redPaperService.getNew(5);
 	 	
@@ -410,6 +414,9 @@ public class PartySecretaryAction extends BaseAction {
 	
 	//视频列表和分页
 	public String videoList(){
+		//获得轮播图片
+		List<IndexImage> indexImages=indexImageService.getByNew(4);
+		this.getRequest().setAttribute("indexImages",indexImages);
 		System.out.println("分页"+page);
 		String search=this.getRequest().getParameter("search");
 		System.out.println("search  "+search);

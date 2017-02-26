@@ -9,6 +9,7 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
 import com.future.partymember.base.BaseAction;
+import com.future.partymember.entity.IndexImage;
 import com.future.partymember.entity.Inform;
 import com.future.partymember.entity.PartySecretaryInfo;
 import com.future.partymember.entity.Question;
@@ -136,60 +137,41 @@ public class PSForwardAction extends BaseAction {
 	*/
 	//转发到在线文章列表页
 	public String paperList() throws Exception{
+		//获得轮播图片
+		List<IndexImage> indexImages=indexImageService.getByNew(4);
+		this.getRequest().setAttribute("indexImages",indexImages);
+		
 		//党建巡礼
-				List<RedPaper> partyBuilding=redPaperService.getPaperByTpId(1, 5);
-				partyBuilding=PaperUtil.titleLength(partyBuilding, 16);
-				if(partyBuilding.size()>0){
-					String modelName1=partyBuilding.get(0).getPaperType();
-					this.getRequest().setAttribute("madelNameRight1", modelName1.substring(0, 1));
-					this.getRequest().setAttribute("madelNameLeft1", modelName1.substring(2, 1));
-				}
-				this.getRequest().setAttribute("partyBuilding", partyBuilding);
-				//高校咨讯
-				List<RedPaper> universityCounseling=redPaperService.getPaperByTpId(2, 5);
-				universityCounseling=PaperUtil.titleLength(universityCounseling, 16);
+		List<RedPaper> partyBuilding=redPaperService.getPaperByTpId(1, 5);
+		partyBuilding=PaperUtil.titleLength(partyBuilding, 16);
+
+		this.getRequest().setAttribute("partyBuilding", partyBuilding);
+		//高校咨讯
+		List<RedPaper> universityCounseling=redPaperService.getPaperByTpId(2, 5);
+		universityCounseling=PaperUtil.titleLength(universityCounseling, 16);
 				
-				if(universityCounseling.size()>0){
-					String modelName2=universityCounseling.get(0).getPaperType();
-					this.getRequest().setAttribute("madelNameRight2", modelName2.substring(0, 1));
-					this.getRequest().setAttribute("madelNameLeft2", modelName2.substring(2, 1));
-					
-				}
-				this.getRequest().setAttribute("universityCounseling", universityCounseling);
-				//新乡风貌
-				List<RedPaper> xinxiangStyle=redPaperService.getPaperByTpId(3, 5);
-				xinxiangStyle=PaperUtil.titleLength(xinxiangStyle, 16);
-				if(xinxiangStyle.size()>0){
-					
-					String modelName3=xinxiangStyle.get(0).getPaperType();
-					this.getRequest().setAttribute("madelNameRight1", modelName3.substring(0, 1));
-					this.getRequest().setAttribute("madelNameLeft1", modelName3.substring(2, 1));
-				}
-				this.getRequest().setAttribute("xinxiangStyle", xinxiangStyle);
-				//媒体头条
-				List<RedPaper> mediaHeadlines=redPaperService.getPaperByTpId(4, 5);
-				mediaHeadlines=PaperUtil.titleLength(mediaHeadlines, 16);
-				if(mediaHeadlines.size()>0){
-					String modelName4=mediaHeadlines.get(0).getPaperType();
-					this.getRequest().setAttribute("madelName4", modelName4);
-				}
-				this.getRequest().setAttribute("mediaHeadlines", mediaHeadlines);
-				//环球动态
-				List<RedPaper> globalDynamics=redPaperService.getPaperByTpId(5, 5);
-				globalDynamics=PaperUtil.titleLength(globalDynamics, 16);
-				if(globalDynamics.size()>0){
-					String modelName5=globalDynamics.get(0).getPaperType();
-					this.getRequest().setAttribute("madelName5", modelName5);
-				}
-				this.getRequest().setAttribute("globalDynamics", globalDynamics);
-				//神州大地
-				List<RedPaper> divineLand=redPaperService.getPaperByTpId(6, 5);
-				divineLand=PaperUtil.titleLength(divineLand, 16);
-				if(divineLand.size()>0){
-					String modelName6=divineLand.get(0).getPaperType();
-					this.getRequest().setAttribute("madelName6", modelName6);
-				}
-				this.getRequest().setAttribute("divineLand", divineLand);
+
+		this.getRequest().setAttribute("universityCounseling", universityCounseling);
+		//新乡风貌
+		List<RedPaper> xinxiangStyle=redPaperService.getPaperByTpId(3, 5);
+		xinxiangStyle=PaperUtil.titleLength(xinxiangStyle, 16);
+
+		this.getRequest().setAttribute("xinxiangStyle", xinxiangStyle);
+		//媒体头条
+		List<RedPaper> mediaHeadlines=redPaperService.getPaperByTpId(4, 5);
+		mediaHeadlines=PaperUtil.titleLength(mediaHeadlines, 16);
+
+		this.getRequest().setAttribute("mediaHeadlines", mediaHeadlines);
+		//环球动态
+		List<RedPaper> globalDynamics=redPaperService.getPaperByTpId(5, 5);
+		globalDynamics=PaperUtil.titleLength(globalDynamics, 16);
+	
+		this.getRequest().setAttribute("globalDynamics", globalDynamics);
+		//神州大地
+		List<RedPaper> divineLand=redPaperService.getPaperByTpId(6, 5);
+		divineLand=PaperUtil.titleLength(divineLand, 16);
+	
+		this.getRequest().setAttribute("divineLand", divineLand);
 		return "paperList";
 	}
 

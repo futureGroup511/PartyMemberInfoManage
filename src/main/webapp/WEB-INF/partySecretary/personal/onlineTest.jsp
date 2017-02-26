@@ -9,6 +9,7 @@
 <title>在线考试</title>
 
 <link rel="stylesheet" href="${rootPath}css/partyMember/bootstrap.css">
+<link rel="stylesheet" href="${rootPath }css/partySecretary/red_tou.css">
 <link rel="stylesheet" href="${rootPath}css/partySecretary/online learning.css">
 <script src="${rootPath}js/jquery-2.2.3.min.js"></script>
 <script src="${rootPath}js/bootstrap.js"></script>

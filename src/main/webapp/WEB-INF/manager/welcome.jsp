@@ -32,7 +32,7 @@ h2{
 <body>
 	<div class="row">
     	<div class="col-lg-12  col-md-12  col-xs-12 ">
-        	<h2><marquee behavior="scroll">欢迎登录党课系统</marquee></h2>
+        	<h2><marquee behavior="scroll">欢迎登录河南科技学院信息工程学院星火在线功能后台系统</marquee></h2>
         </div>
     </div>
 	<div class="background navbar-fixed-top"  style="position:absolute; z-index:-1;width:100%;opacity:0.3;">

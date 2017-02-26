@@ -1,12 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %> 
 <!DOCTYPE html >
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>时事新闻</title>
 <link rel="stylesheet" href="${rootPath }css/bootstrap.css">
+<link rel="stylesheet" href="${rootPath }css/partySecretary/index_tou.css">
 <link rel="stylesheet" href="${rootPath }css/partySecretary/current news.css">
 <script src="${rootPath }js/jquery-2.2.3.min.js"></script>
 <script src="${rootPath }js/bootstrap.js"></script>
@@ -29,18 +31,20 @@
     </ol>
    <!--设置轮播图片-->
     <div class="carousel-inner">
-      <div class="item active">
-            <a href="#"><img src="${rootPath }images/banner-one.jpg" width="100%" height="300"></a>
-      </div>
-      <div class="item">
-           <a href="#"><img src="${rootPath }images/banner-two.jpg" width="100%" height="300"></a> 
-      </div>
-      <div class="item">
-           <a href="#"><img src="${rootPath }images/banner-three.jpg" width="100%" height="300"></a>
-      </div>
-      <div class="item">
-           <a href="#"><img src="${rootPath }images/banner-four.jpg" width="100%" height="300"></a>
-      </div>
+    	<c:forEach items="${indexImages}" var="indexImage" varStatus="status">
+    		<c:choose>
+    			<c:when test="${status.index==0}">
+    				<div class="item active">
+            			<a href="${indexImage.url }"><img src="${rootPath}${indexImage.imgUrl }" width="100%" height="300"></a>
+     				 </div>
+    			</c:when>
+    			<c:otherwise>
+    				<div class="item ">
+            			<a href="${indexImage.url }"><img src="${rootPath}${indexImage.imgUrl }" width="100%" height="300"></a>
+     				 </div>
+    			</c:otherwise>
+    		</c:choose>   	   		
+    	</c:forEach>   
       <a class="left carousel-control" href="#slidershow" role="button" data-slide="prev">
            <span class="sr-only">Previous</span>
       </a>
@@ -65,16 +69,16 @@
  </div>
  <div id="body-two">
    <div class="body-two-left">
-       <p><span>党建</span> 巡礼</p>
-       <p><a href="${rootPath }secretary/partySecretary_paperSection?paperTypeId=1">更多</a></p>
+       <p><span>${fn:substring(partyBuilding[0].paperType, 0, 2)}</span> ${fn:substring(partyBuilding[0].paperType, 2, 4)}</p>
+       <p><a href="${rootPath }secretary/partySecretary_paperSection?paperTypeId=${partyBuilding[0].paperTypeId}">更多</a></p>
    </div>  
    <div class="body-two-center">
-       <p><span>高校</span> 咨讯</p>
-       <p><a href="${rootPath }secretary/partySecretary_paperSection?paperTypeId=2">更多</a></p>
+       <p><span>${fn:substring(universityCounseling[0].paperType, 0, 2)}</span> ${fn:substring(universityCounseling[0].paperType, 2, 4)}</p>
+       <p><a href="${rootPath }secretary/partySecretary_paperSection?paperTypeId=${universityCounseling[0].paperTypeId}">更多</a></p>
    </div>  
    <div class="body-two-right">
-       <p><span>新乡</span> 风貌</p>
-       <p><a href="${rootPath }secretary/partySecretary_paperSection?paperTypeId=3">更多</a></p>
+       <p><span>${fn:substring(xinxiangStyle[0].paperType, 0, 2)}</span> ${fn:substring(xinxiangStyle[0].paperType, 2, 4)}</p>
+       <p><a href="${rootPath }secretary/partySecretary_paperSection?paperTypeId=${partyBuilding[0].paperTypeId}">更多</a></p>
    </div>  
  </div>
  <div id="body-three">
@@ -102,15 +106,16 @@
  </div>
  <div id="body-four">
     <div class="body-four-left">
-        <p><span>媒体头条</span><a href="${rootPath }secretary/partySecretary_paperSection?paperTypeId=4">
+        <p><span>${divineLand[0].paperType }</span><a href="${rootPath }secretary/partySecretary_paperSection?paperTypeId=${divineLand[0].paperTypeId }">
         <img src="${rootPath}images/jiahao.png"> 查看更多</a></p>
     </div>
     <div class="body-four-center">
-        <p><span>环球动态</span><a href="${rootPath }secretary/partySecretary_paperSection?paperTypeId=5">
+        <p><span>${globalDynamics[0].paperType }</span><a href="${rootPath }secretary/partySecretary_paperSection?paperTypeId=${divineLand[0].paperTypeId }">
         <img src="${rootPath}images/jiahao.png"> 查看更多</a></p>
     </div>
     <div class="body-four-right">
-        <p><span>神州大地</span><a href="${rootPath }secretary/partySecretary_paperSection?paperTypeId=6"><img src="${rootPath}images/jiahao.png"> 查看更多</a></p>
+        <p><span>${mediaHeadlines[0].paperType }</span><a href="${rootPath }secretary/partySecretary_paperSection?paperTypeId=${divineLand[0].paperTypeId }">
+        <img src="${rootPath}images/jiahao.png"> 查看更多</a></p>
     </div>
  </div>
  <div id="body-five">
