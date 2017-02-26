@@ -655,8 +655,14 @@ public class PartyMemberAction extends BaseAction {
 	 * 
 	 * return "getPartyFree"; }
 	 */
-	public String connectUs() throws Exception{
-		return "connectUs";
+		//跳转到党委简介页面
+	public String partyIntroduction(){
+		if(partyIntroductionService.findAll().size()>0){
+			this.getRequest().setAttribute("partyIntroduction",partyIntroductionService.findAll().get(0));
+		}else{
+			this.getRequest().setAttribute("notice", "暂无内容");
+		}
+		return "partyIntroduction";
 	}
 	
 	public void setPartyMemberInfo(PartyMemberInfo partyMemberInfo) {

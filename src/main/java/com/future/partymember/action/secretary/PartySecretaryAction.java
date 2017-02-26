@@ -680,9 +680,14 @@ public class PartySecretaryAction extends BaseAction {
 		return "lookPaper";
 	}
 	
-	//跳转到联系我们页面
-	public String connectUs(){
-		return "connectUs";
+	//跳转到党委简介页面
+	public String partyIntroduction(){
+		if(partyIntroductionService.findAll().size()>0){
+			this.getRequest().setAttribute("partyIntroduction",partyIntroductionService.findAll().get(0));
+		}else{
+			this.getRequest().setAttribute("notice", "暂无内容");
+		}
+		return "partyIntroduction";
 	}
 	
 	//搜索时事新闻与学习园地的数据的方法

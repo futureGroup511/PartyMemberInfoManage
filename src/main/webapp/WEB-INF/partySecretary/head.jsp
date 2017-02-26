@@ -55,7 +55,7 @@
 						<li><a href="${rootPath}login_logout">退出登录</a></li>
                    </ul>
                </li>
-              <li><a href="${rootPath}secretary/partySecretary_connectUs">党委简介</a></li>
+              <li><a href="${rootPath}secretary/partySecretary_partyIntroduction">党委简介</a></li>
          </ul>
      </div>
 </div>

@@ -18,6 +18,7 @@ import com.future.partymember.service.IIndexImgService;
 import com.future.partymember.service.IInformService;
 import com.future.partymember.service.ILeagueMemberService;
 import com.future.partymember.service.IManagerInfoService;
+import com.future.partymember.service.IPartyIntroductionService;
 import com.future.partymember.service.IPartyMemberInfoService;
 import com.future.partymember.service.IPartySecretaryInfoService;
 import com.future.partymember.service.IQuestionService;
@@ -44,6 +45,8 @@ public class BaseAction extends ActionSupport implements SessionAware{
 	protected Map<String,Object> session;
 	
 	//service 注入
+	@Resource
+	protected IPartyIntroductionService partyIntroductionService;
 	@Resource
 	protected IDuePaymentRecordsService duePaymentRecordsService;
 	@Resource

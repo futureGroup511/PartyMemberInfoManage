@@ -59,7 +59,7 @@
 		<div id="body-one">
 			<p>
 				<img src="${rootPath}images/topimg.png"> <span>您的位置：
-				<a href="${rootPath }secretary/pSForward_fIndex">首页</a>&nbsp;&nbsp;>&nbsp;&nbsp;学习园地</span>
+				<a href="${rootPath }secretary/pSForward_fIndex">首页</a>&nbsp;&nbsp;>&nbsp;&nbsp;影音资料</span>
 			</p>
 		</div>
 		<div id="body-two">

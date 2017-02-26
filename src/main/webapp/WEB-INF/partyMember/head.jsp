@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+
 
 </head>
 <body>
@@ -48,7 +48,7 @@
                    </ul>
                </li>
               <li><a href="${rootPath}party/partyMemberAction_informList.action">通知公告</a></li>
-              <li><a href="${rootPath}party/partyMemberAction_connectUs.action">党委简介</a></li>
+              <li><a href="${rootPath}party/partyMemberAction_partyIntroduction.action">党委简介</a></li>
 
          </ul>
         </div>

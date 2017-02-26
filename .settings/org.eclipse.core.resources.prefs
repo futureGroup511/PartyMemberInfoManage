@@ -1,9 +1,9 @@
 eclipse.preferences.version=1
 encoding//src/main/java=UTF-8
 encoding//src/main/resources=UTF-8
-encoding//src/main/webapp/WEB-INF/partyMember/connectUs.jsp=UTF-8
 encoding//src/main/webapp/WEB-INF/partyMember/index.jsp=UTF-8
 encoding//src/main/webapp/WEB-INF/partyMember/informList.jsp=UTF-8
+encoding//src/main/webapp/WEB-INF/partyMember/party-introduction.jsp=UTF-8
 encoding//src/main/webapp/WEB-INF/partySecretary/head.jsp=UTF-8
 encoding//src/main/webapp/WEB-INF/phoneLookVideo.jsp=UTF-8
 encoding/<project>=UTF-8

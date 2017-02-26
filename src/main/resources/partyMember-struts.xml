@@ -45,8 +45,8 @@
             <result name="informList">/WEB-INF/partyMember/informList.jsp</result>
             <result name="lookInform">/WEB-INF/partyMember/lookInform.jsp</result>                                             
 
-           	<!--  联系我们  -->
-           	<result name="connectUs">/WEB-INF/partyMember/connectUs.jsp</result>
+           	<!--  党委简介  -->
+           	<result name="partyIntroduction">/WEB-INF/partyMember/party-introduction.jsp</result>
            	      	                                                  
         </action>
 

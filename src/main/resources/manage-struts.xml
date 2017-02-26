@@ -26,6 +26,11 @@
 			<result name="lookPaper">/WEB-INF/manager/article_manage/lookPaper.jsp</result>
 		</action>
 		
+		<!-- 修改党委简介  丁赵雷 -->
+		<action name="partyIntroduction_*"  class="com.future.partymember.action.manager.PartyIntroductionAction"  method="{1}">
+			<result name="update">/WEB-INF/manager/article_manage/update-party-introduction.jsp</result>
+		</action>
+		
 		
 		
 		<!-- 后台首页的导入试卷   添加人丁赵雷，焦祥宇改 -->

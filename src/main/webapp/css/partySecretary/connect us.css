@@ -12,8 +12,10 @@ body{
 .btn-group{
   width: 100%;
 }
-#body-one{
-	width:80%;
+
+#body{
+	margin-top: 10%;
+	width:70%;
 	margin: 0 auto;
 	margin-top: 10px;
 	border-bottom:2px solid #DDE1E4;

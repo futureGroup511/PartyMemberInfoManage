@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>时事新闻</title>
+<title>学习园地</title>
 <link rel="stylesheet" href="${rootPath }css/bootstrap.css">
 <link rel="stylesheet" href="${rootPath }css/partySecretary/index_tou.css">
 <link rel="stylesheet" href="${rootPath }css/partySecretary/current news.css">
@@ -65,7 +65,7 @@
 <div id="body">
  <div id="body-one">
    <p><img src="${rootPath}images/topimg.png"> <span>您的位置：
-   <a href="${rootPath }secretary/pSForward_fIndex">首页</a>&nbsp;&nbsp;>&nbsp;&nbsp;时事新闻</span></p>
+   <a href="${rootPath }secretary/pSForward_fIndex">首页</a>&nbsp;&nbsp;>&nbsp;&nbsp;学习园地</span></p>
  </div>
  <div id="body-two">
    <div class="body-two-left">

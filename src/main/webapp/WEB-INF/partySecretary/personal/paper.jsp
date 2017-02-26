@@ -27,7 +27,7 @@
  <div id="body-one">
    <p><img src="${rootPath }images/topimg.png"> <span>您的位置：
   <a href="${rootPath }secretary/pSForward_fIndex"> 首页</a>&nbsp;&nbsp;>&nbsp;&nbsp;
- <a href="${rootPath }secretary/pSForward_paperList">时事新闻</a>&nbsp;&nbsp;>&nbsp;&nbsp;列表</span></p>
+ <a href="${rootPath }secretary/pSForward_paperList">学习园地</a>&nbsp;&nbsp;>&nbsp;&nbsp;列表</span></p>
  </div>
  <c:if test="${empty pc.data }">
  	<h4>暂时无任何记录</h4>
