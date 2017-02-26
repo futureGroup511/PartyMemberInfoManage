@@ -14,6 +14,7 @@ import com.future.partymember.service.IDuePaymentRecordsService;
 import com.future.partymember.service.IEPRModelService;
 import com.future.partymember.service.IExamLogService;
 import com.future.partymember.service.IExamPerRecordService;
+import com.future.partymember.service.IIndexImgService;
 import com.future.partymember.service.IInformService;
 import com.future.partymember.service.ILeagueMemberService;
 import com.future.partymember.service.IManagerInfoService;
@@ -79,6 +80,9 @@ public class BaseAction extends ActionSupport implements SessionAware{
 	@Resource
 	protected IEPRModelService ePRModelService;
 	
+	@Resource
+	protected IIndexImgService indexImageService;
+	
 	protected HttpServletRequest getRequest(){
 		return ServletActionContext.getRequest();
 	}
@@ -98,4 +102,5 @@ public class BaseAction extends ActionSupport implements SessionAware{
 	public Map<String,Object> getSession(){
 		return session;
 	}
+	
 }

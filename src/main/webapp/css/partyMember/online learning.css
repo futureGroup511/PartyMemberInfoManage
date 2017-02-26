@@ -1,13 +1,13 @@
 @charset "utf-8";
 /* CSS Document */
-*{
+ *{
 	padding:0;
 	margin:0;
 }
 body{
 	font-family: 微软雅黑;
 }
-#header{
+/*#header{
 	margin-top: 16px;
 }
 #header{
@@ -123,7 +123,7 @@ body{
 }
 .btn-group{
   width: 100%;
-}
+} */
 #body-one{
 	width: 90%;
 	margin: 0 auto;

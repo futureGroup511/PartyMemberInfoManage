@@ -109,6 +109,10 @@
 			<result name="manage">/WEB-INF/manager/testPaper_manage/examPerRecord_manage.jsp</result>
 		</action>
 		
+		<action name="indexImage_*" method="{1}" class="com.future.partymember.action.manager.IndexImageAction">
+			<result name="add">/WEB-INF/manager/indexImageAdd.jsp</result>
+		</action>
+		
 		<action name="caidan">
 			<result>/WEB-INF/manager/caidan.jsp</result>
 		</action>

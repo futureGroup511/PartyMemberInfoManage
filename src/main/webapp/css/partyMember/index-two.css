@@ -1,6 +1,6 @@
 @charset "utf-8";
 /* CSS Document */
-*{
+/* *{
 	padding:0;
 	margin:0;
 }
@@ -87,7 +87,7 @@ body{
 	font-family: 微软雅黑;
 	width:50%;
 	outline:none;
-}
+} */
 
 #banner{
 	height:325px;
@@ -103,7 +103,7 @@ body{
 #banner .col-lg-12 img{
 	height:325px;
 }
-.nav .row{
+/* .nav .row{
 	width:100%;
 }
 .nav .row .navbar-nav{
@@ -130,10 +130,10 @@ color:red;
 .nav .dropdown-menu{
   min-width: inherit;
 	margin-left:29px;
-}
-.btn-group{
+} */
+/*  .btn-group{
   width: 100%;
-}
+}  */
 
 #banner-one{
 	height:40px;
