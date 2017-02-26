@@ -8,10 +8,12 @@ import java.util.List;
 import com.future.partymember.base.BaseAction;
 import com.future.partymember.entity.ExamLog;
 import com.future.partymember.entity.ExamPerRecord;
+import com.future.partymember.entity.IndexImage;
 import com.future.partymember.entity.Inform;
 import com.future.partymember.entity.PartyMemberInfo;
 import com.future.partymember.entity.Question;
 import com.future.partymember.entity.RedPaper;
+import com.future.partymember.entity.RedPaperType;
 import com.future.partymember.entity.RedVideo;
 import com.future.partymember.entity.StartTest;
 import com.future.partymember.entity.WatchVideoRecord;
@@ -107,7 +109,9 @@ public class PartyMemberAction extends BaseAction {
 	// 红色视频
 	public String viewVideos()  {
 		String search=this.getRequest().getParameter("search");
-		
+		//获得轮播图片
+		List<IndexImage> indexImages=indexImageService.getByNew(4);
+		this.getRequest().setAttribute("indexImages",indexImages);
 		try {
 			if (search!=null&&search.equals(new String(search.getBytes("iso8859-1"), "iso8859-1"))) {
 				//判断是不是utf-8如果不是进行转码
@@ -210,9 +214,7 @@ public class PartyMemberAction extends BaseAction {
 		partyMemberInfo = partyMemberInfoService.getPartyMemberInfoById(userId);
 		long time = Integer.parseInt(getRequest().getParameter("time"));		
 		time = time + partyMemberInfo.getLearnTime();
-		String strTime = SwitchTime.switchTime(time);
-		System.out.println("time="+time);
-		System.out.println("strtime="+strTime);
+		String strTime = SwitchTime.switchTime(time);		
 		partyMemberInfo.setLearnTime(time);				
 		partyMemberInfo.setStrLearnTime(strTime);
 		partyMemberInfoService.updatePartyMemberInfo(partyMemberInfo);
@@ -260,10 +262,13 @@ public class PartyMemberAction extends BaseAction {
 	// 链接到红色文章
 	public String getResPaper() throws Exception {
 		/*List<RedPaper> paperList = redPaperService.findPaperByType();*/
+		//获得轮播图片
+		List<IndexImage> indexImages=indexImageService.getByNew(4);
+		this.getRequest().setAttribute("indexImages",indexImages);
 		
 		//党建巡礼
 		List<RedPaper> partyBuilding=redPaperService.getPaperByTpId(1, 5);
-		partyBuilding=PaperUtil.titleLength(partyBuilding, 16);
+		partyBuilding=PaperUtil.titleLength(partyBuilding, 16);		
 		this.getRequest().setAttribute("partyBuilding", partyBuilding);
 		//高校咨讯
 		List<RedPaper> universityCounseling=redPaperService.getPaperByTpId(2, 5);

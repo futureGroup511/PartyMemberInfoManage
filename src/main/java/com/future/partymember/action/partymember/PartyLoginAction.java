@@ -3,6 +3,7 @@ package com.future.partymember.action.partymember;
 import java.util.List;
 
 import com.future.partymember.base.BaseAction;
+import com.future.partymember.entity.IndexImage;
 import com.future.partymember.entity.Inform;
 import com.future.partymember.entity.RedPaper;
 import com.future.partymember.entity.RedVideo;
@@ -20,6 +21,9 @@ public class PartyLoginAction extends BaseAction {
  
 	@Override	
 	public String  execute() throws Exception{
+		//获得轮播图片
+		List<IndexImage> indexImages=indexImageService.getByNew(4);
+		this.getRequest().setAttribute("indexImages",indexImages);
 		//获得公告
 		List<Inform> informList=informService.getNew(2);
 		this.getRequest().setAttribute("informList",informList);
@@ -35,7 +39,7 @@ public class PartyLoginAction extends BaseAction {
 		List<RedVideo> newVideosList=redVideoService.getNew(7);	
 		this.getRequest().setAttribute("newVideosList", newVideosList);
 		this.getRequest().setAttribute("recommendVideosList", recommendVideosList);
-	
+		
 		return SUCCESS;
 	}
 }
