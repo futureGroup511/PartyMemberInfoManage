@@ -81,7 +81,7 @@ public class BaseAction extends ActionSupport implements SessionAware{
 	protected IEPRModelService ePRModelService;
 	
 	@Resource
-	protected IIndexImgService indexImgService;
+	protected IIndexImgService indexImageService;
 	
 	protected HttpServletRequest getRequest(){
 		return ServletActionContext.getRequest();

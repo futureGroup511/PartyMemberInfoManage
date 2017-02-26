@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>添加通知</title>
+<title>添加首页轮播图</title>
 
 <script type="text/javascript"
 	src="${rootPath }jQueryPlug/jPage/src/jquery.min.js"></script>

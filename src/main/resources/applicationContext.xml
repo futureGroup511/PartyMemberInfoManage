@@ -78,7 +78,7 @@
 			 <tx:method name="add*" propagation="REQUIRED" rollback-for = "Exception"/>   
 	         <tx:method name="delete*" propagation="REQUIRED" rollback-for = "Exception"/> 
 	         <tx:method name="update*" propagation="REQUIRED" rollback-for = "Exception"/> 
-	         <tx:method name="*" read-only="true" /> 
+	         <tx:method name="*" read-only="false" /> 
 		</tx:attributes>
 	</tx:advice>
 	<!-- 基于AOP的声明事务配置完成 -->

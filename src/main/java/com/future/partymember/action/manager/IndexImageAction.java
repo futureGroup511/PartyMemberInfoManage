@@ -1,8 +1,13 @@
 package com.future.partymember.action.manager;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.util.Date;
 
 import com.future.partymember.base.BaseAction;
+import com.future.partymember.entity.IndexImage;
 
 public class IndexImageAction extends BaseAction{
 	
@@ -18,8 +23,34 @@ public class IndexImageAction extends BaseAction{
 		// TODO Auto-generated method stub
 		return "add";
 	}
-	public String addDo(){
+	public String addDo() throws IOException{
+		String name = img.getName();
+		name = new Date().getTime() +".jpg";
+		FileInputStream fileInputStream = new FileInputStream(img);
+		String path = this.getContext().getRealPath("/upload/indexImage/");
+		FileOutputStream fileOutputStream = new FileOutputStream(new File(path,name));
+		byte[] buff = new byte[1024];
+		int len=0;
+		while ((len=fileInputStream.read(buff)) > 0) {
+			fileOutputStream.write(buff,0,len);
+		}
+		fileInputStream.close();
+		fileOutputStream.close();
+		IndexImage indexImage = new IndexImage();
+		indexImage.setImgUrl("upload/indexImage/"+name);
+		if(url == null){
+			url="";
+		}else{
+			url=url.trim();
+			if(!url.startsWith("http")){
+				url="http://"+url;
+			}
+		}
 		
+		indexImage.setUrl(url);
+		indexImage.setCreateTime(new Date());
+		indexImageService.addIndexImg(indexImage);
+		this.getRequest().setAttribute("remind","上传成功！");
 		return "add";
 	}
 	public File getImg() {
