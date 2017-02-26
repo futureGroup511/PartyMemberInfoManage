@@ -111,6 +111,7 @@
 		
 		<action name="indexImage_*" method="{1}" class="com.future.partymember.action.manager.IndexImageAction">
 			<result name="add">/WEB-INF/manager/indexImageAdd.jsp</result>
+			<result name="manage">/WEB-INF/manager/indexImageManage.jsp</result>
 		</action>
 		
 		<action name="caidan">

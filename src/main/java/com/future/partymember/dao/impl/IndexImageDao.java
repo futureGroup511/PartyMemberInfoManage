@@ -33,7 +33,11 @@ String hql1="from IndexImage order by id desc";
 	@Override
 	public boolean deleteById(int id) {
 		// TODO Auto-generated method stub
-		this.deleteEntity(this.getEntity(id));
+		IndexImage indexImage = this.getEntity(id);
+		if(indexImage == null){
+			return false;
+		}
+		this.deleteEntity(indexImage);
 		return true;
 	}
 }

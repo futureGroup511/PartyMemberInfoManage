@@ -81,18 +81,18 @@
 		<div id="output"></div>
 	</div>
 	<div style="width: 80%; margin: 0 auto;padding:100px;">
-		<h2>${remind }</h2>
+		
 		<form class="form-horizontal" role="form" method="POST"
 			action="${rootPath }manage/indexImage_addDo" enctype="multipart/form-data">
 			<div class="form-group">
-				<label for="firstname" class="col-sm-2 control-label">图片</label>
+				<h2>${remind }</h2>
 				<div class="col-sm-10">
 					<input type="file" class="form-control"
 						name="img" accept="image/png,image/jpeg">
 				</div>
 			</div>
 			<div class="form-group">
-				<label class="col-sm-2 control-label">对应的网址</label>
+				
 				<div class="col-sm-10">
 					<textarea type="text" class="form-control"
 						name="url" placeholder="网址"></textarea>

@@ -13,6 +13,7 @@ public class IndexImageAction extends BaseAction{
 	
 	private File img;
 	private String url;
+	private int id;
 	
 	@Override
 	public String execute() throws Exception {
@@ -53,6 +54,28 @@ public class IndexImageAction extends BaseAction{
 		this.getRequest().setAttribute("remind","上传成功！");
 		return "add";
 	}
+	
+	public String manage(){
+		
+		this.getRequest().setAttribute("indexImages", indexImageService.getByNew(4));
+		
+		return "manage";
+	}
+	
+	public String delete(){
+		if(id<1){
+			this.getRequest().setAttribute("indexImages", indexImageService.getByNew(4));
+			return "manage";
+		}
+		boolean b =indexImageService.deleteById(id);
+		if(b){
+			this.getRequest().setAttribute("remind", "删除成功 ！");
+		}
+		this.getRequest().setAttribute("indexImages", indexImageService.getByNew(4));
+		return "manage";
+	}
+	
+	
 	public File getImg() {
 		return img;
 	}
@@ -65,5 +88,12 @@ public class IndexImageAction extends BaseAction{
 	public void setUrl(String url) {
 		this.url = url;
 	}
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+
 	
 }
