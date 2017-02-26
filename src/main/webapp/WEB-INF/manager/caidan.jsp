@@ -27,6 +27,14 @@
                 <dd><a target="main" href="${rootPath }manage/partMember">管理党员</a></dd>
                 
             </dl>
+            
+            <dl class="custom">
+                
+                <dt onClick="changeImage()"><img src="${rootPath }images/select_xl01.png">首页轮播图</dt>
+                <dd><a target="main" href="${rootPath }manage/indexImage_add">增加</a></dd>
+                <dd><a target="main" href="${rootPath }manage/indexImage_manage">删除</a></dd>
+                
+            </dl>
         
             <dl class="channel">
                 <dt>视频管理<img src="${rootPath }images/select_xl01.png"></dt>
