@@ -7,7 +7,7 @@
 		<meta charset="utf-8">
 		<!--手机端页面必须在meta里面加这一行-->
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
-		<title>党员登录界面</title>
+		<title>河南科技学院信息工程学院星火在线</title>
 		<link href="${rootPath }css/mui.min.css" rel="stylesheet" />
 		<script src="${rootPath }js/mui.min.js"></script>
 		<script src="${rootPath }js/sha1.js"></script>

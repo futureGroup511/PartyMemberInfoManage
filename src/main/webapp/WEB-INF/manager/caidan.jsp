@@ -48,6 +48,9 @@
 					文章管理<img src="images/select_xl01.png">
 				</dt>
 				<dd>
+					<a target="main" href="${rootPath }manage/fPaper_addPaper">修改文章板块</a>
+				</dd>
+				<dd>
 					<a target="main" href="${rootPath }manage/fPaper_addPaper">添加文章</a>
 				</dd>
 				<dd>
