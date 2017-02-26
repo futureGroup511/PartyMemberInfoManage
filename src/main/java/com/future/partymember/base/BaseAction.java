@@ -82,6 +82,7 @@ public class BaseAction extends ActionSupport implements SessionAware{
 	
 	@Resource
 	protected IIndexImgService indexImgService;
+	
 	protected HttpServletRequest getRequest(){
 		return ServletActionContext.getRequest();
 	}

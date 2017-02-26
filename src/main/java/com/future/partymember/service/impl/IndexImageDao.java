@@ -2,10 +2,13 @@ package com.future.partymember.service.impl;
 
 import java.util.List;
 
+import org.springframework.stereotype.Service;
+
 import com.future.partymember.base.BaseDao;
 import com.future.partymember.entity.IndexImage;
 import com.future.partymember.service.IIndexImgService;
 
+@Service
 public class IndexImageDao extends BaseDao<IndexImage> implements IIndexImgService{
 
 	String hql1="from IndexImage order by id desc";
