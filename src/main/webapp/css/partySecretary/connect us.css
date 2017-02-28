@@ -15,9 +15,9 @@ body{
 
 #body{
 	margin-top: 10%;
-	width:70%;
+	width:65%;
 	margin: 0 auto;
-	margin-top: 10px;
+	margin-top: 50px;
 	border-bottom:2px solid #DDE1E4;
 	font-family:微软雅黑; 
 }
@@ -40,12 +40,12 @@ body{
 	width: 100%;
 	height:90px;
 	background-color: #F3F2F2;
-	position: absolute;
+/* 	position: absolute; */
   	bottom: 0px;
 	 padding-bottom: 0;
 	margin-bottom: 0;
 	 clear:both;
-	 margin-top: 50px;
+	 margin-top: 60px;
 }
 #footer-warp p{
   text-align: center;
