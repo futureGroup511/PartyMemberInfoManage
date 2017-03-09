@@ -6,9 +6,9 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>考试记录详情</title>
+<link rel="stylesheet" href="${rootPath}css/partyMember/head2.css">
 <link rel="stylesheet" href="${rootPath}css/partyMember/bootstrap.css">
-<link rel="stylesheet"
-	href="${rootPath}css/partyMember/the questionnaire results.css">
+<link rel="stylesheet" href="${rootPath}css/partyMember/the questionnaire results.css">
 <script src="${rootPath}js/jquery-2.2.3.min.js"></script>
 <script src="${rootPath}js/bootstrap.js"></script>
 </head>
