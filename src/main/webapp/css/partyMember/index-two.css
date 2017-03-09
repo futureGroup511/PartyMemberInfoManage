@@ -90,7 +90,7 @@ body{
 } */
 
 #banner{
-	height:325px;
+	height:280px;
 	width:100%;
 	margin-top: 10px;
 }
@@ -101,7 +101,7 @@ body{
 	padding-right:0;
 }
 #banner .col-lg-12 img{
-	height:325px;
+	height:280px;
 }
 /* .nav .row{
 	width:100%;

@@ -24,8 +24,14 @@ body{
 	width:30px;
 	
 }
+#banner .col-lg-12{
+	margin-right:0px;
+	margin-left:0;
+  padding-left:0;
+	padding-right:0;
+}
 #banner .col-lg-12 img{
-	height:250px;
+	height:280px;
 }
 #banner-one .row .col-lg-9{
 	padding-top: 6px;
