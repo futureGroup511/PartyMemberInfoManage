@@ -38,7 +38,8 @@
 				<div id="body-four">
 					<p>单选题</p>
 				</div>
-				<form action="${rootPath}secretary/partySecretary_selfExamDetails" method="post">				
+				<form action="${rootPath}secretary/partySecretary_selfExamDetails" method="post">
+								
 					<c:forEach items="${questionList}" var="q" varStatus="status">
 						<div id="body-five">
 							<p>
