@@ -34,6 +34,7 @@
 		<div id="body-three">
 			<input type="hidden" value="${video.rv_Id}" id="videoId" />
 			<input type="hidden" value="${currentTime}" id="oldcurrentTime" />
+			<input type="hidden" value="${rootPath}" id="rootPath" />
 			<video id="videos" width="520" height="440" controls
 				onplay="startVideo()">
 			<source src="${rootPath }${video.videoUrl}" type="video/mp4">

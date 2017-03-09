@@ -83,7 +83,7 @@
 	</tx:advice>
 	<!-- 基于AOP的声明事务配置完成 -->
 	<!--aop配置： 焦祥宇修改 -->
-	 <aop:config>
+	<aop:config>
         <aop:pointcut id="interceptorPointCuts"  expression=" execution(* com.future.partymember.dao.*.*(..))" />
         <aop:advisor advice-ref="txAdvice"  pointcut-ref="interceptorPointCuts" />        
    </aop:config> 

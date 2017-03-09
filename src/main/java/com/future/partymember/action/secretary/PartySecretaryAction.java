@@ -502,18 +502,15 @@ public class PartySecretaryAction extends BaseAction {
 		PartySecretaryInfo psi=(PartySecretaryInfo) session.get("secretary");
 		
 		long time = Integer.parseInt(getRequest().getParameter("time"));//观看视频的时间
-		System.out.println("time" + time);
 
 		time = time + psi.getLearnTime();
 		String strTime = SwitchTime.switchTime(time);
-		System.out.println("书记的学习时长"+strTime);
 		psi.setLearnTime(time);
 		psi.setStrLearnTime(strTime);
 		
 		partySecretaryInfoService.updatePersonInfo(psi);//更新个人学习时间
 		
 		// 视频播放记录历史
-		System.out.println("*******视频播放记录历史******");
 		String vt = getRequest().getParameter("currentTime");
 		long currentTime = 0;
 		if (vt.indexOf(".") > 0) {
