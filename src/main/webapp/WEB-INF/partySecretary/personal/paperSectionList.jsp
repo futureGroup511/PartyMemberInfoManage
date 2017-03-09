@@ -30,7 +30,7 @@
    ${paper.paperType }</span></p>
  </div>
  <c:if test="${empty pc.data }">
- 	<h4>暂时无任何记录</h4>
+ 	<h4 align="center">暂时无任何记录</h4>
  </c:if>
  <c:if test="${not empty pc.data }">
  <div id="body-two">

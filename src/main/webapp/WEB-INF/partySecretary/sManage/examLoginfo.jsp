@@ -60,7 +60,7 @@
 					</c:forEach>
       </tbody>
     </table>
-    <h3>${remind}</h3>
+    <h3 align="center">${remind}</h3>
  </div>
  </div>
  </div>

@@ -30,7 +30,7 @@
 			<c:when test="${myExamLogMsg!=null }">
 				<h4></h4>
 				<div id="body-two">
-					<p>${myExamLogMsg}</p>
+					<p align="center">${myExamLogMsg}</p>
 				</div>
 			</c:when>
 			<c:otherwise>

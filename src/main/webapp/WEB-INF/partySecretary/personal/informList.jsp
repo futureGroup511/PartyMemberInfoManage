@@ -26,7 +26,7 @@
    <a href="${rootPath }secretary/pSForward_fIndex">首页</a>&nbsp;&nbsp;>&nbsp;&nbsp;通知公告</span></p>
  </div>
 <c:if test="${empty pc.data}">
-	<h4>暂时无任何记录</h4>
+	<h4 align="center">暂时无任何记录</h4>
 </c:if>
 <c:if test="${not empty pc.data }">
  <div id="body-two">

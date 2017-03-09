@@ -27,7 +27,7 @@
  </div>
  <div id="body-two">
    <h4>${paper.title}</h4>
-   <p>作者：${paper.author }&nbsp;&nbsp;&nbsp;&nbsp; 来源：${paper.source }&nbsp;&nbsp;&nbsp;&nbsp; 日期：2016-12-18&nbsp;&nbsp;&nbsp;&nbsp;日期：${paper.releaseDate }</p>
+   <p>作者：${paper.author }&nbsp;&nbsp;&nbsp;&nbsp; 来源：${paper.source }&nbsp;&nbsp;&nbsp;&nbsp;日期：${paper.releaseDate }</p>
  </div>
  <div id="body-three">
  	${paper.content }

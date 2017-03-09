@@ -452,7 +452,6 @@ public class PartySecretaryAction extends BaseAction {
 			//查询上一个 下一个
 			if(lastVideo.getRv_Id()==id){
 				this.getRequest().setAttribute("next", lastVideo);
-				this.getRequest().setAttribute("notice", "后面没有了");			
 			}else{
 				List<RedVideo> rvNext=redVideoService.getNextRecordById(id);
 				
@@ -464,7 +463,6 @@ public class PartySecretaryAction extends BaseAction {
 			
 			if(fristVideo.getRv_Id()==id){
 				this.getRequest().setAttribute("prev", fristVideo);
-				this.getRequest().setAttribute("notice", "前面没有了");
 			}else{
 				List<RedVideo> rpPrev=redVideoService.getPrevRecordById(id);
 				if(rpPrev.size()>0){
@@ -614,7 +612,6 @@ public class PartySecretaryAction extends BaseAction {
 		//查询上一篇 下一篇
 		if(lastPaper.getRp_Id()==id){
 			this.getRequest().setAttribute("next", lastPaper);
-			this.getRequest().setAttribute("notice", "后面没有了");			
 		}else{
 			List<RedPaper> rpNext=redPaperService.getNextRecordById(id,search);
 			if(rpNext.size()>0){
@@ -625,7 +622,6 @@ public class PartySecretaryAction extends BaseAction {
 		
 		if(fristPaper.getRp_Id()==id){
 			this.getRequest().setAttribute("prev", fristPaper);
-			this.getRequest().setAttribute("notice", "前面没有了");
 		}else{
 			List<RedPaper> rpPrev=redPaperService.getPrevRecordById(id,search);
 			if(rpPrev.size()>0){
@@ -653,7 +649,6 @@ public class PartySecretaryAction extends BaseAction {
 		//查询上一篇 下一篇
 		if(lastPaper.getRp_Id()==id){
 			this.getRequest().setAttribute("next", lastPaper);
-			this.getRequest().setAttribute("notice", "后面没有了");			
 		}else{
 			List<RedPaper> rpNext=redPaperService.getNextRecordById(id,rp.getPaperTypeId());
 			if(rpNext.size()>0){
@@ -664,7 +659,6 @@ public class PartySecretaryAction extends BaseAction {
 		
 		if(fristPaper.getRp_Id()==id){
 			this.getRequest().setAttribute("prev", fristPaper);
-			this.getRequest().setAttribute("notice", "前面没有了");
 		}else{
 			List<RedPaper> rpPrev=redPaperService.getPrevRecordById(id, rp.getPaperTypeId());
 			if(rpPrev.size()>0){

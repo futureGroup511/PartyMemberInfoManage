@@ -36,7 +36,7 @@
  <div id="body-three">
      <div class="table-responsive">
      <c:if test="${empty pc.data }">
-     	<h4>暂时无任何记录</h4>
+     	<h4 align="center">暂时无任何记录</h4>
      </c:if>
      <c:if test="${not empty pc.data }">
     <table class="table table-bordered table-hover table-striped">

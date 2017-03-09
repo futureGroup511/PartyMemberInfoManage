@@ -19,7 +19,7 @@
 
 <div id="body">
 ${partyIntroduction.introduction}
-<h3>${notice }</h3>
+<h3 align="center">${notice }</h3>
 </div>
 <footer id="footer-warp"><!--页脚开始-->
 		<p class="footer"><a href="">网站声明</a> &nbsp; &nbsp;<span>|</span> &nbsp; &nbsp;<a href="">关于我们 &nbsp; &nbsp;</a><span>|</span> &nbsp; &nbsp;<a href="">联系我们</a></p>
