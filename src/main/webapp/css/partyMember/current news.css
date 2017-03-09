@@ -22,6 +22,10 @@ body{
 }
 #banner-one img{
 	width:30px;
+	
+}
+#banner .col-lg-12 img{
+	height:250px;
 }
 #banner-one .row .col-lg-9{
 	padding-top: 6px;

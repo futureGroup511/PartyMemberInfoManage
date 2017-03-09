@@ -26,6 +26,9 @@ body{
 #banner-one .row .col-lg-9{
 	padding-top: 6px;
 }
+#banner .col-lg-12 img{
+	height:250px;
+}
 #body-one{
 	width: 90%;
 	margin: 0 auto;

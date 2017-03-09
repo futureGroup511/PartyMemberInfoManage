@@ -558,7 +558,7 @@ public class PartyMemberAction extends BaseAction {
 	 * 链接在线自测
 	 * */
 	public String onlineSelfTest() throws Exception{
-		List<Question> questionList=questionService.getRandomQuestions(4);
+		List<Question> questionList=questionService.getRandomQuestions(20);
 		if(questionList.size()>0){
 			int testScore=0;
 			for(Question q :questionList){
