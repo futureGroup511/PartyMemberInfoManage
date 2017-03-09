@@ -13,14 +13,20 @@
     <div class="leftsidebar_box">
     <div id="box-scroll">
         <div class="line"></div>
-           <dl class="system_log">
+           <dl class="custom">
                <dt onClick="changeImage()">书记管理<img src="images/select_xl01.png"></dt>
                 <dd><a target="main" href="${rootPath }manage/partSecretary_add">增加书记</a></dd>
                 <dd><a target="main" href="${rootPath }manage/partSecretary">管理书记</a></dd>
                 
             </dl>
             
-        
+        	<dl class="custom">
+                
+                <dt onClick="changeImage()"><img src="${rootPath }images/select_xl01.png">党员管理</dt>
+                <dd><a target="main" href="${rootPath }manage/partMember_add">增加党员</a></dd>
+                <dd><a target="main" href="${rootPath }manage/partMember">管理党员</a></dd>
+                
+            </dl>
             <dl class="custom">
                 
                 <dt onClick="changeImage()"><img src="${rootPath }images/select_xl01.png">党委简介</dt>
@@ -28,13 +34,6 @@
                 
             </dl>
             
-            <dl class="custom">
-                
-                <dt onClick="changeImage()"><img src="${rootPath }images/select_xl01.png">首页轮播图</dt>
-                <dd><a target="main" href="${rootPath }manage/indexImage_add">增加</a></dd>
-                <dd><a target="main" href="${rootPath }manage/indexImage_manage">删除</a></dd>
-                
-            </dl>
             <dl class="custom">
                 
                 <dt onClick="changeImage()"><img src="${rootPath }images/select_xl01.png">首页轮播图</dt>

@@ -186,8 +186,14 @@
 						</div>
 						<div class="col-xs-8">
 							<select name="partyMemberInfo.partyBranch" class="form-control">
-								<option value="第一党支部">第一党支部</option>
-								<option value="第二党支部">第二党支部</option>
+								<option value="第一党支部">教工第一党支部</option>
+								<option value="第二党支部">教工第二党支部</option>
+								<option value="第二党支部">教工第三党支部</option>
+								<option value="第二党支部">教工第四党支部</option>
+								<option value="第二党支部">教工第五党支部</option>
+								<option value="第二党支部">教工第六党支部</option>
+								<option value="第二党支部">学生第一党支部</option>
+								<option value="第二党支部">学生第二党支部</option>
 							</select>
 						</div>
 					</div>
