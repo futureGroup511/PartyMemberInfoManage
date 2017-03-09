@@ -45,7 +45,9 @@ public class PSForwardAction extends BaseAction {
 	 	List<RedVideo> newVideoList=redVideoService.getNew(9);
 	 	List<Inform> newInformList= informService.getNew(2);
 
-	 	
+		//获得轮播图片
+		List<IndexImage> indexImages=indexImageService.getByNew(4);
+		this.getRequest().setAttribute("indexImages",indexImages);
 	 	this.getRequest().setAttribute("hotPaper", PaperUtil.titleLength(hotPaperList, 17));
 	 	this.getRequest().setAttribute("newPaper", PaperUtil.titleLength(newPaperList,17));
 	 	this.getRequest().setAttribute("hotVideo", hotVideoList);
