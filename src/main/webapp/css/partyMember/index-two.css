@@ -94,14 +94,14 @@ body{
 	width:100%;
 	margin-top: 10px;
 }
-#banner .col-lg-12{
+/* #banner .col-lg-12{
 	margin-right:0px;
 	margin-left:0;
   padding-left:0;
 	padding-right:0;
-}
+} */
 #banner .col-lg-12 img{
-	height:280px;
+	height:300px;
 }
 /* .nav .row{
 	width:100%;
