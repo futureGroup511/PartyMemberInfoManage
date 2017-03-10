@@ -20,7 +20,8 @@
 						href="${rootPath}party/partyMemberAction_informList.action">通知公告</a>&nbsp;&nbsp;>&nbsp;&nbsp;通知正文</span></p>
  </div>
  <div id="body-two">
-   <h4>${inform.title }</h4>   
+   <h4>${inform.title }</h4> 
+    <p>作者：${inform.addresser }&nbsp;&nbsp;&nbsp;&nbsp;日期：${inform.sendDate }</p>
  </div>
  <div id="body-three">
  	${inform.content }

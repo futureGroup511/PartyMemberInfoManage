@@ -608,8 +608,8 @@ public class PartyMemberAction extends BaseAction {
 	
 	//通知列表
 	public String informList(){	
-		String partyBranch=(String) session.get("partyBranch");
-		PageCut<Inform> pc=informService.getPmInformList(page, 5, 3,2,partyBranch);//2 3 代表通知的权限
+		String partyBranch=(String) session.get("partyBranch");//党员所在党支部
+		PageCut<Inform> pc=informService.getPmInformList(page, 5, 3,2,partyBranch);//3,2 代表通知的权限
 		if(pc.getData().size()==0){
 			this.getRequest().setAttribute("informMsg", "暂时没有通知！");
 		}
