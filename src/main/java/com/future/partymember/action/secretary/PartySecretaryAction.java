@@ -319,7 +319,7 @@ public class PartySecretaryAction extends BaseAction {
 			inform.setSenderType(1);		
 			inform.setSendDate(new Date());
 			inform.setSenderId(psi.getPst_Id());
-			inform.setInfo_tag(7);
+			inform.setInfo_tag(2);
 			inform.setPartBranch(psi.getPartyBranch());
 			informService.addInform(inform);//插入一条记录
 			this.getRequest().setAttribute("notice", "发布成功");
