@@ -99,7 +99,7 @@
  </div>
 </div>
 <div id="banner-one">
-   <div class="row">
+   <div class="row" style="background-color: #F5F5F5;">
        <div class="col-lg-9 col-lg-offset-1 col-md-9 col-md-offset-1 col-xs-9 col-xs-offset-1">
        	<img src="${rootPath}images/tongzhi.png"> 通知公告 
        		<c:forEach items="${informList}" var="inform">
