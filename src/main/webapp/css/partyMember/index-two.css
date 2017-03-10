@@ -168,6 +168,12 @@ color:red;
 	margin-top: 20px;
 	font-family: 微软雅黑;
 }
+#paper-warp .paper-one li{
+	margin-left:-40px;
+}
+#paper-warp .paper-two li{
+	margin-left:-40px;
+}
 .paper-img{
 	 position: absolute;
    margin-left: -83px;
