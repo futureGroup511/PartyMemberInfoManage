@@ -57,7 +57,14 @@ public class InformServiceImpl implements IInformService{
 		String hqlCount="select count(*) from Inform where info_tag=? or info_tag=?";
 		return informDao.getQuery(curr, pageSize, hql, hqlCount,objects);
 	}
-
+	
+	
+	@Override
+	public PageCut<Inform> getPmInformList(int curr, int pageSize, Object... objects) {
+		String hql="from Inform where  info_tag=? or (info_tag=? and partBranch=?) order by info_Id desc";
+		String hqlCount="select count(*) from Inform where info_tag=? or (info_tag=? and partBranch=?)";
+		return informDao.getQuery(curr, pageSize, hql, hqlCount,objects);
+	}
 	@Override
 	public PageCut<Inform> getPCByNew(int curr, int pageSize, String search) {
 		return informDao.getPCByNew(curr, pageSize);
@@ -67,6 +74,8 @@ public class InformServiceImpl implements IInformService{
 	public List<Inform> getNew(int size) {
 		return informDao.getNew(size);
 	}
+
+
 	
 	
 /*	public PageCut<Inform> getQuery(int curr, int pageSize ,Object ...objects) {

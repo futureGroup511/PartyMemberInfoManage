@@ -37,6 +37,7 @@ public class LoginAction extends BaseAction {
 					userInfo.getPassword());
 			if(partyMemberInfo!=null){
 				this.getSession().put("userId", partyMemberInfo.getPtm_Id());
+				session.put("partyBranch", partyMemberInfo.getPartyBranch());
 				this.getSession().put("userSort", 0);
 				return "partyMember";
 			}else{

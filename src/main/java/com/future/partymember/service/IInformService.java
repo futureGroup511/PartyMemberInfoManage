@@ -20,5 +20,8 @@ public interface IInformService {
 	PageCut<Inform> getQuery(int curr, int pageSize,Object ...objects);
 	//书记查看通知的方法
 	PageCut<Inform> getInformList(int curr, int pageSize,Object ...objects);
+	
+	//党员查看通知的的方法
+	PageCut<Inform> getPmInformList(int curr, int pageSize,Object ...objects);
 	public List<Inform> getNew(int size);
 }
