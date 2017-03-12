@@ -59,7 +59,7 @@
 						<div class="col-xs-8">
 							<input type="number" class="form-control" required="required"
 								name="partySecretaryInfo.idCard"
-								value="${partySecretaryInfo.idCard }" placeholder="请输入身份证号">
+								value="412822199710165514" placeholder="请输入身份证号">
 						</div>
 					</div>
 					<div class="form-group">
