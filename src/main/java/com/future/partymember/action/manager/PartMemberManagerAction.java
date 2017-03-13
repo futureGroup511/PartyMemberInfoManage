@@ -19,7 +19,6 @@ public class PartMemberManagerAction extends BaseAction {
 		if( search==null || search.length()==0){
 			
 		}else{
-			
 			for(PartyMemberInfo p:pCut.getData()){
 				String format="<span class=\"search\">%s</span>";
 				p.setAccount(p.getAccount().replaceAll(search, String.format(format, search)));

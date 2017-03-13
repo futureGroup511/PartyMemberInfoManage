@@ -48,7 +48,7 @@
 		</div>
 	
 		<div class="row" style="margin-bottom:30px;">
-			<form action="" method="post">
+			<form action="${rootPath }manage/partMember" method="post">
 			<div class="col-xs-6">
 				
 				<input type="text" name="search" class="form-control" value="${search }" placeholder="请输入姓名&nbsp;/&nbsp;账号&nbsp;/&nbsp;身份证号搜索"> 
