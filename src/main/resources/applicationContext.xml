@@ -14,20 +14,19 @@
 
 		<!--自动扫描与装配bean 包含子包  -->
 		<context:component-scan base-package="com.future.partymember"></context:component-scan>
-	
+		<context:property-placeholder location="classpath:jdbc.properties"  />
        
         <!-- 定义BasicDataSource数据源 -->
         <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
         	<!-- 指定连接数据库的JDBC驱动 -->
-        	<property name="driverClassName" value="com.mysql.jdbc.Driver">
+        	<property name="driverClassName" value="${driver}">
         	</property>
         	<!-- 指定数据库的url -->
-        	<property name="url" value="jdbc:mysql://localhost:3306/partymember?useUnicode=true&amp;characterEncoding=UTF-8">
-        	</property>
+        	<property name="url" value="${url}"></property>
         	<!-- 用户名 -->
-        	<property name="username" value="root"></property>
+        	<property name="username" value="${user}"></property>
         	<!-- 密码 -->
-        	<property name="password" value="root"></property>
+        	<property name="password" value="${password}"></property>
         </bean>
         
         <!-- 定义hibernate的SessionFactory -->
