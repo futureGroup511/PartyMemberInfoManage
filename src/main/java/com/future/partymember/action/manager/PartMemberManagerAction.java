@@ -1,5 +1,6 @@
 package com.future.partymember.action.manager;
 
+import java.io.UnsupportedEncodingException;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -14,7 +15,6 @@ public class PartMemberManagerAction extends BaseAction {
 
 	public String execute() {
 		String search=(String)this.getRequest().getAttribute("search");
-
 		PageCut<PartyMemberInfo> pCut=partyMemberInfoService.getPageCut(page,10, search);
 		if( search==null || search.length()==0){
 			

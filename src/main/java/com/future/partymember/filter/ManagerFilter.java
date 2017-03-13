@@ -50,10 +50,8 @@ public class ManagerFilter implements Filter {
 		
 		HttpServletResponse res = (HttpServletResponse)response;
 		res.setContentType("text/html;charset=utf8");
-		//不过滤的url    
-
 		
-		if(search !=null && search.length()>0){
+		if(search !=null && search.length()>0 && req.getMethod().toLowerCase().equals("get")){
 			search = new String(search.getBytes("ISO8859-1"), "utf8");
 		}
 		req.setAttribute("search",search);
