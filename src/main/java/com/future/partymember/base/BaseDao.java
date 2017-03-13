@@ -6,7 +6,6 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
-import org.apache.poi.ss.formula.functions.FinanceFunction;
 import org.hibernate.Query;
 import org.hibernate.SQLQuery;
 import org.hibernate.Session;
