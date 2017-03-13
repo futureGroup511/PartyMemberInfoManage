@@ -188,14 +188,14 @@
 						</div>
 						<div class="col-xs-8">
 							<select name="partyMemberInfo.partyBranch" class="form-control">
-								<option value="第一党支部">教工第一党支部</option>
-								<option value="第二党支部">教工第二党支部</option>
-								<option value="第二党支部">教工第三党支部</option>
-								<option value="第二党支部">教工第四党支部</option>
-								<option value="第二党支部">教工第五党支部</option>
-								<option value="第二党支部">教工第六党支部</option>
-								<option value="第二党支部">学生第一党支部</option>
-								<option value="第二党支部">学生第二党支部</option>
+								<option value="教工第一党支部">教工第一党支部</option>
+								<option value="教工第二党支部">教工第二党支部</option>
+								<option value="教工第三党支部">教工第三党支部</option>
+								<option value="教工第四党支部">教工第四党支部</option>
+								<option value="教工第五党支部">教工第五党支部</option>
+								<option value="教工第六党支部">教工第六党支部</option>
+								<option value="学生第一党支部">学生第一党支部</option>
+								<option value="学生第二党支部">学生第二党支部</option>
 							</select>
 						</div>
 					</div>
@@ -253,7 +253,7 @@
 
 				</div>
 				<div class="col-xs-6">
-					<button class="btn btn-success" type="submit" style="padding:5px 50px;">&nbsp; 提交
+					<button id="btnSubmit" class="btn btn-success" type="submit" style="padding:5px 50px;">&nbsp; 提交
 						&nbsp;</button>
 				</div>
 
@@ -271,6 +271,9 @@
 <script type="text/javascript">
 	setup();
 	function subAdd() {
+		
+		document.getElementById('btnSubmit').setAttribute("disabled",true);
+		
 		var province = document.getElementById('province').value;
 		var city = document.getElementById('city').value;
 		var county = document.getElementById('county').value;

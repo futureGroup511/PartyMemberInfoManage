@@ -116,7 +116,7 @@
 								<td><a
 									href="${rootPath }manage/partMember_update?id=${pm.ptm_Id}">详细信息管理</a></td>
 								<td><a
-									href="javascript:isdelete('${rootPath }manage/partMember_delete?id=${pm.ptm_Id}')">删除</a></td>
+									href="${rootPath }manage/partMember_delete?id=${pm.ptm_Id}">删除</a></td>
 							</tr>
 						</c:forEach>
 

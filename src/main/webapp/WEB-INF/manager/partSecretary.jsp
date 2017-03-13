@@ -103,7 +103,7 @@
 								<td><a
 									href="${rootPath }manage/partSecretary_update?id=${ps.pst_Id}">详细信息管理</a></td>
 								<td><a
-									href="javascript:isdelete('${rootPath }manage/partSecretary_delete?id=${ps.pst_Id}')">删除</a></td>
+									href="${rootPath }manage/partSecretary_delete?id=${ps.pst_Id}">删除</a></td>
 							</tr>
 						</c:forEach>
 
