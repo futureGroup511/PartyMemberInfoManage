@@ -66,6 +66,8 @@ public class InformDaoImpl extends BaseDao<Inform> implements IInformDao {
 		pc.setData(list);
 		return pc;	
 	}
+	
+	
 	@Override
 	public PageCut<Inform> getPCByNew(int curr, int pageSize, String search) {
 		// TODO Auto-generated method stub
@@ -90,6 +92,8 @@ public class InformDaoImpl extends BaseDao<Inform> implements IInformDao {
 		return pCut;
 		
 	}
+	
+	
 	@Override
 	public List<Inform> getNew(int size) {
 		String hql="from Inform where info_tag=1 or info_tag=3 order by info_Id desc";

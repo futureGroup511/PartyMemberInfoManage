@@ -50,7 +50,7 @@ public class InformServiceImpl implements IInformService{
 		return informDao.getQuery(curr, pageSize, hql, hqlCount,objects);
 	}
 
-	//书记  和党员在查看通知时用到的方法
+	//书记  在查看通知时用到的方法
 	@Override
 	public PageCut<Inform> getInformList(int curr, int pageSize, Object... objects) {
 		String hql="from Inform where  info_tag=? or info_tag=? order by info_Id desc";
@@ -58,7 +58,7 @@ public class InformServiceImpl implements IInformService{
 		return informDao.getQuery(curr, pageSize, hql, hqlCount,objects);
 	}
 	
-	
+	//党员  在查看通知时用到的方法
 	@Override
 	public PageCut<Inform> getPmInformList(int curr, int pageSize, Object... objects) {
 		String hql="from Inform where  info_tag=? or (info_tag=? and partBranch=?) order by info_Id desc";
