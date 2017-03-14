@@ -12,6 +12,7 @@ public interface IInformService {
 	public void deleteInform(int id);
 	
 	PageCut<Inform> getPCByNew(int curr,int pageSize);
+	PageCut<Inform> getPCByNew(int curr,int pageSize,int managerId);
 	
 	PageCut<Inform> getPCByNew(int curr,int pageSize,String search);
 	
