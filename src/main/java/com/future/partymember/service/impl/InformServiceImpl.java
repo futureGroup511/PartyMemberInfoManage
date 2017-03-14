@@ -75,9 +75,12 @@ public class InformServiceImpl implements IInformService{
 		return informDao.getNew(size);
 	}
 
+	@Override
+	public PageCut<Inform> getPCByNew(int curr, int pageSize, int managerId) {
+		// TODO Auto-generated method stub
+		return informDao.getPCByNew(curr, pageSize, managerId);
+	}
 
-	
-	
 /*	public PageCut<Inform> getQuery(int curr, int pageSize ,Object ...objects) {
 		String hql="from Inform where partBranch=? and senderType =1 order by info_Id desc";
 		String hqlCount="select count(*) from Inform where partBranch=? and senderType =1";

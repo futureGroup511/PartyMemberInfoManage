@@ -96,6 +96,15 @@ public class InformDaoImpl extends BaseDao<Inform> implements IInformDao {
 		
 		return getEntityLimitList(hql,0,size);
 	}
+	@Override
+	public PageCut<Inform> getPCByNew(int curr, int pageSize, int managerId) {
+		// TODO Auto-generated method stub
+		int first=(curr-1)*pageSize;
+		List<Inform> list=this.getEntityLimitList("from Inform where senderType =0  order by info_Id desc", first,pageSize,managerId);
+		PageCut<Inform> pc=new PageCut<>(curr,pageSize,this.getNum());
+		pc.setData(list);
+		return pc;
+	}
 	
 
 

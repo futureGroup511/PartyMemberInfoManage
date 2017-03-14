@@ -20,7 +20,11 @@ public class InformAction extends BaseAction{
 	private int page=1;
 	private Inform inform;
 	public String execute(){
-		PageCut<Inform> pc=informService.getPCByNew(page, 8);
+		ManagerInfo managerInfo = (ManagerInfo)this.getSession().get("user");
+		if(managerInfo==null){
+			return null;
+		}
+		PageCut<Inform> pc=informService.getPCByNew(page, 8,managerInfo.getId());
 		this.getRequest().setAttribute("pc", pc);
 		return "manage";
 	}
