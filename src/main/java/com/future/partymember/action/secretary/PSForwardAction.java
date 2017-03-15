@@ -43,7 +43,7 @@ public class PSForwardAction extends BaseAction {
 	 	List<RedPaper> newPaperList=redPaperService.getNew(5);
 	 	List<RedVideo> hotVideoList=redVideoService.getHot(9);
 	 	List<RedVideo> newVideoList=redVideoService.getNew(9);
-	 	List<Inform> newInformList= informService.getNew(2);
+	 	PageCut<Inform> newInformList= informService.getInformList(1, 2,1,3);//1 3为权限
 
 		//获得轮播图片
 		List<IndexImage> indexImages=indexImageService.getByNew(4);
@@ -52,7 +52,7 @@ public class PSForwardAction extends BaseAction {
 	 	this.getRequest().setAttribute("newPaper", PaperUtil.titleLength(newPaperList,17));
 	 	this.getRequest().setAttribute("hotVideo", hotVideoList);
 	 	this.getRequest().setAttribute("newVideo", newVideoList);
-	 	this.getRequest().setAttribute("newInform", newInformList);
+	 	this.getRequest().setAttribute("newInform", newInformList.getData());
 		return "index";
 	}
 	

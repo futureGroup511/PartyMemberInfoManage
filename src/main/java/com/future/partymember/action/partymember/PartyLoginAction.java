@@ -24,9 +24,11 @@ public class PartyLoginAction extends BaseAction {
 		//获得轮播图片
 		List<IndexImage> indexImages=indexImageService.getByNew(4);
 		this.getRequest().setAttribute("indexImages",indexImages);
+		
+		String partyBranch=(String) session.get("partyBranch");//党员所在党支部
 		//获得公告
-		List<Inform> informList=informService.getNew(2);
-		this.getRequest().setAttribute("informList",informList);
+		PageCut<Inform> informList=informService.getPmInformList(1,2,2,3,partyBranch);//2 3为权限
+		this.getRequest().setAttribute("informList",informList.getData());
 		//获得文章	
 		List<RedPaper> newPaperList=redPaperService.getNew(5);
 		newPaperList =PaperUtil.titleLength(newPaperList, 15);

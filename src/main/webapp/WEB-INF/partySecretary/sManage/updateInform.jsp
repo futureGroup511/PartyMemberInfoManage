@@ -86,37 +86,30 @@ var ue = UE.getEditor('editor', {
 
 <!--以上为头部-->
 
+
+<div id="body">
  <div id="body-one">
    <p><img src="${rootPath }images/topimg.png"> <span>您的位置：
-   <a href="${rootPath }secretary/pSForward_fIndex">首页</a>&nbsp;&nbsp;>&nbsp;&nbsp;
-   通知管理&nbsp;&nbsp;>&nbsp;&nbsp;修改通知</span></p>
+   <a href="${rootPath }secretary/pSForward_fIndex">首页</a>&nbsp;&nbsp;>&nbsp;&nbsp;通知消息&nbsp;&nbsp;>&nbsp;&nbsp;修改通知</span></p>
  </div>
+ <form  method="POST" action="${rootpath }secretary/partySecretary_updateInform"  onsubmit="modifyContent()">
+ <input type="hidden" name="inform.info_Id" value="${inform.info_Id }">
+ <div id="body-two">
+    <p>重要标题： <input type="text" name="inform.title" placeholder=""></p>
+    <p>通知内容：</p>
+ </div>
+ <div id="body-three">
+ 		<script id="editor" type="text/plain" style="width: 1024px; height: 500px;"></script>
+ </div>
+ <textarea rows="20" cols="25" name="inform.content"  id="content"   style="display:none"></textarea>
+ 
+ <div id="body-four">
+   <button class="btn btn-primary">一键发布</button>
+ </div>
+   </form>
+</div>
 
-	<form class="form-horizontal" role="form" method="POST"
-		action="${rootpath }secretary/partySecretary_updateInform"
-		style="width: 80%; margin: 100px auto 0 auto;"  onsubmit="modifyContent()">
-		<input type="hidden" name="inform.info_Id" value="${inform.info_Id }">
-		<div class="form-group">
-			<label for="firstname" class="col-sm-2 control-label">标题</label>
-			<div class="col-sm-10">
-				<input type="text" class="form-control" id="firstname"
-					name="inform.title" value="${inform.title }">
-			</div>
-		</div>
-		<div class="form-group">
-			<div class="col-sm-10">
-	
-			<textarea rows="20" cols="25" name="inform.content"  id="content"   style="display:none" ></textarea><br>
-			 <p>通知内容：</p>
-             <script id="editor" type="text/plain" style="width: 1024px; height: 500px;">${inform.content }</script>
-			</div>
-		</div>
-		<div class="form-group">
-			<div class="col-sm-offset-2 col-sm-10">
-				<button type="submit" class="btn btn-default">更改</button>
-			</div>
-		</div>
-	</form>
+
 </body>
 
  <footer id="footer-warp"><!--页脚开始-->
