@@ -119,6 +119,11 @@
 			<result name="manage">/WEB-INF/manager/indexImageManage.jsp</result>
 		</action>
 		
+		<action name="switchutil_*" method="{1}" class="com.future.partymember.action.manager.SwitchUtil">
+			<result name="success">/WEB-INF/manager/switchutil.jsp</result>
+			
+		</action>
+		
 		<action name="caidan">
 			<result>/WEB-INF/manager/caidan.jsp</result>
 		</action>
